@@ -12,7 +12,7 @@
 
 # generated data
 /resources/sourcestobigforgithub/
-
+getdataforrepo.ipynb
 /output/code_groups/*.jpeg
 /output/code_groups/*.jpg
 /output/*
