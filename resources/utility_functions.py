@@ -138,18 +138,18 @@ def json_file_get(this_path):
 #     with open(filename, 'w') as a_file:
 #         json.dump(data, a_file)
 #
-# def unpack_survey_results(survey_results):
-#     """Unpacks the surveys-results api-endpoint and adds the location name to each result dict.
-#
-#     Used in notebooks that make an api call to 'https://mwshovel.pythonanywhere.com/api/surveys/daily-totals/code-totals/swiss/'
-#     """
-#     unpacked = []
-#     for location_data in survey_results:
-#         location = location_data['location']
-#         for each_dict in location_data['dailyTotals']:
-#             each_dict['location']=location
-#             unpacked.append(each_dict)
-#     return unpacked
+def unpack_survey_results(survey_results):
+    """Unpacks the surveys-results api-endpoint and adds the location name to each result dict.
+
+    Used in notebooks that make an api call to 'https://mwshovel.pythonanywhere.com/api/surveys/daily-totals/code-totals/swiss/'
+    """
+    unpacked = []
+    for location_data in survey_results:
+        location = location_data['location']
+        for each_dict in location_data['dailyTotals']:
+            each_dict['location']=location
+            unpacked.append(each_dict)
+    return unpacked
 # def unpack_daily_totals(survey_results):
 #     """Unpacks the daily-totals api-endpoint. Returns an array of dictionaries. One dictionary for each day.
 #
