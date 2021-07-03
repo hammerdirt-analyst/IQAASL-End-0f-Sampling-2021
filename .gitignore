@@ -13,9 +13,8 @@
 # generated data
 /resources/sourcestobigforgithub/
 getdataforrepo.ipynb
-/output/code_groups/*.jpeg
-/output/code_groups/*.jpg
-/output/*
+output/
+add_exp_variables/
 
 # IPython
 profile_default/
