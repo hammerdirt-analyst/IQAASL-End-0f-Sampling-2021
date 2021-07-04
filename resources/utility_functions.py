@@ -199,7 +199,7 @@ def use_this_key(x, key, column='no column'):
     Args:
          x: str: the value that needs to be mapped
          key: object: dict, series or dataframe contains the desired value
-         column: str: the column able if required
+         column: str: the column lable if required
 
     Returns:
         The paired value of x
