@@ -11,15 +11,16 @@ and *Sol a Tous*.
 
 ### Survey data
 
-There are two forms of the data: Aggregated and un-aggregated. The un-aggregated data includes unique codes for objects not specifically mentioned in the MSFD or OSPAR guides but found with regularity in Switzerland.
-Each unique code is linked to an official MSFD or OSPAR code by the 'Parent code' field. Thus, when the un-aggregated data is aggregated the data set only includes the codes used in MSFD or OSPAR.
+There are two forms of the data: Aggregated and un-aggregated. The un-aggregated data includes unique codes for objects not specifically mentioned in the MSFD or OSPAR guides but found with regularity in Switzerland. Each unique code is linked to an official MSFD or OSPAR code by the 'Parent code' field. Thus, when the un-aggregated data is aggregated the data set only includes the codes used in MSFD or OSPAR.
 
-The survey data is in long form. There are 384 surveys, each survey has 224 observations. Each observation includes:
+
+
+The survey data is in long form. There are 1439 surveys, each survey has 224 observations. Codes or objects that were not identified on a survey are added to the survey with a quantity of zero. Each observation includes:
 
 1. the object code
 2. name and population of the surrounding municipality
 3. land use rates within a 1500m buffer of the sample location
-4. quantity and number of objects per meter
+4. quantity and number of objects per meter (zero if it was not found)
 5. name of the water feature and catchment area of survey location
 
 ### Location data
