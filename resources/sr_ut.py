@@ -304,11 +304,12 @@ def make_a_summary_table(ax, data, cols_to_use, a_color='dodgerblue', font_size=
     ax[a_cell].visible_edges = 'B'
     ax[a_cell].set_text_props(**{'fontsize': font_size})
     ax[a_cell].set_edgecolor('white')
-    ax[a_cell].PAD = .1
+    ax[a_cell].PAD = .2
 
   for a_cell in top_columns:
     ax[a_cell].set_height((1.25 / (len(data))))
-    ax[a_cell].set_text_props(**{'va': 'bottom'})
+    ax[a_cell].set_text_props(**{'va': 'center'})
+
     ax[a_cell].set_edgecolor(line_color)
     ax[a_cell].visible_edges = 'T'
 
@@ -320,6 +321,7 @@ def make_a_summary_table(ax, data, cols_to_use, a_color='dodgerblue', font_size=
     ax[a_cell].visible_edges = 'BTLR'
     ax[a_cell].set_text_props(**{'fontsize': font_size})
     ax[a_cell].set_edgecolor('white')
+    ax[a_cell]._text.set_horizontalalignment('center')
 
   for a_cell in first_column:
     ax[a_cell]._text.set_horizontalalignment('right')
