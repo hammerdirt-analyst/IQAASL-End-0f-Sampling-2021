@@ -255,7 +255,6 @@ new_cols = {
 # columns to aggregate dimensional data
 # common columns used to present the data
 agg_this = {
-  'time to survey': 'sum',
   'meters surveyed': 'sum',
   'm² surveyed': 'sum',
   'total weight': 'sum',
