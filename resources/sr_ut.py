@@ -4,22 +4,22 @@ from resources.utility_functions import json_file_get
 from matplotlib import colors
 
 
-def m_ap_code_to_description(data, key, func):
-  """Creates an 'item' column in a data frame. Uses specified key and method
-  to assign value to 'item'.
-
-  Args:
-    data: pandas data frame
-    key: dictionary or array
-    func: method
-
-  returns:
-    dataframe
-  """
-  new_data = data.copy()
-  new_data['item'] = new_data.index.map(lambda x: func(x, key))
-  new_data.set_index('item', inplace=True)
-  return new_data
+# def m_ap_code_to_description(data, key, func):
+#   """Creates an 'item' column in a data frame. Uses specified key and method
+#   to assign value to 'item'.
+#
+#   Args:
+#     data: pandas data frame
+#     key: dictionary or array
+#     func: method
+#
+#   returns:
+#     dataframe
+#   """
+#   new_data = data.copy()
+#   new_data['item'] = new_data.index.map(lambda x: func(x, key))
+#   new_data.set_index('item', inplace=True)
+#   return new_data
 
 
 def get_the_file_extension(x):
@@ -44,22 +44,22 @@ def add_a_grouping_column(x, a_dict, column_to_match="", new_column_name='river_
   return x
 
 
-def fo_rmat_date_column(x, a_format="%Y-%m-%d"):
-  """Takes in a data frame and converts the date column to timestamp."""
-  x['date'] = pd.to_datetime(x['date'], format=a_format)
-  return x.copy()
+# def fo_rmat_date_column(x, a_format="%Y-%m-%d"):
+#   """Takes in a data frame and converts the date column to timestamp."""
+#   x['date'] = pd.to_datetime(x['date'], format=a_format)
+#   return x.copy()
 
 
-def slic_eby_date(x, start_date, end_date):
-  """ slices a data frame by the start and end date inclusive"""
-  return x[(x.date >= start_date) & (x.date <= end_date)].copy()
+# def slic_eby_date(x, start_date, end_date):
+#   """ slices a data frame by the start and end date inclusive"""
+#   return x[(x.date >= start_date) & (x.date <= end_date)].copy()
 
 
-def fo_rmat_and_slice_date(x, a_format="", start_date="", end_date=""):
-  """Formats a date column in a dataframe and slices the data frame"""
-  new_df = fo_rmat_date_column(x, a_format=a_format)
-  new_df = slic_eby_date(new_df, start_date, end_date)
-  return new_df
+# def fo_rmat_and_slice_date(x, a_format="", start_date="", end_date=""):
+#   """Formats a date column in a dataframe and slices the data frame"""
+#   new_df = fo_rmat_date_column(x, a_format=a_format)
+#   new_df = slic_eby_date(new_df, start_date, end_date)
+#   return new_df
 
 
 class SurveyData:
