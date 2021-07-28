@@ -64,3 +64,34 @@ The standard reporting unit for beach litter surveys is pieces per 100m which is
 Unless there is a dominating lake current or unusual event high density items will tend to sink and settle close to where they entered a lake.
 
 *Table notes: The totals are cumulative for each category. The total surface area was almost two hectares and the total shoreline was almost twenty kilometers. The average of pieces of trash per kilogram was 1,049 and the median was 446. The weights were taken on location at the time of the survey, there was no attempt to dry the objects prior to taking the weight.*
+
+### Survey results with respect to land use
+
+__Significant associations__
+
+The test for association reveals that 3/4 of the objects that are associated with food or tobacco consumption have a positive association with buildings, recreation and streets. Glass drink bottle pieces are also associated with buildings and food consumption but positive associations with other land use features is inconclusive. Taken as a whole, these four objects make up 26% of all objects found and they were all found in at least 50% of all the surveys. Snack wrappers and cigarette ends also have the highest average p/50m rating of all the most common objects. **CONT refers to the group of food and tobacco objects that have a positive association with the percent of land attributed to buildings and are in the most common**.
+
+These results support the idea that litter survey results increased when samples are considered with respect to the level of urbanization within 1500m of the survey location. This finding is consitent with the results of studies completed in Switzerland and elsewhere. 
+
+> There is a positive relationship between urbanization and beach litter density in general. The positive relationship can be associated specifically to objects related to the consumption of food or tobacco if the amount of developed infrastructure is considered.
+
+This concept has been widely adopted in practice, if not in theory. In general the more an area is developed the more resources are attributed to maintenance and upkeep, this includes trash removal and street sweeping.
+
+__Inconclusive assocciations__
+
+The test for association with buildings was inconclusive for 8/12 of the most common objects. These objects, which were identified earlier, represent a larger portion of the total objects found,  6/8 they were found in at least half of all the surveys. An inconclusive association suggests that these objects are found at approximately the same rate indifferent of the land use profile of the survey location. The primary use case or source for these objects was considered carefully, in the case of fragmented plastics no specific use case was assumed objects.
+
+1. Expanded foams: repair and maintenance of infrastructure, insulation of building facades
+2. Plastic construction waste: repair and maintenance of infrastructure
+3. Industrial pellets: plastics less than 5mm
+4. Expanded foams less than 5mm: plastics less than 5mm
+5. Insulation, spray foams: repair and maintenance of infrastructure
+6. Cotton bud sticks : waste-water
+7. Industrial sheeting: aggriculture: under the denomination 'plasticulture'
+8. Fragmented plastics: fragmented plastics greater than 5mm
+
+Foams are lightweight and especially sensitive to wind and surface currents. Because of their low densities, these objects as well as cotton bud sticks stay on or near the surface of the water for extended periods of time untill the wind or waves push them to the shore. Industrial pellets are often found with algae or floating organic material. Fragmented plastics and plastic construction waste include a much wider range of polymers some of which are relatively dense. **DIST is used to refer to this group of abundant, diverse objects with no or few definitive land use associations and not related to food or tobacco**.
+
+### Differences between survey areas
+
+The differences in the survey areas could be defined as the differences in the land use profile of the survey locations and the economic development of the survey area. The RSA has a greater total items count than LSA or ASA despite having fewer samples within the same period. This difference can also be seen in the distribution of survey results, where the RSA has a much higher percentage of surveys greater than the national median. 
