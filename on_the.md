@@ -128,3 +128,5 @@ These results are the aggregated survey results for each water feature in the su
 feature or location is the result at which 50% of the results fall either above or below. Therefore, the number of samples is very important
 when attempting to draw conclusions from these results.
 
+"[\"clean-up-event-test\", \"clean-up-tour-les-diablerets\", \"clean-up-tour-les-paccots\", \"clean-up-tour-monte-generoso\", \"clean-up-tour-tour-charmey\", \"clean-up-tour-la-robella\", \"clean-up-tour-la-tzoumaz\", \"clean-up-tour-grindelwald\", \"clean-up-tour-morgins\",  \"clean-up-tour-les-crosets\", \"clean-up-tour-la-berra\",  \"clean-up-tour-villars\", \"clean-up-tour-crans-montana\", \"clean-up-tour-verbier\", \"clean-up-tour-andermatt\", \"clean-up-tour-vercorin\", \"clean-up-tour-veysonnaz\", \"clean-up-tour-nendaz\", \"clean-up-tour-airolo\", \"clean-up-tour-san-bernardino\", \"clean-up-tour-val-calanca\"]"
+
