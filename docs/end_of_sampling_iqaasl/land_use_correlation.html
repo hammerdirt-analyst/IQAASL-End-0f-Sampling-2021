@@ -53,7 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. More and less trash since 2017" href="slr_2017.html" />
+    <link rel="next" title="3. References" href="../references.html" />
     <link rel="prev" title="1. Key statistical indicators" href="key_indicators.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -107,6 +107,11 @@
    2. The land use profile
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   3. References
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -116,12 +121,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="slr_2017.html">
-   3. More and less trash since 2017
+   4. More and less trash since 2017
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="assessing_transport.html">
-   4. Transport and deposition of high density plastics
+   5. Transport: an empirical approach
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="threshold.html">
+   6. Baseline values
   </a>
  </li>
 </ul>
@@ -133,22 +143,22 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="aare_sa.html">
-   5. Aare survey area
+   7. Aare survey area
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linth_sa.html">
-   6. Linth survey area
+   8. Linth survey area
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ticino_sa.html">
-   7. Ticino survey area
+   9. Ticino survey area
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="rhone_sa.html">
-   8. Rhône survey area
+   10. Rhône survey area
   </a>
  </li>
 </ul>
@@ -319,12 +329,12 @@
      </span>
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conclusions">
-     2.2.6. Conclusions
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   2.3. Discussion
+  </a>
  </li>
 </ul>
 
@@ -341,13 +351,13 @@
 </div>
 <div class="section" id="the-land-use-profile">
 <h1><span class="section-number">2. </span>The land use profile<a class="headerlink" href="#the-land-use-profile" title="Permalink to this headline">¶</a></h1>
-<p><em>The land use mix</em> or <em>the land use profile</em> is a numerical representation of the type and amplititude of econmic activity around the survey location.</p>
-<p>Trash is a collection of objects found in the natural environment. The object type and the context in which it is found gives plenty of indicators as to its origin geographically and economically. How the land is used in proximity to the survey location is an important context to consider when evaluating survey results. <span id="id1">[]</span> <span id="id2">[]</span></p>
-<p>In September 2020 the European Union issued beach-litter baselines and target values. After considering the many factors, including the transparency of the calculation method the EU decided that the median value of survey results would be used to compare surveys. <strong>This has incited interest in communities to better indentify and quantify point sources of trash as they attempt to find the most efficient way to meet target values</strong>. Identifying relevant land use patterns and features is an essential element in the process. <span id="id3">[]</span> <span id="id4">[]</span> <span id="id5">[]</span></p>
-<p>Here we propose a method to evaluate the results of beach-litter-surveys with respect to the land use profile within 1500m of the survey location. The survey results of the most common objects are tested for association against the measured land use features using Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> or <em>Spearmans ranked correlation</em>, a non paramatetric test of association. <span id="id6">[]</span> <span id="id7">[]</span></p>
+<p><em>The land use profile</em> is a numerical representation of the type and amplititude of econmic activity around the survey location.</p>
+<p>Trash is a collection of objects found in the natural environment. The object itself and the context in which it is found are indicatorus of economic and geographic origin. How the land is used in proximity to the survey location is an important context to consider when evaluating survey results. <span id="id1">[<a class="reference internal" href="../references.html#id38">ea16</a>]</span> <span id="id2">[<a class="reference internal" href="../references.html#id40">GM20</a>]</span></p>
+<p>In September 2020 the European Union issued beach-litter baselines and target values. After considering the many factors, including the transparency of the calculation method the EU decided that the median value of survey results would be used to compare surveys. <strong>This has incited interest in communities to better indentify and quantify point sources of trash as they attempt to find the most efficient way to meet target values</strong>. Identifying relevant land use patterns and features is an essential element in the process. <span id="id3">[<a class="reference internal" href="../references.html#id33">VLW20</a>]</span> <span id="id4">[<a class="reference internal" href="../references.html#id31">HG19</a>]</span> <span id="id5">[<a class="reference internal" href="../references.html#id41">vEV21</a>]</span></p>
+<p>Here we propose a method to evaluate the results of beach-litter-surveys with respect to the land use profile within 1500m of the survey location. The survey results of the most common objects are tested for association against the measured land use features using Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> or <em>Spearmans ranked correlation</em>, a non paramatetric test of association. <span id="id6">[<a class="reference internal" href="../references.html#id10">Wik</a>]</span> <span id="id7">[<a class="reference internal" href="../references.html#id15">Inn</a>]</span></p>
 <div class="section" id="assessing-land-use">
 <h2><span class="section-number">2.1. </span>Assessing land use<a class="headerlink" href="#assessing-land-use" title="Permalink to this headline">¶</a></h2>
-<p>The land use profile is comprised of the measurable properties that are geolocated and can be extracted from the current versions of <em>Statistique Suisse de la superficie</em> and <em>swissTlmRegio</em>. <span id="id8">[]</span> <span id="id9">[]</span>.</p>
+<p>The land use profile is comprised of the measurable properties that are geolocated and can be extracted from the current versions of <em>Statistique Suisse de la superficie</em> and <em>swissTlmRegio</em>. <span id="id8">[<a class="reference internal" href="../references.html#id8">Con21a</a>]</span> <span id="id9">[<a class="reference internal" href="../references.html#id9">Con21b</a>]</span>.</p>
 <p>The following values were calculated within a radius of 1500m of each survey location:</p>
 <ol class="simple">
 <li><p>% of surface area attributed to buildings</p></li>
@@ -374,7 +384,7 @@
 <p><strong>Calculating street length</strong></p>
 <p>The street length was calculated by intersecting the map layer swissTLM3D_TLM_STRASSE with the 1500m buffer of each survey location. All the streets and pathways were combined into one line (QGIS: dissolve) and the length of that line is the reported value of kilometers of streets.</p>
 <p><strong>Counting riverine inputs</strong></p>
-<p>For locations on lakes, the number of intersecting river/canal discharges was calculated within 1500m of each survey location. The map layer swissTLM3D_TLM_FLIESSGEWAESSER (rivers) was intersected with swissTLM3D_TLM_STEHENDES_GEWAESSER (lakes), (QGIS: “line intersections”),  and the number of intersections per 1500m buffer was counted, (QGIS: “count points in polygon”). The lakes map layer was extended by 100 meters to capture any discharge points or streams that terminated in close proximity to the lake. <span id="id10">[]</span> <span id="id11">[]</span></p>
+<p>For locations on lakes, the number of intersecting river/canal discharges was calculated within 1500m of each survey location. The map layer swissTLM3D_TLM_FLIESSGEWAESSER (rivers) was intersected with swissTLM3D_TLM_STEHENDES_GEWAESSER (lakes), (QGIS: “line intersections”),  and the number of intersections per 1500m buffer was counted, (QGIS: “count points in polygon”). The lakes map layer was extended by 100 meters to capture any discharge points or streams that terminated in close proximity to the lake. <span id="id10">[<a class="reference internal" href="../references.html#id42">QGISDTeam09</a>]</span> <span id="id11">[<a class="reference internal" href="../references.html#id9">Con21b</a>]</span></p>
 <p><em>Map layers used to calculate the land use profile. <strong>Top left:</strong> all measureable values within 1500m. <strong>Top right:</strong> streets and river intersections within 1500m. <strong>Bottom right:</strong> land use points used to calculate % of total and total.</em></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -539,7 +549,7 @@
 <h2><span class="section-number">2.2. </span>Associating land use to survey results<a class="headerlink" href="#associating-land-use-to-survey-results" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="the-data">
 <h3><span class="section-number">2.2.1. </span>The data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h3>
-<p>There are 354 surveys from 134 locations. This includes rivers and lakes. The results from Walensee are excluded, the data was incomplete for that part of Switzerland. The mean was more than twice the median, reflecting the extreme values that are typical of beach-litter-surveys.</p>
+<p>There are 354 surveys from 134 locations. This includes rivers and lakes. The results from Walensee are excluded, the data was incomplete for that part of Switzerland. The mean was more than twice the median, reflecting the extreme values that are typical of beach-litter-surveys. <span id="id12">[<a class="reference internal" href="../references.html#id31">HG19</a>]</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the date intervas for the chart</span>
@@ -606,9 +616,9 @@
 </div>
 <div class="section" id="spearmans-rho-an-example">
 <h3><span class="section-number">2.2.2. </span>Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> an example<a class="headerlink" href="#spearmans-rho-an-example" title="Permalink to this headline">¶</a></h3>
-<p>Spearmans ranked correlation tests for a statistically significant monotonic relationship or association between two variables. The hypothesis is that there is no association between the land use profile and the survey results.</p>
-<p>The test results relate the direction (<span class="math notranslate nohighlight">\(\rho\)</span>) of an association and whether or not that association is likely due to chance (p-value). For a test to be considered significant the p-value needs to be less than 0.05.</p>
-<p>It does not provide any information about the magnitude of the relationship. As an example consider the relationship of the survey results of cigarette ends with respect to the amount of land attributed to buildings or aggriculture.</p>
+<p>Spearmans ranked correlation tests for a statistically significant monotonic relationship or association between two variables. The hypothesis is that there is no association between the land use profile and the survey results. <span id="id13">[<a class="reference internal" href="../references.html#id10">Wik</a>]</span></p>
+<p>The test results relate the direction (<span class="math notranslate nohighlight">\(\rho\)</span>) of an association and whether or not that association is likely due to chance (p-value). For a test to be considered significant the p-value needs to be less than 0.05. <span id="id14">[<a class="reference internal" href="../references.html#id11">sc</a>]</span></p>
+<p>It does not provide any information about the magnitude of the relationship. As an example consider the relationship of the survey results of cigarette ends with respect to the amount of land attributed to buildings or aggriculture. <span id="id15">[<a class="reference internal" href="../references.html#id15">Inn</a>]</span></p>
 <p><em><strong>Left:</strong> survey totals cigarette ends with respect to % of land to buildings. <span class="math notranslate nohighlight">\(\rho\)</span>= 0.39, p-value &lt; .001</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -810,8 +820,9 @@
 <li><p>Transient: low fail rate, high quantity, high pieces per meter, few associations. Found occasionaly in large quantities at specific locations</p></li>
 </ol>
 </div>
-<div class="section" id="conclusions">
-<h3><span class="section-number">2.2.6. </span>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="discussion">
+<h2><span class="section-number">2.3. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
 <p>Overall, surveys at locations with more buildings and more recreation sites had more trash (all objects considered). However, when the most common objects are considered, only five out of the twelve were found at higher rates in the presence of more buildings. Of those objects: cigarette ends, candy wrappers, glass drink bottles and metal drink lids are likely related to food or tobacco consumption. Objects associated with food consumption or smoking are found at higher rates in locations that have more space attributed to human interaction as opposed to space devoted to farming or forestry, this has been observed in other studies indifferent of the statistical method.</p>
 <p>Several of the most objects that have less than two associations:</p>
 <ol class="simple">
@@ -838,9 +849,8 @@
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-07-27.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-07-30.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
-</div>
 </div>
 </div>
 </div>
@@ -872,7 +882,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="key_indicators.html" title="previous page"><span class="section-number">1. </span>Key statistical indicators</a>
-    <a class='right-next' id="next-link" href="slr_2017.html" title="next page"><span class="section-number">3. </span>More and less trash since 2017</a>
+    <a class='right-next' id="next-link" href="../references.html" title="next page"><span class="section-number">3. </span>References</a>
 
         </div>
         

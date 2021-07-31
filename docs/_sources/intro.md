@@ -1,42 +1,62 @@
-# Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
-
-
-
 :::{note}
 
 !! THIS BOOK IS IN DRAFT !!
-The expected completion date is 29 July 2021. You can make comments and questions anytime you like.
+The expected completion date is August 2nd 2021. You can make comments and questions anytime you like.
 
 contact roger@hammerdirt.ch
 :::
 
+# Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
+
 IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale **litter surveys** are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that contribute.
 
-**What is a litter survey?**
+## The purpose, structure and evolution of this report
 
-A litter survey is the **identification and count of all anthropogenic objects found within a delimited area**, in this study all surveys were bordered on one side by water (a river or lake). Each object is placed into one of 260 categories. The location, date, survey dimensions and the total number of objects in each category is noted. 
+Our purpose is to provide a repeatable method and process to collect and evaluate beach-litter data at a scale that is appropriate to Switzerland and exploitable by
+all stakeholders. The method and process need to reflect current advances in the field
 
-**Purpose of the surveys**
+1. Provide the results of the beach litter surveys at a scale that is appropriate to different administration levels.
+   
+2. Provide a method and process to present and propose analysis of the data resulting from litter surveys.
+   
+3. Provide a method to enter data and incorporate efforts from disparate stakeholders.
 
-The survey results help ALL stakeholders identify the items that make up the mass of trash found in the natural environment and where those objects are most likely to be found. The surveys answer the following questions:
+This document is a collection of notebooks designed specifically for completing data analysis. It is connected to the surveyors phone by the submit button with this
+application https://www.plagespropres.ch/. It allows surveyors to focus on data collection and analysis.
 
-*  What items are found?
-   * The most abundant objects from the water feature and the survey area sorted by total object count 
-*  How much is found ? (total weights and item counts)
-   * Total object count, total weight and weight of plastics
-*  How often are these items found?
-   * How often the most abundant items were identified
-*  Where do you find the most?
-   * Pieces of trash per meter (pcs/m): the ratio of number of objects found to the length of the shoreline for each survey location
+Interested municipalities or organisations that already have a _data Scientist_ or _developer_ will be familiar with the methods used to exploit or contribute to this
+report. You are welcome to making this yours. 
 
-These are the most frequently asked questions and should be considered in the context of mitigation or reduction strategies.
+__How to use this document__
 
-## Assumptions:
+The survey results can be consulted directly, check the section _Tools and methods_ for a more detailed example of how to calculate a statistic. The _findings_ section
+explains __statistically relevant__ analysis based on one of the key indicators. In this case (V0.001) the articles are being developed for peer review publication.
 
-*  The more trash there is on the ground the more a person is likely to find
-*  **The survey results represent the minimum amount of trash at that site**
-*  For each survey: finding one item does not affect the chance of finding another
+### Structure
 
-## Interpreting results:
+1. Tools and methods
+   * Key indicators: A description and example of using simple statistical indicators to locate probable sources from the survey results.     
+   * Land use profile: The method and sample calculations to integrate "land use statistics" into survey results. Each survey location has a
+   _land use profile_ that describes the economic activity within 1500m of the survey location
+   * Baseline values: Application of the EU method for calculating beach-litter baselines values is applied to IQAASL survey results
+     
+2. Findings
+   * More and less trash: An analysis of the results from the 2018 Swiss Litter Report and IQAASL. Comparison between the lakes and rivers
+   that had surveys in both years.     
+   * Transport an empirical approach: By trying to answer the  question "Where are the high density plastics?" we found that the distribution
+   of plastic construction waste and fragmented plastics was similar indifferent of the land use profile of the survey location.
+     
+3. Survey results ! read the key indicators first !
+   * The survey results presented by survey area.
+   
+### Evolution
 
-These results are the aggregated survey results for each water feature in the survey area. The median survey result for an object or water feature or location is the result at which 50% of the results fall either above or below. Therefore, the number of samples is very important when attempting to draw conclusions from these results.
+Municipalities and organizations can request specific analysis or additional analysis. Send an email to analyst@hammerdirt.ch in french, german or english. We will
+be happy to help develop an analysis package for different applications. This document and all tools are open source and frequently used by students and professionals
+in Statistics or Data Science.
+
+The new automated programming interface is being developed here: https://github.com/hammerdirt-analyst/iqals. The complete redesign is based on the lessons learned from
+this project.
+
+Those that are interested in collecting data should contact shannon@hammerdirt.ch
+   
