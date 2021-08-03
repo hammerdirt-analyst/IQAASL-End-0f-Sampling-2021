@@ -84,7 +84,7 @@ def use_this_key(x, key, column='no column'):
             data = 'bad key'
     elif this_type == pd.core.series.Series:
         try:
-            data = key.loc[x]
+            data = key.loc[[x]]
             data = data[0]
         except:
             data = 'bad key'
