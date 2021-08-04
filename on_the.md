@@ -1,4 +1,4 @@
-### On the difference of survey results between the survey areas
+## On the difference of survey results between the survey areas
 
 Sample locations in the RSA tend to have more buildings and streets and less woods or agriculture than the locations in the other survey areas. As recent as 2017 a global study identified differences in urbanization and industrialization between catchment areas as one explanation for differences in observed plastic pollution. Some of the earlier studies in the Laurentian great lakes noted increased plastic levels in proximity to urban centers. The Swiss Litter Report 2018 noted that litter densities were higher in urban and suburban zones when compared to agricultural zones.
 
