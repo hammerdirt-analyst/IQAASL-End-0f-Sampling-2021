@@ -10,7 +10,11 @@
     "escherkanal",
     "seez",
     "sihlsee",
-    "sihl"
+    "sihl",
+    "reuss",
+    "lorze",
+    "quatre-cantons",
+    "zugersee"
   ],
   "rhine": [
     "untersee",
@@ -28,12 +32,6 @@
     "toss",
     "urnasch",
     "vorderrhein"
-  ],
-  "reuss": [
-    "reuss",
-    "lorze",
-    "quatre-cantons",
-    "zugersee"
   ],
   "aare": [
     "aare",
@@ -63,10 +61,7 @@
   "ticino": [
     "lago-maggiore",
     "ticino",
-    "maggia"
-  ],
-  "tresa": [
-    "lago-di-lugano",
+    "maggia",    "lago-di-lugano",
     "cassarate"
   ],
   "alpes-valaisannes": [
