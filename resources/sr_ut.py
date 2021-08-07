@@ -44,28 +44,28 @@ def add_a_grouping_column(x, a_dict, column_to_match="", new_column_name='river_
   return x
 
 
-# def fo_rmat_date_column(x, a_format="%Y-%m-%d"):
-#   """Takes in a data frame and converts the date column to timestamp."""
-#   x['date'] = pd.to_datetime(x['date'], format=a_format)
-#   return x.copy()
+def fo_rmat_date_column(x, a_format="%Y-%m-%d"):
+  """Takes in a data frame and converts the date column to timestamp."""
+  x['date'] = pd.to_datetime(x['date'], format=a_format)
+  return x.copy()
 
 
-# def slic_eby_date(x, start_date, end_date):
-#   """ slices a data frame by the start and end date inclusive"""
-#   return x[(x.date >= start_date) & (x.date <= end_date)].copy()
+def slic_eby_date(x, start_date, end_date):
+  """ slices a data frame by the start and end date inclusive"""
+  return x[(x.date >= start_date) & (x.date <= end_date)].copy()
 
 
-# def fo_rmat_and_slice_date(x, a_format="", start_date="", end_date=""):
-#   """Formats a date column in a dataframe and slices the data frame"""
-#   new_df = fo_rmat_date_column(x, a_format=a_format)
-#   new_df = slic_eby_date(new_df, start_date, end_date)
-#   return new_df
+def fo_rmat_and_slice_date(x, a_format="", start_date="", end_date=""):
+  """Formats a date column in a dataframe and slices the data frame"""
+  new_df = fo_rmat_date_column(x, a_format=a_format)
+  new_df = slic_eby_date(new_df, start_date, end_date)
+  return new_df
 
 
 class SurveyData:
   """preprocesses data"""
 
-  def __init__(self, data, beaches, these_cols=['loc_date', 'location', 'water_name_slug', 'type', 'date'],
+  def __init__(self, data, beaches, these_cols=['loc_date', 'location', 'water_name_slug', 'river_bassin', 'date'],
                foams={'G82': ['G82', 'G912'], 'G81': ['G81', 'G911'], 'G74': ['G74', 'G910', 'G909']}, **kwargs):
     self.data = data
     self.these_cols = these_cols
@@ -138,10 +138,10 @@ class SurveyData:
         anewdf.loc[anewdf.location == beach, variable] = self.beaches.loc[beach][variable]
     anewdf['string_date'] = anewdf.date.dt.strftime('%Y-%m-%d')
     anewdf['loc_date'] = list(zip(anewdf.location, anewdf.string_date))
-    this_df = self.assign_regional_labels_to_data(anewdf)
+    # this_df = self.assign_regional_labels_to_data(anewdf)
 
     # print("added exp vs")
-    return this_df
+    return anewdf
 
   def make_code_groups(self):
     these_groups = {k: json_file_get(F"resources/codegroups/{v}") for k, v in self.group_names_locations.items()}
@@ -176,18 +176,18 @@ class SurveyData:
       a_label = "no data"
     return a_label
 
-  def assign_regional_labels_to_data(self, data):
-    data = data.copy()
-    for k, v in self.river_bassins.items():
-      data.loc[data.water_name_slug.isin(v), 'river_bassin'] = k
-    for beach in self.locations_in_use:
-      data.loc[data.location == beach, 'city'] = self.beaches.loc[beach].city
-
-    # print('assigned regional labels')
-    return data
+  # def assign_regional_labels_to_data(self, data):
+  #   data = data.copy()
+  #   for k, v in self.river_bassins.items():
+  #     data.loc[data.water_name_slug.isin(v), 'river_bassin'] = k
+  #   for beach in self.locations_in_use:
+  #     data.loc[data.location == beach, 'city'] = self.beaches.loc[beach].city
+  #
+  #   # print('assigned regional labels')
+  #   return data
 
   def survey_total_pcsm_q(self):
-    anewdf = self.survey_data.groupby(self.these_cols, as_index=False).agg({'pcs_m': 'sum', 'quantity': 'sum'})
+    anewdf = self.survey_data.groupby(['loc_date', 'location', 'water_name_slug', 'river_bassin', 'date'], as_index=False).agg({'pcs_m': 'sum', 'quantity': 'sum'})
     anewdf['string_date'] = anewdf.date.dt.strftime('%Y-%m-%d')
     anewdf['loc_date'] = list(zip(anewdf.location, anewdf.string_date))
 

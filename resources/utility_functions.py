@@ -109,3 +109,7 @@ def hide_spines_ticks_grids(an_ax):
         spine.set_visible(False)
     an_ax.tick_params(bottom=False, labelbottom=False, left=False, labelleft=False)
     an_ax.grid(False)
+
+def push_this_to_json(filename="", data=[]):
+    with open(filename, "w") as a_file:
+        json.dump(data, a_file)
