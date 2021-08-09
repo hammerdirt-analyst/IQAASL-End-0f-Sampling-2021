@@ -3,15 +3,16 @@
 IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale **litter surveys** are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that contribute.
 
 :::{note}
-!! THIS  REPORT IS IN DRAFT !!
-We will let you know when we version this... adding the
 
-* mountain survey results
+This is version 0.01 _The review draft_
+
+We are adding the following durring this review:
+
 * lake and city results
 * code groups
 * images
 
-and polishing the executive summary
+and always polishing executive summary
 
 contact roger@hammerdirt.ch
 :::

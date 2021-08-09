@@ -53,7 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. All survey areas" href="eos_asa.html" />
+    <link rel="next" title="7. Alpes Valaisannes (AV)" href="alpes_valaisannes.html" />
     <link rel="prev" title="5. Transport: an empirical approach" href="assessing_transport.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -134,6 +134,11 @@
    6. Calculating baseline values
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="alpes_valaisannes.html">
+   7. Alpes Valaisannes (AV)
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -143,27 +148,27 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="eos_asa.html">
-   7. All survey areas
+   8. All survey areas
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="aare_sa.html">
-   8. Aare survey area
+   9. Aare survey area
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linth_sa.html">
-   9. Linth survey area
+   10. Linth survey area
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ticino_sa.html">
-   10. Ticino survey area
+   11. Ticino survey area
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="rhone_sa.html">
-   11. Rhône survey area
+   12. Rhône survey area
   </a>
  </li>
 </ul>
@@ -321,24 +326,26 @@
        6.1.3.1. Thresholds
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#number-of-samples">
-       6.1.3.2. Number of samples
-      </a>
-     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#number-of-samples">
+     6.1.4. Number of samples
+    </a>
+    <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#extreme-values">
-       6.1.3.3. Extreme values
+       6.1.4.1. Extreme values
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#quality-people-quality-data">
-       6.1.3.4. Quality people = quality data
+       6.1.4.2. Quality people = quality data
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#objective-criteria-protocols-and-analysis">
-       6.1.3.5. Objective criteria, protocols and analysis
+       6.1.4.3. Objective criteria, protocols and analysis
       </a>
      </li>
     </ul>
@@ -356,7 +363,98 @@
         
               <div>
                 
-  <div class="cell tag_remove-input docutils container">
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys, file and nav packages:</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="c1"># math packages:</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.distributions.empirical_distribution</span> <span class="kn">import</span> <span class="n">ECDF</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.stattools</span> <span class="kn">import</span> <span class="n">medcouple</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1"># charting:</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># home brew utitilties</span>
+<span class="kn">import</span> <span class="nn">resources.utility_functions</span> <span class="k">as</span> <span class="nn">ut</span>
+<span class="kn">import</span> <span class="nn">resources.chart_kwargs</span> <span class="k">as</span> <span class="nn">ck</span>
+<span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
+
+<span class="c1"># images and display</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span>
+
+<span class="c1"># set some parameters:</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-03-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s1">&#39;2021-05-31&#39;</span>
+
+<span class="c1"># name of the output folder:</span>
+<span class="n">name_of_project</span> <span class="o">=</span> <span class="s1">&#39;threshold_values&#39;</span>
+
+<span class="c1"># the scale for pieces per meter and the column and chart label for the units</span>
+<span class="n">reporting_unit</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">unit_label</span> <span class="o">=</span> <span class="s1">&#39;p/100m&#39;</span>
+
+<span class="c1"># add the folder to the directory tree:</span>
+<span class="n">project_directory</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">make_project_folder</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">name_of_project</span><span class="p">)</span>
+
+<span class="c1"># get your data:</span>
+<span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/results_with_land_use_2015.csv&#39;</span><span class="p">)</span>
+<span class="n">river_bassins</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">json_file_get</span><span class="p">(</span><span class="s2">&quot;resources/river_basins.json&quot;</span><span class="p">)</span>
+<span class="n">dfBeaches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/beaches_with_land_use_rates.csv&quot;</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/codes_with_group_names_2015.csv&quot;</span><span class="p">)</span>
+<span class="n">dfDims</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/dims_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># set the index of the beach data to location slug</span>
+<span class="n">dfBeaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># map locations to feature names</span>
+<span class="n">location_wname_key</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="o">.</span><span class="n">water_name_slug</span>
+
+<span class="c1"># map water_name_slug to water_name</span>
+<span class="n">wname_wname</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="p">[[</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span><span class="s1">&#39;water_name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">wname_wname</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># convenience function for doing land use correlations</span>
+<span class="k">def</span> <span class="nf">make_plot_with_spearmans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">corr</span><span class="p">,</span> <span class="n">a_p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">unit_label</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">corr</span><span class="p">,</span> <span class="n">a_p</span>
+
+<span class="c1"># index the code data</span>
+<span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># these descriptions need to be shortened for display</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation: includes spray foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Foamed EVA for crafts and sports&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G96&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sanitary-pads/tampons, applicators&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Metal bottle caps and lids&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G82&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams 2.5cm - 50cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G81&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams .5cm - 2.5cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G117&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams &lt; 5mm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G75&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 0 - 2.5cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G76&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 2.5cm - 50cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G24&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic lid rings&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G33&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Lids for togo drinks plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G3&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic bags, carier bags&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G204&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Bricks, pipes not plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+
+<span class="c1"># make a map to the code descriptions</span>
+<span class="n">code_description_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">description</span>
+
+<span class="c1"># make a map to the code descriptions</span>
+<span class="n">code_material_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">material</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="calculating-baseline-values">
 <h1><span class="section-number">6. </span>Calculating baseline values<a class="headerlink" href="#calculating-baseline-values" title="Permalink to this headline">¶</a></h1>
@@ -530,7 +628,7 @@
 <div class="section" id="nb-method-of-moments">
 <h5><span class="section-number">6.1.1.2.1. </span>NB method of moments<a class="headerlink" href="#nb-method-of-moments" title="Permalink to this headline">¶</a></h5>
 <p>Modeling data is a vast domain and many fields and industries have developed specific algorythms using parameters from known relationships. The techniques from the MSFD are for greater temporal and spatial ranges than those defined by the IQAASL. The purpose of modeling for this example is to simply identify probable extreme values of aggregated data, a generalist approach by definition.</p>
-<p>Fitting the NB distribution has all to do with estimating parameters, <em>maximum likelihood estimation</em> can be an involved process. The method of moments produces comparable results and the parameters can be taken from the data <span id="id9">[<a class="reference internal" href="../references.html#id51">LS07</a>]</span> <span id="id10">[<a class="reference internal" href="../references.html#id52">nbi</a>]</span> <span id="id11">[<a class="reference internal" href="../references.html#id53">Ove</a>]</span>.  There are several basic statistical packages that cover this use, the examples here and elsewhere in this publication come from SciPy and statsmodels. <span id="id12">[<a class="reference internal" href="../references.html#id54">VGO+20</a>]</span> <span id="id13">[<a class="reference internal" href="../references.html#id48">SP</a>]</span></p>
+<p>Fitting the NB distribution has all to do with estimating parameters, <em>maximum likelihood estimation</em> can be an involved process. The method of moments produces comparable results and the parameters can be taken from the data <span id="id9">[<a class="reference internal" href="../references.html#id51">LS07</a>]</span> <span id="id10">[<a class="reference internal" href="../references.html#id52">nbi</a>]</span> <span id="id11">[<a class="reference internal" href="../references.html#id53">Ove</a>]</span>.  The ratio of distributed objects to contributed objects is used to parametrize the distribution, see <em>Asessing transport</em> for details. There are several basic statistical packages that cover this use, the examples here and elsewhere in this publication come from SciPy and statsmodels. <span id="id12">[<a class="reference internal" href="../references.html#id54">VGO+20</a>]</span> <span id="id13">[<a class="reference internal" href="../references.html#id48">SP</a>]</span></p>
 <p><em>Estimating the parameters of the underlying NB distribution using the mean and the variance from the observed values</em></p>
 <p><em>implementation: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html</a></em></p>
 <div class="cell tag_hide-input docutils container">
@@ -543,7 +641,7 @@
 
 <span class="c1"># the ratio of distributed items to contributed items in rural locations:</span>
 <span class="c1"># see the assessing transport notebook for a complete epxlanation</span>
-<span class="n">dispersion_param</span> <span class="o">=</span> <span class="mf">1.7</span><span class="o">*</span><span class="mf">.81</span>
+<span class="n">dispersion_param</span> <span class="o">=</span> <span class="mf">1.7</span>
 
 <span class="c1"># the variance</span>
 <span class="n">var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
@@ -614,7 +712,7 @@
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em>Point estimate of the 98th percentile from simulated data = 2282 p/100m, estimate of the 90th percentile = 1160 p/100m</em></p>
+<p><em>Point estimate of the 98th percentile from simulated data = 2548 p/100m, estimate of the 90th percentile = 1366 p/100m</em></p>
 </div>
 </div>
 </div>
@@ -695,8 +793,8 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this code was modified from this source:</span>
 <span class="c1"># http://bebi103.caltech.edu.s3-website-us-east-1.amazonaws.com/2019a/content/recitations/bootstrapping.html</span>
-<span class="c1"># if you want to get the confidence interval around another point estimate use np.percentile and add the percentile value as a parameter</span>
-
+<span class="c1"># if you want to get the confidence interval around another point estimate use np.percentile</span>
+<span class="c1"># and add the percentile value as a parameter</span>
 
 <span class="k">def</span> <span class="nf">draw_bs_sample</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Draw a bootstrap sample from a 1D data set.&quot;&quot;&quot;</span>
@@ -797,14 +895,14 @@
 <p><strong>Confidence intervals calcualted using BCa</strong></p>
 <p>95% confidence interval of the median survey total and the 10th percentile:</p>
 <p><em>CI of the median:  observed=158.0, lower limit=137.0, upper limit=188.0</em></p>
-<p><em>CI of the 15th percentile:  observed=45.5, lower limit=39.0, upper limit=53.0</em></p>
+<p><em>CI of the 15th percentile:  observed=45.5, lower limit=39.0, upper limit=52.0</em></p>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="discussion">
 <h3><span class="section-number">6.1.3. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h3>
-<p>The adoption of a standard measuring system and evaluation method is an important development. This allows for standardized analysis accross geographical regions and aggregation levels. Stakeholders now have an objective measurement  and method to measure.</p>
+<p>The adoption of a standard measuring system and evaluation method is an important development. This allows for standardized analysis accross geographical regions and aggregation levels. Stakeholders now have an objective measurement and a method to measure.</p>
 <ul class="simple">
 <li><p>aggregate groups can analysed across regions</p></li>
 <li><p>one time events can be compared to regional baselines</p></li>
@@ -812,25 +910,23 @@
 <p>This allows policy makers to measure the effects of current and past mitigation strategies. This report and the manner in which it was produced is one benefit of standardization.</p>
 <div class="section" id="thresholds">
 <h4><span class="section-number">6.1.3.1. </span>Thresholds<a class="headerlink" href="#thresholds" title="Permalink to this headline">¶</a></h4>
-<p>The European Union has set a european wide threshold value of <span class="math notranslate nohighlight">\(\approx\)</span> 20p/100m based on data collected in 2015-2016. This value is based on the
-<span class="math notranslate nohighlight">\(15^{th}\)</span> percentile of the 2015-2016 results. In Switzerland the 15th percentile is between 39 and 53 p/100m for 2020-2021 with a median between 136 and 188p/100m. Note that the median for 2017 was 125p/100m and that there was no statisitical difference between the aggregated survey results of 2017 and 2020.</p>
-<p>The threshold value set by the EU is a target for member states, some member states are closer to the target goal than others. The same could be said for Switzerland if a threshold value were established.</p>
+<p>The European Union has set a european wide threshold value of <span class="math notranslate nohighlight">\(\approx\)</span> 20p/100m based on data collected in 2015-2016. This value is based on the <span class="math notranslate nohighlight">\(15^{th}\)</span> percentile of the 2015-2016 results. In Switzerland the <span class="math notranslate nohighlight">\(15^{th}\)</span> percentile is between 39 and 53 p/100m for 2020-2021 with a median between 136 and 188p/100m.</p>
+</div>
 </div>
 <div class="section" id="number-of-samples">
-<h4><span class="section-number">6.1.3.2. </span>Number of samples<a class="headerlink" href="#number-of-samples" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">6.1.4. </span>Number of samples<a class="headerlink" href="#number-of-samples" title="Permalink to this headline">¶</a></h3>
 <p>The recomended number of samples is by region of analysis. For Switzerland that corresponds to catchment area or river bassin. For an adequate analysis of a single body of water, like a lake, then the number of samples should approach the recommended minimum. However, individual results can be compared directly to baseline values for the region of interest. That is a direct benefit of using the median survey result as opposed to the weighted avarage.</p>
-</div>
 <div class="section" id="extreme-values">
-<h4><span class="section-number">6.1.3.3. </span>Extreme values<a class="headerlink" href="#extreme-values" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.1.4.1. </span>Extreme values<a class="headerlink" href="#extreme-values" title="Permalink to this headline">¶</a></h4>
 <p>The exact method to define an extreme value should be evaluated. In this article we used the UE methods because they are applicable for a larger geographic scale. Regional and municipal stakeholders most likely have specific knowledge that can explain extreme results much more efficiently than a model.</p>
 </div>
 <div class="section" id="quality-people-quality-data">
-<h4><span class="section-number">6.1.3.4. </span>Quality people = quality data<a class="headerlink" href="#quality-people-quality-data" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.1.4.2. </span>Quality people = quality data<a class="headerlink" href="#quality-people-quality-data" title="Permalink to this headline">¶</a></h4>
 <p>The quality of the data is directly related to the training and support of the surveyors. The identification process is long at first and many objects that are encountered are not part of an <em>average persons</em> day. Encouraging meetings between surveyors and having a core team to assisst in the development and training ensures that the surveys are conducted consistently over time.</p>
 </div>
 <div class="section" id="objective-criteria-protocols-and-analysis">
-<h4><span class="section-number">6.1.3.5. </span>Objective criteria, protocols and analysis<a class="headerlink" href="#objective-criteria-protocols-and-analysis" title="Permalink to this headline">¶</a></h4>
-<p>The data gathered during IQASL, SLR and the EU data from 2015-2016 are all compatible. This is because they were all based on the same protocol and the protocol was designed first to gather data as accurately as possible given limited reosurces and a large geographic area. As a result the data is a collection of observations from many people and many countries. That the EU is basing target threshold values on data collected this way is a testament to the process and the people that collected the data.</p>
+<h4><span class="section-number">6.1.4.3. </span>Objective criteria, protocols and analysis<a class="headerlink" href="#objective-criteria-protocols-and-analysis" title="Permalink to this headline">¶</a></h4>
+<p>The data gathered during IQASL, SLR and the EU data from 2015-2016 are all compatible. This is because they were all based on the same protocol and that protocol <strong>was designed to gather data as accurately as possible given limited reosurces and a large geographic area</strong>. As a result the data is a collection of observations from many people and many countries. That the EU is basing target threshold values on data collected this way is a testament to the process and the people that collected the data.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><br></br>
@@ -838,7 +934,7 @@
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-08-03.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-08-05.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
 </div>
 </div>
@@ -873,7 +969,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="assessing_transport.html" title="previous page"><span class="section-number">5. </span>Transport: an empirical approach</a>
-    <a class='right-next' id="next-link" href="eos_asa.html" title="next page"><span class="section-number">7. </span>All survey areas</a>
+    <a class='right-next' id="next-link" href="alpes_valaisannes.html" title="next page"><span class="section-number">7. </span>Alpes Valaisannes (AV)</a>
 
         </div>
         
