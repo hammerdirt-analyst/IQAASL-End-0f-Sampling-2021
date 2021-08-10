@@ -6,7 +6,7 @@ IQAASL is a project sponsored by the Swiss Federal Office for the Environment to
 
 This is version 0.01 _The review draft_
 
-We are adding the following durring this review:
+We are adding the following during this review:
 
 * lake and city results
 * code groups
@@ -19,34 +19,17 @@ contact roger@hammerdirt.ch
 
 ## The Litter Surveyor Report
 
-The European Union (EU), in September 2020, set baselines and established target values for beach-litter assessments for all member states. The values
-were calculated using data collected following the same protocol as has been used in Switzerland since 2015. This decision brings a common
-measuring and benchmarking scheme based on the aggregated median value of survey results. 
-
 This report uses the techniques developed here in Switzerland and in the EU to analyze and gain insight into the transport and accumulation of trash
 with respect to the vast network of rivers and lakes. In Switzerland the front line against waste is the municipality. However, neither the trash nor the 
-waterways respect the municipal boundaries.  Now there is a common system of measurement and methodology that can move with the water and the trash.
+waterways respect the municipal boundaries. 
 
-This report is a synthesis and analysis of beach litter data collected in Switzerland since April 2017. The method used to collect the data is
-described by _The Guide on monitoring marine litter_ {cite}`mlwguidance`. 
+The European Union (EU), in September 2020, set baselines and established target values for beach-litter assessments for all member states. The values
+were calculated using data collected following the same protocol as has been used in Switzerland since 2015 {cite}`mlwguidance` {cite}`slr`. This decision brings a common
+measuring and benchmarking method based on a harmonized data collection protocol. {cite}`eubaselines`
 
-1. Executive summary
-
-2. Tools and methods: how to read the charts and graphs, how to determine land use
-   * Key indicators: A description and example of using simple statistical indicators to locate probable sources from the survey results.     
-   * Land use profile: The method and sample calculations to integrate "land use statistics" into survey results. Each survey location has a
-   _land use profile_ that describes the economic activity within 1500m of the survey location
-   * references
-     
-3. Findings: the principal results on a national scale and how they pertain to regional results.
-   * More and less trash: An analysis of the results from the 2018 Swiss Litter Report and IQAASL. Comparison between the lakes and rivers
-   that had surveys in both years.     
-   * Transport an empirical approach: By trying to answer the  question "Where are the high density plastics?" we found that the distribution
-   of plastic construction waste and fragmented plastics was similar indifferent of the land use profile of the survey location.
-   * Baseline values: Application of the EU method for calculating, confidence intervals, baselines and extreme values to IQAASL survey results
-     
-4. Survey results: the survey results presented with respect to the key indicators
-   * The survey results presented by survey area.
+Current research points to inland lakes as transition points for garbage transported by rivers, some of that trash goes on to the next lake and some of
+it remains and degrades in the lake where it was deposited. For Switzerland that means our lakes could be _sinks_ or _dumps_ for garbage and that it does
+not all go on to the ocean. {cite}`Kooi2018`
 
 ## Summary
 
@@ -120,7 +103,7 @@ industrial development of the catchment area.
 
 St. Gingolph has the highest median value of fragmented plastics and construction plastics of any other location with more than three samples in the SP. Similar results were recorded
 for St. Gingolph in the SLR. These objects can also be found in quantities that regularly exceed the national median on Bielersee and Brienzersee. Industrial pellets are found
-in all survey areas but high/extreme values have been recorded in Préverenges, Genève, Biel and Brienze.
+in all survey areas but high/extreme values have been recorded in Préverenges, Genève, Biel, Lugano and Brienze.
 
 See the survey results for more details
 
