@@ -4,15 +4,14 @@ IQAASL is a project sponsored by the Swiss Federal Office for the Environment to
 
 :::{note}
 
-This is version 0.01 _The review draft_
+This is version 0.02 _The review draft: cartography_
 
 We are adding the following during this review:
 
 * lake and city results
-* code groups
 * images
 
-and always polishing executive summary
+and wrapping up the summary
 
 contact roger@hammerdirt.ch
 :::
@@ -25,7 +24,7 @@ waterways respect the municipal boundaries.
 
 The European Union (EU), in September 2020, set baselines and established target values for beach-litter assessments for all member states. The values
 were calculated using data collected following the same protocol as has been used in Switzerland since 2015 {cite}`mlwguidance` {cite}`slr`. This decision brings a common
-measuring and benchmarking method based on a harmonized data collection protocol. {cite}`eubaselines`
+measuring and benchmarking method to a harmonized data collection protocol. {cite}`eubaselines`
 
 Current research points to inland lakes as transition points for garbage transported by rivers, some of that trash goes on to the next lake and some of
 it remains and degrades in the lake where it was deposited. For Switzerland that means our lakes could be _sinks_ or _dumps_ for garbage and that it does
