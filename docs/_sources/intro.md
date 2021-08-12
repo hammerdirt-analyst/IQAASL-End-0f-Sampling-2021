@@ -18,52 +18,85 @@ contact roger@hammerdirt.ch
 
 ## The Litter Surveyor Report
 
-This report uses the techniques developed here in Switzerland and in the EU to analyze and gain insight into the transport and accumulation of trash
-with respect to the vast network of rivers and lakes. In Switzerland the front line against waste is the municipality. However, neither the trash nor the 
-waterways respect the municipal boundaries. 
+This report uses the techniques developed here in Switzerland and in the EU to identify zones of accumulation of the most common litter
+objects found along the vast network of rivers and lakes in Switzerland. The front line against waste is the municipality. However,
+neither the trash nor the waterways respect the municipal boundaries.
 
-The European Union (EU), in September 2020, set baselines and established target values for beach-litter assessments for all member states. The values
-were calculated using data collected following the same protocol as has been used in Switzerland since 2015 {cite}`mlwguidance` {cite}`slr`. This decision brings a common
-measuring and benchmarking method to a harmonized data collection protocol. {cite}`eubaselines`
+The European Union (EU), in September 2020, set baselines and established target values for beach-litter assessments for all member states. 
+The values were calculated using data collected following the same protocol as has been used in Switzerland since 2015 {cite}`mlwguidance` {cite}`slr`. This decision brings a common
+measuring and benchmarking method to a harmonized data collection protocol {cite}`eubaselines`. 
 
 Current research points to inland lakes as transition points for garbage transported by rivers, some of that trash goes on to the next lake and some of
 it remains and degrades in the lake where it was deposited. For Switzerland that means our lakes could be _sinks_ or _dumps_ for garbage and that it does
 not all go on to the ocean. {cite}`Kooi2018`
+
+The _Litter Surveyor Report_ provides a set of tools to interpret current beach litter survey results and presents the results from past and present
+beach litter surveys in light of recent developments. 
 
 ## Summary
 
 The sampling period (SP) was from April 01, 2020 - May 31, 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr` the
 last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ or any other comparable method. There were 385 samples from 143 locations
 in 77 different municipalities.
+<br></br>
+
+:::{image} end_of_sampling_iqaasl/resources/maps/opening_map.jpeg
+:alt: Map of IQAASL locations
+:class: bg-primary mb-1
+:width: 1200px
+:align: center
+:::
+
+*Map of survey locations. Locations grouped by survey area. April 2020 - May 2021*
 
 The median survey result was 158 pieces per 100 meters (p/100m), with a 95% confidence interval of 137p/100m - 188/p100m. This represents 54,713 recorded objects or
-306kg of trash. The total linear distance surveyed was approximately 20 km or 9 hectares. The study was focussed on lakes, 331/385 samples come from 11 lakes. Both Geneva
+$\approx$ 306kg of trash including 96kg of plastic. The total linear distance surveyed was approximately 20 km or a surface area of 9 hectares. The study was focussed on lakes, 331/385 samples come from 11 lakes. Both Geneva
 and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
 
-See the section _All Survey areas_ for complete details.
+See the section [_All Survey areas_](allsurveys) for complete details.
 
 ### Trends from 2017
 
-When the lake and rivers with samples in both projects are considered there was no statistical difference between the SLR results and IQAASL. This _balance_
-is achieved because in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
+**When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
+show that in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
 
-When just the lakes are concerned there was a statistically significant decrease in survey totals from 2020 (174p/100m) to 2017 (339p/100m). The decrease was principally in bottle tops and tobacco
-products but also included paper fragments and glass bottles. However, plastic construction and other fragmented plastics were on the rise.
+**Comparison of survey results between SLR (2018) and IQAASL (2021)**
 
-Results from both projects show statistically relevant associations with land use features and the survey results of the most common objects. This property works in the
-inverse also, there are certain objects that are found within the same range indifferent of the land use features surrounding the survey location. The objects can
-now be classified according to two distinct groups:
+*Top Left: survey totals by date, Top right: median monthly survey total* 
+:::{image} end_of_sampling_iqaasl/resources/images/slr_iqaasl_res.png
+:alt: IQAASL and SLR charts
+:class: bg-primary mb-1
+:width: 1200px
+:align: center
+:::
+*bottom Left: number of samples with respect to the survey total, bottom right: empirical cumulative distribution of survey totals* 
+<br></br>
 
-1. Objects that have a statistically relevant association with land use characteristics 
-2. Objects that do not
+The comparison of survey results from both projects also shows that **a positive statistically relevant association** can be attributed to items related to the consumption
+of food or tobacco products and the level and type of economic development within 1500m of the survey location. Confirming observations in the SLR that litter
+survey results were increased in urban and suburban environments.
 
-Objects in the first group (primarily tobacco and food consumption) are managed at the municipal level. Resources are allocated according to anticipated changes such
-as festivals or events. Objects in the second group however respond to different environmental variables that are not entirely dependent on behavior close to the 
-survey location. As a result extreme values for objects in the second group are recorded in locations that have no direct or apparent source.
+Other objects like fragmented plastics, fragmented foams and industrial sheeting have few if any positive associations in either project year and the observed
+levels remained within the range encountered in the SLR.
 
-See the section _More and less trash since 2017_  and _Transport: an empirical approach_ for more details.
+See the full report [_More and less trash since 2017_](slr-iqaasl)
 
-### Source of objects found
+### Local versus regional
+
+Beach litter surveys are collections of many individual surveys. Here we compare the results of two different groups of items under two opposite land use conditions
+(see [_The land use profile_](luseprofile). In one group the use case is well known and the connection to human behavior and the land use is uncontested: tobacco and
+snacks, this group is called _contributed_. The other group includes fragmented objects of different densities, specific objects less than 5mm and construction plastics,
+none of which show any association to measurable land use features, this group is called distributed
+
+The results of the test show that the distributed objects are found at similar rates regardless of land use class. Suggesting that there is another mechanism of transport
+and deposition for these objects that is not directly associated with behavior. The presence of high density plastics in this group and the numerous river or canal discharge
+sites within 1500 meters of every survey location support previous observations that these objects are being transported to the survey site and a portion of them are sinking
+or beaching within proximity of the survey site.
+
+
+See the section [_Transport an empirical approach_](transport)
+
+### Sources
 
 Geographically a potential source can be determined based on the median survey result of an object in relation to its distance from a probable source. An example
 of this is given in the section _Key Statistical Indicators_. Certain objects, like pre-production plastic pellets (GPI), cigarette ends or cable-ties are easy to 
@@ -77,7 +110,7 @@ Economically the sources are determined by grouping the codes assigned to the ob
 of the items found and infrastructure and agriculture are 24% of the total. Objects originating from waste water facilities or objects less than five millimeters 
 make up another 10%. The relative amounts change for each survey area suggesting that local priorities may not always match regional priorities.
 
-See the section _Code groups_ for a complete definition of how the codes were grouped.
+See the section [_Code groups_](codegroups) for a complete definition of how the codes were grouped.
 
 ### Baseline and extreme values
 
@@ -104,7 +137,7 @@ St. Gingolph has the highest median value of fragmented plastics and constructio
 for St. Gingolph in the SLR. These objects can also be found in quantities that regularly exceed the national median on Bielersee and Brienzersee. Industrial pellets are found
 in all survey areas but high/extreme values have been recorded in Préverenges, Genève, Biel, Lugano and Brienze.
 
-See the survey results for more details
+See the section [_Calculating baseline values_](threshhold) for sample calculations and a detailed explanation.
 
 ### The structure and evolution of this document
 
