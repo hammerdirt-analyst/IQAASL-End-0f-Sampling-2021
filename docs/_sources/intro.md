@@ -6,6 +6,8 @@ IQAASL is a project sponsored by the Swiss Federal Office for the Environment to
 
 This is version 0.02 _The review draft: cartography_
 
+__Content revisions__ I have received a few comments and will address them during this version. The numerical results will not change, unless somebody finds a mistake!
+
 We are adding the following during this review:
 
 * lake and city results
@@ -18,28 +20,24 @@ contact roger@hammerdirt.ch
 
 ## The Litter Surveyor Report
 
-This report uses the techniques developed here in Switzerland and in the EU to identify zones of accumulation of the most common litter
-objects found along the vast network of rivers and lakes in Switzerland. The front line against waste is the municipality. However,
-neither the trash nor the waterways respect the municipal boundaries.
-
-The European Union (EU), in September 2020, set baselines and established target values for beach-litter assessments for all member states. 
-The values were calculated using data collected following the same protocol as has been used in Switzerland since 2015 {cite}`mlwguidance` {cite}`slr`. This decision brings a common
-measuring and benchmarking method to a harmonized data collection protocol {cite}`eubaselines`. 
+This report uses the techniques developed in Switzerland and the EU to identify zones of accumulation and the most common litter objects found along
+the vast network of Swiss rivers and lakes. This is done using a harmonized data collection protocol and a common measuring and benchmarking scheme
+that has in use and in active development in Switzerland since 2015 and internationally for decades. {cite}`mlwguidance` {cite}`slr` {cite}`eubaselines`. 
 
 Current research points to inland lakes as transition points for garbage transported by rivers, some of that trash goes on to the next lake and some of
 it remains and degrades in the lake where it was deposited. For Switzerland that means our lakes could be _sinks_ or _dumps_ for garbage and that it does
-not all go on to the ocean. {cite}`Kooi2018`
+not all go on to the ocean. This also means our rivers are highways for the trash that is accumulating in the lakes. {cite}`Kooi2018`
 
-The _Litter Surveyor Report_ provides a set of tools to interpret current beach litter survey results and presents the results from past and present
-beach litter surveys in light of recent developments. 
+The _Litter Surveyor Report_ provides a set of tools to interpret current beach litter survey results from the national to the municipal level. The results
+from past and present beach litter surveys are presented in an objective way and in the context of current events.
 
 ## Summary
 
 The sampling period (SP) was from April 01, 2020 - May 31, 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr` the
-last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ or any other comparable method. There were 385 samples from 143 locations
-in 77 different municipalities.
+last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ or any other comparable method. 
 <br></br>
 
+_There were 385 samples from 143 locations in 77 different municipalities._
 :::{image} end_of_sampling_iqaasl/resources/maps/opening_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
@@ -54,6 +52,8 @@ $\approx$ 306kg of trash including 96kg of plastic. The total linear distance su
 and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
 
 See the section [_All Survey areas_](allsurveys) for complete details.
+
+ ---
 
 ### Trends from 2017
 
@@ -81,6 +81,8 @@ levels remained within the range encountered in the SLR.
 
 See the full report [_More and less trash since 2017_](slr-iqaasl)
 
+ ---
+
 ### Local versus regional
 
 Beach litter surveys are collections of many individual surveys. Here we compare the results of two different groups of items under two opposite land use conditions
@@ -93,8 +95,9 @@ and deposition for these objects that is not directly associated with behavior. 
 sites within 1500 meters of every survey location support previous observations that these objects are being transported to the survey site and a portion of them are sinking
 or beaching within proximity of the survey site.
 
-
 See the section [_Transport an empirical approach_](transport)
+
+ ---
 
 ### Sources
 
@@ -111,6 +114,8 @@ of the items found and infrastructure and agriculture are 24% of the total. Obje
 make up another 10%. The relative amounts change for each survey area suggesting that local priorities may not always match regional priorities.
 
 See the section [_Code groups_](codegroups) for a complete definition of how the codes were grouped.
+
+ ---
 
 ### Baseline and extreme values
 
@@ -138,6 +143,8 @@ for St. Gingolph in the SLR. These objects can also be found in quantities that 
 in all survey areas but high/extreme values have been recorded in Préverenges, Genève, Biel, Lugano and Brienze.
 
 See the section [_Calculating baseline values_](threshhold) for sample calculations and a detailed explanation.
+
+ ---
 
 ### The structure and evolution of this document
 
