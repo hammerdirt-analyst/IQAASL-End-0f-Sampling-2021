@@ -20,16 +20,20 @@ contact roger@hammerdirt.ch
 
 ## The Litter Surveyor Report
 
-This report uses the techniques developed in Switzerland and the EU to identify zones of accumulation and the most common litter objects found along
-the vast network of Swiss rivers and lakes. This is done using a harmonized data collection protocol and a common measuring and benchmarking scheme
-that has in use and in active development in Switzerland since 2015 and internationally for decades. {cite}`mlwguidance` {cite}`slr` {cite}`eubaselines`. 
+This report uses the techniques developed in Switzerland and the European Union (EU) to identify the most common litter objects, their relative abundance and where they accumulate
+in the vast network of Swiss rivers and lakes. This is done using a harmonized data collection protocol and measuring scheme that has been in use and in active development
+in Switzerland since 2015 and internationally for decades. {cite}`mlwguidance` {cite}`slr` {cite}`eubaselines`. 
 
-Current research points to inland lakes as transition points for garbage transported by rivers, some of that trash goes on to the next lake and some of
-it remains and degrades in the lake where it was deposited. For Switzerland that means our lakes could be _sinks_ or _dumps_ for garbage and that it does
-not all go on to the ocean. This also means our rivers are highways for the trash that is accumulating in the lakes. {cite}`Kooi2018`
+Current research suggests that inland lakes are transition points for garbage transported by rivers, some of that trash goes on to the next lake (or the ocean) 
+and some of it remains and degrades in the lake where it was deposited. For Switzerland that means our lakes could be _sinks_ or _dumps_ for garbage and that it
+does not all go the ocean. {cite}`Kooi2018`
 
-The _Litter Surveyor Report_ provides a set of tools to interpret current beach litter survey results from the national to the municipal level. The results
-from past and present beach litter surveys are presented in an objective way and in the context of current events.
+In September 2020 the EU adopted a common benchmarking method using data collected following the same protocol used in Switzerland. The value of the benchmarks set by the EU are not
+as important as __the definition of a common method to compare results from beach litter surveys from one period to the next__. This has been lacking and has left
+administrators and stakeholders with no objective, standardized method to assess performance of litter mitigation strategies. 
+
+The _Litter Surveyor Report_ attempts to integrate the methods proposed by the EU as a set of tools to interpret current beach litter survey results from the national to
+the municipal level. The results from past and present beach litter surveys are presented in an objective way and in the context of current events.
 
 ## Summary
 
@@ -37,18 +41,17 @@ The sampling period (SP) was from April 01, 2020 - May 31, 2021. This date range
 last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ or any other comparable method. 
 <br></br>
 
-_There were 385 samples from 143 locations in 77 different municipalities._
+_Map of survey locations. Locations grouped by survey area. April 2020 - May 2021_
 :::{image} end_of_sampling_iqaasl/resources/maps/opening_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
 :width: 1200px
 :align: center
 :::
+_There were 385 samples from 143 locations in 77 different municipalities._
 
-*Map of survey locations. Locations grouped by survey area. April 2020 - May 2021*
-
-The median survey result was 158 pieces per 100 meters (p/100m), with a 95% confidence interval of 137p/100m - 188/p100m. This represents 54,713 recorded objects or
-$\approx$ 306kg of trash including 96kg of plastic. The total linear distance surveyed was approximately 20 km or a surface area of 9 hectares. The study was focussed on lakes, 331/385 samples come from 11 lakes. Both Geneva
+The median survey result was 158 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 137p/100m - 188/p100m. This represents 54,713 recorded objects or
+$\approx$ 306kg of trash including $\approx$ 96kg of plastic. The total linear distance surveyed was $\approx$ 20 km or a surface area of 9 hectares. The study was focussed on lakes, 331/385 samples come from 11 lakes. Both Geneva
 and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
 
 See the section [_All Survey areas_](allsurveys) for complete details.
@@ -86,7 +89,7 @@ See the full report [_More and less trash since 2017_](slr-iqaasl)
 ### Local versus regional
 
 Beach litter surveys are collections of many individual surveys. Here we compare the results of two different groups of items under two opposite land use conditions
-(see [_The land use profile_](luseprofile). In one group the use case is well known and the connection to human behavior and the land use is uncontested: tobacco and
+(see [_The land use profile_](luseprofile)). In one group the use case is well known and the connection to human behavior and the land use is uncontested: tobacco and
 snacks, this group is called _contributed_. The other group includes fragmented objects of different densities, specific objects less than 5mm and construction plastics,
 none of which show any association to measurable land use features, this group is called distributed
 

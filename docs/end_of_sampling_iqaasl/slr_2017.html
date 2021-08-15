@@ -462,13 +462,134 @@
         
               <div>
                 
-  <div class="cell tag_remove-input docutils container">
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys, file and nav packages:</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="c1"># math packages:</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">statsmodels.distributions.empirical_distribution</span> <span class="kn">import</span> <span class="n">ECDF</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="c1"># import math</span>
+
+<span class="c1"># charting:</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">ticker</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="kn">from</span> <span class="nn">matplotlib.gridspec</span> <span class="kn">import</span> <span class="n">GridSpec</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># home brew utitilties</span>
+<span class="kn">import</span> <span class="nn">resources.utility_functions</span> <span class="k">as</span> <span class="nn">ut</span>
+<span class="kn">import</span> <span class="nn">resources.abundance_classes</span> <span class="k">as</span> <span class="nn">ac</span>
+<span class="kn">import</span> <span class="nn">resources.chart_kwargs</span> <span class="k">as</span> <span class="nn">ck</span>
+<span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
+
+<span class="c1"># images and display</span>
+<span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">IPython</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span>
+
+<span class="c1"># set some parameters:</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2015-11-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s1">&#39;2021-05-31&#39;</span>
+
+<span class="n">unit_label</span> <span class="o">=</span> <span class="s1">&#39;p/100m&#39;</span>
+
+<span class="n">unit_value</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
+
+<span class="c1"># colors for gradients</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;beige&#39;</span><span class="p">,</span> <span class="s1">&#39;navajowhite&#39;</span><span class="p">,</span> <span class="s1">&#39;sandybrown&#39;</span><span class="p">,</span> <span class="s1">&#39;salmon&#39;</span><span class="p">,</span> <span class="s1">&#39;sienna&#39;</span><span class="p">]</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+<span class="n">cmap2</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;mycmap&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">colors</span><span class="p">)))</span>
+
+<span class="c1"># colors for projects</span>
+<span class="n">this_palette</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;2020&quot;</span><span class="p">:</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="s2">&quot;2018&quot;</span><span class="p">:</span><span class="s2">&quot;magenta&quot;</span><span class="p">}</span>
+
+<span class="c1"># name of the output folder:</span>
+<span class="n">name_of_project</span> <span class="o">=</span> <span class="s1">&#39;time_series_2018_2020&#39;</span>
+
+<span class="c1"># add the folder to the directory tree:</span>
+<span class="n">project_directory</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">make_project_folder</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">name_of_project</span><span class="p">)</span>
+
+<span class="c1"># get your data:</span>
+<span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/agg_results_with_land_use_2015.csv&#39;</span><span class="p">)</span>
+<span class="n">river_bassins</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">json_file_get</span><span class="p">(</span><span class="s2">&quot;resources/river_basins.json&quot;</span><span class="p">)</span>
+<span class="n">dfBeaches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/beaches_with_land_use_rates.csv&quot;</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/codes_with_group_names_2015.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># set the index of the beach data to location slug</span>
+<span class="n">dfBeaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># map locations to feature names</span>
+<span class="n">location_wname_key</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="o">.</span><span class="n">water_name_slug</span>
+
+<span class="c1"># map water_name_slug to water_name</span>
+<span class="n">wname_wname</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="p">[[</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span><span class="s1">&#39;water_name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">wname_wname</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># map water name slug to type</span>
+<span class="n">wname_type</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="p">[[</span><span class="s2">&quot;water_name_slug&quot;</span><span class="p">,</span> <span class="s2">&quot;water&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># convenience function for doing land use correlations</span>
+<span class="k">def</span> <span class="nf">make_plot_with_spearmans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">corr</span><span class="p">,</span> <span class="n">a_p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">unit_label</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">corr</span><span class="p">,</span> <span class="n">a_p</span>
+
+<span class="c1"># index the code data</span>
+<span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># these descriptions need to be shortened for display</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation: includes spray foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Foamed EVA for crafts and sports&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G96&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sanitary-pads/tampons, applicators&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Metal bottle caps and lids&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G82&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams 2.5cm - 50cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G81&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams .5cm - 2.5cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G117&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams &lt; 5mm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G75&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 0 - 2.5cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G76&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 2.5cm - 50cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G24&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic lid rings&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G33&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Lids for togo drinks plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G3&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic bags, carier bags&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G204&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Bricks, pipes not plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+
+<span class="c1"># make a map to the code descriptions</span>
+<span class="n">code_description_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">description</span>
+
+<span class="c1"># make a map to the code materials</span>
+<span class="n">code_material_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">material</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="more-and-less-trash-since-2018">
 <span id="slr-iqaasl"></span><h1><span class="section-number">5. </span>More and less trash since 2018<a class="headerlink" href="#more-and-less-trash-since-2018" title="Permalink to this headline">¶</a></h1>
 <p>The first national beach litter report was produced in 2018. The Swiss Litter Report (SLR) was a project intiated by Gabriele Kuhl <span id="id1">[<a class="reference internal" href="../references.html#id61">Kuh</a>]</span> and supported by the World Wildlife Fund Switzerland <span id="id2">[<a class="reference internal" href="../references.html#id62">Fun</a>]</span>. The protocol was bassed on the <em>Guide for monitoring marine litter</em> <span id="id3">[<a class="reference internal" href="../references.html#id3">Han13</a>]</span>, the project was managed by the WWF and the surveys were conducted by volunteers from both organizations. Starting in April 2017 and running to March 2018 the SLR covered much of the national territory with the exception of Ticino.</p>
 <p>The SLR collected 1,052 samples from 112 locations. More than 150 trained volunteers from 81 municipalities collected and categorized 98,474 pieces of trash from the shores of 48 lakes and 67 rivers in Switzerland. <span id="id4">[<a class="reference internal" href="../references.html#id37">Bla18</a>]</span></p>
-<p>The IQAASL covered more locations but fewer lakes and rivers. This analysis concerns only the lakes and rivers that were sampled in both projects and only codes/objects that were identified in the SLR.</p>
+<p>The most obvious question is: <strong>Was there more or less trash observed in 2020 than 2018?</strong>. To answer that question the survey locations from each project were first compared on the basis of the land use profile within 1500m of each survey location for each project. Then the survey results were limited to:</p>
+<ol class="simple">
+<li><p>Rivers and lakes that had samples in both years</p></li>
+<li><p>Only objects that were identified in 2018 were considered</p></li>
+</ol>
+<p>From this subset of data the median survey total of all objects and the average survey total of the most common objects were compared to identify statistically significant changes in either direction from one project to the next. This test was conducted on two groups of the subset:</p>
+<ol class="simple">
+<li><p>Rivers and lakes combined with samples from both projects</p></li>
+<li><p>Only the lakes with samples from both projects</p></li>
+</ol>
 <div class="section" id="scope-of-projects-slr-iqaasl">
 <h2><span class="section-number">5.1. </span>Scope of projects SLR - IQAASL<a class="headerlink" href="#scope-of-projects-slr-iqaasl" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
@@ -490,7 +611,7 @@
 <span class="n">after_2020</span> <span class="o">=</span> <span class="n">valid_bassins</span><span class="p">[</span><span class="n">valid_bassins</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="s1">&#39;2020-01-01&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">water_name_slug</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">a_data</span> <span class="o">=</span> <span class="n">survey_data</span><span class="p">[</span><span class="n">survey_data</span><span class="o">.</span><span class="n">water_name_slug</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">after_2020</span><span class="p">)]</span>
 
-<span class="c1"># get rid of a duplicate sample and codes that were not counted in 2017</span>
+<span class="c1"># get rid of a duplicate sample</span>
 <span class="n">a_data</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">location</span> <span class="o">!=</span> <span class="s2">&quot;lac-leman-hammerdirt&quot;</span><span class="p">)]</span>
 
 <span class="c1"># convert pcs-m to unit_value</span>
@@ -635,7 +756,7 @@
 <p><em>Distribution of number of surveys with respect to land use profile SLR - IQAASL</em></p>
 <p>The sample locations in the SLR had a greater percent of land attributed to aggriculture and a more dense road network compared to locations in IQAASL. The percent of land attributed to woods diverges after the median at which point the locations in IQAASL had a greater percentage of land attributed to woods compared to SLR.</p>
 <p>The population (not shown) is taken from statpop 2018 <span id="id7">[<a class="reference internal" href="../references.html#id63">Con</a>]</span>. The smallest population was 442 and the largest was 415,357. At least 50% of the samples came from municipalities with a population of <span class="math notranslate nohighlight">\(\approx\)</span> 13,000 or less.</p>
-<p>If percent of land use attributed to agriculture is a sign of urbanization then the survey areas in 2020 were slightly more urban than 2017.</p>
+<p>If percent of land use attributed to agriculture is a sign of urbanization then the survey areas in 2020 were slightly more urban than 2018.</p>
 </div>
 </div>
 <div class="section" id="results-lakes-and-rivers">
@@ -1756,6 +1877,7 @@
 <p>The decrease in tobacco and food related products is likely the result of pandemic related restrictions that marked 2020. Increases of industrial sheeting, plastic construction waste and other plastic foam products or cotton swabs (list 2), can not be attributed to a specific event.</p>
 <p>Contrary to food and tobacco products, list 2 objects have few positive associations with land use features or behavior at the survey location ( <em>section <a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref">The land use profile</span></a></em> ). Therfore any decrease in litter quantities that are a result of changes in human behavior at the survey site would not be reflected in the quantities of list 2 objects.</p>
 <p>These results suggest that perceived local decreasses in litter quantities were most likely the result of a general decline in usage as opposed to a sweeping change in behavior. Consequently the survey results for list 1 items will most likely return to 2018 levels as pandemic related restrictions are relaxed and usage patterns return to <em>normal</em>.</p>
+<p>All of the most common objects in 2020 have a fail rate greater than 50%, in 2018 6/10 have a fail rate less than 50%. This is a signal that the same objects were identified in both years but more frequently in 2020 .</p>
 </div>
 <div class="section" id="protocols-matter">
 <h3><span class="section-number">5.4.2. </span>Protocols matter<a class="headerlink" href="#protocols-matter" title="Permalink to this headline">¶</a></h3>
