@@ -284,76 +284,72 @@
   <a class="reference internal nav-link" href="#the-data">
    7.1. The data
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identifying-extreme-values">
+   7.2. Identifying extreme values
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#identifying-extreme-values">
-     7.1.1. Identifying extreme values
+    <a class="reference internal nav-link" href="#adjusted-boxplots">
+     7.2.1. Adjusted boxplots
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#adjusted-boxplots">
-       7.1.1.1. Adjusted boxplots
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#modeling">
-       7.1.1.2. Modeling
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#nb-method-of-moments">
-         7.1.1.2.1. NB method of moments
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#confidence-intervals">
-     7.1.2. Confidence intervals
+    <a class="reference internal nav-link" href="#modeling">
+     7.2.2. Modeling
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bootstrap-methods">
-       7.1.2.1. Bootstrap methods:
+      <a class="reference internal nav-link" href="#nb-method-of-moments">
+       7.2.2.1. NB method of moments
       </a>
      </li>
     </ul>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-intervals">
+   7.3. Confidence intervals
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#discussion">
-     7.1.3. Discussion
+    <a class="reference internal nav-link" href="#bootstrap-methods">
+     7.3.1. Bootstrap methods:
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#thresholds">
-       7.1.3.1. Thresholds
-      </a>
-     </li>
-    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   7.4. Discussion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thresholds">
+     7.4.1. Thresholds
+    </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#number-of-samples">
-     7.1.4. Number of samples
+     7.4.2. Number of samples
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#extreme-values">
-       7.1.4.1. Extreme values
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#quality-people-quality-data">
-       7.1.4.2. Quality people = quality data
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#objective-criteria-protocols-and-analysis">
-       7.1.4.3. Objective criteria, protocols and analysis
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extreme-values">
+     7.4.3. Extreme values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quality-people-quality-data">
+     7.4.4. Quality people = quality data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objective-criteria-analysis-and-communication">
+     7.4.5. Objective criteria , analysis and communication
+    </a>
    </li>
   </ul>
  </li>
@@ -463,7 +459,7 @@
 </div>
 <div class="section" id="calculating-baseline-values">
 <span id="threshhold"></span><h1><span class="section-number">7. </span>Calculating baseline values<a class="headerlink" href="#calculating-baseline-values" title="Permalink to this headline">¶</a></h1>
-<p>Similar to survey results in the marine environment beach-litter-data in Switzerland is highly variable. With values ranging from zero (two surveys in 2020 had a quantity of zero), to thousands of objects and fragments within 100m coastline. The <em>JRC Technical Report: A European threshold value</em> <span id="id1">[<a class="reference internal" href="../references.html#id31">HG19</a>]</span> suggests several methods for calculating threshold values, confidence intervals and extreme values. Examples of the proposed methods are applied to the survey results from IQAASL.</p>
+<p>Similar to survey results in the marine environment beach-litter-data in Switzerland is highly variable. With values ranging from zero (two surveys in 2020 had a quantity of zero), to thousands of objects and fragments within 100m of river of lake shoreline. The <em>JRC Technical Report: A European threshold value</em> <span id="id1">[<a class="reference internal" href="../references.html#id31">HG19</a>]</span> suggests several methods for calculating threshold values, confidence intervals and extreme values. Examples of the proposed methods are applied to the survey results from IQAASL.</p>
 <p><strong>Assumptions:</strong></p>
 <ul class="simple">
 <li><p>The more trash there is on the ground the more a person is likely to find</p></li>
@@ -544,15 +540,16 @@
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="identifying-extreme-values">
-<h3><span class="section-number">7.1.1. </span>Identifying extreme values<a class="headerlink" href="#identifying-extreme-values" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">7.2. </span>Identifying extreme values<a class="headerlink" href="#identifying-extreme-values" title="Permalink to this headline">¶</a></h2>
 <p>Extreme values are identified but not excluded from the baseline or confidence level calculations. The identification of extreme values is to ensure that extreme data are verified on a case by case basis and to apply the median for calculating baseline statistics. <span id="id2">[<a class="reference internal" href="../references.html#id31">HG19</a>]</span></p>
 <p>The occurrence of extreme values can influence the average of the data and the interpretation of survey results. According the to the JRC report:</p>
 <blockquote>
 <div><p>The methodology for the identification of extreme values can be either expert judgement, or be based on statistical and modelling approaches, such as the application of Tukey’s box plots to detect potential outliers. For skewed distributions, the adjusted box plot is more appropriate. <span id="id3">[<a class="reference internal" href="../references.html#id31">HG19</a>]</span></p>
 </div></blockquote>
 <div class="section" id="adjusted-boxplots">
-<h4><span class="section-number">7.1.1.1. </span>Adjusted boxplots<a class="headerlink" href="#adjusted-boxplots" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">7.2.1. </span>Adjusted boxplots<a class="headerlink" href="#adjusted-boxplots" title="Permalink to this headline">¶</a></h3>
 <p>Tukey’s boxplot is used to visualize the distribution of a univariate data set. The samples that fall within the first quartile (<span class="math notranslate nohighlight">\(Q_1\)</span>) and the third quartile (<span class="math notranslate nohighlight">\(Q_3\)</span>) are considered to be within the innerquartial range (IQR) = <span class="math notranslate nohighlight">\(Q_3 - Q_1\)</span>. Points out side of the inner quartile range are considered outliers if their value is greater or less than one of two limits:</p>
 <ul class="simple">
 <li><p>lower limit = <span class="math notranslate nohighlight">\(Q_1 - (1.5*IQR)\)</span></p></li>
@@ -625,15 +622,16 @@
 </div>
 </div>
 <div class="section" id="modeling">
-<h4><span class="section-number">7.1.1.2. </span>Modeling<a class="headerlink" href="#modeling" title="Permalink to this headline">¶</a></h4>
-<p>Extreme values can be indentified by assuming the data belong to some underlying known statistical distribution. Count data is often modeled using a poisson distribution, however this is only valid where variance is equal to the mean. The data from IQAASL and beach-litter data in general do not meet this criteria, the negative binomial (NB) distribution allows for the variance to be greater than the mean. <span id="id6">[<a class="reference internal" href="../references.html#id49">CT99</a>]</span> <span id="id7">[<a class="reference internal" href="../references.html#id50">Wei20</a>]</span></p>
+<h3><span class="section-number">7.2.2. </span>Modeling<a class="headerlink" href="#modeling" title="Permalink to this headline">¶</a></h3>
+<p>Extreme values can be identified by assuming the data belong to some underlying known statistical distribution. In general count data are assumed to be Poisson distributed with mean = varaince. The data from IQAASL and beach-litter data in general do not meet this criteria, the variance is usually greater than the mean. The negative binomial (NB2) distribution allows for this. <span id="id6">[<a class="reference internal" href="../references.html#id49">CT99</a>]</span> <span id="id7">[<a class="reference internal" href="../references.html#id50">Wei20</a>]</span></p>
 <blockquote>
 <div><p>The modelling approach for the identification of extreme values is then performed by fitting the NB-distribution to the data by means of maximum likelihood and tagging all values in the right tail as potentially extreme values if the probability that they belong to the fitted NB-distribution is less than, e.g. 0.001. <span id="id8">[<a class="reference internal" href="../references.html#id33">VLW20</a>]</span></p>
 </div></blockquote>
 <div class="section" id="nb-method-of-moments">
-<h5><span class="section-number">7.1.1.2.1. </span>NB method of moments<a class="headerlink" href="#nb-method-of-moments" title="Permalink to this headline">¶</a></h5>
+<h4><span class="section-number">7.2.2.1. </span>NB method of moments<a class="headerlink" href="#nb-method-of-moments" title="Permalink to this headline">¶</a></h4>
 <p>Modeling data is a vast domain and many fields and industries have developed specific algorythms using parameters from known relationships. The techniques from the MSFD are for greater temporal and spatial ranges than those defined by the IQAASL. The purpose of modeling for this example is to simply identify probable extreme values of aggregated data, a generalist approach by definition.</p>
-<p>Fitting the NB distribution has all to do with estimating parameters, <em>maximum likelihood estimation</em> can be an involved process. The method of moments produces comparable results and the parameters can be taken from the data <span id="id9">[<a class="reference internal" href="../references.html#id51">LS07</a>]</span> <span id="id10">[<a class="reference internal" href="../references.html#id52">nbi</a>]</span> <span id="id11">[<a class="reference internal" href="../references.html#id53">Ove</a>]</span>.  The ratio of distributed objects to contributed objects is used to parametrize the distribution, see <em>Asessing transport</em> for details. There are several basic statistical packages that cover this use, the examples here and elsewhere in this publication come from SciPy and statsmodels. <span id="id12">[<a class="reference internal" href="../references.html#id54">VGO+20</a>]</span> <span id="id13">[<a class="reference internal" href="../references.html#id48">SP</a>]</span></p>
+<p>Fitting the NB distribution has all to do with estimating parameters, <em>maximum likelihood estimation</em> can be an involved process. The method of moments produces comparable results and the parameters can be taken from the data <span id="id9">[<a class="reference internal" href="../references.html#id51">LS07</a>]</span> <span id="id10">[<a class="reference internal" href="../references.html#id52">nbi</a>]</span> <span id="id11">[<a class="reference internal" href="../references.html#id53">Ove</a>]</span>.</p>
+<p>The ratio of distributed objects to contributed objects is used to parametrize the distribution, see (<a class="reference internal" href="assessing_transport.html#transport"><span class="std std-ref"><em>Asessing transport</em></span></a> for details. There are several basic statistical packages that cover this use, the examples here and elsewhere in this publication come from SciPy and statsmodels. <span id="id12">[<a class="reference internal" href="../references.html#id54">VGO+20</a>]</span> <span id="id13">[<a class="reference internal" href="../references.html#id48">SP</a>]</span></p>
 <p><em>Estimating the parameters of the underlying NB distribution using the mean and the variance from the observed values</em></p>
 <p><em>implementation: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html</a></em></p>
 <div class="cell tag_hide-input docutils container">
@@ -701,11 +699,11 @@
 <span class="n">axone</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
 <span class="c1"># fill the areas concerened by each limit</span>
-<span class="n">axtwo</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">limit_upper</span><span class="p">,</span><span class="n">xamax</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y1</span><span class="o">=</span><span class="n">y_max</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lower limit simulated&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">axtwo</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">a_2fence</span><span class="p">,</span><span class="n">xamax</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y1</span><span class="o">=</span><span class="n">y_max</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;upper limit simulated&#39;</span><span class="p">,</span> <span class="n">hatch</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axtwo</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">sim_90</span><span class="p">,</span><span class="n">xamax</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y1</span><span class="o">=</span><span class="n">y_max</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lower limit simulated&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">axtwo</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">sim_98</span><span class="p">,</span><span class="n">xamax</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y1</span><span class="o">=</span><span class="n">y_max</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;upper limit simulated&#39;</span><span class="p">,</span> <span class="n">hatch</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
-<span class="n">axone</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">limit_upper</span><span class="p">,</span><span class="n">xamax</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y1</span><span class="o">=</span><span class="n">axone</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y2</span><span class="o">=</span><span class="n">axone</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>  <span class="n">label</span><span class="o">=</span><span class="s1">&#39;upper limit boxplot&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">axone</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">a_2fence</span><span class="p">,</span><span class="n">xamax</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y1</span><span class="o">=</span><span class="n">axone</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y2</span><span class="o">=</span><span class="n">axone</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;upper limit adjusted&#39;</span><span class="p">,</span> <span class="n">hatch</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axone</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">sim_90</span><span class="p">,</span><span class="n">xamax</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y1</span><span class="o">=</span><span class="n">axone</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y2</span><span class="o">=</span><span class="n">axone</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>  <span class="n">label</span><span class="o">=</span><span class="s1">&#39;upper limit boxplot&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">axone</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">sim_98</span><span class="p">,</span><span class="n">xamax</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y1</span><span class="o">=</span><span class="n">axone</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y2</span><span class="o">=</span><span class="n">axone</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;upper limit adjusted&#39;</span><span class="p">,</span> <span class="n">hatch</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -724,14 +722,14 @@
 </div>
 </div>
 <div class="section" id="confidence-intervals">
-<h3><span class="section-number">7.1.2. </span>Confidence intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">7.3. </span>Confidence intervals<a class="headerlink" href="#confidence-intervals" title="Permalink to this headline">¶</a></h2>
 <p>Confidence intervals (CIs) help approximate or mitigate the uncertainty of beach-litter survey results. Another way to mitigate uncertainty is to have the appropriate number of samples for the region or area of interest. In the marine environment the recomended minimum number of surveys for each region is 40 if calculating CIs, after that there is only a limited gain in the improvement of the CI.<span id="id14">[<a class="reference internal" href="../references.html#id31">HG19</a>]</span></p>
 <p>Even though the extreme values have been identified they are included in the data set for calcualting base lines and confidence intervals:</p>
 <blockquote>
-<div><p>It was agreed to leave the extreme data in the dataset, while highlighting the need to check to verify extreme data case by case and to apply the median for calculating of averages. This allows the use of all data while not skewing results through singleextraordinary high litter count surveys. <span id="id15">[<a class="reference internal" href="../references.html#id33">VLW20</a>]</span></p>
+<div><p>It was agreed to leave the extreme data in the dataset, while highlighting the need to check to verify extreme data case by case and to apply the median for calculating of averages. This allows the use of all data while not skewing results through single extraordinary high litter count surveys. <span id="id15">[<a class="reference internal" href="../references.html#id33">VLW20</a>]</span></p>
 </div></blockquote>
 <div class="section" id="bootstrap-methods">
-<h4><span class="section-number">7.1.2.1. </span>Bootstrap methods:<a class="headerlink" href="#bootstrap-methods" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">7.3.1. </span>Bootstrap methods:<a class="headerlink" href="#bootstrap-methods" title="Permalink to this headline">¶</a></h3>
 <p>Bootstrapping is a resampling method that uses random sampling with replacement to repeat or simulate the sampling process. Bootstrapping permits the estimation of the sampling distribution of sample statistics using random sampling methods. <span id="id16">[<a class="reference internal" href="../references.html#id58">Wika</a>]</span> <span id="id17">[<a class="reference internal" href="../references.html#id46">JLGC19</a>]</span> <span id="id18">[<a class="reference internal" href="../references.html#id55">SS21</a>]</span></p>
 <p>There are several computational methods to choose from such as percentile, BCa, and Student’s t to name a few. For this example two methods were tested:</p>
 <ol class="simple">
@@ -906,32 +904,40 @@
 </div>
 </div>
 <div class="section" id="discussion">
-<h3><span class="section-number">7.1.3. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">7.4. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
 <p>The adoption of a standard measuring system and evaluation method is an important development. This allows for standardized analysis accross geographical regions and aggregation levels. Stakeholders now have an objective measurement and a method to measure.</p>
 <ul class="simple">
-<li><p>aggregate groups can analysed across regions</p></li>
+<li><p>aggregate groups can ba analysed across regions</p></li>
 <li><p>one time events can be compared to regional baselines</p></li>
 </ul>
 <p>This allows policy makers to measure the effects of current and past mitigation strategies. This report and the manner in which it was produced is one benefit of standardization.</p>
 <div class="section" id="thresholds">
-<h4><span class="section-number">7.1.3.1. </span>Thresholds<a class="headerlink" href="#thresholds" title="Permalink to this headline">¶</a></h4>
-<p>The European Union has set a european wide threshold value of <span class="math notranslate nohighlight">\(\approx\)</span> 20p/100m based on data collected in 2015-2016. This value is based on the <span class="math notranslate nohighlight">\(15^{th}\)</span> percentile of the 2015-2016 results. In Switzerland the <span class="math notranslate nohighlight">\(15^{th}\)</span> percentile is between 39 and 53 p/100m for 2020-2021 with a median between 136 and 188p/100m.</p>
-</div>
+<h3><span class="section-number">7.4.1. </span>Thresholds<a class="headerlink" href="#thresholds" title="Permalink to this headline">¶</a></h3>
+<p>The European Union has set a european wide threshold value of <span class="math notranslate nohighlight">\(\approx\)</span> 20p/100m based on data collected in 2015-2016. This value is based on the <span class="math notranslate nohighlight">\(15^{th}\)</span> percentile of the 2015-2016 results. In Switzerland the <span class="math notranslate nohighlight">\(15^{th}\)</span> percentile is between 39 and 53 p/100m for 2020-2021.</p>
 </div>
 <div class="section" id="number-of-samples">
-<h3><span class="section-number">7.1.4. </span>Number of samples<a class="headerlink" href="#number-of-samples" title="Permalink to this headline">¶</a></h3>
-<p>The recomended number of samples is by region of analysis. For Switzerland that corresponds to catchment area or river bassin. For an adequate analysis of a single body of water, like a lake, then the number of samples should approach the recommended minimum. However, individual results can be compared directly to baseline values for the region of interest. That is a direct benefit of using the median survey result as opposed to the weighted avarage.</p>
+<h3><span class="section-number">7.4.2. </span>Number of samples<a class="headerlink" href="#number-of-samples" title="Permalink to this headline">¶</a></h3>
+<p>The recomended number of samples is by area of analysis. For an adequate analysis of a single body of water then the number of samples should be comensurate with the size and samples should be taken throughout the sampling period. However, individual results can be compared directly to baseline values for the region of interest. That is a direct benefit of using the median survey result.</p>
+</div>
 <div class="section" id="extreme-values">
-<h4><span class="section-number">7.1.4.1. </span>Extreme values<a class="headerlink" href="#extreme-values" title="Permalink to this headline">¶</a></h4>
-<p>The exact method to define an extreme value should be evaluated. In this article we used the UE methods because they are applicable for a larger geographic scale. Regional and municipal stakeholders most likely have specific knowledge that can explain extreme results much more efficiently than a model.</p>
+<h3><span class="section-number">7.4.3. </span>Extreme values<a class="headerlink" href="#extreme-values" title="Permalink to this headline">¶</a></h3>
+<p>The exact method to define an extreme value should be evaluated. In this article we used the EU methods because they are applicable for a larger geographic scale. Regional and municipal stakeholders most likely have specific knowledge that can explain extreme results much more efficiently than a model.</p>
+<p>While modeling of the data and expected results is an interesting and challenging field it is NOT a prerequisite for defining extreme values. If there are enough samples then the extreme value can be set off the percentile rank of the current data set for the region of interest. Practically speaking this means that there should be enough samples and those samples need to be distributed geographically within a survey area such that individual surveys can be compared directly to the regional results.</p>
+<p>This simplifies the assessment of individual surveys by local leaders. Thus empowering them to address the chalenges directly and in coordination with other stakeholders in the region.</p>
 </div>
 <div class="section" id="quality-people-quality-data">
-<h4><span class="section-number">7.1.4.2. </span>Quality people = quality data<a class="headerlink" href="#quality-people-quality-data" title="Permalink to this headline">¶</a></h4>
+<h3><span class="section-number">7.4.4. </span>Quality people = quality data<a class="headerlink" href="#quality-people-quality-data" title="Permalink to this headline">¶</a></h3>
 <p>The quality of the data is directly related to the training and support of the surveyors. The identification process is long at first and many objects that are encountered are not part of an <em>average persons</em> day. Encouraging meetings between surveyors and having a core team to assisst in the development and training ensures that the surveys are conducted consistently over time.</p>
+<p>The surveyors are also responsible for data integrity and analysis of a survey area or multiple survey areas. This implies that the surveyors need to have or need to develop the skills required to gather, analyze and present the data using the standardized methods.</p>
 </div>
-<div class="section" id="objective-criteria-protocols-and-analysis">
-<h4><span class="section-number">7.1.4.3. </span>Objective criteria, protocols and analysis<a class="headerlink" href="#objective-criteria-protocols-and-analysis" title="Permalink to this headline">¶</a></h4>
-<p>The data gathered during IQASL, SLR and the EU data from 2015-2016 are all compatible. This is because they were all based on the same protocol and that protocol <strong>was designed to gather data as accurately as possible given limited reosurces and a large geographic area</strong>. As a result the data is a collection of observations from many people and many countries. That the EU is basing target threshold values on data collected this way is a testament to the process and the people that collected the data.</p>
+<div class="section" id="objective-criteria-analysis-and-communication">
+<h3><span class="section-number">7.4.5. </span>Objective criteria , analysis and communication<a class="headerlink" href="#objective-criteria-analysis-and-communication" title="Permalink to this headline">¶</a></h3>
+<p>The data gathered during IQASL, SLR and the EU data from 2015-2016 are all compatible. This is because they were all based on the same protocol and that protocol <strong>was designed to gather data as accurately as possible given limited resources and a large geographic area</strong>. The same reasoning should apply to the analysis and communication of results, cost effective and broad based. A consistent and objective analysis is the best communication tool and should be addresed to municipal leaders, cantonal authorities and NGOS in the field.</p>
+<p>Municipalities and regional NGOS usually have well developed communication methods. These results allow leaders to put the global problem in a local context with results from locations that the population is familiar with, that are in some instances just down the street.</p>
+<blockquote>
+<div><p>There is a difference in urgency of action if you tell someone that a building 50km away is burining or the neighbors house is burning.</p>
+</div></blockquote>
+<p>The importance of this is often overlooked and has repercussions with respect to ressource allocation and prioritization of mitigation and attenuation strategies.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><br></br>
@@ -939,9 +945,8 @@
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-08-05.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-08-16.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
-</div>
 </div>
 </div>
 </div>
