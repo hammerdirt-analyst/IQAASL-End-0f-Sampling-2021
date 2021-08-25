@@ -283,21 +283,14 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sources">
-     Sources
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#baseline-and-extreme-values">
      Baseline and extreme values
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#extreme-values">
-       Extreme values
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sources">
+     Sources
+    </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-structure-and-evolution-of-this-document">
@@ -352,7 +345,7 @@ the municipal level. The results from past and present beach litter surveys are 
 last national level project to use the standard protocol described in the <em>Guide to monitoring beach litter</em> or any other comparable method.
 <br></br></p>
 <p><em>Map of survey locations. Locations grouped by survey area. April 2020 - May 2021</em></p>
-<a class="bg-primary mb-1 reference internal image-reference" href="../_images/opening_map.jpeg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="../_images/opening_map.jpeg" style="width: 1200px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/opening_map.jpeg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="../_images/opening_map.jpeg" style="width: 800px;" /></a>
 <p><em>There were 385 samples from 143 locations in 77 different municipalities.</em></p>
 <p>The median survey result was 158 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 137p/100m - 188/p100m. This represents 54,713 recorded objects or
 <span class="math notranslate nohighlight">\(\approx\)</span> 306kg of trash including <span class="math notranslate nohighlight">\(\approx\)</span> 96kg of plastic. The total linear distance surveyed was <span class="math notranslate nohighlight">\(\approx\)</span> 20 km or a surface area of 9 hectares. The study was focussed on lakes, 331/385 samples come from 11 lakes. Both Geneva
@@ -389,6 +382,17 @@ or beaching within proximity of the survey site.</p>
 <p>See the section <a class="reference internal" href="assessing_transport.html#transport"><span class="std std-ref"><em>Transport an empirical approach</em></span></a></p>
 </div>
 <hr class="docutils" />
+<div class="section" id="baseline-and-extreme-values">
+<h3>Baseline and extreme values<a class="headerlink" href="#baseline-and-extreme-values" title="Permalink to this headline">¶</a></h3>
+<p>The proposed methods in the JRC Technical document <em>An Analysis of a pan-European 2012-2016 beach litter dataset</em> are applied to the results from IQAASL. The baseline values are calculated for each survey area and the different methods of calculation are explained and included with the survey results.</p>
+<p><em>Section 7.3 identifying extreme values: <strong>left</strong> comparison of simulated survey results to observed values. <strong>right</strong>: distribution of simulated survey results with detail of IQR and expected <span class="math notranslate nohighlight">\(90^{th}\)</span> percentile</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/intro_baselines.png"><img alt="IQAASL and SLR charts" class="bg-primary mb-1 align-center" src="../_images/intro_baselines.png" style="width: 800px;" /></a>
+<p><em>MOM - method of moments Scipy implementation, MLE - Maximum likelihood estimation, observed - the survey results</em>
+<br></br></p>
+<p>In general survey results were higher in the Rhône survey area (RSA) than the other survey areas, both in terms of the median survey totals and the median totals of the most common objects.</p>
+<p>See the section <a class="reference internal" href="threshold.html#threshhold"><span class="std std-ref"><em>Calculating baseline values</em></span></a> for sample calculations and a detailed explanation.</p>
+</div>
+<hr class="docutils" />
 <div class="section" id="sources">
 <h3>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h3>
 <p>Geographically a potential source can be determined based on the median survey result of an object in relation to its distance from a probable source. An example
@@ -401,30 +405,6 @@ tend to have increased survey results with a wider variety of objects.</p>
 of the items found and infrastructure and agriculture are 24% of the total. Objects originating from waste water facilities or objects less than five millimeters
 make up another 10%. The relative amounts change for each survey area suggesting that local priorities may not always match regional priorities.</p>
 <p>See the section <a class="reference internal" href="code_groups.html#codegroups"><span class="std std-ref"><em>Code groups</em></span></a> for a complete definition of how the codes were grouped.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="baseline-and-extreme-values">
-<h3>Baseline and extreme values<a class="headerlink" href="#baseline-and-extreme-values" title="Permalink to this headline">¶</a></h3>
-<p>A subset of the IQAASL data was used to calculate the median and a target value based on the methods proposed by the JRC Technical document. It is compared here
-to the subset of data used to generate the baseline value for EU neighboring states. The baseline values are calculated for each survey area and lake in the study
-and included with the survey results.</p>
-<p>In Switzerland the 15th percentile of survey results was 45p/100m with a 95% CI of 39p/100m to 53p/100m.  This is twice the proposed target value for beaches in
-the EU zone of 20p/100m. Surveys in the Meusse-Rhine delta from 2017 and 2018 are very similar to the results recorded in Switzerland. On a per country basis the median of
-survey results for the EU ranges from 14 (Romania) to 2,430 (France, bay of Biscay). The median was 133p/100m for all EU countries, close to the lower bound of the
-median survey value for Switzerland in 2020.</p>
-<div class="section" id="extreme-values">
-<h4>Extreme values<a class="headerlink" href="#extreme-values" title="Permalink to this headline">¶</a></h4>
-<p>The definition of extreme values as a matter of policy is not the intent of this document. Mathematically though a value could be defined against which all others
-are compared. Using the survey total of all objects does not take into account the regional differences and priorities, nor the variety of objects found. Approximately
-60% to 70% of the survey total can be described by 10 - 12 objects.</p>
-<p>In general survey results were higher in the Rhône survey area (RSA) than the other survey areas, both in terms of the median survey totals and the median totals of the most common
-objects. This despite having fewer total number of samples than the Linth and Aare survey areas. Differences among regions are common and related to the economic and
-industrial development of the catchment area.</p>
-<p>St. Gingolph has the highest median value of fragmented plastics and construction plastics of any other location with more than three samples in the SP. Similar results were recorded
-for St. Gingolph in the SLR. These objects can also be found in quantities that regularly exceed the national median on Bielersee and Brienzersee. Industrial pellets are found
-in all survey areas but high/extreme values have been recorded in Préverenges, Genève, Biel, Lugano and Brienze.</p>
-<p>See the section <a class="reference internal" href="threshold.html#threshhold"><span class="std std-ref"><em>Calculating baseline values</em></span></a> for sample calculations and a detailed explanation.</p>
-</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="the-structure-and-evolution-of-this-document">

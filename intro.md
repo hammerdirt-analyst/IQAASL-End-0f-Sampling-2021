@@ -45,7 +45,7 @@ _Map of survey locations. Locations grouped by survey area. April 2020 - May 202
 :::{image} resources/maps/opening_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
-:width: 1200px
+:width: 800px
 :align: center
 :::
 _There were 385 samples from 143 locations in 77 different municipalities._
@@ -102,6 +102,26 @@ See the section [_Transport an empirical approach_](transport)
 
  ---
 
+### Baseline and extreme values
+
+The proposed methods in the JRC Technical document _An Analysis of a pan-European 2012-2016 beach litter dataset_ are applied to the results from IQAASL. The baseline values are calculated for each survey area and the different methods of calculation are explained and included with the survey results.
+
+*Section 7.3 identifying extreme values: __left__ comparison of simulated survey results to observed values. __right__: distribution of simulated survey results with detail of IQR and expected $90^{th}$ percentile* 
+:::{image} resources/images/intro_baselines.png
+:alt: IQAASL and SLR charts
+:class: bg-primary mb-1
+:width: 800px
+:align: center
+:::
+*MOM - method of moments Scipy implementation, MLE - Maximum likelihood estimation, observed - the survey results* 
+<br></br>
+
+In general survey results were higher in the Rhône survey area (RSA) than the other survey areas, both in terms of the median survey totals and the median totals of the most common objects. 
+
+See the section [_Calculating baseline values_](threshhold) for sample calculations and a detailed explanation.
+
+ ---
+ 
 ### Sources
 
 Geographically a potential source can be determined based on the median survey result of an object in relation to its distance from a probable source. An example
@@ -117,35 +137,6 @@ of the items found and infrastructure and agriculture are 24% of the total. Obje
 make up another 10%. The relative amounts change for each survey area suggesting that local priorities may not always match regional priorities.
 
 See the section [_Code groups_](codegroups) for a complete definition of how the codes were grouped.
-
- ---
-
-### Baseline and extreme values
-
-A subset of the IQAASL data was used to calculate the median and a target value based on the methods proposed by the JRC Technical document. It is compared here
-to the subset of data used to generate the baseline value for EU neighboring states. The baseline values are calculated for each survey area and lake in the study
-and included with the survey results.
-
-In Switzerland the 15th percentile of survey results was 45p/100m with a 95% CI of 39p/100m to 53p/100m.  This is twice the proposed target value for beaches in
-the EU zone of 20p/100m. Surveys in the Meusse-Rhine delta from 2017 and 2018 are very similar to the results recorded in Switzerland. On a per country basis the median of
-survey results for the EU ranges from 14 (Romania) to 2,430 (France, bay of Biscay). The median was 133p/100m for all EU countries, close to the lower bound of the
-median survey value for Switzerland in 2020.
-
-#### Extreme values
-
-The definition of extreme values as a matter of policy is not the intent of this document. Mathematically though a value could be defined against which all others
-are compared. Using the survey total of all objects does not take into account the regional differences and priorities, nor the variety of objects found. Approximately
-60% to 70% of the survey total can be described by 10 - 12 objects.
-
-In general survey results were higher in the Rhône survey area (RSA) than the other survey areas, both in terms of the median survey totals and the median totals of the most common
-objects. This despite having fewer total number of samples than the Linth and Aare survey areas. Differences among regions are common and related to the economic and
-industrial development of the catchment area.
-
-St. Gingolph has the highest median value of fragmented plastics and construction plastics of any other location with more than three samples in the SP. Similar results were recorded
-for St. Gingolph in the SLR. These objects can also be found in quantities that regularly exceed the national median on Bielersee and Brienzersee. Industrial pellets are found
-in all survey areas but high/extreme values have been recorded in Préverenges, Genève, Biel, Lugano and Brienze.
-
-See the section [_Calculating baseline values_](threshhold) for sample calculations and a detailed explanation.
 
  ---
 
