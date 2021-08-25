@@ -107,8 +107,9 @@ See the section [_Transport an empirical approach_](transport)
 The proposed methods in the JRC Technical document _An Analysis of a pan-European 2012-2016 beach litter dataset_ are applied to the results from IQAASL. The baseline values are calculated for each survey area and the different methods of calculation are explained and included with the survey results.
 
 *Section 7.3 identifying extreme values: __left__ comparison of simulated survey results to observed values. __right__: distribution of simulated survey results with detail of IQR and expected $90^{th}$ percentile* 
+
 :::{image} resources/images/intro_baselines.png
-:alt: IQAASL and SLR charts
+:alt: x
 :class: bg-primary mb-1
 :width: 800px
 :align: center
