@@ -2,12 +2,18 @@
 
 The _Litter Surveyor_ is a summary and analyis of the litter surveys conducted in Switzerland since 2017 and how those results relate to the experiences of our European neighbors.
 
-In September 2020 the EU adopted a common benchmarking and assessment method using the results from beach litter surveys that were conducted  following a very similary protocol to the one used in Switzerland since 2017. The __definition of a common assessement method to compare results from beach litter surveys from one sampling period to the next__ is an important development that __equips administrators and stakeholders with an objective, standardized method to assess performance of litter mitigation strategies over time at a local level__. 
+## In this issue
 
-The _Litter Surveyor Report_ integrates the methods proposed by the EU as a set of tools to interpret current beach litter survey results from the national to the municipal level. 
+1. Comparing the results from the 2017 - 2018 Swiss Litter Report
+2. Implementing the EU recomendations for baseline calculations of beach litter survey results
+3. Implementing the principle of causality: what role for beach litter survey results
+4. A first look at litter surveys in les Alpes Valaisannes
+5. Summary and baseline calculations for all survey areas and lakes surveyed in 2020-2021
+
 
 :::{note}
-This is version 0.03 _The review draft: analysis and cartography_
+
+This is version 0.04 _The review draft: causality_
 
 __Content revisions__ I have received a few comments and will address them during this version. The numerical results will not change, unless somebody finds a mistake!
 
@@ -67,12 +73,11 @@ See the full report [_More and less trash since 2017_](slr-iqaasl)
 
 ### Principal of causality
 
-According to the Law for the protection of the environment the pincipal of causality is defined as
+According to the Law for the protection of the environment the pincipal of causality is defined as:
 
 > The person who initiates a measure prescribed by this Act shall bear the costs thereof.
 
-We use beach litter survey results to move op the causal chain to identify secondary sources of litter.
-
+We use beach litter survey results to move up the causal chain to identify secondary sources of litter.
 
 :::{image} resources/images/causality.jpeg
 :alt: causality map
@@ -82,7 +87,7 @@ We use beach litter survey results to move op the causal chain to identify secon
 :::
 *Identifying secondary sources of specific litter items. Consumers or handlers of plastic production pellets and probable fluvial route to survey location. Venoge and Thiele rivers.*
 
-See the section [_Principle of causation_](transport)
+See the section [_Principle of causality_](transport)
 
  ---
 
@@ -90,12 +95,12 @@ See the section [_Principle of causation_](transport)
 
 The proposed methods in the JRC Technical document _An Analysis of a pan-European 2012-2016 beach litter dataset_ are applied to the results from IQAASL. The baseline values are calculated for each survey area and examples are given of the the different methods to identify extreme values.
 
-*The median and the 95% confidence interval of the Linth, Aare and Rhône survey areas. The Ticino survey area is not included for lack of a sufficient quantity of surveys.* 
+*The difference between adjusted and normal boxplots. Adjusted = 1784 p/100m, unadjusted = 687 p/100m.* 
 
 :::{image} resources/images/intro_baselines.png
 :alt: IQAASL and SLR charts
 :class: bg-primary mb-1
-:width: 600px
+:width: 400px
 :align: center
 :::
 <br></br>
