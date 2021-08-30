@@ -65,12 +65,24 @@ See the full report [_More and less trash since 2017_](slr-iqaasl)
 
  ---
 
-### Local versus regional
+### Principal of causality
 
-Beach litter surveys are collections of many individual surveys. Here we compare the results of two different groups of items under two opposite land use conditions (see [_The land use profile_](luseprofile)). In one group the use case is well known and the connection to human behavior and the land use is uncontested: tobacco and snacks, this group is called _contributed_. The other group includes fragmented objects of different densities, specific objects less than 5mm and construction plastics, none of which show any association to measurable land use features, this group is called distributed
+According to the Law for the protection of the environment the pincipal of causality is defined as
+
+> The person who initiates a measure prescribed by this Act shall bear the costs thereof.
+
+We use beach litter survey results to move op the causal chain to identify secondary sources of litter.
 
 
-See the section [_Transport an empirical approach_](transport)
+:::{image} resources/images/causality.jpeg
+:alt: causality map
+:class: bg-primary mb-1
+:width: 1200px
+:align: center
+:::
+*Identifying secondary sources of specific litter items. Consumers or handlers of plastic production pellets and probable fluvial route to survey location. Venoge and Thiele rivers.*
+
+See the section [_Principle of causation_](transport)
 
  ---
 
@@ -78,15 +90,14 @@ See the section [_Transport an empirical approach_](transport)
 
 The proposed methods in the JRC Technical document _An Analysis of a pan-European 2012-2016 beach litter dataset_ are applied to the results from IQAASL. The baseline values are calculated for each survey area and examples are given of the the different methods to identify extreme values.
 
-*Section 7.3 identifying extreme values: __left__ comparison of simulated survey results to observed values. __right__: distribution of simulated survey results with detail of IQR and expected $90^{th}$ percentile* 
+*The median and the 95% confidence interval of the Linth, Aare and Rhône survey areas. The Ticino survey area is not included for lack of a sufficient quantity of surveys.* 
 
 :::{image} resources/images/intro_baselines.png
 :alt: IQAASL and SLR charts
 :class: bg-primary mb-1
-:width: 1200px
+:width: 600px
 :align: center
 :::
-*MOM - method of moments Scipy implementation, MLE - Maximum likelihood estimation, observed - the survey results* 
 <br></br>
 
 See the section [_Calculating baseline values_](threshhold) for sample calculations and a detailed explanation.
