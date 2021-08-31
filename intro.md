@@ -12,17 +12,16 @@ The _Litter Surveyor_ is a summary and analyis of the litter surveys conducted i
 
 
 :::{note}
+This is version 0.5 _The review draft: causality_
 
-This is version 0.04 _The review draft: causality_
+__Content revisions__  are on ongoing if you were going to contribute now is the time. We will be asking for participant information and photos soon -- like the end of the week!
 
-__Content revisions__ I have received a few comments and will address them during this version. The numerical results will not change, unless somebody finds a mistake!
+__To do__:
 
-We are adding the following during this review:
-
-* lake and city results
-* images
-
-and wrapping up the summary
+1. Finalize cartography
+2. Finish executive summary
+3. Finish image selection
+4. Code revision
 
 contact roger@hammerdirt.ch
 :::
@@ -95,12 +94,12 @@ See the section [_Principle of causality_](transport)
 
 The proposed methods in the JRC Technical document _An Analysis of a pan-European 2012-2016 beach litter dataset_ are applied to the results from IQAASL. The baseline values are calculated for each survey area and examples are given of the the different methods to identify extreme values.
 
-*The difference between adjusted and normal boxplots. Adjusted = 1784 p/100m, unadjusted = 687 p/100m.* 
+*Is this alot of trash to find at the beach?* 
 
-:::{image} resources/images/intro_baselines.png
+:::{image} resources/codegroups/images/onethous40026pcs100m.jpg
 :alt: IQAASL and SLR charts
 :class: bg-primary mb-1
-:width: 400px
+:width: 800px
 :align: center
 :::
 <br></br>
@@ -129,6 +128,9 @@ system has been in use for quite some time in the research community. Together t
 The surveyor uses this application [plagespropres](https://www.plagespropres.ch/) to submit data and the report is processed here: [end of sampling repo](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021).
 
 Not all tasks have been automated. Land use data is calculated using QGIS and the method to automate this process has not been developed.
+
+ ---
+ 
 
 # Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
 
