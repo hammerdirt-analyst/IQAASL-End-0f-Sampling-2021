@@ -49,7 +49,7 @@ See the section [_All Survey areas_](allsurveys) for complete details.
 
  ---
 
-### Trends from 2017
+## Trends from 2017
 
 **When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
 show that in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
@@ -70,7 +70,7 @@ See the full report [_More and less trash since 2017_](slr-iqaasl)
 
  ---
 
-### Principal of causality
+## Principal of causality
 
 According to the Law for the protection of the environment the pincipal of causality is defined as:
 
@@ -90,7 +90,7 @@ See the section [_Principle of causality_](transport)
 
  ---
 
-### Baseline and extreme values
+## Baseline and extreme values
 
 The proposed methods in the JRC Technical document _An Analysis of a pan-European 2012-2016 beach litter dataset_ are applied to the results from IQAASL. The baseline values are calculated for each survey area and examples are given of the the different methods to identify extreme values.
 
@@ -108,7 +108,7 @@ See the section [_Calculating baseline values_](threshhold) for sample calculati
 
  ---
  
-### Sources
+## Sources
 
 Economically the sources are determined by grouping the codes assigned to the objects according to use or description. Combined food and tobacco items make up 36% of the items found and infrastructure and agriculture are 24% of the total. Objects originating from waste water facilities or objects less than five millimeters make up another 10%. The relative amounts change for each survey area suggesting that local priorities may not always match regional priorities.
 
@@ -116,7 +116,7 @@ See the section [_Code groups_](codegroups) for a complete definition of how the
 
  ---
 
-### The structure and evolution of this document
+## The structure and evolution of this document
 
 The purpose is to provide a repeatable method and process to collect and evaluate beach-litter data at a scale that is appropriate to Switzerland and exploitable by
 all stakeholders. The method and process need to reflect current advances in the field, the needs of stakeholders and faithfully report the survey results as collected
@@ -132,6 +132,6 @@ Not all tasks have been automated. Land use data is calculated using QGIS and th
  ---
  
 
-# Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
+## Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
 
 IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale **litter surveys** are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that contribute.
