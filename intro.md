@@ -10,7 +10,6 @@ The _Litter Surveyor_ is a summary and analyis of the litter surveys conducted i
 4. A first look at litter surveys in les Alpes Valaisannes
 5. Summary and baseline calculations for all survey areas and lakes surveyed in 2020-2021
 
-
 :::{note}
 This is version 0.5 _The review draft: causality_
 
