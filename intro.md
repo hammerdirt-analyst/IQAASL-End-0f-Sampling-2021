@@ -15,14 +15,6 @@ This is version 0.5 _The review draft: causality_
 
 __Content revisions__  are on ongoing if you were going to contribute now is the time. We will be asking for participant information and photos soon -- like the end of the week!
 
-__To do__:
-
-1. Finalize cartography
-2. Finish executive summary
-3. Finish image selection
-4. Code revision
-
-contact roger@hammerdirt.ch
 :::
 
 ## Summary of all surveys
