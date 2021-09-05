@@ -394,18 +394,15 @@
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="c1"># home brew utitilties</span>
-<span class="kn">import</span> <span class="nn">resources.utility_functions</span> <span class="k">as</span> <span class="nn">ut</span>
-<span class="kn">import</span> <span class="nn">resources.abundance_classes</span> <span class="k">as</span> <span class="nn">ac</span>
-<span class="kn">import</span> <span class="nn">resources.chart_kwargs</span> <span class="k">as</span> <span class="nn">ck</span>
-
 <span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
+<span class="kn">import</span> <span class="nn">resources.utility_functions</span> <span class="k">as</span> <span class="nn">ut</span>
+<span class="kn">import</span> <span class="nn">resources.chart_kwargs</span> <span class="k">as</span> <span class="nn">ck</span>
 
 <span class="c1"># images and display</span>
 <span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">IPython</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span>
-
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 
 <span class="c1"># set some parameters:</span>
 <span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -457,7 +454,7 @@
                   <span class="s1">&#39;code&#39;</span>
                  <span class="p">]</span>
 
-<span class="c1"># these are default</span>
+<span class="c1"># the default column name for all aggregated data</span>
 <span class="n">top_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;All survey areas&quot;</span><span class="p">]</span>
 
 <span class="c1"># add the folder to the directory tree:</span>
@@ -472,6 +469,7 @@
 <span class="c1"># set the index of the beach data to location slug</span>
 <span class="n">dfBeaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<span class="c1"># map location slug to the proper city name</span>
 <span class="n">city_map</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
 
 <span class="c1"># map locations to feature names</span>
@@ -480,7 +478,8 @@
 <span class="c1"># map water_name_slug to water_name</span>
 <span class="n">wname_wname</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="p">[[</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span><span class="s1">&#39;water_name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 <span class="n">wname_wname</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        
+
+<span class="c1"># a convenenience function to test Spearmans Rho on subssets of the data</span>
 <span class="k">def</span> <span class="nf">make_plot_with_spearmans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gets Spearmans ranked correlation and make A/B scatter plot. Must proived a</span>
 <span class="sd">    matplotlib axis object.</span>
@@ -490,6 +489,7 @@
     
     <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">corr</span><span class="p">,</span> <span class="n">a_p</span>
 
+<span class="c1"># make any adjustments to code definitions here:</span>
 <span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># these descriptions need to be shortened for display</span>
@@ -510,7 +510,7 @@
 <span class="c1"># make a map to the code descriptions</span>
 <span class="n">code_description_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">description</span>
 
-<span class="c1"># make a map to the code descriptions</span>
+<span class="c1"># make a map to the code materials</span>
 <span class="n">code_material_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">material</span>
 </pre></div>
 </div>
@@ -536,7 +536,7 @@
 </div>
 <div class="section" id="sample-locations-and-land-use-characteristics">
 <h2><span class="section-number">9.1. </span>Sample locations and land use characteristics<a class="headerlink" href="#sample-locations-and-land-use-characteristics" title="Permalink to this headline">¶</a></h2>
-<p>Intitially at least two regions on each lake were designated to recieve monthly samples:</p>
+<p>Intitially at least two locations on each lake were designated to recieve monthly samples:</p>
 <ol class="simple">
 <li><p>A location with public access closest to the primary river source</p></li>
 <li><p>A location with public access closest to the primary river drainage</p></li>
@@ -549,11 +549,15 @@
 
 <span class="c1"># this is the aggregated survey data that is being used</span>
 <span class="n">fd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;resources/checked_sdata_eos_2020_21.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># make a unique identifier for each location and date combination</span>
 <span class="n">fd</span><span class="p">[</span><span class="s1">&#39;loc_dates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">fd</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+
+<span class="c1"># make the date time stamp</span>
 <span class="n">fd</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
 
-<span class="n">material_totals</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;material&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">code_totals</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="c1"># get the code totals</span>
+<span class="n">code_totals</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
 
 <span class="c1"># cumulative statistics for each code</span>
 <span class="n">code_totals</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">code_totals</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">code_totals</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -563,7 +567,7 @@
 <span class="n">code_totals</span><span class="p">[</span><span class="s1">&#39;material&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">code_totals</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_material_map</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">code_totals</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">code_totals</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 
-<span class="c1"># daily survey totals</span>
+<span class="c1"># daily survey totals by loc_date</span>
 <span class="n">dt_all</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;location&#39;</span><span class="p">,</span><span class="n">this_level</span><span class="p">,</span> <span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
 
 <span class="c1"># gather the municpalities and the population:</span>
@@ -594,7 +598,7 @@
 <span class="n">fd_n_locs</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="c1"># number of cities</span>
 <span class="n">fd_n_munis</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fd_pop_map</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="c1"># populations</span>
+<span class="c1"># population</span>
 <span class="n">fd_effected_population</span> <span class="o">=</span> <span class="n">fd_pop_map</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="c1"># list of locations</span>
 <span class="n">fd_locs</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -622,9 +626,15 @@
 <li><p>Rhône: Rhône</p></li>
 <li><p>Ticino/Cerisio : Ticino, Lago di Lugano, Laggo Maggiore</p></li>
 </ol>
-<p>The land use profile is the distribution of the number of surveys completed at the different land use rates. The land use is reported as the percent of total area attributed to each land use category within a 1500m radius of each survey location.</p>
-<p>Streets are reported as the total number of kilometers of streets within the 1500m radius. Intersects is also an ordinal ranking of the number of rivers/canals that intersect a lake within 1500m of the survey location.</p>
-<p>The ratio of the number of samples completed at the different land use profiles gives a good objective indicator of the envrionmental and economic conditions the samples were taken.</p>
+<p>The land use profile is the percent of total area attributed to each land use category within a 1500m radius of each survey location.</p>
+<ol class="simple">
+<li><p>% of land attributed to buildings</p></li>
+<li><p>% of land attributed to agriculture</p></li>
+<li><p>% of land attributed to forestry</p></li>
+<li><p>% of land attributed to recreation</p></li>
+</ol>
+<p>Streets are reported as the total number of kilometers of streets within the 1500m radius. Intersects is an ordinal ranking of the number of rivers/canals that intersect a lake within 1500m of the survey location.</p>
+<p>The ratio of the number of samples completed at the different land use profiles is an objective indicator of the envrionmental and economic conditions the samples were taken.</p>
 <p>See the section <a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref"><em>Land use features</em></span></a> for more details</p>
 <p><em>Distribution of land use characteristics</em></p>
 <div class="cell tag_hide-input docutils container">
@@ -632,10 +642,6 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the ratio of samples with respect to the different land use characteristics for each survey area</span>
 <span class="c1"># the data to use</span>
 <span class="n">dt_nw</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">use_these_cols</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
-
-<span class="c1"># a place to store the cumulative distributions for the different survey areas</span>
-<span class="n">ecdfs</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:{}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">}</span>
-<span class="n">ecdfs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;All surveys&quot;</span><span class="p">:{}})</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
 
@@ -646,31 +652,27 @@
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">the_data</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">dt_nw</span><span class="p">[</span><span class="n">dt_nw</span><span class="p">[</span><span class="n">this_level</span><span class="p">]</span> <span class="o">==</span> <span class="n">element</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-        <span class="n">ecdfs</span><span class="p">[</span><span class="n">element</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">n</span><span class="p">:</span><span class="n">the_data</span><span class="p">})</span>
-        
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">the_data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">the_data</span><span class="o">.</span><span class="n">y</span>   
-
-        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">comp_labels</span><span class="p">[</span><span class="n">element</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">comp_palette</span><span class="p">[</span><span class="n">comp_labels</span><span class="p">[</span><span class="n">element</span><span class="p">]])</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">the_data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">the_data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">comp_labels</span><span class="p">[</span><span class="n">element</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">comp_palette</span><span class="p">[</span><span class="n">comp_labels</span><span class="p">[</span><span class="n">element</span><span class="p">]])</span>
     
     <span class="c1"># get the dist for all here</span>
     <span class="n">a_all_surveys</span> <span class="o">=</span>  <span class="n">ECDF</span><span class="p">(</span><span class="n">dt_nw</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-    <span class="n">ecdfs</span><span class="p">[</span><span class="s2">&quot;All surveys&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">n</span><span class="p">:</span><span class="n">a_all_surveys</span><span class="p">})</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">a_all_surveys</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">a_all_surveys</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;All surveys&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
     
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a_all_surveys</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a_all_surveys</span><span class="o">.</span><span class="n">y</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;All surveys&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+    <span class="c1"># the 50th percentile</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-.&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;50</span><span class="si">% o</span><span class="s2">f samples&quot;</span><span class="p">)</span>
     
     <span class="c1"># format the % of total on the xaxis:</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>            
-            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percent of samples&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Ratio of samples&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">))</span>        
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">pass</span>   
-      
+        <span class="k">pass</span>
+    
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
     <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>       
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
@@ -682,7 +684,7 @@
 </div>
 </div>
 <p>The survey locations in the Rhône survey area (RSA) and Linth/Limmat survey area (LSA) had the greatest median amount of land attributed to buildings, 47% and 40% respectively and the least amount attributed to woods, 5% and 8%.</p>
-<p>The Aare survey area (ASA) had the lowest median amount of land attributed to buildings, 16% and the greatest amount of land attributed to aggriculture, 30%. The amount of land attributed to recreation represents sports fields, public beaches and other public gathering places. When compared to the allocation rates of other attributes this value is comparable between the survey areas.</p>
+<p>The Aare survey area (ASA) had the lowest median amount of land attributed to buildings, 16% and the greatest amount of land attributed to aggriculture, 30%. The amount of land attributed to recreation represents sports fields, public beaches and other public gathering places.</p>
 </div>
 <div class="section" id="cumulative-totals-by-survey-area">
 <h3><span class="section-number">9.1.2. </span>Cumulative totals by survey area<a class="headerlink" href="#cumulative-totals-by-survey-area" title="Permalink to this headline">¶</a></h3>
@@ -690,7 +692,6 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># map the qauntity to the dimensional data</span>
 <span class="n">q_map</span> <span class="o">=</span> <span class="n">dt_all</span><span class="p">[[</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;quantity&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;loc_date&#39;</span><span class="p">)</span>
-
 <span class="n">fd_dims</span><span class="p">[</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd_dims</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">q_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">x</span><span class="p">],</span> <span class="s1">&#39;quantity&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># drop the dims that did not match</span>
@@ -722,14 +723,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">agg_caption</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*</span><span class="si">{</span><span class="n">top_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">: table of results. The cumulative weights and measures for each survey area and the.*</span>
+<span class="s2">*</span><span class="si">{</span><span class="n">top_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">: table of results. The cumulative weights and measures for each survey area.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">agg_caption</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>All survey areas: table of results. The cumulative weights and measures for each survey area and the.</em></p>
+<p><em>All survey areas: table of results. The cumulative weights and measures for each survey area.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -767,7 +768,7 @@
 </div>
 <div class="section" id="survey-results-all-objects">
 <h2><span class="section-number">9.2. </span>Survey results all objects<a class="headerlink" href="#survey-results-all-objects" title="Permalink to this headline">¶</a></h2>
-<p>Survey totals by date and monthly median for all surveys. The empirical cumulative distribution of survey results for each survey area.</p>
+<p>Survey totals by date, the monthly median values and the empirical cumulative distribution of all the survey results results for each survey area.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the surveys to chart</span>
@@ -895,7 +896,7 @@
 <span class="c1"># format the output for printing:</span>
 <span class="n">not_formatted</span> <span class="o">=</span> <span class="n">combined_summary</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">combined_summary</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">combined_summary</span><span class="p">[</span><span class="n">x</span><span class="p">])))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">combined_summary</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-<span class="n">combined_summary</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">desc_2020</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">not_formatted</span><span class="p">)</span> <span class="p">))</span>
+<span class="n">combined_summary</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">desc_2020</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">not_formatted</span><span class="p">)))</span>
 
 <span class="c1"># make tables</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -919,10 +920,10 @@
 <span class="n">data</span> <span class="o">=</span> <span class="n">fd_mat_t</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="c1"># column names for display</span>
-<span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;material&#39;</span><span class="p">:</span><span class="s1">&#39;Material&#39;</span><span class="p">,</span><span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f total&#39;</span><span class="p">:</span><span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f total&#39;</span><span class="p">}</span>
+<span class="n">these_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Material&#39;</span><span class="p">,</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f total&#39;</span><span class="p">]</span>
 
-<span class="n">a_table</span> <span class="o">=</span> <span class="n">axtwo</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.4</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span><span class="mf">.3</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">the_material_table_data</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">a_table</span> <span class="o">=</span> <span class="n">axtwo</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">these_cols</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.4</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span><span class="mf">.3</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">the_material_table_data</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">these_cols</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
@@ -943,14 +944,14 @@
 </div>
 <div class="section" id="the-most-common-objects">
 <h2><span class="section-number">9.3. </span>The most common objects<a class="headerlink" href="#the-most-common-objects" title="Permalink to this headline">¶</a></h2>
-<p>The most common objects are <strong>the ten most abundant by quantity found</strong> AND/OR <strong>any object that was indentified in at least 50% of all the surveys</strong>.</p>
+<p>The most common objects are <strong>the ten most abundant objects by quantity found</strong> AND/OR <strong>any object that was indentified in at least 50% of all the surveys</strong>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the top ten by quantity</span>
 <span class="n">most_abundant</span> <span class="o">=</span> <span class="n">code_totals</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="c1"># the most common</span>
-<span class="n">most_common</span> <span class="o">=</span> <span class="n">code_totals</span><span class="p">[</span><span class="n">code_totals</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">most_common</span> <span class="o">=</span> <span class="n">code_totals</span><span class="p">[</span><span class="n">code_totals</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">49.999</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># merge with most_common and drop duplicates</span>
 <span class="n">m_common</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">most_abundant</span><span class="p">,</span> <span class="n">most_common</span><span class="p">])</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -960,9 +961,9 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">rb_string</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="si">{</span><span class="n">top_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> most common objects: fail rate &gt; </span><span class="si">{</span><span class="n">a_fail_rate</span><span class="si">}</span><span class="s2">%  and/or top ten by quantity.</span>
+<span class="si">{</span><span class="n">top_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> most common objects: fail rate &gt;/= </span><span class="si">{</span><span class="n">a_fail_rate</span><span class="si">}</span><span class="s2">%  and/or top ten by quantity.</span>
 
-<span class="s2">*Combined, the ten most abundant objects represent </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% of all objects found.*</span>
+<span class="s2">*Combined, the most abundant objects represent </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% of all objects found.*</span>
 
 <span class="s2">Note : </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> = median survey value.</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -971,8 +972,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>All survey areas most common objects: fail rate &gt; 50%  and/or top ten by quantity.</p>
-<p><em>Combined, the ten most abundant objects represent 68% of all objects found.</em></p>
+<p>All survey areas most common objects: fail rate &gt;/= 50%  and/or top ten by quantity.</p>
+<p><em>Combined, the most abundant objects represent 68% of all objects found.</em></p>
 <p>Note : p/100m = median survey value.</p>
 </div>
 </div>
@@ -1012,7 +1013,6 @@
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><em>All survey areas most common objects: median p/100m</em></p>
-<p><em>All survey areas and samples</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1021,6 +1021,7 @@
 <span class="c1"># a common aggregation</span>
 <span class="n">agg_pcs_quantity</span> <span class="o">=</span> <span class="p">{</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">}</span>
 
+<span class="c1"># aggregate the code totals by survey and then get the median value per survey</span>
 <span class="n">m_common_st</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 <span class="n">m_common_ft</span> <span class="o">=</span> <span class="n">m_common_st</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 
@@ -1244,11 +1245,10 @@
 <li><p><strong>plastic fragments</strong>: foam and plastic fragments of indeterminate origin and use</p></li>
 <li><p><strong>personal items</strong>: accessories, hygiene and clothing related</p></li>
 </ul>
-<p>See the annex for the complete list of objects identified, includes category and group classification</p>
+<p>See the annex for the complete list of objects identified, includes description and group classification. The section <a class="reference internal" href="code_groups.html#codegroups"><span class="std std-ref">Code groups</span></a> describes each code group in detail and provides a comprehensive list of all objects in a group.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><br></br>
-All survey areas utility of objects found: % of total by water feature. Fragmented objects with no clear identification remain classified by size</p>
+<p>All survey areas utility of objects found % of total by water feature. Fragmented objects with no clear identification remain classified by size:</p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1277,16 +1277,14 @@ All survey areas utility of objects found: % of total by water feature. Fragment
 <span class="n">data_table</span> <span class="o">=</span> <span class="n">cg_t</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">)</span>
 
 <span class="c1"># add a column for the survey area totals and the national totals:</span>
-<span class="c1"># the aggregated totals for the survey area</span>
-
 <span class="c1"># the median value is always calculated from the survey result:</span>
 <span class="n">sa_cg</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 
 <span class="c1"># the median value is always calculated from the survey result:</span>
-<span class="n">sa_cg</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">sa_cg</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 
 <span class="c1"># aggregate all data</span>
-<span class="n">fd_cg</span> <span class="o">=</span> <span class="n">sa_cg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">fd_cg</span> <span class="o">=</span> <span class="n">sa_cg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 
 <span class="c1"># add percent of total column</span>
 <span class="n">fd_cg</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fd_cg</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">fd_cg</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -1298,7 +1296,7 @@ All survey areas utility of objects found: % of total by water feature. Fragment
 <span class="n">fd_cg</span><span class="p">[</span><span class="n">top_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">fd_cg</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">fd_cg</span><span class="p">[</span><span class="n">top_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">comp_labels</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">comp_labels</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
@@ -1306,7 +1304,7 @@ All survey areas utility of objects found: % of total by water feature. Fragment
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span> <span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap2</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">},</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.0%&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 
 <span class="n">axone</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">axone</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labeltop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axone</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labeltop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axone</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axone</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -1322,16 +1320,14 @@ All survey areas utility of objects found: % of total by water feature. Fragment
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cg_medpcm</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">&lt;br&gt;&lt;/br&gt;</span>
-<span class="si">{</span><span class="n">top_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> utility of objects found: median </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">. Fragmented objects with no clear identification remain classified by size</span>
+<span class="si">{</span><span class="n">top_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> utility of objects found median </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">. Fragmented objects with no clear identification remain classified by size:</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">cg_medpcm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><br></br>
-All survey areas utility of objects found: median p/100m. Fragmented objects with no clear identification remain classified by size</p>
+<p>All survey areas utility of objects found median p/100m. Fragmented objects with no clear identification remain classified by size:</p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1348,7 +1344,7 @@ All survey areas utility of objects found: median p/100m. Fragmented objects wit
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">a</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># format for display</span>
-<span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">comp_labels</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">comp_labels</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
@@ -1356,7 +1352,7 @@ All survey areas utility of objects found: median p/100m. Fragmented objects wit
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span> <span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap2</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">},</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 
 <span class="n">axone</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">axone</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labeltop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axone</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labeltop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axone</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axone</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -1411,7 +1407,6 @@ All survey areas utility of objects found: median p/100m. Fragmented objects wit
 <span class="n">not_formatted</span> <span class="o">=</span> <span class="n">combined_summary</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">combined_summary</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">combined_summary</span><span class="p">[</span><span class="n">x</span><span class="p">])))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">combined_summary</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">combined_summary</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">desc_2020</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">not_formatted</span><span class="p">)</span> <span class="p">))</span>
-
 
 <span class="c1"># months locator, can be confusing</span>
 <span class="c1"># https://matplotlib.org/stable/api/dates_api.html</span>
@@ -1480,7 +1475,6 @@ All survey areas utility of objects found: median p/100m. Fragmented objects wit
 <span class="n">r_mc</span><span class="p">[</span><span class="s1">&#39;p/50m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_mc</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">r_mc</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols_to_use</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-
 <span class="n">data</span><span class="o">=</span><span class="n">r_mc</span><span class="p">[[</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span><span class="s2">&quot;Quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">]]</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.8</span><span class="p">))</span>
@@ -1508,7 +1502,7 @@ All survey areas utility of objects found: median p/100m. Fragmented objects wit
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-09-03.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-09-05.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
 </div>
 </div>
@@ -1649,6 +1643,1733 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
 <div class="cell_output docutils container">
 <p>For the period between 2020-03 and 2021-05, 54,744 objects were removed and identified in the course of 386 surveys. Those surveys were conducted at 143 different locations. There are 77 different municipalities represented in these results with a combined population of approximately 1,735,991.</p>
 </div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">complete_inventory</span> <span class="o">=</span> <span class="n">code_totals</span><span class="p">[</span><span class="n">code_totals</span><span class="o">.</span><span class="n">quantity</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">][[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f total&#39;</span><span class="p">,</span><span class="s1">&#39;fail rate&#39;</span><span class="p">]]</span>
+<span class="n">complete_inventory</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>item</th>
+      <th>groupname</th>
+      <th>quantity</th>
+      <th>% of total</th>
+      <th>fail rate</th>
+    </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>G27</th>
+      <td>Cigarette filters</td>
+      <td>tobacco</td>
+      <td>8485</td>
+      <td>15.50</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <th>Gfrags</th>
+      <td>Fragmented plastics</td>
+      <td>plastic pieces</td>
+      <td>7400</td>
+      <td>13.52</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>Gfoam</th>
+      <td>Expanded polystyrene</td>
+      <td>infrastructure</td>
+      <td>5563</td>
+      <td>10.16</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>G30</th>
+      <td>Food wrappers; candy, snacks</td>
+      <td>food and drink</td>
+      <td>3325</td>
+      <td>6.07</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>G67</th>
+      <td>Industrial sheeting</td>
+      <td>agriculture</td>
+      <td>2534</td>
+      <td>4.63</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <th>G200</th>
+      <td>Glass drink bottles, pieces</td>
+      <td>food and drink</td>
+      <td>2136</td>
+      <td>3.90</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>G112</th>
+      <td>Industrial pellets (nurdles)</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>1968</td>
+      <td>3.59</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>G74</th>
+      <td>Insulation: includes spray foams</td>
+      <td>infrastructure</td>
+      <td>1702</td>
+      <td>3.11</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>G95</th>
+      <td>Cotton bud/swab sticks</td>
+      <td>waste water</td>
+      <td>1406</td>
+      <td>2.57</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>G117</th>
+      <td>Expanded foams &lt; 5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>1209</td>
+      <td>2.21</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>G89</th>
+      <td>Plastic construction waste</td>
+      <td>infrastructure</td>
+      <td>992</td>
+      <td>1.81</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>G941</th>
+      <td>Packaging films nonfood or unknown</td>
+      <td>packaging non food</td>
+      <td>894</td>
+      <td>1.63</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>G178</th>
+      <td>Metal bottle caps and lids</td>
+      <td>food and drink</td>
+      <td>700</td>
+      <td>1.28</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>G25</th>
+      <td>Tobacco; plastic packaging, containers</td>
+      <td>tobacco</td>
+      <td>649</td>
+      <td>1.19</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>G21</th>
+      <td>Drink lids</td>
+      <td>food and drink</td>
+      <td>623</td>
+      <td>1.14</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <th>G106</th>
+      <td>Plastic fragments angular &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>592</td>
+      <td>1.08</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>G98</th>
+      <td>Diapers - wipes</td>
+      <td>waste water</td>
+      <td>588</td>
+      <td>1.07</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>G24</th>
+      <td>Plastic lid rings</td>
+      <td>food and drink</td>
+      <td>541</td>
+      <td>0.99</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>G177</th>
+      <td>Foil wrappers, aluminum foil</td>
+      <td>food and drink</td>
+      <td>521</td>
+      <td>0.95</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>G10</th>
+      <td>Food containers single use foamed or plastic</td>
+      <td>food and drink</td>
+      <td>448</td>
+      <td>0.82</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>G23</th>
+      <td>Lids unidentified</td>
+      <td>packaging non food</td>
+      <td>423</td>
+      <td>0.77</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>G156</th>
+      <td>Paper fragments</td>
+      <td>packaging non food</td>
+      <td>420</td>
+      <td>0.77</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>G35</th>
+      <td>Straws and stirrers</td>
+      <td>food and drink</td>
+      <td>419</td>
+      <td>0.77</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>G70</th>
+      <td>Shotgun cartridges</td>
+      <td>recreation</td>
+      <td>391</td>
+      <td>0.71</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>G31</th>
+      <td>Lollypop sticks</td>
+      <td>food and drink</td>
+      <td>381</td>
+      <td>0.70</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <th>G73</th>
+      <td>Foamed items &amp; pieces (non packaging/insulatio...</td>
+      <td>recreation</td>
+      <td>335</td>
+      <td>0.61</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>G33</th>
+      <td>Lids for togo drinks plastic</td>
+      <td>food and drink</td>
+      <td>328</td>
+      <td>0.60</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>G32</th>
+      <td>Toys and party favors</td>
+      <td>recreation</td>
+      <td>320</td>
+      <td>0.58</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>G904</th>
+      <td>Fireworks; rocket caps, exploded parts &amp; packa...</td>
+      <td>recreation</td>
+      <td>301</td>
+      <td>0.55</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>G3</th>
+      <td>Plastic bags, carier bags</td>
+      <td>packaging non food</td>
+      <td>285</td>
+      <td>0.52</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>G22</th>
+      <td>Lids for chemicals, detergents (non-food)</td>
+      <td>infrastructure</td>
+      <td>257</td>
+      <td>0.47</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>G211</th>
+      <td>Other medical (swabs, bandaging, adhesive plas...</td>
+      <td>personal items</td>
+      <td>256</td>
+      <td>0.47</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>G922</th>
+      <td>Labels, bar codes</td>
+      <td>packaging non food</td>
+      <td>252</td>
+      <td>0.46</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>G66</th>
+      <td>Straps/bands;  hard, plastic package fastener</td>
+      <td>infrastructure</td>
+      <td>248</td>
+      <td>0.45</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>G100</th>
+      <td>Medical; containers/tubes/ packaging</td>
+      <td>waste water</td>
+      <td>244</td>
+      <td>0.45</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>G923</th>
+      <td>Tissue, toilet paper, napkins, paper towels</td>
+      <td>personal items</td>
+      <td>241</td>
+      <td>0.44</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>G103</th>
+      <td>Plastic fragments rounded &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>238</td>
+      <td>0.43</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G921</th>
+      <td>Ceramic tile and pieces</td>
+      <td>infrastructure</td>
+      <td>231</td>
+      <td>0.42</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G96</th>
+      <td>Sanitary-pads/tampons, applicators</td>
+      <td>waste water</td>
+      <td>215</td>
+      <td>0.39</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>G50</th>
+      <td>String &lt; 1cm</td>
+      <td>recreation</td>
+      <td>205</td>
+      <td>0.37</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>G153</th>
+      <td>Cups, food containers, wrappers (paper)</td>
+      <td>food and drink</td>
+      <td>201</td>
+      <td>0.37</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>G125</th>
+      <td>Balloons and balloon sticks</td>
+      <td>recreation</td>
+      <td>170</td>
+      <td>0.31</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>G91</th>
+      <td>Biomass holder</td>
+      <td>waste water</td>
+      <td>162</td>
+      <td>0.30</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>G159</th>
+      <td>Corks</td>
+      <td>food and drink</td>
+      <td>162</td>
+      <td>0.30</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>G38</th>
+      <td>Coverings; plastic packaging, sheeting for pro...</td>
+      <td>unclassified</td>
+      <td>160</td>
+      <td>0.29</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G940</th>
+      <td>Foamed EVA for crafts and sports</td>
+      <td>recreation</td>
+      <td>158</td>
+      <td>0.29</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>G208</th>
+      <td>Glass or ceramic fragments &gt; 2.5 cm</td>
+      <td>unclassified</td>
+      <td>145</td>
+      <td>0.26</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G186</th>
+      <td>Industrial scrap</td>
+      <td>infrastructure</td>
+      <td>141</td>
+      <td>0.26</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>G213</th>
+      <td>Paraffin wax</td>
+      <td>recreation</td>
+      <td>138</td>
+      <td>0.25</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G165</th>
+      <td>Ice cream sticks, toothpicks, chopsticks</td>
+      <td>food and drink</td>
+      <td>126</td>
+      <td>0.23</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>G204</th>
+      <td>Bricks, pipes not plastic</td>
+      <td>infrastructure</td>
+      <td>125</td>
+      <td>0.23</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G155</th>
+      <td>Fireworks paper tubes and fragments</td>
+      <td>recreation</td>
+      <td>124</td>
+      <td>0.23</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G93</th>
+      <td>Cable ties; steggel, zip, zap straps</td>
+      <td>infrastructure</td>
+      <td>121</td>
+      <td>0.22</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>G149</th>
+      <td>Paper packaging</td>
+      <td>packaging non food</td>
+      <td>121</td>
+      <td>0.22</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G152</th>
+      <td>Cigarette boxes, tobacco related paper/cardboard</td>
+      <td>tobacco</td>
+      <td>120</td>
+      <td>0.22</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G90</th>
+      <td>Plastic flower pots</td>
+      <td>agriculture</td>
+      <td>119</td>
+      <td>0.22</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>G137</th>
+      <td>Clothing, towels &amp; rags</td>
+      <td>personal items</td>
+      <td>118</td>
+      <td>0.22</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G908</th>
+      <td>Tape; electrical, insulating</td>
+      <td>infrastructure</td>
+      <td>117</td>
+      <td>0.21</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>G203</th>
+      <td>Tableware ceramic or glass, cups, plates, pieces</td>
+      <td>food and drink</td>
+      <td>115</td>
+      <td>0.21</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>G936</th>
+      <td>Sheeting ag. greenhouse film</td>
+      <td>agriculture</td>
+      <td>110</td>
+      <td>0.20</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G34</th>
+      <td>Cutlery, plates and trays</td>
+      <td>food and drink</td>
+      <td>109</td>
+      <td>0.20</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>G905</th>
+      <td>Hair clip,  hair ties, personal accessories pl...</td>
+      <td>personal items</td>
+      <td>105</td>
+      <td>0.19</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>G198</th>
+      <td>Other metal pieces &lt; 50cm</td>
+      <td>infrastructure</td>
+      <td>104</td>
+      <td>0.19</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>G914</th>
+      <td>Paperclips, clothespins, plastic utility items</td>
+      <td>personal items</td>
+      <td>99</td>
+      <td>0.18</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G131</th>
+      <td>Rubber bands</td>
+      <td>personal items</td>
+      <td>94</td>
+      <td>0.17</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>G191</th>
+      <td>Wire and mesh</td>
+      <td>agriculture</td>
+      <td>90</td>
+      <td>0.16</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G28</th>
+      <td>Pens, lids, mechanical pencils etc.</td>
+      <td>personal items</td>
+      <td>88</td>
+      <td>0.16</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G115</th>
+      <td>Foamed  plastic &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>88</td>
+      <td>0.16</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G124</th>
+      <td>Other plastic or foam products</td>
+      <td>unclassified</td>
+      <td>87</td>
+      <td>0.16</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G87</th>
+      <td>Tape, masking/duct/packing</td>
+      <td>infrastructure</td>
+      <td>87</td>
+      <td>0.16</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>G148</th>
+      <td>Cardboard (boxes and fragments)</td>
+      <td>packaging non food</td>
+      <td>85</td>
+      <td>0.16</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G928</th>
+      <td>Ribbons and bows</td>
+      <td>personal items</td>
+      <td>84</td>
+      <td>0.15</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G26</th>
+      <td>Cigarette lighters</td>
+      <td>tobacco</td>
+      <td>83</td>
+      <td>0.15</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>G146</th>
+      <td>Paper, cardboard</td>
+      <td>packaging non food</td>
+      <td>82</td>
+      <td>0.15</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G175</th>
+      <td>Cans, beverage</td>
+      <td>food and drink</td>
+      <td>76</td>
+      <td>0.14</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>G157</th>
+      <td>Paper</td>
+      <td>packaging non food</td>
+      <td>66</td>
+      <td>0.12</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G7</th>
+      <td>Drink bottles &lt; = 0.5L</td>
+      <td>food and drink</td>
+      <td>65</td>
+      <td>0.12</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G4</th>
+      <td>Small plastic bags; freezer, zip-lock etc.</td>
+      <td>packaging non food</td>
+      <td>64</td>
+      <td>0.12</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G142</th>
+      <td>Rope , string or nets</td>
+      <td>recreation</td>
+      <td>62</td>
+      <td>0.11</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G135</th>
+      <td>Clothes, footware, headware, gloves</td>
+      <td>personal items</td>
+      <td>61</td>
+      <td>0.11</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G105</th>
+      <td>Plastic fragments subangular &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>59</td>
+      <td>0.11</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G927</th>
+      <td>String trimmer line, used to cut grass, weeds,...</td>
+      <td>infrastructure</td>
+      <td>57</td>
+      <td>0.10</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G201</th>
+      <td>Jars, includes pieces</td>
+      <td>food and drink</td>
+      <td>55</td>
+      <td>0.10</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>G942</th>
+      <td>Plastic shavings from lathes, CNC machining</td>
+      <td>unclassified</td>
+      <td>53</td>
+      <td>0.10</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G194</th>
+      <td>Cables, metal wire(s) often inside rubber or p...</td>
+      <td>infrastructure</td>
+      <td>52</td>
+      <td>0.09</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G939</th>
+      <td>Flowers, plants plastic</td>
+      <td>personal items</td>
+      <td>49</td>
+      <td>0.09</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G20</th>
+      <td>Caps and lids</td>
+      <td>packaging non food</td>
+      <td>48</td>
+      <td>0.09</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G65</th>
+      <td>Buckets</td>
+      <td>agriculture</td>
+      <td>48</td>
+      <td>0.09</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G943</th>
+      <td>Fencing agriculture, plastic</td>
+      <td>agriculture</td>
+      <td>47</td>
+      <td>0.09</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G144</th>
+      <td>Tampons</td>
+      <td>waste water</td>
+      <td>46</td>
+      <td>0.08</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G48</th>
+      <td>Rope, synthetic</td>
+      <td>recreation</td>
+      <td>46</td>
+      <td>0.08</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G134</th>
+      <td>Other rubber</td>
+      <td>unclassified</td>
+      <td>45</td>
+      <td>0.08</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G210</th>
+      <td>Other glass/ceramic</td>
+      <td>unclassified</td>
+      <td>43</td>
+      <td>0.08</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G170</th>
+      <td>Wood (processed)</td>
+      <td>agriculture</td>
+      <td>43</td>
+      <td>0.08</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G937</th>
+      <td>Pheromone baits for vineyards</td>
+      <td>agriculture</td>
+      <td>38</td>
+      <td>0.07</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G101</th>
+      <td>Dog feces bag</td>
+      <td>personal items</td>
+      <td>37</td>
+      <td>0.07</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G917</th>
+      <td>Terracotta balls</td>
+      <td>unclassified</td>
+      <td>36</td>
+      <td>0.07</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G59</th>
+      <td>Fishing line monofilament (angling)</td>
+      <td>recreation</td>
+      <td>35</td>
+      <td>0.06</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G944</th>
+      <td>Pellet mass from injection molding</td>
+      <td>unclassified</td>
+      <td>34</td>
+      <td>0.06</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G2</th>
+      <td>Bags</td>
+      <td>packaging non food</td>
+      <td>32</td>
+      <td>0.06</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G12</th>
+      <td>Cosmetics, non-beach use personal care containers</td>
+      <td>personal items</td>
+      <td>31</td>
+      <td>0.06</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G207</th>
+      <td>Octopus pots</td>
+      <td>unclassified</td>
+      <td>30</td>
+      <td>0.05</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G126</th>
+      <td>Balls</td>
+      <td>recreation</td>
+      <td>30</td>
+      <td>0.05</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G901</th>
+      <td>Mask medical, synthetic</td>
+      <td>personal items</td>
+      <td>29</td>
+      <td>0.05</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G918</th>
+      <td>Safety pins, paper clips, small metal utility ...</td>
+      <td>personal items</td>
+      <td>28</td>
+      <td>0.05</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G931</th>
+      <td>Tape-caution for barrier, police, construction...</td>
+      <td>infrastructure</td>
+      <td>28</td>
+      <td>0.05</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G99</th>
+      <td>Syringes - needles</td>
+      <td>personal items</td>
+      <td>28</td>
+      <td>0.05</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>G919</th>
+      <td>Nails, screws, bolts etc.</td>
+      <td>infrastructure</td>
+      <td>27</td>
+      <td>0.05</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G158</th>
+      <td>Other paper items</td>
+      <td>packaging non food</td>
+      <td>27</td>
+      <td>0.05</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G167</th>
+      <td>Matches or fireworks</td>
+      <td>recreation</td>
+      <td>26</td>
+      <td>0.05</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G933</th>
+      <td>Bags, cases for accessories; glasses, electron...</td>
+      <td>personal items</td>
+      <td>26</td>
+      <td>0.05</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G6</th>
+      <td>Bottles and containers, plastic non food/drink</td>
+      <td>packaging non food</td>
+      <td>25</td>
+      <td>0.05</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G154</th>
+      <td>Newspapers or magazines</td>
+      <td>personal items</td>
+      <td>25</td>
+      <td>0.05</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G161</th>
+      <td>Processed timber</td>
+      <td>agriculture</td>
+      <td>24</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G182</th>
+      <td>Fishing; hooks, weights, lures, sinkers etc.</td>
+      <td>recreation</td>
+      <td>23</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G8</th>
+      <td>Drink bottles  &gt; 0.5L</td>
+      <td>food and drink</td>
+      <td>23</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G145</th>
+      <td>Other textiles</td>
+      <td>personal items</td>
+      <td>22</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G114</th>
+      <td>Films  &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>22</td>
+      <td>0.04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G43</th>
+      <td>Tags fishing or industry (security tags, seals)</td>
+      <td>recreation</td>
+      <td>21</td>
+      <td>0.04</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G930</th>
+      <td>Foam earplugs</td>
+      <td>personal items</td>
+      <td>20</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G133</th>
+      <td>Condoms incl. packaging</td>
+      <td>waste water</td>
+      <td>20</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G68</th>
+      <td>Fiberglass fragments</td>
+      <td>infrastructure</td>
+      <td>20</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G929</th>
+      <td>Electronics and pieces; sensors, headsets etc.</td>
+      <td>personal items</td>
+      <td>20</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G176</th>
+      <td>Cans, food</td>
+      <td>food and drink</td>
+      <td>19</td>
+      <td>0.03</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G925</th>
+      <td>Packets: desiccant/ moisture absorbers, plasti...</td>
+      <td>packaging non food</td>
+      <td>19</td>
+      <td>0.03</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G938</th>
+      <td>Toothpicks, dental floss plastic</td>
+      <td>food and drink</td>
+      <td>18</td>
+      <td>0.03</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G926</th>
+      <td>Chewing gum, often contains plastics</td>
+      <td>food and drink</td>
+      <td>18</td>
+      <td>0.03</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G36</th>
+      <td>Bags/sacks heavy duty plastic for 25 Kg or mor...</td>
+      <td>agriculture</td>
+      <td>18</td>
+      <td>0.03</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G118</th>
+      <td>Small industrial spheres &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>17</td>
+      <td>0.03</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G123</th>
+      <td>Polyurethane granules &lt; 5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>17</td>
+      <td>0.03</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G11</th>
+      <td>Cosmetics for the beach, e.g. sunblock</td>
+      <td>recreation</td>
+      <td>17</td>
+      <td>0.03</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G64</th>
+      <td>Fenders</td>
+      <td>unclassified</td>
+      <td>16</td>
+      <td>0.03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G119</th>
+      <td>Sheetlike user plastic (&gt;1mm)</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>16</td>
+      <td>0.03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G49</th>
+      <td>Rope &gt; 1cm</td>
+      <td>recreation</td>
+      <td>14</td>
+      <td>0.03</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G113</th>
+      <td>Filaments  &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>14</td>
+      <td>0.03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G197</th>
+      <td>Other metal</td>
+      <td>infrastructure</td>
+      <td>13</td>
+      <td>0.02</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G199</th>
+      <td>Other metal pieces &gt; 50cm</td>
+      <td>infrastructure</td>
+      <td>13</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G29</th>
+      <td>Combs, brushes and sunglasses</td>
+      <td>personal items</td>
+      <td>13</td>
+      <td>0.02</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G195</th>
+      <td>Batteries - household</td>
+      <td>personal items</td>
+      <td>12</td>
+      <td>0.02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G128</th>
+      <td>Tires and belts</td>
+      <td>unclassified</td>
+      <td>12</td>
+      <td>0.02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G916</th>
+      <td>Pencils and pieces</td>
+      <td>personal items</td>
+      <td>12</td>
+      <td>0.02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G136</th>
+      <td>Shoes</td>
+      <td>personal items</td>
+      <td>11</td>
+      <td>0.02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G37</th>
+      <td>Mesh bags</td>
+      <td>personal items</td>
+      <td>11</td>
+      <td>0.02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G906</th>
+      <td>coffee capsules aluminum</td>
+      <td>food and drink</td>
+      <td>10</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G900</th>
+      <td>Gloves latex  personal protective equipment</td>
+      <td>personal items</td>
+      <td>10</td>
+      <td>0.02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G61</th>
+      <td>Other fishing related</td>
+      <td>recreation</td>
+      <td>9</td>
+      <td>0.02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G913</th>
+      <td>Pacifier</td>
+      <td>personal items</td>
+      <td>8</td>
+      <td>0.01</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>G104</th>
+      <td>Plastic fragments subrounded &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>7</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G40</th>
+      <td>Gloves household/gardening</td>
+      <td>personal items</td>
+      <td>7</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G122</th>
+      <td>Plastic fragments ( &gt;1mm)</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>7</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G19</th>
+      <td>Car parts</td>
+      <td>unclassified</td>
+      <td>7</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G129</th>
+      <td>Inner tubes and rubber sheets</td>
+      <td>unclassified</td>
+      <td>7</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G17</th>
+      <td>Injection gun cartridge</td>
+      <td>infrastructure</td>
+      <td>7</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G141</th>
+      <td>Carpet</td>
+      <td>unclassified</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G5</th>
+      <td>Generic plastic bags</td>
+      <td>packaging non food</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G181</th>
+      <td>Tableware metal;  cups, cutlery etc.</td>
+      <td>food and drink</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G171</th>
+      <td>Other wood &lt; 50cm</td>
+      <td>agriculture</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G97</th>
+      <td>Toilet fresheners</td>
+      <td>waste water</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G915</th>
+      <td>Reflectors, plastic mobility items</td>
+      <td>personal items</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G151</th>
+      <td>Cartons, Tetrapacks</td>
+      <td>food and drink</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G147</th>
+      <td>Paper bags</td>
+      <td>packaging non food</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G107</th>
+      <td>Cylindrical pellets &lt; 5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>6</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G903</th>
+      <td>Hand sanitizer containers &amp; packets</td>
+      <td>personal items</td>
+      <td>5</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G92</th>
+      <td>Bait containers</td>
+      <td>recreation</td>
+      <td>5</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G71</th>
+      <td>Shoes sandals</td>
+      <td>personal items</td>
+      <td>5</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G138</th>
+      <td>Shoes and sandals</td>
+      <td>personal items</td>
+      <td>5</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G108</th>
+      <td>disk pellets  &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>5</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G172</th>
+      <td>Other wood &gt; 50cm</td>
+      <td>agriculture</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G945</th>
+      <td>Razor blades</td>
+      <td>personal items</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G53</th>
+      <td>Nets and pieces &lt; 50cm</td>
+      <td>recreation</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G52</th>
+      <td>Nets and pieces</td>
+      <td>recreation</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G907</th>
+      <td>coffee capsules plastic</td>
+      <td>food and drink</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G39</th>
+      <td>Gloves</td>
+      <td>personal items</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G111</th>
+      <td>Spheruloid pellets &lt; 5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G62</th>
+      <td>Floats for nets</td>
+      <td>unclassified</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G13</th>
+      <td>Bottles, containers, drums to transport, store...</td>
+      <td>agriculture</td>
+      <td>4</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G202</th>
+      <td>Light bulbs</td>
+      <td>unclassified</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G174</th>
+      <td>Aerosol spray cans</td>
+      <td>infrastructure</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G41</th>
+      <td>Glove industrial/professional</td>
+      <td>agriculture</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G934</th>
+      <td>Sandbag, plastic for flood, erosion control etc..</td>
+      <td>agriculture</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G143</th>
+      <td>Sails and canvas</td>
+      <td>recreation</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G63</th>
+      <td>Buoys</td>
+      <td>recreation</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G140</th>
+      <td>Bags, burlap, hessian, jute or hemp</td>
+      <td>agriculture</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G179</th>
+      <td>Disposable BBQs</td>
+      <td>food and drink</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G116</th>
+      <td>Granules &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G109</th>
+      <td>Flat pellets  &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G14</th>
+      <td>Engine oil bottles</td>
+      <td>unclassified</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G139</th>
+      <td>Backpacks</td>
+      <td>personal items</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G902</th>
+      <td>Mask medical, cloth</td>
+      <td>personal items</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G102</th>
+      <td>Flip-flops</td>
+      <td>personal items</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G150</th>
+      <td>Milk cartons, tetrapack</td>
+      <td>food and drink</td>
+      <td>3</td>
+      <td>0.01</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G999</th>
+      <td>No objects found on this survey</td>
+      <td>unclassified</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G55</th>
+      <td>Fishing line (entangled)</td>
+      <td>recreation</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G935</th>
+      <td>Walking stick pads and pieces, often elastomer...</td>
+      <td>personal items</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G932</th>
+      <td>Bio-beads, micro plastic for wastewater treatm...</td>
+      <td>waste water</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G173</th>
+      <td>Other</td>
+      <td>unclassified</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G185</th>
+      <td>Middle size containers</td>
+      <td>unclassified</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G188</th>
+      <td>Other cans &lt; 4 L</td>
+      <td>infrastructure</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G190</th>
+      <td>Paint cans</td>
+      <td>infrastructure</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G214</th>
+      <td>Oil/tar</td>
+      <td>infrastructure</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G132</th>
+      <td>Bobbers (fishing)</td>
+      <td>recreation</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G166</th>
+      <td>Paint brushes</td>
+      <td>infrastructure</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G94</th>
+      <td>Table cloth</td>
+      <td>recreation</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G84</th>
+      <td>CD or CD box</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G196</th>
+      <td>Large metallic objects</td>
+      <td>unclassified</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G9</th>
+      <td>Cleaner, chemical bottles &amp; containers</td>
+      <td>infrastructure</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G183</th>
+      <td>Fish hook remains</td>
+      <td>recreation</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G60</th>
+      <td>Light sticks</td>
+      <td>recreation</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G51</th>
+      <td>Fishing net</td>
+      <td>recreation</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>G193</th>
+      <td>car parts and batteries</td>
+      <td>unclassified</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
