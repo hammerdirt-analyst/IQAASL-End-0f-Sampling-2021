@@ -23,6 +23,8 @@ using the data from the surveys. For this first edition the survey results were 
 of the environment_ {cite}`lpe` (LPE) and current EU guidance on calculating baselines {cite}`eubaselines`. The survey methods were implemented in the alpine environment to determine feasibility of the
 current protocol and evaluate a common reporting method for all stakeholders.
 
+For questions or comments roger\[at\]hammerdirt\[dot\]ch is at your service.
+
 ## Summary of all surveys
 
 The sampling period (SP) was from April 01, 2020 - May 31, 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr` the
@@ -36,9 +38,9 @@ _Map of survey locations. Locations grouped by survey area. April 2020 - May 202
 :width: 600px
 :align: center
 :::
-_There were 385 samples from 143 locations in 77 different municipalities._
+_There were 386 samples from 143 locations in 77 different municipalities._
 
-The median survey result was 158 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 137p/100m - 188/p100m. This represents 54,713 recorded objects or
+The median survey result was 158 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 137p/100m - 188/p100m. This represents 54,337 recorded objects or
 $\approx$ 306kg of trash including $\approx$ 96kg of plastic. The total linear distance surveyed was $\approx$ 20 km or a surface area of 9 hectares. The study was focussed on lakes, 331/385 samples come from 11 lakes. Both Geneva
 and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
 
@@ -98,7 +100,7 @@ The proposed methods in the JRC Technical document _An Analysis of a pan-Europea
 :::
 
 
-See the section [_Calculating baseline values_](threshhold) for sample calculations and a detailed explanation.
+See the section [_Beach litter baselines_](threshhold) for sample calculations and a detailed explanation.
 
  --- 
 ## Sources
@@ -108,18 +110,16 @@ Economically the sources are determined by grouping the codes assigned to the ob
 See the section [_Code groups_](codegroups) for a complete definition of how the codes were grouped.
 
  ---
-## The structure and evolution of this document
+## Using this document
 
-The purpose is to provide a repeatable method and process to collect and evaluate beach-litter data at a scale that is appropriate to Switzerland and exploitable by
-all stakeholders. The method and process need to reflect current advances in the field, the needs of stakeholders and faithfully report the survey results as collected
-by the surveyor.
+This document is designed to be easy to use for researchers and managers that are developing methods to reduce waste in the environment. The units are given in
+a standard reporting format and the identification codes are based on a standard EU format. 
 
 This document is a collection of scripts written in python and markdown contained in a series of notebooks designed specifically for completing data analysis. This
 system has been in use for quite some time in the research community. Together those scripts make a book, or a [Jupyter Book](https://jupyterbook.org/intro.html).
+For researchers and administrators this removes the initial task of data wrangling and allows them to focus on their areas of expertise. Interested individuals or groups are invited to submit methods and make improvements. 
 
 The surveyor uses this application [plagespropres](https://www.plagespropres.ch/) to submit data and the report is processed here: [end of sampling repo](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021).
-
-Not all tasks have been automated. Land use data is calculated using QGIS and the method to automate this process has not been developed.
 
  ---
 ## Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
