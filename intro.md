@@ -10,13 +10,19 @@ are in units of _pieces of trash per 100 meters_ (p/100m).
 
 The emphasis of the analysis is the identification of measured environmental variables within a fixed radius of 1500m around each
 survey location that may have a statistically significant impact (+,-) on survey results. In this edition environmental variables are
-drawn from the swiss land use survey of 2018 and the current topographical layers from TLMSwissregio. Various non parametric tests are
-applied including bootstrap methods to identify differences between groups of survey results in space and time.
+drawn from the swiss land use survey of 2018 {cite}`superficie` and the current topographical layers from swissTLMRegio {cite}`tlmregio`.
+Various non parametric tests are applied including bootstrap methods to identify differences between groups of survey results in space and time.
 
 The key indicators chapter gives a precise definition of each of the basic statistics that can be derived from the survey results
 and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different 
 environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the
 items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups).
+
+The _Findings_ section are topics chosen by the litter surveyors that are based on experiences in the field and demonstrated
+using the data from the surveys. For this first edition the survey results were placed in the context of the _Law for the protection
+of the environment_ {cite}`lpe` (LPE) and current EU guidance on calculating baselines {cite}`eubaselines`. The survey methods were implemented in the alpine environment to determine feasibility of the
+current protocol and evaluate a common reporting method for all stakeholders.
+
 ## Summary of all surveys
 
 The sampling period (SP) was from April 01, 2020 - May 31, 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr` the
@@ -59,7 +65,7 @@ show that in 2020 there were fewer cigarettes, bottle tops and glass fragments a
 See the full report [_More and less trash since 2017_](slr-iqaasl)
 
  ---
-## Principal of causality
+## Shared responsibility
 
 According to the Law for the protection of the environment the pincipal of causality is defined as:
 
@@ -75,7 +81,7 @@ We use beach litter survey results to move up the causal chain to identify secon
 :::
 *Identifying secondary sources of specific litter items. Consumers or handlers of plastic production pellets and probable fluvial route to survey location. Venoge and Thiele rivers.*
 
-See the section [_Principle of causality_](transport)
+See the section [_Shared responsibility_](transport)
 
  ---
 ## Baseline and extreme values
