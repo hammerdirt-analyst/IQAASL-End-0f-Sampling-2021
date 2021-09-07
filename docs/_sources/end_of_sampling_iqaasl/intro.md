@@ -1,21 +1,27 @@
 # The Litter Surveyor Report
 
-The _Litter Surveyor_ is a summary and analyis of the litter surveys conducted in Switzerland since 2017 and how those results relate to the experiences of our European neighbors.
+__Edition 1__ ver=0.6 _the countdown version_
 
-## In this issue
+The _Litter Surveyor_ is a summary and analysis of the beach-litter surveys conducted and the methods employed in Switzerland from April 2020
+to May 2021.
 
-1. Comparing the results from the 2017 - 2018 Swiss Litter Report
-2. Implementing the EU recomendations for baseline calculations of beach litter survey results
-3. Implementing the principle of causality: what role for beach litter survey results
-4. A first look at litter surveys in les Alpes Valaisannes
-5. Summary and baseline calculations for all survey areas and lakes surveyed in 2020-2021
+The survey results are presented down to the municipal level for each water feature and municipality that was sampled. The results
+are in units of _pieces of trash per 100 meters_ (p/100m). 
 
-:::{note}
-This is version 0.5 _The review draft: causality_
+The emphasis of the analysis is the identification of measured environmental variables within a fixed radius of 1500m around each
+survey location that may have a statistically significant impact (+,-) on survey results. In this edition environmental variables are
+drawn from the swiss land use survey of 2018 {cite}`superficie` and the current topographical layers from swissTLMRegio {cite}`tlmregio`.
+Various non parametric tests are applied including bootstrap methods to identify differences between groups of survey results in space and time.
 
-__Content revisions__  are on ongoing if you were going to contribute now is the time. We will be asking for participant information and photos soon -- like the end of the week!
+The key indicators chapter gives a precise definition of each of the basic statistics that can be derived from the survey results
+and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different 
+environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the
+items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups).
 
-:::
+The _Findings_ section are topics chosen by the litter surveyors that are based on experiences in the field and demonstrated
+using the data from the surveys. For this first edition the survey results were placed in the context of the _Law for the protection
+of the environment_ {cite}`lpe` (LPE) and current EU guidance on calculating baselines {cite}`eubaselines`. The survey methods were implemented in the alpine environment to determine feasibility of the
+current protocol and evaluate a common reporting method for all stakeholders.
 
 ## Summary of all surveys
 
@@ -27,7 +33,7 @@ _Map of survey locations. Locations grouped by survey area. April 2020 - May 202
 :::{image} resources/maps/opening_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
-:width: 800px
+:width: 600px
 :align: center
 :::
 _There were 385 samples from 143 locations in 77 different municipalities._
@@ -39,7 +45,6 @@ and Zurich are included putting the total municipal population with a stake in t
 See the section [_All Survey areas_](allsurveys) for complete details.
 
  ---
-
 ## Trends from 2017
 
 **When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
@@ -51,7 +56,7 @@ show that in 2020 there were fewer cigarettes, bottle tops and glass fragments a
 :::{image} resources/images/slr_iqaasl_res.png
 :alt: IQAASL and SLR charts
 :class: bg-primary mb-1
-:width: 1200px
+:width: 600px
 :align: center
 :::
 *bottom Left: number of samples with respect to the survey total, bottom right: empirical cumulative distribution of survey totals* 
@@ -60,8 +65,7 @@ show that in 2020 there were fewer cigarettes, bottle tops and glass fragments a
 See the full report [_More and less trash since 2017_](slr-iqaasl)
 
  ---
-
-## Principal of causality
+## Shared responsibility
 
 According to the Law for the protection of the environment the pincipal of causality is defined as:
 
@@ -72,15 +76,14 @@ We use beach litter survey results to move up the causal chain to identify secon
 :::{image} resources/images/causality.jpeg
 :alt: causality map
 :class: bg-primary mb-1
-:width: 1200px
+:width: 600px
 :align: center
 :::
 *Identifying secondary sources of specific litter items. Consumers or handlers of plastic production pellets and probable fluvial route to survey location. Venoge and Thiele rivers.*
 
-See the section [_Principle of causality_](transport)
+See the section [_Shared responsibility_](transport)
 
  ---
-
 ## Baseline and extreme values
 
 The proposed methods in the JRC Technical document _An Analysis of a pan-European 2012-2016 beach litter dataset_ are applied to the results from IQAASL. The baseline values are calculated for each survey area and examples are given of the the different methods to identify extreme values.
@@ -90,15 +93,14 @@ The proposed methods in the JRC Technical document _An Analysis of a pan-Europea
 :::{image} resources/codegroups/images/onethous40026pcs100m.jpg
 :alt: IQAASL and SLR charts
 :class: bg-primary mb-1
-:width: 800px
+:width: 600px
 :align: center
 :::
-<br></br>
+
 
 See the section [_Calculating baseline values_](threshhold) for sample calculations and a detailed explanation.
 
- ---
- 
+ --- 
 ## Sources
 
 Economically the sources are determined by grouping the codes assigned to the objects according to use or description. Combined food and tobacco items make up 36% of the items found and infrastructure and agriculture are 24% of the total. Objects originating from waste water facilities or objects less than five millimeters make up another 10%. The relative amounts change for each survey area suggesting that local priorities may not always match regional priorities.
@@ -106,7 +108,6 @@ Economically the sources are determined by grouping the codes assigned to the ob
 See the section [_Code groups_](codegroups) for a complete definition of how the codes were grouped.
 
  ---
-
 ## The structure and evolution of this document
 
 The purpose is to provide a repeatable method and process to collect and evaluate beach-litter data at a scale that is appropriate to Switzerland and exploitable by
@@ -121,8 +122,6 @@ The surveyor uses this application [plagespropres](https://www.plagespropres.ch/
 Not all tasks have been automated. Land use data is calculated using QGIS and the method to automate this process has not been developed.
 
  ---
- 
-
 ## Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
 
 IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale **litter surveys** are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that contribute.
