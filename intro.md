@@ -1,6 +1,6 @@
 # The Litter Surveyor Report
 
-__Edition 1__ ver=0.6 _the countdown version_
+__Edition 1__ ver=0.6 _extended producer responsibility_
 
 The _Litter Surveyor_ is a summary and analysis of the beach-litter surveys conducted and the methods employed in Switzerland from April 2020
 to May 2021.
