@@ -70,11 +70,11 @@ In practical terms if a person in the region of Interlaken wanted to find plasti
 on the beach Bönigen and Unterseen than the other municipalities. However if that person was looking for Industrial sheeting they had an $\approx$ chance of finding it anywhere but they would find the
 most at Brienze (67p/100m).
 
-The key indicators chapter gives a precise definition of each of the basic statistics that can be derived from the survey results
+The [key indicators](keyindicators) chapter gives a precise definition of each of the basic statistics that can be derived from the survey results
 and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different 
 environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the
-items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups). Methods for identifying extreme
-values and calculating baselines for a region can be found here [_Beach litter baselines_](threshhold).
+items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups). How samples are collected and the
+methods for identifying extreme values and calculating baselines for a region can be found here [_Beach litter baselines_](threshhold).
 
 The results for each municipality are included with the lake or river to which they belong. A more detailed report can be produced for any
 municipality in this document. Requests for more information should be sent to the Municipal waste section of Swiss federal office for the 
