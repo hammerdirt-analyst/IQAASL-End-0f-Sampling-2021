@@ -61,13 +61,16 @@
   "ticino": [
     "lago-maggiore",
     "ticino",
-    "maggia",    "lago-di-lugano",
+    "maggia",
+    "lago-di-lugano",
     "cassarate"
   ],
-  "alpes-valaisannes": [
-    "alpes-valaisannes"
-  ],
-  "alpes-vaudoises": [
-    "clean-up-tour-vevey"
+  "les-alpes":[
+    "alpes-vaudoises",
+    "alpes-uranaises",
+    "prealpes-fribourgeoises",
+    "massif-du-jura",
+    "alpes-valaisannes",
+    "alpes-vaudoises"
   ]
 }
