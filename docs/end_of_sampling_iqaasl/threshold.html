@@ -521,7 +521,7 @@
 <span class="n">dfDims</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/dims_data.csv&quot;</span><span class="p">)</span>
 
 <span class="c1"># set the index of the beach data to location slug</span>
-<span class="n">dfBeaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dfBeaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># map locations to feature names</span>
 <span class="n">location_wname_key</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="o">.</span><span class="n">water_name_slug</span>
@@ -1139,410 +1139,6 @@ reproduced by the OSPAR Commission in 2010 <span id="id2">[<a class="reference i
 <div class="section" id="baseline-median-and-ci-per-survey-area">
 <h4><span class="section-number">14.2.5.2. </span>Baseline median and CI per survey area<a class="headerlink" href="#baseline-median-and-ci-per-survey-area" title="Permalink to this headline">¶</a></h4>
 <p>There were four survey areas in the IQAASL, 3 of which had more than 40 samples durring the SP.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>loc_date</th>
-      <th>location</th>
-      <th>river_bassin</th>
-      <th>water_name_slug</th>
-      <th>date</th>
-      <th>p/100m</th>
-      <th>quantity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>363</th>
-      <td>(zurichsee_wollishofen_langendorfm, 2020-03-11)</td>
-      <td>zurichsee_wollishofen_langendorfm</td>
-      <td>linth</td>
-      <td>zurichsee</td>
-      <td>2020-03-11</td>
-      <td>138.0</td>
-      <td>85</td>
-    </tr>
-    <tr>
-      <th>264</th>
-      <td>(strandbeiz, 2020-03-20)</td>
-      <td>strandbeiz</td>
-      <td>linth</td>
-      <td>zurichsee</td>
-      <td>2020-03-20</td>
-      <td>179.0</td>
-      <td>87</td>
-    </tr>
-    <tr>
-      <th>228</th>
-      <td>(rastplatz-stampf, 2020-04-24)</td>
-      <td>rastplatz-stampf</td>
-      <td>linth</td>
-      <td>zurichsee</td>
-      <td>2020-04-24</td>
-      <td>150.0</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>318</th>
-      <td>(weissenau-neuhaus, 2020-05-08)</td>
-      <td>weissenau-neuhaus</td>
-      <td>aare</td>
-      <td>thunersee</td>
-      <td>2020-05-08</td>
-      <td>164.0</td>
-      <td>82</td>
-    </tr>
-    <tr>
-      <th>254</th>
-      <td>(sentiero-giro-del-golf-spiaggia, 2020-05-27)</td>
-      <td>sentiero-giro-del-golf-spiaggia</td>
-      <td>ticino</td>
-      <td>lago-maggiore</td>
-      <td>2020-05-27</td>
-      <td>169.0</td>
-      <td>64</td>
-    </tr>
-    <tr>
-      <th>124</th>
-      <td>(lacleman_gland_lecoanets, 2020-06-15)</td>
-      <td>lacleman_gland_lecoanets</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2020-06-15</td>
-      <td>143.0</td>
-      <td>72</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>(flibach-river-right-bank, 2020-07-20)</td>
-      <td>flibach-river-right-bank</td>
-      <td>linth</td>
-      <td>walensee</td>
-      <td>2020-07-20</td>
-      <td>131.0</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th>115</th>
-      <td>(la-petite-plage, 2020-09-15)</td>
-      <td>la-petite-plage</td>
-      <td>aare</td>
-      <td>neuenburgersee</td>
-      <td>2020-09-15</td>
-      <td>143.0</td>
-      <td>139</td>
-    </tr>
-    <tr>
-      <th>337</th>
-      <td>(zuerichsee_richterswil_benkoem_2, 2020-09-24)</td>
-      <td>zuerichsee_richterswil_benkoem_2</td>
-      <td>linth</td>
-      <td>zurichsee</td>
-      <td>2020-09-24</td>
-      <td>140.0</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>(lacleman_gland_lecoanets, 2020-10-27)</td>
-      <td>lacleman_gland_lecoanets</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2020-10-27</td>
-      <td>143.0</td>
-      <td>62</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>(bielersee_vinelz_fankhausers, 2020-10-30)</td>
-      <td>bielersee_vinelz_fankhausers</td>
-      <td>aare</td>
-      <td>bielersee</td>
-      <td>2020-10-30</td>
-      <td>140.0</td>
-      <td>35</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>(evole-plage, 2020-11-03)</td>
-      <td>evole-plage</td>
-      <td>aare</td>
-      <td>neuenburgersee</td>
-      <td>2020-11-03</td>
-      <td>154.0</td>
-      <td>97</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>(boiron, 2020-11-04)</td>
-      <td>boiron</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2020-11-04</td>
-      <td>138.0</td>
-      <td>69</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>(camping-gwatt-strand, 2020-11-06)</td>
-      <td>camping-gwatt-strand</td>
-      <td>aare</td>
-      <td>thunersee</td>
-      <td>2020-11-06</td>
-      <td>144.0</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>268</th>
-      <td>(sundbach-strand, 2020-11-07)</td>
-      <td>sundbach-strand</td>
-      <td>aare</td>
-      <td>thunersee</td>
-      <td>2020-11-07</td>
-      <td>147.0</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>(camp-des-peches, 2020-11-20)</td>
-      <td>camp-des-peches</td>
-      <td>aare</td>
-      <td>bielersee</td>
-      <td>2020-11-20</td>
-      <td>145.0</td>
-      <td>53</td>
-    </tr>
-    <tr>
-      <th>234</th>
-      <td>(rastplatz-stampf, 2020-11-21)</td>
-      <td>rastplatz-stampf</td>
-      <td>linth</td>
-      <td>zurichsee</td>
-      <td>2020-11-21</td>
-      <td>149.0</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>156</th>
-      <td>(maladaire, 2020-11-27)</td>
-      <td>maladaire</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2020-11-27</td>
-      <td>158.0</td>
-      <td>81</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>(evole-plage, 2020-12-02)</td>
-      <td>evole-plage</td>
-      <td>aare</td>
-      <td>neuenburgersee</td>
-      <td>2020-12-02</td>
-      <td>131.0</td>
-      <td>69</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>(baby-plage-geneva, 2020-12-16)</td>
-      <td>baby-plage-geneva</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2020-12-16</td>
-      <td>134.0</td>
-      <td>134</td>
-    </tr>
-    <tr>
-      <th>315</th>
-      <td>(walensee_walenstadt_wysse, 2020-12-22)</td>
-      <td>walensee_walenstadt_wysse</td>
-      <td>linth</td>
-      <td>walensee</td>
-      <td>2020-12-22</td>
-      <td>147.0</td>
-      <td>90</td>
-    </tr>
-    <tr>
-      <th>224</th>
-      <td>(quai-maria-belgia, 2020-12-23)</td>
-      <td>quai-maria-belgia</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2020-12-23</td>
-      <td>178.0</td>
-      <td>67</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>(luscherz-plage, 2020-12-26)</td>
-      <td>luscherz-plage</td>
-      <td>aare</td>
-      <td>bielersee</td>
-      <td>2020-12-26</td>
-      <td>140.0</td>
-      <td>86</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>(bielersee_vinelz_fankhausers, 2020-12-30)</td>
-      <td>bielersee_vinelz_fankhausers</td>
-      <td>aare</td>
-      <td>bielersee</td>
-      <td>2020-12-30</td>
-      <td>141.0</td>
-      <td>62</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>(evole-plage, 2021-01-04)</td>
-      <td>evole-plage</td>
-      <td>aare</td>
-      <td>neuenburgersee</td>
-      <td>2021-01-04</td>
-      <td>160.0</td>
-      <td>94</td>
-    </tr>
-    <tr>
-      <th>210</th>
-      <td>(preverenges, 2021-01-07)</td>
-      <td>preverenges</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2021-01-07</td>
-      <td>141.0</td>
-      <td>101</td>
-    </tr>
-    <tr>
-      <th>326</th>
-      <td>(weissenau-neuhaus, 2021-01-08)</td>
-      <td>weissenau-neuhaus</td>
-      <td>aare</td>
-      <td>thunersee</td>
-      <td>2021-01-08</td>
-      <td>169.0</td>
-      <td>205</td>
-    </tr>
-    <tr>
-      <th>270</th>
-      <td>(thun-strandbad, 2021-02-14)</td>
-      <td>thun-strandbad</td>
-      <td>aare</td>
-      <td>thunersee</td>
-      <td>2021-02-14</td>
-      <td>138.0</td>
-      <td>130</td>
-    </tr>
-    <tr>
-      <th>237</th>
-      <td>(rastplatz-stampf, 2021-02-18)</td>
-      <td>rastplatz-stampf</td>
-      <td>linth</td>
-      <td>zurichsee</td>
-      <td>2021-02-18</td>
-      <td>152.0</td>
-      <td>56</td>
-    </tr>
-    <tr>
-      <th>162</th>
-      <td>(mannewil, 2021-02-26)</td>
-      <td>mannewil</td>
-      <td>aare</td>
-      <td>aare</td>
-      <td>2021-02-26</td>
-      <td>136.0</td>
-      <td>60</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>(canale-saleggi, 2021-03-16)</td>
-      <td>canale-saleggi</td>
-      <td>ticino</td>
-      <td>ticino</td>
-      <td>2021-03-16</td>
-      <td>149.0</td>
-      <td>66</td>
-    </tr>
-    <tr>
-      <th>135</th>
-      <td>(limmat_unterengstringen_oggierbuhrer, 2021-03...</td>
-      <td>limmat_unterengstringen_oggierbuhrer</td>
-      <td>linth</td>
-      <td>limmat</td>
-      <td>2021-03-29</td>
-      <td>165.0</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>213</th>
-      <td>(preverenges, 2021-04-08)</td>
-      <td>preverenges</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2021-04-08</td>
-      <td>151.0</td>
-      <td>114</td>
-    </tr>
-    <tr>
-      <th>122</th>
-      <td>(la-petite-plage, 2021-04-16)</td>
-      <td>la-petite-plage</td>
-      <td>aare</td>
-      <td>neuenburgersee</td>
-      <td>2021-04-16</td>
-      <td>147.0</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>161</th>
-      <td>(maladaire, 2021-05-01)</td>
-      <td>maladaire</td>
-      <td>rhone</td>
-      <td>lac-leman</td>
-      <td>2021-05-01</td>
-      <td>171.0</td>
-      <td>133</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>(magadino-lido, 2021-05-04)</td>
-      <td>magadino-lido</td>
-      <td>ticino</td>
-      <td>lago-maggiore</td>
-      <td>2021-05-04</td>
-      <td>176.0</td>
-      <td>81</td>
-    </tr>
-    <tr>
-      <th>292</th>
-      <td>(via-brunari-spiaggia, 2021-05-05)</td>
-      <td>via-brunari-spiaggia</td>
-      <td>ticino</td>
-      <td>ticino</td>
-      <td>2021-05-05</td>
-      <td>172.0</td>
-      <td>52</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
 <p><em>The median and the 95% confidence interval of the Linth, Aare and Rhône survey areas. The Ticino survey area is not included for lack of a sufficient quantity of surveys.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1575,7 +1171,7 @@ reproduced by the OSPAR Commission in 2010 <span id="id2">[<a class="reference i
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/threshold_30_0.png" src="../_images/threshold_30_0.png" />
+<img alt="../_images/threshold_29_0.png" src="../_images/threshold_29_0.png" />
 </div>
 </div>
 </div>
@@ -1668,7 +1264,7 @@ reproduced by the OSPAR Commission in 2010 <span id="id2">[<a class="reference i
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/threshold_32_0.png" src="../_images/threshold_32_0.png" />
+<img alt="../_images/threshold_31_0.png" src="../_images/threshold_31_0.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -1699,7 +1295,7 @@ reproduced by the OSPAR Commission in 2010 <span id="id2">[<a class="reference i
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/threshold_36_0.png" src="../_images/threshold_36_0.png" />
+<img alt="../_images/threshold_35_0.png" src="../_images/threshold_35_0.png" />
 </div>
 </div>
 </div>
@@ -1856,7 +1452,7 @@ approximations of the actual values if all the beaches on all the lakes and stre
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/threshold_39_0.png" src="../_images/threshold_39_0.png" />
+<img alt="../_images/threshold_38_0.png" src="../_images/threshold_38_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1869,7 +1465,7 @@ approximations of the actual values if all the beaches on all the lakes and stre
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>90% p/100m:  MLE=847,   Observed=723,   MOM=996</em></p>
+<p><em>90% p/100m:  MLE=772,   Observed=723,   MOM=883</em></p>
 </div>
 </div>
 </div>

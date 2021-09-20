@@ -1,8 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-<<<<<<< HEAD
-oid sha256:799dc8b1fae247576fa6db0310d2ddf72bb06f8e48296a0c46c96f1f7dfbab28
-size 1784
-=======
-oid sha256:e3dbebeded66220fed0c15311cfcd94ce56ef9f5738497a4f009fcd67b92f0de
-size 1704
->>>>>>> main
+location,latitude,longitude,city,river_bassin,population,G112,G117,G178,G200,G27,G30,G67,G74,G89,G95,Gfoam,Gfrags,dt
+clean-up-tour-andermatt,46.618327,8.598803,Andermatt,les-alpes,1390.0,0.0,0.0,0.0,2.0,3.0,1.0,0.0,0.0,0.0,0.0,0.0,3.0,24.0
+clean-up-tour-cabanes-des-diablerets,46.338604,7.215525,Ormont-Dessus,les-alpes,1448.0,0.0,0.0,0.0,133.0,75.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,1375.0
+clean-up-tour-crans-montana,46.334214,7.479386,Lens,les-alpes,4198.0,0.0,0.0,2.0,0.0,16.0,9.0,0.0,0.0,0.0,0.0,0.0,7.0,106.0
+clean-up-tour-la-berra,46.677399,7.178738,La Roche,les-alpes,1711.0,0.0,0.0,2.0,3.0,2.0,15.0,0.0,0.0,0.0,0.0,2.0,12.0,58.0
+clean-up-tour-la-robella,46.875905,6.548577,Val-de-Travers,les-alpes,10668.0,0.0,0.0,0.0,31.0,5.0,3.0,0.0,0.0,0.0,0.0,0.0,1.0,59.0
+clean-up-tour-la-tzoumaz,46.144287,7.232897,Riddes,les-alpes,3133.0,0.0,0.0,0.0,3.0,9.0,11.0,0.0,0.0,15.0,0.0,0.0,22.0,110.0
+clean-up-tour-les-crosets,46.183591,6.832916,Val-d'Illiez,les-alpes,1961.0,0.0,0.0,0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,0.0,1.0,549.0
+clean-up-tour-les-paccots,46.512592,6.949421,Châtel-Saint-Denis,les-alpes,6971.0,0.0,0.0,2.0,2.0,12.0,12.0,0.0,0.0,0.0,0.0,25.0,67.0,243.0
+clean-up-tour-morgins,46.236681,6.858132,Troistorrents,les-alpes,4684.0,0.0,0.0,4.0,0.0,24.0,17.0,0.0,0.0,0.0,0.0,0.0,49.0,163.0
+clean-up-tour-nendaz,46.162099,7.283486,Nendaz,les-alpes,6623.0,0.0,0.0,2.0,0.0,3.0,27.0,0.0,2.0,0.0,0.0,0.0,23.0,287.0
+clean-up-tour-verbier,46.103981,7.22476,Val de Bagnes,les-alpes,10185.0,0.0,0.0,14.0,0.0,152.0,24.0,0.0,0.0,0.0,0.0,0.0,28.0,410.0
+clean-up-tour-veysonnaz,46.180334,7.366005,Nendaz,les-alpes,6623.0,0.0,0.0,8.0,0.0,308.0,208.0,0.0,0.0,0.0,0.0,0.0,233.0,41505.0
+clean-up-tour-villars,46.321937,7.073841,Ollon,les-alpes,7463.0,0.0,0.0,0.0,0.0,11.0,7.0,0.0,0.0,0.0,0.0,0.0,4.0,99.0
