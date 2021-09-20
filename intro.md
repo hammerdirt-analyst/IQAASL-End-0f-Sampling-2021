@@ -29,7 +29,7 @@ The most common objects are defined as those objects that were found in at least
 *__p/100m = median survey value:__ values of zero indicate the object was found in less than 50% of the surveys.*
 
 *__fail rate:__ the ratio of the number of times that at least one of the objects was identified with respect to the number of surveys* 
-:::{image} docs/_images/eos_asa_24_0.png
+:::{image} resources/images/eos_asa_24_0.png
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
 :width: 500px
