@@ -1,6 +1,6 @@
 # Identification, quantification and analysis of swiss litter (IQAASL)
 
-__Edition 1__ ver=0.7 _report format_
+__Edition 1__ ver=0.7 _the report format_
 
 __Note__: all results before ver=1 are considered interim.
 
