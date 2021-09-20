@@ -1,6 +1,6 @@
 # Identification, quantification and analysis of swiss litter (IQAASL)
 
-__Edition 1__ ver=0.6 _extended producer responsibility_
+__Edition 1__ ver=0.7 _report format_
 
 __Note__: all results before ver=1 are considered interim.
 
@@ -12,19 +12,19 @@ to May 2021. This date range overlaps with the start and end date of the Swiss L
 The median survey results are presented down to the municipal level for each water feature and municipality that was sampled. The results are in units of _objects found per 100 meters_ (p/100m). 
 <br></br>
 _Map of survey locations. Locations grouped by survey area. April 2020 - May 2021_
-:::{image} resources/maps/intro_map.jpeg
+:::{image} resources/images/intro_aples_lakes.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
-:width: 800px
+:width: 1200px
 :align: center
 :::
-_There were 386 samples from 143 locations in 77 different municipalities._
+_There were 399 samples from 156 locations in 99 different municipalities, all survey areas considered._
 
-The median survey result was 158 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 137p/100m - 188/p100m. This represents 54,337 objects or $\approx$ 306kg including $\approx$ 96kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares. Out of 386 surveys 332 were on 11 lakes. Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
+There were 331 samples on lakes. The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,337 objects or $\approx$ 306kg including 95kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares. Out of 386 surveys 332 were on 11 lakes. Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
 
 The most common objects are defined as those objects that were found in at least 50% of all surveys and/or are among the ten most abundant by quantity. As a group the most common objects represent $\approx$ 68% of all objects found in the sampling period.
 <br></br>
-*The most common trash objects identified April 2020 - May 2021*
+*Lakes and rivers: the most common trash objects identified April 2020 - May 2021*
 
 *__p/100m = median survey value:__ values of zero indicate the object was found in less than 50% of the surveys.*
 
@@ -36,7 +36,7 @@ The most common objects are defined as those objects that were found in at least
 :align: center
 :::
 
-See the full report [_All survey areas_](allsurveys)
+See the full report [_Lakes and rivers_](allsurveys)
 
  ---
 
