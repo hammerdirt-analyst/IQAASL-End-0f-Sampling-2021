@@ -12,6 +12,7 @@
 
 # generated data
 /resources/sourcestobigforgithub/
+resources/inprocess/
 getdataforrepo.ipynb
 infrastructurerankings.ipynb
 aare_sa.ipynb
