@@ -100,7 +100,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="alpes_valaisannes.html">
-   2. Les Alpes
+   2. Les Alpes et le Jura
   </a>
  </li>
 </ul>
@@ -469,10 +469,8 @@
 <span class="c1"># define the feature level and components</span>
 <span class="n">this_feature</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span><span class="s1">&#39;lac-leman&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s2">&quot;Lac Léman&quot;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">}</span>
 <span class="n">this_level</span> <span class="o">=</span> <span class="s1">&#39;city&#39;</span>
-
-
-<span class="n">lakes_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;neuenburgersee&#39;</span><span class="p">,</span> <span class="s1">&#39;thunersee&#39;</span><span class="p">,</span><span class="s1">&#39;bielersee&#39;</span><span class="p">]</span>
-<span class="n">lake_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
+<span class="n">this_bassin</span> <span class="o">=</span> <span class="s1">&#39;rhone&#39;</span>
+<span class="n">bassin_label</span> <span class="o">=</span> <span class="s1">&#39;Rhône survey area&#39;</span>
 
 <span class="c1"># explanatory variables:</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;% to buildings&#39;</span><span class="p">,</span> <span class="s1">&#39;% to recreation&#39;</span><span class="p">,</span> <span class="s1">&#39;% to agg&#39;</span><span class="p">,</span> <span class="s1">&#39;% to woods&#39;</span><span class="p">,</span> <span class="s1">&#39;streets km&#39;</span><span class="p">,</span> <span class="s1">&#39;intersects&#39;</span><span class="p">]</span>
@@ -529,8 +527,7 @@
     <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">corr</span><span class="p">,</span> <span class="n">a_p</span>
 
 <span class="c1"># make any adjustments to code definitions here:</span>
-<span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-       
+<span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>       
 
 <span class="c1"># these descriptions need to be shortened for display</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation: includes spray foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
@@ -563,7 +560,7 @@
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
-<span class="n">bassin_map</span><span class="o">.</span><span class="n">thumbnail</span><span class="p">((</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">))</span>
+<span class="n">bassin_map</span><span class="o">.</span><span class="n">thumbnail</span><span class="p">((</span><span class="mi">1200</span><span class="p">,</span><span class="mi">700</span><span class="p">))</span>
 <span class="n">bassin_map</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;PNG&#39;</span><span class="p">)</span>
 <span class="n">encoded_string</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
 
@@ -679,8 +676,6 @@
 <span class="n">fd_dims</span><span class="p">[</span><span class="s1">&#39;loc_dates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">fd_dims</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">fd_dims</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
 <span class="n">fd_dims</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd_dims</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">city_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 
-
-
 <span class="c1"># aggregate the dimensional data </span>
 <span class="n">dims_table</span> <span class="o">=</span> <span class="n">fd_dims</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;total_w&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mac_plast_w&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
 
@@ -689,10 +684,6 @@
     <span class="n">dims_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;samples&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="p">[</span><span class="n">this_level</span><span class="p">]</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
     <span class="n">dims_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">q_map</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
 
-<span class="c1"># add proper names for display</span>
-<span class="c1"># dims_table[&#39;water_feature&#39;] = dims_table.index.map(lambda x: comp_labels[x])</span>
-<span class="c1"># dims_table.set_index(this_level, inplace=True)</span>
-   
 <span class="c1"># get the sum of all survey areas</span>
 <span class="n">dims_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span><span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
@@ -705,16 +696,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">agg_caption</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: table of results. The cumulative weights and measures for the survey area and the</span>
-<span class="s2">water features.*</span>
+<span class="s2">*</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: table of results. The cumulative weights and measures for the water feature and municipalities*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">agg_caption</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>Lac Léman: table of results. The cumulative weights and measures for the survey area and the
-water features.</em></p>
+<p><em>Lac Léman: table of results. The cumulative weights and measures for the water feature and municipalities</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -789,7 +778,7 @@ water features.</em></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Left:</strong> Lac Léman, 2020-03 through 2021-05, n=98. Values greater than 1022.8p/100m 98% not shown.</em></p>
+<p><em><strong>Left:</strong> Lac Léman, 2020-03 through 2021-05, n=98. Values greater than 1054.8p/100m 98% not shown.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1028,15 +1017,11 @@ water features.</em></p>
 <span class="n">m_c_p</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">m_c_p</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># the aggregated totals for the river bassin</span>
-<span class="n">fd_mc</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
-<span class="n">fd_mc</span> <span class="o">=</span> <span class="n">fd_mc</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-
-<span class="c1"># set the item, index and column name for the aggregated survey area results</span>
-<span class="n">fd_mc</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd_mc</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-<span class="n">fd_mc</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># the column of values for the survye area</span>
-<span class="n">fd_mc</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">fd_mc</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
+<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_data</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">this_bassin</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
+<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">t_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
 
 <span class="c1"># repeat for all the survey areas</span>
 <span class="n">a_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[</span><span class="n">a_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
@@ -1045,7 +1030,7 @@ water features.</em></p>
 <span class="n">a_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
 
-<span class="n">ad_t_ten</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">m_c_p</span><span class="p">,</span> <span class="n">fd_mc</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">],],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ad_t_ten</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">m_c_p</span><span class="p">,</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">],],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># chart that</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">))</span>
@@ -1278,22 +1263,12 @@ Lac Léman utility of objects found % of total by water feature. Fragmented obje
 <span class="n">data_table</span> <span class="o">=</span> <span class="n">cg_t</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">)</span>
 
 <span class="c1"># add a column for the survey area totals and the national totals:</span>
-<span class="c1"># the aggregated totals for the survey area</span>
-
-<span class="c1"># the median value is always calculated from the survey result:</span>
-<span class="n">sa_cg</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
-
-<span class="c1"># aggregate all data</span>
-<span class="n">fd_cg</span> <span class="o">=</span> <span class="n">sa_cg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
-
-<span class="c1"># add percent of total column</span>
-<span class="n">fd_cg</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fd_cg</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">fd_cg</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># set the index</span>
-<span class="n">fd_cg</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># name survey area column</span>
-<span class="n">fd_cg</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">fd_cg</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
+<span class="c1"># repeat for the survey area</span>
+<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">this_bassin</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
+<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_s_a</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">t_s_a</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">t_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
 
 <span class="c1"># repeat for all data</span>
 <span class="n">a_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
@@ -1302,9 +1277,7 @@ Lac Léman utility of objects found % of total by water feature. Fragmented obje
 <span class="n">a_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">fd_cg</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
@@ -1342,18 +1315,23 @@ Lac Léman utility of objects found median p/100m. Fragmented objects with no cl
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># median p/50m solve cg_t for unit_label</span>
-<span class="n">data_table</span> <span class="o">=</span> <span class="n">cg_t</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">unit_label</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_table</span> <span class="o">=</span> <span class="n">cg_t</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">unit_label</span><span class="p">)</span>
 
-<span class="c1"># survey area median</span>
-<span class="n">fd_cg</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">fd_cg</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
+<span class="c1"># repeat for the survey area</span>
+<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">this_bassin</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
+<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">t_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
 
-<span class="c1"># all survey area median</span>
+<span class="c1"># repeat for all the survey areas</span>
+<span class="n">a_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
+<span class="n">a_s_a</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">a_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
 
 <span class="c1"># merge with data_table</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">fd_cg</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># data.rename(columns={x:wname_wname.loc[x][0] for x in data.columns[:-2]}, inplace=True)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">]</span> <span class="p">,</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="n">axone</span> <span class="o">=</span> <span class="n">ax</span>

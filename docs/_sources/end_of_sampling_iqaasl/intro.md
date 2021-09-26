@@ -1,26 +1,26 @@
 # Identification, quantification and analysis of swiss litter (IQAASL)
 
-__Edition 1__ ver=0.7 _the report format_
+__Edition 1__ ver=0.71 _unlock lake results_
 
-__Note__: all results before ver=1 are considered interim.
+__Note__: all results before ver=1 are considered interim and should not be referenced.
 
 IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale **litter surveys** are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that contribute.
 
 This report is a summary and analysis of the beach-litter surveys conducted and the methods employed in Switzerland from April 2020
-to May 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
+to July 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
 
-The median survey results are presented down to the municipal level for each water feature and municipality that was sampled. The results are in units of _objects found per 100 meters_ (p/100m). 
+The median survey results are presented down to the municipal level for each location that was sampled. The results are in units of _objects found per 100 meters_ (p/100m). 
 <br></br>
-_Map of survey locations. Locations grouped by survey area. April 2020 - May 2021_
-:::{image} resources/images/intro_aples_lakes.jpeg
+_Map of survey locations April 2020 - July 2021_
+:::{image} resources/images/intro_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
 :width: 1200px
 :align: center
 :::
-_There were 399 samples from 156 locations in 99 different municipalities, all survey areas considered._
+_There were 400 samples from 157 locations in 90 different municipalities, all survey areas considered._
 
-There were 331 samples on lakes. The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,337 objects or $\approx$ 306kg including 95kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares. Out of 386 surveys 332 were on 11 lakes. Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
+Out of 400 surveys 331 were on 11 lakes.The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,337 objects or $\approx$ 306kg including 95kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares.  Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
 
 The most common objects are defined as those objects that were found in at least 50% of all surveys and/or are among the ten most abundant by quantity. As a group the most common objects represent $\approx$ 68% of all objects found in the sampling period.
 <br></br>
@@ -91,13 +91,9 @@ If this not possible please contact analyst-at-hammerdirt-dot-ch (currently resp
 
 ### Collecting data
 
-A beach litter survey can be conducted by anybody at anytime. If the survey is conducted according to the method described in _The Guide_ or here
-[Litter surveyor](https://www.plagespropres.ch/) the result can be compared directly to the charts in this report. There is no need to enter
-the data into the system to compare results.
+A beach litter survey can be conducted by anybody at anytime. If the survey is conducted according to the method described in _The Guide_ {cite}`mlwguidance` or here [Beach litter baselines](threshhold) the result can be compared directly to the charts in this report. There is no need to enter the data into the system to compare results.
 
-Collecting data for the report (or the next report) requires some on the job training and an evaluation. It usually takes 3-5 surveys to acclimate
-an individual to the task. Most of the time is spent identifying objects and the importance of maintaining a field notebook. The advantage to contributing
-data is that the reporting procedure is automated and there is always access to the results.
+**Contributing data** for the report (or the next report) requires some on the job training and an evaluation. It usually takes 3-5 surveys to acclimate an individual to the task. Most of the time is spent identifying objects and the importance of maintaining a field notebook. The advantage to contributing data is that the reporting procedure is automated and there is always access to the results.
 
 Contact shannon-at-hammerdirt-dot-ch or the Municipal waste section of the Swiss federal office for the environment for more information.
 
