@@ -9,7 +9,7 @@ IQAASL is a project sponsored by the Swiss Federal Office for the Environment to
 This report is a summary and analysis of the beach-litter surveys conducted and the methods employed in Switzerland from April 2020
 to July 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
 
-The median survey results are presented down to the municipal level for each location that was sampled. The results are in units of _objects found per 100 meters_ (p/100m). 
+The median survey results are presented down to the municipal level for each location that was sampled. The results are in units of _objects found per 100 meters_ (pieces/100m). 
 <br></br>
 _Map of survey locations April 2020 - July 2021_
 :::{image} resources/images/intro_map.jpeg
