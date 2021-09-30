@@ -416,7 +416,83 @@
         
               <div>
                 
-  <div class="cell tag_remove-input docutils container">
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys, file and nav packages:</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="c1"># math packages:</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">statsmodels.distributions.empirical_distribution</span> <span class="kn">import</span> <span class="n">ECDF</span>
+
+
+<span class="c1"># charting:</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">ticker</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># home brew utitilties</span>
+<span class="kn">import</span> <span class="nn">resources.utility_functions</span> <span class="k">as</span> <span class="nn">ut</span>
+<span class="kn">import</span> <span class="nn">resources.chart_kwargs</span> <span class="k">as</span> <span class="nn">ck</span>
+<span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
+
+<span class="c1"># images and display</span>
+<span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">IPython</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
+
+<span class="c1"># set some parameters:</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-03-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s1">&#39;2021-05-31&#39;</span>
+<span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mf">.5</span>
+
+<span class="n">unit_label</span> <span class="o">=</span> <span class="s1">&#39;pcs_m&#39;</span>
+
+<span class="c1"># name of the output folder:</span>
+<span class="n">name_of_project</span> <span class="o">=</span> <span class="s1">&#39;land_use_correlation_method&#39;</span>
+
+<span class="c1"># add the folder to the directory tree:</span>
+<span class="n">project_directory</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">make_project_folder</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">name_of_project</span><span class="p">)</span>
+
+<span class="c1"># get your data:</span>
+<span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/checked_sdata_eos_2020_21.csv&#39;</span><span class="p">)</span>
+<span class="n">river_bassins</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">json_file_get</span><span class="p">(</span><span class="s2">&quot;resources/river_basins.json&quot;</span><span class="p">)</span>
+<span class="n">dfBeaches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/beaches_with_land_use_rates.csv&quot;</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/codes_with_group_names_2015.csv&quot;</span><span class="p">)</span>
+<span class="c1"># dfDims = pd.read_csv(&quot;resources/dims_data.csv&quot;)</span>
+
+<span class="c1"># set the index of the beach data to location slug</span>
+<span class="n">dfBeaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># set the code index and edit descriptions for display:</span>
+<span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># make a map to the code descriptions</span>
+<span class="n">code_description_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">description</span>
+
+<span class="c1"># these descriptions need to be shortened for display</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation: includes spray foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Foamed EVA for crafts and sports&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G96&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sanitary-pads/tampons, applicators&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Metal bottle caps and lids&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G82&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams 2.5cm - 50cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G81&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams .5cm - 2.5cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G117&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams &lt; 5mm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G75&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 0 - 2.5cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G76&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 2.5cm - 50cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G24&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic lid rings&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G33&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Lids for togo drinks plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G3&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic bags, carier bags&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G204&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Bricks, pipes not plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="the-land-use-profile">
 <span id="luseprofile"></span><h1><span class="section-number">17. </span>The land use profile<a class="headerlink" href="#the-land-use-profile" title="Permalink to this headline">¶</a></h1>
@@ -539,7 +615,7 @@
 <p><em>Distribution of the number of surveys for the different land use attributes, n=354 samples</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># explanatory variables:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># explanatory variables that are being considered</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;% to buildings&#39;</span><span class="p">,</span> <span class="s1">&#39;% to recreation&#39;</span><span class="p">,</span> <span class="s1">&#39;% to agg&#39;</span><span class="p">,</span> <span class="s1">&#39;% to woods&#39;</span><span class="p">,</span> <span class="s1">&#39;streets km&#39;</span><span class="p">,</span> <span class="s1">&#39;intersects&#39;</span><span class="p">]</span>
 
 <span class="c1"># columns needed</span>
@@ -561,18 +637,19 @@
 <span class="c1"># the land use data was unvailable for these municipalities</span>
 <span class="n">no_land_use</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Walenstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;Weesen&#39;</span><span class="p">,</span> <span class="s1">&#39;Glarus Nord&#39;</span><span class="p">,</span> <span class="s1">&#39;Quarten&#39;</span><span class="p">]</span>
 
+<span class="c1"># slice the data by start and end date, remove the locations with no land use data</span>
 <span class="n">use_these_args</span> <span class="o">=</span> <span class="p">((</span><span class="n">survey_data</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="o">~</span><span class="n">survey_data</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">no_land_use</span><span class="p">)))</span>
 <span class="n">survey_data</span> <span class="o">=</span> <span class="n">survey_data</span><span class="p">[</span><span class="n">use_these_args</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># format the data and column names</span>
 <span class="n">survey_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;str_rank&#39;</span><span class="p">:</span><span class="s1">&#39;street rank&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">survey_data</span><span class="p">[</span><span class="s1">&#39;streets km&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">survey_data</span><span class="o">.</span><span class="n">streets</span><span class="o">/</span><span class="mi">1000</span>
 <span class="n">survey_data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
 
-<span class="c1"># a_data = survey_data.copy()</span>
-<span class="c1"># a_data.river_bassin.unique()</span>
-
+<span class="c1"># work off a copy</span>
 <span class="n">new_som_data</span> <span class="o">=</span> <span class="n">survey_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="c1"># survey totals</span>
+<span class="c1"># the survey total for each survey indiffferent of object</span>
 <span class="n">dfdt</span> <span class="o">=</span> <span class="n">new_som_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">use_these_cols</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
 
 <span class="c1"># method to get the ranked correlation of pcs_m to each explanatory variable</span>
@@ -581,7 +658,7 @@
     <span class="n">corr</span><span class="p">,</span> <span class="n">a_p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">unit_label</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">corr</span><span class="p">,</span> <span class="n">a_p</span>
 
-<span class="c1"># group the explanatory variables and count the number of surveys for the different landuse values</span>
+
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -589,11 +666,12 @@
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">the_data</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">the_data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">the_data</span><span class="o">.</span><span class="n">y</span>   
     
-    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dodgerblue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f surface area&quot;</span> <span class="p">)</span>
-    <span class="c1"># get the median from the data</span>
+    <span class="c1"># the ECDF of the land use variable</span>
+    <span class="n">the_data</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">the_data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span> <span class="n">the_data</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dodgerblue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f surface area&quot;</span> <span class="p">)</span>
+    
+    <span class="c1"># get the median % of land use for each variable under consideration from the data</span>
     <span class="n">the_median</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
     
     <span class="c1"># plot the median and drop horzontal and vertical lines</span>
@@ -608,6 +686,8 @@
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percent of samples&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">pass</span>
+    
+    <span class="c1"># add the median value from all locations to the ax title</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;The median: </span><span class="si">{</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">the_median</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
 
@@ -643,13 +723,15 @@
 <p>There are 386 surveys from 143 locations. This includes rivers and lakes. The results from Walensee are excluded, the data was incomplete for that part of Switzerland. The mean was more than twice the median, reflecting the extreme values that are typical of beach-litter-surveys. <span id="id12">[<a class="reference internal" href="../references.html#id43">HG19</a>]</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the date intervas for the chart</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the date intervals for the chart</span>
 <span class="n">months</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">months_fmt</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%b&#39;</span><span class="p">)</span>
 <span class="n">days</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
 <span class="c1"># set the grid for the chart</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+<span class="c1"># chart the daily totals and the ECDF of all surveys under consideration</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">axone</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -671,6 +753,7 @@
 
 <span class="c1"># plot the cumulative disrtibution</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">this_ecdf</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">this_ecdf</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axtwo</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;emprical cumulative distribution&#39;</span><span class="p">)</span>
+
 <span class="c1"># get the median and mean from the data</span>
 <span class="n">the_median</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 <span class="n">the_mean</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pcs_m</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -720,13 +803,13 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data for the example</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">new_som_data</span><span class="p">[</span><span class="n">new_som_data</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;G27&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;loc_date&quot;</span><span class="p">,</span><span class="s2">&quot;% to buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;% to agg&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="c1"># run the test</span>
+<span class="c1"># run the test under the two conditions</span>
 <span class="n">sprmns_b</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;% to buildings&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">unit_label</span><span class="p">])</span>
 <span class="n">sprmns_a</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">spearmanr</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;% to agg&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">unit_label</span><span class="p">])</span>
 
+<span class="c1"># plot the survey results with respect to the land use profile</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># plot the survey results with respect to the land use profile</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;% to buildings&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;% to agg&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dodgerblue&#39;</span><span class="p">)</span>
 
@@ -753,7 +836,6 @@
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># correlation  of survey total to land use attributes:</span>
-
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">):</span>
@@ -769,6 +851,7 @@
     
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">rF</span><span class="s2">&quot;$\rho=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">$, </span><span class="si">{</span><span class="n">title_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     
+    <span class="c1"># find p    </span>
     <span class="k">if</span> <span class="n">a_p</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">corr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;salmon&#39;</span><span class="p">)</span>
@@ -803,6 +886,15 @@
 <span class="c1"># all codes with a fail rate &gt; fail rate</span>
 <span class="n">better_than_50</span> <span class="o">=</span> <span class="n">code_fail_rate</span><span class="p">[</span><span class="n">code_fail_rate</span> <span class="o">&gt;</span> <span class="n">a_fail_rate</span><span class="p">]</span>
 
+<span class="c1"># the number of times an object was found at least once</span>
+<span class="n">code_fails</span> <span class="o">=</span> <span class="n">new_som_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># the ratio of found/not found</span>
+<span class="n">code_fail_rate</span> <span class="o">=</span> <span class="n">code_fails</span><span class="o">/</span><span class="n">new_som_data</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+<span class="c1"># all codes with a fail rate &gt; fail rate</span>
+<span class="n">better_than_50</span> <span class="o">=</span> <span class="n">code_fail_rate</span><span class="p">[</span><span class="n">code_fail_rate</span> <span class="o">&gt;</span> <span class="n">a_fail_rate</span><span class="p">]</span>
+
 <span class="n">some_keys</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;% to buildings&#39;</span><span class="p">:</span><span class="s1">&#39;lu_build&#39;</span><span class="p">,</span>
     <span class="s1">&#39;% to agg&#39;</span><span class="p">:</span><span class="s1">&#39;lu_agg&#39;</span><span class="p">,</span>
@@ -810,54 +902,61 @@
     <span class="s1">&#39;% to recreation&#39;</span><span class="p">:</span><span class="s1">&#39;lu_rec&#39;</span><span class="p">,</span>
     <span class="s1">&#39;% to trans&#39;</span><span class="p">:</span><span class="s1">&#39;lu_trans&#39;</span><span class="p">,</span>
     <span class="s1">&#39;% to meadow&#39;</span><span class="p">:</span><span class="s1">&#39;lu_m&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;str_rank&#39;</span><span class="p">:</span><span class="s1">&#39;lu_trans&#39;</span><span class="p">,}</span>
+    <span class="s1">&#39;str_rank&#39;</span><span class="p">:</span><span class="s1">&#39;lu_trans&#39;</span><span class="p">,</span>
+<span class="p">}</span>
 
 <span class="n">code_totals</span> <span class="o">=</span> <span class="n">new_som_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <span class="n">t_ten</span> <span class="o">=</span> <span class="n">code_totals</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">tlist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">t_ten</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">abundant_codes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">t_ten</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">better_than_50</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">t_ten</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
         <span class="k">pass</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">tlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-        
+        <span class="n">abundant_codes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 
-<span class="n">abundant_codes</span> <span class="o">=</span> <span class="n">tlist</span>
+<span class="c1"># get the survey date for the most common codes</span>
+<span class="n">m_common</span> <span class="o">=</span> <span class="n">new_som_data</span><span class="p">[</span><span class="n">new_som_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;fail&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">new_som_data</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">m_common</span><span class="o">.</span><span class="n">fail</span><span class="o">/</span><span class="n">new_som_data</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+<span class="n">m_common</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">total_acodes</span> <span class="o">=</span> <span class="n">new_som_data</span><span class="p">[</span><span class="n">new_som_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">)]</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">ptotal_acodes</span> <span class="o">=</span> <span class="n">total_acodes</span><span class="o">/</span><span class="n">new_som_data</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="c1"># print(ptotal_acodes)</span>
+<span class="c1"># format values for table</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s1">&#39;fail rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s1">&#39;fail rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 
-<span class="n">display_codes</span> <span class="o">=</span> <span class="s2">&quot;,</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">code_description_map</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">)])</span>
+<span class="c1"># banded color for table</span>
+<span class="n">a_color</span> <span class="o">=</span> <span class="s1">&#39;dodgerblue&#39;</span>
 
-<span class="n">md</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;The most common objects:</span><span class="se">\n</span><span class="si">{</span><span class="n">display_codes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># final table data</span>
+<span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;fail rate&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f total&#39;</span><span class="p">]</span>
+<span class="n">all_survey_areas</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">cols_to_use</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.8</span><span class="p">))</span>
+
+<span class="n">ut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
+
+<span class="n">the_first_table_data</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">all_survey_areas</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">cols_to_use</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.48</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">m_common</span><span class="p">,</span><span class="n">cols_to_use</span><span class="p">,</span> <span class="n">a_color</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>The most common objects:</p>
-<ol class="simple">
-<li><p>G27: Cigarette filters,</p></li>
-<li><p>Gfrags: Fragmented plastics,</p></li>
-<li><p>Gfoam: Expanded polystyrene,</p></li>
-<li><p>G30: Food wrappers; candy, snacks,</p></li>
-<li><p>G67: Industrial sheeting,</p></li>
-<li><p>G200: Glass drink bottles, pieces,</p></li>
-<li><p>G112: Industrial pellets (nurdles),</p></li>
-<li><p>G74: Insulation: includes spray foams,</p></li>
-<li><p>G95: Cotton bud/swab sticks,</p></li>
-<li><p>G117: Styrofoam &lt; 5mm,</p></li>
-<li><p>G178: Metal bottle caps and lids,</p></li>
-<li><p>G89: Plastic construction waste</p></li>
-</ol>
+<img alt="../_images/land_use_correlation_28_0.png" src="../_images/land_use_correlation_28_0.png" />
 </div>
 </div>
 <div class="section" id="results-spearmans-rho">
 <h4><span class="section-number">17.2.4.1. </span>Results Spearmans <span class="math notranslate nohighlight">\(\rho\)</span><a class="headerlink" href="#results-spearmans-rho" title="Permalink to this headline">¶</a></h4>
-<p>From the first figure a positive correlation can be assumed between the amount of trash found and the percent of land attributed to buildings and recreation.  The inverse is true for the percent of land attributed to agriculture and woods, there is no statistical basis to assume a correlation with the length of streets or the number of river intersections.</p>
-<p>The result of Spearman’s rho on the most abundant objects gives context to the results in the preceding figure and changes the assumption that neither river intersections or streets plays a role in beach-litter-survey-results.</p>
+<p>From the first figure a positive association can be assumed between the amount of trash found and the percent of land attributed to buildings and recreation. The inverse is true for the percent of land attributed to agriculture and woods, there is no statistical basis to assume a correlation with the length of streets or the number of river intersections and the total survey result.</p>
+<p>The result of Spearman’s rho on the most abundant objects gives context to the results in the preceding figure and changes and illustrates how the different objects tend to accumulate under different conditions.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">)</span><span class="o">+</span><span class="mi">7</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">)</span><span class="o">+</span><span class="mi">6</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">)</span>
@@ -937,12 +1036,13 @@
 <p>These objects are found in large quantities sporadically at specific locations. They have been found in all survey areas and in all lakes. Industrial pellets have a very specific use and client base making it possible to find partners based on the density of the pellets found and the location of the nearest consumer or producer of pellets, see <a class="reference internal" href="assessing_transport.html#transport"><span class="std std-ref">Shared responsibility</span></a>.</p>
 <div class="section" id="application">
 <h3><span class="section-number">17.3.1. </span>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h3>
-<p>Care must be taken to the number of samples used to determine an association using Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> and how much weight is placed on the results. The results for cigarettes are a good example. The graphs clearly show both negative and positive associations depending on the land use however, <span class="math notranslate nohighlight">\(\rho\)</span> is less than 0.5/-0.5. This far from a linear relationship and the magnitude remains undetermined.</p>
+<p>Care must be taken to the number of samples used to determine an association using Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> and how much weight is placed on the results. The results for cigarettes are a good example. The graphs clearly show both negative and positive associations depending on the land use however, <span class="math notranslate nohighlight">\(\rho\)</span> is less than 0.5/-0.5. This is far from a linear relationship and the magnitude remains undetermined.</p>
 <p>Stakeholders may want to consider these results and how they apply to their specific situation. One conclusion that can be drawn from these results is that there is a method to identify zones of accumulation with reasonable certainty. These results allow stakeholders to base priorities on the challenges that are specific to their region or situation.</p>
 <p>Spearmans correlation coefficient can easily be implemented once the final set of data has been determined. However, the coefficient value changes depending on the survey area or lake where the test is applied. This implies that understanding and interpreting these results is not just a national concern but also regional and municipal.</p>
-<p><strong>Why 1500 meters?</strong> For this study we were concerned with objects that had high values of <span class="math notranslate nohighlight">\(\rho\)</span> for smaller radiuses that were appropriate for scale of the data. Other distances were considered (2km, 2.5km, … 5km and 10km), in general as the radius increases the amount of land attributed to buildings diminishes as well as the value of <span class="math notranslate nohighlight">\(\rho\)</span>. This topic was considered in more detail in an article that is currently being prepared for the peer-review process.</p>
+<p><strong>Why 1500 meters?</strong> For this study we were concerned with objects that had high values of <span class="math notranslate nohighlight">\(\rho\)</span> for smaller radiuses that were appropriate for the scale of the provided data. Other distances were considered (2km, 2.5km, … 5km and 10km), in general as the radius increases the amount of land attributed to buildings diminishes as well as the value of <span class="math notranslate nohighlight">\(\rho\)</span>. This topic was considered in more detail in an article that is currently being prepared for the peer-review process.</p>
 <p>Association results should always be considered with all the other key indicators and expert judgment. Verification of an association can be done by sampling a specific zone for a defined period of time and comparing the results to the baseline values for the survey area. If the sampling zone has consistently higher survey results than the survey area then it is quite likely that the zone is a source or an area of accumulation.</p>
 <p>To understand more on how survey results change and/or remain the same depending on land use conditions see <a class="reference internal" href="assessing_transport.html#transport"><span class="std std-ref"><em>Shared responsibility</em></span></a>.</p>
+<p>To understand how baseline values were calculated for this report see <a class="reference internal" href="threshold.html#threshhold"><span class="std std-ref"><em>Beach litter baselines</em></span></a>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><strong>This project was made possible by the Swiss federal office for the environment.</strong><br></p>
