@@ -397,6 +397,13 @@
   <a class="reference internal nav-link" href="#discussion">
    17.3. Discussion
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#application">
+     17.3.1. Application
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -413,7 +420,7 @@
 </div>
 <div class="section" id="the-land-use-profile">
 <span id="luseprofile"></span><h1><span class="section-number">17. </span>The land use profile<a class="headerlink" href="#the-land-use-profile" title="Permalink to this headline">¶</a></h1>
-<p><em>The land use profile</em> is a numerical representation of the type and amplitude of economic activity around the survey location.</p>
+<p><em>The land use profile</em> is a numerical representation of the type and amplitude of economic activity around the survey location. It is calculated by using the data stored in map layers available at the <a class="reference external" href="https://www.geo.admin.ch/"><em>Federal geoportal</em></a> and at the <a class="reference external" href="https://www.bfs.admin.ch/bfs/en/home.html"><em>Swiss federal statistical office</em></a>.</p>
 <p>Trash is a collection of objects found in the natural environment. The object itself and the context in which it is found are indicators of economic and geographic origin. How the land is used in proximity to the survey location is an important context to consider when evaluating survey results. <span id="id1">[<a class="reference internal" href="../references.html#id63">ea16</a>]</span> <span id="id2">[<a class="reference internal" href="../references.html#id65">GM20</a>]</span></p>
 <p>In September 2020 the European Union issued beach-litter baselines and target values. After considering the many factors, including the transparency of the calculation method the EU decided that the median value of survey results would be used to compare surveys. <strong>This has incited interest in communities to better identify and quantify point sources of trash as they attempt to find the most efficient way to meet target values</strong>. Identifying relevant land use patterns and features is an essential element in the process. <span id="id3">[<a class="reference internal" href="../references.html#id45">VLW20</a>]</span> <span id="id4">[<a class="reference internal" href="../references.html#id43">HG19</a>]</span> <span id="id5">[<a class="reference internal" href="../references.html#id66">vEV21</a>]</span></p>
 <p>Here we propose a method to evaluate the results of beach-litter-surveys with respect to the land use profile within 1500m of the survey location. The survey results of the most common objects are tested for association against the measured land use features using Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> or <em>Spearmans ranked correlation</em>, a non parametric test of association. <span id="id6">[<a class="reference internal" href="../references.html#id10">Wik21c</a>]</span> <span id="id7">[<a class="reference internal" href="../references.html#id14">Inn07</a>]</span></p>
@@ -528,7 +535,7 @@
 </tr>
 </table> --><div class="section" id="land-use-profile-of-the-project">
 <h3><span class="section-number">17.1.1. </span>Land use profile of the project<a class="headerlink" href="#land-use-profile-of-the-project" title="Permalink to this headline">¶</a></h3>
-<p>The land use is reported as the percent of total area attributed to each land use category within a 1500m radius of the survey location. The ratio of the number of samples completed at the different land use profiles gives a good <em>objective</em> indicator of the environmental conditions the samples were taken.</p>
+<p>The land use is reported as the percent of total area attributed to each land use category within a 1500m radius of the survey location. The ratio of the number of samples completed at the different land use profiles is an indicator of the environmental and economic conditions around the survey locations.</p>
 <p><em>Distribution of the number of surveys for the different land use attributes, n=354 samples</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -551,26 +558,19 @@
                   <span class="s1">&#39;code&#39;</span>
                  <span class="p">]</span>
 
-<span class="n">use_these_args</span> <span class="o">=</span> <span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">!=</span> <span class="s1">&#39;walensee&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)</span>
+<span class="c1"># the land use data was unvailable for these municipalities</span>
+<span class="n">no_land_use</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Walenstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;Weesen&#39;</span><span class="p">,</span> <span class="s1">&#39;Glarus Nord&#39;</span><span class="p">,</span> <span class="s1">&#39;Quarten&#39;</span><span class="p">]</span>
+
+<span class="n">use_these_args</span> <span class="o">=</span> <span class="p">((</span><span class="n">survey_data</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="o">~</span><span class="n">survey_data</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">no_land_use</span><span class="p">)))</span>
 <span class="n">survey_data</span> <span class="o">=</span> <span class="n">survey_data</span><span class="p">[</span><span class="n">use_these_args</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">survey_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;str_rank&#39;</span><span class="p">:</span><span class="s1">&#39;street rank&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">survey_data</span><span class="p">[</span><span class="s1">&#39;streets km&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">survey_data</span><span class="o">.</span><span class="n">streets</span><span class="o">/</span><span class="mi">1000</span>
 <span class="n">survey_data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
 
-<span class="n">a_data</span> <span class="o">=</span> <span class="n">survey_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># a_data = survey_data.copy()</span>
+<span class="c1"># a_data.river_bassin.unique()</span>
 
-<span class="c1"># Combine the different sizes of fragmented plastics and styrofoam</span>
-<span class="c1"># the codes for the foams</span>
-<span class="n">some_foams</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;G81&#39;</span><span class="p">,</span> <span class="s1">&#39;G82&#39;</span><span class="p">,</span> <span class="s1">&#39;G83&#39;</span><span class="p">,</span><span class="s1">&#39;G911&#39;</span><span class="p">,</span> <span class="s1">&#39;G912&#39;</span><span class="p">]</span>
-
-<span class="c1"># the codes for the fragmented plastics</span>
-<span class="n">some_frag_plas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a_data</span><span class="p">[</span><span class="n">a_data</span><span class="o">.</span><span class="n">groupname</span> <span class="o">==</span> <span class="s1">&#39;plastic pieces&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-
-<span class="n">the_plast_rows</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">create_aggregate_groups</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">codes_to_agg</span><span class="o">=</span><span class="n">some_frag_plas</span><span class="p">,</span><span class="n">a_model_code</span><span class="o">=</span><span class="s2">&quot;G79&quot;</span><span class="p">,</span> <span class="n">a_new_code</span><span class="o">=</span><span class="s2">&quot;Gfrags&quot;</span><span class="p">)</span>
-<span class="n">the_foam_rows</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">create_aggregate_groups</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">codes_to_agg</span><span class="o">=</span><span class="n">some_foams</span><span class="p">,</span> <span class="n">a_model_code</span><span class="o">=</span><span class="s2">&quot;G82&quot;</span><span class="p">,</span> <span class="n">a_new_code</span><span class="o">=</span><span class="s2">&quot;Gfoam&quot;</span><span class="p">)</span>
-
-<span class="c1"># the foam codes and fragmented plastic codes have been aggregated in to Gfrags and Gfoam</span>
-<span class="n">new_som_data</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">replace_a_group_of_codes_with_one</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">new_code_values</span><span class="o">=</span><span class="p">[</span><span class="n">the_plast_rows</span><span class="p">,</span> <span class="n">the_foam_rows</span><span class="p">],</span> <span class="n">codes_to_replace</span><span class="o">=</span><span class="p">[</span><span class="o">*</span><span class="n">some_frag_plas</span><span class="p">,</span> <span class="o">*</span><span class="n">some_foams</span><span class="p">])</span>
+<span class="n">new_som_data</span> <span class="o">=</span> <span class="n">survey_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="c1"># survey totals</span>
 <span class="n">dfdt</span> <span class="o">=</span> <span class="n">new_som_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">use_these_cols</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
@@ -610,12 +610,8 @@
         <span class="k">pass</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;The median: </span><span class="si">{</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">the_median</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
-    
-<span class="c1"># handles, labels=ax.get_legend_handles_labels() </span>
-
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="c1"># fig.legend(handles, labels, bbox_to_anchor=(1,1.1), loc=&#39;upper right&#39;, ncol=2)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -624,7 +620,7 @@
 <img alt="../_images/land_use_correlation_12_0.png" src="../_images/land_use_correlation_12_0.png" />
 </div>
 </div>
-<p><strong>The land use</strong> around the survey locations had a higher attribution to buildings as opposed to agriculture and woods. For example, half of all the surveys had at least  37% of land use devoted to buildings as opposed to 19% for agriculture or woods. Land use devoted to recreation was at least 6% for half of all samples.</p>
+<p><strong>The land use</strong> around the survey locations had a higher attribution to buildings as opposed to agriculture and woods. For example, half of all the surveys had at least  37% of land use devoted to buildings as opposed to 19% for agriculture or 13% to woods. Land use devoted to recreation was at least 6% for half of all samples.</p>
 <p><strong>The length of the road network</strong> within the buffer zone differentiates between locations that have other wise similar land use characteristics. The length of road per buffer ranges from 13km to 212km, 50% of the surveys had less than 67km of road network.</p>
 <p><strong>The number of intersections</strong> ranges from zero to 23, 50% of the surveys had 3 or fewer intersections within 1500m of the survey location. The size of the intersecting river or canal was not taken into consideration. Survey locations on rivers have zero intersections.</p>
 <p><strong>The population</strong> (not shown) is taken from statpop 2018 and represents the population of the municipality surrounding the survey location. The smallest population was 442 and the maximum was 415,367, 50% of the surveys come from municipalities with a population of at least 12,812.</p>
@@ -644,7 +640,7 @@
 <h2><span class="section-number">17.2. </span>Associating land use to survey results<a class="headerlink" href="#associating-land-use-to-survey-results" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="the-data">
 <h3><span class="section-number">17.2.1. </span>The data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h3>
-<p>There are 354 surveys from 134 locations. This includes rivers and lakes. The results from Walensee are excluded, the data was incomplete for that part of Switzerland. The mean was more than twice the median, reflecting the extreme values that are typical of beach-litter-surveys. <span id="id12">[<a class="reference internal" href="../references.html#id43">HG19</a>]</span></p>
+<p>There are 386 surveys from 143 locations. This includes rivers and lakes. The results from Walensee are excluded, the data was incomplete for that part of Switzerland. The mean was more than twice the median, reflecting the extreme values that are typical of beach-litter-surveys. <span id="id12">[<a class="reference internal" href="../references.html#id43">HG19</a>]</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the date intervas for the chart</span>
@@ -713,6 +709,10 @@
 <h3><span class="section-number">17.2.2. </span>Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> an example<a class="headerlink" href="#spearmans-rho-an-example" title="Permalink to this headline">¶</a></h3>
 <p>Spearmans ranked correlation tests for a statistically significant monotonic relationship or association between two variables. The hypothesis is that there is no association between the land use profile and the survey results. <span id="id13">[<a class="reference internal" href="../references.html#id10">Wik21c</a>]</span></p>
 <p>The test results relate the direction (<span class="math notranslate nohighlight">\(\rho\)</span>) of an association and whether or not that association is likely due to chance (p-value). For a test to be considered significant the p-value needs to be less than 0.05. <span id="id14">[<a class="reference internal" href="../references.html#id11">sc21c</a>]</span></p>
+<ol class="simple">
+<li><p>The null hypothesis: there is no monotonic relationship between the two variables</p></li>
+<li><p>The alternate hypothesis: there is a monotonic relationship and the sign (+/-) indicates the direction</p></li>
+</ol>
 <p>It does not provide any information about the magnitude of the relationship. As an example consider the relationship of the survey results of cigarette ends with respect to the amount of land attributed to buildings or agriculture. <span id="id15">[<a class="reference internal" href="../references.html#id14">Inn07</a>]</span></p>
 <p><em><strong>Left:</strong> survey totals cigarette ends with respect to % of land to buildings. <span class="math notranslate nohighlight">\(\rho\)</span>= 0.39, p-value &lt; .001</em></p>
 <div class="cell tag_hide-input docutils container">
@@ -745,7 +745,7 @@
 </div>
 </div>
 <p><em><strong>Right:</strong> survey totals cigarette ends with respect to % of land to aggriculture. <span class="math notranslate nohighlight">\(\rho\)</span>= -0.31, p-value &lt; .001</em></p>
-<p>The test results confirm what appears to be an association between the quantity of cigarette ends found and the percent of land attributed to agriculture or buildings. A non conclusive test means that we can assume that there is no association between the land use profile and the survey results.</p>
+<p>When the survey results for cigarette ends are considered with respect to the percent of land attributed to buildings or agriculture the the value of <span class="math notranslate nohighlight">\(\rho\)</span> is opposite. The plot of the relationship (above) demonstrates the relationship of the survey values under the two conditions.</p>
 </div>
 <div class="section" id="association-of-survey-totals-to-land-use">
 <h3><span class="section-number">17.2.3. </span>Association of survey totals to land use<a class="headerlink" href="#association-of-survey-totals-to-land-use" title="Permalink to this headline">¶</a></h3>
@@ -846,10 +846,11 @@
 <li><p>G67: Industrial sheeting,</p></li>
 <li><p>G200: Glass drink bottles, pieces,</p></li>
 <li><p>G112: Industrial pellets (nurdles),</p></li>
+<li><p>G74: Insulation: includes spray foams,</p></li>
 <li><p>G95: Cotton bud/swab sticks,</p></li>
 <li><p>G117: Styrofoam &lt; 5mm,</p></li>
-<li><p>G89: Plastic construction waste,</p></li>
-<li><p>G178: Metal bottle caps and lids</p></li>
+<li><p>G178: Metal bottle caps and lids,</p></li>
+<li><p>G89: Plastic construction waste</p></li>
 </ol>
 </div>
 </div>
@@ -906,7 +907,7 @@
 </div>
 <div class="section" id="interpreting-spearmans-rho">
 <h3><span class="section-number">17.2.5. </span>Interpreting Spearmans <span class="math notranslate nohighlight">\(\rho\)</span><a class="headerlink" href="#interpreting-spearmans-rho" title="Permalink to this headline">¶</a></h3>
-<p>A positive association means that the land use attribute or feature had increased survey results when compared to other locations. This may be due to a covariance of attributes, either way <strong>a positive association is a signal that the survey locations are probably near a zone of accumulation or a source</strong>. This signal should be assessed along with the other key indicators of survey locations that have similar land use profiles. In general locations that fit the criteria could be considered as both a source and an area of accumulation for any objects that are positively associated.</p>
+<p>A positive association means that the survey results had a tendency to increase as the percent value of the land use feature increased. This may be due to a covariance of attributes, either way <strong>a positive association is a signal that the objects tend to accumulate under these conditions</strong>.</p>
 <p>A negative association means that the land use feature or attribute does not facilitate the accumulation of the object. This result is common for agricultural areas and woods on the national level. <strong>A negative association is a signal that the locations are probably not a zone of accumulation for the object</strong>.</p>
 <p>No or few association means that the land use features had no effect on the accumulation of that object. The survey results of the most common objects with no or few associations fall into two characteristics:</p>
 <ol class="simple">
@@ -917,34 +918,40 @@
 </div>
 <div class="section" id="discussion">
 <h2><span class="section-number">17.3. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Overall, surveys at locations with more buildings and more recreation sites had more trash (all objects considered). However, when the most common objects are considered, only five out of the twelve were found at higher rates in the presence of more buildings. Of those objects: cigarette ends, candy wrappers, glass drink bottles and metal drink lids are likely related to food or tobacco consumption. Objects associated with food consumption or smoking are found at higher rates in locations that have more space attributed to human interaction as opposed to space devoted to farming or forestry, this has been observed in other studies indifferent of the statistical method.</p>
-<p>Several of the most objects that have less than two associations:</p>
-<ol class="simple">
-<li><p>objects that have high fail rate and few associations</p>
+<p>Overall, surveys at locations with more buildings and more recreation sites were more likely to facilitate the accumulation of trash on the shoreline. When the most common objects are considered, only four of the twelve were found at higher rates in the presence of more buildings. All of those objects are likely related to food or tobacco consumption near the location. Suggesting that there are still gains to be made in prevention and attenuation efforts in areas of high traffic near the water.</p>
+<p>However, six of the twelve objects have no positive association to land use attributed to buildings but were found in at least 50% of all the surveys. These objects are generally associated with professional use or in the case of cotton swabs personal hygiene:</p>
 <ul class="simple">
 <li><p>plastic construction waste</p></li>
 <li><p>fragmented plastics</p></li>
 <li><p>industrial sheeting</p></li>
 <li><p>expanded polystyrene</p></li>
+<li><p>cotton bud/swabs</p></li>
+<li><p>insulation, includes spray foams</p></li>
 </ul>
-</li>
-<li><p>few associations, low fail rate, high pcs/m</p>
+<p>Furthermore, compared to products related to tobacco or food consumption these objects have fewer positive associations in general. Indicating that the appropriate land use feature is not currently accounted for and/or these objects are found at similar quantities indifferent of the land use features. Suggesting that these objects are ubiquitous in the environment.</p>
+<p>Finally, two of the twelve most common objects were found in less than 50% of the surveys and have few positive associations:</p>
 <ul class="simple">
 <li><p>industrial pellets</p></li>
+<li><p>expanded foams &lt; 5mm</p></li>
 </ul>
-</li>
-</ol>
-<p>The objects in the first group are just as likely to be found indifferent of the location, in general they make up 30% - 40% of the total trash found.</p>
-<p>Industrial pellets (group 2) are found in only 1/3 surveys, their presence in the most common objects indicates they have been found in important quantities at select locations. An association with land attributed to recreation means that the locations where they were found had a higher percent of land attributed to recreation.</p>
-<p>Each survey area is independent of the other, therefore it is expected that the association results will look different for each survey area where this analysis is applied. The association of an object with a particular land use profile should be considered along with all the relevant key indicators and the specific context of the survey area in question.</p>
+<p>These objects are found in large quantities sporadically at specific locations. They have been found in all survey areas and in all lakes. Industrial pellets have a very specific use and client base making it possible to find partners based on the density of the pellets found and the location of the nearest consumer or producer of pellets, see <a class="reference internal" href="assessing_transport.html#transport"><span class="std std-ref">Shared responsibility</span></a>.</p>
+<div class="section" id="application">
+<h3><span class="section-number">17.3.1. </span>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h3>
+<p>Care must be taken to the number of samples used to determine an association using Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> and how much weight is placed on the results. The results for cigarettes are a good example. The graphs clearly show both negative and positive associations depending on the land use however, <span class="math notranslate nohighlight">\(\rho\)</span> is less than 0.5/-0.5. This far from a linear relationship and the magnitude remains undetermined.</p>
+<p>Stakeholders may want to consider these results and how they apply to their specific situation. One conclusion that can be drawn from these results is that there is a method to identify zones of accumulation with reasonable certainty. These results allow stakeholders to base priorities on the challenges that are specific to their region or situation.</p>
+<p>Spearmans correlation coefficient can easily be implemented once the final set of data has been determined. However, the coefficient value changes depending on the survey area or lake where the test is applied. This implies that understanding and interpreting these results is not just a national concern but also regional and municipal.</p>
+<p><strong>Why 1500 meters?</strong> For this study we were concerned with objects that had high values of <span class="math notranslate nohighlight">\(\rho\)</span> for smaller radiuses that were appropriate for scale of the data. Other distances were considered (2km, 2.5km, … 5km and 10km), in general as the radius increases the amount of land attributed to buildings diminishes as well as the value of <span class="math notranslate nohighlight">\(\rho\)</span>. This topic was considered in more detail in an article that is currently being prepared for the peer-review process.</p>
+<p>Association results should always be considered with all the other key indicators and expert judgment. Verification of an association can be done by sampling a specific zone for a defined period of time and comparing the results to the baseline values for the survey area. If the sampling zone has consistently higher survey results than the survey area then it is quite likely that the zone is a source or an area of accumulation.</p>
+<p>To understand more on how survey results change and/or remain the same depending on land use conditions see <a class="reference internal" href="assessing_transport.html#transport"><span class="std std-ref"><em>Shared responsibility</em></span></a>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><strong>This project was made possible by the Swiss federal office for the environment.</strong><br></p>
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-09-20.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-09-30.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
+</div>
 </div>
 </div>
 </div>
