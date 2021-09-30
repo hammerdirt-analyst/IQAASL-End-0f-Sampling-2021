@@ -1,6 +1,6 @@
 # Identification, quantification and analysis of swiss litter (IQAASL)
 
-__Edition 1__ ver=0.71 _unlock lake results_
+__Edition 1__ ver=0.72 _unlock key indicators and landuse_
 
 __Note__: all results before ver=1 are considered interim and should not be referenced.
 
