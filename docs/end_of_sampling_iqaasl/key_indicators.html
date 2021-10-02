@@ -49,6 +49,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="16. Code groups" href="code_groups.html" />
@@ -326,8 +328,8 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-data-for-this-example">
-   15.1. The data for this example
+  <a class="reference internal nav-link" href="#definition-the-most-common-objects">
+   15.1. Definition: the most common objects
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -341,35 +343,37 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-fail-rate-how-often-an-object-was-found">
-     15.2.2. The fail rate: how often an object was found
+    <a class="reference internal nav-link" href="#the-fail-rate">
+     15.2.2. The fail rate
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pieces-per-meter-the-number-of-objects-found-per-length-of-shoreline">
-     15.2.3. Pieces per meter = the number of objects found per length of shoreline
+    <a class="reference internal nav-link" href="#pieces-per-meter">
+     15.2.3. Pieces per meter
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#definition-the-most-common-objects">
-       15.2.3.1. Definition: the most common objects
+      <a class="reference internal nav-link" href="#percent-of-total">
+       15.2.3.1. Percent of total
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#percent-of-total-the-compostion-of-the-objects-found">
-     15.2.4. Percent of total: the compostion of the objects found
+    <a class="reference internal nav-link" href="#discussion">
+     15.2.4. Discussion
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#application">
+       15.2.4.1. Application
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#describe-the-survey-results-using-the-key-indicators">
-     15.2.5. Describe the survey results using the key indicators
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#practical-excercise">
-     15.2.6. Practical excercise
+    <a class="reference internal nav-link" href="#practical-exercise">
+     15.2.5. Practical exercise
     </a>
    </li>
   </ul>
@@ -389,23 +393,23 @@
 </div>
 <div class="section" id="key-statistical-indicators">
 <span id="keyindicators"></span><h1><span class="section-number">15. </span>Key statistical indicators<a class="headerlink" href="#key-statistical-indicators" title="Permalink to this headline">¶</a></h1>
-<p>The key indicators provide answers to the most frequent questions about the state of litter in the natural environment. The key indicators are:</p>
-<ol class="simple">
-<li><p>number of samples</p></li>
-<li><p>pass-fail rate (fail-rate)</p></li>
-<li><p>pieces of trash per meter (pcs/m or pcs/m²)</p></li>
-<li><p>percent of total trash (% of total)</p></li>
-</ol>
-<p>Easy to calculate and taken directly from the survey results the key indicators are essential to identifying zones of accumulation within the watershed. When combined with specific knowledge of the surrounding area the key indicators help identify potential sources.<span id="id1">[<a class="reference internal" href="../references.html#id42">Han13</a>]</span></p>
-<p><strong>Indicators for the most frequent questions</strong></p>
+<p>Easy to calculate and taken directly from the survey results the key indicators are essential to identifying zones of accumulation within the watershed. When used in the context of a litter monitoring program and combined with specific knowledge of the surrounding area the key indicators help identify potential sources of litter.<span id="id1">[<a class="reference internal" href="../references.html#id42">Han13</a>]</span></p>
 <p>Assessments of beach-litter surveys describe the location, abundance and composition of the objects found <span id="id2">[<a class="reference internal" href="../references.html#id43">HG19</a>]</span>. The key indicators answer the following questions:</p>
 <ul class="simple">
 <li><p>What items are found?</p></li>
 <li><p>How much is found ? (total weights and item counts)</p></li>
 <li><p>How often are these items found?</p></li>
-<li><p>Where are these items found in the greatest concentration?</p></li>
+<li><p>Where are these items found in the greatest concentrations?</p></li>
 </ul>
 <p>Similar to counting birds or wildflowers a litter-surveyor has to find the quarry and then identify it, this process is well documented and has been tested under many conditions<span id="id3">[<a class="reference internal" href="../references.html#id51">Rya15</a>]</span> <span id="id4">[<a class="reference internal" href="../references.html#id58">RMCP+15</a>]</span>.</p>
+<p><strong>Indicators for the most frequent questions</strong></p>
+<p>The key indicators provide answers to the most frequent questions about the state of litter in the natural environment. The key indicators are:</p>
+<ol class="simple">
+<li><p>number of samples</p></li>
+<li><p>pass-fail rate (fail-rate)</p></li>
+<li><p>number of objects per meter (pcs/m or pcs/m²)</p></li>
+<li><p>composition (% of total)</p></li>
+</ol>
 <p><strong>Assumptions of the key indicators:</strong></p>
 <p>The reliability of these indicators is based on the following assumptions:</p>
 <ol class="simple">
@@ -415,13 +419,41 @@
 <li><p>For each survey: finding one item does not effect the chance of finding another <span id="id5">[<a class="reference internal" href="../references.html#id9">Sta21</a>]</span></p></li>
 </ol>
 <p><strong>Using the key indicators</strong></p>
-<p>The key indicators of the most common objects are given with every data summary at each aggregation level. If the previous assumptions are maintained then the number of samples in the region of interest should be considered first before applying any weight to conclusions that may be drawn from the survey results. While one individual sample can give very specific data about one place and date, a collection of samples speaks to the region.</p>
+<p>The key indicators of the most common objects are given with every data summary at each aggregation level. If the previous assumptions are maintained then the number of samples in the region of interest should always be considered as a measure of uncertainty. The more samples that there are within defined geographic and temporal bounds the more confidence can be had in the numerical results that are obtained from results within those bounds.</p>
+<div class="section" id="definition-the-most-common-objects">
+<h2><span class="section-number">15.1. </span>Definition: the most common objects<a class="headerlink" href="#definition-the-most-common-objects" title="Permalink to this headline">¶</a></h2>
+<p><em>The most common objects are those objects that have a fail rate greater than or equal to 50% and/or are in the top-ten by quantity or pieces/m for any defined geographic area.</em></p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="the-data-for-this-example">
-<h2><span class="section-number">15.1. </span>The data for this example<a class="headerlink" href="#the-data-for-this-example" title="Permalink to this headline">¶</a></h2>
-<p>The survey results from Biel/Bienne in the Aare survey area will be used to explain the key indicators and their use.</p>
-<div class="cell tag_remove-input docutils container">
+</div>
+<div class="section" id="the-key-indicators">
+<h2><span class="section-number">15.2. </span>The key indicators<a class="headerlink" href="#the-key-indicators" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfSurveys</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">fo_rmat_and_slice_date</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">a_format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="n">end_date</span><span class="p">)</span>
+<span class="n">dfSurveys</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfSurveys</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">city_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">trb</span> <span class="o">=</span> <span class="n">dfSurveys</span><span class="p">[</span><span class="n">dfSurveys</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;river_bassin&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># describe the data set:</span>
+<span class="n">num_obs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trb</span><span class="p">)</span>
+<span class="n">num_samps</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">num_obj</span> <span class="o">=</span> <span class="n">trb</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">num_locs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="c1"># the city that we are looking at:</span>
+<span class="n">biel</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[</span><span class="n">trb</span><span class="o">.</span><span class="n">city</span> <span class="o">==</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]]</span>
+
+<span class="c1"># samples at biel</span>
+<span class="n">biel_locd</span> <span class="o">=</span> <span class="n">biel</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="c1"># locations at biel</span>
+<span class="n">biel_loc</span> <span class="o">=</span> <span class="n">biel</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+<span class="c1"># example data summary and keys</span>
+<span class="n">biel_t</span> <span class="o">=</span> <span class="n">biel</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -429,25 +461,17 @@
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(F&quot;\n Results for all surveys between {start_date} and {end_date} from the following catchment areas:\n\n  {trb.river_bassin.unique()}&quot;)</span>
-<span class="n">md</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">The data is from the Aare survey area between 2020-03-01 and 2020-05-31. There were </span><span class="si">{</span><span class="s1">&#39;</span><span class="si">{:,}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_obj</span><span class="p">)</span><span class="si">}</span><span class="s2"> objects collected from </span><span class="si">{</span><span class="n">num_samps</span><span class="si">}</span><span class="s2"> surveys.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">There were </span><span class="si">{</span><span class="s1">&#39;</span><span class="si">{:,}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_obj</span><span class="p">)</span><span class="si">}</span><span class="s2"> objects collected from </span><span class="si">{</span><span class="n">num_samps</span><span class="si">}</span><span class="s2"> surveys in the Aare survey area between 2020-03-01 and 2020-05-31.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>The data is from the Aare survey area between 2020-03-01 and 2020-05-31. There were 13,847 objects collected from 140 surveys.</p>
+<p>There were 13,847 objects collected from 140 surveys in the Aare survey area between 2020-03-01 and 2020-05-31.</p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is a convenience function for the abundance class</span>
-<span class="c1"># the fail rate needs to be recalculated at each aggregation level</span>
-<span class="c1"># fail_rates_df = ac.agg_fail_rate_by_city_feature_basin_all(dfSurveys, levels, group=&#39;code&#39;)</span>
-<span class="c1"># fail_rates_df[&#39;item&#39;] = fail_rates_df.index.map(lambda x: ut.use_this_key(x, code_description_map))</span>
-<span class="c1"># fail_rates_df.set_index(&#39;item&#39;, drop=True, inplace=True)</span>
-
-
-<span class="c1"># the labels for the summary table:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the labels for the summary table:</span>
 <span class="n">unit_label</span><span class="o">=</span> <span class="s1">&#39;pcs_m&#39;</span>
 <span class="n">change_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;count&#39;</span><span class="p">:</span><span class="s1">&#39;# samples&#39;</span><span class="p">,</span> 
                 <span class="s1">&#39;mean&#39;</span><span class="p">:</span><span class="sa">F</span><span class="s2">&quot;average </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
@@ -480,6 +504,24 @@
 <span class="c1"># change the names</span>
 <span class="n">combined_summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">anew_dict</span><span class="p">(</span><span class="n">desc_biel</span><span class="p">))</span>
 
+<span class="c1"># select data</span>
+<span class="n">datab</span> <span class="o">=</span> <span class="n">biel</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;location&#39;</span><span class="p">,</span>  <span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;pcs_m&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+
+<span class="c1"># get the basic statistics from pd.describe</span>
+<span class="n">d_biel</span> <span class="o">=</span> <span class="n">datab</span><span class="p">[</span><span class="s1">&#39;pcs_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># add project totals</span>
+<span class="n">d_biel</span><span class="p">[</span><span class="s1">&#39;total objects&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datab</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">d_biel</span><span class="p">[</span><span class="s1">&#39;# locations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datab</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+<span class="c1"># change the names</span>
+<span class="n">c_b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">anew_dict</span><span class="p">(</span><span class="n">d_biel</span><span class="p">))</span>
+
+<span class="c1"># format the output for printing:</span>
+<span class="n">not_formatted</span> <span class="o">=</span> <span class="n">c_b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">c_b</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">c_b</span><span class="p">[</span><span class="n">x</span><span class="p">])))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c_b</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">c_b</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">d_biel</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="n">not_formatted</span><span class="p">)</span> <span class="p">))</span>
+
 <span class="c1"># format the output for printing:</span>
 <span class="n">not_formatted</span> <span class="o">=</span> <span class="n">combined_summary</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">combined_summary</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">combined_summary</span><span class="p">[</span><span class="n">x</span><span class="p">])))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">combined_summary</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
@@ -495,11 +537,13 @@
 <span class="n">bt_all</span> <span class="o">=</span> <span class="n">biel</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">pcs_m</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">monthly_plot</span> <span class="o">=</span> <span class="n">dt_all</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">pcs_m</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># chart that</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 
-<span class="n">spec</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
-<span class="n">axone</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">spec</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
-<span class="n">axtwo</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">spec</span><span class="p">[:,</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">axone</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">spec</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">axtwo</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">spec</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">axthree</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">spec</span><span class="p">[</span><span class="mi">9</span><span class="p">:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dt_all</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pcs_m&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Aare survey area&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">bt_all</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pcs_m&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Biel/Bienne&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">)</span>
@@ -523,6 +567,13 @@
 <span class="n">a_table</span> <span class="o">=</span> <span class="n">axtwo</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">combined_summary</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">a_col</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.4</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span><span class="mf">.3</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">the_material_table_data</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span><span class="n">combined_summary</span><span class="p">,</span><span class="n">a_col</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
+<span class="n">axthree</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">ut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axthree</span><span class="p">)</span>
+
+<span class="n">a_col</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Biel/Bienne&#39;</span><span class="p">,</span> <span class="s1">&#39;total&#39;</span><span class="p">]</span>
+<span class="n">a_table</span> <span class="o">=</span> <span class="n">axthree</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">c_b</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">a_col</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.4</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span><span class="mf">.3</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">the_material_table_data</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span><span class="n">c_b</span><span class="p">,</span><span class="n">a_col</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -531,31 +582,46 @@
 <img alt="../_images/key_indicators_7_0.png" src="../_images/key_indicators_7_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="the-key-indicators">
-<h2><span class="section-number">15.2. </span>The key indicators<a class="headerlink" href="#the-key-indicators" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="the-number-of-samples">
 <h3><span class="section-number">15.2.1. </span>The number of samples<a class="headerlink" href="#the-number-of-samples" title="Permalink to this headline">¶</a></h3>
-<p>The number of samples is the simplest and most important statistic to consider when interpreting these results. Beach-litter survey results have a high variance and change noticeably from one location to another.</p>
+<p>The number of samples refers to the number of samples within a geographic and temporal range. As stated previously, the more samples there are within a specified area and date range the more confidence can be placed on the results of the analysis.</p>
 </div>
-<div class="section" id="the-fail-rate-how-often-an-object-was-found">
-<h3><span class="section-number">15.2.2. </span>The fail rate: how often an object was found<a class="headerlink" href="#the-fail-rate-how-often-an-object-was-found" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="the-fail-rate">
+<h3><span class="section-number">15.2.2. </span>The fail rate<a class="headerlink" href="#the-fail-rate" title="Permalink to this headline">¶</a></h3>
 <p>The fail rate is the number of times that an object was found at least once divided by the number of surveys.</p>
 <p><strong>What does it mean?</strong> The fail rate describes the percent of times that a category <strong>was</strong> identified in relation to the amount of surveys conducted.</p>
 <blockquote>
 <div><p>Use the fail rate to determine how frequently an object was found within a geographic range. Items can be differentiated by the fail rate. Use the fail rate and pcs/m to identify objects that are found infrequently but in important quantities.</p>
 </div></blockquote>
 <p><strong>Different fail rates at different levels</strong></p>
-<p>The fail rate can be calculated for any lake, municipality or river basin <em>provided you have a sufficient quantity of reliable data</em> for the location of interest.</p>
-<p><strong>Biel/Bienne the ten items with the highest fail rate</strong></p>
-<p>Compare the ten objects with the highest fail rate from the 16 surveys in Biel to the fail-rates of those same items for Bielersee the Aare and all other survey areas.</p>
+<p>The fail rate is calculated at each aggregation level. As a result the fail rate for any particular object will change depending on the geographic bounds that define the aggregation level. Consider all the objects that were found in at least 1/2 surveys in the Aare survey area.</p>
+<p><em>Aare survey area all items that have a fail rate greater than 49.999.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biel_fail</span> <span class="o">=</span> <span class="n">biel</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># identify the most common and the most abundant objects in the river bassin</span>
+<span class="n">trb_mc</span> <span class="o">=</span> <span class="n">trb</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;fail&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">trb_mcom</span> <span class="o">=</span> <span class="n">trb_mc</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;fail&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">})</span>
+
+<span class="c1"># get the fail rate and separate the data into most common and most abundant</span>
+<span class="n">trb_mcom</span><span class="p">[</span><span class="s1">&#39;f_r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trb_mcom</span><span class="o">.</span><span class="n">fail</span><span class="o">/</span><span class="n">trb</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+<span class="c1"># most common</span>
+<span class="n">trb_grt50</span> <span class="o">=</span> <span class="n">trb_mcom</span><span class="p">[</span><span class="n">trb_mcom</span><span class="o">.</span><span class="n">f_r</span> <span class="o">&gt;</span> <span class="mf">.4999</span><span class="p">]</span>
+
+<span class="c1"># top ten</span>
+<span class="n">trb_pcs</span> <span class="o">=</span> <span class="n">trb_mcom</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># codes from each</span>
+<span class="n">c_grt50</span> <span class="o">=</span> <span class="n">trb_grt50</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">c_qty</span> <span class="o">=</span> <span class="n">trb_pcs</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">unique</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># joint list</span>
+<span class="n">thecommon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">c_grt50</span><span class="p">)</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">c_qty</span><span class="p">))</span>
+
+<span class="n">biel_fail</span> <span class="o">=</span> <span class="n">biel</span><span class="p">[</span><span class="n">biel</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_grt50</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">biel_fail</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">biel_fail</span><span class="o">.</span><span class="n">fail</span><span class="o">/</span><span class="n">biel</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">bf</span> <span class="o">=</span> <span class="n">biel_fail</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">bf</span> <span class="o">=</span> <span class="n">biel_fail</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">m_common</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">c_codes</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
 <span class="c1"># map the desctiption to the code</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
@@ -568,33 +634,32 @@
 <span class="n">mcp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">mcp</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># the aggregated totals for the lake</span>
-<span class="n">b_s_a</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_codes</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">==</span> <span class="s1">&#39;bielersee&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">bsee_samps</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_codes</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">==</span> <span class="s1">&#39;bielersee&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="o">.</span><span class="n">fail</span><span class="o">/</span><span class="n">bsee_samps</span>
-<span class="n">b_s_a</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">b_s_a</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_grt50</span> <span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">==</span> <span class="s1">&#39;bielersee&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">bsee_samps</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_grt50</span> <span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">==</span> <span class="s1">&#39;bielersee&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;f_r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="o">.</span><span class="n">fail</span><span class="o">/</span><span class="n">bsee_samps</span>
+<span class="n">b_s_a</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;f_r&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">b_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;Bielersee&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
+<span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;Bielersee&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;f_r&#39;</span><span class="p">]</span>
 
 <span class="c1"># the aggregated totals for the river bassin</span>
-<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_codes</span><span class="p">))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_grt50</span> <span class="p">))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">fail</span><span class="o">/</span><span class="n">trb</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">t_s_a</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">t_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;Aare survey area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
 
 <span class="c1"># repeat for all the survey areas</span>
-<span class="n">a_s_a</span> <span class="o">=</span> <span class="n">dfSurveys</span><span class="p">[(</span><span class="n">dfSurveys</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_codes</span><span class="p">))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">a_s_a</span> <span class="o">=</span> <span class="n">dfSurveys</span><span class="p">[(</span><span class="n">dfSurveys</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_grt50</span> <span class="p">))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fail</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="o">.</span><span class="n">fail</span><span class="o">/</span><span class="n">dfSurveys</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-<span class="n">a_s_a</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">a_s_a</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;rate&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">a_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;All survey areas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
 
 <span class="n">ad_t_ten</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">mcp</span><span class="p">,</span> <span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;Bielersee&#39;</span><span class="p">],</span> <span class="n">t_s_a</span><span class="p">[</span><span class="s2">&quot;Aare survey area&quot;</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="s2">&quot;All survey areas&quot;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Biel/Bienne&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="c1"># ad_t_ten = ad_t_ten.applymap(lambda x: )</span>
 <span class="c1"># chart that</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">))</span>
 <span class="n">axone</span> <span class="o">=</span> <span class="n">ax</span>
@@ -612,34 +677,36 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/key_indicators_10_0.png" src="../_images/key_indicators_10_0.png" />
+<img alt="../_images/key_indicators_9_0.png" src="../_images/key_indicators_9_0.png" />
 </div>
 </div>
-<p>With the exception of industrial sheeting and fragmented plastics the fail rate was greater in Biel/Bienne than the rest of the lake, the river bassin and nationally. This means that, in general, there was a greater chance of finding those objects at Biel/Bienne than most other places.</p>
-<p>The pass-fail rate is the  most likely estimate (MLE) of the probability of finding at least one object <span id="id6">[<a class="reference internal" href="../references.html#id32">CP17</a>]</span>. <strong>A 100% fail rate does not mean that you are guaranteed to find the object</strong>, it means that the object was identified in all previous samples and you should expect to find at least one at the next survey. The inverse is also true for objects that have a lower fail rate.</p>
-<p><strong>Note:</strong> the fail rate gives no indication of quantity</p>
+<p>With the exception of industrial sheeting and fragmented plastics the fail rate was greater in Biel/Bienne than all other survey areas. This means that on a per survey basis there was a greater chance of finding those objects at Biel/Bienne than most other places.</p>
+<p>The pass-fail rate is the  most likely estimate (MLE) of the probability of finding at least one object <span id="id6">[<a class="reference internal" href="../references.html#id32">CP17</a>]</span>. If the object was identified in all previous samples and there has been no changes in attenuation of prevention measures it is reasonable to assume that there will be at least one in the proceeding samples.</p>
+<p><strong>Note:</strong> the fail rate gives no indication of quantity.</p>
 </div>
-<div class="section" id="pieces-per-meter-the-number-of-objects-found-per-length-of-shoreline">
-<h3><span class="section-number">15.2.3. </span>Pieces per meter = the number of objects found per length of shoreline<a class="headerlink" href="#pieces-per-meter-the-number-of-objects-found-per-length-of-shoreline" title="Permalink to this headline">¶</a></h3>
-<p>Pieces per meter is the number of objects found at each survey divided by the length of the survey.</p>
-<p><strong>What does it mean?</strong> Pieces per meter describes the quantity of an object that was found for each meter of shoreline surveyed. It is a method of normalizing the data from all surveys so that it may be compared.</p>
+<div class="section" id="pieces-per-meter">
+<h3><span class="section-number">15.2.3. </span>Pieces per meter<a class="headerlink" href="#pieces-per-meter" title="Permalink to this headline">¶</a></h3>
+<p>Pieces per meter (pcs/m) is the number of objects found at each survey divided by the length of the shoreline surveyed.</p>
+<p><strong>What does it mean?</strong> pcs/m describes the quantity of an object that was found for each meter of shoreline surveyed. It is a method of normalizing the data from all surveys so that it may be compared.</p>
 <blockquote>
 <div><p>Use pieces per meter to find the objects that were found in the greatest quantities. Use pieces per meter to identify zones of accumulation.</p>
 </div></blockquote>
-<p><em>Why not use the surface area?</em> The recommended EU standard is to report the results as quantity of objects per length of shoreline surveyed, usually 100 meters. Both survey dimensions were recorded at each survey for the specified dates. The units are reported in pieces of trash per meter.</p>
-<p><strong>Biel/Bienne: the ten objects with the highest median pieces per meter per survey</strong></p>
+<p><em>Why not use the surface area?</em> The recommended EU standard is to report the results as quantity of objects per length of shoreline surveyed, usually 100 meters <span id="id7">[<a class="reference internal" href="../references.html#id43">HG19</a>]</span>. The surface area was calculated for 99% of all surveys in IQAASL. The results for this analysis are reported in pcs/m.</p>
+<p><em>Aare survey area: the median pcs/m of the most common objects</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregated survey totals for the most common codes for all the water features</span>
 <span class="c1"># a common aggregation</span>
 <span class="n">agg_pcs_quantity</span> <span class="o">=</span> <span class="p">{</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">}</span>
 
-<span class="n">m_common_st</span> <span class="o">=</span> <span class="n">biel</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
+<span class="n">m_common_st</span> <span class="o">=</span> <span class="n">biel</span><span class="p">[</span><span class="n">biel</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">c_qty</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">m_common_ft</span> <span class="o">=</span> <span class="n">m_common_st</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 
 <span class="n">m_common_ft</span> <span class="o">=</span> <span class="n">m_common_ft</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">mc</span> <span class="o">=</span> <span class="n">m_common_ft</span><span class="o">.</span><span class="n">code</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="n">mc</span> <span class="o">=</span><span class="n">c_qty</span>
+
 <span class="c1"># proper name of water feature for display</span>
 <span class="n">m_common_ft</span><span class="p">[</span><span class="s1">&#39;f_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Biel/Bienne&#39;</span>
 
@@ -647,7 +714,8 @@
 <span class="n">m_common_ft</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common_ft</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 
 <span class="c1"># pivot that</span>
-<span class="n">m_c_p</span> <span class="o">=</span> <span class="n">m_common_ft</span><span class="p">[[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">,</span> <span class="s1">&#39;f_name&#39;</span><span class="p">]][:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;f_name&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;item&#39;</span><span class="p">)</span>
+<span class="n">m_c_p</span> <span class="o">=</span> <span class="n">m_common_ft</span><span class="p">[[</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">,</span> <span class="s1">&#39;f_name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;f_name&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;item&#39;</span><span class="p">)</span>
+
 <span class="c1"># quash the hierarchal column index</span>
 <span class="n">m_c_p</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">m_c_p</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
@@ -657,7 +725,6 @@
 <span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">b_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;Bielersee&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
-
 
 <span class="c1"># the aggregated totals for the river bassin</span>
 <span class="n">t_s_a</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">mc</span><span class="p">))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
@@ -679,7 +746,7 @@
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">))</span>
 <span class="n">axone</span> <span class="o">=</span> <span class="n">ax</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap2</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">},</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap2</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">},</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
 
 <span class="n">axone</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
@@ -692,39 +759,31 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/key_indicators_13_0.png" src="../_images/key_indicators_13_0.png" />
+<img alt="../_images/key_indicators_12_0.png" src="../_images/key_indicators_12_0.png" />
 </div>
 </div>
-<p>The ten objects that are found most frequently are not the same as the ten objects that are found in the greatest quantity. There are two objects, <em>foil wrappers</em> and <em>lolypop sticks</em>, that are found in approximately 75% of all surveys but not in quantities sufficient to make the top ten.</p>
-<p>Of those objects that had the greatest quantities, <em>nonfood packaging</em> and <em>expanded foams &lt; 5mm</em>, were not identified as frequently as the other items but were found in quantities sufficient to place in the top ten.</p>
-<div class="section" id="definition-the-most-common-objects">
-<h4><span class="section-number">15.2.3.1. </span>Definition: the most common objects<a class="headerlink" href="#definition-the-most-common-objects" title="Permalink to this headline">¶</a></h4>
-<p><strong>The most common objects are those objects that have a fail rate greater than or equal to 50% and/or are in the top-ten by quantity or pieces/m for any defined geographic area.</strong></p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<p><em>Combined, the most common objects account for 86.0% of all objects found in Biel.</em></p>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="percent-of-total-the-compostion-of-the-objects-found">
-<h3><span class="section-number">15.2.4. </span>Percent of total: the compostion of the objects found<a class="headerlink" href="#percent-of-total-the-compostion-of-the-objects-found" title="Permalink to this headline">¶</a></h3>
+<p>The reported value is the median survey result for that aggregation level and object. A median value of zero means that the object was identified in less than 1/2 surveys for that aggregation level. For example, consider the results for <em>insulation: includes spray foams</em>. The median value for the Aare survey area is zero however, when just the results of Bielersee or Biel/Bienne are considered the median value is greater than zero. Suggesting that insulation was found at greater rates on Bielersee and specifically in Biel/Bienne than the rest of the Aare survey area.</p>
+<div class="section" id="percent-of-total">
+<h4><span class="section-number">15.2.3.1. </span>Percent of total<a class="headerlink" href="#percent-of-total" title="Permalink to this headline">¶</a></h4>
 <p>The percent of total is the amount of an object found divided by the total amount of all objects found for a defined location/region and date range.</p>
-<p><strong>What does it mean?</strong> The percent of total describes the quantity of objects found in relation to each other and the total amount of trash identified.</p>
+<p><strong>What does it mean?</strong> The percent of total describes the composition of the trash found.</p>
 <blockquote>
 <div><p>Use the percent of total to define the principal trash objects. Use percent of total to identify priorities on a regional scale</p>
 </div></blockquote>
-<p>The percent of total should always be evaluated with the pass-fail rate and the number of samples. Similar to pieces per meter, if an object has a low pass-fail rate and an elevated % of total it is a signal that objects are possibly being deposited in large quantities at irregular intervals: dumping or leaking.</p>
+<p>Similar to pieces per meter, if an object has a low pass-fail rate and an elevated % of total it is a signal that objects are possibly being deposited in large quantities at irregular intervals: dumping or accidents.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bsee</span> <span class="o">=</span> <span class="n">m_common_st</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ac</span> <span class="o">=</span> <span class="n">biel</span><span class="p">[</span><span class="n">biel</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">thecommon</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">accounted_total</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ac</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">bsee</span> <span class="o">=</span> <span class="n">ac</span>
 <span class="n">bsee</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bsee</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">biel</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">these_codes</span> <span class="o">=</span> <span class="n">bsee</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">these_codes</span> <span class="o">=</span> <span class="n">bsee</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">bsee</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">bsee</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bsee</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">bsee</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">bsee</span><span class="p">[</span><span class="s1">&#39;Biel/Bienne&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bsee</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
-<span class="n">bsee</span> <span class="o">=</span> <span class="n">bsee</span><span class="p">[</span><span class="s1">&#39;Biel/Bienne&#39;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="c1"># the aggregated totals for the lake</span>
 <span class="n">b_s_a</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">these_codes</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">==</span> <span class="s1">&#39;bielersee&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
@@ -750,9 +809,15 @@
 <span class="n">a_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;All survey areas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
 
-<span class="n">ad_t_ten</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bsee</span><span class="p">,</span> <span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;Bielersee&#39;</span><span class="p">],</span> <span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;Aare survey area&#39;</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;All survey areas&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Biel/Bienne&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># chart that</span>
+<span class="n">ad_t_ten</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bsee</span><span class="p">[</span><span class="s1">&#39;Biel/Bienne&#39;</span><span class="p">],</span> <span class="n">b_s_a</span><span class="p">[</span><span class="s1">&#39;Bielersee&#39;</span><span class="p">],</span> <span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;Aare survey area&#39;</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;All survey areas&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Biel/Bienne&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>The most common objects of the Aare survey area are <span class="math notranslate nohighlight">\(\approx\)</span> 66% (2,022) of the total number of objects recorded (3,067) at the three locations in Biel/Bienne</em></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># chart that</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">))</span>
 <span class="n">axone</span> <span class="o">=</span> <span class="n">ax</span>
 
@@ -773,17 +838,18 @@
 </div>
 </div>
 </div>
-<div class="section" id="describe-the-survey-results-using-the-key-indicators">
-<h3><span class="section-number">15.2.5. </span>Describe the survey results using the key indicators<a class="headerlink" href="#describe-the-survey-results-using-the-key-indicators" title="Permalink to this headline">¶</a></h3>
-<p>Objects that are directly related to consumption (food, drinks, tobacco) are found at a rate that exceeds the median for the survey area, these objects represent 36% of the trash collected compared to 24% for all survey areas. Objects not directly related to consumption (insulation, expanded polystyrene, insulation) are found at a rate that exceeds the median for the survey area, these objects represent 22% of the total trash collected compared to 27% for all survey areas.</p>
-<p>Biel/Bienne is most likely a source of expanded polystyrene, cigarette ends and food wrappers given the elevated pcs/m and pass-fail rate when compared to the lake, the survey area or all survey areas. Expanded polystyrene is used as an exterior insulation envelope for buildings (new construction and renovations) and to protect component objects during transportation. Biel has a strong industrial base and an active construction industry, including many projects within 1.5km of the survey locations.</p>
-<p>In contrast, industrial sheeting and fragmented plastics have a pass-fail rate and median pcs/m value very similar to the rest of the lake, indicating that these values should be expected at other locations in the region. Thus, ruling out Biel/Bienne as a primary source of these two objects but definitely a zone of accumulation given the proximity of the Aare outflow and Suze inflow.</p>
-<p><strong>What about the rest?</strong></p>
-<p>The twelve objects identified in the previous example account for approximately 66% (2019/3067) of all objects found in Biel/Bienne. That leaves 1048 objects that have not been accounted for. Of the 260 available object categories 114 were identified and 12 of those account for 66% of all the data. Therefore, there are 102 categories to describe the 1048 remaining objects, all of which are found less than 50% of the time and constitute a small portion of the total.</p>
-<p>The complete inventory of removed and identified items is included with each data summary.</p>
 </div>
-<div class="section" id="practical-excercise">
-<h3><span class="section-number">15.2.6. </span>Practical excercise<a class="headerlink" href="#practical-excercise" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="discussion">
+<h3><span class="section-number">15.2.4. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h3>
+<p>There were 16 beach-litter surveys completed between April 2020 and May 2021 at three different locations in Biel/Bienne which permitted the identification of 3,067 objects. The most common objects from the Aare survey area account for 66% of all objects identified in Biel. Objects that are directly related to consumption (food, drinks, tobacco) are found at a rate that exceeds the median for the survey area, these objects represent <span class="math notranslate nohighlight">\(\approx\)</span> 34% of the trash collected in Biel/Bienne compared to 25% for all survey areas.</p>
+<p>Objects not directly related to consumption such as fragmented plastics, industrial sheeting, expanded polystyrene or industrial pellets are found at greater rates than the rest of the Aare survey area.  Expanded polystyrene is used as an exterior insulation envelope for buildings (new construction and renovations) and to protect component objects during transportation. Biel has a strong industrial base and an active construction and manufacturing base. Combined these objects represent 30% of the total number of objects collected.</p>
+<div class="section" id="application">
+<h4><span class="section-number">15.2.4.1. </span>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h4>
+<p>The key indicators are simple ratios taken directly from the survey results. Changes in the magnitude of those ratios signal changes in the relative quantity of specific objects. When the key indicators are used within the context of a monitoring program they permit to identify probable zones of accumulation.</p>
+</div>
+</div>
+<div class="section" id="practical-exercise">
+<h3><span class="section-number">15.2.5. </span>Practical exercise<a class="headerlink" href="#practical-exercise" title="Permalink to this headline">¶</a></h3>
 <p>Plastic industrial pellets (GPI) are the primary material used to produce plastic objects they are used extensively in Switzerland. They are disc or pellet shaped with a diameter of ~5mm.</p>
 <p>Given the following survey results, the map of survey locations, and maintaining the assumptions presented at the beginning of this article answer the following questions:</p>
 <ol class="simple">
@@ -795,7 +861,6 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aggs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc_date&#39;</span><span class="p">:</span><span class="s1">&#39;nunique&#39;</span><span class="p">,</span> <span class="s1">&#39;fail&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;pcs_m&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">}</span>
 <span class="n">new_col_names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;loc_date&quot;</span><span class="p">:</span><span class="s2">&quot;# of samples&quot;</span><span class="p">,</span> <span class="s2">&quot;fail&quot;</span><span class="p">:</span><span class="s2">&quot;# fail&quot;</span><span class="p">,</span> <span class="s2">&quot;pcs_m&quot;</span><span class="p">:</span><span class="s2">&quot;median pcs/m&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;#found&quot;</span><span class="p">}</span>
-
 
 <span class="n">biel_g95</span> <span class="o">=</span> <span class="n">dfSurveys</span><span class="p">[(</span><span class="n">dfSurveys</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">==</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">])</span><span class="o">&amp;</span><span class="p">(</span><span class="n">dfSurveys</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s1">&#39;G112&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;location&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">aggs</span><span class="p">)</span>
 <span class="n">biel_g95</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_col_names</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -922,7 +987,7 @@
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-09-29.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-10-02.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
 </div>
 </div>
