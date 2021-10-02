@@ -76,7 +76,7 @@ The [key indicators](keyindicators) chapter gives a precise definition of each o
 and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different 
 environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the
 items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups). How samples are collected and the
-methods for identifying extreme values and calculating baselines for a region can be found here [_Beach litter baselines_](threshhold).
+methods for identifying extreme values and calculating baselines for a region can be found in [_Beach litter baselines_](threshhold).
 
 The results for each municipality are included with the lake or river to which they belong. A more detailed report can be produced for any
 municipality in this document. Requests for more information should be sent to the Municipal waste section of Swiss federal office for the 
