@@ -142,11 +142,11 @@ _Flower pots_
 
 ## Discussion 
 
-There was an abundance of reusable material found on the shores of the lakes that PPL sampled as part of the IQAASL project. However, collecting and washing the objects by hand is not a business model that can be pursued. PPL would rather see collection points for plastics that can be reused and recycled locally. 
+An abundance of reusable materials were found along the lake shores however, collecting and washing the objects by hand is not a business model that can be pursued. PPL would rather see collection points for plastics that can be reused and recycled locally. 
 
 Cleaning plastics before recycling can be costly and wasteful. Large scale recycling plants have water treatment facilities to remove the detergents and impurities that result from the cleaning process. In this example baking soda and vinegar was used, appropriate for a small run but not a method that can be scaled.  
 
-The amount of plastics that can be collected and transformed into value added products during the sampling process is symbolic at best. At present there is no plans to increase the efficiency of beach-litter surveys in that regard. It may be more appropriate to catch the materials before they are found on the beach. 
+The amount of plastics that can be collected and transformed into value added products during the sampling process is symbolic at best. At present there is no plans to increase the efficiency of beach-litter surveys in that regard. It may be more appropriate to capture the materials before they are found on the beach. 
 
 The presence of easily recyclable products in the water is a sign that there are missed opportunities with respect to valuing this resource and/or collecting it prior to leaking into the environment. Fragmented plastics, foams and bottle caps can all be recycled locally using the methods implemented at Precious Plastic. Combined these objects represent approximately 26% of the total amount collected on the beach in 2020-2021. 
 _Beach litter survey PPl 2020.11.22 Walenstadt, Walensee_
