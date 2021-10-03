@@ -1,6 +1,6 @@
 # Recycle and remake 
-
-Precious Plastic Léman [PPL](https://preciousplasticleman.ch/) is part of a global association that plays an active role locally to promote different methods to reuse and reduce plastic waste on Lake Geneva. Members of PPL took time out of their shchedule to collect thousands of pieces of trash as part of the IQAASL project. A small portion of those objects were recycled into new products. 
+The IQAASL project included an onboarding process to allow other associations and groups to participate in data collection using a basic reporting system that can be maintained by staff of either organization.
+Precious Plastic Léman [PPL](https://preciousplasticleman.ch/) is part of a global association that plays an active role locally to promote different methods to reuse and reduce plastic waste on Lake Geneva. Members of PPL collected thousands of discarded items as part of the IQAASL project extensively along Lac Léman and Rhone river as well as other regions throughout Switzerland. A small portion of those objects were recycled into new products. 
 
 PPL members design, prototype and fabricate products from recycled plastics. The process has a several steps: 
 
@@ -149,3 +149,10 @@ Cleaning plastics before recycling can be costly and wasteful. Large scale recyc
 The amount of plastics that can be collected and transformed into value added products during the sampling process is symbolic at best. At present there is no plans to increase the efficiency of beach-litter surveys in that regard. It may be more appropriate to catch the materials before they are found on the beach. 
 
 The presence of easily recyclable products in the water is a sign that there are missed opportunities with respect to valuing this resource and/or collecting it prior to leaking into the environment. Fragmented plastics, foams and bottle caps can all be recycled locally using the methods implemented at Precious Plastic. Combined these objects represent approximately 26% of the total amount collected on the beach in 2020-2021. 
+_Beach litter survey PPl 2020.11.22 Walenstadt, Walensee_
+:::{image} resources/codegroups/images/20201122walenstadtPPL.jpg
+:alt: Map of IQAASL locations
+:class: bg-primary mb-1
+:width: 1200px
+:align: center
+:::
