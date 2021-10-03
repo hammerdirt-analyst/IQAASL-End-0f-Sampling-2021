@@ -1,4 +1,5 @@
-# Recycle and remake 
+# Recycle and remake
+
 
 Precious Plastic Léman [PPL](https://preciousplasticleman.ch/) is part of a global association that plays an active role locally to promote different methods to reuse and reduce plastic waste on Lake Geneva. Members of PPL took time out of their shchedule to collect thousands of pieces of trash as part of the IQAASL project. A small portion of those objects were recycled into new products. 
 
