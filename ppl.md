@@ -1,7 +1,7 @@
 # Recycle and remake 
 The IQAASL project included an onboarding process to allow other associations and groups to participate in data collection using a basic reporting system that can be maintained by staff of either organization.
 Precious Plastic Léman [PPL](https://preciousplasticleman.ch/) is part of a global association that plays an active role locally to promote different methods to reuse and reduce plastic waste on Lake Geneva. Members of PPL collected thousands of discarded items as part of the IQAASL project extensively along Lac Léman and Rhone river as well as other regions throughout Switzerland. A small portion of those objects were recycled into new products. 
->>>>>>> eeb1b87aec9c6b19012d04fe295ffeaf39be02d0
+
 
 PPL members design, prototype and fabricate products from recycled plastics. The process has a several steps: 
 
