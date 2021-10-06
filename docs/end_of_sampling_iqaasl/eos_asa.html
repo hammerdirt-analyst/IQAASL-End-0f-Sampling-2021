@@ -593,7 +593,7 @@
 <li><p>A location with public access closest to the primary river source</p></li>
 <li><p>A location with public access closest to the primary river drainage</p></li>
 </ol>
-<p>With these two locations as anchor points, other locations were selected randomly in between the discharge areas and the drainage areas of each lake. With the intention of connecting the two anchor points by collecting samples from different locations between them. In total 386 litter-surveys were conducted at 143 locations within the four survey areas. This includes 77 municipalities with a combined population of 1,735,000.</p>
+<p>With these two locations as anchor points, other locations were selected randomly in between the discharge areas and the drainage areas of each lake. With the intention of connecting the two anchor points by collecting samples from different locations between them. In total 386 litter-surveys were conducted within the four survey areas touching 77 municipalities with a combined population of 1,735,000.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is the data before the expanded fragmented plastics and foams are aggregated to Gfrags and Gfoams</span>
@@ -686,7 +686,7 @@
 <li><p>% of land attributed to recreation</p></li>
 </ol>
 <p>Streets are reported as the total number of kilometers of streets within the 1500m radius. Intersects is an ordinal ranking of the number of rivers/canals that intersect a lake within 1500m of the survey location.</p>
-<p>The ratio of the number of samples completed at the different land use profiles is an indicator of the environmental and economic conditions that the samples were taken in.</p>
+<p>The ratio of the number of samples completed at the different land use profiles is an objective indicator of the environmental and economic conditions that the samples were taken in.</p>
 <p>See the section <a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref"><em>The land use profile</em></span></a> for more details</p>
 <p><em>Distribution of land use characteristics</em></p>
 <div class="cell tag_hide-input docutils container">
@@ -709,14 +709,9 @@
     <span class="c1"># get the dist for all here</span>
     <span class="n">a_all_surveys</span> <span class="o">=</span>  <span class="n">ECDF</span><span class="p">(</span><span class="n">dt_nw</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">a_all_surveys</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">a_all_surveys</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;All surveys&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
- 
-    <span class="c1"># get the median from the data</span>
-    <span class="n">the_median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">dt_nw</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     
-    <span class="c1"># plot the median and drop horzontal and vertical lines</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">the_median</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;the median&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">the_median</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="n">the_median</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># the 50th percentile</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-.&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;50</span><span class="si">% o</span><span class="s2">f samples&quot;</span><span class="p">)</span>
     
     <span class="c1"># format the % of total on the xaxis:</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
@@ -729,7 +724,6 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
     <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;The median: </span><span class="si">{</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">the_median</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>       
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -826,7 +820,7 @@
 </div>
 <div class="section" id="survey-results-all-objects">
 <h2><span class="section-number">1.2. </span>Survey results all objects<a class="headerlink" href="#survey-results-all-objects" title="Permalink to this headline">¶</a></h2>
-<p>Survey totals by date, the monthly median values and the empirical cumulative distribution of all the survey for each survey area.</p>
+<p>Survey totals by date, the monthly median values and the empirical cumulative distribution of all the survey results results for each survey area.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the surveys to chart</span>
@@ -1560,7 +1554,7 @@
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-10-05.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-09-26.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
 </div>
 </div>

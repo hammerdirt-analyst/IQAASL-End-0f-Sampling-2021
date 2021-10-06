@@ -1,13 +1,13 @@
 # Identification, quantification and analysis of swiss litter (IQAASL)
 
-__Edition 1__ ver=0.98 _unlock acknowledgements and executive summary_
+__Edition 1__ ver=0.72 _unlock key indicators and landuse_
 
 __Note__: all results before ver=1 are considered interim and should not be referenced.
 
 IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale **litter surveys** are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that contribute.
 
 This report is a summary and analysis of the beach-litter surveys conducted and the methods employed in Switzerland from April 2020
-through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
+to July 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
 
 The median survey results are presented down to the municipal level for each location that was sampled. The results are in units of _objects found per 100 meters_ (pieces/100m). 
 <br></br>
@@ -18,9 +18,9 @@ _Map of survey locations April 2020 - July 2021_
 :width: 1200px
 :align: center
 :::
-_There were 406 samples from 163 locations in 95 different municipalities, all survey areas considered._
+_There were 400 samples from 157 locations in 90 different municipalities, all survey areas considered._
 
-Out of 406 surveys 331 were on 11 lakes.The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,337 objects or $\approx$ 306kg including 95kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares.  Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
+Out of 400 surveys 331 were on 11 lakes.The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,337 objects or $\approx$ 306kg including 95kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares.  Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
 
 The most common objects are defined as those objects that were found in at least 50% of all surveys and/or are among the ten most abundant by quantity. As a group the most common objects represent $\approx$ 68% of all objects found in the sampling period.
 <br></br>
@@ -68,7 +68,9 @@ The results for plastic construction waste indicate that it was more prevalent i
 municipalities where the median value is zero. However Industrial sheeting and cigarettes were located at all municipalities in at least 1/2
 surveys.
 
-In practical terms there was a better chance of finding plastic construction waste on the beach in Bönigen and Unterseen than the other municipalities. However the chances of finding industrial sheeting were $\approx$ anywhere but the most might be found at at Brienze (67p/100m).
+In practical terms if a person in the region of Interlaken wanted to find plastic construction waste there was a better chance of finding it 
+on the beach Bönigen and Unterseen than the other municipalities. However if that person was looking for Industrial sheeting they had an $\approx$ chance of finding it anywhere but they would find the
+most at Brienze (67p/100m).
 
 The [key indicators](keyindicators) chapter gives a precise definition of each of the basic statistics that can be derived from the survey results
 and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different 
