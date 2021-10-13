@@ -1,8 +1,30 @@
 # Executive summary
-Identification, quantification and analysis of Swiss litter (IQAASL)
+Identification, quantification and analysis of Swiss litter (IQAASL) is a project sponsored by the Swiss Federal Office for
+the Environment to quantify visible shoreline litter along Swiss lakes and rivers. The project was expanded to include twenty
+locations in the Alps and Jura. The results from the Alps and Jura are considered separately from the analysis of the results 
+from lakes and rivers.
 
-## Overview/scope
-IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify visible shoreline litter along Swiss lakes and rivers. Multiple small scale litter surveys were completed at various locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers and related lakes and rivers. Included in this report are litter surveys conducted in the Swiss alps. The IQAASL project included an onboarding process of associations and groups. The Alpes survey area is a series of litter-surveys configured and managed by the Summit Foundation which conducts clean up events throughout the Swiss Alpes. See the full report [Les Alpes](lesalpes) 
+
+## Assesment metric
+
+The median value of the survey results are reported as _number of objects per 100m_ (p/100m). This is the method described in _EU Marine Beach Litter Baselines_ and
+is the standard used in this report. The data was collected according to _Guidance on Monitoring of Marine Litter in European Seas_, specifically:
+
+1. The length and width of a section of river bank or lake shore was measured, and all objects were removed and counted
+
+Surveyors are permitted to do surveys that are appropriate to the size of the local topography, however surveys less than 10m were not considered in the baseline analysis. Unless specifically mentioned the median values is that of __all counted objects__ including visible objects less than 5mm. 
+
+## Lakes and rivers
+
+For the period between 2020-03 and 2021-05, 54,744 objects were removed and identified in the course of 386 surveys. The survey areas were defined by the Aare,
+Rhône, Ticino and Linth/Limmat rivers.Those surveys were conducted at 143 different locations. There are 77 different municipalities represented with a combined population of approximately 1,735,991 including Geneva and Zurich.
+
+
+The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,337 objects or ≈
+306kg including 95kg of plastic. The total linear distance surveyed was ≈ 20 km with a surface area of 9 hectares. Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
+IQAASL 
+Multiple small scale litter surveys were completed at various locations within a designated survey area.  As part of the on The Alpes survey area is a series of litter-surveys
+configured and managed by the Summit Foundation which conducts clean up events throughout the Swiss Alpes. See the full report [Les Alpes](lesalpes) 
 
 This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from April 2020 to July 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) [Bla18], the last national level project to use the standard protocol described in the Guide to monitoring beach litter [Han13].  
 The methodology and protocols follow the Marine Strategy Framework Directive to ensure the data collected is transparent, harminous and coherent with the current objectives and strategies developed by The Marine Directors of the European Union (EU), acceding countries, candidate countries and EFTA countries. 
