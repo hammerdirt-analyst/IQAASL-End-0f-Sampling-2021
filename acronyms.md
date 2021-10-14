@@ -18,11 +18,11 @@ The median value ($50^{th}$ percentile) of the survey results are reported as _n
 
 The 100 meter standard used in the marine environment is appropriate for coastal regions of the European continent, however in the sub-alpine and urban environments that characterize the surveys in IQAASL imposing the 100 meter standard would have reduced the number of appropriate survey locations. Thus, surveyors are permitted to do surveys that are appropriate to the local topography, however surveys less than 10m were not considered in the baseline analysis.
 
-The median value was selected as opposed to the average value because of the variability of beach litters surveys and the effects of extreme values on the aggregated survey results {cite}`eubaselines`. The median value is more robust when the extreme values are considered.
+The median value was selected as opposed to the average value because of the variability of beach litters surveys and the effects of extreme values on the aggregated survey results {cite}`eubaselines`. The median value is more robust than the average when the extreme values are considered.
 
 ### Zero values
 
-It is common that a particular item or object will have a median value of zero at one aggregation level and not the other. This particularity is __extremely useful when identifying items that were found the most frequently and where they were found in the greatest numbers__.
+It is common that a particular item or object will have a median value of zero at one aggregation level and not the other. This particularity is __extremely useful when identifying items that were found the most frequently and where they were found__.
 
 Therefore, if the median is zero for an object at a particular aggregation level it means that the object was found in less than half of all surveys for that aggregation level and geographic definition.
 
@@ -30,11 +30,18 @@ Therefore, if the median is zero for an object at a particular aggregation level
 
 For the period between 2020-03 and 2021-05 54,744 objects were removed and identified in the course of 386 surveys. The survey areas were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers.Those surveys were conducted at 143 different locations. There are 77 different municipalities represented with a combined population of approximately 1,735,991 including Geneva and Zurich.
 
+The majority of samples were on lakes (331 samples), lakes offer a more consistent and safe survey environment with respect to rivers. Furthermore, lakes are large areas of reduced flow that receive input from multiple rivers and streams. This makes them ideal locations to assess the type and composition of the variety of objects that are transported to them.
+
+IQAASL collected 
+
 ### Median survey total
 
 The median survey total of the 386 surveys was 189 p/100m. The maximum recorded was 6,617 p/100m (Rhône survey area) and the minimum recorded was 2p/100m (Aare suvey area). The Rhône survey area had the highest median survey total (442), this can in part be explained by the high number of urban survey locations with respect to the other survey areas and by the deposition of fragmented plastics and foams at the Rhône out fall in the region of the the Haut Lac.
 
-A reference value was calculated using the method described in _EU Marine Beach Litter Baselines_. This method excludes objects less than 2.5cm and surveys less than 10 meters.
+A reference value was calculated excluding the results from samples that were less than 10m and objects less than 2.5cm. This method, described in _EU Marine Beach Litter Baselines_  was used to calculate the reference and threshold values for all european beaches in 2015 and 2016 resulting in a median value of 131 p/100m compared to 181p/100m using the data from IQAASL. The results from the european baseline value lie outside the 95% confidence interval of 147 - 213p/100m established using the data from IQAASL.
+
+Surveys in Switzerland are on average shorter than surveys in the marine environment and in locations that would be considered urban under most circumstances. As of this date monitoring of lakes and rivers upstream of coastal regions has not generalized on the European continent. However, there is a concerted effort by a group of associations in Suisse romande and France to establish a 
+common monitoring and data excchange protocol for the Rhône bassin. The Wageningen University & Research has begun analysing data collected in the Meusse - Rhine delta using protocols similar to those in IQAASL. 
 
 ### The most common objects
 
