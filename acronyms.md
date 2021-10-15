@@ -190,8 +190,6 @@ The surveyors from summit foundation preferred to sample along the lift lines an
 
 (PS6) Polystyrene
 
-(p-value)Probability Value
-
 (QGIS) Quantum Geographic Information System
 
 (SLR) Swiss Litter Report
