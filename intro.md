@@ -1,6 +1,6 @@
 # Identification, quantification and analysis of swiss litter (IQAASL)
 
-__Edition 1__ ver=0.98 _unlock acknowledgements and executive summary_
+__Edition 1__ ver=0.99 _unlock acknowledgements_
 
 __Note__: all results before ver=1 are considered interim and should not be referenced.
 
