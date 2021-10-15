@@ -116,7 +116,7 @@ The surveyors from summit foundation preferred to sample along the lift lines an
 
 (agg) Agriculture
 
-(BCa.CI) Bias-corrected and accelerated confidence intervals
+(BCa) Bias-corrected and accelerated confidence intervals
 
 (BVs) Baseline Values
 

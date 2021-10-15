@@ -118,7 +118,7 @@ See the full report [_More and less trash since 2017_](slr-iqaasl)
  ---
 ## Shared responsibility
 
-According to the Law for the protection of the environment the pincipal of causality is defined as:
+According to the Law for the protection of the environment the principal of causality is defined as:
 
 > The person who initiates a measure prescribed by this Act shall bear the costs thereof.
 
