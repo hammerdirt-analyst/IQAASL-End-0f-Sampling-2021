@@ -131,8 +131,28 @@ A proposed solution is to include the average p/100m with the summary values. Th
 :align: center
 :::
 
+## Conclusions and recommendations
+
+Count methods remain the preferred method for assessing litter composition and density along the shoreline. Although there is no standard method on the continent for assessing the litter in fresh water systems all indications are that this will soon change. Three of the four survey areas already have active monitoring by research and governmental agencies downstream of Switzerland. The methods used are similar to those presented in this report. Regional associations in Switzerland are actively pursuing a standardization of reporting and protocols defined at a minimum by the catchment area.
+
+On a national scale the survey results remain stable with respect to 2018. However, there was a general decrease in the quantity of food and tobacco objects and an increase in the amount of infrastructure related items. The pandemic related restrictions may have had a beneficial effect on survey results of food and tobacco items. The increases in infrastructure related objects were felt most acutely in Valais and Vaud from the Rhône outfall and in Brienze from the Aare outfall to Brienzersee.
+
+The land use around a survey location has a measurable effect on the deposition of certain objects. The more buildings and fixed infrastructure there are the more tobacco and food products are found. Objects like fragmented plastics and industrial sheeting do not have the same association and are found at approximately equal rates indifferent of the land use.
+
+There is broad-based support for this type of reporting method. This remains a citizen-science project that only uses open source tools and shares data on GNU public license. Which means that contributing and editing can be done collaboratively by the stake-holders. The associations that participated are actively seeking ways to incorporate the process or the results into their own business model. However, there is a shortage of data scientists within many regional associations which may lengthen the process of integration and could stifle the rate of innovation.
+
+### Recommendations
+
+This report offers several ways to evaluate differences between survey results, there are others that should be considered. To build on the experiences of IQAASL and SLR there are actions that can be taken based on the results from this project:
+
+* schedule another monitoring year
+* define a standard reporting format for public administrations
+* formally include academia in the process of sampling, protocol definition, and analysis
+* develop a network of associations that share the responsibility of monitoring
+* develop a training/apprenticeship/help-desk for those interested in data science and the litter project
 
 # Acronyms
+
 (ABS) Acrylonitrile Butadiene Styrene
 
 (agg) Agriculture
