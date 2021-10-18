@@ -63,7 +63,7 @@ Objects related to food and tobacco are found at higher rates at survey location
 :::
 
 <br />
-Two of the most common objects were found in less than 50\% of the surveys. Both are less than 5mm in diameter and are considered microplastics. Industrial pellets were found in all survey areas. The highest rates were recorded at Préverenges, Genève, Lugano and Biel. Expanded foams < 5mm are the result of the fragmentation of expanded polystyrene and are sometimes found in large quantities.
+Two of the most common objects were found in less than 50\% of the surveys. Both are less than 5mm in diameter and are considered micro-plastics. Industrial pellets were found in all survey areas. The highest rates were recorded at Préverenges, Genève, Lugano and Biel. Expanded foams < 5mm are the result of the fragmentation of expanded polystyrene and are sometimes found in large quantities.
 
 <br />
 <br />
@@ -80,7 +80,7 @@ The most common objects are found at different rates depending on the survey are
 
 ### Results 2017-2018
 
-Considering only the lakes and rivers that have samples in both sampling periods there were more samples and more trash was collected from fewer locations in 2018 than 2020. However, on a pieces per meter basis the mean, median and maximum were all higher in 2020. The summary statistics and the results of the difference of means test imply that there was no statistically measurable change on the national scale from one sampling period to the other. 
+Considering only the lakes and rivers that have samples in both sampling periods there were more samples and more trash was collected from fewer locations in 2018 than 2020. However, on a pieces per meter basis the mean, median and maximum were all higher in 2020. The summary statistics and the results of the difference of means test imply that there was no measurable change on the national scale from one sampling period to the other. 
 
 The 95% CI of the median survey total in 2020 was 137 - 188p/100m. The median result for 2018 was 125p/100m with a 95% CI of 112p/100m to 146p/100m, which includes the lower bound of the median from 2020. However, the difference of means for the most common objects suggest a more realistic and dyanmic result:
 
@@ -111,15 +111,26 @@ The integration of litter-surveys with clean-up events is possible provided ther
 
 ## Communicating results
 
-The median survey result can create challenges for organizations that are attempting to raise awareness. The desire is to convert the survey results into a metric that is even more simple such as the average p/100m. From the communications standpoint it is much easier because the average is never zero. However, the extreme values are not removed from the results. Therefore, when the survey totals are considered the average is almost twice the median.
+The median survey result can create challenges for organizations that are attempting to raise awareness. The desire is to convert the survey results into a metric that is even more simple such as the average p/100m. From the communications standpoint it is more interesting because the average is never zero. However, the extreme values are not removed from the results. Therefore, when the survey totals are considered the average is almost twice the median.
 
-Both methods are correct mathematically. The average value will mostly likely be larger but the median value is a better approximation of what a sample would look like if the experiment was repeated. This concept is central to most monitoring systems based on count data and is a measure of repeatability. Nothing can be gained from using a mathematically correct result that misrepresents what an additional survey would reveal.
+Both methods are correct mathematically. The average value will mostly likely be larger but the median value is a better approximation of what a sample would look like if the experiment was repeated. This concept is central to most monitoring systems based on count data and is a measure of repeatability. 
 
 For communications purposes the total quantity by region or the percent of total may be the easiest method. Using the more detailed and precise p/100m rating for specific examples. Consider this interpretation of the amounts of _industrial pellets_ found on Lac Léman.
 
 > There were 1'387 GPI  or 5% of all objects identified on Lac Léman. The number of pellets per 100m ranges from 1-1006 depending on the region. For the lake in general there is a 40% chance of finding at least one pellet at a survey. In some locations like Genève, Préverenges, St. Sulpice and Vidy the chances of finding at least one pellet is 90% and the number found is between 3p/100m and 105p/100m.
 
-Communicating the range of likely values and the locations where they may be found is much more precise and informative. Furthermore, the cited ranges reflect the true survey results implying that these values could be verified (which they can). 
+Communicating the range of likely values and the locations where they may be found is much more precise and informative. Furthermore, the cited ranges reflect the true survey results implying that these values could be verified within a certain confidence interval (which they can).
+
+A proposed solution is to include the average p/100m with the summary values. This would allow stakeholders a value that is perhaps easier to communicate but can always be referenced within the context of this report. An example is the table of most common objects from Lac Léman:
+
+*The most common objects found on Lac Léman. Includes average p/100m*
+:::{image} resources/images/sample_mean_table.jpeg
+:alt: Most common objects with average survey result
+:class: bg-primary mb-1
+:width: 500px
+:align: center
+:::
+
 
 # Acronyms
 (ABS) Acrylonitrile Butadiene Styrene
@@ -162,25 +173,17 @@ Communicating the range of likely values and the locations where they may be fou
 
 (JRC) Joint Research Centre
 
-(KS) Kolmogorov–Smirnov test
-
 (LDPE4)Low-density Polyethylene
 
 (LPE)Loi sur la Protection de l'Environnement
 
 (MLE) Maximum Likelihood Estimation
 
-(MC) Medcouple
-
 (MCBP) Montreux Clean Beach Project
 
 (MOM) Method of Moments
 
 (MSFD) Marine Strategy Framework Directive
-
-(MWU) Mann-Whitney-U test
-
-(NB) Negative Binomial
 
 (OLED) Ordinance on the Limitation and Disposal of Waste
 
