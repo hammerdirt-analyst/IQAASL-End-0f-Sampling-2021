@@ -584,7 +584,7 @@
 <span class="n">project_directory</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">make_project_folder</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">name_of_project</span><span class="p">)</span>
 
 <span class="c1"># get your data:</span>
-<span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/agg_results_with_land_use_2015.csv&#39;</span><span class="p">)</span>
+<span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/inprocess/agg_results_with_land_use_2015.csv&#39;</span><span class="p">)</span>
 <span class="n">river_bassins</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">json_file_get</span><span class="p">(</span><span class="s2">&quot;resources/river_basins.json&quot;</span><span class="p">)</span>
 <span class="n">dfBeaches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/beaches_with_land_use_rates.csv&quot;</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/codes_with_group_names_2015.csv&quot;</span><span class="p">)</span>
@@ -612,7 +612,7 @@
 <span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># these descriptions need to be shortened for display</span>
-<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation: includes spray foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Foamed EVA for crafts and sports&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G96&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sanitary-pads/tampons, applicators&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Metal bottle caps and lids&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
@@ -1986,7 +1986,7 @@
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-09-07.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-10-21.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
 </div>
 </div>

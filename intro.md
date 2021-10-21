@@ -44,8 +44,7 @@ See the full report [Les Alpes](lesalpes)
 
 ## Using this report
 
-If a municipality or water feature was sampled the results are included in this report. As of ver=1 the conclusions, with respect to this 
-report are considered final.
+If a municipality or water feature was sampled the results are included in this report. As of ver=1 the data and methods should be considered complete. Corrections, additions and new reports can be requested using the data repository and submitting an _issue_. 
 
 It is important to understand the difference between the _median_ {cite}`mediandef` and the _average_ {cite}`meandeff` when interpreting the results. Except for
 monthly results the survey results are given as the __median__ p/100m for the location in question. Consider the __median__ survey result for 
@@ -77,15 +76,18 @@ items as well as the different economic groupings are covered in detail in [_Cod
 methods for identifying extreme values and calculating baselines for a region can be found in [_Beach litter baselines_](threshhold).
 
 The results for each municipality are included with the lake or river to which they belong. A more detailed report can be produced for any
-municipality in this document. Requests for more information should be sent to the Municipal waste section of Swiss federal office for the 
-environment.
+municipality in this document. 
+
+Requests for more information should be sent to the Municipal waste section of Swiss federal office for the environment.
 
 ### Contributing to this report
 
-This report is versioned therefore it is very easy to submit articles or analysis that correct, clarify or improve the content of this report. The easiest
-way to contribute is to send a pull request to [end of sampling repo](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021).
+This report is versioned therefore it is very easy to submit articles or analysis that correct, clarify or improve the content. The easiest
+way to contribute is to send a pull request to [end of sampling repo](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021). Submissions are accepted in all official Swiss national languages.
 
-If this not possible please contact analyst-at-hammerdirt-dot-ch (currently responsible for maintaining version control). 
+Learning data science and data engineering is an important skill. Interested individuals or those that would like to keep skills fresh are encouraged to help maintain the code repository.
+
+For more information contact analyst-at-hammerdirt (currently responsible for maintaining version control). 
 
 ### Collecting data
 

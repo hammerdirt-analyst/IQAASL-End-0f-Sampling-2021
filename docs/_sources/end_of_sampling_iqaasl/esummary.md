@@ -131,7 +131,7 @@ A proposed solution is to include the average p/100m with the summary values. Th
 :align: center
 :::
 
-## Conclusions and recommendations
+## Conclusions
 
 Count methods remain the preferred method for assessing litter composition and density along the shoreline. Although there is no standard method on the continent for assessing the litter in fresh water systems all indications are that this will soon change. 
 
@@ -149,15 +149,15 @@ The associations that participated are actively seeking ways to incorporate the 
 
 ### Recommendations
 
-Increase the number of data scientists in regional and local environmental associations. Efficiencies would be realized immediately in terms of data exchange and reporting. Regional associations and administrations could develop specific monitoring strategies with definite reduction targets. It is likely that once common data science practices are shared between regional associations and administrations entirely different uses for this data will be found. 
+Efficiencies in data exchange and reporting would be realized immediately by increasing the number of data scientists in regional and local environmental associations. Assessment of pollution, effects of reduction programs, and to estimate any changes it is necessary to generate a minimum number of surveys per sampling period and expand baseline information. Sharing common data science practices will expand the uses of existing and future data, facilitate monitoring strategies and define reduction targets.
 
-Formally include academia in the planning, sampling and analysis. The Citizen cyberlab and The Citizen science center have the experience and the infrastructure to connect citizen science projects to research efforts. This project is in part the result of many conversations and chance encounters with university professors from ETH, UNIGE, EPFL, PSI and FHNW. 
+> Develop a network of associations that use open-source data repositories to monitor, maintain and improve reporting methods.
+    
+> Create a standard report format to facilitate communications between municipal, cantonal and regional/district administrations and improve coordination of regional and local reduction strategies.
 
-Developing a standard format for municipal, cantonal and regional/district administrations would simplify the reporting process and facilitate communications between different administrative levels. This may lead to better coordinated communication strategies.
+> Develop communication strategies for the most common objects
 
-Develop a network of associations that assume the responsibility of monitoring litter and maintaining and improving the current reporting method. Ensure that there is enough financing to generate a minimum number of surveys per sampling period.
-
-This report offers several ways to evaluate differences between survey results, there are others that should be considered. University partners would be the best suited for suggesting methods that would be more appropriate or applicable. The maintainers of the repo (the associations) can turn those recommendations into code and bring them to scale. Thus creating a very adaptive and efficient monitoring plan. 
+Formally include academia in the planning, sampling and analysis. This project was influenced with collaborative university professors from ETH, UNIGE, EPFL, PSI and FHNW. University partners would be ideal to continue developing analytical methods. The Citizen Science Center (ETH) and Citizen Cyberlab (UNIGE) have the experienced and infrastructure to connect citizen science monitoring projects to research efforts. Thus, creating a very adaptive and efficient monitoring plan. 
 
 ## Acronyms
 
@@ -177,15 +177,21 @@ This report offers several ways to evaluate differences between survey results, 
 
 (ECDF) Empirical Cumulative Distribution Function
 
+(EPFL) Swiss Federal Institute of Technology Lausanne
+
 (EPS) Expanded Polystyrene Foam
 
 (EPR) Extended Producer Responsibility
+
+(ETH) Swiss Federal Institute of Technology Zürich
 
 (EU) European Union
 
 (EVs) Extreme Values
 
 (EVT) Extreme Value Threshold
+
+(FHNW) University of Applied Sciences and Arts Northwestern Switzerland
 
 (FTIR) Fourier Transform Infrared
 
@@ -217,6 +223,8 @@ This report offers several ways to evaluate differences between survey results, 
 
 (OSPAR) Oslo/Paris convention (for the Protection of the Marine Environment of the North-East Atlantic)
 
+(PSI) Paul Scherrer Institute
+
 (pcs) pieces
 
 (p/100m) Pieces per 100 meters
@@ -238,6 +246,8 @@ This report offers several ways to evaluate differences between survey results, 
 (STOPPP) Stop Plastic Pollution Switzerland
 
 (UNEP) United Nations Environment Program
+
+(UNIGE) University of Geneva
 
 (VD) Vaud
 
