@@ -131,7 +131,7 @@ A proposed solution is to include the average p/100m with the summary values. Th
 :align: center
 :::
 
-## Conclusions and recommendations
+## Conclusions
 
 Count methods remain the preferred method for assessing litter composition and density along the shoreline. Although there is no standard method on the continent for assessing the litter in fresh water systems all indications are that this will soon change. 
 
@@ -151,7 +151,7 @@ The associations that participated are actively seeking ways to incorporate the 
 
 Increase the number of data scientists in regional and local environmental associations. Efficiencies would be realized immediately in terms of data exchange and reporting. Regional associations and administrations could develop specific monitoring strategies with definite reduction targets. It is likely that once common data science practices are shared between regional associations and administrations entirely different uses for this data will be found. 
 
-Formally include academia in the planning, sampling and analysis. The Citizen cyberlab and The Citizen science center have the experience and the infrastructure to connect citizen science projects to research efforts. This project is in part the result of many conversations and chance encounters with university professors from ETH, UNIGE, EPFL, PSI and FHNW. 
+Formally include academia in the planning, sampling and analysis. The Citizen Cyberlab and The Citizen Science Center have the experience and the infrastructure to connect citizen science projects to research efforts. This project is in part the result of many conversations and chance encounters with university professors from ETH, UNIGE, EPFL, PSI and FHNW. 
 
 Developing a standard format for municipal, cantonal and regional/district administrations would simplify the reporting process and facilitate communications between different administrative levels. This may lead to better coordinated communication strategies.
 
@@ -177,15 +177,21 @@ This report offers several ways to evaluate differences between survey results, 
 
 (ECDF) Empirical Cumulative Distribution Function
 
+(EPFL) Swiss Federal Institute of Technology Lausanne
+
 (EPS) Expanded Polystyrene Foam
 
 (EPR) Extended Producer Responsibility
+
+(ETH) Swiss Federal Institute of Technology Zürich
 
 (EU) European Union
 
 (EVs) Extreme Values
 
 (EVT) Extreme Value Threshold
+
+(FHNW) University of Applied Sciences and Arts Northwestern Switzerland
 
 (FTIR) Fourier Transform Infrared
 
@@ -217,6 +223,8 @@ This report offers several ways to evaluate differences between survey results, 
 
 (OSPAR) Oslo/Paris convention (for the Protection of the Marine Environment of the North-East Atlantic)
 
+(PSI) Paul Scherrer Institute
+
 (pcs) pieces
 
 (p/100m) Pieces per 100 meters
@@ -238,6 +246,8 @@ This report offers several ways to evaluate differences between survey results, 
 (STOPPP) Stop Plastic Pollution Switzerland
 
 (UNEP) United Nations Environment Program
+
+(UNIGE) University of Geneva
 
 (VD) Vaud
 
