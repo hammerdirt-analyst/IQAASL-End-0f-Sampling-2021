@@ -545,10 +545,9 @@
 
 <span class="c1"># make any adjustments to code definitions here:</span>
 <span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-       
 
 <span class="c1"># these descriptions need to be shortened for display</span>
-<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation: includes spray foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Foamed EVA for crafts and sports&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G96&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sanitary-pads/tampons, applicators&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Metal bottle caps and lids&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
@@ -563,6 +562,7 @@
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G204&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Bricks, pipes not plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G904&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic fireworks&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G211&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Swabs, bandaging, medical&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+
 <span class="c1"># make a map to the code descriptions</span>
 <span class="n">code_description_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">description</span>
 
@@ -1681,7 +1681,7 @@ Bielersee utility of objects found median p/100m. Fragmented objects with no cle
     </tr>
     <tr>
       <th>G74</th>
-      <td>Insulation: includes spray foams</td>
+      <td>Insulation foams</td>
       <td>infrastructure</td>
       <td>72</td>
       <td>1.61</td>

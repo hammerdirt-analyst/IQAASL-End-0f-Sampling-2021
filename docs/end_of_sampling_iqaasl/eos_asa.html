@@ -539,6 +539,23 @@
 <span class="c1"># make any adjustments to code definitions here:</span>
 <span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<span class="c1"># these descriptions need to be shortened for display</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Foamed EVA for crafts and sports&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G96&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sanitary-pads/tampons, applicators&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Metal bottle caps and lids&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G82&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams 2.5cm - 50cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G81&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams .5cm - 2.5cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G117&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams &lt; 5mm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G75&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 0 - 2.5cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G76&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 2.5cm - 50cm&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G24&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic lid rings&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G33&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Lids for togo drinks plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G3&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic bags, carier bags&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G204&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Bricks, pipes not plastic&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G904&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic fireworks&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G211&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Swabs, bandaging, medical&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+
 <span class="c1"># make a map to the code descriptions</span>
 <span class="n">code_description_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">description</span>
 
@@ -1251,7 +1268,7 @@
 <p>See the annex for the complete list of objects identified, includes description and group classification. The section <a class="reference internal" href="code_groups.html#codegroups"><span class="std std-ref">Code groups</span></a> describes each code group in detail and provides a comprehensive list of all objects in a group.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p>All survey areas utility of objects found % of total by water feature. Fragmented objects with no clear identification remain classified by size:</p>
+<p>All survey areas utility of objects found % of total by survey area. Fragmented objects with no clear identification remain classified by size:</p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1506,7 +1523,7 @@
 <blockquote>
 <div><p>Love what you do. ❤️<br></p>
 </div></blockquote>
-<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-10-18.<br>
+<p><em>roger&#64;hammerdirt.ch</em> pushed the run button on 2021-10-26.<br>
 This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021 all copyrights apply.<br></p>
 </div>
 </div>
@@ -1765,7 +1782,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G74</th>
-      <td>Foam packaging/insulation/polyurethane</td>
+      <td>Insulation foams</td>
       <td>infrastructure</td>
       <td>1702</td>
       <td>3.11</td>
@@ -1781,7 +1798,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G117</th>
-      <td>Styrofoam &lt; 5mm</td>
+      <td>Expanded foams &lt; 5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>1209</td>
       <td>2.21</td>
@@ -1805,7 +1822,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G178</th>
-      <td>Metal bottle caps, lids &amp; pull tabs from cans</td>
+      <td>Metal bottle caps and lids</td>
       <td>food and drink</td>
       <td>700</td>
       <td>1.28</td>
@@ -1845,7 +1862,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G24</th>
-      <td>Lid/cap rings from plastic bottles/containers</td>
+      <td>Plastic lid rings</td>
       <td>food and drink</td>
       <td>541</td>
       <td>0.99</td>
@@ -1917,7 +1934,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G33</th>
-      <td>Cups, lids, single use foamed and hard plastic</td>
+      <td>Lids for togo drinks plastic</td>
       <td>food and drink</td>
       <td>328</td>
       <td>0.60</td>
@@ -1933,7 +1950,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G904</th>
-      <td>Fireworks; rocket caps, exploded parts &amp; packa...</td>
+      <td>Plastic fireworks</td>
       <td>recreation</td>
       <td>301</td>
       <td>0.55</td>
@@ -1941,7 +1958,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G3</th>
-      <td>Bags; plastic shopping/carrier/grocery and pieces</td>
+      <td>Plastic bags, carier bags</td>
       <td>packaging non food</td>
       <td>285</td>
       <td>0.52</td>
@@ -1957,7 +1974,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G211</th>
-      <td>Other medical (swabs, bandaging, adhesive plas...</td>
+      <td>Swabs, bandaging, medical</td>
       <td>personal items</td>
       <td>256</td>
       <td>0.47</td>
@@ -2013,7 +2030,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G96</th>
-      <td>Sanitary pads /panty liners/tampons and applic...</td>
+      <td>Sanitary-pads/tampons, applicators</td>
       <td>waste water</td>
       <td>215</td>
       <td>0.39</td>
@@ -2069,7 +2086,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G940</th>
-      <td>Foamed EVA (flexible plastic) for crafts &amp; wat...</td>
+      <td>Foamed EVA for crafts and sports</td>
       <td>recreation</td>
       <td>158</td>
       <td>0.29</td>
@@ -2109,7 +2126,7 @@ This document originates from https://github.com/hammerdirt-analyst/IQAASL-End-0
     </tr>
     <tr>
       <th>G204</th>
-      <td>Construction material; bricks, pipes, cement</td>
+      <td>Bricks, pipes not plastic</td>
       <td>infrastructure</td>
       <td>125</td>
       <td>0.23</td>
