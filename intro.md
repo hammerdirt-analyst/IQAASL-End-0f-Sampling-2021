@@ -1,50 +1,35 @@
-# Identification, quantification and analysis of swiss litter (IQAASL)
+# Foreword
 
-__Edition 1__ ver=0.99 _unlock acknowledgements_
+The aim of this project was to collect data and develop the necessary infrastructure to accurately assess the composition and abundance of anthropogenic material along selected Swiss rivers and lakes and present those findings in a consolidated web based report.
 
-__Note__: all results before ver=1 are considered interim and should not be referenced.
+## Assessement method: beach-litter-survey
 
-IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale **litter surveys** are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that contribute.
+In 2008 the first international guide to monitoring beach-litter was published by the United Nations Environment Program (UNEP) and Intergovernmental Oceanographic Commission (IOC) {cite}`unepseas`. This method was reproduced by the OSPAR Commission in 2010 {cite}`ospard10`. In 2013 the EU released Guidance on Monitoring of Marine Litter in European Seas (The guide) {cite}`mlwguidance`. Switzerland is a member of OSPAR and has over 1,400 samples using the methods described in _The guide_. 
 
-This report is a summary and analysis of the beach-litter surveys conducted and the methods employed in Switzerland from April 2020
-through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
+*A beach-litter survey is the accounting of visible anthropogenic material identified within a delimited area that is bordered on one side by a lake, river or ocean.*
 
-The median survey results are presented down to the municipal level for each location that was sampled. The results are in units of _objects found per 100 meters_ (pieces/100m). 
-<br></br>
-_Map of survey locations April 2020 - July 2021_
-:::{image} resources/images/intro_map.jpeg
-:alt: Map of IQAASL locations
-:class: bg-primary mb-1
-:width: 1200px
-:align: center
-:::
-_There were 406 samples from 163 locations in 95 different municipalities, all survey areas considered._
+* Locations are defined by their GPS points 
+* Length and width are measured for each survey area 
+* Visible pollutants within the survey area are collected, classified, counted and weighed
+* All items are classified based on code definitions included in _The guide_.
 
-Out of 406 surveys 331 were on 11 lakes.The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,744 objects or $\approx$ 306kg including 95kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares.  Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
+To identify objects of regional interest supplementary codes were added. For example, codes were developed for items such as _pheromone bait containers_ and _ski poles_ to account for the occurrence of these objects when identified in certain regions. Identifying and quantifying items allows researchers and stakeholders to determine probable sources and define reduction strategies targeting specific items. For the complete list of item identification codes and definitions [Code groups](codegroups).
 
-The most common objects are defined as those objects that were found in at least 50% of all surveys and/or are among the ten most abundant by quantity. As a group the most common objects represent $\approx$ 68% of all objects found in the sampling period.
-<br></br>
-*Lakes and rivers: the most common trash objects identified April 2020 - May 2021*
+---
 
-*__p/100m = median survey value:__ values of zero indicate the object was found in less than 50% of the surveys.*
+### Collecting data
 
-*__fail rate:__ the ratio of the number of times that at least one of the objects was identified with respect to the number of surveys* 
-:::{image} resources/images/eos_asa_24_0.png
-:alt: Map of IQAASL locations
-:class: bg-primary mb-1
-:width: 500px
-:align: center
-:::
+A beach litter survey can be conducted by anybody at anytime. If the survey is conducted according to the method described in _The Guide_ {cite}`mlwguidance` or here [Beach litter baselines](threshhold) the result can be compared directly to the charts in this report. There is no need to enter the data into the system to compare results.
 
-See the full report [_Lakes and rivers_](allsurveys)
+**Collecting data** for the report (or the next report) requires some on the job training and an evaluation. It usually takes 3-5 surveys to acclimate an individual to the task. Most of the time is spent identifying objects and the importance of maintaining a field notebook. The advantage to contributing data is that the reporting procedure is automated and there is always access to the results.
 
-See the full report [Les Alpes](lesalpes)
+Contact shannon-at-hammerdirt-dot-ch or the Municipal waste section of the Swiss federal office for the environment for more information.
 
- ---
+---
 
 ## Using this report
 
-If a municipality or water feature was sampled the results are included in this report. As of ver=1 the data and methods should be considered complete. Corrections, additions and new reports can be requested using the data repository and submitting an _issue_. 
+If a municipality or water feature was sampled the results are included in this report. As of ver=1 the data and methods should be considered complete. Corrections, additions and new reports can be requested using the data repository and submitting an _issue_ or contacting analyst@hammerdirt.ch. 
 
 It is important to understand the difference between the _median_ {cite}`mediandef` and the _average_ {cite}`meandeff` when interpreting the results. Except for
 monthly results the survey results are given as the __median__ p/100m for the location in question. Consider the __median__ survey result for 
@@ -57,6 +42,7 @@ the most common objects on Thunersee and Brienzersee:
 :align: center
 :::
 <br></br>
+
 The results from all survey areas are on the far right column, preceded by the aggregated results from Thunersee and Brienzersee. The first six columns are
 the municipalities where the samples were taken. This standard is maintained throughout the document.
 
@@ -89,56 +75,35 @@ Learning data science and data engineering is an important skill. Interested ind
 
 For more information contact analyst-at-hammerdirt (currently responsible for maintaining version control). 
 
-### Collecting data
 
-A beach litter survey can be conducted by anybody at anytime. If the survey is conducted according to the method described in _The Guide_ {cite}`mlwguidance` or here [Beach litter baselines](threshhold) the result can be compared directly to the charts in this report. There is no need to enter the data into the system to compare results.
 
-**Contributing data** for the report (or the next report) requires some on the job training and an evaluation. It usually takes 3-5 surveys to acclimate an individual to the task. Most of the time is spent identifying objects and the importance of maintaining a field notebook. The advantage to contributing data is that the reporting procedure is automated and there is always access to the results.
+## Assessment metric
 
-Contact shannon-at-hammerdirt-dot-ch or the Municipal waste section of the Swiss federal office for the environment for more information.
+The median value ($50^{th}$ percentile) of the survey results is reported as number of objects per 100m (p/100m) of shore line. This is the method described in EU Marine Beach Litter Baselines {cite}`eubaselines` and is the standard used in this report. The 100-meter shoreline standard used in the marine environment is appropriate for coastal regions of the European continent. However urbanization and topography present unique challenges when selecting locations suitable to safely conduct yearlong shoreline litter surveys. 
 
- ---
-## Trends from 2017
+Limiting surveys to 100 meters of exposed shoreline would have dramatically reduced the number of available survey locations as well as the use of preexisting data. Thus, the IQAASL reflects local topography with a median survey length of 45m, and an average of 51m. Surveys less than 10m were not considered in the baseline analysis. The survey results are converted to p/100m ed by 
 
-**When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
-show that in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
 
-**Comparison of survey results between SLR (2018) and IQAASL (2021)**
-
-*Top Left: survey totals by date, Top right: median monthly survey total* 
-:::{image} resources/images/slr_iqaasl_res.png
-:alt: IQAASL and SLR charts
-:class: bg-primary mb-1
-:width: 600px
-:align: center
-:::
-*bottom Left: number of samples with respect to the survey total, bottom right: empirical cumulative distribution of survey totals* 
-<br></br>
-
-See the full report [_More and less trash since 2017_](slr-iqaasl)
-
- ---
-## Shared responsibility
-
-According to the Law for the protection of the environment the principal of causality is defined as:
-
-> The person who initiates a measure prescribed by this Act shall bear the costs thereof.
-
-We use beach litter survey results to move up the causal chain to identify secondary sources of litter.
-
-:::{image} resources/images/causality.jpeg
-:alt: causality map
-:class: bg-primary mb-1
-:width: 600px
-:align: center
-:::
-*Identifying secondary sources of specific litter items. Consumers or handlers of plastic production pellets and probable fluvial route to survey location. Venoge and Thiele rivers.*
-
-See the section [_Shared responsibility_](transport)
 
  ---
 
 For questions or comments roger-at-hammerdirt-dot-ch is at your service.
+
+ ---
+ 
+ ## A
+<br></br>
+*Lakes and rivers: the most common trash objects identified April 2020 - May 2021*
+
+*__p/100m = median survey value:__ values of zero indicate the object was found in less than 50% of the surveys.*
+
+*__fail rate:__ the ratio of the number of times that at least one of the objects was identified with respect to the number of surveys* 
+:::{image} resources/images/eos_asa_24_0.png
+:alt: Map of IQAASL locations
+:class: bg-primary mb-1
+:width: 500px
+:align: center
+:::
 
  ---
 

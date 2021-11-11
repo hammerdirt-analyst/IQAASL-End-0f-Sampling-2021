@@ -1,25 +1,27 @@
 # Executive summary
 
-Identification, quantification and analysis of Swiss litter (IQAASL) is a project sponsored by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All of the discarded materials were collected and identified using beach litter survey techniques. The sampling period was 2020-03 through 2021-05 a total of 54,744 objects were removed and classified in the course of 386 surveys. The survey locations were divided into survey areas that were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers. Surveys were conducted at 143 different locations, representing 77 municipalities with a combined population of approximately 1,735,991.
+Identification, quantification and analysis of Swiss litter (IQAASL) is a project sponsored by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All of the discarded materials were collected and identified using beach litter survey techniques.  Including the surveys in the Alps and the Jura, there were 406 samples from 163 locations in 95 different municipalities.
 
-## Assessement method
+This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from April 2020
+through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
 
-In 2008 the first international guide to collecting beach-litter data was published by the United Nations Environment Program (UNEP) and Intergovernmental Oceanographic Commission (IOC) {cite}`unepseas`. This method was reproduced by the OSPAR Commission in 2010 {cite}`ospard10`. In 2013 the EU released Guidance on Monitoring of Marine Litter in European Seas (The guide) {cite}`mlwguidance`. Switzerland is a member of OSPAR and has over 1,500 samples using the methods described in _The guide_. 
+<br></br>
+__Map of survey locations April 2020 - July 2021:__ The survey techniques were reproduced at selected locations in the Alps and Jura.
 
-*A beach-litter survey is the accounting of visible anthropogenic material identified within a delimited area that is bordered on one side by a lake, river or ocean.*
-
-* Locations are defined by their GPS points 
-* Length and width are measured for each survey area 
-* Visible pollutants within the survey area are collected, classified, counted and weighed
-* All items are classified based on code definitions included in _The guide_.
-
-To identify objects of regional interest supplementary codes were added. For example, codes were developed for items such as _pheromone bait containers_ and _ski poles_ to account for the occurrence of these objects when identified in certain regions. Identifying and quantifying items allows researchers and stakeholders to determine probable sources and define reduction strategies targeting specific items. For the complete list of item identification codes and definitions [Code groups](codegroups).
+:::{image} resources/images/intro_map.jpeg
+:alt: Map of IQAASL locations
+:class: bg-primary mb-1
+:width: 1200px
+:align: center
+:::
 
 ## Lakes and rivers
 
+The predetermined sampling period was 2020-03 through 2021-05 a total of 54,744 objects were removed and classified in the course of 386 surveys. The survey locations were divided into survey areas that were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers. Surveys were conducted at 143 different locations, representing 77 municipalities with a combined population of approximately 1,735,991.
+
 The majority of the surveys were lake side (331 samples). Lakes offer a more consistent and safe survey environment with respect to rivers. In addition, lakes are large areas of reduced flow that receive input from multiple rivers, streams and drainage systems. As such lakes provide ideal locations to assess the variety of objects in the water.
 
-In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore which was sampled every three months. There were 222 surveys at these locations with a total of 37,406 objects removed and identified. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition there were 55 surveys on 16 rivers. The median survey total was 75p/100m for 2,475 objects removed from river shorelines.
+In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore which was sampled every three months. There were 222 surveys at these locations with a total of 37,406 objects removed and identified. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition there were 55 surveys on 16 rivers. The median survey total on river shorelines was 75p/100m for 2,475 objects removed.
 
 Lake locations sampled monthly
 
@@ -31,11 +33,58 @@ Lake locations sampled monthly
 * Walensee: Walenstadt, Weesen
 * Lago Maggiore: Ascona, Gambarogno (tri-monthly)
 
-## Assessment metric
 
-The median value ($50^{th}$ percentile) of the survey results is reported as number of objects per 100m (p/100m) of shore line. This is the method described in EU Marine Beach Litter Baselines {cite}`eubaselines` and is the standard used in this report. The 100-meter shoreline standard used in the marine environment is appropriate for coastal regions of the European continent. However urbanization and topography present unique challenges when selecting locations suitable to safely conduct yearlong shoreline litter surveys. 
+The median survey results are presented down to the municipal level for each location that was sampled. The results are in units of _objects found per 100 meters_ (pieces/100m). 
 
-Limiting surveys to 100 meters of exposed shoreline would have dramatically reduced the number of available survey locations as well as the use of preexisting data. Thus, the IQAASL reflects local topography with a median survey length of 45m, and an average of 51m. Surveys less than 10m were not considered in the baseline analysis. 
+_There were 406 samples from 163 locations in 95 different municipalities, all survey areas considered._
+
+Out of 406 surveys 331 were on 11 lakes.The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,744 objects or $\approx$ 306kg including 95kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares.  Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
+
+The most common objects are defined as those objects that were found in at least 50% of all surveys and/or are among the ten most abundant by quantity. As a group the most common objects represent $\approx$ 68% of all objects found in the sampling period.
+
+
+For more information [_Lakes and rivers_](allsurveys)
+
+For more information [Les Alpes](lesalpes)
+
+## Trends from 2017
+
+**When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
+show that in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
+
+**Comparison of survey results between SLR (2018) and IQAASL (2021)**
+
+*Top Left: survey totals by date, Top right: median monthly survey total* 
+:::{image} resources/images/slr_iqaasl_res.png
+:alt: IQAASL and SLR charts
+:class: bg-primary mb-1
+:width: 600px
+:align: center
+:::
+*bottom Left: number of samples with respect to the survey total, bottom right: empirical cumulative distribution of survey totals* 
+<br></br>
+
+For more information [_More and less trash since 2017_](slr-iqaasl)
+
+ ---
+ 
+## Shared responsibility
+
+According to the Law for the protection of the environment the principal of causality is defined as:
+
+> The person who initiates a measure prescribed by this Act shall bear the costs thereof.
+
+We use beach litter survey results to move up the causal chain to identify secondary sources of litter.
+
+:::{image} resources/images/causality.jpeg
+:alt: causality map
+:class: bg-primary mb-1
+:width: 600px
+:align: center
+:::
+*Identifying secondary sources of specific litter items. Consumers or handlers of plastic production pellets and probable fluvial route to survey location. Venoge and Thiele rivers.*
+
+For more information[_Shared responsibility_](transport)
 
 ### Median survey total
 
@@ -66,8 +115,7 @@ Objects related to food and tobacco are identified at higher rates at survey loc
 <br /> 
 Two of the most common objects were identified in less than 50% of the surveys. This indicates that they had high counts at the surveys they were identified in. Both are less than 5mm in diameter and are considered micro-plastics. _Industrial pellets_ were identified in all survey areas. The highest rates were recorded at Préverenges, Genève, Lugano and Biel. _Expanded foams < 5mm_ are the result of the fragmentation of expanded polystyrene and at times were identified in large quantities.
 
-<br />
-<br />
+<br /><br />
 
 *The most common objects identified by survey area: median p/100m*
 :::{image} resources/images/mostcommoneos.png
@@ -136,7 +184,7 @@ If all objects related to food and tobacco were eliminated there would still be 
 
 There is broad-based support for this type of reporting method. This remains a citizen-science project that only uses open source tools and shares data on GNU public license. Which means that contributing and editing can be done collaboratively by the stake-holders. At the end of the mandate, December 31, 2021, hammerdirt will assume the responsibility of maintaining the code and data repository which is hosted publicly on Github.
 
-The associations that participated are actively seeking ways to incorporate the process or the results into their own business model. However, there is a shortage of data scientists within many regional associations which may lengthen the process of integration and stifle the rate of innovation at the level where it is needed most.
+The associations that participated are actively seeking ways to incorporate the data collection process or the results into their own business model. However, there is a shortage of data scientists within many regional associations which may lengthen the process of integration and stifle the rate of innovation at the level where it is needed most.
 
 ## Recommendations
 
