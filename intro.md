@@ -1,6 +1,6 @@
 # Foreword
 
-The aim of this project was to collect data and develop the necessary infrastructure to accurately assess the composition and abundance of anthropogenic material along selected Swiss rivers and lakes and present those findings in a consolidated web based report.
+The aim of this project was to collect data and develop the necessary infrastructure to accurately assess the composition and abundance of anthropogenic material along selected Swiss rivers and lakes and present those findings in a consolidated web based report. 
 
 ## Assessement method: beach-litter-survey
 
@@ -23,13 +23,19 @@ A beach litter survey can be conducted by anybody at anytime. If the survey is c
 
 **Collecting data** for the report (or the next report) requires some on the job training and an evaluation. It usually takes 3-5 surveys to acclimate an individual to the task. Most of the time is spent identifying objects and the importance of maintaining a field notebook. The advantage to contributing data is that the reporting procedure is automated and there is always access to the results.
 
-Contact shannon-at-hammerdirt-dot-ch or the Municipal waste section of the Swiss federal office for the environment for more information.
-
 ---
+
+## Assessment metric
+
+The median value ($50^{th}$ percentile) of the survey results is reported as the number of objects per 100m (p/100m) of shore line. This is the method described in EU Marine Beach Litter Baselines {cite}`eubaselines` and is the standard used in this report. The 100-meter shoreline standard used in the marine environment is appropriate for coastal regions of the European continent. However urbanization and topography present unique challenges when selecting locations suitable to safely conduct yearlong shoreline litter surveys. 
+
+Limiting surveys to 100 meters of exposed shoreline would have dramatically reduced the number of available survey locations as well as the use of preexisting data. Thus, the IQAASL reflects local topography with a median survey length of 45m, and an average of 51m. Surveys less than 10m were not considered in the baseline analysis. The survey results are converted to p/100m by multiplying the survey result by 100.
+
+ ---
 
 ## Using this report
 
-If a municipality or water feature was sampled the results are included in this report. As of ver=1 the data and methods should be considered complete. Corrections, additions and new reports can be requested using the data repository and submitting an _issue_ or contacting analyst@hammerdirt.ch. 
+If a municipality or water feature was sampled the results are included in this report. Corrections, additions and new reports can be requested using the data repository and submitting an _issue_ or contacting analyst@hammerdirt.ch. 
 
 It is important to understand the difference between the _median_ {cite}`mediandef` and the _average_ {cite}`meandeff` when interpreting the results. Except for
 monthly results the survey results are given as the __median__ p/100m for the location in question. Consider the __median__ survey result for 
@@ -50,7 +56,7 @@ The number represents the median survey value for that object. If that object is
 words the median value is an indicator of minimum number that you are likely to find on the shore line.
 
 The results for plastic construction waste indicate that it was more prevalent in Bönigen \(4.5p/100m\) and Unterseen \(1.5p/100m\) versus the other
-municipalities where the median value is zero. However Industrial sheeting and cigarettes were located at all municipalities in at least 1/2
+municipalities where the median value is zero. However Industrial sheeting and cigarettes were identified at all municipalities in at least 1/2
 surveys.
 
 In practical terms there was a better chance of finding plastic construction waste on the beach in Bönigen and Unterseen than the other municipalities. However the chances of finding industrial sheeting were $\approx$ anywhere but the most might be found at at Brienze (67p/100m).
@@ -64,34 +70,13 @@ methods for identifying extreme values and calculating baselines for a region ca
 The results for each municipality are included with the lake or river to which they belong. A more detailed report can be produced for any
 municipality in this document. 
 
-Requests for more information should be sent to the Municipal waste section of Swiss federal office for the environment.
-
 ### Contributing to this report
 
-This report is versioned therefore it is very easy to submit articles or analysis that correct, clarify or improve the content. The easiest
-way to contribute is to send a pull request to [end of sampling repo](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021). Submissions are accepted in all official Swiss national languages.
-
-Learning data science and data engineering is an important skill. Interested individuals or those that would like to keep skills fresh are encouraged to help maintain the code repository.
-
-For more information contact analyst-at-hammerdirt (currently responsible for maintaining version control). 
-
-
-
-## Assessment metric
-
-The median value ($50^{th}$ percentile) of the survey results is reported as number of objects per 100m (p/100m) of shore line. This is the method described in EU Marine Beach Litter Baselines {cite}`eubaselines` and is the standard used in this report. The 100-meter shoreline standard used in the marine environment is appropriate for coastal regions of the European continent. However urbanization and topography present unique challenges when selecting locations suitable to safely conduct yearlong shoreline litter surveys. 
-
-Limiting surveys to 100 meters of exposed shoreline would have dramatically reduced the number of available survey locations as well as the use of preexisting data. Thus, the IQAASL reflects local topography with a median survey length of 45m, and an average of 51m. Surveys less than 10m were not considered in the baseline analysis. The survey results are converted to p/100m ed by 
-
-
+This report is versioned therefore it is very easy to submit articles or analysis that correct, clarify or improve the content. The easiest way to contribute is to send a pull request to [end of sampling repo](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021). Submissions are accepted in all official Swiss national languages. 
 
  ---
 
-For questions or comments roger-at-hammerdirt-dot-ch is at your service.
-
- ---
  
- ## A
 <br></br>
 *Lakes and rivers: the most common trash objects identified April 2020 - May 2021*
 
@@ -105,6 +90,5 @@ For questions or comments roger-at-hammerdirt-dot-ch is at your service.
 :align: center
 :::
 
- ---
 
 

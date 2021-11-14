@@ -1,9 +1,8 @@
 # Executive summary
 
-Identification, quantification and analysis of Swiss litter (IQAASL) is a project sponsored by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All of the discarded materials were collected and identified using beach litter survey techniques.  Including the surveys in the Alps and the Jura, there were 406 samples from 163 locations in 95 different municipalities.
+Identification, quantification and analysis of Swiss litter (IQAASL) is a project sponsored by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All of the discarded materials were collected and identified using litter survey techniques.  The project was expanded to include twenty locations in the Alps and the Jura in total there were 406 samples from 163 locations in 95 different municipalities.
 
-This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from April 2020
-through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
+This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from April 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. The results are in units of _objects found per 100 meters_ (p/100m).
 
 <br></br>
 __Map of survey locations April 2020 - July 2021:__ The survey techniques were reproduced at selected locations in the Alps and Jura.
@@ -17,13 +16,13 @@ __Map of survey locations April 2020 - July 2021:__ The survey techniques were r
 
 ## Lakes and rivers
 
-The predetermined sampling period was 2020-03 through 2021-05 a total of 54,744 objects were removed and classified in the course of 386 surveys. The survey locations were divided into survey areas that were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers. Surveys were conducted at 143 different locations, representing 77 municipalities with a combined population of approximately 1,735,991.
+The lakes and rivers were sampled from 2020-03 through 2021-05 a total of 54,744 objects were removed and classified in the course of 386 surveys. The survey locations were divided into survey areas that were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers. Surveys were conducted at 143 different locations, representing 77 municipalities. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares.  Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
 
 The majority of the surveys were lake side (331 samples). Lakes offer a more consistent and safe survey environment with respect to rivers. In addition, lakes are large areas of reduced flow that receive input from multiple rivers, streams and drainage systems. As such lakes provide ideal locations to assess the variety of objects in the water.
 
 In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore which was sampled every three months. There were 222 surveys at these locations with a total of 37,406 objects removed and identified. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition there were 55 surveys on 16 rivers. The median survey total on river shorelines was 75p/100m for 2,475 objects removed.
 
-Lake locations sampled monthly
+Lake locations sampled monthly:
 
 * Thunersee: Spiez, Unterseen
 * Bielersee: Biel/Bienne, Vinelz
@@ -34,61 +33,7 @@ Lake locations sampled monthly
 * Lago Maggiore: Ascona, Gambarogno (tri-monthly)
 
 
-The median survey results are presented down to the municipal level for each location that was sampled. The results are in units of _objects found per 100 meters_ (pieces/100m). 
-
-_There were 406 samples from 163 locations in 95 different municipalities, all survey areas considered._
-
-Out of 406 surveys 331 were on 11 lakes.The median survey result was 181 pieces per 100 meters (p/100m), with a 95% confidence interval (CI) of 147p/100m - 213p/100m. This represents 54,744 objects or $\approx$ 306kg including 95kg of plastic. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares.  Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
-
-The most common objects are defined as those objects that were found in at least 50% of all surveys and/or are among the ten most abundant by quantity. As a group the most common objects represent $\approx$ 68% of all objects found in the sampling period.
-
-
-For more information [_Lakes and rivers_](allsurveys)
-
-For more information [Les Alpes](lesalpes)
-
-## Trends from 2017
-
-**When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
-show that in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
-
-**Comparison of survey results between SLR (2018) and IQAASL (2021)**
-
-*Top Left: survey totals by date, Top right: median monthly survey total* 
-:::{image} resources/images/slr_iqaasl_res.png
-:alt: IQAASL and SLR charts
-:class: bg-primary mb-1
-:width: 600px
-:align: center
-:::
-*bottom Left: number of samples with respect to the survey total, bottom right: empirical cumulative distribution of survey totals* 
-<br></br>
-
-For more information [_More and less trash since 2017_](slr-iqaasl)
-
- ---
- 
-## Shared responsibility
-
-According to the Law for the protection of the environment the principal of causality is defined as:
-
-> The person who initiates a measure prescribed by this Act shall bear the costs thereof.
-
-We use beach litter survey results to move up the causal chain to identify secondary sources of litter.
-
-:::{image} resources/images/causality.jpeg
-:alt: causality map
-:class: bg-primary mb-1
-:width: 600px
-:align: center
-:::
-*Identifying secondary sources of specific litter items. Consumers or handlers of plastic production pellets and probable fluvial route to survey location. Venoge and Thiele rivers.*
-
-For more information[_Shared responsibility_](transport)
-
 ### Median survey total
-
-The median survey value was selected due to the variability of litter surveys and the effects of extreme values on aggregated results{cite}`eubaselines`. An object may have have a median value of zero at one aggregation level and not the other. This particularity is extremely useful to determine the location and frequency of identified items.
 
 The median survey total of the 386 surveys was 189 p/100m. The maximum recorded value was 6,617 p/100m (Rhône survey area) and the minimum recorded was 2p/100m (Aare suvey area). The Rhône survey area had the highest median survey total of 442p/100m, this can in part be explained by the high number of urban survey locations with respect to the other survey areas and the deposition of fragmented plastics and foamed plastics at the Rhône river out flow in the upper lake region.
 
@@ -100,7 +45,7 @@ Surveys in Switzerland are on average shorter than surveys in the marine environ
 
 The most common objects are defined as those objects identified in at least 50% of all surveys and/or are among the ten most abundant by quantity. As a group the most common objects represent 68% of all objects identified in the sampling period. Of the most common items identified 27% are food and tobacco related and 24% are infrastructure and agriculture related. 
 
-Objects related to food and tobacco are identified at higher rates at survey locations with a greater percentage of land attributed to buildings or fixed infrastructure, the inverse is true of the locations with a higher percentage of land attributed to woods or agriculture. However, objects related to infrastructure and fragmented plastics, are found at $\approx$ rates throughout all survey areas indifferent of land use surrounding the survey locations.
+Objects related to food and tobacco are identified at higher rates at survey locations with a greater percentage of land attributed to buildings or fixed infrastructure, the inverse is true of the locations with a higher percentage of land attributed to woods or agriculture. However, objects related to infrastructure and fragmented plastics, are found at similar rates throughout all survey areas indifferent of land use surrounding the survey locations.
 
 *Lakes and rivers: the most common objects identified April 2020 - May 2021*
 
@@ -128,29 +73,31 @@ Two of the most common objects were identified in less than 50% of the surveys. 
 
 The most common objects are found at different rates depending on the survey area, lake and in some cases the land-use conditions. As a result, regional priorities may be different.
 
-### Comparing 2017-2018 and 2020-2021 survey results
 
-Considering only the lakes and rivers that have data in both 2018 and 2020 sampling periods more samples and more objects were collected from fewer locations in 2018 than 2020. However, on a pieces per meter basis the mean, median and maximum were all higher in 2020. The summary statistics and the results of the difference of means test implies there was not a measurable change on the national scale from one sampling period to the other.
-The 95% CI of the median survey total in 2020 was 137 - 188p/100m. The median result for 2018 was 125p/100m with a 95% CI of 112p/100m to 146p/100m, which includes the lower bound of the median from 2020. 
+For more information [_Lakes and rivers_](allsurveys)
 
-The difference of means for the most common objects suggest a more realistic and dynamic result:
+For more information [Les Alpes](lesalpes)
 
-There was a slight decrease in litter items associated with behavior:
+## Trends from 2017-2018
 
-* cigarette ends
-* metal bottle caps
-* glass bottles
+**When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
+show that in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
 
-There was a slight increase in other items:
+**Comparison of survey results between SLR (2018) and IQAASL (2021)**
 
-* industrial sheeting
-* plastic construction waste
-* other plastic and foam products
-* cotton swabs
+*Top Left: survey totals by date, Top right: median monthly survey total* 
+:::{image} resources/images/slr_iqaasl_res.png
+:alt: IQAASL and SLR charts
+:class: bg-primary mb-1
+:width: 600px
+:align: center
+:::
+*bottom Left: number of samples with respect to the survey total, bottom right: empirical cumulative distribution of survey totals* 
+<br></br>
 
-The decrease in tobacco and food related products is likely the result of pandemic related restrictions that marked 2020. Increases of industrial sheeting, plastic construction waste and other plastic foam products or cotton swabs cannot be attributed to a specific event.
+For more information [_More and less trash since 2017_](slr-iqaasl)
 
-These results suggest that perceived local decreases in litter quantities were likely the result of decline in usage of facilities as opposed to a sweeping change in behavior. Consequently, the survey results for items associated with behavior will likely return to 2018 levels or greater as pandemic related restrictions are relaxed and usage patterns return to normal.
+ --- 
 
 ## The Alps and the Jura
 
@@ -162,11 +109,11 @@ The median survey result can create challenges for organizations that are attemp
 
 Both methods are correct mathematically. The average value will mostly likely be larger but `the median value is a better approximation of what a sample may look like if the experiment was repeated`. This concept is central to most monitoring systems based on count data and is a measure of repeatability.
 
-For communications purposes the total quantity by region or the percent of total may be the easiest method. Using the more precise p/100m rating for specific examples. Consider this interpretation of the amounts of industrial pellets (GPI) found on Lac Léman.
+For communications purposes the total quantity by region or the percent of total may be the easiest method. Using the median value for specific examples. Consider this interpretation of the amounts of industrial pellets (GPI) found on Lac Léman.
 
 >There were 1’387 GPI or 5% of all objects identified on Lac Léman. The number of pellets per 100m ranges from 1-1006 depending on the region. For the lake in general there is a 40% chance of finding at least one pellet at a survey. In some locations like Genève, Préverenges, St. Sulpice and Vidy the chances of finding at least one pellet is 90% and the number found is between 3p/100m and 105p/100m.
 
-Communicating the range of likely values and the locations where they may be found is much more precise and informative. A proposed solution is to include the average p/100m with the summary values. This would allow stakeholders a value that is perhaps easier to communicate but can always be referenced within the context of the median value. 
+Communicating the range of likely values or the likelihood of finding an object is much more informative and is an implied invitation to repeat the experiment. The average values for the most common objects 
  
 ## Conclusions
 
