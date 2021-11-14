@@ -5,14 +5,30 @@ Identification, quantification and analysis of Swiss litter (IQAASL) is a projec
 This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from April 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. The results are in units of _objects found per 100 meters_ (p/100m).
 
 <br></br>
-__Map of survey locations April 2020 - July 2021:__ The survey techniques were reproduced at selected locations in the Alps and Jura.
 
-:::{image} resources/images/intro_map.jpeg
+
+:::{figure-md} resources/images/intro_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
 :width: 1200px
 :align: center
+
+.. 
+
 :::
+
+
+```{figure} resources/images/intro_map.jpeg
+---
+width: 1200px
+name: directive-fig
+---
+
+` `
+
+```
+
+{numref}`Figure {number}: <directive-fig>` Map of survey locations April 2020 - July 2021. The diameter of circle is given by the median survey value for that location. The locations in red are surveys on rivers or lakes and the purple are the expnded locations in the Alps and the Jura. The survey techniques were reproduced at selected locations in the Alps and Jura.
 
 ## Lakes and rivers
 
