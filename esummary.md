@@ -116,8 +116,7 @@ For communications purposes the total quantity by region or the percent of total
 
 >There were 1’387 GPI or 5% of all objects identified on Lac Léman. The number of pellets per 100m ranges from 1-1006 depending on the region. For the lake in general there is a 40% chance of finding at least one pellet at a survey. In some locations like Genève, Préverenges, St. Sulpice and Vidy the chances of finding at least one pellet is 90% and the number found is between 3p/100m and 105p/100m.
 
-Communicating the range of likely values or the likelihood of finding an object is much more informative and is an implied invitation to repeat the experiment. The average values for the most common objects 
- 
+Communicating the range of likely values or the likelihood of finding an object is much more informative and is an implied invitation to repeat the experiment. 
 ## Conclusions
 
 Count methods remain the preferred method for assessing litter composition and density along the shoreline. Although there is no standard method on the continent for assessing the litter in fresh water systems all indications are that this will soon change. 
