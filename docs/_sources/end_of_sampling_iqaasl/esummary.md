@@ -1,27 +1,31 @@
 # Executive summary
 
-Identification, quantification and analysis of Swiss litter (IQAASL) is a project sponsored by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All of the discarded materials were collected and identified using beach litter survey techniques. The sampling period was 2020-03 through 2021-05 a total of 54,744 objects were removed and classified in the course of 386 surveys. The survey locations were divided into survey areas that were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers. Surveys were conducted at 143 different locations, representing 77 municipalities with a combined population of approximately 1,735,991.
+Identification, quantification and analysis of Swiss litter (IQAASL) is a project sponsored by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All of the discarded materials were collected and identified using litter survey techniques.  The project was expanded to include twenty locations in the Alps and the Jura in total there were 406 samples from 163 locations in 95 different municipalities.
 
-## Assessement method
+This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from April 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. The results are in units of _objects found per 100 meters_ (p/100m).
 
-In 2008 the first international guide to collecting beach-litter data was published by the United Nations Environment Program (UNEP) and Intergovernmental Oceanographic Commission (IOC) {cite}`unepseas`. This method was reproduced by the OSPAR Commission in 2010 {cite}`ospard10`. In 2013 the EU released Guidance on Monitoring of Marine Litter in European Seas (The guide) {cite}`mlwguidance`. Switzerland is a member of OSPAR and has over 1,500 samples using the methods described in _The guide_. 
 
-*A beach-litter survey is the accounting of visible anthropogenic material identified within a delimited area that is bordered on one side by a lake, river or ocean.*
+```{figure} resources/images/intro_map.jpeg
+---
+width: 1200px
+name: esummarymap
+---
 
-* Locations are defined by their GPS points 
-* Length and width are measured for each survey area 
-* Visible pollutants within the survey area are collected, classified, counted and weighed
-* All items are classified based on code definitions included in _The guide_.
+` `
 
-To identify objects of regional interest supplementary codes were added. For example, codes were developed for items such as _pheromone bait containers_ and _ski poles_ to account for the occurrence of these objects when identified in certain regions. Identifying and quantifying items allows researchers and stakeholders to determine probable sources and define reduction strategies targeting specific items. For the complete list of item identification codes and definitions [Code groups](codegroups).
+```
+
+{numref}`Figure {number}: <esummarymap>` Map of survey locations April 2020 - July 2021. The diameter of the circle is given by the median survey value for that location. The locations in red are surveys on rivers or lakes and the purple are the locations in the Alps and the Jura. 
 
 ## Lakes and rivers
 
+The lakes and rivers were sampled from 2020-03 through 2021-05 a total of 54,744 objects were removed and classified in the course of 386 surveys. The survey locations were divided into survey areas that were defined by the Aare, Rhône, Ticino and Linth/Limmat rivers. Surveys were conducted at 143 different locations, representing 77 municipalities. The total linear distance surveyed was $\approx$ 20 km with a surface area of 9 hectares.  Both Geneva and Zurich are included putting the total municipal population with a stake in this report at 1.7 million.
+
 The majority of the surveys were lake side (331 samples). Lakes offer a more consistent and safe survey environment with respect to rivers. In addition, lakes are large areas of reduced flow that receive input from multiple rivers, streams and drainage systems. As such lakes provide ideal locations to assess the variety of objects in the water.
 
-In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore which was sampled every three months. There were 222 surveys at these locations with a total of 37,406 objects removed and identified. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition there were 55 surveys on 16 rivers. The median survey total was 75p/100m for 2,475 objects removed from river shorelines.
+In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore which was sampled every three months. There were 222 surveys at these locations with a total of 37,406 objects removed and identified. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition there were 55 surveys on 16 rivers.
 
-Lake locations sampled monthly
+Lake locations sampled monthly:
 
 * Thunersee: Spiez, Unterseen
 * Bielersee: Biel/Bienne, Vinelz
@@ -31,15 +35,8 @@ Lake locations sampled monthly
 * Walensee: Walenstadt, Weesen
 * Lago Maggiore: Ascona, Gambarogno (tri-monthly)
 
-## Assessment metric
-
-The median value ($50^{th}$ percentile) of the survey results is reported as number of objects per 100m (p/100m) of shore line. This is the method described in EU Marine Beach Litter Baselines {cite}`eubaselines` and is the standard used in this report. The 100-meter shoreline standard used in the marine environment is appropriate for coastal regions of the European continent. However urbanization and topography present unique challenges when selecting locations suitable to safely conduct yearlong shoreline litter surveys. 
-
-Limiting surveys to 100 meters of exposed shoreline would have dramatically reduced the number of available survey locations as well as the use of preexisting data. Thus, the IQAASL reflects local topography with a median survey length of 45m, and an average of 51m. Surveys less than 10m were not considered in the baseline analysis. 
 
 ### Median survey total
-
-The median survey value was selected due to the variability of litter surveys and the effects of extreme values on aggregated results{cite}`eubaselines`. An object may have have a median value of zero at one aggregation level and not the other. This particularity is extremely useful to determine the location and frequency of identified items.
 
 The median survey total of the 386 surveys was 189 p/100m. The maximum recorded value was 6,617 p/100m (Rhône survey area) and the minimum recorded was 2p/100m (Aare suvey area). The Rhône survey area had the highest median survey total of 442p/100m, this can in part be explained by the high number of urban survey locations with respect to the other survey areas and the deposition of fragmented plastics and foamed plastics at the Rhône river out flow in the upper lake region.
 
@@ -51,62 +48,63 @@ Surveys in Switzerland are on average shorter than surveys in the marine environ
 
 The most common objects are defined as those objects identified in at least 50% of all surveys and/or are among the ten most abundant by quantity. As a group the most common objects represent 68% of all objects identified in the sampling period. Of the most common items identified 27% are food and tobacco related and 24% are infrastructure and agriculture related. 
 
-Objects related to food and tobacco are identified at higher rates at survey locations with a greater percentage of land attributed to buildings or fixed infrastructure, the inverse is true of the locations with a higher percentage of land attributed to woods or agriculture. However, objects related to infrastructure and fragmented plastics, are found at $\approx$ rates throughout all survey areas indifferent of land use surrounding the survey locations.
+Objects related to food and tobacco are identified at higher rates at survey locations with a greater percentage of land attributed to buildings or fixed infrastructure, the inverse is true of the locations with a higher percentage of land attributed to woods or agriculture. However, objects related to infrastructure and fragmented plastics, are found at similar rates throughout all survey areas indifferent of land use surrounding the survey locations.
 
-*Lakes and rivers: the most common objects identified April 2020 - May 2021*
 
-*__fail rate:__ the ratio of the number of times an object was identified at least once with respect to the number of surveys*
-:::{image} resources/images/eos_asa_24_0.png
-:alt: Most common objects 
-:class: bg-primary mb-1
-:width: 500px
-:align: center
-:::
+```{figure} resources/images/eos_asa_24_0.png
+---
+width: 500px
+name: esummarymcommon
+---
 
-<br /> 
-Two of the most common objects were identified in less than 50% of the surveys. This indicates that they had high counts at the surveys they were identified in. Both are less than 5mm in diameter and are considered micro-plastics. _Industrial pellets_ were identified in all survey areas. The highest rates were recorded at Préverenges, Genève, Lugano and Biel. _Expanded foams < 5mm_ are the result of the fragmentation of expanded polystyrene and at times were identified in large quantities.
+` `
 
-<br />
-<br />
+```
 
-*The most common objects identified by survey area: median p/100m*
-:::{image} resources/images/mostcommoneos.png
-:alt: Most common objects by survey area
-:class: bg-primary mb-1
-:width: 500px
-:align: center
-:::
-<br/>
+{numref}`Figure {number}: <esummarymcommon>` Lakes and rivers: the most common objects identified April 2020 - May 2021. The _fail rate_ is the ratio of the number of times an object was identified at least once with respect to the number of surveys. 
 
-The most common objects are found at different rates depending on the survey area, lake and in some cases the land-use conditions. As a result, regional priorities may be different.
+ _Industrial pellets_ and _Expanded foams < 5mm_ were identified in less than 50% of the surveys (median of 0). This indicates that they had high counts at specific locations as opposed to cigarette filters that were identified at 87% of all the samples. Both objects are less than 5mm in diameter and are considered micro-plastics. Industrial pellets are used in the injection molding process and the small expanded foams  are the result of the fragmentation of expanded polystyrene. 
 
-### Comparing 2017-2018 and 2020-2021 survey results
+```{figure} resources/images/mostcommoneos.png
+---
+width: 500px
+name: esummarysurveyareas
+---
 
-Considering only the lakes and rivers that have data in both 2018 and 2020 sampling periods more samples and more objects were collected from fewer locations in 2018 than 2020. However, on a pieces per meter basis the mean, median and maximum were all higher in 2020. The summary statistics and the results of the difference of means test implies there was not a measurable change on the national scale from one sampling period to the other.
-The 95% CI of the median survey total in 2020 was 137 - 188p/100m. The median result for 2018 was 125p/100m with a 95% CI of 112p/100m to 146p/100m, which includes the lower bound of the median from 2020. 
+` `
 
-The difference of means for the most common objects suggest a more realistic and dynamic result:
+```
 
-There was a slight decrease in litter items associated with behavior:
+{numref}`Figure {number}: <esummarysurveyareas>` The median survey total of the most common objects. The most common objects are found at different rates depending on the survey area, lake and in some cases the land-use conditions. As a result, regional priorities may be different.
 
-* cigarette ends
-* metal bottle caps
-* glass bottles
+For more information [_Lakes and rivers_](allsurveys)
 
-There was a slight increase in other items:
+## Trends from 2017-2018
 
-* industrial sheeting
-* plastic construction waste
-* other plastic and foam products
-* cotton swabs
+**When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
+show that in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
 
-The decrease in tobacco and food related products is likely the result of pandemic related restrictions that marked 2020. Increases of industrial sheeting, plastic construction waste and other plastic foam products or cotton swabs cannot be attributed to a specific event.
+```{figure} resources/images/slr_iqaasl_res.png
+---
+width: 800px
+name: esummaryslr
+---
 
-These results suggest that perceived local decreases in litter quantities were likely the result of decline in usage of facilities as opposed to a sweeping change in behavior. Consequently, the survey results for items associated with behavior will likely return to 2018 levels or greater as pandemic related restrictions are relaxed and usage patterns return to normal.
+` `
+
+```
+
+{numref}`Figure {number}: <esummaryslr>` Comparison of survey results between SLR (2018) and IQAASL (2021). **Top Left:** survey totals by date. **Top right:** median monthly survey total. **Bottom Left:** number of samples with respect to the survey total. **Bottom right:** empirical cumulative distribution of survey totals.
+
+For more information [_More and less trash since 2017_](slr-iqaasl)
+
+ --- 
 
 ## The Alps and the Jura
 
-Of the twenty surveys in the Alps survey area 17 met the length and width criteria of greater than 10m. The median survey value was 110 p/100m, less than the median value of all the other survey areas (189 p/100m). Objects related to consumption such as food and drink or tobacco were a smaller percent of the total and had a lower p/100m rate compared to the results from shoreline locations. This difference could be in part due to the low levels of urbanization that characterizes the Alps survey area with respect to all other survey areas and the tendency of material to flow downstream. The results from the Alps and Jura are considered separately from the analysis of the results from lakes and rivers and discussed further in: *The Alps and the Jura* section.
+Of the twenty surveys in the Alps survey area 17 met the length and width criteria of greater than 10m. The median survey value was 110 p/100m, less than the median value of all the other survey areas (189 p/100m). Objects related to consumption such as food and drink or tobacco were a smaller percent of the total and had a lower p/100m rate compared to the results from shoreline locations. This difference could be in part due to the low levels of urbanization that characterizes the Alps survey area with respect to all other survey areas and the tendency of material to flow downstream. 
+
+For more information [Les Alpes](lesalpes)
 
 ## Communicating results
 
@@ -114,11 +112,11 @@ The median survey result can create challenges for organizations that are attemp
 
 Both methods are correct mathematically. The average value will mostly likely be larger but `the median value is a better approximation of what a sample may look like if the experiment was repeated`. This concept is central to most monitoring systems based on count data and is a measure of repeatability.
 
-For communications purposes the total quantity by region or the percent of total may be the easiest method. Using the more precise p/100m rating for specific examples. Consider this interpretation of the amounts of industrial pellets (GPI) found on Lac Léman.
+For communications purposes the total quantity by region or the percent of total may be the easiest method. Using the median value for specific examples. Consider this interpretation of the amounts of industrial pellets (GPI) found on Lac Léman.
 
 >There were 1’387 GPI or 5% of all objects identified on Lac Léman. The number of pellets per 100m ranges from 1-1006 depending on the region. For the lake in general there is a 40% chance of finding at least one pellet at a survey. In some locations like Genève, Préverenges, St. Sulpice and Vidy the chances of finding at least one pellet is 90% and the number found is between 3p/100m and 105p/100m.
 
-Communicating the range of likely values and the locations where they may be found is much more precise and informative. A proposed solution is to include the average p/100m with the summary values. This would allow stakeholders a value that is perhaps easier to communicate but can always be referenced within the context of the median value. 
+Communicating the range of likely values or the likelihood of finding an object is much more informative and is an implied invitation to repeat the experiment. The average values for the most common objects 
  
 ## Conclusions
 
@@ -136,7 +134,7 @@ If all objects related to food and tobacco were eliminated there would still be 
 
 There is broad-based support for this type of reporting method. This remains a citizen-science project that only uses open source tools and shares data on GNU public license. Which means that contributing and editing can be done collaboratively by the stake-holders. At the end of the mandate, December 31, 2021, hammerdirt will assume the responsibility of maintaining the code and data repository which is hosted publicly on Github.
 
-The associations that participated are actively seeking ways to incorporate the process or the results into their own business model. However, there is a shortage of data scientists within many regional associations which may lengthen the process of integration and stifle the rate of innovation at the level where it is needed most.
+The associations that participated are actively seeking ways to incorporate the data collection process or the results into their own business model. However, there is a shortage of data scientists within many regional associations which may lengthen the process of integration and stifle the rate of innovation at the level where it is needed most.
 
 ## Recommendations
 
