@@ -4,31 +4,18 @@ Identification, quantification and analysis of Swiss litter (IQAASL) is a projec
 
 This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from April 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR) {cite}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. The results are in units of _objects found per 100 meters_ (p/100m).
 
-<br></br>
-
-
-:::{figure-md} resources/images/intro_map.jpeg
-:alt: Map of IQAASL locations
-:class: bg-primary mb-1
-:width: 1200px
-:align: center
-
-.. 
-
-:::
-
 
 ```{figure} resources/images/intro_map.jpeg
 ---
 width: 1200px
-name: directive-fig
+name: esummarymap
 ---
 
 ` `
 
 ```
 
-{numref}`Figure {number}: <directive-fig>` Map of survey locations April 2020 - July 2021. The diameter of circle is given by the median survey value for that location. The locations in red are surveys on rivers or lakes and the purple are the expnded locations in the Alps and the Jura. The survey techniques were reproduced at selected locations in the Alps and Jura.
+{numref}`Figure {number}: <esummarymap>` Map of survey locations April 2020 - July 2021. The diameter of the circle is given by the median survey value for that location. The locations in red are surveys on rivers or lakes and the purple are the locations in the Alps and the Jura. 
 
 ## Lakes and rivers
 
@@ -36,7 +23,7 @@ The lakes and rivers were sampled from 2020-03 through 2021-05 a total of 54,744
 
 The majority of the surveys were lake side (331 samples). Lakes offer a more consistent and safe survey environment with respect to rivers. In addition, lakes are large areas of reduced flow that receive input from multiple rivers, streams and drainage systems. As such lakes provide ideal locations to assess the variety of objects in the water.
 
-In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore which was sampled every three months. There were 222 surveys at these locations with a total of 37,406 objects removed and identified. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition there were 55 surveys on 16 rivers. The median survey total on river shorelines was 75p/100m for 2,475 objects removed.
+In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore which was sampled every three months. There were 222 surveys at these locations with a total of 37,406 objects removed and identified. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition there were 55 surveys on 16 rivers.
 
 Lake locations sampled monthly:
 
@@ -63,53 +50,51 @@ The most common objects are defined as those objects identified in at least 50% 
 
 Objects related to food and tobacco are identified at higher rates at survey locations with a greater percentage of land attributed to buildings or fixed infrastructure, the inverse is true of the locations with a higher percentage of land attributed to woods or agriculture. However, objects related to infrastructure and fragmented plastics, are found at similar rates throughout all survey areas indifferent of land use surrounding the survey locations.
 
-*Lakes and rivers: the most common objects identified April 2020 - May 2021*
 
-*__fail rate:__ the ratio of the number of times an object was identified at least once with respect to the number of surveys*
-:::{image} resources/images/eos_asa_24_0.png
-:alt: Most common objects 
-:class: bg-primary mb-1
-:width: 500px
-:align: center
-:::
+```{figure} resources/images/eos_asa_24_0.png
+---
+width: 500px
+name: esummarymcommon
+---
 
-<br /> 
-Two of the most common objects were identified in less than 50% of the surveys. This indicates that they had high counts at the surveys they were identified in. Both are less than 5mm in diameter and are considered micro-plastics. _Industrial pellets_ were identified in all survey areas. The highest rates were recorded at Préverenges, Genève, Lugano and Biel. _Expanded foams < 5mm_ are the result of the fragmentation of expanded polystyrene and at times were identified in large quantities.
+` `
 
-<br /><br />
+```
 
-*The most common objects identified by survey area: median p/100m*
-:::{image} resources/images/mostcommoneos.png
-:alt: Most common objects by survey area
-:class: bg-primary mb-1
-:width: 500px
-:align: center
-:::
-<br/>
+{numref}`Figure {number}: <esummarymcommon>` Lakes and rivers: the most common objects identified April 2020 - May 2021. The _fail rate_ is the ratio of the number of times an object was identified at least once with respect to the number of surveys. 
 
-The most common objects are found at different rates depending on the survey area, lake and in some cases the land-use conditions. As a result, regional priorities may be different.
+ _Industrial pellets_ and _Expanded foams < 5mm_ were identified in less than 50% of the surveys (median of 0). This indicates that they had high counts at specific locations as opposed to cigarette filters that were identified at 87% of all the samples. Both objects are less than 5mm in diameter and are considered micro-plastics. Industrial pellets are used in the injection molding process and the small expanded foams  are the result of the fragmentation of expanded polystyrene. 
 
+```{figure} resources/images/mostcommoneos.png
+---
+width: 500px
+name: esummarysurveyareas
+---
+
+` `
+
+```
+
+{numref}`Figure {number}: <esummarysurveyareas>` The median survey total of the most common objects. The most common objects are found at different rates depending on the survey area, lake and in some cases the land-use conditions. As a result, regional priorities may be different.
 
 For more information [_Lakes and rivers_](allsurveys)
-
-For more information [Les Alpes](lesalpes)
 
 ## Trends from 2017-2018
 
 **When the lake and rivers with samples in both projects are considered** there was no statistical difference between the SLR results and IQAASL. The survey results
 show that in 2020 there were fewer cigarettes, bottle tops and glass fragments and more cotton swabs, industrial sheeting and plastic construction waste.
 
-**Comparison of survey results between SLR (2018) and IQAASL (2021)**
+```{figure} resources/images/slr_iqaasl_res.png
+---
+width: 800px
+name: esummaryslr
+---
 
-*Top Left: survey totals by date, Top right: median monthly survey total* 
-:::{image} resources/images/slr_iqaasl_res.png
-:alt: IQAASL and SLR charts
-:class: bg-primary mb-1
-:width: 600px
-:align: center
-:::
-*bottom Left: number of samples with respect to the survey total, bottom right: empirical cumulative distribution of survey totals* 
-<br></br>
+` `
+
+```
+
+{numref}`Figure {number}: <esummaryslr>` Comparison of survey results between SLR (2018) and IQAASL (2021). **Top Left:** survey totals by date. **Top right:** median monthly survey total. **Bottom Left:** number of samples with respect to the survey total. **Bottom right:** empirical cumulative distribution of survey totals.
 
 For more information [_More and less trash since 2017_](slr-iqaasl)
 
@@ -117,7 +102,9 @@ For more information [_More and less trash since 2017_](slr-iqaasl)
 
 ## The Alps and the Jura
 
-Of the twenty surveys in the Alps survey area 17 met the length and width criteria of greater than 10m. The median survey value was 110 p/100m, less than the median value of all the other survey areas (189 p/100m). Objects related to consumption such as food and drink or tobacco were a smaller percent of the total and had a lower p/100m rate compared to the results from shoreline locations. This difference could be in part due to the low levels of urbanization that characterizes the Alps survey area with respect to all other survey areas and the tendency of material to flow downstream. The results from the Alps and Jura are considered separately from the analysis of the results from lakes and rivers and discussed further in: *The Alps and the Jura* section.
+Of the twenty surveys in the Alps survey area 17 met the length and width criteria of greater than 10m. The median survey value was 110 p/100m, less than the median value of all the other survey areas (189 p/100m). Objects related to consumption such as food and drink or tobacco were a smaller percent of the total and had a lower p/100m rate compared to the results from shoreline locations. This difference could be in part due to the low levels of urbanization that characterizes the Alps survey area with respect to all other survey areas and the tendency of material to flow downstream. 
+
+For more information [Les Alpes](lesalpes)
 
 ## Communicating results
 
