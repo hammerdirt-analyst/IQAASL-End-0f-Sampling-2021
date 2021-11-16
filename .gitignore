@@ -15,10 +15,10 @@
 resources/inprocess/
 getdataforrepo.ipynb
 infrastructurerankings.ipynb
-aare_sa.ipynb
-linth_sa.ipynb
-rhone_sa.ipynb
-ticino_sa.ipynb
+# aare_sa.ipynb
+# linth_sa.ipynb
+# rhone_sa.ipynb
+# ticino_sa.ipynb
 landuse.ipynb
 scratch.ipynb
 add_streets_intersects.ipynb
