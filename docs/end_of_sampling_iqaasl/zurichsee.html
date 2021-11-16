@@ -355,60 +355,58 @@
      13.1.1. Cumulative totals by municipality
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#survey-results-all-objects">
-   13.2. Survey results all objects
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribution-of-survey-results">
+     13.1.2. Distribution of Survey results
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary-data-and-material-types">
-     13.2.1. Summary data and material types
+     13.1.3. Summary data and material types
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-most-common-objects">
-   13.3. The most common objects
+   13.2. The most common objects
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#most-common-objects-results-by-municipality">
-     13.3.1. Most common objects results by municipality
+     13.2.1. Most common objects results by municipality
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#most-common-objects-monthly-average">
-     13.3.2. Most common objects monthly average
+     13.2.2. Most common objects monthly average
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#utility-of-the-objects-found">
-   13.4. Utility of the objects found
+   13.3. Utility of the objects found
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#annex">
-   13.5. Annex
+   13.4. Annex
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fragmented-foams-and-plastics-by-size-group">
-     13.5.1. Fragmented foams and plastics by size group
+     13.4.1. Fragmented foams and plastics by size group
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#iqaasl-surveyors">
-     13.5.2. IQAASL surveyors
+     13.4.2. IQAASL surveyors
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#inventory-of-items">
-     13.5.3. Inventory of items
+     13.4.3. Inventory of items
     </a>
    </li>
   </ul>
@@ -469,9 +467,6 @@
 <span class="n">unit_label</span> <span class="o">=</span> <span class="s1">&#39;p/100m&#39;</span>
 <span class="n">reporting_unit</span> <span class="o">=</span> <span class="mi">100</span>
 
-<span class="c1"># name of the output folder:</span>
-<span class="n">name_of_project</span> <span class="o">=</span> <span class="s1">&#39;lake_report_bielersee&#39;</span>
-
 <span class="n">a_color</span> <span class="o">=</span> <span class="s1">&#39;dodgerblue&#39;</span>
 
 <span class="c1"># colors for gradients</span>
@@ -481,7 +476,6 @@
 
 <span class="c1"># set the maps</span>
 <span class="n">bassin_map</span> <span class="o">=</span> <span class="n">PILImage</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;resources/maps/zurichsee_scaled.jpeg&quot;</span><span class="p">)</span>
-<span class="c1"># land_use_map = PILImage.open(&quot;resources/maps/land_use_aare.jpeg&quot;)</span>
 
 <span class="c1"># top level aggregation</span>
 <span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;All survey areas&quot;</span>
@@ -491,6 +485,8 @@
 <span class="n">this_level</span> <span class="o">=</span> <span class="s1">&#39;city&#39;</span>
 <span class="n">this_bassin</span><span class="o">=</span><span class="s1">&#39;linth&#39;</span>
 <span class="n">bassin_label</span><span class="o">=</span><span class="s1">&#39;Linth/Limmat&#39;</span>
+
+<span class="n">these_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;zurichsee&#39;</span><span class="p">]</span>
 
 <span class="c1"># explanatory variables:</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;% to buildings&#39;</span><span class="p">,</span> <span class="s1">&#39;% to recreation&#39;</span><span class="p">,</span> <span class="s1">&#39;% to agg&#39;</span><span class="p">,</span> <span class="s1">&#39;% to woods&#39;</span><span class="p">,</span> <span class="s1">&#39;streets km&#39;</span><span class="p">,</span> <span class="s1">&#39;intersects&#39;</span><span class="p">]</span>
@@ -510,9 +506,6 @@
                   <span class="s1">&#39;groupname&#39;</span><span class="p">,</span>
                   <span class="s1">&#39;code&#39;</span>
                  <span class="p">]</span>
-
-<span class="c1"># add the folder to the directory tree:</span>
-<span class="n">project_directory</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">make_project_folder</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">name_of_project</span><span class="p">)</span>
 
 <span class="c1"># get your data:</span>
 <span class="n">river_bassins</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">json_file_get</span><span class="p">(</span><span class="s2">&quot;resources/river_basins.json&quot;</span><span class="p">)</span>
@@ -550,7 +543,7 @@
 <span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>       
 
 <span class="c1"># these descriptions need to be shortened for display</span>
-<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation: includes spray foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation foams&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Foamed EVA for crafts and sports&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G96&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sanitary-pads/tampons, applicators&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">([</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Metal bottle caps and lids&quot;</span><span class="p">],</span> <span class="n">dfCodes</span><span class="p">)</span>
@@ -601,7 +594,7 @@
 
 <span class="c1"># this is the aggregated survey data that is being used</span>
 <span class="n">a_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;resources/checked_sdata_eos_2020_21.csv&quot;</span><span class="p">)</span>
-<span class="n">fd</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[</span><span class="n">a_data</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]]</span> <span class="o">==</span> <span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[</span><span class="n">a_data</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">these_features</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">fd</span><span class="p">[</span><span class="s1">&#39;loc_dates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">fd</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
 <span class="n">fd</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
 
@@ -696,8 +689,6 @@
 <span class="n">fd_dims</span><span class="p">[</span><span class="s1">&#39;loc_dates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">fd_dims</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">fd_dims</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
 <span class="n">fd_dims</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd_dims</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">city_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 
-
-
 <span class="c1"># aggregate the dimensional data </span>
 <span class="n">dims_table</span> <span class="o">=</span> <span class="n">fd_dims</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;total_w&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mac_plast_w&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
 
@@ -718,16 +709,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">agg_caption</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: table of results. The cumulative weights and measures for the survey area and the</span>
-<span class="s2">water features.*</span>
+<span class="s2">*</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: table of results. The cumulative weights and measures for the water feature and municipalities*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">agg_caption</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>Zurichsee: table of results. The cumulative weights and measures for the survey area and the
-water features.</em></p>
+<p><em>Zurichsee: table of results. The cumulative weights and measures for the water feature and municipalities</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -762,10 +751,8 @@ water features.</em></p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="survey-results-all-objects">
-<h2><span class="section-number">13.2. </span>Survey results all objects<a class="headerlink" href="#survey-results-all-objects" title="Permalink to this headline">¶</a></h2>
-<p>Survey totals by date and monthly or quarterly median for all surveys. The empirical cumulative distribution of all survey results for the lake.</p>
+<div class="section" id="distribution-of-survey-results">
+<h3><span class="section-number">13.1.2. </span>Distribution of Survey results<a class="headerlink" href="#distribution-of-survey-results" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the surveys to chart</span>
@@ -794,15 +781,15 @@ water features.</em></p>
 <span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Values greater than </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">the_90th</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="si">}{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">scale_back</span><span class="si">}</span><span class="s2">% not shown.&quot;</span>
 
 <span class="c1"># figure caption</span>
-<span class="n">agg_caption</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: table of results. The cumulative weights and measures for the water feature and municipalities*</span>
+<span class="n">chart_notes</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">*__Left:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2"> through </span><span class="si">{</span><span class="n">end_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">fd_n_samps</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Right:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> empirical cumulative distribution of survey results.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
-<span class="n">md</span><span class="p">(</span><span class="n">agg_caption</span><span class="p">)</span>
+<span class="n">md</span><span class="p">(</span><span class="n">chart_notes</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>Zurichsee: table of results. The cumulative weights and measures for the water feature and municipalities</em></p>
+<p><em><strong>Left:</strong> Zurichsee, 2020-03 through 2021-05, n=56. Values greater than 2332.8p/100m 98% not shown. <strong>Right:</strong> Zurichsee empirical cumulative distribution of survey results.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -851,16 +838,12 @@ water features.</em></p>
 <img alt="../_images/zurichsee_11_0.png" src="../_images/zurichsee_11_0.png" />
 </div>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<p><em><strong>Right:</strong> Zurichsee empirical cumulative distribution of survey results all survey areas</em></p>
-</div>
 </div>
 <div class="section" id="summary-data-and-material-types">
-<h3><span class="section-number">13.2.1. </span>Summary data and material types<a class="headerlink" href="#summary-data-and-material-types" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.1.3. </span>Summary data and material types<a class="headerlink" href="#summary-data-and-material-types" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Left:</strong> Zurichsee summary of survey totals</em></p>
+<p><em><strong>Left:</strong> Zurichsee summary of survey totals. <strong>Right:</strong> Zurichsee material type and percent of total</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -936,18 +919,13 @@ water features.</em></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/zurichsee_15_0.png" src="../_images/zurichsee_15_0.png" />
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<p><em><strong>Right:</strong> Zurichsee material type and percent of total</em></p>
+<img alt="../_images/zurichsee_14_0.png" src="../_images/zurichsee_14_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="the-most-common-objects">
-<h2><span class="section-number">13.3. </span>The most common objects<a class="headerlink" href="#the-most-common-objects" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.2. </span>The most common objects<a class="headerlink" href="#the-most-common-objects" title="Permalink to this headline">¶</a></h2>
 <p>The most common objects are <strong>the ten most abundant by quantity found</strong> AND/OR <strong>any object that was indentified in at least 50% of all the surveys</strong>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1009,15 +987,15 @@ water features.</em></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/zurichsee_19_0.png" src="../_images/zurichsee_19_0.png" />
+<img alt="../_images/zurichsee_17_0.png" src="../_images/zurichsee_17_0.png" />
 </div>
 </div>
 <div class="section" id="most-common-objects-results-by-municipality">
-<h3><span class="section-number">13.3.1. </span>Most common objects results by municipality<a class="headerlink" href="#most-common-objects-results-by-municipality" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.2.1. </span>Most common objects results by municipality<a class="headerlink" href="#most-common-objects-results-by-municipality" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><em>Zurichsee most common objects: median p/100m</em></p>
-<p><em>All survey areas and samples</em></p>
+<p><em>All municipalities and samples</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1040,7 +1018,14 @@ water features.</em></p>
 <span class="c1"># quash the hierarchal column index</span>
 <span class="n">m_c_p</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">m_c_p</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># the aggregated totals for the river bassin</span>
+<span class="c1"># the aggregated totals for the feature:</span>
+<span class="n">f_s_x</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
+<span class="n">f_s_a</span> <span class="o">=</span> <span class="n">f_s_x</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">f_s_a</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_s_x</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">f_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">f_s_a</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">f_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
+
+<span class="c1"># the aggregated totals for the survey area</span>
 <span class="n">t_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_data</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">this_bassin</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">,</span> <span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 <span class="n">t_s_a</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 <span class="n">t_s_a</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
@@ -1054,7 +1039,7 @@ water features.</em></p>
 <span class="n">a_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
 
-<span class="n">ad_t_ten</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">m_c_p</span><span class="p">,</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">],],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ad_t_ten</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">m_c_p</span><span class="p">,</span> <span class="n">f_s_a</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># chart that</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ad_t_ten</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">))</span>
@@ -1073,12 +1058,12 @@ water features.</em></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/zurichsee_22_0.png" src="../_images/zurichsee_22_0.png" />
+<img alt="../_images/zurichsee_20_0.png" src="../_images/zurichsee_20_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="most-common-objects-monthly-average">
-<h3><span class="section-number">13.3.2. </span>Most common objects monthly average<a class="headerlink" href="#most-common-objects-monthly-average" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.2.2. </span>Most common objects monthly average<a class="headerlink" href="#most-common-objects-monthly-average" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collect the survey results of the most common objects</span>
@@ -1145,7 +1130,10 @@ water features.</em></p>
     <span class="s1">&#39;G35&#39;</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
     <span class="s1">&#39;G211&#39;</span><span class="p">:</span><span class="s1">&#39;thistle&#39;</span><span class="p">,</span>
     <span class="s1">&#39;G904&#39;</span><span class="p">:</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;G940&#39;</span><span class="p">:</span><span class="s1">&#39;tomato&#39;</span>
+    <span class="s1">&#39;G940&#39;</span><span class="p">:</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;G106&#39;</span><span class="p">:</span><span class="s1">&#39;peru&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;G10&#39;</span><span class="p">:</span><span class="s1">&#39;darkslateblue&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;G70&#39;</span><span class="p">:</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span>
     
 <span class="p">}</span>
 <span class="n">months</span><span class="o">=</span><span class="p">{</span>
@@ -1231,13 +1219,13 @@ water features.</em></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/zurichsee_25_0.png" src="../_images/zurichsee_25_0.png" />
+<img alt="../_images/zurichsee_23_0.png" src="../_images/zurichsee_23_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="utility-of-the-objects-found">
-<h2><span class="section-number">13.4. </span>Utility of the objects found<a class="headerlink" href="#utility-of-the-objects-found" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.3. </span>Utility of the objects found<a class="headerlink" href="#utility-of-the-objects-found" title="Permalink to this headline">¶</a></h2>
 <p>The utility type is based on the utilisation of the object prior to it being discarded. Objects that are found are placed into to one of the 260 categories. Those categories are grouped according to utilisation.</p>
 <ul class="simple">
 <li><p><strong>wastewater</strong>: items released from water treatment plants includes items likely toilet flushed</p></li>
@@ -1283,7 +1271,13 @@ Zurichsee utility of objects found % of total by water feature. Fragmented objec
 <span class="c1"># pivot that</span>
 <span class="n">data_table</span> <span class="o">=</span> <span class="n">cg_t</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">)</span>
 
-<span class="c1"># add a column for the survey area totals and the national totals:</span>
+<span class="c1"># the aggregated totals for the feature</span>
+<span class="n">f_s_x</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
+<span class="n">f_s_a</span> <span class="o">=</span> <span class="n">f_s_x</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">f_s_a</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_s_a</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">f_s_a</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">f_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">f_s_a</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">f_s_a</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
+
 <span class="c1"># repeat for the survey area</span>
 <span class="n">t_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">this_bassin</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 <span class="n">t_s_a</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
@@ -1298,7 +1292,7 @@ Zurichsee utility of objects found % of total by water feature. Fragmented objec
 <span class="n">a_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">f_s_a</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">],</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
@@ -1316,7 +1310,7 @@ Zurichsee utility of objects found % of total by water feature. Fragmented objec
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/zurichsee_28_0.png" src="../_images/zurichsee_28_0.png" />
+<img alt="../_images/zurichsee_26_0.png" src="../_images/zurichsee_26_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1338,6 +1332,13 @@ Zurichsee utility of objects found median p/100m. Fragmented objects with no cle
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_table</span> <span class="o">=</span> <span class="n">cg_t</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">unit_label</span><span class="p">)</span>
 
+<span class="c1"># the aggregated totals for the feature</span>
+<span class="n">f_s_x</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
+<span class="n">f_s_a</span> <span class="o">=</span> <span class="n">f_s_x</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">f_s_a</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_s_a</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">f_s_a</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">f_s_a</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">f_s_a</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">f_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
+
 <span class="c1"># repeat for the survey area</span>
 <span class="n">t_s_a</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">this_bassin</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;groupname&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 <span class="n">t_s_a</span> <span class="o">=</span> <span class="n">t_s_a</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;groupname&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
@@ -1351,7 +1352,7 @@ Zurichsee utility of objects found median p/100m. Fragmented objects with no cle
 <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
 
 <span class="c1"># merge with data_table</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">]</span> <span class="p">,</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_table</span><span class="p">,</span> <span class="n">f_s_a</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">t_s_a</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">]</span> <span class="p">,</span> <span class="n">a_s_a</span><span class="p">[</span><span class="n">top</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
@@ -1369,14 +1370,14 @@ Zurichsee utility of objects found median p/100m. Fragmented objects with no cle
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/zurichsee_30_0.png" src="../_images/zurichsee_30_0.png" />
+<img alt="../_images/zurichsee_28_0.png" src="../_images/zurichsee_28_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="annex">
-<h2><span class="section-number">13.5. </span>Annex<a class="headerlink" href="#annex" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.4. </span>Annex<a class="headerlink" href="#annex" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="fragmented-foams-and-plastics-by-size-group">
-<h3><span class="section-number">13.5.1. </span>Fragmented foams and plastics by size group<a class="headerlink" href="#fragmented-foams-and-plastics-by-size-group" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.4.1. </span>Fragmented foams and plastics by size group<a class="headerlink" href="#fragmented-foams-and-plastics-by-size-group" title="Permalink to this headline">¶</a></h3>
 <p>These are the components of Gfoam and Gfrags, objects labled “Expanded foams” are grouped with Gfoam the rest are grouped under Gfrags.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -1387,7 +1388,6 @@ Zurichsee utility of objects found median p/100m. Fragmented objects with no cle
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collect the data before aggregating foams for all locations in the survye area</span>
-<span class="c1"># group by loc_date and code</span>
 <span class="c1"># Combine the different sizes of fragmented plastics and styrofoam</span>
 <span class="c1"># the codes for the foams</span>
 <span class="n">some_foams</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;G81&#39;</span><span class="p">,</span> <span class="s1">&#39;G82&#39;</span><span class="p">,</span> <span class="s1">&#39;G83&#39;</span><span class="p">,</span> <span class="s1">&#39;G74&#39;</span><span class="p">]</span>
@@ -1423,21 +1423,18 @@ Zurichsee utility of objects found median p/100m. Fragmented objects with no cle
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/zurichsee_33_0.png" src="../_images/zurichsee_33_0.png" />
+<img alt="../_images/zurichsee_31_0.png" src="../_images/zurichsee_31_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="iqaasl-surveyors">
-<h3><span class="section-number">13.5.2. </span>IQAASL surveyors<a class="headerlink" href="#iqaasl-surveyors" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.4.2. </span>IQAASL surveyors<a class="headerlink" href="#iqaasl-surveyors" title="Permalink to this headline">¶</a></h3>
 <p>Hammerdirt staff:</p>
 <ol class="simple">
 <li><p>Shannon Erismann, field operations manager</p></li>
+<li><p>Thor Erismann, surveyor</p></li>
+<li><p>Bettina Siegenthaler, surveyor</p></li>
 <li><p>Roger Erismann, surveyor</p></li>
-<li><p>Débora Carmo, surveyor</p></li>
-</ol>
-<p>Participating organizations:</p>
-<ol class="simple">
-<li><p>Precious plastic léman</p></li>
 </ol>
 <p><strong>The survey locations</strong></p>
 <div class="cell tag_hide-input docutils container">
@@ -1553,7 +1550,7 @@ Zurichsee utility of objects found median p/100m. Fragmented objects with no cle
 </div>
 </div>
 <div class="section" id="inventory-of-items">
-<h3><span class="section-number">13.5.3. </span>Inventory of items<a class="headerlink" href="#inventory-of-items" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">13.4.3. </span>Inventory of items<a class="headerlink" href="#inventory-of-items" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -1703,7 +1700,7 @@ Zurichsee utility of objects found median p/100m. Fragmented objects with no cle
     </tr>
     <tr>
       <th>G74</th>
-      <td>Insulation: includes spray foams</td>
+      <td>Insulation foams</td>
       <td>infrastructure</td>
       <td>71</td>
       <td>1.37</td>

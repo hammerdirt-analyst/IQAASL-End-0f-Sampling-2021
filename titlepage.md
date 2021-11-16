@@ -11,10 +11,8 @@ _Map of survey locations April 2020 - July 2021_
 :align: center
 :::
 
-**Im Auftrag des Bundesamtes für Umwelt (BAFU)**
+**Im Auftrag des Bundesamtes für Umwelt (BAFU)**  
+**Sur mandat de l ́Office fédéral de l ́environnement (OFEV)**  
+**Su mandato dell ́Ufficio federale dell ́ambiente (UFAM)**  
+**Commissioned by the Federal Office for the Environment (FOEN)**  
 
-**Sur mandat de l ́Office fédéral de l ́environnement (OFEV)**
-
-**Su mandato dell ́Ufficio federale dell ́ambiente (UFAM)**
-
-**Commissioned by the Federal Office for the Environment (FOEN)**
