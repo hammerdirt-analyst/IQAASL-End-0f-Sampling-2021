@@ -24,7 +24,7 @@ scratch.ipynb
 add_streets_intersects.ipynb
 check_data.ipynb
 output/
-build/
+_build/
 add_exp_variables/
 
 # IPython
