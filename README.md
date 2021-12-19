@@ -4,7 +4,7 @@ IQAASL is a project sponsored by the Swiss Federal Office for the Environment to
 
 The REST API for the new application is in development here [IQALS](https://github.com/hammerdirt-analyst/iqals)
 
-If you just want to see the report: [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/end_of_sampling_iqaasl/intro.html)
+If you just want to see the report: [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/titlepage.html)
 
 ## Purpose
 
