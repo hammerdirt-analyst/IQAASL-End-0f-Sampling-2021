@@ -3,7 +3,7 @@
 
 title:
 author:
-logo: resources/images/iqaasllogo.png
+logo: resources/images/iqaaslogo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
