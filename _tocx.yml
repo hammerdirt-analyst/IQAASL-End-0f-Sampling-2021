@@ -1,0 +1,49 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: titlepage
+
+parts:
+  - caption: Summary
+    numbered: False
+    chapters:
+      - file: intro
+      - file: esummary
+  - caption: Survey results
+    numbered: True
+    chapters:
+     - file: lakes_rivers
+     - file: alpes_valaisannes
+  - caption: Survey areas
+    numbered: True
+    chapters:
+     - file: aare_sa
+     - file: linth_sa
+     - file: rhone_sa
+     - file: ticino_sa
+  - caption: Lakes
+    numbered: True
+    chapters:
+    - file: bielersee
+    - file: leman
+    - file: neuenburgersee
+    - file: maggiore_lugano
+    - file: thunersee_brienze
+    - file: walensee
+    - file: zurichsee
+  - caption: Understand
+    numbered: True
+    chapters:
+      - file: baselines
+      - file: key_indicators
+      - file: code_groups
+      - file: land_use_correlation
+      - file: references
+  - caption: Application
+    numbered: True
+    chapters:
+      - file: slr_2017
+      - file: shared_responsibility
+      - file: reuse_remake
+
