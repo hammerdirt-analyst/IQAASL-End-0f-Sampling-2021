@@ -1,6 +1,15 @@
 # Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
 
-IQAASL is a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale litter surveys are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that are within the catchment area.
+IQAASL was a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale litter surveys are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that are within the catchment area.
+
+This project used the existing technology infrastrucutre to enter, store and report the survey findings. This repo is the cumualtive sum of that work.
+
+## Contents
+
+1. A .pynb file each survey area, lake and any chapter that had calculations
+2. The  .md file for all other chapters
+3. The build file for the report
+4. ALL the data including explanatory variables see [ readme_data ](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/blob/main/resources/readme_data.md)
 
 The REST API for the new application is in development here [IQALS](https://github.com/hammerdirt-analyst/iqals)
 
