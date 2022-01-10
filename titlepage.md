@@ -27,15 +27,15 @@ __Contractor:__ Hammerdirt Brüggstrasse 39, 2503 Biel/Bienne Switzerland +41 76
 
 __Authors:__ Shannon Erismann, Roger Erismann
 
-__FOEN support:__ Rita Barros, Amanda Finger 
+__FOEN support:__ Rita Barros
 
 __Note:__ This report was prepared under contract to the Federal Office for the Environment (FOEN). The contractor bears sole responsibility for the content. 
 
-__Project surveyors:__ Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, Rachel Aronoff, Thor Erismann, Bettina Siegenthaler, Théo Gursoy, Adrien Bonny, Gaetan Buser, Louise Schreyers, Andreas Gauer
+__Project surveyors:__ Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, Rachel Aronoff, Thor Erismann, Bettina Siegenthaler, Théo Gursoy, Adrien Bonny, Gaetan Buser, Louise Schreyers, Andreas Gauer, Shannon Erismann, Roger Erismann
 
-__Participating Organizations:__ Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, EPFL: students of Solid Waste Engineering, Summit Foundation, Hackuarium, hammerdirt
+__Participating Organizations:__ Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, Students of Solid Waste Engineering: EPFL, Summit Foundation, Hackuarium, hammerdirt
 
-__Support group:__ Christian Ludwig (EPFL/PSI), Montserrat Fillela (UNIGE), Romain Tramoy (ENPC), Gary Hare
+__Support group:__ Christian Ludwig (EPFL/PSI), Montserrat Fillela (UNIGE), Romain Tramoy (ENPC), Gary Hare (HDCA), Taoufik Nouri (FHNW)
 
 __Translation:__ Helen Kurukulasuriya, Bettina Siegenthaler, Native Speakers GMBH (Lakes and Rivers section) 
 
