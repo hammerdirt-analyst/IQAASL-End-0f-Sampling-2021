@@ -33,7 +33,7 @@ __Note:__ This report was prepared under contract to the Federal Office for the 
 
 __Project surveyors:__ Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, Rachel Aronoff, Thor Erismann, Bettina Siegenthaler, Théo Gursoy, Adrien Bonny, Gaetan Buser, Louise Schreyers, Andreas Gauer
 
-__Participating Organizations:__ Association pour la sauvetage du Léman, Precious Plastic Léman, Geneva International School, EPFL: students of Solid Waste Engineering, Summit Foundation, Hackuarium, hammerdirt
+__Participating Organizations:__ Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, EPFL: students of Solid Waste Engineering, Summit Foundation, Hackuarium, hammerdirt
 
 __Support group:__ Christian Ludwig (EPFL/PSI), Montserrat Fillela (UNIGE), Romain Tramoy (ENPC), Gary Hare
 
