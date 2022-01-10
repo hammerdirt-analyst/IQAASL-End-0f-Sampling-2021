@@ -38,7 +38,7 @@ __Lake locations sampled monthly:__
 * Rhône survey area 
   * Lac Léman: Vevey, Saint-Gingolph, Genève, Préverenges, La Tour-de-Peilz 
 * Ticino survey area
-  *Lago Maggiore: Ascona, Gambarogno (tri-monthly) 
+  * Lago Maggiore: Ascona, Gambarogno (tri-monthly) 
 
 ### Median survey total
 
