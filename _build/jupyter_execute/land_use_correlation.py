@@ -59,7 +59,7 @@ code_material_map = dfCodes.material
 # (luseprofile)=
 # # The land use profile
 # 
-# *The land use profile* is a numerical representation of the type and amplitude of economic activity around the survey location. It is calculated by using the data stored in map layers available at the [_Federal geoportal_](https://www.geo.admin.ch/) and at the [_Swiss federal statistical office_](https://www.bfs.admin.ch/bfs/en/home.html).
+# *The land use profile* is a numerical representation of the type and amplitude of economic activity around the survey location. It is calculated by using the data stored in map layers available at the [_Federal geoportal_](https://www.geo.admin.ch/) and at the [_Swiss federal statistical office_](https://www.bfs.admin.ch/bfs/en/home.html)
 # 
 # Trash is a collection of objects found in the natural environment. The object itself and the context in which it is found are indicators of economic and geographic origin. How the land is used in proximity to the survey location is an important context to consider when evaluating survey results. {cite}`aydin` {cite}`grelaud`
 # 
@@ -84,7 +84,7 @@ code_material_map = dfCodes.material
 # 
 # The _Office fédéral de la statistique_ provides the "Statistique de superficie", a grid of points 100m x 100m that covers Switzerland. Each point is assigned one of 27 different land use categories defined by  standard classification of 2004. This grid serves as the basis for calculating how the land is used around the survey area. For this study the land use categories were aggregated into seven groups from the twenty seven available categories.
 # 
-# *The aggregated values and the corresponding land use categories*
+# The aggregated values and the corresponding land use categories
 # 
 # * buildings: (1, 2, 3, 4, 5, 9)
 # * transportation:(6, 7, 8)
@@ -131,7 +131,7 @@ except:
 # 
 # 
 
-# *Surveying in a rural location. Kallnach, 26-02-2021*
+# *__Below:__ Surveying in a rural location. Kallnach, 26-02-2021*
 
 # In[3]:
 
@@ -144,7 +144,7 @@ except:
     print("could not load the image")
 
 
-# *Surveying in an urban location. Vevey, 28-02-2021*
+# *__Below:__ Surveying in an urban location. Vevey, 28-02-2021*
 
 # In[4]:
 
@@ -287,7 +287,7 @@ plt.show()
 # 2. Year round safe access
 # 3. Within 30 minutes walking distance from nearest public transport
 # 
-# **The survey locations represent the land use conditions accesible by public transport to $\approxeq$ 1.7 million people**. For more information see the document *Survey site selection and criteria*.
+# **The survey locations represent the land use conditions accesible by public transport to approximately 1.7 million people**.
 
 # ## Associating land use to survey results
 # 

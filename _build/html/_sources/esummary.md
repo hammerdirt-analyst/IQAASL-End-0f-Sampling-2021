@@ -15,7 +15,7 @@ name: esummarymap
 
 ```
 
-{numref}`Figure {number}: <esummarymap>`     Map of survey locations March 2020 - July 2021. The diameter of the circle is given by the median survey value for that location. The locations in red are surveys on rivers or lakes and the purple are the locations in the Alps and Jura.
+{numref}`Figure {number}: <esummarymap>` *Map of survey locations March 2020 - July 2021. The locations in red are surveys on rivers or lakes and the purple are the locations in the Alps and Jura.*
 
 ## Lakes and rivers
 
@@ -82,9 +82,9 @@ name: esummarysurveyareas
 
 ```
 
-{numref}`Figure {number}: <esummarysurveyareas>` _All lakes and rivers by region: The median survey total of the most common objects identified; rates vary depending on the survey area region. For example, fragmented plastics had the greatest median value in the Aare (18.5p/100m) and Rhône (48p/100m) survey areas. 
+{numref}`Figure {number}: <esummarysurveyareas>` *All lakes and rivers by region: The median survey total of the most common objects identified; rates vary depending on the survey area region. For example, fragmented plastics had the greatest median value in the Aare (18.5p/100m) and Rhône (48p/100m) survey areas* 
 
-For more information [_Lakes and rivers_](allsurveys)_.
+For more information [_Lakes and rivers_](allsurveys).
 
 ## Trends from 2017-2018
 
