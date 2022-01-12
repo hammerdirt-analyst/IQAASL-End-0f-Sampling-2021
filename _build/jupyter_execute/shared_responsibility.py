@@ -686,9 +686,11 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg", thumb=(1
 # 
 # For other objects the connection or the source may not be evident or even visible from the survey location. Objects that are distinct and whose use is limited to relatively small portions of the economy present particular challenges. Because of hydrologic transport these objects may be found all over the region but there may be a limited number of zones of accumulation, making it difficult to identify the source. 
 # 
-# However, the previous example shows that survey results increase or decrease in response to explanatory variables. For objects such as the _plastic production pellet_ (GPI) the use case of the item is definite and users and producers are relatively rare with respect to other litter items. Even though these objects are found in all survey areas it is unlikely that they are emitted at equal rates. Given the previous example it is possible to follow the increasing survey results of GPI on two different lakes to understand how this relationship can be visualized. 
+# However, the previous example shows that survey results increase or decrease in response to explanatory variables. For objects such as the _plastic production pellet_ (GPI) the use case of the item is definite and users and producers are relatively rare with respect to other litter items. Even though these objects are found in all survey areas it is unlikely that they are emitted at equal rates. 
 # 
-# *__Below:__ the increase in the median p/100m as surveys approach the upstream source of. GPI are small and difficult to clean up once they have been spilled making the exact source impossible to determine. However it is reasonable to assume that the handlers and consumers of GPI will have the best ideas on how to prevent them from escaping into the environment. The probability of finding at least one is double the regional rate at some of the locations below.*
+# Given the previous example it is possible to follow the increasing survey results of GPI on two different lakes to understand how this relationship can be visualized. 
+# 
+# *__Below:__ the increase in the median p/100m as surveys approach the upstream source. GPI are small and difficult to clean up once they have been spilled making the exact source impossible to determine. However it is reasonable to assume that the handlers and consumers of GPI will have the best ideas on how to prevent them from escaping into the environment. The probability of finding at least one is double the regional rate at some of the locations below.*
 
 # In[13]:
 

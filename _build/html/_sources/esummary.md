@@ -88,7 +88,7 @@ For more information [_Lakes and rivers_](allsurveys).
 
 ## Trends from 2017-2018
 
-Similar lake and river survey data collected in 2017-2018 (SLR) showed no statistical difference when compared to IQAASL results. However, there were variances in object quantities. In the 2020-2021 survey period fewer cigarettes, bottle tops and glass fragments and more cotton swab sticks, industrial sheeting and plastic construction waste was identified.
+Similar lake and river survey data collected in 2017-2018 (SLR) showed no statistical difference when compared to IQAASL results. However, there were variances in object quantities. In the 2020-2021 survey period fewer cigarettes and bottle tops were collected with respect to 2018.
 
 ```{figure} resources/images/esummary/slr_iqaasl_res.png
 ---

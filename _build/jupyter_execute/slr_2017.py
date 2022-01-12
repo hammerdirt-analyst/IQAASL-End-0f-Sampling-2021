@@ -867,8 +867,6 @@ ax.set_xlabel("$\mu$ 2020 - $\mu$ 2018", **ck.xlab_k14)
 plt.show()
 
 
-# 
-
 # #### Difference of means most common objects
 # 
 # The observed difference of means between the two sampling periods was -235p/100m. The most common objects are approximately equal to 60% of the total. Changes in the daily total may be reflected in the daily totals of the most common objects as well.
@@ -1083,21 +1081,21 @@ plt.show()
 # * The 2020 protocol counts all visible objects and classifies fragments by size
 # * The 2018 protocol limited the object counts to items greater than or equal to 2.5cm in length
 # 
-# The total amount of fragmented plastics collected in 2020 is 7,400 or 18p/100m and 5,563 or 5p/100m for fragmented foams. There were 3,662 fragments between 0.0cm and 2.5cm removed in 2020, equal to the total amount recorded in 2018. The same can be said for fragmented foams between 0.0cm and 2.5cm, see [_Lakes and rivers_](allsurveys). 
+# The total amount of fragmented plastics collected in 2020 is 7,400 or 18p/100m and 5,563 or 5p/100m for fragmented foams. There were 3,662 fragments between 0.5cm and 2.5cm removed in 2020, equal to the total amount recorded in 2018. The same can be said for fragmented foams between 0.5cm and 2.5cm, see [_Lakes and rivers_](allsurveys). 
 # 
-# This difference in protocol effects the interpretation of the results for fragmented plastics and expanded foams from one year to the next.  Expanded foams and fragmented plastics are objects whose original use is unknown but the material can be distinguished. **Fragmented plastics and expanded foams of all sizes are 28% of the total survey results for the lakes in 2020**. Studies in the Meuse/Rhine delta show that these small fragmented objects make up large portions of the total abundance {cite}`meuserhine`.
+# The difference in protocol and the results from current the year cast doubt on the likelihood of any decrease for fragmented plastics and expanded foams from one year to the next.  Expanded foams and fragmented plastics are objects whose original use is unknown but the material can be distinguished. **Fragmented plastics and expanded foams of all sizes are 27% of the total survey results for the lakes in 2020**. Studies in the Meuse/Rhine delta show that these small fragmented objects make up large portions of the total abundance {cite}`meuserhine`.
 # 
 # Allowing surveyors to use a broader range of object codes increases the accuracy of the total survey count and adds levels of differentiation between similar materials. For example, expanded polystyrene is an object that fragments easily. Whether or not surveyors are finding a few larger pieces > 20cm or thousands of pieces < 10mm is an important detail if reducing these objects in the environment is the goal.
 # 
-# __Reduced cost and increased access__ are another result of a harmonized protocol. The procedures used by the SLR and IQAASL were almost identical, with the exception of the size limit it can be assumed that the samples were collected under $\approx$ the same conditions following the same protocol. The SLR data gives the results of over 1,000 observations by $\approx$ 150 people and the IQAASL data gives the results of 350 observations from $\approx$ 10 people. Both methods have weaknesses and strengths that address very diverse topics:
+# __Reduced cost and increased access__ are another result of a harmonized protocol. The procedures used by the SLR and IQAASL were almost identical, with the exception of the size limit it can be assumed that the samples were collected under similar conditions. The SLR data gives the results of over 1,000 observations by  approximately 150 people and the IQAASL data gives the results of 350 observations from approximately 10 people. Both methods have weaknesses and strengths that address very diverse topics:
 # 
 # * experience of surveyor
-# * consistincey of survey results
+# * consistency of survey results
 # * oversight
 # * intended use of data
 # * allocation of resources
 # 
-# All of these topics should be considered with each project, as well as stewardship of the data. Regardless of the small differences of the two projects __we were able to build on the model proposed by the SLR__ and add to the shared experience. 
+# All of these topics should be considered with each project, as well as stewardship of the data. Regardless of the differences, __we were able to build on the model proposed by the SLR__ and add to the shared experience. 
 # 
 # ### Plastic lids
 # 
