@@ -5,42 +5,42 @@ format: jb-book
 root: titlepage
 
 parts:
-  - caption: Summary
+  - caption: Zusammenfassung
     numbered: False
     chapters:
     - file: intro
     - file: esummary
-  - caption: Survey results
+  - caption: Ergebnisse der Erhebung
     numbered: True
     chapters:
-    - file: lakes_rivers
+    - file: lakes_rivers_de
     - file: alpes_valaisannes
-  - caption: Survey areas
+  - caption: Erhebungsgebiete
     numbered: True
     chapters:
-     - file: aare_sa
-     - file: linth_sa
-     - file: rhone_sa
-     - file: ticino_sa
-  - caption: Lakes
+     - file: aare_sa_de
+     - file: linth_sa_de
+     - file: rhone_sa_de
+     - file: ticino_sa_de
+  - caption: Seen
     numbered: True
     chapters:
-    - file: bielersee
-    - file: lac_leman
-    - file: neuenburgersee
-    - file: maggiore_lugano
-    - file: thunersee_brienzersee
-    - file: walensee
-    - file: zurichsee
-  - caption: Understand
+    - file: bielersee_de
+    - file: lac_leman_de
+    - file: neuenburgersee_de
+    - file: maggiore_lugano_de
+    - file: thunersee_brienzersee_de
+    - file: walensee_de
+    - file: zurichsee_de
+  - caption: Verstehen
     numbered: True
     chapters:
-      - file: baselines
-      - file: key_indicators
+      - file: baselines_de
+      - file: key_indicators_de
       - file: code_groups
-      - file: land_use_correlation
+      - file: land_use_correlation_de
       - file: references
-  - caption: Application
+  - caption: Anwendungen
     numbered: True
     chapters:
       - file: reuse_remake

@@ -577,7 +577,7 @@ def aggregate_to_code(data, code_description_map, column="code", name="afeaturen
 # german translations
 luse_ge = {"% to buildings": "% zu Gebäude",
            "% to recreation": "% zu Erholung",
-           "% to agg": "% zu agg",
+           "% to agg": "% zu ag",
            "% to woods": "% zu Wald",
            "streets km": "Straßen km",
            "intersects": "kreuzt"
@@ -598,7 +598,7 @@ mat_ge = {"Metal":"Metall",
 group_names_de =  {"waste water":"Abwasser",
                    "micro plastics (< 5mm)":"Mikroplastik (< 5mm)",
                    "infrastructure":"Infrastruktur",
-                   "food and drink":"Essen und Trinke",
+                   "food and drink":"Essen und Trinken",
                    "agriculture":"Landwirtschaft",
                    "tobacco":"Tabak",
                    "recreation":"Freizeit und Erholung",
