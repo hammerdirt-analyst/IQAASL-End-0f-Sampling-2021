@@ -300,7 +300,7 @@ def make_table_values(data, col_nunique=["location", "loc_date", "city"], col_su
 
 def gather_dimensional_data(dimsData, this_level="city", locations=[], start_end=[], city_map=[], agg_dims={}):
     """Gathers the dimensional data by the designated locations and dates. Initiates a loc_date column
-    and assigns the municpality to each record.
+    and assigns the municipality to each record.
     
     :param data: The data frame that has the dimensional data
     :type data: pandas.core.frame.DataFrame
