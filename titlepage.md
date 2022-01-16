@@ -2,7 +2,6 @@
 
 __Edition 1__ ver=1e
 
-
 _Map of survey locations April 2020 - July 2021_
 :::{image} resources/maps/intro_map.jpeg
 :alt: Map of IQAASL locations

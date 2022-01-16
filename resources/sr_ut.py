@@ -10,7 +10,7 @@ from PIL import Image as PILImage
 
 
 luse_exp = ["% to buildings", "% to recreation", "% to agg", "% to woods", "streets km", "intersects"]
-luse_ge = ["% zu Gebäude", "% zu Erholung", "% Landwirtschaft", "% zu Wald", "Straßen km", "kreuzt"]
+# luse_ge = ["% zu Gebäude", "% zu Erholung", "% Landwirtschaft", "% zu Wald", "Straßen km", "kreuzt"]
 
 
 # columns needed
@@ -548,19 +548,40 @@ def fmt_combined_summary(data, nf=[-1], fmt="{:,}"):
     return new_data
 
 def aggregate_to_group_name(data, unit_label="p/100m", column="groupname", name="afeaturename", val="pt"):
-    f_s_a = data.groupby(column, as_index=False)[unit_label].agg({unit_label:"median", "quantity":"sum"})
-    if val == "pt":
-        f_s_a["pt"] = (f_s_a.quantity/f_s_a.quantity.sum()).round(2)
-        f_s_a.set_index(column, inplace=True)
-        f_s_a[name] = f_s_a["pt"]
-        data = f_s_a[name]
-    elif val == "med":
-        f_s_a.set_index(column, inplace=True)
-        f_s_a[name] = f_s_a[unit_label]
-        data = f_s_a[name]
-    else:
-        print("val is not defined as pt or med")
-        data = ["an empty list"]
+    """Convenience function, takes in a data frame and returns the aggregated values specified by <val> of <column> in
+     a series labeled <name>.
+
+    :param data: A pandas dataframe
+    :type data: pd.core.frame.dataframe
+    :param unit_label: The label for values that get a median
+    :type unit_label: str,
+    :param column: The label of the aggregation level
+    :type column: str,
+    :param name: The name of the new feature
+    :type name: str,
+    :param val: What type of operation is requested
+    :type val: str,
+    :return: Returns the aggregated value in series labeled <name>
+    """
+
+    try:
+      if val == "pt":
+          new_data = data.groupby(column, as_index=False).quantity.sum()
+          new_data.set_index(column, inplace=True)
+          new_data[name] = (new_data.quantity/new_data.quantity.sum()).round(2)
+          data = new_data[name]
+      else:
+        if val == "med":
+          new_data = data.groupby(["loc_date",column], as_index=False)[unit_label].sum()
+          f_s_a = new_data.groupby(column, as_index=False)[unit_label].median()
+          f_s_a.set_index(column, inplace=True)
+          f_s_a[name] = f_s_a[unit_label]
+          data = f_s_a[name]
+
+    except:
+      print("val is not defined as pt or med")
+      data = ["an empty list"]
+
         
     
     return data
@@ -602,7 +623,7 @@ group_names_de =  {"waste water":"Abwasser",
                    "agriculture":"Landwirtschaft",
                    "tobacco":"Tabak",
                    "recreation":"Freizeit und Erholung",
-                   "packaging non food":"Verpackungen außer Lebensmittel und Getränke",
+                   "packaging non food":"Nicht-Lebensmittelverpackungen",
                    "plastic pieces":"Plastikfragmente",
                    "personal items": "Persönliche Gegenstände",
                    "unclassified":"nicht klassifiziert",
@@ -655,6 +676,27 @@ def display_image_ipython(file_location, thumb=(1200, 700), rotate=0):
 
 
     display(im)
+
+
+def get_rid_of_ix(data, prefix=""):
+  """Compares the components of <prefix> to the first n components
+  of <data>, n=len(<prefix>). If there is a match <new_data> is
+  returned minus the components of <prefix>.
+
+  :param data: The object that may need to be trimmed
+  :type data: array or str,
+  :param prefix: The components to be removed
+  :type prefix:  array or str
+  :return: an array or str
+  """
+  test = len(prefix)
+
+  if data[:test] == prefix[0:]:
+    new_data = data[test:]
+  else:
+    new_data = data
+
+  return new_data
 
 
 # def m_ap_code_to_description(data, key, func):
