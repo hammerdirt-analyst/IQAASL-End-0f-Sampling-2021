@@ -169,8 +169,8 @@ code_material_map = dfCodes.material
 # The difference between the two methods is the way the limits of survey area are defined. When a trail is used the limits of the survey area are defined by the trail itself, not the surveyor. In the summertime the barriers and signs that mark out the areas for lift lines have all been removed, making it difficult for the surveyor to accurately determine the correct limits. 
 # 
 # ## Survey area cumulative totals
-
-# *The Alpes and Jura survey area summer 2021*
+# 
+# *__Below:__ The Alpes and Jura survey area summer 2021* 
 
 # In[2]:
 
@@ -373,10 +373,10 @@ plt.close()
 # 
 # The land use profile is the percent of total area attributed to each land use category within a 1500m radius of each survey location. 
 # 
-# 1. \% to buildings
-# 2. \% to agriculture
-# 3. \% to forestry
-# 4. \% to recreation
+# * \% to buildings
+# * \% to agriculture
+# * \% to forestry
+# * \% to recreation
 # 
 # Streets are reported as the total number of kilometers of streets within the 1500m radius. Intersects are an ordinal ranking of the number of rivers/canals that intersect a lake within 1500m of the survey location. 
 # 

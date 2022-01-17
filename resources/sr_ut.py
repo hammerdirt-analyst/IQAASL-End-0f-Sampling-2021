@@ -472,7 +472,7 @@ def create_summary_table_index(unit_label, lang="EN"):
              "# locations":"# locations",
          }
     elif lang == "DE":
-        new_data = {"count":"# Proben", 
+        new_data = {"count":"# Erhebungen",
                 "mean":f"Durchschnitt {unit_label}",
                 "std":"Standardfehler", 
                 "min":f"min {unit_label}",
@@ -598,7 +598,7 @@ def aggregate_to_code(data, code_description_map, column="code", name="afeaturen
 # german translations
 luse_ge = {"% to buildings": "% zu Gebäude",
            "% to recreation": "% zu Erholung",
-           "% to agg": "% zu ag",
+           "% to agg": "% zu LWS",
            "% to woods": "% zu Wald",
            "streets km": "Straßen km",
            "intersects": "kreuzt"
@@ -613,7 +613,7 @@ mat_ge = {"Metal":"Metall",
           "Cloth":"Stoff",
           "Unidentified":"Ubekannt",
           "Undefined":"Unbestimmt",
-          "Plastic":"Plastick"
+          "Plastic":"Plastik"
          }
 
 group_names_de =  {"waste water":"Abwasser",

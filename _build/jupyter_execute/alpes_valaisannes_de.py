@@ -139,7 +139,7 @@ for x in dfCodes.index:
 codes_to_change = [
     ["G704", "description", "Seilbahnbürste"],
     ["Gfrags", "description", "Fragmentierte Kunststoffstücke"],
-    ["G30", "description", "Imbiss-Verpackungen"],
+    ["G30", "description", "Snack-Verpackungen"],
     ["G124", "description", "Kunststoff- oder Schaumstoffprodukte"],
     ["G87", "description", "Abdeckklebeband/Verpackungsklebeband"],
     ["G178","description","Flaschenverschlüsse aus Metall"],
@@ -167,31 +167,31 @@ code_material_map = dfCodes.material
 # 
 # # Die Alpen und der Jura
 # 
-# Die Alpen und der Jura (les Alpes) sind Erhebungsgebiete, die von der Summit Foundation eingerichtet und verwaltet werden. Die Summit Foundation führt seit vielen Jahren [clean up events](https://www.summit-foundation.org/en/) in den Schweizer Alpen durch. Zu den Veranstaltungen im Jahr 2021 gehörten auch eine Reihe von Datenerhebungen zu Abfallobjekten, die parallel zu den regelmäßig stattfindenden Veranstaltungen durchgeführt wurden. Die Summit Foundation hatte zwei Fragen in Bezug auf IQAASL: 
+# Die Alpen und der Jura (les Alpes) sind Erhebungsgebiete, bei der die Verantwortung der Erhebungen bei der Summit Foundation liegt.  Die Summit Foundation führt seit vielen Jahren [clean up events](https://www.summit-foundation.org/en/) in den Schweizer Alpen durch. Zu den Veranstaltungen im Jahr 2021 gehörten auch eine Reihe von Datenerhebungen zu Abfallobjekten, die parallel zu den regelmäßig stattfindenden Veranstaltungen durchgeführt wurden. Die Summit Foundation hatte zwei Fragen in Bezug auf IQAASL:  
 # 
 # 1. Wie kann die Datenerfassung in das aktuelle Geschäftsmodell integriert werden? 
-# 2. Wie sind die Datenerhebungen auf den Bergpfaden im Vergleich zu denen am Wasser?
+# 2. Wie sind die Datenerhebungen auf den Bergpfaden im Vergleich zu denen am Wasser? 
 # 
-# Der Zweck von Aufräumaktionen ist es, so viel Abfallobjekte wie möglich aus einem bestimmten Gebiet zu entfernen. Wie viel entfernt werden kann, hängt von den zur Verfügung stehenden Ressourcen ab. Eine Datenerhebung über Abfallobjekte dient der Identifizierung und Zählung der Objekte in einem bestimmten Gebiet. In diesem Sinne ist eine Aufräumaktion eine Annäherung an das Abfallproblem aus der Perspektive der Abschwächung oder Milderung, und Datenerhebungen liefern die notwendigen Daten zur Verbesserung der Prävention.  
+# Der Zweck von Aufräumaktionen ist es, so viel Abfallobjekte wie möglich aus einem bestimmten Gebiet zu entfernen. Wie viel entfernt werden kann, hängt von den zur Verfügung stehenden Ressourcen ab. Eine Datenerhebung über Abfallobjekte dient der Identifizierung und Zählung der Objekte in einem bestimmten Gebiet. In diesem Sinne ist eine Aufräumaktion eine Annäherung an das Abfallproblem aus der Perspektive der Abschwächung oder Milderung, und Datenerhebungen liefern die notwendigen Daten zur Verbesserung der Prävention.   
 # 
-# ## Methoden der Datenerhebungen 
+# ## Methoden der Datenerhebungen
 # 
 # Insgesamt wurden zwanzig Datenerhebungen zu Abfallobjekten von der Summit Foundation durchgeführt. Ursprünglich wurden zwei Methoden ausgewählt: 
 # 
-# 1. Datenerhebungen für eine bestimmte Entfernung und Breite eines Streckenabschnitts
+# 1. Datenerhebungen für eine bestimmte Entfernung und Breite eines Streckenabschnitts 
 # 2. Datenerhebungen der Anlagen bei der Ankunft/Abfahrt der Liftlinie 
 # 
 # Das Verfahren der Datenerhebungen bleibt unter beiden Bedingungen gleich: 
 # 
-# 1. Ein Abschnitt eines Weges oder eine Fläche wird gemessen 
-# 2. Alle sichtbaren Schadstoffe werden entfernt, gezählt und klassifizier
-# 3. Die Ergebnisse und Abmessungen werden aufgezeichnet 
+# 1. Ein Abschnitt eines Weges oder eine Fläche wird gemessen  
+# 2. Alle sichtbaren Abfallbestandteile/Abfallgegenstände  werden entfernt, gezählt und klassifiziert 
+# 3. Die Ergebnisse und Abmessungen werden aufgezeichnet  
 # 
-# Der Unterschied zwischen den beiden Methoden liegt in der Art und Weise, wie die Grenzen des Vermessungsgebiets festgelegt werden. Wenn ein Weg benutzt wird, werden die Grenzen des Vermessungsgebiets durch den Weg selbst festgelegt, nicht durch die Person, die die Datenerhebung ausführt. Im Sommer sind die Barrieren und Schilder, die die Bereiche für die Liftlinien markieren, alle entfernt worden, so dass es für die Person, die die Datenerhebung ausführt, schwierig ist, die korrekten Grenzen genau zu bestimmen.  
+# Der Unterschied zwischen den beiden Methoden liegt in der Art und Weise, wie die Grenzen des Vermessungsgebiets festgelegt werden. Wenn ein Weg benutzt wird, werden die Grenzen des Vermessungsgebiets durch den Weg selbst festgelegt, nicht durch die Person, die die Datenerhebung ausführt. Im Sommer sind die Barrieren und Schilder, die die Bereiche für die Liftlinien markieren, alle entfernt worden, so dass es für die Person, die die Datenerhebung ausführt, schwierig ist, die korrekten Grenzen genau zu bestimmen.   
 # 
-# ## Kumulierte Gesamtzahlen für das Datenerhebungsgebiet
-
-# *Karte des Erhebungsgebiets Les Alpes, Sommersäuberungstour 2021*
+# ## Kumulierte Gesamtzahlen für das Datenerhebungsgebiet¶
+# 
+# *__Unten:__ Karte des Erhebungsgebiets Les Alpes, Clean up tour 2021*
 
 # In[2]:
 
@@ -273,7 +273,7 @@ md(lake_string)
 
 # ### Gesamtzahlen der Datenerhebungen
 # 
-# *__Unten:__ Die aggregierten Ergebnisse der Abfallerhebungen. Dies beinhaltet nicht die Gesamtzahlen der Ereignisse, siehe nächster Abschnitt.*
+# *__Unten:__ Die aggregierten Ergebnisse der Abfallerhebungen. Dies beinhaltet nicht die Gesamtzahlen der Erhebungen , siehe nächster Abschnitt.*
 
 # In[5]:
 
@@ -334,7 +334,7 @@ new_col_names={
     "mac_plast_w":"Plastic kg", 
     "mic_plas_w":"Gesamt-s kg",
     "area": "m²",
-    "length":"Meters", 
+    "length":"Länge", 
     "num_parts_other": "Teilnehmer", 
     "num_parts_staff": "Mitarbeiter",
     "time_minutes":"Std"
@@ -348,7 +348,7 @@ kilos = ["Plastic kg", "Gesamt-s kg"]
 dims_table[kilos] = (dims_table[kilos]/1000).round(2)
 
 # numerical type and rounding
-tints = ["Erhebungen","Gesamt-e kg", "m²", "Meters", "Objekten", "Mitarbeiter", "Teilnehmer"]
+tints = ["Erhebungen","Gesamt-e kg", "m²", "Länge", "Objekten", "Mitarbeiter", "Teilnehmer"]
 twodec = [unit_label]
 
 # apply formatting
@@ -358,8 +358,8 @@ dims_table["Std"] = (dims_table["Std"]/60).round(1)
 
 # apply string formatting
 dims_table.reset_index(inplace=True)
-table_one = dims_table[["location","Erhebungen", "Objekten", unit_label,"Plastic kg", "Gesamt-s kg", "m²", "Meters"]].copy()
-commas = ["Erhebungen", "Objekten",  "m²", "Meters", unit_label]
+table_one = dims_table[["location","Erhebungen", "Objekten", unit_label,"Plastic kg", "Gesamt-s kg", "m²", "Länge"]].copy()
+commas = ["Erhebungen", "Objekten",  "m²", "Länge", unit_label]
 table_one.loc[:,commas[:-1]] = table_one.loc[:,commas].applymap(lambda x: F"{x:,}")
 
 # make table
@@ -372,7 +372,7 @@ plt.show()
 
 # ### Gesamtzahlen der Veranstaltung
 # 
-# *__Unten:__ Die Gesamtmenge des gesammelten Mülls in Kilogramm, die Anzahl der Teilnehmer und des Personals sowie die Zeit, die für die Durchführung der Umfrage benötigt wurde.*
+# *__Unten:__ Die Gesamtmenge des gesammelten Mülls in Kilogramm, die Anzahl der Teilnehmer und des Personals sowie die Zeit, die für die Durchführung der Erhebung  benötigt wurde.*
 
 # In[6]:
 
@@ -396,18 +396,18 @@ plt.close()
 
 # ### Landnutzungsprofil der Erhebungsorte 
 # 
-# Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1500 m um den Erhebungsort zugeordnet wird.      
+# Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1500 m um den Erhebungsort zugeordnet wird.     
 # 
 # * \% auf Gebäude entfallen 
 # * \% der landwirtschaftlich genutzten Fläche 
 # * \% der Fläche, die der Forstwirtschaft zugeschrieben wird 
 # * \% der Fläche, die der Erholung vorbehalten ist 
 # 
-# Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.  
+# Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren. 
 # 
-# Das Verhältnis der Anzahl der Proben bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte. 
+# Das Verhältnis der Anzahl der Eherebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte.
 # 
-# Für weitere Informationen [_Landnutzungsprofil_](luseprofilede) für weitere Details.
+# Für weitere Informationen [_Landnutzungsprofil_](luseprofilede).
 
 # In[7]:
 
@@ -470,11 +470,11 @@ plt.show()
 
 # *__Oben:__ Die Orte im Erhebungsgebiet der Alpen wiesen einen höheren Prozentsatz an Flächen auf, die der Forst- und Landwirtschaft zugeordnet wurden, und einen geringeren Prozentsatz, der Gebäuden und Freizeiteinrichtungen zugeordnet wurde, als die Orte im IQAASL.* 
 
-# Die aggregierten Ergebnisse zeigen den Unterschied zwischen den beiden Erhebungsmethoden. Die drei Standorte mit dem höchsten p/100m haben auch die kürzeste Länge. Im Fall von Cabanes-des-Diablerets ist der Meter² gleich der Länge, was darauf hindeutet, dass ein kleiner Bereich um eine Struktur oder ein Gebäude herum vermessen wurde. Veysonnaz befindet sich am Ende einer Skiliftlinie.
-#     
-# Der Unterschied in den Methoden führt zu deutlich unterschiedlichen Ergebnissen. Außerdem wurden diese beiden Orte aufgrund der früheren Erfahrungen der Person, die die Datenerhebung ausführt, speziell für die Bestandsaufnahme ausgewählt. Aufgrund der unterschiedlichen Dimensionen und Methoden werden die Datenerhebungen Ergebnisse aus Veysonnaz, San-Beranardino und Cabanes-des-Diablerets in der weiteren Analyse nicht berücksichtigt.
+# Die aggregierten Ergebnisse zeigen den Unterschied zwischen den beiden Erhebungsmethoden. Die drei Standorte mit dem höchsten p/100m haben auch die kürzeste Länge. Im Fall von Cabanes-des-Diablerets ist der Meter² gleich der Länge, was darauf hindeutet, dass ein kleiner Bereich um eine Struktur oder ein Gebäude herum vermessen wurde. Veysonnaz befindet sich am Ende einer Skiliftlinie. 
+# 
+# Der Unterschied in den Methoden führt zu deutlich unterschiedlichen Ergebnissen. Außerdem wurden diese beiden Orte aufgrund der früheren Erfahrungen der Person, die die Datenerhebung ausführt, speziell für die Bestandsaufnahme ausgewählt. Aufgrund der unterschiedlichen Dimensionen und Methoden werden die Datenerhebungen Ergebnisse aus Veysonnaz, San-Beranardino und Cabanes-des-Diablerets in der weiteren Analyse nicht berücksichtigt. 
 
-# ## Verteilung der Datenerhebungen Ergebnisse
+# ## Verteilung der Datenerhebungen Ergebnisse¶
 
 # In[8]:
 
@@ -500,7 +500,7 @@ dts_date = a_dt[(~a_dt.location.isin([*nvsn, *remove]))].copy()
 
 # figure caption
 chart_notes = F"""
-*__Links:__ Alle Proben Seen/Flüsse und Wanderwege, {start_date[:7]} bis {end_date[:7]}, n={a_data.loc_date.nunique()}. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse, Ausreißer entfernt.*  
+*__Links:__ Alle Eherebungen Seen/Flüsse und Wanderwege, {start_date[:7]} bis {end_date[:7]}, n={a_data.loc_date.nunique()}. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse, Ausreißer entfernt.*  
 """
 md(chart_notes )
 
@@ -611,7 +611,7 @@ plt.show()
 
 # ### Die häufigsten Obkekte
 # 
-# Die häufigsten Objekte sind __die zehn häufigsten Objekte nach Anzahl der Funde__ UND/ODER __jedes Objekt, das in mindestens 50% aller Datenerhebungen identifiziert wurde__. 
+# Die häufigsten Objekte sind die __zehn häufigsten Objekte nach Anzahl der Funde UND/ODER jedes Objekt, das in mindestens 50% aller Datenerhebungen identifiziert wurde__. 
 
 # In[11]:
 
@@ -644,8 +644,8 @@ walking_trails = m_common[cols_to_use.keys()].values
 
 # figure caption
 rb_string = F"""
-*__Unten:__ Häufigste Objekte auf Wanderwegen: Fail-Pass Rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen stellen die
-zehn häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte dar,{unit_label}: Medianwert der Erhebung.*
+*__Unten:__ Häufigste Objekte auf Wanderwegen: Fail-Pass Rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen stellen die zehn häufigsten 
+Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte der, {unit_label}: Medianwert der Erhebung.*
 """
 md(rb_string)
 
@@ -665,7 +665,7 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Häufigste Objektergebnisse nach Erhebungsort.
+# ### Resultate der häufigsten Objekte nach Erhebungsort  
 
 # *__Unten:__ Wanderwege häufigste Objekte: Median p/100m.*
 
@@ -708,7 +708,7 @@ plt.show()
 plt.close()
 
 
-# *__Unten:__ Seilbahnbürste/Kabinenbürsten, die verwendet werden, um Eis und Schnee von Skiliften zu entfernen, können sich von der Anlage lösen und Tausende von schweren Kunststofffäden erzeugen.*
+# *__Unten:__ Seilbahnbürsten, die verwendet werden, um Eis und Schnee von Skiliften zu entfernen, können sich von der Anlage lösen und Tausende von schweren Kunststofffäden erzeugen.*
 
 # In[14]:
 
@@ -721,7 +721,7 @@ fig, ax = plt.subplots(figsize=(8,4.5))
 axone=ax
 sut.hide_spines_ticks_grids(axone)
 axone.imshow(teamv);
-axone.set_title("Seilbahnbürste/Kabinenbürsten", **ck.title_k14)
+axone.set_title("Seilbahnbürsten", **ck.title_k14)
 
 plt.tight_layout()
 plt.show()
@@ -729,7 +729,7 @@ plt.show()
 
 # ## Nutzen der gefundenen Objekte 
 # 
-# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.
+# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert. 
 # 
 # *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
 # *  **Mikroplastik (< 5 mm):** zersplitterte Kunststoffe und Kunststoffharze aus der Vorproduktion
@@ -821,14 +821,14 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# ### Perzentil-Rangfolge der Umfrageergebnisse in Bezug auf die Flächennutzung
+# ### Perzentil-Rangfolge der Erhebungsergebnisse in Bezug auf die Flächennutzung¶ 
 
 # In[18]:
 
 
 # get the percentile ranking under each condition:
 # define land use ranges based on the sample data
-l_f = ["% zu ag", "% zu Wald", "population"]
+l_f = ["% zu LWS", "% zu Wald", "population"]
 
 this_range = (fd[l_f[0]].min(), fd[l_f[0]].max())
 this_range_w = (fd[l_f[1]].min(), fd[l_f[1]].max())
@@ -886,76 +886,76 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# *__Oben:__ Die Rangfolge der untersuchten Alpe-Standorte in Bezug auf die Landnutzung.  Die Ergebnisse der Erhebung in Airolo waren zum Beispiel höher als 83 % aller Erhebungen (Seen, Flüsse und Alpen). In Andermatt liegen die Erhebungsergebnisse unter 95 % aller Erhebungen mit einem vergleichbaren Landnutzungsprofil.*
+# *__Oben:__ Die Rangfolge der untersuchten Alpen-Standorte in Bezug auf die Landnutzung. Die Ergebnisse der Erhebung in Airolo waren zum Beispiel höher als 83 % aller Erhebungen (Seen, Flüsse und Alpen). In Andermatt liegen die Erhebungsergebnisse unter 95 % aller Erhebungen mit einem vergleichbaren Landnutzungsprofil.*
 
 # ## Diskussion
 # 
-# ### Ergebnisse der Alpenerhebung im Vergleich zu Erhebungen an der Küste
+# ### Ergebnisse der Alpenerhebung im Vergleich zu Erhebungen an der Ufer
 # 
 # Der Medianwert beträgt 110 p/100m für die 17 Standorte, die die Kriterien für Länge und Breite im Erhebungsgebiet Alpen erfüllen, und liegt damit unter dem Medianwert aller anderen Erhebungsgebiete (189 p/100m). Objekte, die mit dem Konsum von Nahrungsmitteln, Getränken und Tabak in Verbindung stehen, machten einen geringeren Prozentsatz der Gesamtzahl aus und wiesen eine niedrigere p/100m-Rate auf als Standorte entlang von Wassersystemen. Dieser Unterschied könnte zum Teil auf die geringe Verstädterung zurückzuführen sein, die das Erhebungsgebiet Alpen im Vergleich zu allen anderen Erhebungsgebieten kennzeichnet. 
 # 
-# Der Anteil von Objekten, die mit der Infrastruktur zusammenhängen, ist mit 36 % doppelt so hoch wie in allen Untersuchungsgebieten zusammen. Dies ist größtenteils auf die Fäden von Skiliftbürsten zurückzuführen, die in Les-Crosets in großen Mengen gefunden wurden. Skiliftbürsten werden verwendet, um den Schnee von der Oberseite der abgedeckten Skilift-Sessel zu entfernen, wenn diese sich dem Einstiegsort nähern. Ähnlich wie Industriepellets oder Schaumstoffkügelchen in der aquatischen Umwelt werden Teile von Skibürsten wahrscheinlich immer wieder in gelegentlich großen Mengen an ganz bestimmten Orten gefunden.
+# Der Anteil von Objekten, die mit der Infrastruktur zusammenhängen, ist mit 36 % doppelt so hoch wie in allen Untersuchungsgebieten zusammen. Dies ist größtenteils auf die Fäden von Seilbahnbürsten zurückzuführen, die in Les-Crosets in großen Mengen gefunden wurden. Seilbahnbürsten werden verwendet, um den Schnee von der Oberseite der abgedeckten Seilbahnkabinen zu entfernen, wenn diese sich dem Einstiegsort nähern. Ähnlich wie Industriepellets oder Schaumstoffkügelchen in der aquatischen Umwelt werden Teile von Seilbahnbürsten wahrscheinlich immer wieder in gelegentlich großen Mengen an ganz bestimmten Orten gefunden. 
 # 
-# Das Verhältnis von Infrastrukturobjekten zu Lebensmitteln und Tabakwaren ist fast 1. Solche Ergebnisse sind typisch für Umgebungen mit einer besser entwickelten Infrastruktur, siehe [Gemeinsame Verantwortung] (Verkehr). Fragmentierte Kunststoffe werden in ähnlichem Umfang wie in den anderen Untersuchungsgebieten gefunden. Neu auf der Liste der häufigsten Gegenstände sind Kabelbinder und Abdeckband. Beide Gegenstände werden an der Küste gefunden, allerdings mit einer Häufigkeit von unter 50 %.
+# Das Verhältnis von Infrastrukturobjekten zu Lebensmitteln und Tabakwaren ist fast 1. Solche Ergebnisse sind typisch für Umgebungen mit einer besser entwickelten Infrastruktur, siehe [Gemeinsame Verantwortung] (Verkehr). Fragmentierte Kunststoffe werden in ähnlichem Umfang wie in den anderen Untersuchungsgebieten gefunden. Neu auf der Liste der häufigsten Gegenstände sind Kabelbinder und Abdeckband. Beide Gegenstände werden am Ufer gefunden, allerdings mit einer Häufigkeit von unter 50 %. 
 # 
-# Es sei daran erinnert, dass diese Umfragen entlang der Skiliftlinie oder eines Wanderweges in einem Skigebiet durchgeführt wurden.  Auch wenn die Nutzung im Winter größer sein mag, sind viele Gebiete hervorragende Vett- und Wandergebiete, so dass eine ganzjährige Nutzung dieser Regionen möglich ist. 
+# Es sei daran erinnert, dass diese Erhebungen  entlang der Skiliftlinie oder eines Wanderweges in einem Skigebiet durchgeführt wurden. Auch wenn die Nutzung im Winter erhöht sein mag, sind viele Gebiete auch im Sommer hervorragende Wandergebiete, so dass eine ganzjährige Nutzung dieser Regionen möglich ist. 
 # 
 # #### Die häufigsten Objekte
 # 
-# Die am häufigsten vorkommenden Gegenstände machen 74% der insgesamt gefundenen aus. Die Zigarettenstummel lagen im Erhebungsgebiet Alpes nicht über dem nationalen Median, allerdings wurden in Verbier, Grindelwald und Airolo signifikante Werte festgestellt. Spezifische Gegenstände aus der Gruppe der Infrastruktur sind vertreten, wie z.B.:  
+# Die am häufigsten vorkommenden Gegenstände machen 74% der insgesamt gefundenen aus. Die Zigarettenstummel lagen im Erhebungsgebiet Alpes nicht über dem nationalen Median, allerdings wurden in Verbier, Grindelwald und Airolo signifikante Werte festgestellt. Spezifische Gegenstände aus der Gruppe der Infrastruktur sind vertreten, wie z.B.:   
 # 
 # 1. Schrauben und Bolzen 
 # 2. Kabelbinder
 # 3. Abdeckband
-# 4. Ziegelsteine und Rohre
+# 4. Seilbahnbürste 
 # 
 # Das Fehlen von expandiertem oder extrudiertem Polystyrol in der Liste der am häufigsten vorkommenden Produkte in den Erhebungsgebieten der Alpen steht jedoch in scharfem Kontrast zu allen anderen Erhebungsgebieten, in denen dieses Produkt allein etwa 13% der Gesamtmenge ausmacht, siehe [_Seen und Flüsse_](allsurveys).
 # 
 # ### Implementierung von Datenerhebungen über Abfallobjekte in das bestehende Geschäftsmodell 
 # 
-# Im Vergleich zu einer Strand-Abfallaufkommen Untersuchung deckt eine Aufräumaktion ein relativ großes geographisches Gebiet ab. Freiwillige, die an diesen Veranstaltungen teilnehmen, werden von der Möglichkeit angezogen, sich um die Umwelt zu kümmern UND sich in der Gesellschaft anderer mäßig zu bewegen. Datenerhebungen zu Strand-Abfallobjekten bieten nicht dasselbe Aktivitätsniveau und sind möglicherweise nicht für alle Freiwilligen von Interesse.  
+# m Vergleich zu einer Strandabfall-Erhebung deckt eine Aufräumaktion ein relativ großes geographisches Gebiet ab. Freiwillige, die an diesen Veranstaltungen teilnehmen, werden von der Möglichkeit angezogen, sich um die Umwelt zu kümmern UND sich in der Gesellschaft anderer (in den Bergen) zu bewegen. Datenerhebungen zu Strand-Abfallobjekten bieten nicht dasselbe Aktivitätsniveau und sind möglicherweise nicht für alle Freiwilligen von Interesse. 
 # 
 # Die Durchführung von Strand-Abfallobjekten bedeutet, dass Sie Freiwilligen die Möglichkeit geben, vor Ort Erfahrungen zu sammeln, aber auch intern die Ressourcen bereitstellen, um sicherzustellen, dass die Untersuchung gemäß dem Protokoll durchgeführt wird. Dazu gehört das Identifizieren, Zählen und Eingeben von Daten. Die Summit Foundation war in der Lage, dies zu tun, indem sie dafür sorgte, dass bei jeder Veranstaltung eine Person anwesend war, die die Umfrage durchführen konnte. 
 # 
-# Die Personen, die die Datenerhebung ausführten, zogen es vor, die Proben entlang der Liftlinien zu nehmen und bei der Ankunft und Abfahrt der Skilifte zu beginnen. Die auf diese Weise entnommenen Proben folgen dem Verlauf der Veranstaltung: bergab und in den Bereichen mit hohem Verkehrsaufkommen.  
+# Die Personen, die die Datenerhebung ausführten, zogen es vor, die Proben entlang der Liftlinien zu nehmen und bei der Ankunft und Abfahrt der Skilifte zu beginnen. Die auf diese Weise entnommenen Proben folgen dem Verlauf der Veranstaltung: bergab und in den Bereichen mit hohem Verkehrsaufkommen. 
 # 
-# Proben, die in der Nähe von Gebäuden oder anderen Einrichtungen genommen wurden, ergaben höhere Datenerhebungen Ergebnisse. Damit bestätigte sich, was die Mitglieder der Summit Foundation in den vergangenen Jahren festgestellt hatten. Aus diesen Erfahrungen erklärte der Projektleiter, Téo Gürsoy:  
+# Proben, die in der Nähe von Gebäuden oder anderen Einrichtungen genommen wurden, ergaben höhere Datenerhebungen Ergebnisse. Damit bestätigte sich, was die Mitglieder der Summit Foundation in den vergangenen Jahren festgestellt hatten. Aus diesen Erfahrungen erklärte der Projektleiter, Téo Gürsoy:   
 # 
-# > Die Personen, die die Datenerhebung ausführt, konzentrieren sich nämlich hauptsächlich auf die Abschnitte unter den Sesselliften, Gondeln oder bei der Abfahrt und Ankunft dieser Anlagen, die stark frequentierte Orte sind.     Die Personen, die die Datenerhebung ausführt, konzentrieren sich nämlich hauptsächlich auf die Abschnitte unter den Sesselliften, Gondeln oder bei der Abfahrt und Ankunft dieser Anlagen, die stark frequentierte Orte sind. 
+# > Die Personen, die die Datenerhebung ausführt, konzentrieren sich nämlich hauptsächlich auf die Abschnitte unter den Sesselliften, Gondeln oder bei der Abfahrt und Ankunft dieser Anlagen, die stark frequentierte Orte sind.
 # 
-# In einigen Fällen ist die Dichte der Objekte so groß, dass sich die Person, welche die Datenerhebung ausführt, gezwungen sah, sich auf einen Bereich zu konzentrieren, indem sie die Breite des Erfassungsbereichs vergrößerte. M. Gursoy beschrieb, was passierte, als eine Person, welche die Datenerhebung ausführt, auf einen Ort stieß, der große Mengen von Skiliftbürsten enthielt: 
+# In einigen Fällen ist die Dichte der Objekte so groß, dass sich die Person, welche die Datenerhebung ausführt, gezwungen sah, sich auf einen Bereich zu konzentrieren, indem sie die Breite des Erfassungsbereichs vergrößerte. M. Gursoy beschrieb, was passierte, als eine Person, welche die Datenerhebung ausführt, auf einen Ort stieß, der große Mengen von Skiliftbürsten enthielt:  
 # 
-# > Die Person, welche die Datenerhebung ausführt, begann den Streckenabschnitt jedoch an der Ankunftsstation der Gondel. Die Skiliftbürsten erregten schnell die Aufmerksamkeit der Person, die beschloss, sich nur auf diesen Bereich zu konzentrieren, um herauszufinden, wie viele von ihnen in dieser Art von Gebiet zu finden waren...
+# > Die Person, welche die Datenerhebung ausführt, begann den Streckenabschnitt jedoch an der Ankunftsstation der Gondel. Die Skiliftbürsten erregten schnell die Aufmerksamkeit der Person, die beschloss, sich nur auf diesen Bereich zu konzentrieren, um herauszufinden, wie viele von ihnen in dieser Art von Gebiet zu finden waren… 
 # 
-# Die Datenerhebungen Ergebnisse rund um Infrastruktur oder Gebäude sind kein Indikator für den Zustand der Umwelt im gesamten Gebiet. Datenerhebungen in der Umgebung dieser Strukturen weisen tendenziell höhere Werte auf, machen aber nur einen kleinen Teil der gesamten Landnutzung aus. 
+# Die Datenerhebungen Ergebnisse rund um Infrastruktur oder Gebäude sind kein Indikator für den Zustand der Umwelt im gesamten Gebiet. Datenerhebungen in der Umgebung dieser Strukturen weisen tendenziell höhere Werte auf, machen aber nur einen kleinen Teil der gesamten Landnutzung aus.  
 # 
-# Es mussten Anpassungen an der Software und dem Berichtsschema vorgenommen werden, um die verschiedenen Arten von Daten zu verarbeiten, die bei Aufräumarbeiten anfallen. Dazu gehörte auch die Schaffung neuer Identifikationscodes für bestimmte Objekte, die im Untersuchungsgebiet der Alpen gefunden werden. Außerdem stellte die Summit Foundation die Ressourcen zur Verfügung, damit ein Mitarbeiter der Stiftung in der Anwendung des Projektprotokolls und der Software geschult werden konnte. 
+# Es mussten Anpassungen an der Software und dem Berichtsschema vorgenommen werden, um die verschiedenen Arten von Daten zu verarbeiten, die bei Aufräumarbeiten anfallen. Dazu gehörte auch die Schaffung neuer Identifikationscodes für bestimmte Objekte, die im Untersuchungsgebiet der Alpen gefunden werden. Außerdem stellte die Summit Foundation die Ressourcen zur Verfügung, damit ein Mitarbeiter der Stiftung in der Anwendung des Projektprotokolls und der Software geschult werden konnte.  
 # 
-# ### Schlussfolgerungen
+# #### Schlussfolgerungen¶ 
 # 
-# Die Datenerhebungen, die entlang der Wege und Liftlinien im Untersuchungsgebiet der Alpen durchgeführt wurden, ergaben Daten, die den Daten der Erhebungen an der Küste sehr ähnlich waren. Wenn sich die Personen, die die Datenerhebungen durchgeführt haben, jedoch auf bestimmte Infrastruktureinrichtungen konzentrierten, wurden extreme Werte ermittelt. Die Datenerhebungen an der Küste würden zu den gleichen Ergebnissen führen, wenn die Erhebungen nur an Orten durchgeführt würden, an denen hohe Abfallobjekte wahrscheinlicher sind.  
+# Die Datenerhebungen, die entlang der Wege und Liftlinien im Untersuchungsgebiet der Alpen durchgeführt wurden, ergaben Daten, die den Daten der Erhebungen entlang der Ufer (an der Küste) sehr ähnlich waren. Wenn sich die Personen, die die Datenerhebungen durchgeführt haben, jedoch auf bestimmte Infrastruktureinrichtungen konzentrierten, wurden extreme Werte ermittelt. Die Datenerhebungen an der Ufer würden zu den gleichen Ergebnissen führen, wenn die Erhebungen nur an Orten durchgeführt würden, an denen hohe Abfallobjekte wahrscheinlicher sind.   
 # 
-# Objekte aus dem Bereich Essen und Trinken machen nur 11% der insgesamt gefundenen Objekte aus, verglichen mit 36% in den anderen Untersuchungsgebieten. Der Anteil an Infrastrukturobjekten beträgt in den Alpen jedoch 75% gegenüber 18% in allen anderen Untersuchungsgebieten. Dies ist zum Teil auf den Unterschied in der menschlichen Präsenz im Vergleich zu Orten in niedrigeren Höhenlagen zurückzuführen, wo die menschliche Präsenz das ganze Jahr über konstant ist, so dass der Druck durch Nahrungs- und Genussmittel im Gegensatz zur Infrastruktur größer ist. 
+# Objekte aus dem Bereich Essen und Trinken machen nur 11% der insgesamt gefundenen Objekte aus, verglichen mit 36% in den anderen Untersuchungsgebieten. Der Anteil an Infrastrukturobjekten beträgt in den Alpen jedoch 75% gegenüber 18% in allen anderen Untersuchungsgebieten. Dies ist zum Teil auf den Unterschied in der menschlichen Präsenz im Vergleich zu Orten in niedrigeren Höhenlagen zurückzuführen, wo die menschliche Präsenz das ganze Jahr über konstant ist, so dass der Druck durch Nahrungs- und Genussmittel im Gegensatz zur Infrastruktur größer ist.  
 # 
 # Dieses erste Projekt hat auch gezeigt, dass es möglich ist, die Überwachung mit beliebten Veranstaltungen zu kombinieren. In Vorbereitung auf die Überwachung tauschten die Mitglieder beider Teams Ideen aus und sortierten gemeinsam Proben. Dies ermöglichte es beiden Organisationen, sich gegenseitig besser zu verstehen und Basisleistungen zu bestimmen, die bei der Datenerfassung für einen nationalen Bericht erbracht werden konnten:  
 # 
 # 1. Helfen Sie bei der Erfassung und Identifizierung
-# 2. Assistieren Sie bei der Dateneingabe
-# 3. Stellen Sie Diagramme, Grafiken und Daten zur Verfügung, die von den teilnehmenden Organisationen verwendet werden können.
+# 2. Assistieren Sie bei der Dateneingabe 
+# 3. Stellen Sie Diagramme, Grafiken und Daten zur Verfügung, die von den teilnehmenden Organisationen verwendet werden können. 
 # 
 # Eine Strand-Abfallaufkommen Untersuchung dauert 2-4 Stunden, je nachdem wie viele verschiedene Objekte es gibt. Diese Ressourcen waren im Betriebsbudget der beiden Organisationen nicht vorgesehen. Daher stellte die Summit Foundation die Koordination und Infrastruktur zur Verfügung und Hammerdirt stellte eine zusätzliche Person, die die Datenerhebung ausführt, sowie IT-Unterstützung.  
 # 
-# Die zur Verfügung gestellten Daten ermöglichen direkte Vergleiche zwischen den Orten, vorausgesetzt, es wird die gleiche Erhebungsmethode verwendet. Die Häufigkeit von Infrastrukturartikeln im Verhältnis zu Lebensmitteln und Tabakwaren ist ein Hinweis auf Datenerhebungen in ländlichen Gebieten. Wie gut diese Daten mit Datenerhebungen an der Küste vergleichbar sind, muss noch weiter untersucht werden. Zigarettenstummel, Glasscherben, Plastiksplitter und Snackverpackungen gehören jedoch zu den häufigsten Gegenständen, die an der Küste gefunden werden. 
+# Die zur Verfügung gestellten Daten ermöglichen direkte Vergleiche zwischen den Orten, vorausgesetzt, es wird die gleiche Erhebungsmethode verwendet. Die Häufigkeit von Infrastrukturartikeln im Verhältnis zu Lebensmitteln und Tabakwaren ist ein Hinweis auf Datenerhebungen in ländlichen Gebieten. Wie gut diese Daten mit Datenerhebungen an der Ufer vergleichbar sind, muss noch weiter untersucht werden. Zigarettenstummel, Glasscherben, Plastiksplitter und Snackverpackungen gehören jedoch zu den häufigsten Gegenständen, die an der Ufer gefunden werden.  
 # 
-# Wir danken allen Mitgliedern der Summit Foundation für ihre Hilfe, insbesondere Olivier Kressmann und Téo Gürsoy. 
+# Wir danken allen Mitgliedern der Summit Foundation für ihre Hilfe, insbesondere Olivier Kressmann und Téo Gürsoy.  
 
 # 
 
 # ## Anhang
 # 
-# ### Schaumstoffe und Kunststoffe nach Größe 
+# ### Schaumstoffe und Kunststoffe nach Größe¶ 
 # 
-# Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
+# Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
 # *__Unten:__ fragmentierte Schaumstoffe und Kunststoffe nach Größengruppen. Median p/100m, Anzahl der Stücke, Prozent der Gesamtmenge.*
 
@@ -1010,16 +1010,16 @@ plt.close()
 
 
 # get the land use profile of AV
-lu_prof = fd[["location","% zu Gebäude", "% zu Erholung", "% zu ag", "% zu Wald", "Straßen km", "kreuzt"]].drop_duplicates()
+lu_prof = fd[["location","% zu Gebäude", "% zu Erholung", "% zu Wald", "% zu LWS", "population"]].drop_duplicates()
 
 # format for printing
-lu_prof.loc[:,lu_prof.columns[1:-2]] = lu_prof.loc[:,lu_prof.columns[1:-2]].applymap(lambda x: F"{int((x*100))}%")
+lu_prof.loc[:,lu_prof.columns[1:-1]] = lu_prof.loc[:,lu_prof.columns[1:-1]].applymap(lambda x: F"{int((x*100))}%")
 lu_prof.loc[:, lu_prof.columns[5:]] = lu_prof.loc[:, lu_prof.columns[5:]].applymap(lambda x: F"{int(x):,}")
 
 # put that to a table
 data=lu_prof.copy()
 
-fig, axs = plt.subplots(figsize=(len(table_one.columns)*1.6,len(table_one)*.5))
+fig, axs = plt.subplots(figsize=(len(table_one.columns)*1.2,len(table_one)*.4))
 sut.hide_spines_ticks_grids(axs)
 
 this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.3, *[.13]*6], bbox=[0, 0, 1, 1])
