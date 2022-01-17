@@ -30,7 +30,7 @@ __FOEN support:__ Rita Barros
 
 __Note:__ This report was prepared under contract to the Federal Office for the Environment (FOEN). The contractor bears sole responsibility for the content. 
 
-__Project surveyors:__ Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, Rachel Aronoff, Thor Erismann, Bettina Siegenthaler, Théo Gursoy, Adrien Bonny, Gaetan Buser, Louise Schreyers, Andreas Gauer, Shannon Erismann, Roger Erismann, EPFL _students of solid waste engineering_
+__Project surveyors:__ Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, Rachel Aronoff, Thor Erismann, Bettina Siegenthaler, Théo Gürsoy, Adrien Bonny, Gaetan Buser, Louise Schreyers, Andreas Gauer, Shannon Erismann, Roger Erismann, EPFL _students of solid waste engineering_
 
 __Participating Organizations:__ Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, Students of Solid Waste Engineering: EPFL, Summit Foundation, Hackuarium, hammerdirt
 
