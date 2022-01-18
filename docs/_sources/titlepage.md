@@ -2,6 +2,8 @@
 
 __Edition 1__ ver=1e
 
+<a href="titlepage_de.html" > Deutsch </a>
+
 _Map of survey locations April 2020 - July 2021_
 :::{image} resources/maps/intro_map.jpeg
 :alt: Map of IQAASL locations
@@ -34,7 +36,7 @@ __Project surveyors:__ Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, 
 
 __Participating Organizations:__ Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, Students of Solid Waste Engineering: EPFL, Summit Foundation, Hackuarium, hammerdirt
 
-__Support group:__ Christian Ludwig (EPFL/PSI), Montserrat Filella (UNIGE), Romain Tramoy (ENPC), Gary Hare (HDCA), Taoufik Nouri (FHNW)
+__Support group:__ Christian Ludwig (EPFL/PSI), Montserrat Filella (UNIGE), Romain Tramoy (LEESU), Gary Hare (HDCA), Taoufik Nouri (FHNW)
 
 __Translation:__ Helen Kurukulasuriya, Bettina Siegenthaler 
 

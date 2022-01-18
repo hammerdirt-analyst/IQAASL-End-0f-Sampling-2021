@@ -139,7 +139,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="rhone_sa.html">
-   5. Rhône survey area
+   5. Rhone survey area
   </a>
  </li>
  <li class="toctree-l1">
@@ -585,7 +585,8 @@
 </div>
 <div class="section" id="lac-leman">
 <span id="lacleman"></span><h1><span class="section-number">8. </span>Lac Léman<a class="headerlink" href="#lac-leman" title="Permalink to this headline">¶</a></h1>
-<p><em>Map of survey locations March 2020 - May 2021</em></p>
+<p><a href="lac_leman_de.html"> Deutsch </a></p>
+<p><em><strong>Below:</strong> Map of survey locations March 2020 - May 2021</em></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/lac_leman_3_0.png" src="_images/lac_leman_3_0.png" />
@@ -606,7 +607,7 @@
 <span class="n">a_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;% to agg&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% a</span><span class="s2">g&quot;</span><span class="p">,</span> <span class="s2">&quot;% to recreation&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">% r</span><span class="s2">ecreation&quot;</span><span class="p">,</span> <span class="s2">&quot;% to woods&quot;</span><span class="p">:</span><span class="s2">&quot;% woods&quot;</span><span class="p">,</span> <span class="s2">&quot;% to buildings&quot;</span><span class="p">:</span><span class="s2">&quot;% buildings&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;% buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% r</span><span class="s2">ecreation&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% a</span><span class="s2">g&quot;</span><span class="p">,</span> <span class="s2">&quot;% woods&quot;</span><span class="p">,</span> <span class="s2">&quot;streets km&quot;</span><span class="p">,</span> <span class="s2">&quot;intersects&quot;</span><span class="p">]</span>
 
-<span class="n">fd</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">feature_data</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">],</span> <span class="n">these_features</span><span class="o">=</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;slug&quot;</span><span class="p">]])</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">feature_data</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">],</span> <span class="n">these_features</span><span class="o">=</span><span class="n">lakes_of_interest</span><span class="p">)</span>
 
 <span class="c1"># cumulative statistics for each code</span>
 <span class="n">code_totals</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">the_aggregated_object_values</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">agg</span><span class="o">=</span><span class="n">agg_pcs_median</span><span class="p">,</span> <span class="n">description_map</span><span class="o">=</span><span class="n">code_description_map</span><span class="p">,</span> <span class="n">material_map</span><span class="o">=</span><span class="n">code_material_map</span><span class="p">)</span>    
@@ -710,7 +711,7 @@
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">colLabels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.4</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">a_color</span><span class="o">=</span><span class="n">a_color</span><span class="p">)</span>
