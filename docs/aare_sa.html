@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Aare survey area</title>
+    <title>3. Aare survey area &#8212;  </title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -75,6 +75,8 @@
       
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
+      
+      <h1 class="site-logo" id="site-title"> </h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -451,7 +453,6 @@
   <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-
 <span class="c1"># This is a report using the data from IQAASL.</span>
 <span class="c1"># IQAASL was a project funded by the Swiss Confederation</span>
 <span class="c1"># It produces a summary of litter survey results for a defined region.</span>
@@ -531,13 +532,12 @@
 <span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;All survey areas&quot;</span>
 
 <span class="c1"># define the feature level and components</span>
-<span class="n">this_feature</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;slug&quot;</span><span class="p">:</span><span class="s2">&quot;aare&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Aare survey area&quot;</span><span class="p">,</span> <span class="s2">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;river_bassin&quot;</span><span class="p">}</span>
-<span class="n">this_level</span> <span class="o">=</span> <span class="s2">&quot;water_name_slug&quot;</span>
+<span class="n">this_feature</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span><span class="s1">&#39;aare&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s2">&quot;Aare survey area&quot;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span><span class="s1">&#39;river_bassin&#39;</span><span class="p">}</span>
+<span class="n">this_level</span> <span class="o">=</span> <span class="s1">&#39;water_name_slug&#39;</span>
 <span class="n">this_bassin</span> <span class="o">=</span> <span class="s2">&quot;aare&quot;</span>
 <span class="n">bassin_label</span> <span class="o">=</span> <span class="s2">&quot;Aare survey area&quot;</span>
 
-<span class="n">lakes_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;neuenburgersee&quot;</span><span class="p">,</span> <span class="s2">&quot;thunersee&quot;</span><span class="p">,</span><span class="s2">&quot;bielersee&quot;</span><span class="p">,</span> <span class="s2">&quot;brienzersee&quot;</span><span class="p">]</span>
-
+<span class="n">lakes_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bielersee&#39;</span><span class="p">,</span> <span class="s1">&#39;neuenburgersee&#39;</span><span class="p">,</span> <span class="s1">&#39;brienzersee&#39;</span><span class="p">,</span> <span class="s1">&#39;thunersee&#39;</span><span class="p">,]</span>
 <span class="c1"># explanatory variables:</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;% buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% r</span><span class="s2">ecreation&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% a</span><span class="s2">gg&quot;</span><span class="p">,</span> <span class="s2">&quot;% woods&quot;</span><span class="p">,</span> <span class="s2">&quot;streets km&quot;</span><span class="p">,</span> <span class="s2">&quot;intersects&quot;</span><span class="p">]</span>
 
@@ -3522,6 +3522,8 @@ For all valid lake samples n=118.</em></p>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
+        
+          By  <br/>
         
           <div class="extra_footer">
             <p>

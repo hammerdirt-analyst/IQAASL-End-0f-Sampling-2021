@@ -95,15 +95,16 @@ colors_palette = ck.colors_palette
 bassin_map = "resources/maps/survey_areas/aare_scaled.jpeg"
 
 # top level aggregation
-top = "All survey areas"
+top = "Alle Erhebungsgebiete"
+top_name = ["Alle Erhebungsgebiete"]
 
 # define the feature level and components
-this_feature = {'slug':'aare', 'name':"Aare survey area", 'level':'river_bassin'}
+this_feature = {'slug':'ticino', 'name':"Aare-Erhebungsgebiet", 'level':'river_bassin'}
 this_level = 'water_name_slug'
 this_bassin = "aare"
-bassin_label = "Aare survey area"
+bassin_label = "Aare-Erhebungsgebiet"
 
-lakes_of_interest = ['bielersee', 'neuenburgersee', 'thunersee', 'brienzersee']
+lakes_of_interest = ["neuenburgersee", "thunersee","bielersee", "brienzersee"]
 # explanatory variables:
 luse_exp =  list(sut.luse_ge.values())
 
@@ -326,7 +327,7 @@ for i, n in enumerate(luse_exp):
     
     if i <= 3:
         if i == 0:            
-            ax.set_ylabel("Prozent der Standorte", **ck.xlab_k)
+            ax.set_ylabel("% der Erhebungen", **ck.xlab_k)
         ax.xaxis.set_major_formatter(ticker.PercentFormatter(1.0, 0, "%"))        
     else:
         pass      
@@ -520,7 +521,7 @@ cols_to_use = {"material":"Material","quantity":"Quantity", "% of total":"% of t
 fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
 
 # make tables
-fig, axs = plt.subplots(1,2, figsize=(8,6))
+fig, axs = plt.subplots(1,2, figsize=(8,5))
 
 # summary table
 # names for the table columns
@@ -587,7 +588,7 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"Ausfallsrate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(13,len(m_common)*.8))
+fig, axs = plt.subplots(figsize=(12.1,len(m_common)*.6))
 
 sut.hide_spines_ticks_grids(axs)
 

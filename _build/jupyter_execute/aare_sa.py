@@ -5,7 +5,6 @@
 
 
 # -*- coding: utf-8 -*-
-
 # This is a report using the data from IQAASL.
 # IQAASL was a project funded by the Swiss Confederation
 # It produces a summary of litter survey results for a defined region.
@@ -85,13 +84,12 @@ bassin_map = "resources/maps/survey_areas/aare_scaled.jpeg"
 top = "All survey areas"
 
 # define the feature level and components
-this_feature = {"slug":"aare", "name":"Aare survey area", "level":"river_bassin"}
-this_level = "water_name_slug"
+this_feature = {'slug':'aare', 'name':"Aare survey area", 'level':'river_bassin'}
+this_level = 'water_name_slug'
 this_bassin = "aare"
 bassin_label = "Aare survey area"
 
-lakes_of_interest = ["neuenburgersee", "thunersee","bielersee", "brienzersee"]
-
+lakes_of_interest = ['bielersee', 'neuenburgersee', 'brienzersee', 'thunersee',]
 # explanatory variables:
 luse_exp = ["% buildings", "% recreation", "% agg", "% woods", "streets km", "intersects"]
 

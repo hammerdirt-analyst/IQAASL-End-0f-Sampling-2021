@@ -1,41 +1,10 @@
-% This is a report using the data from IQAASL.
-% IQAASL was a project funded by the Swiss Confederation
-% It produces a summary of litter survey results for a defined region.
-% These charts serve as the models for the development of plagespropres.ch
-% The data is gathered by volunteers.
-% Please remember all copyrights apply, please give credit when applicable
-% The repo is maintained by the community effective January 01, 2022
-% There is ample opportunity to contribute, learn and teach
-% contact dev@hammerdirt.ch
-
-% Dies ist ein Bericht, der die Daten von IQAASL verwendet.
-% IQAASL war ein von der Schweizerischen Eidgenossenschaft finanziertes Projekt.
-% Es erstellt eine Zusammenfassung der Ergebnisse der Littering-Umfrage für eine bestimmte Region.
-% Diese Grafiken dienten als Vorlage für die Entwicklung von plagespropres.ch.
-% Die Daten werden von Freiwilligen gesammelt.
-% Bitte denken Sie daran, dass alle Copyrights gelten, bitte geben Sie den Namen an, wenn zutreffend.
-% Das Repo wird ab dem 01. Januar 2022 von der Community gepflegt.
-% Es gibt reichlich Gelegenheit, etwas beizutragen, zu lernen und zu lehren.
-% Kontakt dev@hammerdirt.ch
-
-% Il s'agit d'un rapport utilisant les données de IQAASL.
-% IQAASL était un projet financé par la Confédération suisse.
-% Il produit un résumé des résultats de l'enquête sur les déchets sauvages pour une région définie.
-% Ces tableaux ont servi de modèles pour le développement de plagespropres.ch
-% Les données sont recueillies par des bénévoles.
-% N'oubliez pas que tous les droits d'auteur s'appliquent, veuillez indiquer le crédit lorsque cela est possible.
-% Le dépôt est maintenu par la communauté à partir du 1er janvier 2022.
-% Il y a de nombreuses possibilités de contribuer, d'apprendre et d'enseigner.
-% contact dev@hammerdirt.ch
-
-
 # Executive summary
 
 <a href="esummary_de.html"> Deutsch </a>
 
 Identification, quantification and analysis of anthropogenic Swiss litter (IQAASL) is a project commissioned by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All discarded materials were collected and identified using litter survey techniques. The project was expanded to include 20 locations in the Alps and Jura, in total there were 406 samples from 163 locations in 95 municipalities. 
     
-This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from March 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR){cite:p}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite:p}`mlwguidance` or any other comparable method. 
+This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from March 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR){cite:p}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite}`mlwguidance` or any other comparable method. 
 
 
 ```{figure} resources/maps/intro_map.jpeg
@@ -56,7 +25,7 @@ The lakes and rivers were sampled from 2020-03 through 2021-05, a total of 54,74
 
 Most surveys were along lake shorelines (331 samples) as lakes offer more consistent and safe year-round access with respect to rivers. Additionally, lakes are large areas of reduced flow that receive input from multiple rivers, streams and drainage systems providing ideal locations to assess the variety of objects in and around the water bodies. 
 
-In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore, which was sampled every three months. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition, there were 55 surveys on 16 rivers.  
+In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore, which was sampled every three months. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition, there were 55 surveys on 16 rivers. 
 
 __Lake locations sampled monthly:__ 
 
@@ -98,11 +67,11 @@ name: esummarymcommon
 
 ```
 
-{numref}`Figure {number}: <esummarymcommon>` _Survey totals all lakes and rivers: the most common objects identified from March 2020 - May 2021. The fail rate is the ratio of the number of times an object was identified at least once with respect to the number of surveys. The quantity is the total number of an identified object collected and the median pieces of litter per 100 meters (p/100m) _ 
+{numref}`Figure {number}: <esummarymcommon>` _Survey totals all lakes and rivers: the most common objects identified from March 2020 - May 2021. The fail rate is the ratio of the number of times an object was identified at least once with respect to the number of surveys. The quantity is the total number of an identified object collected and the median pieces of litter per 100 meters (p/100m)_ 
 
 For example, figure 2, a total of 8,485 cigarette filters were identified in 87% of the surveys, representing 15 percent of the total items collected and had a median value of 20 cigarette filters per 100m of shoreline.  
 
-Industrial pellets and expanded foams < 5mm both occurred in significant quantities but identified in less than 50% of the surveys (median of 0), indicating high counts at specific locations. While both micro-plastics, their use, origin and rate of occurrence are different depending on the survey area region. Industrial pellets are raw materials used in injection molding processes and foamed plastic beads are the result of fragmentation of expanded polystyrene. Location, quantities and rate of individual object occurrence see [_Lakes and rivers_](allsurveys).
+Industrial pellets and expanded foams < 5mm both occurred in significant quantities but identified in less than 50% of the surveys (median of 0), indicating high counts at specific locations. While both micro-plastics, their use, origin and rate of occurrence are different depending on the survey area region. Industrial pellets are raw materials used in injection molding processes and foam plastic beads are the result of fragmentation of expanded polystyrene. Location, quantities and rate of individual object occurrence see [_Lakes and rivers_](allsurveys).
 
 
 ```{figure} resources/images/esummary/mostcommoneos.png

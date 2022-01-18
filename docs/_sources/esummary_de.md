@@ -1,35 +1,3 @@
-% This is a report using the data from IQAASL.
-% IQAASL was a project funded by the Swiss Confederation
-% It produces a summary of litter survey results for a defined region.
-% These charts serve as the models for the development of plagespropres.ch
-% The data is gathered by volunteers.
-% Please remember all copyrights apply, please give credit when applicable
-% The repo is maintained by the community effective January 01, 2022
-% There is ample opportunity to contribute, learn and teach
-% contact dev@hammerdirt.ch
-
-% Dies ist ein Bericht, der die Daten von IQAASL verwendet.
-% IQAASL war ein von der Schweizerischen Eidgenossenschaft finanziertes Projekt.
-% Es erstellt eine Zusammenfassung der Ergebnisse der Littering-Umfrage für eine bestimmte Region.
-% Diese Grafiken dienten als Vorlage für die Entwicklung von plagespropres.ch.
-% Die Daten werden von Freiwilligen gesammelt.
-% Bitte denken Sie daran, dass alle Copyrights gelten, bitte geben Sie den Namen an, wenn zutreffend.
-% Das Repo wird ab dem 01. Januar 2022 von der Community gepflegt.
-% Es gibt reichlich Gelegenheit, etwas beizutragen, zu lernen und zu lehren.
-% Kontakt dev@hammerdirt.ch
-
-% Il s'agit d'un rapport utilisant les données de IQAASL.
-% IQAASL était un projet financé par la Confédération suisse.
-% Il produit un résumé des résultats de l'enquête sur les déchets sauvages pour une région définie.
-% Ces tableaux ont servi de modèles pour le développement de plagespropres.ch
-% Les données sont recueillies par des bénévoles.
-% N'oubliez pas que tous les droits d'auteur s'appliquent, veuillez indiquer le crédit lorsque cela est possible.
-% Le dépôt est maintenu par la communauté à partir du 1er janvier 2022.
-% Il y a de nombreuses possibilités de contribuer, d'apprendre et d'enseigner.
-% contact dev@hammerdirt.ch
-
-
-
 # Kurzfassung
 
 <a href="esummary.html"> English </a>
