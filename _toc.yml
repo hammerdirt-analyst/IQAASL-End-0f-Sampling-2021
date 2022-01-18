@@ -2,49 +2,49 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: titlepage_de
+root: titlepage
 
 parts:
-  - caption: Zusammenfassung
+  - caption: Executive summary
     numbered: False
     chapters:
-    - file: intro_de
-    - file: esummary_de
-  - caption: Ergebnisse der Erhebung
+    - file: intro
+    - file: esummary
+  - caption: Survey results
     numbered: True
     chapters:
-    - file: lakes_rivers_de
-    - file: alpes_valaisannes_de
-  - caption: Erhebungsgebiete
+    - file: lakes_rivers
+    - file: alpes_valaisannes
+  - caption: Survey areas
     numbered: True
     chapters:
-    - file: aare_sa_de
-    - file: linth_sa_de
-    - file: rhone_sa_de
-    - file: ticino_sa_de
-  - caption: Seen
+     - file: aare_sa
+     - file: linth_sa
+     - file: rhone_sa
+     - file: ticino_sa
+  - caption: Lakes
     numbered: True
     chapters:
-    - file: bielersee_de
-    - file: lac_leman_de
-    - file: neuenburgersee_de
-    - file: maggiore_lugano_de
-    - file: thunersee_brienzersee_de
-    - file: walensee_de
-    - file: zurichsee_de
-  - caption: Verstehen
+    - file: bielersee
+    - file: lac_leman
+    - file: neuenburgersee
+    - file: maggiore_lugano
+    - file: thunersee_brienzersee
+    - file: walensee
+    - file: zurichsee
+  - caption: Understand
     numbered: True
     chapters:
-    - file: baselines_de
-    - file: key_indicators_de
-    - file: code_groups_de
-    - file: land_use_correlation_de
-    - file: references
-  - caption: Anwendungen
+      - file: baselines
+      - file: key_indicators
+      - file: code_groups
+      - file: land_use_correlation
+      - file: references
+  - caption: Application
     numbered: True
     chapters:
-    - file: reuse_remake
-    - file: shared_responsibility_de
-    - file: slr_2017_de
+      - file: reuse_remake
+      - file: shared_responsibility
+      - file: slr_2017
 
 
