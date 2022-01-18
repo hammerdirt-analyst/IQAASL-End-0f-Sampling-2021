@@ -669,7 +669,6 @@ def display_image_ipython(file_location, thumb=(1200, 700), rotate=0):
 
 
     else:
-      print("rotate")
       im.thumbnail(thumb)
       im.rotate(rotate)
 

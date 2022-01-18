@@ -1,0 +1,5 @@
+Umfrage/n:Erhebung/en
+Umfrageergebnisse/s: Erhebungsergebnis/ses
+Umfragejahres: Erhebungsjahres
+Umfragesumme/n:Erhebungssumme/n
+

@@ -2,7 +2,9 @@
 
 __Edition 1__ ver=1d
 
-_Map of survey locations April 2020 - July 2021_
+<a href="titlepage.html" > English </a>
+
+_Karte der Erhebungsorte März 2020 - August 2021_
 :::{image} resources/maps/intro_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
@@ -41,5 +43,3 @@ __Unterstützungsgruppe:__ Christian Ludwig (EPFL/PSI), Montserrat Filella (UNIG
 __Übersetzung:__ Helen Kurukulasuriya, Bettina Siegenthaler 
 
 __Besonderer Dank:__ Hubert Heldner, Kurt Chanton, Marcel Regamey, Bhavish Patel, Olivier Kressmann, Laurent Thurnheer, Jean Baptiste-Dussaussois
-
-:::
