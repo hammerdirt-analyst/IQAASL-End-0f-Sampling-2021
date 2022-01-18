@@ -139,7 +139,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="rhone_sa.html">
-   5. Rhône survey area
+   5. Rhone survey area
   </a>
  </li>
  <li class="toctree-l1">
@@ -461,7 +461,39 @@
                 
   <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys, file and nav packages:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># This is a report using the data from IQAASL.</span>
+<span class="c1"># IQAASL was a project funded by the Swiss Confederation</span>
+<span class="c1"># It produces a summary of litter survey results for a defined region.</span>
+<span class="c1"># These charts serve as the models for the development of plagespropres.ch</span>
+<span class="c1"># The data is gathered by volunteers.</span>
+<span class="c1"># Please remember all copyrights apply, please give credit when applicable</span>
+<span class="c1"># The repo is maintained by the community effective January 01, 2022</span>
+<span class="c1"># There is ample opportunity to contribute, learn and teach</span>
+<span class="c1"># contact dev@hammerdirt.ch</span>
+
+<span class="c1"># Dies ist ein Bericht, der die Daten von IQAASL verwendet.</span>
+<span class="c1"># IQAASL war ein von der Schweizerischen Eidgenossenschaft finanziertes Projekt.</span>
+<span class="c1"># Es erstellt eine Zusammenfassung der Ergebnisse der Littering-Umfrage für eine bestimmte Region.</span>
+<span class="c1"># Diese Grafiken dienten als Vorlage für die Entwicklung von plagespropres.ch.</span>
+<span class="c1"># Die Daten werden von Freiwilligen gesammelt.</span>
+<span class="c1"># Bitte denken Sie daran, dass alle Copyrights gelten, bitte geben Sie den Namen an, wenn zutreffend.</span>
+<span class="c1"># Das Repo wird ab dem 01. Januar 2022 von der Community gepflegt.</span>
+<span class="c1"># Es gibt reichlich Gelegenheit, etwas beizutragen, zu lernen und zu lehren.</span>
+<span class="c1"># Kontakt dev@hammerdirt.ch</span>
+
+<span class="c1"># Il s&#39;agit d&#39;un rapport utilisant les données de IQAASL.</span>
+<span class="c1"># IQAASL était un projet financé par la Confédération suisse.</span>
+<span class="c1"># Il produit un résumé des résultats de l&#39;enquête sur les déchets sauvages pour une région définie.</span>
+<span class="c1"># Ces tableaux ont servi de modèles pour le développement de plagespropres.ch</span>
+<span class="c1"># Les données sont recueillies par des bénévoles.</span>
+<span class="c1"># N&#39;oubliez pas que tous les droits d&#39;auteur s&#39;appliquent, veuillez indiquer le crédit lorsque cela est possible.</span>
+<span class="c1"># Le dépôt est maintenu par la communauté à partir du 1er janvier 2022.</span>
+<span class="c1"># Il y a de nombreuses possibilités de contribuer, d&#39;apprendre et d&#39;enseigner.</span>
+<span class="c1"># contact dev@hammerdirt.ch</span>
+
+<span class="c1"># sys, file and nav packages:</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 <span class="kn">import</span> <span class="nn">csv</span><span class="o">,</span> <span class="nn">json</span>
@@ -497,17 +529,18 @@
 </div>
 <div class="section" id="code-groups">
 <span id="codegroups"></span><h1><span class="section-number">16. </span>Code groups<a class="headerlink" href="#code-groups" title="Permalink to this headline">¶</a></h1>
-<p>The IQAASL project used the item codes and descriptions from the Marine Strategy Framework (MSFD) <em>master list</em> <span id="id1">[<a class="reference internal" href="references.html#id41">Han13</a>]</span>.  Item identification follows the protocols from the MSFD Technical Subgroup on Marine Litter. The master list was developed based on the categories of items used in a series of programs and is one of the most detailed, representing established EU protocols. There are 217 identification codes to classify all objects collected from a survey. The item codes begin with <em>G1</em> and end with <em>G217</em>.</p>
+<p><a href="baselines_de.html"> Deustch </a></p>
+<p>The IQAASL project used the item codes and descriptions from the Marine Strategy Framework (MSFD) master list  <span id="id1">[<a class="reference internal" href="references.html#id41">Han13</a>]</span>.      Item identification follows the protocols from the MSFD Technical Subgroup on Marine Litter. The master list was developed based on the categories of items used in a series of programs and is one of the most detailed, representing established EU protocols. There are 217 identification codes to classify all objects collected from a survey. The item codes begin with G1 and end with G217.</p>
 <div class="section" id="accounting-for-regional-objects">
 <h2><span class="section-number">16.1. </span>Accounting for regional objects<a class="headerlink" href="#accounting-for-regional-objects" title="Permalink to this headline">¶</a></h2>
-<p>There are items identified regularly in Switzerland that do not appear in the <em>master list</em>. To account for this 43 codes were added to the master list under the <em>parent code</em> G124. These codes begin with G900 and end with G999.</p>
-<p>Some MSFD codes such as G124 <em>other plastic/polystyrene items, identifiable</em> allows for quantification of unlisted identifiable plastic items. An added item such as G913 <em>pacifier</em> can be quantified independently and linked to the MSFD code G124. This work is done at the server and the data can be analyzed using either form.</p>
+<p>There are items identified regularly in Switzerland that do not appear in the master list. To account for this 43 codes were added to the master list under the parent code G124. These codes begin with G900 and end with G999.</p>
+<p>Some MSFD codes such as G124 other plastic/polystyrene items, identifiable allows for quantification of unlisted identifiable plastic items. An added item such as G913 pacifier can be quantified independently and linked to the MSFD code G124. This work is done at the server and the data can be analyzed using either form.</p>
 <p>Identifiable plastic objects were either attributed to an additional code such as G913, or if no other code described the item then G124 was used. Some codes were included to capture pandemic related items such as:</p>
 <ul class="simple">
 <li><p>G901 Mask medical, synthetic (Parent code (G124) other plastic/polystyrene items identifiable)</p></li>
 <li><p>G902 Mask medical, cloth (Parent code (G145) other textiles)</p></li>
 </ul>
-<p><strong>Codes and parent codes:</strong> accounting for regional differences. G902 is linked to G145 by the value in the column <strong>parent_code</strong>. G937 is linked to G124 by the parent code.</p>
+<p><strong>Codes and parent codes:</strong> accounting for regional differences. G902 is linked to G145 by the value in the column parent_code. G937 is linked to G124 by the parent code.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregated survey data</span>
@@ -607,7 +640,7 @@ or narrowing of item descriptions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/code_groups_6_0.png" src="_images/code_groups_6_0.png" />
+<img alt="_images/code_groups_4_0.png" src="_images/code_groups_4_0.png" />
 </div>
 </div>
 <p><em>Various sizes of plastic pieces</em></p>
@@ -653,7 +686,7 @@ narrowed for G81, G82, and G83 polystyrene pieces to expanded polystyrene (EPS) 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rotate
 </pre></div>
 </div>
-<img alt="_images/code_groups_10_1.png" src="_images/code_groups_10_1.png" />
+<img alt="_images/code_groups_8_1.png" src="_images/code_groups_8_1.png" />
 </div>
 </div>
 <p><em>Various sizes of white expanded polystyrene and other foamed plastics</em></p>
@@ -732,7 +765,7 @@ narrowed for G81, G82, and G83 polystyrene pieces to expanded polystyrene (EPS) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/code_groups_14_0.png" src="_images/code_groups_14_0.png" />
+<img alt="_images/code_groups_12_0.png" src="_images/code_groups_12_0.png" />
 </div>
 </div>
 </div>
@@ -790,7 +823,7 @@ narrowed for G81, G82, and G83 polystyrene pieces to expanded polystyrene (EPS) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/code_groups_16_0.png" src="_images/code_groups_16_0.png" />
+<img alt="_images/code_groups_14_0.png" src="_images/code_groups_14_0.png" />
 </div>
 </div>
 <p><em>Material grouping examples</em></p>
@@ -1128,7 +1161,7 @@ Over the course of a survey, visible micro items are collected with the lager ma
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/code_groups_25_0.png" src="_images/code_groups_25_0.png" />
+<img alt="_images/code_groups_23_0.png" src="_images/code_groups_23_0.png" />
 </div>
 </div>
 <p><em>Various sizes of foamed plastics; XPS, EPS, and spray foams SPF along Swiss shorelines</em></p>
@@ -2680,7 +2713,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/code_groups_43_0.png" src="_images/code_groups_43_0.png" />
+<img alt="_images/code_groups_41_0.png" src="_images/code_groups_41_0.png" />
 </div>
 </div>
 <p><em>Various sizes of plastic pieces</em></p>

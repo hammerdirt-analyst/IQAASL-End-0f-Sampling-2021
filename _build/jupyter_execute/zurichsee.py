@@ -83,7 +83,8 @@ this_level = 'city'
 this_bassin = "linth"
 bassin_label ="Linth/Limmat survey area"
 
-lakes_of_interest = [ ']
+lakes_of_interest = ["zurichsee"]
+
 
 # explanatory variables:
 luse_exp = ["% buildings", "% recreation", "% agg", "% woods", "streets km", "intersects"]
@@ -161,8 +162,10 @@ code_material_map = dfCodes.material
 
 # (zurichsee)=
 # # Zurichsee
+# 
+# <a href="zurichsee_de.html"> Deutsch </a>
 
-# *Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021*
 
 # In[2]:
 
@@ -715,7 +718,6 @@ data_table[bassin_label] = sut.aggregate_to_group_name(fd, unit_label=unit_label
 data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, column="groupname", name=top, val="pt")
 
 data = data_table
-# data.rename(columns={x:wname_wname.loc[x][0] for x in data.columns[:-2]}, inplace=True)
 
 fig, ax = plt.subplots(figsize=(10,10))
 

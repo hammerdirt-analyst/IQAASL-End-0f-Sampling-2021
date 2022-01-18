@@ -84,6 +84,8 @@ code_material_map = dfCodes.material
 # (luseprofilede)=
 # # Das Profil der Landnutzung
 # 
+# <a href="land_use_correlation.html" > English </a>
+# 
 # Das Bodennutzungsprofil ist eine numerische Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität um den Erhebungsort. Das Profil wird anhand von Daten berechnet, die in Kartenschichten gespeichert sind, die im [Geoportal des Bundes](https://www.geo.admin.ch/) und im [Bundesamt für Statistik](https://www.bfs.admin.ch/bfs/en/home.html)verfügbar sind. 
 # 
 # Abfallobjekte sind eine Sammlung von weggeworfenen Gegenständen, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Datenerhebungen Ergebnisse berücksichtigt werden muss. {cite}`aydin` {cite}`grelaud`
@@ -285,7 +287,7 @@ plt.show()
 # 
 # Die Bevölkerung (nicht gezeigt) stammt aus statpop 2018 und stellt die Bevölkerung der Gemeinde dar, die den Erhebungsort umgibt. Die kleinste Einwohnerzahl betrug 442 und die größte 415.367. Von den gesamten Datenerhebungen stammen 50% aus Gemeinden mit einer Einwohnerzahl von mindestens 12.812. 
 
-# ### Auswahl der Datenerhebungsorte¶ 
+# ### Auswahl der Datenerhebungsorte
 # 
 # Die Standorte der Datenerhebungen wurden anhand der folgenden Kriterien ausgewählt: 
 # 
@@ -403,7 +405,7 @@ plt.show()
 
 # Betrachtet man die Datenerhebungen Ergebnisse für Zigarettenstummel in Bezug auf den prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ist der Wert von rho entgegengesetzt.  
 
-# ### Association of survey totals to land use
+# ### Zuordnung der Erhebungssummen zur Bodennutzung
 
 # *Ergebnisse des Spearmans-Rangkorrelationstests: Summen der Datenerhebungen in Bezug auf das Landnutzungsprofil*
 
@@ -511,7 +513,7 @@ for i,code in enumerate(mcc.index):
         ax.tick_params(axis='both', which='both',bottom=False,top=False,labelbottom=False, labelleft=False, left=False)
        
         if i == 0:
-            ax.set_title(F"{n}")
+            ax.set_title(F"{luse_ge[n]}")
         else:
             pass
         
@@ -553,7 +555,7 @@ plt.show()
 # 
 # * Vorübergehend: niedrige Fail-Pass Rate, hohe Menge, hohe Stückzahl pro Meter, wenige Verbände. Gelegentlich in großen Mengen an bestimmten Orten gefunden 
 
-# Diskussion 
+# ## Diskussion 
 # 
 # Insgesamt war es wahrscheinlich, dass Datenerhebungen an Orten mit mehr Gebäuden und Erholungsgebieten die Anhäufung von Gegenständen an der Küste begünstigten. Betrachtet man die häufigsten Gegenstände, so wurden nur vier der zwölf Gegenstände in Anwesenheit von mehr Gebäuden häufiger identifiziert. Dabei handelt es sich in der Regel um Gegenstände, die mit dem Verzehr von Lebensmitteln und/oder Tabak in der Nähe des Ortes zusammenhängen. Das deutet darauf hin, dass in stark frequentierten Gebieten in Wassernähe noch einiges an Vorbeugung und Abschwächung möglich ist. 
 # 
@@ -573,9 +575,9 @@ plt.show()
 # * Industriepellets 
 # * expandierte Schaumstoffe < 5mm 
 # 
-# Diese Objekte werden in großen Mengen sporadisch an bestimmten Orten gefunden. Sie wurden in allen Untersuchungsgebieten und in allen Seen identifiziert. Industriepellets haben einen sehr spezifischen Verwendungszweck und Kundenstamm, so dass es möglich ist, auf der Grundlage der Dichte und des Standorts der identifizierten Pellets und des Standorts des nächstgelegenen Verbrauchers oder Herstellers von Pellets, siehe[Gemeinsame Verantwortung](transport), die Quelle zu bestimmen und die Auswirkungen zu verringern.
+# Diese Objekte werden in großen Mengen sporadisch an bestimmten Orten gefunden. Sie wurden in allen Untersuchungsgebieten und in allen Seen identifiziert. Industriepellets haben einen sehr spezifischen Verwendungszweck und Kundenstamm, so dass es möglich ist, auf der Grundlage der Dichte und des Standorts der identifizierten Pellets und des Standorts des nächstgelegenen Verbrauchers oder Herstellers von Pellets, siehe [Gemeinsame Verantwortung](transportde), die Quelle zu bestimmen und die Auswirkungen zu verringern.
 # 
-# ### Anwendung¶ 
+# ### Anwendung
 # 
 # Die Anzahl der Stichproben, die verwendet werden, um eine Assoziation mit Spearmans zu bestimmen, muss vorsichtig sein.  
 # 

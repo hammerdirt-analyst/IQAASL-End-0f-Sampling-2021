@@ -4,6 +4,38 @@
 # In[1]:
 
 
+# -*- coding: utf-8 -*-
+
+# This is a report using the data from IQAASL.
+# IQAASL was a project funded by the Swiss Confederation
+# It produces a summary of litter survey results for a defined region.
+# These charts serve as the models for the development of plagespropres.ch
+# The data is gathered by volunteers.
+# Please remember all copyrights apply, please give credit when applicable
+# The repo is maintained by the community effective January 01, 2022
+# There is ample opportunity to contribute, learn and teach
+# contact dev@hammerdirt.ch
+
+# Dies ist ein Bericht, der die Daten von IQAASL verwendet.
+# IQAASL war ein von der Schweizerischen Eidgenossenschaft finanziertes Projekt.
+# Es erstellt eine Zusammenfassung der Ergebnisse der Littering-Umfrage für eine bestimmte Region.
+# Diese Grafiken dienten als Vorlage für die Entwicklung von plagespropres.ch.
+# Die Daten werden von Freiwilligen gesammelt.
+# Bitte denken Sie daran, dass alle Copyrights gelten, bitte geben Sie den Namen an, wenn zutreffend.
+# Das Repo wird ab dem 01. Januar 2022 von der Community gepflegt.
+# Es gibt reichlich Gelegenheit, etwas beizutragen, zu lernen und zu lehren.
+# Kontakt dev@hammerdirt.ch
+
+# Il s'agit d'un rapport utilisant les données de IQAASL.
+# IQAASL était un projet financé par la Confédération suisse.
+# Il produit un résumé des résultats de l'enquête sur les déchets sauvages pour une région définie.
+# Ces tableaux ont servi de modèles pour le développement de plagespropres.ch
+# Les données sont recueillies par des bénévoles.
+# N'oubliez pas que tous les droits d'auteur s'appliquent, veuillez indiquer le crédit lorsque cela est possible.
+# Le dépôt est maintenu par la communauté à partir du 1er janvier 2022.
+# Il y a de nombreuses possibilités de contribuer, d'apprendre et d'enseigner.
+# contact dev@hammerdirt.ch
+
 # sys, file and nav packages:
 import datetime as dt
 
@@ -28,7 +60,6 @@ import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
-# import base64, io, IPython
 from PIL import Image as PILImage
 from IPython.display import Markdown as md
 from IPython.display import display 
@@ -60,17 +91,14 @@ survey_data = pd.read_csv("resources/agg_results_with_land_use_2015.csv")
 dfBeaches = pd.read_csv("resources/beaches_with_land_use_rates.csv")
 dfCodes = pd.read_csv("resources/codes_with_group_names_2015.csv")
 
-# there is a misspelling in survey data
-survey_data.rename(columns={"% to agg":"% to ag"}, inplace=True)
-
 # a common aggregation
 agg_pcs_quantity = {unit_label:"sum", "quantity":"sum"}
 
 # reference columns
-use_these_cols = ["survey year","loc_date" ,"% to buildings", "% to trans", "% to recreation", "% to ag", "% to woods","population","water_name_slug","streets km", "intersects", "groupname","code"]
+use_these_cols = ["survey year","loc_date" ,"% to buildings", "% to trans", "% to recreation", "% to agg", "% to woods","population","water_name_slug","streets km", "intersects", "groupname","code"]
 
 # explanatory variables:
-luse_exp = ["% to buildings", "% to recreation", "% to ag", "% to woods", "streets km", "intersects"]
+luse_exp = ["% to buildings", "% to recreation", "% to agg", "% to woods", "streets km", "intersects"]
 
 # lakes that have samples in both years
 these_lakes = ["zurichsee", "bielersee", "lac-leman", "neuenburgersee", "walensee", "thunersee"]
@@ -81,7 +109,39 @@ dfBeaches.set_index("slug", inplace=True)
 # index the code data
 dfCodes.set_index("code", inplace=True)
 
-dfCodes =  sut.shorten_the_value(["G178", "description", "metal bottle tops"], dfCodes)
+# the surveyor designated the object as aluminum instead of metal
+dfCodes.loc["G708", "material"] = "Metal"
+
+# language specific
+# importing german code descriptions
+de_codes = pd.read_csv("resources/codes_german_Version_1.csv")
+de_codes.set_index("code", inplace=True)
+
+for x in dfCodes.index:
+    dfCodes.loc[x, "description"] = de_codes.loc[x, "german"]
+
+# there are long code descriptions that may need to be shortened for display
+codes_to_change = [
+    ["G704", "description", "Seilbahnbürste"],
+    ["Gfrags", "description", "Fragmentierte Kunststoffstücke"],
+    ["G30", "description", "Snack-Verpackungen"],
+    ["G124", "description", "Kunststoff-oder Schaumstoffprodukte"],
+    ["G87", "description", "Abdeckklebeband/Verpackungsklebeband"],
+    ["G178","description","Flaschenverschlüsse aus Metall"],
+    ["G3","description","Einkaufstaschen, Shoppingtaschen"],
+    ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
+    ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
+    ["G211", "description", "Sonstiges medizinisches Material"],
+    ["G904", "description", "Feuerwerkskörper; Raketenkappen"],
+    ["G940", "description", "Schaumstoff EVA (flexibler Kunststoff)"]
+]
+
+# apply changes
+for x in codes_to_change:
+    dfCodes = sut.shorten_the_value(x, dfCodes)
+
+# translate the material column
+dfCodes["material"] = dfCodes.material.map(lambda x: sut.mat_ge[x]) 
 
 # make a map to the code descriptions
 code_description_map = dfCodes.description
@@ -92,6 +152,8 @@ code_material_map = dfCodes.material
 
 # (slr-iqaaslde)=
 # # Mehr und weniger seit 2018
+# 
+# <a href="slr_2017.html"> English </a>
 # 
 # Der erste nationale Strandabfallbericht wurde 2018 erstellt. Der Swiss Litter Report (SLR) war ein Projekt, das von Gabriele Kuhl {cite}`stoppp`  initiiert und vom World Wildlife Fund Schweiz {cite}`wwf`unterstützt wurde. Das Protokoll basierte auf dem Leitfaden für die Überwachung von Meeresmül{cite}`mlwguidance`, das Projekt wurde vom WWF geleitet und die Erhebungen wurden von Freiwilligen beider Organisationen durchgeführt. Das Projekt begann im April 2017 und endete im März 2018. Die SLR deckte einen Großteil des nationalen Territoriums ab, mit Ausnahme der Region Tessin
 # 
@@ -170,12 +232,12 @@ df["streets km"] = (df.streets/1000).round(1)
 # 
 # Das Landnutzungsprofil sind die messbaren Eigenschaften, die geolokalisiert sind und aus den aktuellen Versionen von Statistique Suisse de la superficie {cite}`superficie` und swissTlmRegio {cite}`tlmregio`. extrahiert werden können. Das Landnutzungsprofil ist eine Schätzung der Art und des Umfangs der wirtschaftlichen Aktivität in der Nähe der Erhebungsorte. Die folgenden Werte wurden in einem Radius von 1500 m um jeden Erhebungsort berechnet:
 # 
-# 1. % der Fläche, die auf Gebäude entfällt 
-# 2. % der Fläche, die dem Wald vorbehalten ist 
-# 3. % der Fläche, die für Aktivitäten im Freien genutzt wird 
-# 4. % der Fläche, die der Landwirtschaft zugeschrieben wird
-# 5. % Länge aller Fahrbahnen in Metern 
-# 6. % Anzahl der Abflussschnittpunkte des Flusses 
+# 1. \% der Fläche, die auf Gebäude entfällt 
+# 2. \% der Fläche, die dem Wald vorbehalten ist 
+# 3. \% der Fläche, die für Aktivitäten im Freien genutzt wird 
+# 4. \% der Fläche, die der Landwirtschaft zugeschrieben wird
+# 5. \% Länge aller Fahrbahnen in Metern 
+# 6. \% Anzahl der Abflussschnittpunkte des Flusses 
 # 
 # Mit Stand vom 22. Juni waren die 2021,Landnutzungsdaten für Walensee nicht mehr aktuell. Walensse wurde geschätzt, indem die relevanten Kartenebenen visuell inspiziert und die Landnutzungsraten mit denen anderer Orte mit ähnlicher Bevölkerungszahl verglichen wurden. Einzelheiten zu dieser Berechnung und warum sie wichtig ist, finden Sie unte [_Landnutzungsprofil_](luseprofilede).
 
@@ -188,7 +250,7 @@ df["streets km"] = (df.streets/1000).round(1)
 # the land use profile of grand-clos - lac-leman was used for other locations on walensee (more woods, less buildings, less praire and agg)
 luse_wstdt = dfBeaches.loc["wycheley"][["population","% to buildings", "% to trans", "% to recreation", "% to agg", "% to woods"]]
 estimate_luse = dfBeaches.loc["grand-clos"][["population","% to buildings", "% to trans", "% to recreation", "% to agg", "% to woods"]]
-
+lu = sut.luse_ge
 # seperate out the locations that aren"t walenstadt
 wlsnsee_locs_not_wstdt = ["gasi-strand", "untertenzen", "mols-rocks", "seeflechsen", "seemuhlestrasse-strand", "muhlehorn-dorf", "murg-bad", "flibach-river-right-bank"]
 
@@ -220,27 +282,27 @@ for i, n in enumerate(luse_exp):
     sns.lineplot(x=the_data2.x, y=the_data2.y, ax=ax, color=this_palette["2020"], label="IQAASL")
     
     # plot the median and drop horzontal and vertical lines
-    ax.scatter([the_median], 0.5, color=this_palette["2018"],s=50, linewidth=2, zorder=100, label="the median SLR")
+    ax.scatter([the_median], 0.5, color=this_palette["2018"],s=50, linewidth=2, zorder=100, label="Median SLR")
     ax.vlines(x=the_median, ymin=0, ymax=0.5, color=this_palette["2018"], linewidth=1)
     ax.hlines(xmax=the_median, xmin=0, y=0.5, color=this_palette["2018"], linewidth=1)
     
     # plot the median and drop horzontal and vertical lines
-    ax.scatter([median_two], 0.5, color=this_palette["2020"],s=50, linewidth=2, zorder=100, label="the median IQAASL")
+    ax.scatter([median_two], 0.5, color=this_palette["2020"],s=50, linewidth=2, zorder=100, label="Median IQAASL")
     ax.vlines(x=median_two, ymin=0, ymax=0.5, color=this_palette["2020"], linewidth=1)
     ax.hlines(xmax=median_two, xmin=0, y=0.5, color=this_palette["2020"], linewidth=1)
     if i == 0:
         ax.get_legend().remove()
-        ax.set_ylabel("Percent of samples", **ck.xlab_k)
+        ax.set_ylabel("Prozent der Standorte", **ck.xlab_k)
     else:
         ax.get_legend().remove()
-    ax.set_xlabel(n, **ck.xlab_k)
+    ax.set_xlabel(lu[n], **ck.xlab_k)
     
 handles, labels=ax.get_legend_handles_labels()
 
 plt.subplots_adjust(top=.9)
-plt.suptitle("% land use within 1500m of the survey location", ha="left", x=0.05, y=.97, fontsize=14)    
+plt.suptitle("% Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="left", x=0.05, y=.97, fontsize=14)    
 plt.tight_layout()
-fig.legend(handles, labels, bbox_to_anchor=(.9,1), loc="upper right", ncol=4)
+fig.legend(handles, labels, bbox_to_anchor=(.99,.99), loc="upper right", ncol=4)
 
 plt.show()
 
@@ -279,9 +341,6 @@ l2020 = data[(data.water_name_slug.isin(these_lakes))&(data["survey year"] == "2
 ecdf_2017l = ECDF(l2017[unit_label].values)
 ecdf_2020l = ECDF(l2020[unit_label].values)
 
-# convenience func and dict to display table values
-change_names = {"count":"# samples", "mean":F"average {unit_label}", "std":"standard deviation", "min":F"min {unit_label}",  "25%":"25%",  "50%":"50%", "75%":"75%", "max":F"max {unit_label}", "min":"min p/100", "total objects":"total objects", "# locations":"# locations", "survey year":"survey year"}
-
 # group by survey year and use pd.describe to get basic stats
 som_1720 = data.groupby("survey year")[unit_label].describe().round(2)
 
@@ -290,18 +349,14 @@ som_1720["total objects"] = som_1720.index.map(lambda x: df[df["survey year"] ==
 som_1720["# locations"] = som_1720.index.map(lambda x: df[df["survey year"] == x].location.nunique())
 
 # make columns names more descriptive
-som_1720.rename(columns=(change_names), inplace=True)
+som_1720.rename(columns=(sut.create_summary_table_index(unit_label, lang="DE")), inplace=True)
 ab = som_1720.reset_index()
 
 # melt that on survey year
 c_s = ab.melt(id_vars=["survey year"])
 
 # pivot on survey year
-combined_summary = c_s.pivot(columns="survey year", index="variable", values="value").reset_index()
-
-# format for printing
-combined_summary["2018"] = combined_summary["2018"].map(lambda x: F"{int(x):,}")
-combined_summary["2020"] = combined_summary["2020"].map(lambda x: F"{int(x):,}")
+combined_summary = c_s.pivot(columns="variable", index="survey year")
 
 # change the index to date
 data.set_index("date", inplace=True)
@@ -342,10 +397,10 @@ axtwo.set_xlabel(" ")
 axtwo.set_ylabel(unit_label, **ck.xlab_k14)
 axtwo.set_ylim(-10, the_90th)
 
-axthree.set_ylabel("# of samples", **ck.xlab_k14)
+axthree.set_ylabel("# der Erhebungen", **ck.xlab_k14)
 axthree.set_xlabel(unit_label, **ck.xlab_k)
 
-axfour.set_ylabel("% of samples", **ck.xlab_k14)
+axfour.set_ylabel("% der Erhebungen", **ck.xlab_k14)
 axfour.set_xlabel(unit_label, **ck.xlab_k)
 
 # histogram data:
@@ -353,26 +408,26 @@ data_long = pd.melt(data[["survey year", "loc_date", unit_label]],id_vars=["surv
 data_long["year_bin"] = np.where(data_long["survey year"] == "2018", 0, 1)
 
 # scatter plot of surveys both years
-sns.scatterplot(data=data, x="date", y="p/100m", color="red", s=10, ec="black",label="survey total", hue="survey year", palette=this_palette, ax=axone)
-# sns.scatterplot(data=data[data.water_name_slug.isin(these_lakes)], x="date", y="p/100m", color="red", s=34, ec="white",label="survey total", hue="survey year", palette= this_palettel, ax=axone)
+sns.scatterplot(data=data, x="date", y="p/100m", color="red", s=10, ec="black",label="Erhebungsjahr", hue="survey year", palette=this_palette, ax=axone)
 axone.legend(loc="upper center")
 
 # monthly median
-sns.lineplot(data=months_2017, x="month", y=unit_label, color=this_palette["2018"], label=F"Monthly median:2018", ax=axtwo)
-sns.lineplot(data=months_2020, x="month", y=unit_label, color=this_palette["2020"], label=F"Monthly median:2020", ax=axtwo)
+sns.lineplot(data=months_2017, x="month", y=unit_label, color=this_palette["2018"], label=F"2018", ax=axtwo)
+sns.lineplot(data=months_2020, x="month", y=unit_label, color=this_palette["2020"], label=F"2020", ax=axtwo)
 
 # histogram
-sns.histplot(data=data_long, x="survey total", hue="survey year", stat="count", multiple="stack",palette=this_palette, ax=axthree, bins=[x*20 for x in np.arange(80)])
+axthree = sns.histplot(data=data_long, x="survey total", hue="survey year", legend=True, stat="count", multiple="stack",palette=this_palette, ax=axthree, bins=[x*20 for x in np.arange(80)])
+axthreel = axthree.get_legend()
+axthreel.set_title(" ")
 
 # empirical cumulative distribution
-sns.lineplot(x=ecdf_2017.x, y=ecdf_2017.y, ax=axfour, color=this_palette["2018"], label="survey results 2018")
-sns.lineplot(x=ecdf_2020.x, y=ecdf_2020.y, ax=axfour, color=this_palette["2020"], label="survey results 2020")
-
+sns.lineplot(x=ecdf_2017.x, y=ecdf_2017.y, ax=axfour, color=this_palette["2018"], label="2018")
+sns.lineplot(x=ecdf_2020.x, y=ecdf_2020.y, ax=axfour, color=this_palette["2020"], label="2020")
 
 axfour.xaxis.set_major_locator(ticker.MultipleLocator(1000)) 
 axfour.xaxis.set_minor_locator(ticker.MultipleLocator(100)) 
 
-axfour.legend(loc="center right")
+axfour.legend(loc="center right", title="Erhebungsjahr")
 axfour.tick_params(which="both", bottom=True)
 axfour.grid(b=True, which="minor",linewidth=0.5)
 
@@ -385,6 +440,24 @@ plt.show()
 
 # In[6]:
 
+
+# format for printing
+combined_summary.columns = combined_summary.columns.get_level_values(1)
+col_rder = ['Anzahl der Standorte',
+    '# Erhebungen',
+    'Durchschnitt p/100m',
+    'Standardfehler',
+    'min p/100m',
+    '25%',
+    '50%',
+    '75%',
+    'max p/100m',
+    'Totalobjekte'
+]
+cy = combined_summary[col_rder]
+c = cy.T.reset_index()
+
+c[["2018", "2020"]] = c[["2018", "2020"]].astype("int")
 
 # material totals
 mat_total = df.groupby(["survey year", "code"], as_index=False).quantity.sum()
@@ -412,7 +485,7 @@ m_t = mat_total[["survey year","mat", "quantity", "pt"]].pivot(columns="survey y
 m_t.rename(columns={"mat":"material", "pt":"% of total"}, inplace=True)
 
 # put that in a table
-fig, axs = plt.subplots(1, 2, figsize=(10,6))
+fig, axs = plt.subplots(1, 2, figsize=(10.5,6))
 
 axone = axs[0]
 axtwo= axs[1]
@@ -421,14 +494,13 @@ axtwo= axs[1]
 sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
 
-# summary data table
-a_table = axone.table(cellText=combined_summary.values,  colLabels=combined_summary.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,combined_summary,combined_summary.columns, s_et_bottom_row=True)
+a_table = sut.make_a_table(axone, c.values,  colLabels=c.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
 
 # material totals
 a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
-
+plt.tight_layout()
 plt.show()
 
 
@@ -479,8 +551,8 @@ emp_p = np.count_nonzero(new_medians <= observed_dif )/ 5000
 fig, ax = plt.subplots()
 
 sns.histplot(new_medians, ax=ax)
-ax.set_title(F"observed $\u0394\mu$ = {np.round(observed_dif, 2)}, perm=5000, p={emp_p} ", **ck.title_k14)
-ax.set_ylabel("permutations", **ck.xlab_k14)
+ax.set_title(F"$\u0394\mu$ = {np.round(observed_dif, 2)}, perm=5000, p={emp_p} ", **ck.title_k14)
+ax.set_ylabel("Permutationen", **ck.xlab_k14)
 ax.set_xlabel("$\mu$ 2020 - $\mu$ 2018", **ck.xlab_k14)
 plt.show()
 
@@ -536,9 +608,9 @@ for i, som_data in enumerate([com_2017, com_2020]):
     table_data.append({chart_labels[i]:som_data})
 
 # the columns needed
-cols_to_use = {"item":"Item","quantity":"Quantity", "% of total":"% of total", "fail rate":"fail rate", unit_label:unit_label}
+cols_to_use = {"item":"Objekte","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"Pass fail", unit_label:unit_label}
 
-fig, axs = plt.subplots(1,2, figsize=(17,10*.8))
+fig, axs = plt.subplots(1,2, figsize=(17.2,10*.6))
 
 for i,this_table in enumerate(table_data):
     this_ax = axs[i]
@@ -554,7 +626,7 @@ plt.show()
 plt.close()
 
 
-# ## Ergebnisse Seen 2018 und 2020¶ 
+# ## Ergebnisse Seen 2018 und 2020
 # 
 # Die folgenden Seen wurden in beiden Projektjahren beprobt:
 # 
@@ -593,6 +665,12 @@ locs_lakes = lks_df[lks_df["survey year"] == "2020"].location.unique()
 
 
 # *__Oben links:__ Umfragesummen nach Datum, __oben rechts:__ Median der monatlichen Umfragesumme, __unten links:__ Anzahl der Stichproben in Bezug auf die Umfragesumme, __unten rechts:__ empirische kumulative Verteilung der Umfragesummen* 
+
+# In[ ]:
+
+
+
+
 
 # In[10]:
 
@@ -641,32 +719,35 @@ axone.xaxis.set_minor_locator(months)
 axone.xaxis.set_major_locator(years)
 
 axtwo.set_xlabel(" ")
-axtwo.set_ylabel("pieces of trash per 100m", **ck.xlab_k14)
+axtwo.set_ylabel(unit_label, **ck.xlab_k14)
 
-axthree.set_ylabel("nummber of surveys", **ck.xlab_k14)
-axthree.set_xlabel("pieces of trash per 100m", **ck.xlab_k)
+axthree.set_ylabel("# der Erhebungen", **ck.xlab_k14)
+axthree.set_xlabel(unit_label, **ck.xlab_k)
 axtwo.set_ylim(0, the_90th)
 
-axfour.set_ylabel("percent of surveys", **ck.xlab_k14)
-axfour.set_xlabel("pieces of trash per 100m", **ck.xlab_k)
+axfour.set_ylabel("% der Erhebungen", **ck.xlab_k14)
+axfour.set_xlabel(unit_label, **ck.xlab_k)
 
-# all samples scatter
-sns.scatterplot(data=data, x="date", y=unit_label, color="red", s=34, ec="white",label="survey total", hue="survey year", palette= this_palette, ax=axone)
+# scatter plot of surveys both years
+sns.scatterplot(data=data, x="date", y="p/100m", color="red", s=10, ec="black",label="Erhebungsjahr", hue="survey year", palette=this_palette, ax=axone)
+axone.legend(loc="upper center")
 
-# monthly medians
-sns.lineplot(data=monthly_2017, x="month", y=unit_label, color=this_palette["2018"], label=F"Monthly median:2018", ax=axtwo)
-sns.lineplot(data=monthly_2020, x="month", y=unit_label, color=this_palette["2020"],label=F"Monthly median:2020",  ax=axtwo)
+# monthly median
+sns.lineplot(data=monthly_2017, x="month", y=unit_label, color=this_palette["2018"], label=F"2018", ax=axtwo)
+sns.lineplot(data=monthly_2020, x="month", y=unit_label, color=this_palette["2020"], label=F"2020", ax=axtwo)
 
 # histogram of survey results
 sns.histplot(data=data_long, x="survey total", hue="survey year", stat="count", multiple="stack", palette=this_palette, ax=axthree)
+axthreel = axthree.get_legend()
+axthreel.set_title(" ")
 
 # ecdfs
-sns.lineplot(x=ecdf_2017_x, y=ecdf_2017_y, ax=axfour, color=this_palette["2018"], label="survey results 2018")
-sns.lineplot(x=ecdf_2020_x, y=ecdf_2020_y, ax=axfour, color=this_palette["2020"], label="survey results 2020")
+sns.lineplot(x=ecdf_2017_x, y=ecdf_2017_y, ax=axfour, color=this_palette["2018"], label="2018")
+sns.lineplot(x=ecdf_2020_x, y=ecdf_2020_y, ax=axfour, color=this_palette["2020"], label="2020")
 
 axfour.xaxis.set_major_locator(ticker.MultipleLocator(1000)) 
 axfour.xaxis.set_minor_locator(ticker.MultipleLocator(100)) 
-axfour.legend(loc="center right")
+axfour.legend(loc="center right", title="Erhebungsjahr")
 axfour.tick_params(which="both", bottom=True)
 axfour.grid(b=True, which="minor",linewidth=0.5)
 
@@ -689,18 +770,31 @@ som_1720["total objects"] = som_1720.index.map(lambda x: df[df["survey year"] ==
 som_1720["# locations"] = som_1720.index.map(lambda x: df[df["survey year"] == x].location.nunique())
 
 # make columns names more descriptive
-som_1720.rename(columns=(change_names), inplace=True)
+som_1720.rename(columns=(sut.create_summary_table_index(unit_label, lang="DE")), inplace=True)
 ab = som_1720.reset_index()
 
 # melt that on survey year
 c_s = ab.melt(id_vars=["survey year"])
 
 # pivot on survey year
-combined_summary = c_s.pivot(columns="survey year", index="variable", values="value").reset_index()
+combined_summary = c_s.pivot(columns="variable", index="survey year")
 
 # format for printing
-combined_summary["2018"] = combined_summary["2018"].map(lambda x: F"{int(x):,}")
-combined_summary["2020"] = combined_summary["2020"].map(lambda x: F"{int(x):,}")
+combined_summary.columns = combined_summary.columns.get_level_values(1)
+col_rder = ['Anzahl der Standorte',
+    '# Erhebungen',
+    'Durchschnitt p/100m',
+    'Standardfehler',
+    'min p/100m',
+    '25%',
+    '50%',
+    '75%',
+    'max p/100m',
+    'Totalobjekte'
+]
+cy = combined_summary[col_rder]
+c = cy.T.reset_index()
+c[["2018","2020"]] =  c[["2018", "2020"]].astype("int")
 
 # material totals
 mat_total = lks_df.groupby(["survey year", "code"], as_index=False).quantity.sum()
@@ -727,7 +821,7 @@ m_t = mat_total[["survey year","mat", "quantity", "pt"]].pivot(columns="survey y
 m_t.rename(columns={"mat":"material", "pt":"% of total"}, inplace=True)
 
 # put that in a table
-fig, axs = plt.subplots(1, 2, figsize=(10,8))
+fig, axs = plt.subplots(1, 2, figsize=(10.5,8))
 
 axone = axs[0]
 axtwo= axs[1]
@@ -736,8 +830,8 @@ sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
 
 # summary data table
-a_table = axone.table(cellText=combined_summary.values,  colLabels=combined_summary.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,combined_summary,combined_summary.columns, s_et_bottom_row=True)
+a_table = sut.make_a_table(axone, c.values,  colLabels=c.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
 
 # material totals
 a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
@@ -795,7 +889,7 @@ axthree_data = pivot_2017_2020["% of total"].sort_values(by="2018", ascending=Fa
 sns.heatmap(pivot_2017_2020[unit_label], cmap=cmap2, annot=True, fmt=".0f", annot_kws={"fontsize":12},  ax=axone, square=True, cbar=False, linewidth=.05,  linecolor="white")
 axone.tick_params(**dict(labeltop=True, labelbottom=True, pad=12, labelsize=12), **ck.no_xticks)
 axone.set_xlabel(" ")
-axone.set_title("median p/100m",**ck.title_k14r)
+axone.set_title("Median p/100m",**ck.title_k14r)
 
 # fail rate
 sns.heatmap(pivot_2017_2020["fail rate"], cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axtwo, square=True,  cbar=False, linewidth=.05,  linecolor="white")
@@ -809,7 +903,7 @@ sns.heatmap(pivot_2017_2020["% of total"], cmap=cmap2, annot=True, annot_kws={"f
 axthree.tick_params(**dict(labeltop=True, labelbottom=True, pad=12, labelsize=12), **ck.no_xticks)
 axthree.tick_params(labelleft=False, left=False)
 axthree.set_xlabel(" ")
-axthree.set_title("% of total", **ck.title_k14r)
+axthree.set_title("% Gesamt", **ck.title_k14r)
 
 for anax in [axone, axtwo, axthree]:
     anax.set_ylabel("")
@@ -819,7 +913,7 @@ plt.subplots_adjust(wspace=0.3)
 plt.show()
 
 
-# ### Differenz der durchschnittlichen Erhebungssumme¶ 
+# ### Differenz der durchschnittlichen Erhebungssumme
 # 
 # Bei der Betrachtung nur der Seen ist die Differenz der Mediane umgekehrt, es wurde 2020 weniger Abfall beobachtet als 2018 und die Differenz der Mittelwerte ist viel größer zugunsten von 2018. Das deutet darauf hin, dass auf der Ebene der Seen ein Rückgang der beobachteten Mengen zu verzeichnen war. 
 # 
@@ -868,7 +962,7 @@ ax.set_xlabel("$\mu$ 2020 - $\mu$ 2018", **ck.xlab_k14)
 plt.show()
 
 
-# ### Differenz der durchschnittlichen Erhebungssumme¶ 
+# ### Differenz der durchschnittlichen Erhebungssumme
 # 
 # Bei der Betrachtung nur der Seen ist die Differenz der Mediane umgekehrt, es wurde 2020 weniger Abfall beobachtet als 2018 und die Differenz der Mittelwerte ist viel größer zugunsten von 2018. Das deutet darauf hin, dass auf der Ebene der Seen ein Rückgang der beobachteten Mengen zu verzeichnen war. 
 # 
@@ -906,21 +1000,16 @@ for a_code in mcom:
     
     # store the test statisitc
     cdif = []
-#     invdif=[]
-    
-    # code data
+
     c_data = pre_shuffle[pre_shuffle.code == a_code].copy()
     for element in np.arange(perms):
         # shuffle labels
         c_data["new_class"] = c_data["survey year"].sample(frac=1).values
         b=c_data.groupby("new_class").mean()
         cdif.append((b.loc["2020"] - b.loc["2018"]).values[0])
-#         invdif.append((b.loc["2018"] - b.loc["2020"]).values[0])
-    
-    # calculate p
+
     emp_p = np.count_nonzero(cdif <= (observed_dif.loc[a_code])) / perms
-#     inv_p = np.count_nonzero(invdif >= (observed_dif.loc[a_code])) / perms
-    
+   
     # store that result
     new_means.append({a_code:{"p":emp_p,"difs":cdif}})    
 
@@ -941,8 +1030,7 @@ for i,code in enumerate(mcom):
     p=new_means[i][code]["p"]
    
     
-    # set the facecolor based on the p value
-    
+    # set the facecolor based on the p value    
     if p < 0.05:
         ax.patch.set_facecolor("palegoldenrod")
         ax.patch.set_alpha(0.5)        
@@ -1015,7 +1103,7 @@ for i,code in enumerate(mcom):
         ax.tick_params(axis="both", which="both",bottom=False,top=False,labelbottom=False, labelleft=False, left=False)
        
         if i == 0:
-            ax.set_title(F"{n}")
+            ax.set_title(F"{sut.luse_ge[n]}")
         else:
             pass
         
@@ -1038,7 +1126,7 @@ for i,code in enumerate(mcom):
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0, hspace=0)
-# plt.savefig(F"{project_directory}/test_one.jpg", dpi=300)
+
 plt.show()
 
 
@@ -1053,7 +1141,7 @@ plt.show()
 # 1. Allgegenwärtig: hohe Ausfallrate, hohe Stückzahl pro Meter. Im gesamten Untersuchungsgebiet in gleichbleibender Häufigkeit gefunden, unabhängig von der Landnutzung 
 # 2. Vorübergehend: geringe Ausfallrate, hohe Menge, hohe Stückzahl pro Meter, wenige Verbände. Gelegentlich in großen Mengen an bestimmten Orten gefunden  in large quantities at specific locations
 
-# ## Fazit¶ 
+# ## Fazit
 # 
 # __Per Saldo keine Änderung__ 
 # 
@@ -1078,7 +1166,7 @@ plt.show()
 # * Das 2020-Protokoll zählt alle sichtbaren Objekte und klassifiziert Fragmente nach Größe 
 # * Das Protokoll von 2018 beschränkte die Anzahl der Objekte auf Gegenstände, die größer oder gleich 2,5 cm lang waren
 # 
-# Die Gesamtmenge der im Jahr 2020 gesammelten Plastikteile beträgt 7.400 oder 18p/100m und 5.563 oder 5p/100m Schaumstofffragmente. Im Jahr 2020 wurden 3.662 Plastikteile zwischen 0,5 und 2,5 cm entfernt, was der Gesamtmenge von 2018 entspricht. Das Gleiche gilt für Schaumstoffteile zwischen 0,5 und 2,5 cm, siehe [_Lakes and rivers_](allsurveys). 
+# Die Gesamtmenge der im Jahr 2020 gesammelten Plastikteile beträgt 7.400 oder 18p/100m und 5.563 oder 5p/100m Schaumstofffragmente. Im Jahr 2020 wurden 3.662 Plastikteile zwischen 0,5 und 2,5 cm entfernt, was der Gesamtmenge von 2018 entspricht. Das Gleiche gilt für Schaumstoffteile zwischen 0,5 und 2,5 cm, siehe [_Seen und Flüsse_](allsurveysde). 
 # 
 # Der Unterschied im Protokoll und die Ergebnisse von lassen2020 Zweifel an der Wahrscheinlichkeit eines Rückgangs von fragmentierten Kunststoffen und geschäumten Kunststoffen von 2018 bis 2020 aufkommen. Geschäumte Kunststoffe und fragmentierte Kunststoffe sind Gegenstände, deren ursprüngliche Verwendung unbekannt ist, aber das Material kann unterschieden werden. __Fragmentierte Kunststoffe und Schaumstoffe, die größer als 0,5 cm sind, machen 27 % der gesamten Erhebungsergebnisse für die Seen im Jahr 2020 aus.__ Studien im Maas-/Rheindelta zeigen, dass diese kleinen, fragmentierten Objekte einen großen Teil des Gesamtaufkommens ausmachen {cite}`meuserhine`.
 # 
@@ -1094,7 +1182,7 @@ plt.show()
 # 
 # All diese Themen sollten bei jedem Projekt berücksichtigt werden, ebenso wie der Umgang mit den Daten. Ungeachtet der Unterschiede konnten wir auf dem vom SLR vorgeschlagenen Modell aufbauen und zu den gemeinsamen Erfahrungen beitragen. 
 # 
-# ### Plastikdeckel¶ 
+# ### Plastikdeckel
 # 
 # 1. Kunststoffdeckel werden bei der Zählung in drei Kategorien eingeteilt: 
 # 2. Essen, Trinken 
@@ -1103,13 +1191,13 @@ plt.show()
 # 
 # Als Gruppe machen Kunststoffdeckel 2 % der gesamten Objekte im Jahr 2018 und 3 % im Jahr 2020 aus. Getränkedeckel machten ~51% aller gefundenen Deckel im Jahr 2018 aus, 45% im Jahr 2020. Auf der Basis von Stücken pro Meter gab es eine Abnahme der Menge an Getränkedeckeln und eine Zunahme von Nicht-Getränkedeckeln von 2018 - 2020. 
 # 
-# ### Landnutzungsprofil¶ 
+# ### Landnutzungsprofil
 # 
 # Das Flächennutzungsprofil für jeden Standort wurde unter Verwendung derselben Daten für beide Jahre berechnet. Wenn die Umfrageergebnisse aus beiden Jahren als Gruppe betrachtet werden, unterstützen die Ergebnisse von Spearmans 𝜌 die SLR-Schlussfolgerungen im Jahr 2018, dass die Umfrageergebnisse in städtischen und vorstädtischen Umgebungen erhöht waren, und dies galt auch für 2020. Gleichzeitig war die in [Das Flächennutzungsprofil](luseprofilede) festgestellte Allgegenwärtigkeit von zerkleinerten Kunststoffen, Industriefolien und Schaumstoffen im Jahr 2018 wahrscheinlich vorherrschend. 
 # 
 # Bei den Flächen, die Freizeitaktivitäten zugeschrieben werden, handelt es sich um Orte in der Nähe des Erhebungsortes, die dazu bestimmt sind, Gruppen von Menschen für verschiedene Aktivitäten zu beherbergen. Die positive Assoziation von Tabak und Lebensmitteln/Getränken mit diesem Flächenattribut könnte als Ergebnis eines vorübergehenden Anstiegs der Bevölkerung in der Nähe des Untersuchungsgebiets interpretiert werden. 
 # 
-# ### Schlussfolgerungen¶ 
+# ### Schlussfolgerungen
 # 
 # Die Proben aus beiden Projekten wurden an Orten entnommen, in einigen Fällen am selben Ort, die ein ähnliches Niveau an Infrastruktur und wirtschaftlicher Entwicklung aufwiesen. Bei beiden Projekten wurde ein gemeinsames Protokoll verwendet. Die Proben wurden von zwei verschiedenen Gruppen entnommen und von zwei verschiedenen Verbänden verwaltet. 
 # 
@@ -1237,7 +1325,7 @@ plt.xticks(ticks=axisticks, labels=labelsx)
 # put the handles and labels in the order of the components
 new_labels = [code_description_map.loc[x] for x in labels[1:]]
 new_labels = new_labels[::-1]
-new_labels.insert(0,"Monthly survey average")
+new_labels.insert(0,"Monatsdurchschnitt")
 
 handles = [handles[0], *handles[1:][::-1]]
 ax.set_title("")
@@ -1298,7 +1386,7 @@ plt.xticks(ticks=axisticks, labels=labelsx)
 
 new_labels = [code_description_map.loc[x] for x in labels[1:]]
 new_labels = new_labels[::-1]
-new_labels.insert(0,"Monthly survey average")
+new_labels.insert(0, "Monatsdurchschnitt")
 
 handles = [handles[0], *handles[1:][::-1]]
 ax.set_title("", **ck.title_k14)
@@ -1314,8 +1402,15 @@ plt.show()
 
 # display the survey locations
 pd.set_option("display.max_rows", None)
-disp_columns = ["latitude", "longitude", "water_name", "city", "is_2020"]
-disp_beaches = dfBeaches.loc[lks_df.location.unique()][disp_columns].sort_values(by="is_2020")
+
+# display the survey locations
+disp_columns = ["latitude", "longitude", "city"]
+disp_beaches = dfBeaches.loc[lks_df.location.unique()][disp_columns]
+new_names = {"slug":"Standort", "city":"Stadt"}
+disp_beaches.reset_index(inplace=True)
+disp_beaches.rename(columns=new_names, inplace=True)
+disp_beaches.set_index("Standort", inplace=True, drop=True)
+
 disp_beaches
 
 

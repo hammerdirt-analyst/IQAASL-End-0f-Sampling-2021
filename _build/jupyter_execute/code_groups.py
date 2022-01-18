@@ -4,6 +4,38 @@
 # In[1]:
 
 
+# -*- coding: utf-8 -*-
+
+# This is a report using the data from IQAASL.
+# IQAASL was a project funded by the Swiss Confederation
+# It produces a summary of litter survey results for a defined region.
+# These charts serve as the models for the development of plagespropres.ch
+# The data is gathered by volunteers.
+# Please remember all copyrights apply, please give credit when applicable
+# The repo is maintained by the community effective January 01, 2022
+# There is ample opportunity to contribute, learn and teach
+# contact dev@hammerdirt.ch
+
+# Dies ist ein Bericht, der die Daten von IQAASL verwendet.
+# IQAASL war ein von der Schweizerischen Eidgenossenschaft finanziertes Projekt.
+# Es erstellt eine Zusammenfassung der Ergebnisse der Littering-Umfrage für eine bestimmte Region.
+# Diese Grafiken dienten als Vorlage für die Entwicklung von plagespropres.ch.
+# Die Daten werden von Freiwilligen gesammelt.
+# Bitte denken Sie daran, dass alle Copyrights gelten, bitte geben Sie den Namen an, wenn zutreffend.
+# Das Repo wird ab dem 01. Januar 2022 von der Community gepflegt.
+# Es gibt reichlich Gelegenheit, etwas beizutragen, zu lernen und zu lehren.
+# Kontakt dev@hammerdirt.ch
+
+# Il s'agit d'un rapport utilisant les données de IQAASL.
+# IQAASL était un projet financé par la Confédération suisse.
+# Il produit un résumé des résultats de l'enquête sur les déchets sauvages pour une région définie.
+# Ces tableaux ont servi de modèles pour le développement de plagespropres.ch
+# Les données sont recueillies par des bénévoles.
+# N'oubliez pas que tous les droits d'auteur s'appliquent, veuillez indiquer le crédit lorsque cela est possible.
+# Le dépôt est maintenu par la communauté à partir du 1er janvier 2022.
+# Il y a de nombreuses possibilités de contribuer, d'apprendre et d'enseigner.
+# contact dev@hammerdirt.ch
+
 # sys, file and nav packages:
 import os
 import datetime as dt
@@ -39,21 +71,22 @@ def push_this_to_json(filename="", data=[]):
 # (codegroups)=
 # # Code groups
 # 
-# The IQAASL project used the item codes and descriptions from the Marine Strategy Framework (MSFD) _master list_ {cite}`mlwguidance`.  Item identification follows the protocols from the MSFD Technical Subgroup on Marine Litter. The master list was developed based on the categories of items used in a series of programs and is one of the most detailed, representing established EU protocols. There are 217 identification codes to classify all objects collected from a survey. The item codes begin with _G1_ and end with _G217_. 
+# <a href="baselines_de.html"> Deustch </a>
+# 
+# The IQAASL project used the item codes and descriptions from the Marine Strategy Framework (MSFD) master list  {cite}`mlwguidance`.      Item identification follows the protocols from the MSFD Technical Subgroup on Marine Litter. The master list was developed based on the categories of items used in a series of programs and is one of the most detailed, representing established EU protocols. There are 217 identification codes to classify all objects collected from a survey. The item codes begin with G1 and end with G217. 
 # 
 # ## Accounting for regional objects
 # 
-# There are items identified regularly in Switzerland that do not appear in the _master list_. To account for this 43 codes were added to the master list under the _parent code_ G124. These codes begin with G900 and end with G999.
-
-# Some MSFD codes such as G124 _other plastic/polystyrene items, identifiable_ allows for quantification of unlisted identifiable plastic items. An added item such as G913 _pacifier_ can be quantified independently and linked to the MSFD code G124. This work is done at the server and the data can be analyzed using either form.
+# There are items identified regularly in Switzerland that do not appear in the master list. To account for this 43 codes were added to the master list under the parent code G124. These codes begin with G900 and end with G999. 
 # 
-# Identifiable plastic objects were either attributed to an additional code such as G913, or if no other code described the item then G124 was used. Some codes were included to capture pandemic related items such as:
+# Some MSFD codes such as G124 other plastic/polystyrene items, identifiable allows for quantification of unlisted identifiable plastic items. An added item such as G913 pacifier can be quantified independently and linked to the MSFD code G124. This work is done at the server and the data can be analyzed using either form. 
 # 
-# *  G901 Mask medical, synthetic (Parent code (G124) other plastic/polystyrene items identifiable)
-# *  G902 Mask medical, cloth (Parent code (G145) other textiles)
-
-# **Codes and parent codes:** accounting for regional differences. G902 is linked to G145 by the value in the column __parent_code__. G937 is linked to G124 by the parent code.
+# Identifiable plastic objects were either attributed to an additional code such as G913, or if no other code described the item then G124 was used. Some codes were included to capture pandemic related items such as: 
 # 
+# * G901 Mask medical, synthetic (Parent code (G124) other plastic/polystyrene items identifiable)
+# * G902 Mask medical, cloth (Parent code (G145) other textiles) 
+# 
+# __Codes and parent codes:__ accounting for regional differences. G902 is linked to G145 by the value in the column parent_code. G937 is linked to G124 by the parent code.
 
 # In[2]:
 

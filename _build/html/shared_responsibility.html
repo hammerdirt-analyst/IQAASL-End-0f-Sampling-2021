@@ -141,7 +141,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="rhone_sa.html">
-   5. Rhône survey area
+   5. Rhone survey area
   </a>
  </li>
  <li class="toctree-l1">
@@ -449,7 +449,39 @@
                 
   <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys, file and nav packages:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># This is a report using the data from IQAASL.</span>
+<span class="c1"># IQAASL was a project funded by the Swiss Confederation</span>
+<span class="c1"># It produces a summary of litter survey results for a defined region.</span>
+<span class="c1"># These charts serve as the models for the development of plagespropres.ch</span>
+<span class="c1"># The data is gathered by volunteers.</span>
+<span class="c1"># Please remember all copyrights apply, please give credit when applicable</span>
+<span class="c1"># The repo is maintained by the community effective January 01, 2022</span>
+<span class="c1"># There is ample opportunity to contribute, learn and teach</span>
+<span class="c1"># contact dev@hammerdirt.ch</span>
+
+<span class="c1"># Dies ist ein Bericht, der die Daten von IQAASL verwendet.</span>
+<span class="c1"># IQAASL war ein von der Schweizerischen Eidgenossenschaft finanziertes Projekt.</span>
+<span class="c1"># Es erstellt eine Zusammenfassung der Ergebnisse der Littering-Umfrage für eine bestimmte Region.</span>
+<span class="c1"># Diese Grafiken dienten als Vorlage für die Entwicklung von plagespropres.ch.</span>
+<span class="c1"># Die Daten werden von Freiwilligen gesammelt.</span>
+<span class="c1"># Bitte denken Sie daran, dass alle Copyrights gelten, bitte geben Sie den Namen an, wenn zutreffend.</span>
+<span class="c1"># Das Repo wird ab dem 01. Januar 2022 von der Community gepflegt.</span>
+<span class="c1"># Es gibt reichlich Gelegenheit, etwas beizutragen, zu lernen und zu lehren.</span>
+<span class="c1"># Kontakt dev@hammerdirt.ch</span>
+
+<span class="c1"># Il s&#39;agit d&#39;un rapport utilisant les données de IQAASL.</span>
+<span class="c1"># IQAASL était un projet financé par la Confédération suisse.</span>
+<span class="c1"># Il produit un résumé des résultats de l&#39;enquête sur les déchets sauvages pour une région définie.</span>
+<span class="c1"># Ces tableaux ont servi de modèles pour le développement de plagespropres.ch</span>
+<span class="c1"># Les données sont recueillies par des bénévoles.</span>
+<span class="c1"># N&#39;oubliez pas que tous les droits d&#39;auteur s&#39;appliquent, veuillez indiquer le crédit lorsque cela est possible.</span>
+<span class="c1"># Le dépôt est maintenu par la communauté à partir du 1er janvier 2022.</span>
+<span class="c1"># Il y a de nombreuses possibilités de contribuer, d&#39;apprendre et d&#39;enseigner.</span>
+<span class="c1"># contact dev@hammerdirt.ch</span>
+
+<span class="c1"># sys, file and nav packages:</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
 
 <span class="c1"># math packages:</span>
@@ -473,10 +505,10 @@
 <span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
 
 <span class="c1"># images and display</span>
-<span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">IPython</span>
+<span class="c1"># import base64, io, IPython</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span> <span class="c1"># Math, Latex</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
 
 
@@ -555,6 +587,7 @@
 </div>
 <div class="section" id="shared-responsibility">
 <span id="transport"></span><h1><span class="section-number">20. </span>Shared responsibility<a class="headerlink" href="#shared-responsibility" title="Permalink to this headline">¶</a></h1>
+<p><a href="shared_responsibility_de.html" > Deutsch </a></p>
 <p>Research on litter transport and accumulation in the aquatic environment indicates that rivers are a primary sources of land based macro-plastics to the marine environment <span id="id1">[<a class="reference internal" href="references.html#id71">GFCH+21</a>]</span>. However not all objects that are transported by rivers make it to the ocean, suggesting that rivers and inland lakes are also sinks for a portion of the macro-plastics that are emitted <span id="id2">[<a class="reference internal" href="references.html#id73">KBK+18</a>]</span>.</p>
 <p>Provisions in Swiss law, article 2 of the Federal Act on the Protection of the Environment (LPE) the <em>principal of causality</em> accounts for unlawful disposal of material and is commonly known as the principle of polluter payer. Ultimately, the responsibility of elimination and management of litter pollution in and along water systems is directly on the municipal and cantonal administrations as legally, they are owners of the land within their boundaries. The law does provide municipalities and cantons the ability to consider companies or persons further up the chain of causality, as producers of waste and to charge disposal fees to them (e.g. fast-food companies and similar businesses, or organizers of events that generate large quantities of waste on the public space) when specific offenders cannot be identified, if objective criteria are used to determine the chain of causality. <span id="id3">[<a class="reference internal" href="references.html#id7">fdlCs20a</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id2">cfs20</a>]</span> <span id="id5">[<a class="reference internal" href="references.html#id5">fdlenvironnement18</a>]</span> <span id="id6">[<a class="reference internal" href="references.html#id3">fc12</a>]</span></p>
 <div class="section" id="the-challenge">

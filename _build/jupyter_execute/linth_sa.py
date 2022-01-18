@@ -91,7 +91,6 @@ this_bassin = "linth"
 bassin_label = "Linth survey area"
 
 lakes_of_interest = ['walensee', 'zurichsee']
-
 # explanatory variables:
 luse_exp = ["% buildings", "% recreation", "% agg", "% woods", "streets km", "intersects"]
 
@@ -164,8 +163,10 @@ code_material_map = dfCodes.material
 
 # (linthsa)=
 # # Linth survey area
+# 
+# <a href="linth_sa_de.html"> Deutsch </a>
 
-# *__Unten:__ Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021*
 
 # In[2]:
 

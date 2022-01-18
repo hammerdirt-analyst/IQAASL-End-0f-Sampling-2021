@@ -167,6 +167,8 @@ code_material_map = dfCodes.material
 # 
 # # Die Alpen und der Jura
 # 
+# <a href="alpes_valaisannes.html" > English </a>
+# 
 # Die Alpen und der Jura (les Alpes) sind Erhebungsgebiete, bei der die Verantwortung der Erhebungen bei der Summit Foundation liegt.  Die Summit Foundation führt seit vielen Jahren [clean up events](https://www.summit-foundation.org/en/) in den Schweizer Alpen durch. Zu den Veranstaltungen im Jahr 2021 gehörten auch eine Reihe von Datenerhebungen zu Abfallobjekten, die parallel zu den regelmäßig stattfindenden Veranstaltungen durchgeführt wurden. Die Summit Foundation hatte zwei Fragen in Bezug auf IQAASL:  
 # 
 # 1. Wie kann die Datenerfassung in das aktuelle Geschäftsmodell integriert werden? 
@@ -189,7 +191,7 @@ code_material_map = dfCodes.material
 # 
 # Der Unterschied zwischen den beiden Methoden liegt in der Art und Weise, wie die Grenzen des Vermessungsgebiets festgelegt werden. Wenn ein Weg benutzt wird, werden die Grenzen des Vermessungsgebiets durch den Weg selbst festgelegt, nicht durch die Person, die die Datenerhebung ausführt. Im Sommer sind die Barrieren und Schilder, die die Bereiche für die Liftlinien markieren, alle entfernt worden, so dass es für die Person, die die Datenerhebung ausführt, schwierig ist, die korrekten Grenzen genau zu bestimmen.   
 # 
-# ## Kumulierte Gesamtzahlen für das Datenerhebungsgebiet¶
+# ## Kumulierte Gesamtzahlen für das Datenerhebungsgebiet
 # 
 # *__Unten:__ Karte des Erhebungsgebiets Les Alpes, Clean up tour 2021*
 
@@ -742,7 +744,7 @@ plt.show()
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.
 
 # *__Unten:__ Wanderwege Nutzen der gefundenen Objekte: % der Gesamtzahl nach Wassermerkmal. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Größe klassifiziert.*  
 
@@ -821,7 +823,7 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# ### Perzentil-Rangfolge der Erhebungsergebnisse in Bezug auf die Flächennutzung¶ 
+# ### Perzentil-Rangfolge der Erhebungsergebnisse in Bezug auf die Flächennutzung
 
 # In[18]:
 
@@ -909,7 +911,7 @@ plt.show()
 # 3. Abdeckband
 # 4. Seilbahnbürste 
 # 
-# Das Fehlen von expandiertem oder extrudiertem Polystyrol in der Liste der am häufigsten vorkommenden Produkte in den Erhebungsgebieten der Alpen steht jedoch in scharfem Kontrast zu allen anderen Erhebungsgebieten, in denen dieses Produkt allein etwa 13% der Gesamtmenge ausmacht, siehe [_Seen und Flüsse_](allsurveys).
+# Das Fehlen von expandiertem oder extrudiertem Polystyrol in der Liste der am häufigsten vorkommenden Produkte in den Erhebungsgebieten der Alpen steht jedoch in scharfem Kontrast zu allen anderen Erhebungsgebieten, in denen dieses Produkt allein etwa 13% der Gesamtmenge ausmacht, siehe [_Seen und Flüsse_](allsurveysde).
 # 
 # ### Implementierung von Datenerhebungen über Abfallobjekte in das bestehende Geschäftsmodell 
 # 
@@ -949,11 +951,9 @@ plt.show()
 # 
 # Wir danken allen Mitgliedern der Summit Foundation für ihre Hilfe, insbesondere Olivier Kressmann und Téo Gürsoy.  
 
-# 
-
 # ## Anhang
 # 
-# ### Schaumstoffe und Kunststoffe nach Größe¶ 
+# ### Schaumstoffe und Kunststoffe nach Größe
 # 
 # Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 

@@ -162,6 +162,8 @@ code_material_map = dfCodes.material
 # (allsurveys)=
 # # Lakes and rivers
 # 
+# <a href="lakes_rivers_de.html"> Deutsch </a>
+# 
 # Map of survey locations IQAASL March 2020 - May 2021.
 
 # In[2]:

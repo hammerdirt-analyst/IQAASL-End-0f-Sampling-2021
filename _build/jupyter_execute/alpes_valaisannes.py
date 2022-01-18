@@ -146,6 +146,8 @@ code_material_map = dfCodes.material
 # 
 # # The Alps and the Jura
 # 
+# <a href="alpes_valaisannes_de.html" > Deutsch </a>
+# 
 # The Alps and the Jura (les Alpes) is a  survey area configured and managed by the Summit Foundation. The Summit Foundation has conducted [clean up events](https://www.summit-foundation.org/en/) throughout the Swiss Alps for many years. Included in the 2021 events were a series of litter-surveys conducted in parallel to the regularly scheduled events. Summit foundation had two questions with respect to IQAASL: 
 # 
 # 1. How can data collection be integrated into the current business model?

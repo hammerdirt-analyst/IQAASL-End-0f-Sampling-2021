@@ -191,6 +191,8 @@ code_material_map = dfCodes.material
 # (allsurveysde)=
 # # Seen und Flüsse
 # 
+# <a href="lakes_rivers.html"> English </a>
+# 
 # Karte der Erhebungsorte IQAASL März 2020 - Mai 2021.
 
 # In[2]:
@@ -283,7 +285,7 @@ for i, n in enumerate(luse_exp):
     # format the % of total on the xaxis:
     if i <= 3:
         if i == 0:            
-            ax.set_ylabel("Ratio of samples", **ck.xlab_k)
+            ax.set_ylabel("% der Erhebungen", **ck.xlab_k)
         ax.xaxis.set_major_formatter(ticker.PercentFormatter(1.0, 0, "%"))        
     else:
         pass
@@ -545,7 +547,7 @@ cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fa
 # final table data
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(12,len(m_common)*.8))
+fig, axs = plt.subplots(figsize=(9,len(m_common)*.5))
 
 sut.hide_spines_ticks_grids(axs)
 
@@ -555,7 +557,7 @@ table_four.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.tight_layout()
 glue("mcommoneos_de", fig, display=False)
-plt.close()
+# plt.show()
 
 
 # ```{glue:figure} mcommoneos_de
@@ -737,7 +739,7 @@ plt.close()
 
 # ## Erhebungsergebnisse und Landnutzung 
 # 
-# Die Erhebungsergebnisse in Bezug auf die Landnutzung auf nationaler Ebene werden ausführlich in Das [ Landnutzungsprofil ](luseprofilede) and [Shared responsibility - english](transport).
+# Die Erhebungsergebnisse in Bezug auf die Landnutzung auf nationaler Ebene werden ausführlich in Das [ Landnutzungsprofil ](luseprofilede) and [Shared responsibility - english](transportde).
 
 # ## Nutzen der gefundenen Objekte 
 # 
@@ -754,7 +756,7 @@ plt.close()
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen - english](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # Der Nutzungszweck oder die Beschreibung der identifizierten Objekte in % der Gesamtfläche der Erhebung. 
 
@@ -1018,7 +1020,7 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 # table data
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]]
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.1,len(data)*.8))
+fig, axs = plt.subplots(figsize=(len(data.columns)*1.9,len(data)*.5))
 sut.hide_spines_ticks_grids(axs)
 
 table_seven = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13],a_color=a_color)

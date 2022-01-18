@@ -83,7 +83,6 @@ unit_label = 'p/100m'
 
 # get your data:
 survey_data = pd.read_csv('resources/checked_sdata_eos_2020_21.csv')
-# river_bassins = ut.json_file_get("resources/river_basins.json")
 dfBeaches = pd.read_csv("resources/beaches_with_land_use_rates.csv")
 dfCodes = pd.read_csv("resources/codes_with_group_names_2015.csv")
 dfDims = pd.read_csv("resources/corrected_dims.csv")
@@ -118,6 +117,8 @@ code_material_map = dfCodes.material
 
 # (threshholdde)=
 # # Abfallobjekte am Strand
+# 
+# <a href="baselines.html"> English </a>
 # 
 # Basiswerte (BVs), die manchmal auch als Benchmarks bezeichnet werden, sind die Mengen oder Werte, die zur statistischen Definition einer Situation verwendet werden. Die BVs beziehen sich auf eine Reihe von Daten, die sowohl zeitlich als auch geografisch begrenzt sind und auch als Referenzpunkt oder Basisperiode bezeichnet werden. BVs sind die Größen, an denen der Fortschritt gemessen wird. In dieser Hinsicht sind die BVs eng mit den Daten und den zu ihrer Erhebung verwendeten Methoden verbunden. 
 # 
@@ -195,7 +196,7 @@ plt.show()
 # 
 # #### Zählen von Objekten 
 # 
-# Alle sichtbaren Objekte innerhalb eines Untersuchungsgebiets werden gesammelt, klassifiziert und gezählt. Das Gesamtgewicht von Material und Plastik wird ebenfalls erfasst. Die Objekte werden anhand von [ Code-Definitionen ](codegroups) klassifiziert, die auf einer Masterliste von Codes im Handbuch basieren. Spezielle Objekte, die von lokalem Interesse sind, wurden unter G9xx und G7xx hinzugefügt. 
+# Alle sichtbaren Objekte innerhalb eines Untersuchungsgebiets werden gesammelt, klassifiziert und gezählt. Das Gesamtgewicht von Material und Plastik wird ebenfalls erfasst. Die Objekte werden anhand von [ Code-Definitionen ](codegroupsde) klassifiziert, die auf einer Masterliste von Codes im Handbuch basieren. Spezielle Objekte, die von lokalem Interesse sind, wurden unter G9xx und G7xx hinzugefügt. 
 
 # *__Unten:__ Zählen und Klassifizieren einer Probe. Die Objekte werden nach dem Sammeln sortiert und gezählt. Die ursprüngliche Zählung wird in einem Notizbuch festgehalten, und die Daten werden in die Anwendung [ plages-propres ](https://www.plagespropres.ch/) eingegeben wenn der Erheber es wünscht.*
 
@@ -535,7 +536,7 @@ for a_rank in quantiles:
     an_int = int(a_rank*100)
     a_result = compute_bca_ci(dt_all[unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
     observed = np.percentile(dt_all[unit_label].to_numpy(), an_int)
-    the_bcas.update({F"{int(a_rank*100)}":{'2.5% ci':a_result[0], 'observed': observed, '97.5% ci': a_result[1]}})
+    the_bcas.update({F"{int(a_rank*100)}":{'2.5% ci':a_result[0], "Beobachtung": observed, '97.5% ci': a_result[1]}})
 
 
 bca_cis = pd.DataFrame(the_bcas)
@@ -577,7 +578,7 @@ for a_rank in quantiles:
     a_max = np.percentile(sim_ptile, 97.5)
     
     # add the observed value and update the dict
-    the_cis.update({F"{int(a_rank*100)}":{'2.5% ci':a_min, 'observed': q_vals[a_rank], '97.5% ci': a_max}})
+    the_cis.update({F"{int(a_rank*100)}":{'2.5% ci':a_min, "Beobachtung": q_vals[a_rank], '97.5% ci': a_max}})
 
 # make df
 p_cis = pd.DataFrame(the_cis)
@@ -588,7 +589,7 @@ p_cis.reset_index(inplace=True)
 
 # *__Unten links:__ Konfidenzintervalle, die durch eine 5.000-fache Wiederholungsstichprobe der Umfrageergebnisse für jede Bedingung berechnet wurden. __Unten rechts:__ Die gleichen Intervalle unter Verwendung der verzerrungskorrigierten Methode.*
 
-# In[20]:
+# In[10]:
 
 
 fig, axs = plt.subplots(1,2, figsize=(11,3))
@@ -648,7 +649,7 @@ for a_bassin in bassins:
     an_int = int(a_rank*100)
     a_result = compute_bca_ci(dt_all[dt_all.river_bassin == a_bassin][unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=50)
     observed = np.percentile(dt_all[dt_all.river_bassin == a_bassin][unit_label].to_numpy(), 50)
-    the_sas.update({a_bassin:{'2.5% ci':a_result[0], 'observed': observed, '97.5% ci': a_result[1]}})
+    the_sas.update({a_bassin:{'2.5% ci':a_result[0], "Beobachtung": observed, '97.5% ci': a_result[1]}})
 
 sas = pd.DataFrame(the_sas)
 sas['b-method'] = 'bca'
@@ -688,7 +689,7 @@ plt.close()
 # * Untere Grenze =   $Q_1 - (1.5*IQR)$
 # * Obergrenze =   $Q_3 + (1.5*IQR)$
 # 
-# Bei der Anpassung des Boxplots wird die Konstante 1,5 durch einen anderen Parameter ersetzt. Dieser Parameter wird mit einer Methode namens Medcouple (MC) berechnet und das Ergebnis dieser Methode auf die Konstante 1,5 angewendet. {cite}`adjbox` cite}`medcouple` 
+# Bei der Anpassung des Boxplots wird die Konstante 1,5 durch einen anderen Parameter ersetzt. Dieser Parameter wird mit einer Methode namens Medcouple (MC) berechnet und das Ergebnis dieser Methode auf die Konstante 1,5 angewendet. {cite}`tukeysbox` {cite}`medcouple` 
 # 
 # Die neue Berechnung sieht wie folgt aus: 
 # 
@@ -869,14 +870,14 @@ n = (mean**2/(var-mean))
 r = stats.nbinom.rvs(n,p, size=len(vals))
 
 # format data for charting
-df = pd.DataFrame({unit_label:vals, 'group':'observed'})
+df = pd.DataFrame({unit_label:vals, 'group':"Beobachtung"})
 df = df.append(pd.DataFrame({unit_label:r, 'group':'MOM'}))
 
 scp = df[df.group == 'MOM'][unit_label].to_numpy()
-obs = df[df.group == 'observed'][unit_label].to_numpy()
+obs = df[df.group == "Beobachtung"][unit_label].to_numpy()
 
 scpsx = [{unit_label:x, 'model':'MOM'} for x in scp]
-obsx = [{unit_label:x, 'model':'observed'} for x in obs]
+obsx = [{unit_label:x, 'model':"Beobachtung"} for x in obs]
 
 # ! implementation of MLE
 estimated_r, estimated_p = neg_bin_fit(obs, init = 0.0001)
@@ -890,9 +891,9 @@ data = pd.concat([pd.DataFrame(scpsx), pd.DataFrame(obsx), pd.DataFrame(som_data
 
 # the 90th
 ev = data.groupby('model', as_index=False)[unit_label].quantile(.9)
-xval={'MOM':0, 'observed':1, 'MLE':2}
+xval={'MOM':0, 'Beobachtung':1, 'MLE':2}
 ev['x'] = ev.model.map(lambda x: xval[x])
-box_palette = {'MOM':'salmon', 'MLE':'magenta', 'observed':'dodgerblue'}
+box_palette = {'MOM':'salmon', 'MLE':'magenta', 'Beobachtung':'dodgerblue'}
 
 fig, axs = plt.subplots(1,2, figsize=(10,6))
 
@@ -916,7 +917,7 @@ sns.stripplot(data=data, x='model', y=unit_label, hue='model', zorder=0,palette=
 axone.scatter(x=ev.x.values, y=ev[unit_label].values, label="90%", color='black', s=60)
 axone.set_ylim(0,np.percentile(r, 95))
 ax.get_legend().remove()
-ax.set_ylabel("Number of samples", **ck.xlab_k14)
+ax.set_ylabel("# der Erhebungen", **ck.xlab_k14)
 axone.set_ylabel(unit_label, **ck.xlab_k14)
 
 handles, labels = axone.get_legend_handles_labels()
@@ -932,7 +933,6 @@ llast = labels[-1:]
 ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
 axone.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
 
-
 fig.legend([*h3, *hlast], [*l3, *llast], bbox_to_anchor=(.48, .96), loc='upper right', fontsize=14)
 plt.tight_layout()
 plt.show()
@@ -943,11 +943,11 @@ plt.show()
 
 evx = ev.set_index('model')
 
-pnt =  F"""*90% p/100m: &nbsp;MLE={evx.loc['MLE'][unit_label].astype('int')},  &nbsp;Observed={evx.loc['observed'][unit_label].astype('int')},  &nbsp;MOM={evx.loc['MOM'][unit_label].astype('int')}*"""
+pnt =  F"""*90% p/100m: &nbsp;MLE={evx.loc['MLE'][unit_label].astype('int')},  &nbsp;Observed={evx.loc["Beobachtung"][unit_label].astype('int')},  &nbsp;MOM={evx.loc['MOM'][unit_label].astype('int')}*"""
 md(pnt)
 
 
-# ## Umsetzung¶ 
+# ## Umsetzung
 # 
 # Die vorgeschlagenen Bewertungsmaßstäbe und -methoden für die Ergebnisse der Strand-Abfallaufkommen Untersuchungen sind ähnlich und kompatibel mit den zuvor in der Schweiz angewandten Methoden. Diese erste Analyse hat gezeigt, dass: 
 # 
@@ -964,7 +964,7 @@ md(pnt)
 # In[18]:
 
 
-sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", thumb=(800, 1200))
+sut.display_image_ipython("resources/images/baselines/lakes_rivers_de_22_0.png", thumb=(800, 1200))
 
 
 # Der erwartete Medianwert pro Datenerhebung und der Medianwert der häufigsten Objekte pro Erhebung ist im Erhebungsgebiet Rhône höher. Wenn der Medianwert verwendet wird, zeigt die BV auch, dass 2/12 der häufigsten Objekte in weniger als 50% der Datenerhebungen landesweit gefunden wurden, nämlich diejenigen mit einem Medianwert von Null. 
@@ -976,7 +976,7 @@ sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", th
 # In[19]:
 
 
-sut.display_image_ipython("resources/images/baselines/example_implementation2.png", thumb=(800, 800))
+sut.display_image_ipython("resources/images/baselines/aare_sa_de_23_0.png", thumb=(800, 800))
 
 
 # Die empfohlene Mindestanzahl von Datenerhebungen (40) pro Probenahmezeitraum soll sicherstellen, dass die BV-Berechnungen auf einer ausreichenden Anzahl von Stichproben basieren. Dies ist wegen der hohen Variabilität der Strand-Abfallobjekte-Untersuchungen wichtig. 

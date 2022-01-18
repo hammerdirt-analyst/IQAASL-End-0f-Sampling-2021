@@ -78,7 +78,6 @@ a_color = "dodgerblue"
 cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
 
-# set the maps
 bassin_map = "resources/maps/survey_areas/rhone_scaled.jpeg"
 
 # top level aggregation
@@ -163,9 +162,11 @@ code_material_map = dfCodes.material
 
 
 # (rhonesa)=
-# # Rhône survey area
+# # Rhone survey area
+# 
+# <a href="rhone_sa_de.html"> Deutsch </a>
 
-# *__Unten:__ Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021*
 
 # In[2]:
 

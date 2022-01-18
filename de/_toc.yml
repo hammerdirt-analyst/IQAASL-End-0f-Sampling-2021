@@ -15,8 +15,7 @@ parts:
     chapters:
     - file: lakes_rivers_de
     - file: alpes_valaisannes_de
-    - file: alpes_valaisannes
-  - caption: Erhebungsgebiete
+    - caption: Erhebungsgebiete
     numbered: True
     chapters:
      - file: aare_sa_de
@@ -38,14 +37,14 @@ parts:
     chapters:
       - file: baselines_de
       - file: key_indicators_de
-      - file: code_groups
+      - file: code_groups_de
       - file: land_use_correlation_de
       - file: references
   - caption: Anwendungen
     numbered: True
     chapters:
       - file: reuse_remake
-      - file: shared_responsibility
-      - file: slr_2017
+      - file: shared_responsibility_de
+      - file: slr_2017_de
 
 

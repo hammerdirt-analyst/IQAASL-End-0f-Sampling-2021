@@ -161,8 +161,10 @@ code_material_map = dfCodes.material
 
 # (maggiore)=
 # # Maggiore/Lugano
+# 
+# <a href="maggiore_lugano_de.html"> Deutsch </a>
 
-# *Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021*
 
 # In[2]:
 

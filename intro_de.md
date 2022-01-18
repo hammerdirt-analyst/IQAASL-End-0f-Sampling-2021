@@ -1,4 +1,6 @@
-# Vorwort 
+# Vorwort
+
+<a href="intro.html"> English </a>
 
 Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastruktur zu entwickeln, um die Zusammensetzung und Häufigkeit von anthropogenem Material entlang ausgewählter Schweizer Flüsse und Seen genau zu bewerten und diese Ergebnisse in einem konsolidierten, webbasierten Bericht zu präsentieren. 
 
@@ -39,7 +41,7 @@ Es ist wichtig, den Unterschied zwischen dem _Median_ {cite}`mediandef` und dem 
 
 Betrachten Sie als Beispiel den Median der Datenerhebungen für die häufigsten Objekte am Thuner- und Brienzersee. 
 
-```{figure} resources/images/intro/tbexample.jpeg
+```{figure} resources/images/intro/thunersee_brienzersee_de_20_0.png
 ---
 width: 600px
 name: mcommonforeword_de
@@ -55,12 +57,10 @@ Die Ergebnisse für Bauschutt aus Kunststoffen zeigen, dass dieser in Bönigen (
 
 Praktisch gesehen war die Chance, am Strand von Bönigen und Unterseen Bauschutt aus Kunststoff zu finden, größer als in den anderen Gemeinden. Die Wahrscheinlichkeit, Industriefolien zu finden, war jedoch überall ungefähr gleich hoch, am höchsten war sie jedoch in Brienze (67p/100m). 
 
-Das Kapitel [Schlüsselindikatoren](keyindicatorsde) enthält eine genaue Definition jeder der grundlegenden Statistiken, die aus den Datenerhebungen abgeleitet werden können, und wie sie zur Identifizierung von Akkumulationszonen und signifikanten Ereignissen verwendet werden. Die Methoden zur Berechnung der verschiedenen Umweltvariablen werden in[_Das Landnutzungsprofil_](luseprofilede)erläutert. Die Codes und Beschreibungen, die zur Identifizierung der Objekte verwendet werden, sowie die verschiedenen wirtschaftlichen Gruppierungen werden in [_Code-Gruppen_](codegroupsde). detailliert behandelt. Wie Proben gesammelt werden und die Methoden zur Identifizierung von Extremwerten und zur Berechnung von Basiswerten für eine Region finden Sie unter [_Basiswerte für Strandabfälle_](threshholdde).
-
-The results for each municipality are included with the lake or river to which they belong. A more detailed report can be produced for any municipality in this document. 
+Das Kapitel [Schlüsselindikatoren](keyindicatorsde) enthält eine genaue Definition jeder der grundlegenden Statistiken, die aus den Datenerhebungen abgeleitet werden können, und wie sie zur Identifizierung von Akkumulationszonen und signifikanten Ereignissen verwendet werden. Die Methoden zur Berechnung der verschiedenen Umweltvariablen werden in [_Das Landnutzungsprofil_](luseprofilede) erläutert. Die Codes und Beschreibungen, die zur Identifizierung der Objekte verwendet werden, sowie die verschiedenen wirtschaftlichen Gruppierungen werden in [_Code-Gruppen_](codegroupsde). detailliert behandelt. Wie Proben gesammelt werden und die Methoden zur Identifizierung von Extremwerten und zur Berechnung von Basiswerten für eine Region finden Sie unter [_Basiswerte für Strandabfälle_](threshholdde). 
 
 ---
 
 ### Beitrag zu diesem Bericht 
 
-Dieser Bericht ist versioniert, daher ist es sehr einfach, Artikel oder Analysen einzureichen, die den Inhalt korrigieren, klären oder verbessern. Der einfachste Weg, einen Beitrag zu leisten, ist, eine Pull-Anfrage an [end of sampling repo](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021)senden. Einreichungen werden in allen offiziellen Schweizer Landessprachen akzeptiert.
+Dieser Bericht ist versioniert, daher ist es sehr einfach, Artikel oder Analysen einzureichen, die den Inhalt korrigieren, klären oder verbessern. Der einfachste Weg, einen Beitrag zu leisten, ist, eine Pull-Anfrage an [end of sampling repo](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021) senden. Einreichungen werden in allen offiziellen Schweizer Landessprachen akzeptiert.

@@ -51,7 +51,9 @@ colors_palette = ck.colors_palette
 
 
 # (keyindicators)=
-# # Key statistical indicators 
+# # Key statistical indicators
+# 
+# <a href="key_indicators_de.html"> Deutsch </a>
 # 
 # Easy to calculate and taken directly from the survey results the key indicators are essential to identifying zones of accumulation within the watershed. When used in the context of a litter monitoring program and combined with specific knowledge of the surrounding area the key indicators help identify potential sources of litter. {cite}`mlwguidance`
 # 

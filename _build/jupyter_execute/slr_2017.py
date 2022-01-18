@@ -93,6 +93,8 @@ code_material_map = dfCodes.material
 # (slr-iqaasl)=
 # # More and less since 2018
 # 
+# <a href="slr_2017_de.html"> Deutsch </a>
+# 
 # he first national beach litter report was produced in 2018. The Swiss Litter Report (SLR) was a project initiated by Gabriele Kuhl  {cite}`stoppp` and supported by the World Wildlife Fund Switzerland {cite}`wwf`. The protocol was based on the Guide for monitoring marine litter {cite}`mlwguidance`, the project was managed by the WWF and the surveys were conducted by volunteers from both organizations. The project began in April 2017 and ended March 2018 the SLR covered much of the national territory except for the Ticino region. 
 # 
 # The SLR collected 1,052 samples from 112 locations. More than 150 trained volunteers from 81 municipalities collected and categorized 98,474 pieces of trash from the shores of 48 lakes and 67 rivers in Switzerland. {cite}`slr`

@@ -161,8 +161,10 @@ code_material_map = dfCodes.material
 
 # (lacleman)=
 # # Lac Léman
+# 
+# <a href="lac_leman_de.html"> Deutsch </a>
 
-# *Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021*
 
 # In[2]:
 
@@ -186,7 +188,7 @@ a_data["date"] = pd.to_datetime(a_data.date)
 a_data.rename(columns={"% to agg":"% ag", "% to recreation": "% recreation", "% to woods":"% woods", "% to buildings":"% buildings"}, inplace=True)
 luse_exp = ["% buildings", "% recreation", "% ag", "% woods", "streets km", "intersects"]
 
-fd = sut.feature_data(a_data, this_feature["level"], these_features=[this_feature["slug"]])
+fd = sut.feature_data(a_data, this_feature["level"], these_features=lakes_of_interest)
 
 # cumulative statistics for each code
 code_totals = sut.the_aggregated_object_values(fd, agg=agg_pcs_median, description_map=code_description_map, material_map=code_material_map)    
@@ -278,7 +280,7 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.4,len(data)*.5))
+fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.5))
 
 sut.hide_spines_ticks_grids(ax)
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
@@ -492,7 +494,7 @@ rb_string = F"""
 md(rb_string)
 
 
-# In[24]:
+# In[13]:
 
 
 # aggregated survey totals for the most common codes for all the water features
@@ -678,7 +680,7 @@ cg_poft = F"""
 md(cg_poft)
 
 
-# In[25]:
+# In[17]:
 
 
 # code groups resluts aggregated by survey
@@ -742,7 +744,7 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[26]:
+# In[19]:
 
 
 # median p/50m of all the water features

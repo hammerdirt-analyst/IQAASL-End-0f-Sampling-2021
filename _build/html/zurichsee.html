@@ -139,7 +139,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="rhone_sa.html">
-   5. Rhône survey area
+   5. Rhone survey area
   </a>
  </li>
  <li class="toctree-l1">
@@ -505,7 +505,8 @@
 <span class="n">this_bassin</span> <span class="o">=</span> <span class="s2">&quot;linth&quot;</span>
 <span class="n">bassin_label</span> <span class="o">=</span><span class="s2">&quot;Linth/Limmat survey area&quot;</span>
 
-<span class="n">lakes_of_interest</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;]</span>
+<span class="n">lakes_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;zurichsee&quot;</span><span class="p">]</span>
+
 
 <span class="c1"># explanatory variables:</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;% buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% r</span><span class="s2">ecreation&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% a</span><span class="s2">gg&quot;</span><span class="p">,</span> <span class="s2">&quot;% woods&quot;</span><span class="p">,</span> <span class="s2">&quot;streets km&quot;</span><span class="p">,</span> <span class="s2">&quot;intersects&quot;</span><span class="p">]</span>
@@ -585,7 +586,8 @@
 </div>
 <div class="section" id="zurichsee">
 <span id="id1"></span><h1><span class="section-number">13. </span>Zurichsee<a class="headerlink" href="#zurichsee" title="Permalink to this headline">¶</a></h1>
-<p><em>Map of survey locations March 2020 - May 2021</em></p>
+<p><a href="zurichsee_de.html"> Deutsch </a></p>
+<p><em><strong>Below:</strong> Map of survey locations March 2020 - May 2021</em></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/zurichsee_3_0.png" src="_images/zurichsee_3_0.png" />
@@ -651,10 +653,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>For the period between 2020-03 and 2021-05, a total of 3,764 objects were removed and identified over the course of 36 surveys. The Zurichsee results include 10 different locations in 6 different municipalities with a combined population of approximately 69,120.</p>
+<p>For the period between 2020-03 and 2021-05, a total of 5,192 objects were removed and identified over the course of 56 surveys. The Zurichsee results include 11 different locations in 7 different municipalities with a combined population of approximately 504,874.</p>
 <p><em>Zurichsee municipalities:</em></p>
 <blockquote>
-<div><p>Beatenberg, Brienz (BE), Bönigen, Spiez, Thun, Unterseen</p>
+<div><p>Freienbach, Küsnacht (ZH), Rapperswil-Jona, Richterswil, Schmerikon, Stäfa, Zürich</p>
 </div></blockquote>
 </div>
 </div>
@@ -761,7 +763,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Left:</strong> Zurichsee, 2020-03 through 2021-05, n=36. Values greater than 2375.0p/100m not shown. <strong>Right:</strong> Zurichsee empirical cumulative distribution of survey results.</em></p>
+<p><em><strong>Left:</strong> Zurichsee, 2020-03 through 2021-05, n=56. Values greater than 2332.8p/100m not shown. <strong>Right:</strong> Zurichsee empirical cumulative distribution of survey results.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -902,7 +904,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Below:</strong> Zurichsee most common objects: fail rate &gt;/= 50%  and/or top ten by quantity. Combined, the most abundant objects represent 72% of all objects found.
+<p><em><strong>Below:</strong> Zurichsee most common objects: fail rate &gt;/= 50%  and/or top ten by quantity. Combined, the most abundant objects represent 65% of all objects found.
 Note : p/100m = median survey value.</em></p>
 </div>
 </div>
@@ -1176,7 +1178,6 @@ Note : p/100m = median survey value.</em></p>
 <span class="n">data_table</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">aggregate_to_group_name</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">unit_label</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;groupname&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">data_table</span>
-<span class="c1"># data.rename(columns={x:wname_wname.loc[x][0] for x in data.columns[:-2]}, inplace=True)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
@@ -1356,64 +1357,70 @@ Note : p/100m = median survey value.</em></p>
   </thead>
   <tbody>
     <tr>
-      <th>weissenau-neuhaus</th>
-      <td>46.676583</td>
-      <td>7.817528</td>
-      <td>Unterseen</td>
+      <th>rastplatz-stampf</th>
+      <td>47.215177</td>
+      <td>8.844286</td>
+      <td>Rapperswil-Jona</td>
     </tr>
     <tr>
-      <th>thun-strandbad</th>
-      <td>46.739939</td>
-      <td>7.633520</td>
-      <td>Thun</td>
+      <th>zuerichsee_richterswil_benkoem_2</th>
+      <td>47.217646</td>
+      <td>8.698713</td>
+      <td>Richterswil</td>
     </tr>
     <tr>
-      <th>oben-am-see</th>
-      <td>46.744451</td>
-      <td>8.049921</td>
-      <td>Brienz (BE)</td>
+      <th>pfafikon-bad</th>
+      <td>47.206766</td>
+      <td>8.774182</td>
+      <td>Freienbach</td>
     </tr>
     <tr>
-      <th>thunersee_spiez_meierd_1</th>
-      <td>46.704437</td>
-      <td>7.657882</td>
-      <td>Spiez</td>
+      <th>zurichsee_kusnachterhorn_thirkell-whitej</th>
+      <td>47.317685</td>
+      <td>8.576860</td>
+      <td>Küsnacht (ZH)</td>
     </tr>
     <tr>
-      <th>delta-park</th>
-      <td>46.720078</td>
-      <td>7.635304</td>
-      <td>Spiez</td>
+      <th>zurichsee_wollishofen_langendorfm</th>
+      <td>47.345890</td>
+      <td>8.536155</td>
+      <td>Zürich</td>
     </tr>
     <tr>
-      <th>sundbach-strand</th>
-      <td>46.684386</td>
-      <td>7.794768</td>
-      <td>Beatenberg</td>
+      <th>zurcher-strand</th>
+      <td>47.364200</td>
+      <td>8.537420</td>
+      <td>Zürich</td>
     </tr>
     <tr>
-      <th>wycheley</th>
-      <td>46.740370</td>
-      <td>8.048640</td>
-      <td>Brienz (BE)</td>
+      <th>zuerichsee_staefa_hennm</th>
+      <td>47.234643</td>
+      <td>8.769881</td>
+      <td>Stäfa</td>
     </tr>
     <tr>
-      <th>camping-gwatt-strand</th>
-      <td>46.727140</td>
-      <td>7.629620</td>
-      <td>Thun</td>
+      <th>zuerichsee_waedenswil_colomboc_1</th>
+      <td>47.219547</td>
+      <td>8.691961</td>
+      <td>Richterswil</td>
     </tr>
     <tr>
-      <th>augustmutzenbergstrandweg</th>
-      <td>46.686640</td>
-      <td>7.689760</td>
-      <td>Spiez</td>
+      <th>schmerikon-bahnhof-strand</th>
+      <td>47.224780</td>
+      <td>8.944180</td>
+      <td>Schmerikon</td>
     </tr>
     <tr>
-      <th>hafeli</th>
-      <td>46.690283</td>
-      <td>7.898592</td>
-      <td>Bönigen</td>
+      <th>aabach</th>
+      <td>47.220989</td>
+      <td>8.940365</td>
+      <td>Schmerikon</td>
+    </tr>
+    <tr>
+      <th>strandbeiz</th>
+      <td>47.215862</td>
+      <td>8.843098</td>
+      <td>Rapperswil-Jona</td>
     </tr>
   </tbody>
 </table>
@@ -1470,1017 +1477,1153 @@ Note : p/100m = median survey value.</em></p>
       <th>G27</th>
       <td>Cigarette filters</td>
       <td>tobacco</td>
-      <td>748</td>
-      <td>19.87</td>
-      <td>88</td>
-    </tr>
-    <tr>
-      <th>Gfrags</th>
-      <td>Fragmented plastics</td>
-      <td>plastic pieces</td>
-      <td>515</td>
-      <td>13.68</td>
-      <td>91</td>
-    </tr>
-    <tr>
-      <th>G67</th>
-      <td>Industrial sheeting</td>
-      <td>agriculture</td>
-      <td>352</td>
-      <td>9.35</td>
-      <td>83</td>
-    </tr>
-    <tr>
-      <th>Gfoam</th>
-      <td>Expanded polystyrene</td>
-      <td>infrastructure</td>
-      <td>281</td>
-      <td>7.47</td>
-      <td>83</td>
-    </tr>
-    <tr>
-      <th>G30</th>
-      <td>Food wrappers; candy, snacks</td>
-      <td>food and drink</td>
-      <td>228</td>
-      <td>6.06</td>
-      <td>77</td>
-    </tr>
-    <tr>
-      <th>G74</th>
-      <td>Insulation foams</td>
-      <td>infrastructure</td>
-      <td>158</td>
-      <td>4.20</td>
-      <td>66</td>
+      <td>1249</td>
+      <td>24.06</td>
+      <td>94</td>
     </tr>
     <tr>
       <th>G200</th>
       <td>Glass drink bottles, pieces</td>
       <td>food and drink</td>
-      <td>141</td>
-      <td>3.75</td>
-      <td>72</td>
+      <td>496</td>
+      <td>9.55</td>
+      <td>80</td>
     </tr>
     <tr>
-      <th>G112</th>
-      <td>Industrial pellets (nurdles)</td>
-      <td>micro plastics (&lt; 5mm)</td>
-      <td>115</td>
-      <td>3.06</td>
-      <td>11</td>
+      <th>Gfrags</th>
+      <td>Fragmented plastics</td>
+      <td>plastic pieces</td>
+      <td>444</td>
+      <td>8.55</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>G30</th>
+      <td>Food wrappers; candy, snacks</td>
+      <td>food and drink</td>
+      <td>363</td>
+      <td>6.99</td>
+      <td>94</td>
     </tr>
     <tr>
       <th>G941</th>
       <td>Packaging films nonfood or unknown</td>
       <td>packaging non food</td>
-      <td>83</td>
-      <td>2.21</td>
-      <td>44</td>
+      <td>187</td>
+      <td>3.60</td>
+      <td>51</td>
     </tr>
     <tr>
-      <th>G89</th>
-      <td>Plastic construction waste</td>
+      <th>Gfoam</th>
+      <td>Expanded polystyrene</td>
       <td>infrastructure</td>
-      <td>65</td>
-      <td>1.73</td>
-      <td>50</td>
+      <td>164</td>
+      <td>3.16</td>
+      <td>67</td>
     </tr>
     <tr>
-      <th>G904</th>
-      <td>Plastic fireworks</td>
-      <td>recreation</td>
-      <td>39</td>
-      <td>1.04</td>
-      <td>38</td>
+      <th>G67</th>
+      <td>Industrial sheeting</td>
+      <td>agriculture</td>
+      <td>147</td>
+      <td>2.83</td>
+      <td>53</td>
     </tr>
     <tr>
-      <th>G21</th>
-      <td>Drink lids</td>
+      <th>G25</th>
+      <td>Tobacco; plastic packaging, containers</td>
+      <td>tobacco</td>
+      <td>139</td>
+      <td>2.68</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>G178</th>
+      <td>Metal bottle caps and lids</td>
       <td>food and drink</td>
-      <td>38</td>
-      <td>1.01</td>
-      <td>38</td>
-    </tr>
-    <tr>
-      <th>G117</th>
-      <td>Expanded foams &lt; 5mm</td>
-      <td>micro plastics (&lt; 5mm)</td>
-      <td>36</td>
-      <td>0.96</td>
-      <td>33</td>
+      <td>124</td>
+      <td>2.39</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>G156</th>
       <td>Paper fragments</td>
       <td>packaging non food</td>
-      <td>35</td>
-      <td>0.93</td>
-      <td>22</td>
+      <td>102</td>
+      <td>1.96</td>
+      <td>48</td>
     </tr>
     <tr>
-      <th>G95</th>
-      <td>Cotton bud/swab sticks</td>
-      <td>waste water</td>
-      <td>35</td>
-      <td>0.93</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <th>G106</th>
-      <td>Plastic fragments angular &lt;5mm</td>
-      <td>micro plastics (&lt; 5mm)</td>
-      <td>34</td>
-      <td>0.90</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>G944</th>
-      <td>Pellet mass from injection molding</td>
-      <td>unclassified</td>
-      <td>34</td>
-      <td>0.90</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G23</th>
-      <td>Lids unidentified</td>
-      <td>packaging non food</td>
-      <td>30</td>
-      <td>0.80</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>G24</th>
-      <td>Plastic lid rings</td>
-      <td>food and drink</td>
-      <td>28</td>
-      <td>0.74</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>G213</th>
-      <td>Paraffin wax</td>
+      <th>G73</th>
+      <td>Foamed items &amp; pieces (non packaging/insulatio...</td>
       <td>recreation</td>
-      <td>27</td>
-      <td>0.72</td>
-      <td>33</td>
+      <td>87</td>
+      <td>1.68</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>G96</th>
+      <td>Sanitary-pads/tampons, applicators</td>
+      <td>waste water</td>
+      <td>82</td>
+      <td>1.58</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G923</th>
+      <td>Tissue, toilet paper, napkins, paper towels</td>
+      <td>personal items</td>
+      <td>82</td>
+      <td>1.58</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>G74</th>
+      <td>Insulation foams</td>
+      <td>infrastructure</td>
+      <td>71</td>
+      <td>1.37</td>
+      <td>41</td>
     </tr>
     <tr>
       <th>G177</th>
       <td>Foil wrappers, aluminum foil</td>
       <td>food and drink</td>
-      <td>26</td>
-      <td>0.69</td>
-      <td>36</td>
+      <td>66</td>
+      <td>1.27</td>
+      <td>44</td>
     </tr>
     <tr>
-      <th>G936</th>
-      <td>Sheeting ag. greenhouse film</td>
-      <td>agriculture</td>
+      <th>G155</th>
+      <td>Fireworks paper tubes and fragments</td>
+      <td>recreation</td>
+      <td>64</td>
+      <td>1.23</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>G211</th>
+      <td>Swabs, bandaging, medical</td>
+      <td>personal items</td>
+      <td>58</td>
+      <td>1.12</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>G112</th>
+      <td>Industrial pellets (nurdles)</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>52</td>
+      <td>1.00</td>
       <td>26</td>
+    </tr>
+    <tr>
+      <th>G24</th>
+      <td>Plastic lid rings</td>
+      <td>food and drink</td>
+      <td>51</td>
+      <td>0.98</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>G21</th>
+      <td>Drink lids</td>
+      <td>food and drink</td>
+      <td>48</td>
+      <td>0.92</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>G31</th>
+      <td>Lollypop sticks</td>
+      <td>food and drink</td>
+      <td>43</td>
+      <td>0.83</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>G23</th>
+      <td>Lids unidentified</td>
+      <td>packaging non food</td>
+      <td>42</td>
+      <td>0.81</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>G928</th>
+      <td>Ribbons and bows</td>
+      <td>personal items</td>
+      <td>41</td>
+      <td>0.79</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>G153</th>
+      <td>Cups, food containers, wrappers (paper)</td>
+      <td>food and drink</td>
+      <td>40</td>
+      <td>0.77</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>G904</th>
+      <td>Plastic fireworks</td>
+      <td>recreation</td>
+      <td>37</td>
+      <td>0.71</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>G89</th>
+      <td>Plastic construction waste</td>
+      <td>infrastructure</td>
+      <td>36</td>
       <td>0.69</td>
-      <td>22</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <th>G148</th>
+      <td>Cardboard (boxes and fragments)</td>
+      <td>packaging non food</td>
+      <td>35</td>
+      <td>0.67</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>G159</th>
+      <td>Corks</td>
+      <td>food and drink</td>
+      <td>34</td>
+      <td>0.65</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>G95</th>
+      <td>Cotton bud/swab sticks</td>
+      <td>waste water</td>
+      <td>32</td>
+      <td>0.62</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>G10</th>
+      <td>Food containers single use foamed or plastic</td>
+      <td>food and drink</td>
+      <td>28</td>
+      <td>0.54</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>G125</th>
+      <td>Balloons and balloon sticks</td>
+      <td>recreation</td>
+      <td>28</td>
+      <td>0.54</td>
+      <td>25</td>
     </tr>
     <tr>
       <th>G50</th>
       <td>String &lt; 1cm</td>
       <td>recreation</td>
       <td>25</td>
-      <td>0.66</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>G922</th>
-      <td>Labels, bar codes</td>
-      <td>packaging non food</td>
-      <td>24</td>
-      <td>0.64</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>G153</th>
-      <td>Cups, food containers, wrappers (paper)</td>
-      <td>food and drink</td>
-      <td>21</td>
-      <td>0.56</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G186</th>
-      <td>Industrial scrap</td>
-      <td>infrastructure</td>
-      <td>20</td>
-      <td>0.53</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>G25</th>
-      <td>Tobacco; plastic packaging, containers</td>
-      <td>tobacco</td>
-      <td>19</td>
-      <td>0.50</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>G201</th>
-      <td>Jars, includes pieces</td>
-      <td>food and drink</td>
-      <td>18</td>
       <td>0.48</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G10</th>
-      <td>Food containers single use foamed or plastic</td>
-      <td>food and drink</td>
-      <td>18</td>
-      <td>0.48</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>G211</th>
-      <td>Swabs, bandaging, medical</td>
-      <td>personal items</td>
-      <td>17</td>
-      <td>0.45</td>
-      <td>27</td>
+      <td>30</td>
     </tr>
     <tr>
       <th>G35</th>
       <td>Straws and stirrers</td>
       <td>food and drink</td>
+      <td>24</td>
+      <td>0.46</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>G203</th>
+      <td>Tableware ceramic or glass, cups, plates, pieces</td>
+      <td>food and drink</td>
+      <td>23</td>
+      <td>0.44</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>G117</th>
+      <td>Expanded foams &lt; 5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>23</td>
+      <td>0.44</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G165</th>
+      <td>Ice cream sticks, toothpicks, chopsticks</td>
+      <td>food and drink</td>
+      <td>23</td>
+      <td>0.44</td>
       <td>17</td>
-      <td>0.45</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>G32</th>
-      <td>Toys and party favors</td>
-      <td>recreation</td>
-      <td>16</td>
-      <td>0.43</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>G87</th>
-      <td>Tape, masking/duct/packing</td>
-      <td>infrastructure</td>
-      <td>16</td>
-      <td>0.43</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>G908</th>
-      <td>Tape; electrical, insulating</td>
-      <td>infrastructure</td>
-      <td>16</td>
-      <td>0.43</td>
-      <td>22</td>
     </tr>
     <tr>
       <th>G91</th>
       <td>Biomass holder</td>
       <td>waste water</td>
-      <td>16</td>
-      <td>0.43</td>
-      <td>27</td>
+      <td>22</td>
+      <td>0.42</td>
+      <td>19</td>
     </tr>
     <tr>
-      <th>G31</th>
-      <td>Lollypop sticks</td>
-      <td>food and drink</td>
-      <td>16</td>
-      <td>0.43</td>
-      <td>33</td>
+      <th>G32</th>
+      <td>Toys and party favors</td>
+      <td>recreation</td>
+      <td>22</td>
+      <td>0.42</td>
+      <td>25</td>
     </tr>
     <tr>
-      <th>G943</th>
-      <td>Fencing agriculture, plastic</td>
-      <td>agriculture</td>
-      <td>14</td>
-      <td>0.37</td>
-      <td>8</td>
+      <th>G922</th>
+      <td>Labels, bar codes</td>
+      <td>packaging non food</td>
+      <td>22</td>
+      <td>0.42</td>
+      <td>21</td>
     </tr>
     <tr>
-      <th>G208</th>
-      <td>Glass or ceramic fragments &gt; 2.5 cm</td>
-      <td>unclassified</td>
-      <td>14</td>
-      <td>0.37</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G204</th>
-      <td>Bricks, pipes not plastic</td>
+      <th>G87</th>
+      <td>Tape, masking/duct/packing</td>
       <td>infrastructure</td>
-      <td>14</td>
-      <td>0.37</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G178</th>
-      <td>Metal bottle caps and lids</td>
-      <td>food and drink</td>
-      <td>14</td>
-      <td>0.37</td>
+      <td>21</td>
+      <td>0.40</td>
       <td>25</td>
     </tr>
     <tr>
       <th>G66</th>
       <td>Straps/bands;  hard, plastic package fastener</td>
       <td>infrastructure</td>
-      <td>14</td>
-      <td>0.37</td>
-      <td>33</td>
+      <td>20</td>
+      <td>0.39</td>
+      <td>26</td>
     </tr>
     <tr>
-      <th>G927</th>
-      <td>String trimmer line, used to cut grass, weeds,...</td>
-      <td>infrastructure</td>
-      <td>13</td>
+      <th>G940</th>
+      <td>Foamed EVA for crafts and sports</td>
+      <td>recreation</td>
+      <td>19</td>
+      <td>0.37</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G157</th>
+      <td>Paper</td>
+      <td>packaging non food</td>
+      <td>18</td>
       <td>0.35</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>G905</th>
+      <td>Hair clip,  hair ties, personal accessories pl...</td>
+      <td>personal items</td>
+      <td>17</td>
+      <td>0.33</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>G146</th>
+      <td>Paper, cardboard</td>
+      <td>packaging non food</td>
+      <td>17</td>
+      <td>0.33</td>
       <td>16</td>
     </tr>
     <tr>
-      <th>G70</th>
-      <td>Shotgun cartridges</td>
-      <td>recreation</td>
-      <td>13</td>
-      <td>0.35</td>
-      <td>22</td>
+      <th>G106</th>
+      <td>Plastic fragments angular &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>16</td>
+      <td>0.31</td>
+      <td>12</td>
     </tr>
     <tr>
-      <th>G210</th>
-      <td>Other glass/ceramic</td>
+      <th>G208</th>
+      <td>Glass or ceramic fragments &gt; 2.5 cm</td>
       <td>unclassified</td>
+      <td>16</td>
+      <td>0.31</td>
       <td>12</td>
-      <td>0.32</td>
-      <td>5</td>
     </tr>
     <tr>
-      <th>G90</th>
-      <td>Plastic flower pots</td>
-      <td>agriculture</td>
+      <th>G131</th>
+      <td>Rubber bands</td>
+      <td>personal items</td>
+      <td>16</td>
+      <td>0.31</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>G98</th>
+      <td>Diapers - wipes</td>
+      <td>waste water</td>
+      <td>13</td>
+      <td>0.25</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>G33</th>
+      <td>Lids for togo drinks plastic</td>
+      <td>food and drink</td>
       <td>12</td>
-      <td>0.32</td>
-      <td>19</td>
+      <td>0.23</td>
+      <td>17</td>
     </tr>
     <tr>
       <th>G942</th>
       <td>Plastic shavings from lathes, CNC machining</td>
       <td>unclassified</td>
       <td>11</td>
-      <td>0.29</td>
+      <td>0.21</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G135</th>
+      <td>Clothes, footware, headware, gloves</td>
+      <td>personal items</td>
       <td>11</td>
+      <td>0.21</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>G3</th>
       <td>Plastic bags, carier bags</td>
       <td>packaging non food</td>
       <td>11</td>
-      <td>0.29</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>G131</th>
-      <td>Rubber bands</td>
-      <td>personal items</td>
-      <td>10</td>
-      <td>0.27</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>G923</th>
-      <td>Tissue, toilet paper, napkins, paper towels</td>
-      <td>personal items</td>
-      <td>10</td>
-      <td>0.27</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>G149</th>
-      <td>Paper packaging</td>
-      <td>packaging non food</td>
-      <td>10</td>
-      <td>0.27</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G203</th>
-      <td>Tableware ceramic or glass, cups, plates, pieces</td>
-      <td>food and drink</td>
-      <td>10</td>
-      <td>0.27</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G98</th>
-      <td>Diapers - wipes</td>
-      <td>waste water</td>
-      <td>10</td>
-      <td>0.27</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>G152</th>
-      <td>Cigarette boxes, tobacco related paper/cardboard</td>
-      <td>tobacco</td>
-      <td>10</td>
-      <td>0.27</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G905</th>
-      <td>Hair clip,  hair ties, personal accessories pl...</td>
-      <td>personal items</td>
-      <td>9</td>
-      <td>0.24</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G65</th>
-      <td>Buckets</td>
-      <td>agriculture</td>
-      <td>8</td>
       <td>0.21</td>
       <td>8</td>
-    </tr>
-    <tr>
-      <th>G100</th>
-      <td>Medical; containers/tubes/ packaging</td>
-      <td>waste water</td>
-      <td>8</td>
-      <td>0.21</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G22</th>
-      <td>Lids for chemicals, detergents (non-food)</td>
-      <td>infrastructure</td>
-      <td>8</td>
-      <td>0.21</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G48</th>
-      <td>Rope, synthetic</td>
-      <td>recreation</td>
-      <td>8</td>
-      <td>0.21</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G33</th>
-      <td>Lids for togo drinks plastic</td>
-      <td>food and drink</td>
-      <td>8</td>
-      <td>0.21</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G928</th>
-      <td>Ribbons and bows</td>
-      <td>personal items</td>
-      <td>8</td>
-      <td>0.21</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G159</th>
-      <td>Corks</td>
-      <td>food and drink</td>
-      <td>7</td>
-      <td>0.19</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G175</th>
-      <td>Cans, beverage</td>
-      <td>food and drink</td>
-      <td>7</td>
-      <td>0.19</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G73</th>
-      <td>Foamed items &amp; pieces (non packaging/insulatio...</td>
-      <td>recreation</td>
-      <td>6</td>
-      <td>0.16</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G198</th>
-      <td>Other metal pieces &lt; 50cm</td>
-      <td>infrastructure</td>
-      <td>6</td>
-      <td>0.16</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G931</th>
-      <td>Tape-caution for barrier, police, construction...</td>
-      <td>infrastructure</td>
-      <td>5</td>
-      <td>0.13</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G125</th>
-      <td>Balloons and balloon sticks</td>
-      <td>recreation</td>
-      <td>5</td>
-      <td>0.13</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G170</th>
-      <td>Wood (processed)</td>
-      <td>agriculture</td>
-      <td>5</td>
-      <td>0.13</td>
-      <td>13</td>
     </tr>
     <tr>
       <th>G34</th>
       <td>Cutlery, plates and trays</td>
       <td>food and drink</td>
+      <td>11</td>
+      <td>0.21</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>G186</th>
+      <td>Industrial scrap</td>
+      <td>infrastructure</td>
+      <td>10</td>
+      <td>0.19</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>G100</th>
+      <td>Medical; containers/tubes/ packaging</td>
+      <td>waste water</td>
+      <td>10</td>
+      <td>0.19</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G921</th>
+      <td>Ceramic tile and pieces</td>
+      <td>infrastructure</td>
+      <td>10</td>
+      <td>0.19</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G201</th>
+      <td>Jars, includes pieces</td>
+      <td>food and drink</td>
+      <td>10</td>
+      <td>0.19</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>G22</th>
+      <td>Lids for chemicals, detergents (non-food)</td>
+      <td>infrastructure</td>
+      <td>10</td>
+      <td>0.19</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G28</th>
+      <td>Pens, lids, mechanical pencils etc.</td>
+      <td>personal items</td>
+      <td>9</td>
+      <td>0.17</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G152</th>
+      <td>Cigarette boxes, tobacco related paper/cardboard</td>
+      <td>tobacco</td>
+      <td>9</td>
+      <td>0.17</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G149</th>
+      <td>Paper packaging</td>
+      <td>packaging non food</td>
+      <td>9</td>
+      <td>0.17</td>
       <td>5</td>
+    </tr>
+    <tr>
+      <th>G170</th>
+      <td>Wood (processed)</td>
+      <td>agriculture</td>
+      <td>8</td>
+      <td>0.15</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G167</th>
+      <td>Matches or fireworks</td>
+      <td>recreation</td>
+      <td>8</td>
+      <td>0.15</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G936</th>
+      <td>Sheeting ag. greenhouse film</td>
+      <td>agriculture</td>
+      <td>8</td>
+      <td>0.15</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G925</th>
+      <td>Packets: desiccant/ moisture absorbers, plasti...</td>
+      <td>packaging non food</td>
+      <td>7</td>
       <td>0.13</td>
-      <td>13</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G59</th>
+      <td>Fishing line monofilament (angling)</td>
+      <td>recreation</td>
+      <td>7</td>
+      <td>0.13</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G93</th>
+      <td>Cable ties; steggel, zip, zap straps</td>
+      <td>infrastructure</td>
+      <td>7</td>
+      <td>0.13</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G142</th>
+      <td>Rope , string or nets</td>
+      <td>recreation</td>
+      <td>7</td>
+      <td>0.13</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>G26</th>
+      <td>Cigarette lighters</td>
+      <td>tobacco</td>
+      <td>6</td>
+      <td>0.12</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>G933</th>
+      <td>Bags, cases for accessories; glasses, electron...</td>
+      <td>personal items</td>
+      <td>6</td>
+      <td>0.12</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>G210</th>
+      <td>Other glass/ceramic</td>
+      <td>unclassified</td>
+      <td>6</td>
+      <td>0.12</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G161</th>
+      <td>Processed timber</td>
+      <td>agriculture</td>
+      <td>6</td>
+      <td>0.12</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>G4</th>
+      <td>Small plastic bags; freezer, zip-lock etc.</td>
+      <td>packaging non food</td>
+      <td>6</td>
+      <td>0.12</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>G20</th>
+      <td>Caps and lids</td>
+      <td>packaging non food</td>
+      <td>5</td>
+      <td>0.10</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G90</th>
+      <td>Plastic flower pots</td>
+      <td>agriculture</td>
+      <td>5</td>
+      <td>0.10</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>G191</th>
       <td>Wire and mesh</td>
       <td>agriculture</td>
       <td>5</td>
-      <td>0.13</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G940</th>
-      <td>Foamed EVA for crafts and sports</td>
-      <td>recreation</td>
-      <td>5</td>
-      <td>0.13</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G155</th>
-      <td>Fireworks paper tubes and fragments</td>
-      <td>recreation</td>
-      <td>5</td>
-      <td>0.13</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G4</th>
-      <td>Small plastic bags; freezer, zip-lock etc.</td>
-      <td>packaging non food</td>
-      <td>5</td>
-      <td>0.13</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G148</th>
-      <td>Cardboard (boxes and fragments)</td>
-      <td>packaging non food</td>
-      <td>5</td>
-      <td>0.13</td>
+      <td>0.10</td>
       <td>8</td>
     </tr>
     <tr>
-      <th>G917</th>
-      <td>Terracotta balls</td>
-      <td>unclassified</td>
-      <td>5</td>
-      <td>0.13</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G925</th>
-      <td>Packets: desiccant/ moisture absorbers, plasti...</td>
-      <td>packaging non food</td>
-      <td>4</td>
-      <td>0.11</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G59</th>
-      <td>Fishing line monofilament (angling)</td>
-      <td>recreation</td>
-      <td>4</td>
-      <td>0.11</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G194</th>
-      <td>Cables, metal wire(s) often inside rubber or p...</td>
-      <td>infrastructure</td>
-      <td>4</td>
-      <td>0.11</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G96</th>
-      <td>Sanitary-pads/tampons, applicators</td>
-      <td>waste water</td>
-      <td>4</td>
-      <td>0.11</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G176</th>
-      <td>Cans, food</td>
-      <td>food and drink</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G913</th>
-      <td>Pacifier</td>
+      <th>G137</th>
+      <td>Clothing, towels &amp; rags</td>
       <td>personal items</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G933</th>
-      <td>Bags, cases for accessories; glasses, electron...</td>
-      <td>personal items</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G37</th>
-      <td>Mesh bags</td>
-      <td>personal items</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G6</th>
-      <td>Bottles and containers, plastic non food/drink</td>
-      <td>packaging non food</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G914</th>
-      <td>Paperclips, clothespins, plastic utility items</td>
-      <td>personal items</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G921</th>
-      <td>Ceramic tile and pieces</td>
-      <td>infrastructure</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G134</th>
-      <td>Other rubber</td>
-      <td>unclassified</td>
-      <td>3</td>
-      <td>0.08</td>
       <td>5</td>
-    </tr>
-    <tr>
-      <th>G158</th>
-      <td>Other paper items</td>
-      <td>packaging non food</td>
-      <td>3</td>
-      <td>0.08</td>
+      <td>0.10</td>
       <td>8</td>
-    </tr>
-    <tr>
-      <th>G146</th>
-      <td>Paper, cardboard</td>
-      <td>packaging non food</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G165</th>
-      <td>Ice cream sticks, toothpicks, chopsticks</td>
-      <td>food and drink</td>
-      <td>3</td>
-      <td>0.08</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G103</th>
-      <td>Plastic fragments rounded &lt;5mm</td>
-      <td>micro plastics (&lt; 5mm)</td>
-      <td>2</td>
-      <td>0.05</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G918</th>
-      <td>Safety pins, paper clips, small metal utility ...</td>
-      <td>personal items</td>
-      <td>2</td>
-      <td>0.05</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G101</th>
-      <td>Dog feces bag</td>
-      <td>personal items</td>
-      <td>2</td>
-      <td>0.05</td>
-      <td>5</td>
     </tr>
     <tr>
       <th>G124</th>
       <td>Other plastic or foam products</td>
       <td>unclassified</td>
-      <td>2</td>
-      <td>0.05</td>
+      <td>4</td>
+      <td>0.08</td>
       <td>5</td>
     </tr>
     <tr>
-      <th>G133</th>
-      <td>Condoms incl. packaging</td>
-      <td>waste water</td>
-      <td>2</td>
-      <td>0.05</td>
+      <th>G926</th>
+      <td>Chewing gum, often contains plastics</td>
+      <td>food and drink</td>
+      <td>4</td>
+      <td>0.08</td>
       <td>5</td>
     </tr>
     <tr>
-      <th>G2</th>
-      <td>Bags</td>
-      <td>packaging non food</td>
-      <td>2</td>
-      <td>0.05</td>
-      <td>2</td>
+      <th>G929</th>
+      <td>Electronics and pieces; sensors, headsets etc.</td>
+      <td>personal items</td>
+      <td>4</td>
+      <td>0.08</td>
+      <td>7</td>
     </tr>
     <tr>
-      <th>G174</th>
-      <td>Aerosol spray cans</td>
+      <th>G908</th>
+      <td>Tape; electrical, insulating</td>
       <td>infrastructure</td>
-      <td>2</td>
-      <td>0.05</td>
-      <td>5</td>
+      <td>4</td>
+      <td>0.08</td>
+      <td>7</td>
     </tr>
     <tr>
-      <th>G49</th>
-      <td>Rope &gt; 1cm</td>
+      <th>G171</th>
+      <td>Other wood &lt; 50cm</td>
+      <td>agriculture</td>
+      <td>4</td>
+      <td>0.08</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G7</th>
+      <td>Drink bottles &lt; = 0.5L</td>
+      <td>food and drink</td>
+      <td>4</td>
+      <td>0.08</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>G48</th>
+      <td>Rope, synthetic</td>
       <td>recreation</td>
-      <td>2</td>
-      <td>0.05</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G101</th>
+      <td>Dog feces bag</td>
+      <td>personal items</td>
+      <td>3</td>
+      <td>0.06</td>
       <td>5</td>
     </tr>
     <tr>
-      <th>G26</th>
-      <td>Cigarette lighters</td>
-      <td>tobacco</td>
-      <td>2</td>
-      <td>0.05</td>
+      <th>G68</th>
+      <td>Fiberglass fragments</td>
+      <td>infrastructure</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G70</th>
+      <td>Shotgun cartridges</td>
+      <td>recreation</td>
+      <td>3</td>
+      <td>0.06</td>
       <td>5</td>
     </tr>
     <tr>
       <th>G901</th>
       <td>Mask medical, synthetic</td>
       <td>personal items</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G119</th>
+      <td>Sheetlike user plastic (&gt;1mm)</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>3</td>
+      <td>0.06</td>
       <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
+    </tr>
+    <tr>
+      <th>G916</th>
+      <td>Pencils and pieces</td>
+      <td>personal items</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>G134</th>
+      <td>Other rubber</td>
+      <td>unclassified</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G175</th>
+      <td>Cans, beverage</td>
+      <td>food and drink</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>G938</th>
       <td>Toothpicks, dental floss plastic</td>
       <td>food and drink</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>5</td>
     </tr>
     <tr>
-      <th>G939</th>
-      <td>Flowers, plants plastic</td>
+      <th>G154</th>
+      <td>Newspapers or magazines</td>
       <td>personal items</td>
+      <td>3</td>
+      <td>0.06</td>
       <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G20</th>
-      <td>Caps and lids</td>
-      <td>packaging non food</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G111</th>
-      <td>Spheruloid pellets &lt; 5mm</td>
-      <td>micro plastics (&lt; 5mm)</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G11</th>
-      <td>Cosmetics for the beach, e.g. sunblock</td>
-      <td>recreation</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G197</th>
-      <td>Other metal</td>
-      <td>infrastructure</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G202</th>
-      <td>Light bulbs</td>
-      <td>unclassified</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G190</th>
-      <td>Paint cans</td>
-      <td>infrastructure</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G182</th>
-      <td>Fishing; hooks, weights, lures, sinkers etc.</td>
-      <td>recreation</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G97</th>
-      <td>Toilet fresheners</td>
-      <td>waste water</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G161</th>
-      <td>Processed timber</td>
-      <td>agriculture</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G114</th>
-      <td>Films  &lt;5mm</td>
-      <td>micro plastics (&lt; 5mm)</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
     </tr>
     <tr>
       <th>G930</th>
       <td>Foam earplugs</td>
       <td>personal items</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
+      <td>3</td>
+      <td>0.06</td>
+      <td>3</td>
     </tr>
     <tr>
-      <th>G214</th>
-      <td>Oil/tar</td>
-      <td>infrastructure</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G129</th>
-      <td>Inner tubes and rubber sheets</td>
+      <th>G917</th>
+      <td>Terracotta balls</td>
       <td>unclassified</td>
-      <td>1</td>
-      <td>0.03</td>
       <td>2</td>
+      <td>0.04</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>G93</th>
-      <td>Cable ties; steggel, zip, zap straps</td>
+      <th>G927</th>
+      <td>String trimmer line, used to cut grass, weeds,...</td>
       <td>infrastructure</td>
-      <td>1</td>
-      <td>0.03</td>
       <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G939</th>
+      <td>Flowers, plants plastic</td>
+      <td>personal items</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G103</th>
+      <td>Plastic fragments rounded &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G11</th>
+      <td>Cosmetics for the beach, e.g. sunblock</td>
+      <td>recreation</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G197</th>
+      <td>Other metal</td>
+      <td>infrastructure</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G108</th>
+      <td>disk pellets  &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G114</th>
+      <td>Films  &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G118</th>
+      <td>Small industrial spheres &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G128</th>
+      <td>Tires and belts</td>
+      <td>unclassified</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G133</th>
+      <td>Condoms incl. packaging</td>
+      <td>waste water</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>G138</th>
       <td>Shoes and sandals</td>
       <td>personal items</td>
-      <td>1</td>
-      <td>0.03</td>
       <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
     </tr>
     <tr>
-      <th>G926</th>
-      <td>Chewing gum, often contains plastics</td>
-      <td>food and drink</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G135</th>
-      <td>Clothes, footware, headware, gloves</td>
+      <th>G145</th>
+      <td>Other textiles</td>
       <td>personal items</td>
-      <td>1</td>
-      <td>0.03</td>
       <td>2</td>
+      <td>0.04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G198</th>
+      <td>Other metal pieces &lt; 50cm</td>
+      <td>infrastructure</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G2</th>
+      <td>Bags</td>
+      <td>packaging non food</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G204</th>
+      <td>Bricks, pipes not plastic</td>
+      <td>infrastructure</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>G29</th>
       <td>Combs, brushes and sunglasses</td>
       <td>personal items</td>
-      <td>1</td>
-      <td>0.03</td>
       <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G5</th>
+      <td>Generic plastic bags</td>
+      <td>packaging non food</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G43</th>
+      <td>Tags fishing or industry (security tags, seals)</td>
+      <td>recreation</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>G107</th>
+      <td>Cylindrical pellets &lt; 5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G914</th>
+      <td>Paperclips, clothespins, plastic utility items</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G39</th>
+      <td>Gloves</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G99</th>
+      <td>Syringes - needles</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G115</th>
+      <td>Foamed  plastic &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>G12</th>
       <td>Cosmetics, non-beach use personal care containers</td>
       <td>personal items</td>
       <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
+      <td>0.02</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>G36</th>
-      <td>Bags/sacks heavy duty plastic for 25 Kg or mor...</td>
+      <th>G943</th>
+      <td>Fencing agriculture, plastic</td>
       <td>agriculture</td>
       <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G126</th>
+      <td>Balls</td>
+      <td>recreation</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G900</th>
+      <td>Gloves latex  personal protective equipment</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G40</th>
+      <td>Gloves household/gardening</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G902</th>
+      <td>Mask medical, cloth</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G139</th>
+      <td>Backpacks</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G140</th>
+      <td>Bags, burlap, hessian, jute or hemp</td>
+      <td>agriculture</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G935</th>
+      <td>Walking stick pads and pieces, often elastomer...</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G931</th>
+      <td>Tape-caution for barrier, police, construction...</td>
+      <td>infrastructure</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G913</th>
+      <td>Pacifier</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G147</th>
+      <td>Paper bags</td>
+      <td>packaging non food</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G173</th>
+      <td>Other</td>
+      <td>unclassified</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G176</th>
+      <td>Cans, food</td>
+      <td>food and drink</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G194</th>
+      <td>Cables, metal wire(s) often inside rubber or p...</td>
+      <td>infrastructure</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G195</th>
+      <td>Batteries - household</td>
+      <td>personal items</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G6</th>
+      <td>Bottles and containers, plastic non food/drink</td>
+      <td>packaging non food</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G38</th>
+      <td>Coverings; plastic packaging, sheeting for pro...</td>
+      <td>unclassified</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G109</th>
+      <td>Flat pellets  &lt;5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G111</th>
+      <td>Spheruloid pellets &lt; 5mm</td>
+      <td>micro plastics (&lt; 5mm)</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>G919</th>
       <td>Nails, screws, bolts etc.</td>
       <td>infrastructure</td>
       <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G43</th>
-      <td>Tags fishing or industry (security tags, seals)</td>
-      <td>recreation</td>
+      <td>0.02</td>
       <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
     </tr>
     <tr>
-      <th>G167</th>
-      <td>Matches or fireworks</td>
-      <td>recreation</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G64</th>
-      <td>Fenders</td>
-      <td>unclassified</td>
-      <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G71</th>
-      <td>Shoes sandals</td>
+      <th>G918</th>
+      <td>Safety pins, paper clips, small metal utility ...</td>
       <td>personal items</td>
       <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
+      <td>0.02</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>G28</th>
-      <td>Pens, lids, mechanical pencils etc.</td>
-      <td>personal items</td>
+      <th>G213</th>
+      <td>Paraffin wax</td>
+      <td>recreation</td>
       <td>1</td>
-      <td>0.03</td>
-      <td>2</td>
+      <td>0.02</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>G65</th>
+      <td>Buckets</td>
+      <td>agriculture</td>
+      <td>1</td>
+      <td>0.02</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>

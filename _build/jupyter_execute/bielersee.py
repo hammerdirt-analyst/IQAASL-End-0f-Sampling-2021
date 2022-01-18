@@ -72,19 +72,18 @@ cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
 
 # set the maps
-bassin_map = "resources/maps/leman_scaled.jpeg"
+bassin_map = "resources/maps/bielersee_scaled.jpeg"
 
 # top level aggregation
 top = "All survey areas"
 
 # define the feature level and components
-this_feature = {'slug':'lac-leman', 'name':"Lac Léman", 'level':'water_name_slug'}
+this_feature = {'slug':'bielersee', 'name':"Bielersee", 'level':'water_name_slug'}
 this_level = 'city'
-this_bassin = "rhone"
-bassin_label = "Aa survey area"
+this_bassin = "aare"
+bassin_label = "Aare survey area"
 
 lakes_of_interest = ['bielersee']
-
 # explanatory variables:
 luse_exp = ["% buildings", "% recreation", "% agg", "% woods", "streets km", "intersects"]
 
@@ -161,8 +160,10 @@ code_material_map = dfCodes.material
 
 # (bielersee)=
 # # Bielersee
+# 
+# <a href="bielersee_de.html"> Deutsch </a>
 
-# *Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021*
 
 # In[2]:
 
@@ -186,7 +187,7 @@ a_data["date"] = pd.to_datetime(a_data.date)
 a_data.rename(columns={"% to agg":"% ag", "% to recreation": "% recreation", "% to woods":"% woods", "% to buildings":"% buildings"}, inplace=True)
 luse_exp = ["% buildings", "% recreation", "% ag", "% woods", "streets km", "intersects"]
 
-fd = sut.feature_data(a_data, this_feature["level"], these_features=[this_feature["slug"]])
+fd = sut.feature_data(a_data, this_feature["level"], these_features=lakes_of_interest)
 
 # cumulative statistics for each code
 code_totals = sut.the_aggregated_object_values(fd, agg=agg_pcs_median, description_map=code_description_map, material_map=code_material_map)    
@@ -278,7 +279,7 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.4,len(data)*.5))
+fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.5))
 
 sut.hide_spines_ticks_grids(ax)
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)

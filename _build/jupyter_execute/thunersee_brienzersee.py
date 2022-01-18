@@ -161,8 +161,10 @@ code_material_map = dfCodes.material
 
 # (thunersee)=
 # # Thunersee/Brienzersee
+# 
+# <a href="thunersee_brienzersee_de.html"> Deutsch </a>
 
-# *Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021*
 
 # In[2]:
 
@@ -715,7 +717,6 @@ data_table[bassin_label] = sut.aggregate_to_group_name(fd, unit_label=unit_label
 data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, column="groupname", name=top, val="pt")
 
 data = data_table
-# data.rename(columns={x:wname_wname.loc[x][0] for x in data.columns[:-2]}, inplace=True)
 
 fig, ax = plt.subplots(figsize=(10,10))
 

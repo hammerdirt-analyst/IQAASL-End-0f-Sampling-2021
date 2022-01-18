@@ -164,8 +164,10 @@ code_material_map = dfCodes.material
 
 # (ticinosa)=
 # # Ticino survey area
+# 
+# <a href="ticino_sa_de.html"> Deutsch </a>
 
-# *__Unten:__ Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021*
 
 # In[2]:
 

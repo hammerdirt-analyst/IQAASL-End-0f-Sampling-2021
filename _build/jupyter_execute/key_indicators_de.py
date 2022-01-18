@@ -57,6 +57,8 @@ colors_palette = ck.colors_palette
 # (keyindicatorsde)=
 # # Statistische Schlüsselindikatoren
 # 
+# <a href="key_indicators.html"> English </a>
+# 
 # Die Schlüsselindikatoren sind einfach zu berechnen und werden direkt aus den Erhebungsergebnissen entnommen. Sie sind für die Identifizierung von Akkumulationszonen im Wassereinzugsgebiet unerlässlich. Wenn sie im Rahmen eines Abfallüberwachungsprogramms verwendet und mit spezifischen Kenntnissen über die Umgebung kombiniert werden, helfen die Schlüsselindikatoren, potenzielle Abfallquellen zu identifizieren. {cite}`mlwguidance`
 # 
 # Auswertungen von Strand-Abfallaufkommen Untersuchungen beschreiben den Ort, die Häufigkeit und die Zusammensetzung der gefundenen Gegenstände {cite}`eubaselines`. Die Schlüsselindikatoren beantworten die folgenden Fragen:

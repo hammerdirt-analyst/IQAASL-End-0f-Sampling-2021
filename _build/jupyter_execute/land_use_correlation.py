@@ -59,6 +59,8 @@ code_material_map = dfCodes.material
 # (luseprofile)=
 # # The land use profile
 # 
+# <a href="land_use_correlation_de.html" > Deutsch </a>
+# 
 # *The land use profile* is a numerical representation of the type and amplitude of economic activity around the survey location. It is calculated by using the data stored in map layers available at the [_Federal geoportal_](https://www.geo.admin.ch/) and at the [_Swiss federal statistical office_](https://www.bfs.admin.ch/bfs/en/home.html)
 # 
 # Trash is a collection of objects found in the natural environment. The object itself and the context in which it is found are indicators of economic and geographic origin. How the land is used in proximity to the survey location is an important context to consider when evaluating survey results. {cite}`aydin` {cite}`grelaud`
