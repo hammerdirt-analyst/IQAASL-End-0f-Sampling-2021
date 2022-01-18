@@ -8,18 +8,38 @@ hammerdirt staff maintain the repo for the report
 
 ## Contents
 
+### report
+
 1. A .pynb file each survey area, lake and any chapter that had calculations
 2. The  .md file for all other chapters
-3. The build file for the report
-4. ALL the data including explanatory variables, images and maps, see [ readme_data ](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/blob/main/resources/readme_data.md).
+3. The \_toc.yml and \_config.yml file for each language version
 
-The REST API for the new application is in development here [IQALS](https://github.com/hammerdirt-analyst/iqals)
+### resources
+5. All the images and maps for the report
+6. ALL the data including explanatory variables [ readme_data ](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/blob/main/resources/readme_data.md).
 
-If you just want to see the report: [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/titlepage.html)
+### docs
+
+The complete html version of the report in German and English you can see that here [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/titlepage.html)
+
+### \_build
+
+Any other available build formats
+
+### tocs
+
+The table of content files for different configurations
+
+### templates
+
+A series of operations that produces a standardized report.
+
 
 ## Contributing
 
 This report was the inspiration for three manuscripts in devlopment and could serve as an initiation to data science and computing. Specifically for those interested in discrete, `random` observations or count data methods this repo may provide you with a new challenge.
+
+The REST API for the new application is in development here [IQALS](https://github.com/hammerdirt-analyst/iqals)
 
 Currently there is a team working on the application of a simple machine learning model that describes the probability of finding an object given the data. Development has also begun on a more complex model that predicts the range of probable values that a person may encounter.
 
