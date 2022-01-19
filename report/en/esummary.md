@@ -1,4 +1,3 @@
----
 % This is a report using the data from IQAASL.
 % IQAASL was a project funded by the Swiss Confederation
 % It produces a summary of litter survey results for a defined region.
@@ -40,6 +39,7 @@ This report is a summary and analysis of the litter surveys conducted and the me
 
 
 ```{figure} resources/maps/intro_map.jpeg
+---
 width: 1200px
 name: esummarymap
 ---

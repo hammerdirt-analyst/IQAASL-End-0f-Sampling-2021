@@ -4,8 +4,6 @@
 # In[1]:
 
 
-# -*- coding: utf-8 -*-
-
 # This is a report using the data from IQAASL.
 # IQAASL was a project funded by the Swiss Confederation
 # It produces a summary of litter survey results for a defined region.
@@ -71,7 +69,7 @@ def push_this_to_json(filename="", data=[]):
 # (codegroups)=
 # # Code groups
 # 
-# <a href="baselines_de.html"> Deustch </a>
+# <a href="baselines_de.html"> Deutsch </a>
 # 
 # The IQAASL project used the item codes and descriptions from the Marine Strategy Framework (MSFD) master list  {cite}`mlwguidance`.      Item identification follows the protocols from the MSFD Technical Subgroup on Marine Litter. The master list was developed based on the categories of items used in a series of programs and is one of the most detailed, representing established EU protocols. There are 217 identification codes to classify all objects collected from a survey. The item codes begin with G1 and end with G217. 
 # 

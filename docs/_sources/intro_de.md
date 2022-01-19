@@ -33,6 +33,7 @@ Eine Strand-Abfallaufkommen Untersuchung kann jederzeit von jedem durchgeführt 
 
 Das Sammeln von Daten für den Bericht (oder den nächsten Bericht) erfordert eine gewisse Einarbeitung und eine Bewertung. Es dauert in der Regel 3-5 Datenerhebungen, um eine Person an die Aufgabe zu gewöhnen. Die meiste Zeit wird damit verbracht, Objekte zu identifizieren und zu lernen, wie wichtig es ist, ein Feldnotizbuch zu führen. Der Vorteil der Datenübermittlung besteht darin, dass das Berichtsverfahren automatisiert ist und man jederzeit Zugriff auf die Ergebnisse hat.
 
+---
 
 ## Diesen Bericht verwenden 
 

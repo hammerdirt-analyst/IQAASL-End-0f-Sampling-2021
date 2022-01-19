@@ -4,8 +4,6 @@
 # In[1]:
 
 
-# -*- coding: utf-8 -*-
-
 # This is a report using the data from IQAASL.
 # IQAASL was a project funded by the Swiss Confederation
 # It produces a summary of litter survey results for a defined region.

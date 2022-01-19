@@ -2,7 +2,7 @@
 
 **Edition 1** ver=1e
 
-<a href="titlepage_de.html" > </a>
+<a href="titlepage_de.html" > Deutsch </a>
 
 *Map of survey locations March 2020 - July 2021*
 :::{image} resources/maps/intro_map.jpeg
