@@ -52,7 +52,7 @@ PVC3 ist ein gängiges Material für Kunststoffe im Bauwesen. Baukunststoffe geh
 
 ###     Polyethylen niedriger Dichte (LDPE4) 
 
-    LDPE4 wird in der Regel nicht recycelt, da es entweder nicht gekennzeichnet oder sehr schwer zu reinigen ist. LDPE4 wird oft unter Industriefolien oder Dünnschicht-Plastiksäcken eingeordnet. 
+LDPE4 wird in der Regel nicht recycelt, da es entweder nicht gekennzeichnet oder sehr schwer zu reinigen ist. LDPE4 wird oft unter Industriefolien oder Dünnschicht-Plastiksäcken eingeordnet. 
 
 > Industriefilme wurden in 69 % aller Proben gefunden und waren mindestens  4% aller identifizierten Objekte.
 

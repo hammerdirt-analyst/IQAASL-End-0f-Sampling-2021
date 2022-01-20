@@ -43,7 +43,7 @@ parts:
   - caption: Anwendungen
     numbered: True
     chapters:
-    - file: reuse_remake
+    - file: reuse_remake_de
     - file: shared_responsibility_de
     - file: slr_2017_de
 
