@@ -37,10 +37,10 @@ Nur 88 PET-Getränkeflaschen wurden in den Jahren 2020-2021 landesweit entlang d
 
 HDPE2 hat ein hohes Verhältnis von Festigkeit zu Dichte und funktioniert gut im PPL-System. HDPE2 hat die Form vieler Gegenstände, die bei Datenerhebungen identifiziert wurden:
 
-* bottle lids
-* certain drink containers
-* detergent and chemical containers
-* Toys
+* Flaschendeckel
+* bestimmte Getränkebehälter
+* Behälter für Reinigungsmittel und Chemikalien
+* Spielzeug
 
 > Zusammengenommen hätten mindestens 4% aller Gegenstände als HDPE klassifiziert werden können. Aus diesen Gegenständen stellt PPL Schlüsselanhänger, Blumentöpfe und Karabiner her. 
 

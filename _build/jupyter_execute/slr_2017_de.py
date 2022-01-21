@@ -1209,6 +1209,8 @@ plt.show()
 # 
 # Künftige Umfragen sollten sichtbare Objekte aller Größenordnungen umfassen. Die Datenaggregation kann auf dem Server anhand definierter Regeln erfolgen, die auf bekannten Beziehungen basieren. Die Gesamtzahl ist ein Schlüsselindikator in allen Statistiken, die auf Zähldaten beruhen, und für Modellierungszwecke unerlässlich. 
 
+# ## Anhang
+
 # ### Seen; monatliche mediane gemeinsame Objekte:
 # 
 # Bei beiden Projekten wurden alle Seen in allen Monaten beprobt. Im Jahr 2018 lag das Minimum der Proben pro Monat bei 12 und das Maximum bei 17, verglichen mit einem Minimum von 17 und einem Maximum von 34 im Jahr 2020. 
