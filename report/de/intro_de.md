@@ -2,7 +2,13 @@
 
 | <a href="intro.html"> English </a> | [Italiano](italiano_intro_de) |
 
-Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastruktur zu entwickeln, um die Zusammensetzung und Häufigkeit von anthropogenem Material entlang ausgewählter Schweizer Flüsse und Seen genau zu bewerten und diese Ergebnisse in einem konsolidierten, webbasierten Bericht zu präsentieren. 
+Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastruktur zu entwickeln, um die Zusammensetzung und Häufigkeit von anthropogenem Material entlang ausgewählter Schweizer Flüsse und Seen genau zu bewerten und diese Ergebnisse in einem konsolidierten, webbasierten Bericht zu präsentieren.
+
+Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlung von Akkumulationszonen zu erforschen.
+
+* _Erkennung von Akkumulation und Leckage mit Spearmans Rho_, Zusammenarbeit mit Wageningen [University and Research](https://www.wur.nl/), colla: [_Analyse und Daten_ ](https://github.com/hammerdirt-analyst/landuse)
+
+* die Wahrscheinlichkeit, ein Objekt zu finden Zusammenarbeit mit [_École des ponts](https://www.ecoledesponts.fr/)
 
 ## Bewertungsmethode
 
