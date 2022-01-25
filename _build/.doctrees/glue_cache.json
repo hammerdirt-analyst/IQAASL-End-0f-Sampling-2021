@@ -1,17 +1,33 @@
 {
   "lakes_rivers_de": {
-    "utility2_de": {
+    "eos_summary_sarea_de": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 720x720 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 756x288 with 1 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "utility2_de"
+          "name": "eos_summary_sarea_de"
         },
         "filenames": {
-          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_33_0.png"
+          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_9_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "eosscatter_de": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 720x360 with 2 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "eosscatter_de"
+        },
+        "filenames": {
+          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_12_0.png"
         }
       },
       "output_type": "display_data"
@@ -28,38 +44,6 @@
         },
         "filenames": {
           "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_36_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "summarymaterial_de": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 576x432 with 2 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "summarymaterial_de"
-        },
-        "filenames": {
-          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_15_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "eos_summary_sarea_de": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 756x288 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "eos_summary_sarea_de"
-        },
-        "filenames": {
-          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_9_0.png"
         }
       },
       "output_type": "display_data"
@@ -96,6 +80,38 @@
       },
       "output_type": "display_data"
     },
+    "utility_de": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 720x720 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "utility_de"
+        },
+        "filenames": {
+          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_30_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "summarymaterial_de": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 576x432 with 2 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "summarymaterial_de"
+        },
+        "filenames": {
+          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_15_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
     "rivers2_de": {
       "data": {
         "application/papermill.record/image/png": null,
@@ -108,38 +124,6 @@
         },
         "filenames": {
           "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_39_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "eosscatter_de": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 720x360 with 2 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "eosscatter_de"
-        },
-        "filenames": {
-          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_12_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "eosluse_de": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1224x288 with 6 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "eosluse_de"
-        },
-        "filenames": {
-          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_6_0.png"
         }
       },
       "output_type": "display_data"
@@ -160,7 +144,7 @@
       },
       "output_type": "display_data"
     },
-    "utility_de": {
+    "utility2_de": {
       "data": {
         "application/papermill.record/image/png": null,
         "application/papermill.record/text/plain": "<Figure size 720x720 with 1 Axes>"
@@ -168,10 +152,26 @@
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "utility_de"
+          "name": "utility2_de"
         },
         "filenames": {
-          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_30_0.png"
+          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_33_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "eosluse_de": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1224x288 with 6 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "eosluse_de"
+        },
+        "filenames": {
+          "image/png": "/home/mwshovel/dev/a_book/end_of_sampling_iqaasl/_build/jupyter_execute/lakes_rivers_de_6_0.png"
         }
       },
       "output_type": "display_data"

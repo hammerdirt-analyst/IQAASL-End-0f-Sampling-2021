@@ -1,8 +1,14 @@
 # Vorwort
 
-| <a href="intro.html"> English </a> | [Italiano](italiano_intro_de) |
+| <a href="intro.html"> English </a> | [Italiano](italiano_intro_de) | [Francais](francais_intro_de) |
 
-Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastruktur zu entwickeln, um die Zusammensetzung und Häufigkeit von anthropogenem Material entlang ausgewählter Schweizer Flüsse und Seen genau zu bewerten und diese Ergebnisse in einem konsolidierten, webbasierten Bericht zu präsentieren. 
+Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastruktur zu entwickeln, um die Zusammensetzung und Häufigkeit von anthropogenem Material entlang ausgewählter Schweizer Flüsse und Seen genau zu bewerten und diese Ergebnisse in einem konsolidierten, webbasierten Bericht zu präsentieren.
+
+Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlung von Akkumulationszonen zu erforschen.
+
+* _Erkennung von Akkumulation und Leckage mit Spearmans Rho_, Zusammenarbeit mit Wageningen [University and Research](https://www.wur.nl/): [_repository_ ](https://github.com/hammerdirt-analyst/landuse)
+
+* Die Wahrscheinlichkeit, ein Objekt zu finden Zusammenarbeit mit [_École des ponts_](https://www.ecoledesponts.fr/): [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
 
 ## Bewertungsmethode
 
@@ -19,13 +25,11 @@ Um Objekte von regionalem Interesse zu identifizieren, wurden zusätzliche Codes
 
 Für weitere Informationen: [Code-Gruppen](codegroupsde).
 
-
 ## Bewertung metrisch
 
 Der Medianwert (50 th Perzentil) der Datenerhebungen Ergebnisse wird als die Anzahl der Objekte pro 100m (p/100m) der Küstenlinie angegeben. Dies ist die Methode, die in EU Marine Beach Abfallobjekte Baselines{cite}`eubaselines` beschrieben ist und die in diesem Bericht als Standard verwendet wird. Der in der Meeresumwelt verwendete 100-Meter-Standard ist für die Küstenregionen des europäischen Kontinents geeignet. Die Verstädterung und die Topographie stellen jedoch eine besondere Herausforderung bei der Auswahl von Standorten dar, die für die sichere Durchführung von ganzjährigen Datenerhebungen von Abfallobjekten an der Uferzone geeignet sind. 
 
 Eine Beschränkung der Datenerhebungen auf 100 Meter exponierte Uferlinie hätte die Anzahl der verfügbaren Messstellen sowie die Verwendung bereits vorhandener Daten drastisch reduziert. Daher spiegelt das IQAASL die lokale Topographie mit einer mittleren Erhebungslänge von 45 m und einem Durchschnitt von 51 m wider. Datenerhebungen, die kürzer als 10 m sind, wurden bei der Basisanalyse nicht berücksichtigt. Die Datenerhebungen Ergebnisse werden in p/100m umgerechnet, indem das Ergebnis der Erhebung mit 100 multipliziert wird. 
-
 
 Sammeln von Daten 
 
@@ -70,7 +74,13 @@ Dieser Bericht ist versioniert, daher ist es sehr einfach, Artikel oder Analysen
 (italiano_intro_de)=
 # Prefazione
 
-Il presente progetto mira a raccogliere dati e a sviluppare l’infrastruttura necessaria per valutare accuratamente la composizione e l’abbondanza di materiale antropogenico lungo fiumi e laghi svizzeri selezionati nonché a presentare questi risultati in un rapporto consolidato basato su web.  
+Il presente progetto mira a raccogliere dati e a sviluppare l’infrastruttura necessaria per valutare accuratamente la composizione e l’abbondanza di materiale antropogenico lungo fiumi e laghi svizzeri selezionati nonché a presentare questi risultati in un rapporto consolidato basato su web.
+
+I risultati di queste indagini saranno utilizzati per esplorare altri metodi per rilevare le zone di accumulo.
+
+* _Detection of accumulation and leakage with Spearman's Rho_, collaborazione con Wageningen [Università e Ricerca](https://www.wur.nl/), colla: [_repository_ ](https://github.com/hammerdirt-analyst/landuse)
+
+* La probabilità di trovare un oggetto Collaborazione con [_École des ponts](https://www.ecoledesponts.fr/): [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
 
 ## Metodo di valutazione
 
@@ -145,3 +155,88 @@ I risultati per ogni comune indicano il lago o il fiume a cui appartengono. Si p
 ### Contribuire a questo rapporto 
 
 Questo rapporto indica la versione quindi è molto facile inviare articoli o analisi che correggono, chiariscono o migliorano il contenuto. Per contribuire, basta inviare una richiesta di pull a [fine repo di campionamento](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021). Si accettano richieste redatte in tutte le lingue nazionali ufficiali svizzere.
+
+(francais_intro_de)=
+# Avant-propos
+
+L'objectif de ce projet était de collecter des données et de développer l'infrastructure nécessaire pour évaluer avec précision la composition et l'abondance des matières anthropogènes le long de certains lacs et rivières suisses et de présenter ces résultats dans un rapport consolidé basé sur le Web. 
+
+Les résultats de ces enquêtes sont utilisés pour explorer d'autres méthodes de détection des zones d'accumulation.
+
+* _Détection de l'accumulation et des fuites avec Spearman's Rho_, collaboration avec Wageningen [University and Research](https://www.wur.nl/), colla : [_repository_ ](https://github.com/hammerdirt-analyst/landuse)
+
+* La probabilité de trouver un objet Collaboration avec [_École des ponts](https://www.ecoledesponts.fr/) : [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
+
+## Méthode d'évaluation
+
+En 2008, le premier guide international de surveillance des déchets de plage a été publié par le Programme des Nations Unies pour l'environnement (PNUE) et la Commission océanographique intergouvernementale (COI) {cite}`unepseas`. Cette méthode a été reproduite par la Commission OSPAR en 2010 {cite}`ospard10`.   En 2013, l'UE a publié un guide sur la surveillance des déchets marins dans les mers européennes (le guide) {cite}`mlwguidance`. La Suisse est membre d'OSPAR et dispose de plus de 1 400 échantillons utilisant les méthodes décrites dans Le guide.  
+
+*Une enquête sur les déchets de plage consiste à comptabiliser les matériaux anthropogènes visibles identifiés dans une zone délimitée qui est bordée d'un côté par un lac, une rivière ou un océan.*
+
+* Les emplacements sont définis par leurs points GPS 
+* La longueur et la largeur sont mesurées pour chaque zone d'enquête 
+* Les polluants visibles dans la zone d'étude sont collectés, classés, comptés et pesés. 
+* Tous les articles sont classés en fonction des définitions de code incluses dans Le guide.  
+
+Pour identifier les objets d'intérêt régional, des codes supplémentaires ont été ajoutés. Par exemple, des codes ont été développés pour des objets tels que les conteneurs d'appâts à phéromones et les bâtons de ski afin de tenir compte de l'occurrence de ces objets lorsqu'ils sont identifiés dans certaines régions. L'identification et la quantification des objets permettent aux chercheurs et aux parties prenantes de déterminer les sources probables et de définir des stratégies de réduction ciblant des objets spécifiques.   
+
+Pour plus d'informations : [Groupes de codes](codegroupsde).
+
+## Mesure d'évaluation 
+
+La valeur médiane ( 50eme percentile) des résultats de l'enquête est rapportée comme le nombre d'objets par 100m (p/100m) de rivage. C'est la méthode décrite dans le document EU Marine Beach Litter Baselines {cite}`eubaselines` et c'est la norme utilisée dans ce rapport. La norme de 100 mètres de rivage utilisée dans le milieu marin est appropriée pour les régions côtières du continent européen. Cependant, l'urbanisation et la topographie présentent des défis uniques lors de la sélection de lieux adaptés à la réalisation en toute sécurité d'enquêtes sur les déchets sauvages sur le littoral tout au long de l'année.  
+
+Limiter les relevés à 100 mètres de rivage exposé aurait considérablement réduit le nombre de sites de relevés disponibles ainsi que l'utilisation des données préexistantes. Ainsi, l'IQAASL reflète la topographie locale avec une longueur de sondage médiane de 45m, et une moyenne de 51m. Les levés de moins de 10m n'ont pas été pris en compte dans l'analyse de base. Les résultats des levés sont convertis en p/100m en multipliant le résultat du levé par 100.  
+
+### Collecte des données
+
+Une enquête sur les déchets de plage peut être menée par n'importe qui, à tout moment. Si l'enquête est menée selon la méthode décrite dans le Guide {cite}`mlwguidance`  ou les [Beach litter baselines - deutsch](threshholdde)le résultat peut être comparé directement aux graphiques de ce rapport. Il n'est pas nécessaire de saisir les données dans le système pour comparer les résultats.   
+
+La collecte de données pour le rapport (ou le rapport suivant) nécessite une certaine formation sur le tas et une évaluation. Il faut généralement 3 à 5 enquêtes pour acclimater une personne à la tâche. La majeure partie du temps est consacrée à l'identification des objets et à l'importance de tenir un carnet de terrain. L'avantage de contribuer aux données est que la procédure de rapport est automatisée et qu'il est toujours possible d'accéder aux résultats.
+
+##  Utilisation de ce rapport 
+
+Il est important de comprendre la différence entre la médiane {cite}`mediandef` et la moyenne {cite}`meandeff` lors de l'interprétation des résultats. À l'exception des résultats mensuels, les résultats de l'enquête sont donnés comme la médiane p/100m pour l'emplacement en question.  
+
+À titre d'exemple, considérons le résultat médian de l'enquête pour les objets les plus courants sur le Thunersee et le Brienzersee.  
+
+
+```{figure} resources/images/intro/thunersee_brienzersee_de_20_0.png
+---
+width: 600px
+name: mcommonforeword_fr_de
+---
+
+` `
+
+```
+
+{numref}`Figura {number}: <mcommonforeword_fr_de>` _Interprétation des résultats de l'enquête. Les résultats agrégés de toutes les zones d'enquête figurent dans la colonne d'extrême droite, précédés des résultats agrégés de Thunersee et Brienzersee. Les six premières colonnes correspondent aux municipalités où les échantillons ont été prélevés. Cette norme est maintenue tout au long du document. Le chiffre représente la valeur médiane de l'enquête pour cet objet. Si cet objet n'est pas trouvé dans au moins la moitié des enquêtes, la valeur médiane sera de zéro. La valeur médiane est une estimation raisonnable du nombre d'objets susceptibles d'être trouvés si une enquête sur les déchets sauvages était répétée._
+
+__Traduzione dei nomi degli oggetti__
+
+* Zigarettenfilter = Filtri di sigarette 
+* Fragmentierte Kuntsoffstücke = Plastica frammentata
+* Expandiertes Polystyrol = Polistirolo espanso
+* Snack-Verpackungen = Incarti di cibo; caramelle, snack
+* Industriefolie (Kuntstoff) = Telo industriale
+* Getränke Glasflasche, Stücke = Bottiglie per bevande in vetro, pezzi
+* Industriepellets (Nurdles) = Pellet industriali (nurdles)
+* Schaumstoffverpackungen = Schiume isolanti
+* Wattestäbchen = Bastoncini di cotton fioc/ tampone
+* Styropor < 5mm = Schiume espanse < 5mm
+* Kunstoff-Bauabfälle = Rifiuti plastici da costruzione
+* Flaschenverschlüsse aus Metall = Tappi e coperchi di bottiglia in metallo
+* Verpackungsfolien, die keine Lebensmittel sind oder unbekannt = Pellicole da imballaggio non alimentari o sconosciute 
+
+Les résultats pour les déchets de construction en plastique indiquent qu'ils étaient plus répandus à Bönigen (4,5p/100m) et Unterseen (1,5p/100m) par rapport aux autres municipalités où la valeur médiane est de zéro. Cependant, la bâche industrielle et les cigarettes ont été identifiées dans toutes les municipalités dans au moins la moitié des enquêtes. 
+
+Concrètement, il y avait plus de chances de trouver des déchets de construction en plastique sur la plage à Bönigen et Unterseen que dans les autres communes. En revanche, les chances de trouver des bâches industrielles étaient à peu près égales partout, mais c'est à Brienze que l'on pouvait en trouver le plus (67p/100m). 
+
+Le chapitre sur les [indicateurs clés  - deutsch ](keyindicatorsde) donne une définition précise de chacune des statistiques de base qui peuvent être dérivées des résultats de l'enquête et de la manière dont elles sont utilisées pour identifier les zones d'accumulation et les événements significatifs. Les méthodes utilisées pour calculer les différentes variables environnementales sont expliquées dans [Le profil d'utilisation des sols- deutsch](luseprofilede).Les codes et les descriptions utilisés pour identifier les éléments ainsi que les différents groupements économiques sont traités en détail dans [Groupes de codes. - deutsch](codegroupsde). La manière dont les échantillons sont collectés et les méthodes d'identification des valeurs extrêmes et de calcul des lignes de base pour une région se trouvent dans [_valeurs de reference - deutsch_](threshholdde).
+
+Les résultats de chaque municipalité sont inclus avec le lac ou la rivière à laquelle ils appartiennent. Un rapport plus détaillé peut être produit pour n'importe quelle municipalité dans ce document.   
+
+### Contribuer à ce rapport 
+
+Ce rapport est versionné, il est donc très facile de soumettre des articles ou des analyses qui corrigent, clarifient ou améliorent le contenu. Pour contribuer, envoyez une demande de retrait à[repo de fin d'échantillonnage](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021).     Les soumissions sont acceptées dans toutes les langues nationales officielles de la Suisse. 

@@ -20,7 +20,7 @@
 
 % Il s'agit d'un rapport utilisant les données de IQAASL.
 % IQAASL était un projet financé par la Confédération suisse.
-% Il produit un résumé des résultats de l'enquête sur les déchets sauvages pour une région définie.
+% Il produit un résumé des résultats de l'inventaire sur les déchets sauvages pour une région définie.
 % Ces tableaux ont servi de modèles pour le développement de plagespropres.ch
 % Les données sont recueillies par des bénévoles.
 % N'oubliez pas que tous les droits d'auteur s'appliquent, veuillez indiquer le crédit lorsque cela est possible.
@@ -41,7 +41,7 @@ IQAASL era un progetto finanziato dalla Confederazione Svizzera
 
 # Executive summary
 
-| <a href="esummary_de.html"> Deutsch </a> | [Italiano](italian) |
+| <a href="esummary_de.html"> Deutsch </a> | [Italiano](italian) | [Français](francais) |
 
 Identification, quantification and analysis of anthropogenic Swiss litter (IQAASL) is a project commissioned by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All discarded materials were collected and identified using litter survey techniques. The project was expanded to include 20 locations in the Alps and Jura, in total there were 406 samples from 163 locations in 95 municipalities. 
     
@@ -410,6 +410,198 @@ Le strategie di riduzione possono includere:
 *  Campagne di sensibilizzazione per industrie specifiche   
 
 Ridurre la dipendenza dalla plastica monouso, dalla plastica espansa, dalla plastica da costruzione e dai fogli e film industriali probabilmente ridurrebbe di molto le quantità che finiscono nell'’ambiente naturale. Il basso costo e la natura “usa e getta” di questi materiali hanno portato ad una sempre maggiore abbondanza e dipendenza in tutti i settori. Le caratteristiche di leggerezza e degradabilità di questi materiali facilitano la frammentazione e la fuga nei sistemi naturali soprattutto con un’esposizione esterna prolungata. Gli inquinanti plastici sono un problema globale e sempre più nazioni stanno riducendo la dipendenza dalla plastica monouso e dalla plastica espansa come il polistirolo.   
+
+<br />
+
+<br />
+
+(francais)=
+# Résumé
+
+L'identification, la quantification et l'analyse des déchets sauvages suisse (IQAASL) est un projet mandaté par l'Office fédéral de l'environnement pour collecter des données concernant les polluants visibles le long des lacs et rivières suisses. Tous les matériaux jetés ont été collectés et identifiés à l'aide de techniques d'inventaire des déchets sauvages. Le projet a été élargi pour inclure des 20 sites dans les Alpes et le Jura. Au total, il y a eu 406 invenataires provenant de 163 sites dans 95 municipalités.   
+    
+Ce rapport est un résumé et une analyse des résultats des inventaires des déchets et des méthodes employées en Suisse de mars 2020 à août 2021. Cette fourchette de dates chevauche les dates de début et de fin du Swiss Litter Report (SLR) {cite}`slr`, le dernier projet de niveau national à utiliser le protocole standard décrit dans le Guide de surveillance des déchets de plage {cite}`mlwguidance` ou toute autre méthode comparable.   
+
+
+```{figure} resources/maps/intro_map.jpeg
+---
+width: 1200px
+name: esummarymap_fr
+---
+
+` `
+
+```
+
+{numref}`Figura {number}: <esummarymap_fr>` *Carte des lieux d'inventaires mars 2020 - juillet 2021. Les emplacements en rouge sont des inventaires sur des rivières ou des lacs et le violet représente les Alpes et le Jura.*
+
+## Lacs et rivières  
+
+Les lacs et les rivières ont été échantillonnés de 2020-03 à 2021-05, un total de 54 744 objets ont été prélevés et classés au cours de 386 inventaires. Les lieux d'inventaires ont été divisés en zones d'enquête pour l'analyse régionale et définis par les rivières Aare, Rhône, Ticino et Linth/Limmat. Les inventaires ont été menées à 143 endroits différents, représentant 77 municipalités. La distance linéaire totale étudiée était de 20 km avec une superficie de 9 hectares et une population municipale totale de 1,7 million d'habitants.    
+
+La plupart des inventaires ont eu lieu le long des rives des lacs (331 échantillons) car les lacs offrent un accès plus constant et plus sûr toute l'année par rapport aux rivières. De plus, les lacs sont de vastes zones à débit réduit qui reçoivent l'apport de multiples rivières, ruisseaux et systèmes de drainage, ce qui en fait des endroits idéaux pour évaluer la variété d'objets dans et autour des plans d'eau.    
+
+Au total, 316 inventaires proviennent de sept lacs principaux dans trois grands bassins fluviaux. Vingt sites ont été sélectionnés pour effectuer des prélèvements mensuels pendant une période de douze mois, à l'exception du Lago Maggiore, qui a été échantillonné tous les trois mois. Des inventaires ont également été menées sur le Lago di Lugano, le Lac des Quatre cantons, le Brienzersee et le Zugersee. En outre, 55 inventaires ont été réalisées sur 16 rivières.   
+
+__Emplacements des lacs échantillonnés chaque mois:__ 
+
+* Aare
+  * Thunersee: Spiez, Unterseen  
+  * Bielersee: Biel/Bienne, Vinelz  
+  * Neuenburgersee: Neuchâtel, Cheyres-Châbles, Yverdon-les-Bains 
+* Linth/Limmat 
+  * Zürichsee: Zürich, Küsnacht (ZH), Rapperswil-Jona, Richterswil  
+  * Walensee: Walenstadt, Weesen 
+* Rhône 
+  * Lac Léman: Vevey, Saint-Gingolph, Genève, Préverenges, La Tour-de-Peilz 
+* Ticino 
+  * Lago Maggiore: Ascona, Gambarogno (tri-monthly) 
+
+###  Total médian du projet
+
+Les résultats sont exprimés en unités de pièces par 100 mètres (p/100m). Le résultat médian de l'ensemble des données était d'environ 189 p/100m. La valeur maximale enregistrée était de 6 617 p/100m (zone d'étude du Rhône) et la minimale enregistrée était de 2p/100m (zone d'étude de l'Aar). La zone d'étude du Rhône présentait le total médian le plus élevé de 442 p/100m, ce qui peut s'expliquer en partie par le nombre élevé de sites d'étude urbains par rapport aux autres zones d'étude et par le dépôt de plastiques fragmentés et de plastiques expansés au niveau de l'écoulement du Rhône dans la région du Haut Lac.    
+
+Une valeur de référence a été calculée en excluant les résultats des échantillons de moins de 10m et des objets de moins de 2,5cm. Cette méthode, décrite dans EU Marine Beach Litter Baselines {cite}`eubaselines` a été utilisée pour calculer les valeurs de référence et de seuil pour toutes les plages européennes en 2015 et 2016, ce qui a donné une valeur médiane de 131 p/100m. Les résultats de la valeur de référence européenne se situent en dehors de l'intervalle de confiance (IC) à 95% de 147 – 213 p/100 m  établi en Suisse pour l'année 2020-21. 
+
+Les relevés effectués en Suisse étaient en moyenne à plus petite échelle que dans les milieux marins et dans des endroits qui seraient considérés comme urbains dans la plupart des circonstances. À ce jour, la surveillance des lacs et des rivières en amont des régions côtières ne s'est pas généralisée sur le continent européen. Cependant, il existe un effort concerté d'un groupe d'associations en Suisse et en France pour établir un protocole commun de surveillance et d'échange de données pour le bassin du Rhône. En outre, l'université et la recherche de Wageningen ont commencé à analyser les données recueillies dans le delta de la Meusse et du Rhin en utilisant des protocoles comme ceux de l'IQAASL  {cite}`meuserhine`.
+
+### Les objets les plus courants 
+
+Les objets les plus courants sont définis comme étant les objets identifiés dans au moins 50% de tous les relevés et/ou faisant partie des dix plus abondants en quantité. En tant que groupe, les objets les plus courants représentent 68% de tous les objets identifiés au cours de la période d'échantillonnage. Parmi les objets les plus courants, 27% sont liés à la nourriture, aux boissons et au tabac et 24% sont liés aux infrastructures et à l'agriculture.     
+    
+Les objets liés à la nourriture, aux boissons et au tabac sont identifiés à des taux plus élevés dans les lieux d'inventaire ayant un plus grand pourcentage de terrain attribué aux bâtiments ou aux infrastructures fixes, l'inverse étant vrai des lieux ayant un plus grand pourcentage de terrain attribué aux bois ou à l'agriculture. Cependant, le matériel d'infrastructure et les plastiques fragmentés, sont trouvés à des taux similaires dans toutes les zones d'enquête, quelle que soit l'utilisation des terres entourant les lieux d'inventaire.   
+
+
+```{figure} resources/images/esummary/eos_asa_24_0.png
+---
+width: 500px
+name: esummarymcommon_fr
+---
+
+` `
+
+```
+
+{numref}`Figura {number}: <esummarymcommon_fr>` _Total des relevés de tous les lacs et rivières : les objets les plus fréquemment identifiés de mars 2020 à mai 2021. Le taux d'échec est le rapport entre le nombre de fois où un objet a été identifié au moins une fois et le nombre de relevés. La quantité est le nombre total d'objets identifiés collectés et la médiane des déchets sauvages par 100 mètres (p/100m)._ 
+
+Par exemple, dans la figure 2, un total de 8 485 filtres de cigarettes ont été identifiés dans 87 % des inventaires, ce qui représente 15 % du total des articles collectés et a une valeur médiane de 20 filtres de cigarettes par 100 m de rivage.
+
+* Cigarette filters = Filtres à cigarettes  
+* Fragmented plastics = Plastiques fragmentés
+* Expanded polystyrene = Polystyrène expansé
+* Food wrappers, candy, snacks = Emballages alimentaires, bonbons
+* Industrial sheeting = film plastique épais
+* Glass drink bottles, pieces = Bouteilles pour boissons, morceaux
+* Industrial pellets (Nurdles) = Granules Plastique industriels (GPI)
+* Insulation: includes spray foams = Isolation : y compris les mousses en spray 
+* Cotton bud/swab sticks = Bâtonnets de coton-tige
+* Expanded foams < 5mm = Mousses expansées < 5 mm 
+* Plastic construction waste = Déchets plastiques de construction
+* Metal bottle caps and lids = Bouchons et couvercles de bouteilles en métal
+
+Les granulés industriels et les mousses expansées < 5mm sont tous deux présents en quantités significatives mais identifiés dans moins de 50% des inventaires (médiane de 0), ce qui indique des comptages élevés à des endroits spécifiques. Bien qu'il s'agisse tous deux de micro-plastiques, leur utilisation, leur origine et leur taux d'occurrence sont différents selon la région de la zone d'enquête. Les granulés industriels sont des matières premières utilisées dans les processus de moulage par injection et les billes de plastique expansé sont le résultat de la fragmentation du polystyrène expansé. Localisation, quantités et taux d'occurrence des objets individuels voir [Lacs et rivières ](allsurveys)
+
+```{Figure} resources/images/esummary/mostcommoneos.png
+---
+width: 500px
+name: esummarysurveyareas_fr
+---
+
+` `
+
+```
+
+{numref}`Figura {number}: <esummarysurveyareas_fr>` *Tous les lacs et rivières par région : Le résultat médian de l'inventaire des objets les plus fréquemment identifiés ; les taux varient en fonction de la région de la zone d'enquête. Par exemple, les plastiques fragmentés avaient la plus grande valeur médiane dans les zones d'enquête de l'Aar (18,5p/100m) et du Rhône (48p/100m).* 
+
+## Tendances de 2017-2018  
+
+Les résultats journaliers recueillies en 2017-2018 (SLR) n'ont montré aucune différence statistique par rapport aux résultats de l'IQAASL. Cependant, il y avait des variations dans les quantités d'objets individuels. Au cours de la période 2020-2021, moins de cigarettes et de bouchons de bouteilles ont été identifiés en général, mais pour de nombreux sites, il n'y a pas eu de changement et il y a probablement eu une augmentation des plastiques fragmentés et des mousses, voir [Plus et moins de déchets depuis 2017.](slr-iqaasl).
+
+```{figure} resources/images/esummary/slr_iqaasl_res.png
+---
+width: 800px
+name: esummaryslr_fr
+---
+
+` `
+
+```
+
+{numref}`Figura {number}: <esummaryslr_fr>` *Comparaison des résultats entre SLR (2018) et IQAASL (2021). En haut à gauche : totaux d'inventaires par date. En haut à droite : total mensuel médian de. En bas à gauche : nombre d'échantillons par rapport au total de l'inventaire. En bas à droite : distribution cumulative empirique des totaux d'inventaires.*
+
+ --- 
+
+## Les Alpes et le Jura 
+
+Sur les vingt relevés effectués dans la zone d'étude des Alpes, 17 ont satisfait aux critères de longueur et de largeur supérieures à 10m. La valeur médiane des sondages était de 110 p/100m, soit moins que la valeur médiane de toutes les autres zones de sondage (189 p/100m). Les objets liés à la consommation, tels que la nourriture et les boissons ou le tabac, représentaient un pourcentage plus faible du total et présentaient un taux de p/100m inférieur aux résultats des sites riverains. Cette différence pourrait être en partie due aux faibles niveaux d'urbanisation qui caractérisent la zone d'enquête des Alpes par rapport à toutes les autres zones d'enquête et à la tendance des matériaux à s'écouler en aval. Pour la méthodologie et les résultats de l'enquête sur les Alpes, voir [Les Alpes ](lesalpes).
+
+## Communiquer les résultats  
+
+Pour communiquer les quantités de pollution, la conversion des résultats en une simple métrique de pièces moyennes par 100m est intéressante car la moyenne est généralement plus grande et rarement 0. Cependant, la moyenne peut être deux fois supérieure à la médiane lorsque les valeurs extrêmes sont prises en compte, `ce qui entraîne une confusion concernant la différence entre les résultats observés et les résultats rapportés`. La communication de la fourchette des valeurs probables ou de la probabilité de trouver un objet est plus informative et reproductible lorsqu'on suit des protocoles similaires. Par exemple, lors de l'interprétation des quantités de boulettes industrielles identifiées sur le lac Léman :
+
+> Il y avait 1'387 GPI ou 5% de tous les objets identifiés sur le Lac Léman. Le nombre de GPI par 100m varie de 0 à 1033 selon les régions. Pour le lac en général, il y a environ 40% de chances de trouver au moins une GPI lors d'un relevé, n'importe où. A certains endroits comme Genève (60% de chance) ou Préverenges (80% de chance), les GPI sont régulières sur ces plages, des quantités entre 3p/100m et 56p/100m sont courantes.
+
+## Conclusions  
+
+À l'échelle nationale, les résultats de l'enquête sont restés stables par rapport à 2017. Cependant, on a constaté une diminution générale de la quantité d'objets liés à la nourriture, aux boissons et au tabac et une augmentation de la quantité d'objets liés aux infrastructures. Les restrictions pandémiques limitant les grands rassemblements en plein air peuvent avoir eu un effet bénéfique sur la réduction des objets de nourriture, de boisson et de tabac. Les plus fortes augmentations d'objets liés à l'infrastructure ont été enregistrées en Valais, dans le canton de Vaud et à Brienze, des localités situées à proximité des points de rejet du Rhône et de l'Aar.    
+
+L'utilisation des terres autour d'un lieu de sondage a un effet mesurable sur le dépôt de certains objets. Plus il y a de bâtiments et d'infrastructures fixes, plus on trouve de tabac et de produits alimentaires. Les objets tels que les plastiques fragmentés et les bâches industrielles n'ont pas la même association et sont identifiés à des taux à peu près égaux quelle que soit l'utilisation des terres avec des augmentations près des points de décharge des rivières/canaux.     
+
+Les méthodes de comptage sont privilégiées pour évaluer la composition et la densité des déchets dans les environnements marins, bien qu'aucune méthodologie n'ait été normalisée pour les systèmes d'eau douce. Actuellement, trois des quatre zones d'étude de l'IQAASL sont activement surveillées par des organismes de recherche et des agences gouvernementales en aval de la Suisse à l'aide de méthodes similaires présentées dans ce rapport. En outre, les associations régionales en Suisse poursuivent activement une normalisation des rapports et des protocoles avec des organisations partenaires dans l'UE.
+
+Il existe un large soutien pour ce type de méthode de rapport. L'IQAASL est un projet de science citoyenne qui n'utilise que des outils open-source et partage ses données sous licence publique GNU, ce qui permet une collaboration avec les parties prenantes. À la fin du mandat, le 31 décembre 2021, Hammerdirt assumera la responsabilité de maintenir le code et le dépôt de données qui est hébergé publiquement sur Github. 
+
+Les associations qui ont participé à l'IQAASL cherchent activement des moyens d'intégrer le processus de collecte de données et/ou les résultats dans leur propre modèle d'entreprise. Cependant, il y a une pénurie de scientifiques des données au sein de nombreuses associations régionales, ce qui peut allonger le processus d'intégration et étouffer le taux d'innovation au niveau où il est le plus nécessaire.  
+
+## Recommandations
+
+### Suivi et rapports  
+
+La définition d'un format de rapport standard permettrait de réaliser immédiatement des gains d'efficacité dans l'échange de données et l'établissement de rapports. Il serait ainsi plus facile pour les administrations régionales de communiquer les priorités aux autres parties prenantes. Ce qui faciliterait les stratégies de suivi et aiderait à définir les objectifs de réduction.  
+
+> Développer un réseau d'associations qui sont responsables de l'échantillonnage et de la communication des résultats.
+
+> Créer un format de rapport standard pour faciliter la communication entre les administrations municipales, cantonales et régionales/districts et améliorer la coordination des stratégies de réduction régionales et locales.
+
+> Établir la prochaine période d'échantillonnage ou l'intervalle d'échantillonnage.
+
+Inclure officiellement le monde universitaire dans la planification, l'échantillonnage et l'analyse. Ce projet a été influencé par la collaboration de professeurs d'université de l'ETH, de l'UNIGE, de l'EPFL, du PSI et de la FHNW. Des partenaires universitaires seraient idéaux pour continuer à développer des méthodes d'analyse. Le Citizen Science Center (ETH) et le Citizen Cyberlab (UNIGE) ont l'expérience et l'infrastructure pour connecter les projets de surveillance de la science citoyenne aux efforts de recherche. Cela permet de créer un plan de surveillance très adaptatif et efficace.    
+
+### Élimination et réduction
+
+Les stratégies visant à éliminer ou à réduire les déchets sauvages doivent d'abord tenir compte de la source. 
+
+__Objets associés à des caractéristiques d'utilisation du sol__
+
+Les résultats indiquent une association positive entre le nombre de bâtiments et la quantité d'aliments, de boissons et d'articles de tabac. Cela suggère que les stratégies de réduction de ces objets devraient commencer dans les zones qui ont de fortes concentrations d'infrastructures à proximité du littoral. Les résultats de la zone d'étude du Rhône suggèrent que les campagnes de sensibilisation locales peuvent avoir un effet positif ; voir Figure 1.9 [ Lacs et rivières_- english ](allsurveys). **Bien que l'élimination de tous les objets liés à la nourriture, aux boissons et au tabac, généralement ciblés dans les initiatives de sensibilisation aux déchets sauvages, réduirait considérablement les quantités totales, il resterait 64 % du matériel**.   
+
+* D'autres stratégies de réduction courantes comprennent:  
+  * Un nombre suffisant de poubelles résistantes aux intempéries et aux animaux.    
+  * Augmentation du calendrier d'enlèvement des ordures et de balayage  
+  * Réduction des plastiques à usage unique  
+
+De nombreux pays ont commencé à restreindre les articles ciblés. Par exemple, les assiettes, couverts, pailles, bâtonnets de ballons et cotons-tiges en plastique à usage unique ne peuvent être mis sur les marchés des États membres de l'UE, à compter du 3 juillet 2021.  Des filets de rétention pour filtrer les détritus dans les systèmes d'eaux pluviales avant qu'ils ne se déversent dans les lacs et les rivières ont été utilisés en France avec succès, mais ils nécessitent des investissements en infrastructure, en équipement et en main-d'œuvre.  
+
+__Objets non associés à l'utilisation du sol__
+
+Les objets qui n'ont pas d'association positive avec l'utilisation du sol nécessitent une action coordonnée au moins au niveau du lac ou de la rivière, et à tous les endroits en amont des emplacements prévus pour le relevé. Parmi les objets les plus courants, citons:   
+
+* Plastiques fragmentés 
+* Mousses fragmentées 
+* Plastiques de construction 
+* Granulés industriels 
+* Cotons-tiges 
+* Bâche industrielle  
+
+Ces objets représentent 40% de tout le matériel identifié. Beaucoup ont des applications industrielles et d'hygiène personnelle, généralement non associées aux activités de plage. L'extension des campagnes de sensibilisation ciblant la prévention interne des pertes de matériaux de secteurs spécifiques peut réduire les objets tels que les granulés industriels utilisés pour le moulage par injection plastique. Certains objets tels que les cotons-tiges en plastique et d'autres matières plastiques évacuées par les toilettes pénètrent dans les lacs et les rivières via les installations de traitement des eaux.    
+
+Les stratégies de réduction peuvent inclure:  
+
+* Modernisation des installations de traitement des eaux usées pour réduire les pertes de matériaux
+* Campagnes de sensibilisation à des objets ou produits spécifiques
+* Campagnes de sensibilisation pour des industries spécifiques   
+
+En réduisant la dépendance à l'égard des plastiques à usage unique, des plastiques moussés, des plastiques de construction et des feuilles et films industriels, on pourrait probablement réduire considérablement les quantités qui s'échappent dans l'environnement naturel. Le faible coût et la nature jetable de ces matériaux ont entraîné une abondance et une dépendance toujours plus grandes dans tous les secteurs. Les attributs légers et dégradables de ces matériaux facilitent la fragmentation et la fuite dans les systèmes naturels, surtout en cas d'exposition extérieure prolongée. Les polluants plastiques sont un problème mondial et de plus en plus de nations réduisent leur dépendance aux plastiques à usage unique et aux plastiques moussés tels que le polystyrène.    
 
 <br />
 
