@@ -7,7 +7,7 @@ The following components (currently being refactored), were developed specifical
 * REST API with Django REST framework: https://github.com/hammerdirt-dev/hammerdirt_api
 * Front end with ReactJS: https://github.com/hammerdirt-dev/plages_prop
 
-Develpment of these two tools stopped for two years while we were out in the field collecting samples. The new version of the API and frontend will incorporate language support and additional finctionality in the survey form.
+Develpment of these two tools stopped for two years while we were out in the field collecting samples. The new version of the API and frontend will incorporate language support and additional functionality in the survey form.
 
 hammerdirt staff maintain the repo for the report, the API and the front end.
 
