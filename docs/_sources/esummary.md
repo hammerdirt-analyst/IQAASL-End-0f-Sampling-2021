@@ -278,7 +278,7 @@ Per oggetti più comuni s’intendono quegli oggetti identificati in almeno il 5
 Gli oggetti relativi a cibo, bevande e tabacco registrano percentuali più elevate nei luoghi d’indagine con una quota maggiore di terreno occupato da edifici o infrastrutture fisse; l’inverso si rileva nei luoghi con una percentuale maggiore di terreno coperto da boschi o agricoltura. Tuttavia, il materiale infrastrutturale e la plastica frammentata si trovano a tassi simili in tutte le aree d’indagine, indipendentemente dalla destinazione d’uso del terreno circostante i luoghi d’indagine.  
 
 
-```{figure} resources/images/esummary/eos_asa_24_0.png
+```{figure} resources/images/esummary/most_common_it.png
 ---
 width: 500px
 name: esummarymcommon_it
@@ -292,24 +292,9 @@ name: esummarymcommon_it
 
 Per esempio, figura 2, un totale di 8.485 filtri di sigarette sono stati identificati nell’87% delle indagini, che rappresentano il 15% del totale degli articoli raccolti e avevano un valore mediano di 20 filtri di sigarette per 100 metri di costa.
 
-__Traduzione dei nomi degli oggetti__
-
-* Cigarette filters = Filtri di sigarette 
-* Fragmented plastics = Plastica frammentata
-* Expanded polystyrene = Polistirolo espanso
-* Food wrappers, candy, snacks = Incarti di cibo; caramelle, snack
-* Industrial sheeting = Telo industriale
-* Glass drink bottles, pieces = Bottiglie per bevande in vetro, pezzi
-* Industrial pellets (Nurdles) = Pellet industriali (nurdles)
-* Insulation: includes spray foams = Schiume isolanti
-* Cotton bud/swab sticks = Bastoncini di cotton fioc/ tampone
-* Expanded foams < 5mm = Schiume espanse < 5mm
-* Plastic construction waste = Rifiuti plastici da costruzione
-* Metal bottle caps and lids = Tappi e coperchi di bottiglia in metallo
-
 Pellet industriali e schiume espanse < 5 mm si presentavano entrambi in quantità significative ma identificati in meno del 50% delle indagini (mediana di 0), indicando conteggi elevati in luoghi specifici. Pur essendo entrambe microplastiche, il loro uso, l’origine e il tasso di occorrenza sono diversi a seconda della regione dell’area d’indagine. I pellet industriali sono materie prime usate nei processi di stampaggio ad iniezione e le perle di plastica espansa derivano dalla frammentazione del polistirolo espanso. Per localizzazione, quantità e tasso di occorrenza dei singoli oggetti vedi [ Laghi e fiumi - english ](allsurveys)
 
-```{Figure} resources/images/esummary/mostcommoneos.png
+```{Figure} resources/images/esummary/mcomon_survey_area_it.png
 ---
 width: 500px
 name: esummarysurveyareas_it
@@ -325,7 +310,7 @@ name: esummarysurveyareas_it
 
 I dati simili dell’indagine sul lago e sul fiume raccolti nel 2017-2018 (SLR) non hanno mostrato differenze statistiche rispetto ai risultati IQAASL. Tuttavia, ci sono state variazioni nelle quantità di oggetti. Nel periodo d’indagine 2020-2021 sono stati identificati meno sigarette, tappi di bottiglia e frammenti di vetro e più bastoncini di ovatta, teli industriali e rifiuti plastici da costruzione. Analisi della tendenza dei rifiuti in dettaglio:  [_Più e meno dal 2018 - english_](slr-iqaasl).
 
-```{figure} resources/images/esummary/slr_iqaasl_res.png
+```{figure} resources/images/esummary/slr_it.png
 ---
 width: 800px
 name: esummaryslr_it
@@ -472,7 +457,7 @@ Les objets les plus courants sont définis comme étant les objets identifiés d
 Les objets liés à la nourriture, aux boissons et au tabac sont identifiés à des taux plus élevés dans les lieux d'inventaire ayant un plus grand pourcentage de terrain attribué aux bâtiments ou aux infrastructures fixes, l'inverse étant vrai des lieux ayant un plus grand pourcentage de terrain attribué aux bois ou à l'agriculture. Cependant, le matériel d'infrastructure et les plastiques fragmentés, sont trouvés à des taux similaires dans toutes les zones d'enquête, quelle que soit l'utilisation des terres entourant les lieux d'inventaire.   
 
 
-```{figure} resources/images/esummary/eos_asa_24_0.png
+```{figure} resources/images/esummary/most_common_fr.png
 ---
 width: 500px
 name: esummarymcommon_fr
@@ -486,22 +471,9 @@ name: esummarymcommon_fr
 
 Par exemple, dans la figure 2, un total de 8 485 filtres de cigarettes ont été identifiés dans 87 % des inventaires, ce qui représente 15 % du total des articles collectés et a une valeur médiane de 20 filtres de cigarettes par 100 m de rivage.
 
-* Cigarette filters = Filtres à cigarettes  
-* Fragmented plastics = Plastiques fragmentés
-* Expanded polystyrene = Polystyrène expansé
-* Food wrappers, candy, snacks = Emballages alimentaires, bonbons
-* Industrial sheeting = film plastique épais
-* Glass drink bottles, pieces = Bouteilles pour boissons, morceaux
-* Industrial pellets (Nurdles) = Granules Plastique industriels (GPI)
-* Insulation: includes spray foams = Isolation : y compris les mousses en spray 
-* Cotton bud/swab sticks = Bâtonnets de coton-tige
-* Expanded foams < 5mm = Mousses expansées < 5 mm 
-* Plastic construction waste = Déchets plastiques de construction
-* Metal bottle caps and lids = Bouchons et couvercles de bouteilles en métal
-
 Les granulés industriels et les mousses expansées < 5mm sont tous deux présents en quantités significatives mais identifiés dans moins de 50% des inventaires (médiane de 0), ce qui indique des comptages élevés à des endroits spécifiques. Bien qu'il s'agisse tous deux de micro-plastiques, leur utilisation, leur origine et leur taux d'occurrence sont différents selon la région de la zone d'enquête. Les granulés industriels sont des matières premières utilisées dans les processus de moulage par injection et les billes de plastique expansé sont le résultat de la fragmentation du polystyrène expansé. Localisation, quantités et taux d'occurrence des objets individuels voir [Lacs et rivières ](allsurveys)
 
-```{Figure} resources/images/esummary/mostcommoneos.png
+```{Figure} resources/images/esummary/mcomon_survey_area_fr.png
 ---
 width: 500px
 name: esummarysurveyareas_fr
@@ -517,7 +489,7 @@ name: esummarysurveyareas_fr
 
 Les résultats journaliers recueillies en 2017-2018 (SLR) n'ont montré aucune différence statistique par rapport aux résultats de l'IQAASL. Cependant, il y avait des variations dans les quantités d'objets individuels. Au cours de la période 2020-2021, moins de cigarettes et de bouchons de bouteilles ont été identifiés en général, mais pour de nombreux sites, il n'y a pas eu de changement et il y a probablement eu une augmentation des plastiques fragmentés et des mousses, voir [Plus et moins de déchets depuis 2017.](slr-iqaasl).
 
-```{figure} resources/images/esummary/slr_iqaasl_res.png
+```{figure} resources/images/esummary/slr_fr.png
 ---
 width: 800px
 name: esummaryslr_fr

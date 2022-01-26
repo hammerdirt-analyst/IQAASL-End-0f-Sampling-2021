@@ -118,33 +118,17 @@ __La raccolta di dati__ per il rapporto (o il prossimo rapporto) richiede un po�
 Come esempio, prendiamo in considerazione il risultato __mediano__ del sondaggio per gli oggetti più comuni ritrovati sul Lago di Thun e sul Lago di Brienz. 
 
 
-```{figure} resources/images/intro/tbexample.jpeg
+```{figure} resources/images/intro/thunersee_brienzersee_it.png
 ---
 width: 600px
 name: mcommonforeword_it
----
+---s
 
 ` `
 
 ```
 
 {numref}`Figura {number}: <mcommonforeword_it>` _Interpretazione dei risultati dell’indagine. I risultati aggregati di tutte le aree d’indagine sono nella colonna all’estrema destra, preceduti dai risultati aggregati del Lago di Thun e del Lago di Brienz. Le prime sei colonne sono i comuni da cui sono stati prelevati i campioni. Questo standard è mantenuto in tutto il documento. Il numero rappresenta il valore mediano del sondaggio per quell’oggetto. Se quell’oggetto non viene trovato in almeno la metà delle indagini, allora il valore mediano sarà zero. Il valore mediano è una stima ragionevole del numero di oggetti che probabilmente verrebbero trovati se si ripetesse un’indagine sui rifiuti_.
-
-__Traduzione dei nomi degli oggetti__
-
-* Cigarette filters = Filtri di sigarette 
-* Fragmented plastics = Plastica frammentata
-* Expanded polystyrene = Polistirolo espanso
-* Food wrappers, candy, snacks = Incarti di cibo; caramelle, snack
-* Industrial sheeting = Telo industriale
-* Glass drink bottles, pieces = Bottiglie per bevande in vetro, pezzi
-* Industrial pellets (Nurdles) = Pellet industriali (nurdles)
-* Insulation: includes spray foams = Schiume isolanti
-* Cotton bud/swab sticks = Bastoncini di cotton fioc/ tampone
-* Expanded foams < 5mm = Schiume espanse < 5mm
-* Plastic construction waste = Rifiuti plastici da costruzione
-* Metal bottle caps and lids = Tappi e coperchi di bottiglia in metallo
-* Packaging films nonfood or unknown = Pellicole da imballaggio non alimentari o sconosciute 
 
 I risultati per i rifiuti edili in plastica mostrano che erano più diffusi a Bönigen (4,5 p/100 m) e Unterseen (1,5 p/100 m) rispetto agli altri comuni dove il valore mediano è zero. Tuttavia lamiere industriali e sigarette sono state identificate in tutti i comuni in almeno 1/2 delle indagini.  
 
@@ -203,7 +187,7 @@ Il est important de comprendre la différence entre la médiane {cite}`mediandef
 À titre d'exemple, considérons le résultat médian de l'enquête pour les objets les plus courants sur le Thunersee et le Brienzersee.  
 
 
-```{figure} resources/images/intro/thunersee_brienzersee_20_0.png
+```{figure} resources/images/intro/thunersee_brienzersee_fr.png
 ---
 width: 600px
 name: mcommonforeword_fr
@@ -214,22 +198,6 @@ name: mcommonforeword_fr
 ```
 
 {numref}`Figura {number}: <mcommonforeword_fr>` _Interprétation des résultats de l'enquête. Les résultats agrégés de toutes les zones d'enquête figurent dans la colonne d'extrême droite, précédés des résultats agrégés de Thunersee et Brienzersee. Les six premières colonnes correspondent aux municipalités où les échantillons ont été prélevés. Cette norme est maintenue tout au long du document. Le chiffre représente la valeur médiane de l'enquête pour cet objet. Si cet objet n'est pas trouvé dans au moins la moitié des enquêtes, la valeur médiane sera de zéro. La valeur médiane est une estimation raisonnable du nombre d'objets susceptibles d'être trouvés si une enquête sur les déchets sauvages était répétée._
-
-__Traduzione dei nomi degli oggetti__
-
-* Zigarettenfilter = Filtri di sigarette 
-* Fragmentierte Kuntsoffstücke = Plastica frammentata
-* Expandiertes Polystyrol = Polistirolo espanso
-* Snack-Verpackungen = Incarti di cibo; caramelle, snack
-* Industriefolie (Kuntstoff) = Telo industriale
-* Getränke Glasflasche, Stücke = Bottiglie per bevande in vetro, pezzi
-* Industriepellets (Nurdles) = Pellet industriali (nurdles)
-* Schaumstoffverpackungen = Schiume isolanti
-* Wattestäbchen = Bastoncini di cotton fioc/ tampone
-* Styropor < 5mm = Schiume espanse < 5mm
-* Kunstoff-Bauabfälle = Rifiuti plastici da costruzione
-* Flaschenverschlüsse aus Metall = Tappi e coperchi di bottiglia in metallo
-* Verpackungsfolien, die keine Lebensmittel sind oder unbekannt = Pellicole da imballaggio non alimentari o sconosciute 
 
 Les résultats pour les déchets de construction en plastique indiquent qu'ils étaient plus répandus à Bönigen (4,5p/100m) et Unterseen (1,5p/100m) par rapport aux autres municipalités où la valeur médiane est de zéro. Cependant, la bâche industrielle et les cigarettes ont été identifiées dans toutes les municipalités dans au moins la moitié des enquêtes. 
 
