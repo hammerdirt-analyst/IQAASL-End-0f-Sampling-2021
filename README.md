@@ -2,9 +2,14 @@
 
 IQAASL was a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale litter surveys are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that are within the catchment area.
 
-This project used the existing technology infrastrucutre to enter, store and report the survey findings. This repo is the cumualtive sum of that work.
+The following components (currently being refactored), were developed specifically to manage the data collected:
 
-hammerdirt staff maintain the repo for the report
+* REST API with Django REST framework: https://github.com/hammerdirt-dev/hammerdirt_api
+* Front end with ReactJS: https://github.com/hammerdirt-dev/plages_prop
+
+Develpment of these two tools stopped for two years while we were out in the field collecting samples. The new version of the API and frontend will incorporate language support and additional finctionality in the survey form.
+
+hammerdirt staff maintain the repo for the report, the API and the front end.
 
 ## Contents
 
@@ -49,5 +54,5 @@ There are ample oportunities to learn, teach and contribute.
 
 #### more information
 
-analyst@hammerdirt.ch
+analyst@hammerdirt.ch or dev@hammerdirt.ch
 > :heart: what you do 
