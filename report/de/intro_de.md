@@ -8,7 +8,7 @@ Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlu
 
 * _Erkennung von Akkumulation und Leckage mit Spearmans Rho_, Zusammenarbeit mit Wageningen [University and Research](https://www.wur.nl/): [_repository_ ](https://github.com/hammerdirt-analyst/landuse)
 
-* Die Wahrscheinlichkeit, ein Objekt zu finden Zusammenarbeit mit [_École des ponts_](https://www.ecoledesponts.fr/): [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
+* Die Wahrscheinlichkeit, ein Objekt zu finden, Zusammenarbeit mit [_École des ponts_](https://www.ecoledesponts.fr/): [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
 
 ## Bewertungsmethode
 
@@ -18,16 +18,16 @@ Im Jahr 2008 wurde der erste internationale Leitfaden zur Überwachung von Abfal
 
 * Standorte werden durch ihre GPS-Punkte definiert 
 * Länge und Breite werden für jeden Erhebungsbereich gemessen 
-* Sichtbare Schadstoffe im Untersuchungsgebiet werden gesammelt, klassifiziert, gezählt und gewogen 
+* Sichtbare anthropogene Materialien im Untersuchungsgebiet werden gesammelt, klassifiziert, gezählt und gewogen 
 * Alle Artikel werden anhand der im Leitfaden enthaltenen Code-Definitionen klassifiziert.
 
 Um Objekte von regionalem Interesse zu identifizieren, wurden zusätzliche Codes hinzugefügt. So wurden beispielsweise Codes für Gegenstände wie Pheromon-Köderbehälter und Skistöcke entwickelt, um das Vorkommen dieser Gegenstände in bestimmten Regionen zu berücksichtigen. Die Identifizierung und Quantifizierung von Gegenständen ermöglicht es Forschern und Interessenvertretern, wahrscheinliche Quellen zu bestimmen und Strategien zur Reduzierung bestimmter Gegenstände zu definieren.  
 
 Für weitere Informationen: [Code-Gruppen](codegroupsde).
 
-## Bewertung metrisch
+## Metrische Bewertung
 
-Der Medianwert (50 th Perzentil) der Datenerhebungen Ergebnisse wird als die Anzahl der Objekte pro 100m (p/100m) der Küstenlinie angegeben. Dies ist die Methode, die in EU Marine Beach Abfallobjekte Baselines{cite}`eubaselines` beschrieben ist und die in diesem Bericht als Standard verwendet wird. Der in der Meeresumwelt verwendete 100-Meter-Standard ist für die Küstenregionen des europäischen Kontinents geeignet. Die Verstädterung und die Topographie stellen jedoch eine besondere Herausforderung bei der Auswahl von Standorten dar, die für die sichere Durchführung von ganzjährigen Datenerhebungen von Abfallobjekten an der Uferzone geeignet sind. 
+Der Medianwert (50.Perzentil) der Datenerhebungen Ergebnisse wird als die Anzahl der Objekte pro 100m (p/100m) der Küstenlinie angegeben. Dies ist die Methode, die in EU Marine Beach Abfallobjekte Baselines{cite}`eubaselines` beschrieben ist und die in diesem Bericht als Standard verwendet wird. Der in der Meeresumwelt verwendete 100-Meter-Standard ist für die Küstenregionen des europäischen Kontinents geeignet. Die Verstädterung und die Topographie stellen jedoch eine besondere Herausforderung bei der Auswahl von Standorten dar, die für die sichere Durchführung von ganzjährigen Datenerhebungen von Abfallobjekten an der Uferzone geeignet sind. 
 
 Eine Beschränkung der Datenerhebungen auf 100 Meter exponierte Uferlinie hätte die Anzahl der verfügbaren Messstellen sowie die Verwendung bereits vorhandener Daten drastisch reduziert. Daher spiegelt das IQAASL die lokale Topographie mit einer mittleren Erhebungslänge von 45 m und einem Durchschnitt von 51 m wider. Datenerhebungen, die kürzer als 10 m sind, wurden bei der Basisanalyse nicht berücksichtigt. Die Datenerhebungen Ergebnisse werden in p/100m umgerechnet, indem das Ergebnis der Erhebung mit 100 multipliziert wird. 
 
@@ -39,7 +39,7 @@ Das Sammeln von Daten für den Bericht (oder den nächsten Bericht) erfordert ei
 
 ---
 
-## Diesen Bericht verwenden 
+## Erklärung zur Verwendung dieses Berichts 
 
 Es ist wichtig, den Unterschied zwischen dem _Median_ {cite}`mediandef` und dem _Durchschnitt_ {cite}`meandeff` zu verstehen, wenn Sie die Ergebnisse interpretieren. Mit Ausnahme der monatlichen Ergebnisse werden die Datenerhebungen Ergebnisse als Median p/100m für den jeweiligen Standort angegeben. 
 
@@ -59,7 +59,7 @@ name: mcommonforeword_de
 
 Die Ergebnisse für Bauschutt aus Kunststoffen zeigen, dass dieser in Bönigen (4,5p/100m) und Unterseen (1,5p/100m) häufiger vorkommt als in den anderen Gemeinden, wo der Medianwert bei Null liegt. Industriefolien und Zigaretten wurden jedoch in allen Gemeinden in mindestens 1/2 der Datenerhebungen festgestellt. 
 
-Praktisch gesehen war die Chance, am Strand von Bönigen und Unterseen Bauschutt aus Kunststoff zu finden, größer als in den anderen Gemeinden. Die Wahrscheinlichkeit, Industriefolien zu finden, war jedoch überall ungefähr gleich hoch, am höchsten war sie jedoch in Brienze (67p/100m). 
+Praktisch gesehen war die Wahrscheinlichkeit, am Strand von Bönigen und Unterseen Bauschutt aus Kunststoff zu finden, größer als in den anderen Gemeinden. Die Wahrscheinlichkeit, Industriefolien zu finden, war jedoch überall ungefähr gleich hoch, am höchsten war sie jedoch in Brienze (67p/100m). 
 
 Das Kapitel [Schlüsselindikatoren](keyindicatorsde) enthält eine genaue Definition jeder der grundlegenden Statistiken, die aus den Datenerhebungen abgeleitet werden können, und wie sie zur Identifizierung von Akkumulationszonen und signifikanten Ereignissen verwendet werden. Die Methoden zur Berechnung der verschiedenen Umweltvariablen werden in [_Das Landnutzungsprofil_](luseprofilede) erläutert. Die Codes und Beschreibungen, die zur Identifizierung der Objekte verwendet werden, sowie die verschiedenen wirtschaftlichen Gruppierungen werden in [_Code-Gruppen_](codegroupsde). detailliert behandelt. Wie Proben gesammelt werden und die Methoden zur Identifizierung von Extremwerten und zur Berechnung von Basiswerten für eine Region finden Sie unter [_Basiswerte für Strandabfälle_](threshholdde). 
 
