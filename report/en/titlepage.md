@@ -1,4 +1,4 @@
-# Identification, quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+# Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
 
 **Edition 1** ver=1e
 
@@ -38,6 +38,6 @@
 
 **Support group:** Christian Ludwig (EPFL/PSI), Montserrat Filella (UNIGE), Romain Tramoy (LEESU), Gary Hare (HDCA), Taoufik Nouri (FHNW)
 
-**Translation:** Helen Kurukulasuriya, Bettina Siegenthaler
+**Translation:** Helen Kurukulasuriya, Bettina Siegenthaler and Nativespeakers.ch GmbH
 
 **Special thanks:** Hubert Heldner, Kurt Chanton, Marcel Regamey, Bhavish Patel, Olivier Kressmann, Laurent Thurnheer, Jean Baptiste-Dussaussois
