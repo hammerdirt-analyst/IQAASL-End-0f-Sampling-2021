@@ -186,16 +186,17 @@ code_material_map = dfCodes.material
 
 
 # (transportde)=
-# # Shared responsibility
+# # Geteilte Verantwortung 
 # 
 # <a href="shared_responsibility.html" > English </a>
 # 
-# Research on litter transport and accumulation in the aquatic environment indicates that rivers are a primary sources of land based macro-plastics to the marine environment {cite}`Gonzalez`. However not all objects that are transported by rivers make it to the ocean, suggesting that rivers and inland lakes are also sinks for a portion of the macro-plastics that are emitted {cite}`Kooi2018`.
+# Untersuchungen über den Transport und die Anreicherung von Abfällen in der aquatischen Umwelt zeigen, dass Flüsse eine Hauptquelle für Makroplastik vom Land in die Meeresumwelt sind {cite}`Gonzalez`. Allerdings gelangen nicht alle Objekte, die von Flüssen transportiert werden, in den Ozean, was darauf hindeutet, dass Flüsse und Binnenseen auch Senken für einen Teil des emittierten Makroplastiks sind {cite}`Kooi2018`.
 # 
-# Provisions in Swiss law, article 2 of the Federal Act on the Protection of the Environment (LPE) the _principal of causality_ accounts for unlawful disposal of material and is commonly known as the principle of polluter payer. Ultimately, the responsibility of elimination and management of litter pollution in and along water systems is directly on the municipal and cantonal administrations as legally, they are owners of the land within their boundaries. The law does provide municipalities and cantons the ability to consider companies or persons further up the chain of causality, as producers of waste and to charge disposal fees to them (e.g. fast-food companies and similar businesses, or organizers of events that generate large quantities of waste on the public space) when specific offenders cannot be identified, if objective criteria are used to determine the chain of causality. {cite}`lpe` {cite}`wpo` {cite}`findechets` {cite}`tf138`
-# ## The Challenge
+# In den Bestimmungen des Schweizer Rechts, Artikel 2 des Bundesgesetzes über den Umweltschutz (USG), wird das Prinzip der Kausalität für die illegale Entsorgung von Material berücksichtigt und ist allgemein als Verursacherprinzip bekannt. Letztendlich liegt die Verantwortung für die Beseitigung und das Management der Verschmutzung durch Abfälle in und entlang von Gewässern direkt bei den kommunalen und kantonalen Verwaltungen, da sie rechtlich gesehen Eigentümer des Landes innerhalb ihrer Grenzen sind. Das Gesetz gibt den Gemeinden und Kantonen die Möglichkeit, Unternehmen oder Personen, die weiter oben in der Kausalkette stehen, als Abfallverursacher zu betrachten und von ihnen Entsorgungsgebühren zu erheben (z.B. Fast-Food-Unternehmen und ähnliche Betriebe oder Organisatoren von Veranstaltungen, die große Mengen an Abfall im öffentlichen Raum erzeugen), wenn keine konkreten Verursacher ermittelt werden können, sofern objektive Kriterien zur Bestimmung der Kausalkette herangezogen werden. {cite}`lpe` {cite}`wpo` {cite}`findechets` {cite}`tf138`
 # 
-# The challenge is to meet the requirements of objective criteria. The method to meet the requirements needs to be __robust, transparent and easily repeatable__.
+# ## Die Herausforderung
+# 
+# Objektive Kriterien erfordern __robuste, transparente und leicht wiederholbare__ Methoden. Die Herausforderung besteht darin, verfügbare Informationen aus den weggeworfenen Objekten zu extrahieren, die auf Mengen, Materialeigenschaften und Umweltvariablen in der Nähe des Erhebungsortes basieren. 
 
 # In[2]:
 
@@ -203,43 +204,41 @@ code_material_map = dfCodes.material
 sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.jpeg", thumb=(1200, 700))
 
 
-# *__Above: obtaining objective criteria:__. Grand Clos, St. Gingoplh May 2020. The challenge is to extract as much information from the litter objects based on the quantity found, the properties of the object and the environmental variables in proximity of the survey location. Obtaining objective criteria from beach litter data is further complicated because of the approximately 61’000km of rivers and 1500 lakes in Switzerland* {cite}`swisslakesrivers`.
+# *__Oben:__ Lac Léman, St. Gingolph 07 May 2020 (15.92pcs/m).*
 # 
-# The use of the object prior to it being discarded, and then later identified in a litter survey,  is the best indicator of its probable origin. When land use rates are considered there is an association between the amount of land used for buildings and recreation and the amount of cigarette filters and snack wrappers that are found at the beach,[_The land use profile_](luseprofilede). This result, however, is only true for objects that are associated with the consumption of food or tobacco, approximately 26% of all objects found. 
+# Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise größere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das [Landnutzungsprofil.](luseprofilede). Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabak in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde. 
 # 
-# Other objects have no definitive geographic source or no clear association with an activity in proximity to where they are found. The most common of these objects are $\approxeq$ 40% of all litter items identified in 2020, [_Lakes and rivers_ ](allsurveysde). Clearly, reducing the amount of litter on the beach includes reducing the amount litter that originates from outside the geographic limits of the beach itself. Thus, there an incentive to identify litter objects that are of local origin and those that may have arrived at the survey location by some-other means.
+# Andere Objekte haben jedoch weder einen eindeutigen geografischen Ursprung noch eine klare Verbindung zu einer Aktivität in der Nähe ihres Standorts. Die häufigsten dieser Objekte sind ≊ 40 % aller im Jahr 2020 identifizierten ausrangierten Objekte,  [_Lakes and rivers_ ](allsurveysde). Die Verringerung der Menge an Abfällen an den Schweizer Ufern beinhaltet auch die Verringerung der Menge an ausrangierten Objekten, die von außerhalb der geografischen Grenzen des Strandes selbst stammen. Daher ist es ein Anreiz, ausrangierte Objekte, die an oder in der Nähe von Standorten weggeworfen werden, von Objekten zu unterscheiden, die zu den Datenerhebungen transportiert werden.  
 # 
-# The hydrologic conditions of rivers have an effect on the distance and direction that litter, once introduced into a river will travel. Large, low density objects will most likely be transported to the next reservoir or area of reduced flow. High density objects will only be transported if the flow velocity and turbulence of the water are sufficient to keep the objects off the bottom. Once high density items enter a low velocity zone they tend to settle or sink {cite}`Schwarz`.
+# Die Gewinnung objektiver Daten über Strandabfälle wird durch die hydrologischen Einflüsse der rund 61'000 km Flüsse und 1500 Seen in der Schweiz erschwert.  Die hydrologischen Bedingungen der Flüsse wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Große Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Gegenstände mit hoher Dichte werden nur dann transportiert, wenn die Fließgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Gegenstände vom Grund fernzuhalten. Sobald Gegenstände mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken {cite}`Schwarz`.
 
-# ## The origins of the most common objects
+# ### Die Ursprünge der häufigsten Objekte¶ 
 # 
-# The most common objects are those objects that were either among the top ten most abundant objects or objects that were found in at least 50% of the surveys. To better understand where these objects originate from, the distinction is made between two gorups of objects:
+# Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden. Um besser zu verstehen, woher diese Objekte stammen, wird zwischen zwei Gruppen von Objekten unterschieden: 
 # 
-# 1. __contributed (CG):__ objects that have multiple positive associations to land use features and one association is to buildings
-#     * Cigarette ends
-#     * Metal bottle tops
-#     * Snack wrappers
-#     * Glass bottles and pieces   
+# * beigetragen (CG): Objekte, die mehrere positive Assoziationen zu Landnutzungsmerkmalen haben und eine Assoziation ist zu Gebäuden 
+#   * Zigarettenstummel 
+#   * Flaschenverschlüsse aus Metall
+#   * Snack-Verpackungen
+#   * Glasflaschen und -stücke
+# * verteilt (DG): Objekte, die wenige oder keine positiven Assoziationen zu Landnutzungsmerkmalen haben 
+#   * Fragmentiertes expandiertes Polystyrol
+#   * Kunststoffgranulat für die Vorproduktion
+#   * Fragmentierte Kunststoffe
+#   * Wattestäbchen
+#   * Industrielle Abdeckungen
+#   * Baukunststoffe 
 # 
+# Die Datenerhebungen werden in Relation zu den Flächennutzungsraten der umliegenden 1500m [Das Flächennutzungsprofil](luseprofilede). Der Medianwert der Gebäudefläche wurde verwendet, um die Datenerhebungen in zwei verschiedene Gruppen zu unterteilen: 
 # 
-# 2. __distributed (DG):__ objects that have few or no positive associations to land use features
-#     * Fragmented expanded polystyrene
-#     * Plastic production pellets
-#     * Fragmented plastics
-#     * Cotton swabs\*
-#     * Industrial sheeting
-#     * Construction plastics
+# * __urban:__ Orte, an denen der prozentuale Anteil der bebauten Fläche GRÖSSER ist als der Median aller Datenerhebungen 
+# * __ländlich:__ Orte, bei denen der prozentuale Anteil der bebauten Fläche WENIGER ist als der Median aller Datenerhebungen UND bei denen der prozentuale Anteil der bewaldeten oder landwirtschaftlich genutzten Fläche größer ist als der Median 
 # 
-# Furthermore, the survey locations are considered in relation to the land-use rates of the surounding 1500m, [_The land use profile_](luseprofilede). The median value of the space attributed to buildings was used to differentiate the survey locations into two distinct groups:
+# The rural class had 148 surveys for 50 locations versus 152 surveys from 34 locations in the urban class. 
 # 
-# 1. __urban:__ locations that have a percent of land attributed to buildings GREATER than the median of all survey locations
-# 2. __ländlich:__ locations that have a percent of land attributed to buildings LESS than the median of all survey locations AND percent of land attributed to woods or agriculture greater than the median
-# 
-# The ländlich class had 148 surveys for 50 locations versus 152 surveys from 34 locations in the urban class.
-# 
-# __\*Note:__ cotton swabs are included with DG because they are usually introduced directly into a body of water after passing through a water treatment facility.
+# __\*Hinweis:__ Wattestäbchen sind bei DG enthalten, da sie in der Regel über Wasseraufbereitungsanlagen direkt in ein Gewässer eingebracht werden. 
 
-# *__Below: Identifying DG group items.__ DG is a diverse group of objects representing the construction, manufacturing and retail industries. In some cases like fragmented plastics and foams the original objects are no longer recognizable.*
+# *__Unten:__ Identifizierung von Gegenständen der Gruppe DG. DG ist eine vielfältige Gruppe von Gegenständen aus dem Bauwesen, der verarbeitenden Industrie und der Landwirtschaft. In einigen Fällen, wie z.B. bei zersplitterten Kunststoffen und geschäumten Kunststoffen, sind der ursprüngliche Gegenstand oder der Verwendungszweck unbestimmbar.*
 
 # In[3]:
 
@@ -278,25 +277,25 @@ plt.tight_layout()
 plt.show()
 
 
-# The results from the different groups will be used to test the following null hypothesis, based on the results of Spearmans ranked correlation coefficient:
+# Die Ergebnisse der verschiedenen Gruppen werden verwendet, um die folgende Nullhypothese zu testen, die auf den Ergebnissen des Korrelationskoeffizienten nach Spearmans beruht: 
 # 
-# __If__ there is no statistically significant evidence that land use features contributes to the accumulation of an object then the distribution of that object should be $\approxeq$ under all land use conditions.
+# Wenn es keine statistisch signifikanten Hinweise darauf gibt, dass Landnutzungsmerkmale zur Anhäufung eines Objekts beitragen, sollte die Verteilung dieses Objekts unter allen Landnutzungsbedingungen ≊ sein. 
 # 
-# > Null hypothesis: there is no statistically significant difference between survey results of DG or CG objects at rural and urban locations.
+# > Nullhypothese: Es gibt keinen statistisch signifikanten Unterschied zwischen den Datenerhebungen Ergebnissen von DG oder CG Objekten in ländlichen und städtischen Gebieten. 
 # 
-# > Alternate hypothesis: there is a statistically significant difference between survey results of DG or CG objects at rural and urban locations.
+# > Alternativhypothese:__ Es besteht ein statistisch signifikanter Unterschied zwischen den Datenerhebungen Ergebnissen von DG- oder CG-Objekten an ländlichen und städtischen Standorten. 
 # 
-# __methods__
+# __Methoden__ 
 # 
-# The hypothesis is tested using a combination of non-parametric tests to confirm significance:
+# Die Hypothese wird mit einer Kombination von nicht-parametrischen Tests getestet, um die Signifikanz zu bestätigen: 
 # 
 # 1. Two sample Kolmogorov-Smirnov {cite}`ks2sample` 
 # 2. Mann-Whitney *U* (MWU) {cite}`mannwhitney`
 # 3. Bootstrap resampling difference of means {cite}`bcatheory` {cite}`bcaimpdrysdale`
 
-# ## The data
+# ## Die Daten
 # 
-# *__Below:__ Map of survey locations IQAASL.* 
+# *__Unten:__ Karte der Standorte der Datenerhebungen IQAASL.* 
 
 # In[4]:
 
@@ -414,7 +413,7 @@ grt_dtr = cg_dg_dt.groupby(['loc_date', 'date','rural'], as_index=False)[unit_la
 
 # check the survey totals for each group
 astring = F"""
-There were {t["nsamples"]} surveys  at {len(t["locations"])} different locations.
+Es wurden {t["nsamples"]} Datenerhebungen an {len(t["locations"])} vershiedenen Orten durchgeführt.
 """
 md(astring)
 
@@ -494,7 +493,7 @@ md(astring)
     
 
 
-# *Survey results urban and rural locations March 2020 - May 2021. __Left__: Survey totals urban v/s rural, n=300. __Right__: distribution of survey results urban - rural with detail of code-group results.*
+# Datenerhebungen Ergebnisse städtische und ländliche Standorte März 2020 - Mai 2021. __Links:__ Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse Stadt - Land mit Detail der Code-Gruppen Ergebnisse. 
 
 # In[7]:
 
@@ -542,8 +541,6 @@ plt.tight_layout()
 plt.show()
 plt.close()
 
-
-# *Summary data all survey totals*
 
 # In[8]:
 
@@ -599,13 +596,13 @@ plt.subplots_adjust(wspace=0.2)
 plt.show()
 
 
-# *__Above: differences between urban and rural survey totals.__ Survey results in rural locations had a lower median and mean than urban locations and all locations combined. The maximum and the minimum values as well as the highest standard deviation were recorded at urban locations. The 95% confidence intervals of the median value of urban and rural survey results do not overlap, Annex 1.* 
+# *__Oben:__ Unterschiede zwischen städtischen und ländlichen Datenerhebungen. Die Datenerhebungen Ergebnisse in ländlichen Gebieten hatten einen niedrigeren Median und Mittelwert als in städtischen Gebieten und in allen Gebieten zusammen. Die Höchst- und Mindestwerte sowie die höchste Standardabweichung wurden an städtischen Standorten verzeichnet. Die 95% Konfidenzintervalle des Medianwertes der Datenerhebungen Ergebnisse in den Städten und auf dem Land überschneiden sich nicht, Anhang 1.* 
 
-# ### Assessment of composition: the big picture
+# ### Bewertung der Zusammensetzung: das große Ganze¶ 
 # 
-# The ratio of total DG to total CG in the rural group was 2.5, in the urban group it was 1.6. On a per survey basis, DG was a greater percent of the total in all surveys from rural locations. In urban locations DG and CG compose almost equal portions of the survey total.  
+# Das Verhältnis von DG insgesamt zu CG insgesamt betrug in der ländlichen Gruppe 2,5, in der städtischen Gruppe 1,6. Bei allen Datenerhebungen in den ländlichen Gebieten war der Anteil der DG an der Gesamtzahl in % höher. In den Städten sind die Anteile von DG und CG an der Gesamtzahl der Datenerhebungen fast gleich. 
 # 
-# > Sample results from rural locations had a greater portion of litter attributed to fragmented plastics, construction plastics and foams.
+# > Ehrebungen aus ländlichen Gegenden wiesen einen größeren Anteil an fragmentierten Kunststoffen, geschäumten Kunststoffen und Baukunststoffen auf. 
 
 # In[9]:
 
@@ -646,13 +643,13 @@ plt.legend(loc='lower right', title="% Gesamt")
 plt.show()
 
 
-# ### Distribution of survey totals for the different object groups
+# ### Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen
 # 
-# The survey results of the DG are very similar under both land use classes, there is more variance as the reported value increases but not so much that the distributions diverge. Given the standard deviation of the samples and the high variance of beach-litter-survey data in general this is expected. {cite}`eubaselines`
+# Die Datenerhebungen Ergebnisse der GD sind unter beiden Landnutzungsklassen sehr ähnlich, es gibt mehr Varianz, wenn der gemeldete Wert steigt, aber nicht so viel, dass die Verteilungen auseinander gehen. Angesichts der Standardabweichung der Stichproben und der hohen Varianz der Datenerhebungen zum Strand-Abfallaufkommen im Allgemeinen ist dies zu erwarten. {cite}`eubaselines`
 # 
-# The two sample Kolmogorov-Smirnov(KS) test(ks=0.073, p=0.808) of the two sets of survey results suggest that **the survey results of DG  may not be significantly different between the two land use classes**. The results from the Mann-Whitney *U* (MWU) (U=11445.0, p=0.762) *suggest that it is possible that the two distributions are the same.**
+# Die Kolmogorov-Smirnov (KS)-Tests mit zwei Stichproben (ks=0,073, p=0,808) der beiden Gruppen von Datenerhebungen deuten darauf hin, dass sich die Datenerhebungsergebnisse der DG zwischen den beiden Landnutzungsklassen möglicherweise nicht signifikant unterscheiden. Die Ergebnisse des Mann-Whitney U (MWU) (U=11445.0, p=0.762) deuten darauf hin, dass es möglich ist, dass die beiden Verteilungen gleich sind.
 
-# *__Below:__ empirical cumulative distribution (eCDF) of DG and CG. __Left:__ recall that DG objects included fragmented plastics, fragmented foams, construction plastics and production pellets. __Right:__  the survey results for cigarette ends and snack wrappers have visually distinct distributions under the two land use conditions.*
+# *__Unten:__ Empirische kumulative Verteilung (eCDF) von DG und CG. __Links:__ Sie erinnern sich, dass zu den DG-Objekten fragmentierte Kunststoffe, Schaumstoffe, Kunststoffe für den Bau und Industriepellets gehören. __Rechts:__ Die Datenerhebungen Ergebnisse für Zigarettenfilter und Snack-Verpackungen haben visuell unterschiedliche Verteilungen unter den beiden Landnutzungsbedingungen.* 
 
 # In[10]:
 
@@ -698,13 +695,13 @@ axtwo.legend(fontsize=12, title=CG,title_fontsize=14)
 plt.show()
 
 
-# According to the KS test (rho=0.09, p=0.48) there is no statistical reason to assume that more DG objects are found under the difference land use conditions, according to the MWU test  (MWU=1039, p=0.25) there is a chance that the incidence of DG objects is the same indifferent of the land use profile. On the other hand the CG survey results diverge almost immediately and results of the KS test  (rho=0.31, p<.001)  and MWU (MWU=7305, p<.001) suggest that the distribution of these objects is associated with % of land attributed to buildings.
+# Nach dem KS-Test (rho=0,09, p=0,48) gibt es keinen statistischen Grund für die Annahme, dass unter den unterschiedlichen Landnutzungsbedingungen mehr DG-Objekte gefunden werden, nach dem MWU-Test (MWU=1039, p=0,25) besteht die Chance, dass die Häufigkeit der DG-Objekte unabhängig vom Landnutzungsprofil gleich ist. Andererseits weichen die Datenerhebungen Ergebnisse von CG fast sofort ab und die Ergebnisse des KS-Tests (rho=0,31, p<.001) und des MWU-Tests (MWU=7305, p<.001) deuten darauf hin, dass die Verteilung dieser Objekte mit den Flächen in %, die Gebäuden zugeordnet sind, zusammenhängt. 
 # 
-# #### Difference of means
+# #### Differenz der Mittelwerte
 # 
-# The average survey result of DG objects in rural locations was 202p/100m as opposed to 237p/100m at urban locations, a difference of -35p/100m is just a small fraction of the standard deviation. A permutation test on the difference of means was conducted on the condition *rural* - *urban* of the mean of survey data. 
+# Das durchschnittliche Ergebnis der Datenerhebungen von DG-Objekten in ländlichen Gebieten lag bei 202p/100m gegenüber 237p/100m in städtischen Gebieten, ein Unterschied von -35p/100m ist nur ein kleiner Bruchteil der Standardabweichung. Es wurde ein Permutationstest auf die Differenz der Mittelwerte unter der Bedingung ländlich - städtisch der Mittelwerte der Datenerhebungen durchgeführt.   
 
-# *Difference of means DG objects. $\mu_{ländlich}$ - $\mu_{urban}$, method=shuffle, permutations=5000.*
+# *Differenz der Mittelwerte DG Objekte.  $\mu_{rural}$ - $\mu_{urban}$, method=shuffle, permutations=5000.*
 
 # In[11]:
 
@@ -751,15 +748,15 @@ ax.set_xlabel(f"$\mu$ ländlich={np.round(the_mean.loc['ländlich'], 2)} - $\mu$
 plt.show()
 
 
-# *__Above:__ refuse to reject the null hypothesis that these two distributions may be the same. The observed difference of means falls within the 95% interval of the bootstrap results.*
+# *__Oben:__ Verwerfen Sie die Nullhypothese, dass diese beiden Verteilungen gleich sein könnten. Die beobachtete Differenz der Mittelwerte liegt innerhalb des 95%-Intervalls der Bootstrap-Ergebnisse.* 
 
-# ## Conclusion
+# ## Fazit
 # 
-# A positive statistically relevant association between CG objects and land use attributed to infrastructure such as streets, recreation areas and buildings can be assumed. Representing 4/12 most common objects, they represent approximately 26% of all objects found and can be associated to activities within 1500m of the survey location. 
+# Es kann ein positiver statistisch relevanter Zusammenhang zwischen CG-Objekten und der Landnutzung angenommen werden, der auf Infrastruktur wie Straßen, Erholungsgebiete und Gebäude zurückzuführen ist. Mit 4/12 der häufigsten Objekte wurden etwa 26% aller Objekte identifiziert und können mit Aktivitäten im Umkreis von 1500 m um den Erhebungsort in Verbindung gebracht werden.  
 # 
-# In contrast the DG group has an $\approxeq$ distribution under the different land use classes and no association to the percent of land attributed to buildings. Composed of construction plastics, fragmented foams and plastics and industrial pellets the DG represents a diverse group of objects with different densities. With no statistical evidence to the contrary the null hypothesis cannot be rejected. __Therefore it can not be assumed that the primary source was within 1500m of the survey location and that a portion of these objects have origins upstream__ (economically and geographically).
+# Im Gegensatz dazu hat die Gruppe der DG eine ≊ Verteilung unter den verschiedenen Landnutzungsklassen und keinen Zusammenhang mit dem prozentualen Anteil der Fläche, die Gebäuden zugeordnet ist. Die Gruppe DG besteht aus Baukunststoffen, fragmentierten Schaumstoffen, Kunststoffstücken und Industriepellets und stellt eine vielfältige Gruppe von Objekten mit unterschiedlicher Dichte dar. Da es keine statistischen Beweise für das Gegenteil gibt, kann die Nullhypothese nicht verworfen werden. Daher kann nicht davon ausgegangen werden, dass die primäre Quelle in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt, und es ist wahrscheinlich, dass ein Teil dieser Objekte einen (wirtschaftlich und geografisch) weiter entfernten Ursprung hat.  
 
-# *__Below:__ establishing objective criteria. Identifying and counting the objects after a litter survey can be done on the beach, if the weather permits. The inventory is always completed on paper in a designated notebook and then entered in to the app [The litter surveyor](https://www.plagespropres.ch). Objects of interest in this photo: plastic shotgun wadding, agricultural fencing and tile spacer.* 
+# *__Unten:__ Festlegen objektiver Kriterien. Die Identifizierung und Quantifizierung von Objekten, die bei einer Datenerhebung über Abfälle gesammelt wurden, kann vor Ort erfolgen, wenn das Wetter es zulässt. Die Abmessungsdaten und die erste Bestandsaufnahme werden in einem Notizbuch dokumentiert und dann in die App [The litter surveyor](https://www.plagespropres.ch)eingegeben. Objekte von Interesse: Plastikwatte, landwirtschaftliche Zäune und Abstandshalter für Ziegel.* 
 
 # In[12]:
 
@@ -767,17 +764,17 @@ plt.show()
 sut.display_image_ipython("resources/images/baselines/takingnotes.jpg", thumb=(1200, 700))
 
 
-# ### Discussion
+# ### Diskussion
 # 
-# By comparing the survey results to the independent variables around the survey locations a numerical representation can be established that describes how likely the object was discarded where it was found. In the case of cigarette ends and candy wrappers the association established numerically is reinforced by daily experience, it is within buildings that cigarettes and snacks are purchased. It is appropriate to assume that a portion would be consumed directly and that some of the associated wrappers would escape into the environment.
+# Durch den Vergleich der Datenerhebungen Ergebnisse mit den unabhängigen Variablen rund um die Erhebungsorte kann eine numerische Darstellung erstellt werden, die beschreibt, wie wahrscheinlich es ist, dass der Gegenstand dort weggeworfen wurde, wo er gefunden wurde. Die numerisch ermittelte Assoziation wird durch die tägliche Erfahrung verstärkt. Zum Beispiel wird ein Teil der Zigaretten und Snacks wahrscheinlich an oder in der Nähe der Verkaufsstellen konsumiert, und ein Teil des damit verbundenen Materials kann in die Umwelt gelangen. 
 # 
-# For other objects the connection or the source may not be evident or even visible from the survey location. Objects that are distinct and whose use is limited to relatively small portions of the economy present particular challenges. Because of hydrologic transport these objects may be found all over the region but there may be a limited number of zones of accumulation, making it difficult to identify the source. 
+# Einige markante Objekte, die von relativ kleinen Teilen der Wirtschaft genutzt werden, können in einer ganzen Region identifiziert werden, sind aber aufgrund des hydrologischen Transports auf Zonen der Akkumulation beschränkt, was die Identifizierung der Quelle erschwert. 
 # 
-# However, the previous example shows that survey results increase or decrease in response to explanatory variables. For objects such as the _plastic production pellet_ (GPI) the use case of the item is definite and users and producers are relatively rare with respect to other litter items. Even though these objects are found in all survey areas it is unlikely that they are emitted at equal rates. 
+# Das vorangegangene Beispiel zeigt jedoch, dass Datenerhebungen Ergebnisse in Abhängigkeit von erklärenden Variablen erhöhen oder verringern. Bei Objekten wie Plastikpellets aus der Vorproduktion (GPI) ist der Verwendungszweck des Objekts eindeutig und die Nutzer und Hersteller sind im Vergleich zu anderen ausrangierten Objekten relativ selten. Auch wenn diese Gegenstände in allen Datenerhebungen vorkommen, ist es unwahrscheinlich, dass sie in gleichem Maße emittiert werden. 
 # 
-# Given the previous example it is possible to follow the increasing survey results of GPI on two different lakes to understand how this relationship can be visualized. 
+# Anhand des vorangegangenen Beispiels können Sie die steigenden Datenerhebungen Ergebnisse von GPI an zwei verschiedenen Seen verfolgen, um zu verstehen, wie diese Beziehung visualisiert werden kann.
 # 
-# *__Below:__ the increase in the median p/100m as surveys approach the upstream source. GPI are small and difficult to clean up once they have been spilled making the exact source impossible to determine. However it is reasonable to assume that the handlers and consumers of GPI will have the best ideas on how to prevent them from escaping into the environment. The probability of finding at least one is double the regional rate at some of the locations below.*
+# *__Unten:__ Der Anstieg des mittleren p/100m-Wertes, wenn sich die Datenerhebungen der flussaufwärts gelegenen Quelle nähern. GPIs sind klein und schwer zu reinigen, wenn sie einmal verschüttet wurden, so dass die genaue Quelle schwer zu bestimmen ist. Man kann jedoch davon ausgehen, dass die Verarbeiter und Verbraucher von GPIs am besten wissen, wie man den Verlust von Material in die Umwelt verhindert. Die Wahrscheinlichkeit, mindestens einen GPI zu finden, ist an einigen der unten aufgeführten Orte doppelt so hoch wie die regionale Rate.*
 
 # In[13]:
 
@@ -785,60 +782,63 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg", thumb=(1
 sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg", thumb=(1200, 700))
 
 
-# #### Finding partners
+# #### Partner finden
 # 
-# The results from the test indicate that CG objects are more prevalent in urban locations. Urban was defined as the land use within 1500m of the survey area. From this it is safe to assume that the cause(s) of CG group litter are also more prevalent in urban areas and that the secondary cause of the litter is within 1500m of the survey location.
+# Die Ergebnisse des Tests zeigen, dass CG-Objekte in städtischen Gebieten häufiger vorkommen. Als städtisch wurde die Landnutzung im Umkreis von 1500 m um das Untersuchungsgebiet definiert. Daraus lässt sich schließen, dass die Ursache(n) für die Abfälle der CG-Gruppe ebenfalls häufiger in städtischen Gebieten zu finden sind und dass die sekundäre Ursache für die ausrangierten Objekte in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt. 
 # 
-# Stakeholders looking to reduce the incidence of CG objects within a specific zone may have a better chance of finding motivated partners within 1500m of the location of concern. 
+# Akteure, die die Häufigkeit von CG-Objekten in einer bestimmten Zone reduzieren möchten, haben bessere Chancen, motivierte Partner in einem Umkreis von 1500 m um den betreffenden Ort zu finden.Die DG-Gruppe hat die Besonderheit, dass sie in ≈ verteilt ist.   Raten unabhängig von der Landnutzung und macht einen größeren Anteil der gefundenen Objekte aus als CG. Dies deutet darauf hin, dass die Lösung einen größeren Maßstab hat als die Gemeindegrenzen. 
 # 
-# The DG group has the particularity that it is distributed in $\approx$ rates indifferent of the land use and it makes up a larger proportion of the objects found than CG. This implies that __the solution is at a larger scale__ than the municipal boundaries.
+# Fragmentierte Kunststoffe sind das einzige DG-Objekt auf der Liste, das nicht mindestens einem Industriezweig zugeordnet werden kann, der in allen von dieser Analyse erfassten Datenerhebungen vertreten ist.  
 # 
-# Fragmented plastics is the only DG object on the list that cannot be attributed to at least one industry that is present in all the survey areas covered by this analysis.
+# * Expandiertes Polystyrol wird in der Bauindustrie als Außenisolierung verwendet und dient als Verpackung, um zerbrechliche Gegenstände beim Transport zu schützen. 
+# * Kunststoff-Vorproduktionsgranulat wird für die Herstellung von Kunststoffobjekten im Spritzgussverfahren verwendet. 
+# * Wattestäbchen aus Plastik werden oft über Kläranlagen in Flüsse und Seen geleitet. 
+# * Industriefolien werden in der Landwirtschaft, im Transportwesen und im Baugewerbe eingesetzt.  
+# * Baukunststoffe 
 # 
-# * Expanded polystyrene is used as an exterior insulation envelope in the construction industry and is also used in packaging to protect fragile objects during transport. 
-# * Plastic production pellets are used to make plastic objects in the injection molding process. 
-# * Cotton swabs are often diverted to rivers and lakes after passing through a water treatment plant. 
-# * Industrial sheeting is used in horticulture, transport and the construction industry.
-# * Construction plastics
+# Die Suche nach Partnern für diese Objekte kann eine erste Phase informativer, gezielter Kommunikation unter Verwendung der IQAASL-Ergebnisse und der aktuellen EU-Schwellenwerte und Basiswerte für Strandabfälle  {cite}`eubaselines`.
 # 
-# Finding partners for these objects may involve an initial phase of informative targeted communication that calls attention to these study results, and current EU thresholds and baselines for beach litter {cite}`eubaselines`.
 # 
-# #### Sharing the responsibility
+# #### Die Verantwortung teilen 
 # 
-# The principle of Extended Producer Responsibility (EPR) may provide the incentive to producers and consumers to account for the real costs of end-of-life management for the most common litter items identified in Switzerland. {cite}`poulki`
+# Das Prinzip der erweiterten Herstellerverantwortung (EPR) kann für Hersteller und Verbraucher ein Anreiz sein, die tatsächlichen Kosten für die Entsorgung der in der Schweiz am häufigsten ausgerangierten Objekte zu übernehmen. {cite}`HARRIS2021104319`
 # 
-# A recent study in the Marine Policy journal identified several limitations of using preexisting beach litter survey data to assess the impact of EPR policy on observed litter quantities. {cite}`HARRIS2021104319`
+# In einer kürzlich in der Zeitschrift Marine Policy veröffentlichten Studie wurden mehrere Einschränkungen bei der Verwendung bereits vorhandener Datenerhebungen über Strand-Abfallaufkommen zur Bewertung der Auswirkungen der EPR-Politik auf die beobachteten Abfallmengen festgestellt. 
 # 
-# 1. Limited data
-# 2. Heterogeneous methods
-# 3. Data not collected for the purposes of evaluating ERP
+# * Begrenzte Daten 
+# * Heterogene Methoden 
+# * Daten, die nicht zum Zweck der Bewertung des ERP erhoben wurden 
 # 
-# To correct these limitations the authors provide the following recommendations:
+# Um diese Einschränkungen zu korrigieren, geben die Autoren die folgenden Empfehlungen: 
 # 
-# 1. Create a data framework specifically for monitoring ERP targets
-# 2. Identify sources 
-# 3. Use litter counts to establish baselines
-# 4. Frequent monitoring
+# * Erstellen Sie einen Datenrahmen speziell für die Überwachung von ERP-Zielen 
+# * Identifizieren Sie Quellen 
+# * Zählen Sie die ausrangierten Objekte, um die Basiswerte zu ermitteln. 
+# * Häufige Überwachung 
 # 
-# Litter counts mitigate the effects of light-weight packaging when collection results are based on weights. {cite}`HARRIS2021104319`
+# Die Zählung der ausrangierten Objekte mildert die Auswirkungen von Leichtverpackungen ab, wenn die Sammelergebnisse auf Gewichten basieren. {cite}`HARRIS2021104319`
 # 
-# The IQAASl project addresses three out of the four recommendations and it introduced a method that allows stakeholders to add specific items to the survey protocol. Thus monitoring progress towards ERP targets can be implemented as long as the objects can be defined visually and can be counted.
+# Das IQAASl-Projekt geht auf drei der vier Empfehlungen ein und hat eine Methode eingeführt, die es den Beteiligten ermöglicht, dem Erhebungsprotokoll bestimmte Objekte hinzuzufügen. So kann die Überwachung des Fortschritts in Bezug auf die ERP-Ziele umgesetzt werden, solange die Objekte visuell definiert und gezählt werden können. 
 # 
-# The current database of beach-litter surveys in Switzerland includes over 1,000 samples collected using the same protocol in the past six years. Switzerland has all the elements in place to accurately estimate minimum probable values for the most common objects and evaluate stochastic.
+# Die aktuelle Datenbank der Strand-Abfallaufkommen Untersuchungen in der Schweiz umfasst über 1.000 Proben, die in den letzten sechs Jahren nach demselben Protokoll gesammelt wurden. Die Schweiz verfügt über alle Elemente, um die Mindestwahrscheinlichkeit für die häufigsten Objekte genau zu schätzen und stochastische Werte zu bewerten. Dieser Bericht bietet mehrere Möglichkeiten, die Unterschiede zwischen den Datenerhebungen Ergebnissen zu bewerten, andere sollten ebenfalls in Betracht gezogen werden. 
+# 
+# Eine nationale Strategie sollte Folgendes beinhalten:  
 # 
 # This report offers several different ways to evaluate differences between survey results, there are certainly others that should be considered. There are many improvements to be made concerning the national strategy:
 # 
-# 1. Defining a standardized reporting method for municipal, cantonal and federal stakeholders
-# 2. Define monitoring or assessment goals
-# 3. Formalize the data repository and the method for implementation at different administrative levels
-# 4. Develop a network of associations that share the responsibility and resources for surveying the territory
-# 5. Develop and implement a formal training program for surveyors that includes data science, and GIS technologies
-# 6. Determine, in collaboration with academic partners, ideal sampling scenarios and research needs
-# 7. Develop a financing method to ensure that enough samples are collected each year in each survey area so that accurate assessments can be made and research requirements are met.
+# A national strategy should include:
+# 
+# * Definieren Sie eine standardisierte Berichtsmethode für kommunale, kantonale und föderale Akteure 
+# * Definieren Sie Überwachungs- oder Bewertungsziele 
+# * Formalisierung des Datenspeichers und der Methode zur Implementierung auf verschiedenen Verwaltungsebenen 
+# * Aufbau eines Netzwerks von Verbänden, die sich die Verantwortung und die Ressourcen für die Datenerhebungen im Gebiet teilen 
+# * Entwickeln und implementieren Sie ein formelles Schulungsprogramm für Datenerhebungen, das Datenwissenschaft und GIS-Technologien umfasst. 
+# * Bestimmen Sie in Zusammenarbeit mit akademischen Partnern die idealen Stichproben-Szenarien und den Forschungsbedarf 
+# * Entwickeln Sie eine Finanzierungsmethode, um sicherzustellen, dass pro Jahr und Region genügend Proben entnommen werden, um die Bedingungen genau zu bewerten und den Forschungsanforderungen gerecht zu werden. 
 
-# ## Annex
+# ## Anhang
 
-# Organizations that collected samples
+# Organisationen, die Proben gesammelt haben 
 # 
 # 1. Precious plastic leman
 # 2. Association pour la sauvetage du Léman
@@ -847,19 +847,20 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 # 5. Hamerdirt
 # 6. Hackuarium
 # 7. WWF Switzerland
-# 
 
-# ### Results of Speramans ranked correlation test
+# ### Ergebnisse des Spearman-Rangkorrelationstests
 # 
-# An association is a relationship between the survey results and the land use profile that is unlikely due to chance. The magnitude of the relationship is neither defined nor linear. 
+# Eine Assoziation ist eine Beziehung zwischen den Datenerhebungen Ergebnissen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmaß der Beziehung ist weder definiert noch linear. 
 # 
-# Ranked correlation is a non-parametric test to determine if there is a statistically significant relationship between land use and the objects identified in a litter survey. 
+# Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein statistisch signifikanter Zusammenhang zwischen der Landnutzung und den in einer Datenerhebung identifizierten Objekten besteht. 
 # 
-# The method used is the Spearman’s rho or Spearmans ranked correlation coefficient. The test results are evaluated at p<0.05 for all valid lake samples in the survey area. 
+# Die verwendete Methode ist der Spearman's rho oder Spearmans rangierter Korrelationskoeffizient. Die Testergebnisse werden bei p<0,05 für alle gültigen Seeproben im Untersuchungsgebiet ausgewertet. 
 # 
-# 1. Red/rose is a positive association
-# 2. Yellow is a negative association
-# 3. White means that p>0.05, there is no statistical basis to assume an association
+# * Rot/Rose ist eine positive Assoziation 
+# * Gelb ist eine negative Assoziation 
+# * Weiß bedeutet, dass es bei p>0,05 keine statistische Grundlage für die Annahme eines Zusammenhangs gibt. 
+
+# *__Unten:__ Rangfolge der häufigsten Objekte mit Landnutzungsmerkmalen.*
 
 # In[14]:
 
@@ -867,7 +868,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 sut.display_image_ipython("resources/images/shared_responsibility/land_use_correlation_de_30_0.png", thumb=(1200, 700))
 
 
-# *__Below:__ 95% confidence interval of the median survey value under the different land use classes.* 
+# *__Unten:__ 95% Konfidenzintervall des Medianwertes der Datenerhebungen unter den verschiedenen Landnutzungsklassen.* 
 
 # In[15]:
 
@@ -1007,7 +1008,7 @@ plt.close()
 
 
 
-# *__Below:__ the survey results of the most common objects under the two different land use classes.*
+# *__Unten:__ Die Datenerhebungen Ergebnisse der am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.*
 
 # In[16]:
 
@@ -1058,13 +1059,13 @@ plt.subplots_adjust(wspace=0.2)
 plt.show()
 
 
-# ### Seasonal variations
+# ### Saisonale Schwankungen
 # 
-# Seasonal variations of beach litter survey results has been documented under many conditions and many environments. In 2018 the SLR {cite}`slr` reported the maximum value in July and the minimum in November. The year 2020-2021 presents the same results.
+# Saisonale Schwankungen der Ergebnisse von Strand-Abfallaufkommen Untersuchungen sind unter verschiedenen Bedingungen und Umgebungen dokumentiert worden. Im Jahr 2018 meldete der SLR {cite}`slr` den Höchstwert im Juli und den Mindestwert im November. Für das Jahr 2020-2021 liegen die gleichen Ergebnisse vor. 
 
-# *monthly survey results and river discharge rates m³/second*
+# *__Unten:__ monatliche Datenerhebungen Ergebnisse und Abflussmengen m³/Sekunde*
 # 
-# *April and May 2021 are rolling averages, data not available*
+# *April und Mai 2021 sind gleitende Durchschnitte, Daten nicht verfügbar*
 # 
 # *source : https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu*
 
@@ -1150,18 +1151,17 @@ plt.legend([*handles, *handles2], [*labels, *labels2], bbox_to_anchor=(0,-.1), l
 plt.show()
 
 
-# ## The survey results of FP and FT with respect to land use
+# ## Die Datenerhebungen Ergebnisse von FP und FT in Bezug auf die Landnutzung
 # 
+# __Ergebnisse von KS-Test und Mann Whitney U__
 # 
-# __Results of KS test and Mann Whitney U__
+# Die Datenerhebungen Ergebnisse für FP Objekte sind sehr ähnlich bis zu $\approxeq$  das 85-Perzentilth, wo die Ergebnisse der Datenerhebungen auf dem Land deutlich höher sind. Das deutet darauf hin, dass extreme Werte für FP in ländlichen Gebieten wahrscheinlicher waren. Nach dem KS-Test (ks=0,78, pvalue=0,69) und dem MWU-Test (U=10624, pvalue=0,40) ist die Verteilung der FP-Objekte unter den beiden Landnutzungsklassen nicht signifikant unterschiedlich und könnte gleich sein.  
 # 
-# The survey results for FP objects is very similar up to $\approx$ the 85<sup>th</sup> percentile where the rural survey results are noticeably larger. Suggesting that extreme values for FP were more likely in rural locations. According to the KS test (ks=0.78, pvalue=0.69) and MWU test (U=10624, pvalue=0.40) the distribution of FP objects under the two land use classes is not significantly different and may be equal. 
+# Die Datenerhebungen Ergebnisse für FT-Objekte behalten die gleichen Merkmale wie die der übergeordneten Verteilung. Die Ergebnisse des KS-Tests (ks=0,29, pWert<.001) und des MWU-Tests (U=7356,5, p<.001) stimmen mit den Ergebnissen der Elterngruppe überein, dass es einen statistisch relevanten Unterschied zwischen den Datenerhebungen Ergebnissen unter verschiedenen Landnutzungsklassen gibt.  
 # 
-# The survey results for FT objects maintain the same features as the parent distribution. The results of the KS test (ks=0.29, pvalue<.001) and MWU test (U=7356.5, p<.001) agree with the results of the parent group, that there is a statistically relevant difference between the survey results under different land use classes.
-
-# *Left rural - urban: ECDF of survey results fragmented plastics and foams (FP)*
+# *__Links:__ Land - Stadt: ECDF der Datenerhebungen Ergebnisse fragmentierte Kunststoffe und Schaumstoffe (FP)* 
 # 
-# *Right rural - urban: ECDF of survey results cigarette ends and candy wrappers (FT)*
+# *__Rechts:__ Land - Stadt: ECDF der Datenerhebungen Ergebnisse Zigarettenstummel und Bonbonverpackungen (FT)*
 
 # In[18]:
 
@@ -1202,13 +1202,11 @@ plt.tight_layout()
 plt.show()
 
 
-# ### FP and FT difference of means.
+# ### FP und FT Differenz der Mittelwerte.
 # 
-# The average survey result of FP objects in rural locations was 22.93p/50m in urban locations it was 12p/50m. A permutation test on the difference of means was conducted on the condition *rural* - *urban*.
-
-# *Difference of means fragmented foams and plastics under the two different land use classes.*
+# Das durchschnittliche Datenerhebungsergebnis von FP-Objekten in ländlichen Gebieten lag bei 22,93p/50m in städtischen Gebieten bei 12p/50m. Es wurde ein Permutationstest auf die Differenz der Mittelwerte unter der Bedingung ländlich - städtisch durchgeführt. 
 # 
-# *$\mu_{rural}$ - $\mu_{urban}$, method=shuffle, permutations=5000*
+# Differenz der Mittelwerte von fragmentierten Schaumstoffen und Kunststoffen unter den beiden verschiedenen Landnutzungsklassen. *$\mu_{ländlich}$*  - $\mu_{urban}$, method=shuffle, permutations=5000*
 
 # In[19]:
 
@@ -1247,11 +1245,11 @@ ax.set_xlabel("$\mu$ ländlich - $\mu$ urban", **ck.xlab_k14)
 plt.show()
 
 
-# *Refuse to reject the null hypotheses: there is no statistically significant difference between the two distributions* 
-
-# *Difference of means cigarette ends and snack wrappers under the two different land use classes.*
+# *__Oben:__ Verwerfen Sie die Nullhypothese: Es gibt keinen statistisch signifikanten Unterschied zwischen den beiden Verteilungen* 
+#     
+# *__Unten:__ Differenz der Mittelwerte für Zigarettenstummel und Snackverpackungen unter den beiden verschiedenen Landnutzungsklassen.* 
 # 
-# *$\mu_{rural}$ - $\mu_{urban}$, method=shuffle, permutations=5000*
+# *$\mu_{länd;ich}$ - $\mu_{urban}$, method=shuffle, permutations=5000*
 
 # In[20]:
 
@@ -1289,7 +1287,7 @@ ax.set_xlabel("$\mu$ ländlich - $\mu$ urban", **ck.xlab_k14)
 plt.show()
 
 
-# *Reject the null hypothesis: the two distributions are most likely not the same*
+# *__Oben:__ Verwerfen Sie die Nullhypothese: die beiden Verteilungen sind höchstwahrscheinlich nicht identisch.*
 
 # In[21]:
 

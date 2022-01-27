@@ -39,6 +39,9 @@
 # sys, file and nav packages:
 import datetime as dt
 
+# for date and month formats in french or german
+import locale
+
 # math packages:
 import pandas as pd
 import numpy as np
@@ -60,20 +63,30 @@ import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
-# import base64, io, IPython
+import base64, io, IPython
 from PIL import Image as PILImage
 from IPython.display import Markdown as md
-from IPython.display import display # Math, Latex
+from IPython.display import display, Math, Latex
 import matplotlib.image as mpimg
 
+# set the locale to the language desired
+# the locale is set back to to original at the the end of the script
+# loc = locale.getlocale()
+# lang =  "de_DE.utf8"
+# locale.setlocale(locale.LC_ALL, lang)
+
+# # the date is in iso standard:
+# d = "%Y-%m-%d"
+
+# # it gets changed to german format
+# g = "%d.%m.%Y"
 
 # set some parameters:
-today = dt.datetime.now().date().strftime("%Y-%m-%d")
-start_date = '2020-03-01'
-end_date ='2021-05-31'
+start_date = "2020-03-01"
+end_date ="2021-05-31"
+start_end = [start_date, end_date]
 a_fail_rate = 50
-unit_label = 'p/100m'
-reporting_unit = 100
+unit_label = "p/100m"
 
 sns.set_style('whitegrid')
 a_color = 'dodgerblue'
@@ -114,7 +127,7 @@ use_these_cols = ['loc_date' ,
                  ]
 
 # these are default
-top_name = ["All survey areas"]
+top_name = ["Alle"]
 
 # add the folder to the directory tree:
 
@@ -131,6 +144,39 @@ dfBeaches.set_index('slug', inplace=True)
 
 dfCodes.set_index("code", inplace=True)
 
+# language specific
+# importing german code descriptions
+de_codes = pd.read_csv("resources/codes_german_Version_1.csv")
+de_codes.set_index("code", inplace=True)
+
+# the surveyor designated the object as aluminum instead of metal
+dfCodes.loc["G708", "material"] = "Metal"
+
+# for x in dfCodes.index:
+#     dfCodes.loc[x, "description"] = de_codes.loc[x, "german"]
+
+# there are long code descriptions that may need to be shortened for display
+codes_to_change = [
+    ["G74", "description", "Insulation foams"],
+    ["G940", "description", "Foamed EVA for crafts and sports"],
+    ["G96", "description", "Sanitary-pads/tampons, applicators"],
+    ["G178", "description", "Metal bottle caps and lids"],
+    ["G82", "description", "Expanded foams 2.5cm - 50cm"],
+    ["G81", "description", "Expanded foams .5cm - 2.5cm"],
+    ["G117", "description", "Expanded foams < 5mm"],
+    ["G75", "description", "Plastic/foamed polystyrene 0 - 2.5cm"],
+    ["G76", "description", "Plastic/foamed polystyrene 2.5cm - 50cm"],
+    ["G24", "description", "Plastic lid rings"],
+    ["G33", "description", "Lids for togo drinks plastic"],
+    ["G3", "description", "Plastic bags, carier bags"],
+    ["G204", "description", "Bricks, pipes not plastic"],
+    ["G904", "description", "Plastic fireworks"],
+    ["G211", "description", "Swabs, bandaging, medical"],
+]
+
+for x in codes_to_change:
+    dfCodes = sut.shorten_the_value(x, dfCodes)
+
 # make a map to the code descriptions
 code_description_map = dfCodes.description
 
@@ -143,12 +189,12 @@ code_material_map = dfCodes.material
 # 
 # <a href="shared_responsibility_de.html" > Deutsch </a>
 # 
-# Research on litter transport and accumulation in the aquatic environment indicates that rivers are a primary sources of land based macro-plastics to the marine environment {cite}`Gonzalez`. However not all objects that are transported by rivers make it to the ocean, suggesting that rivers and inland lakes are also sinks for a portion of the macro-plastics that are emitted {cite}`Kooi2018`.
+# Research on litter transport and accumulation in the aquatic environment indicates that rivers are a primary source of land based macro-plastics to the marine environment {cite}`Gonzalez`. However not all objects that are transported by rivers make it to the ocean, suggesting that rivers and inland lakes are also sinks for a portion of macro-plastics emitted {cite}`Kooi2018`.
 # 
-# Provisions in Swiss law, article 2 of the Federal Act on the Protection of the Environment (LPE) the _principal of causality_ accounts for unlawful disposal of material and is commonly known as the principle of polluter payer. Ultimately, the responsibility of elimination and management of litter pollution in and along water systems is directly on the municipal and cantonal administrations as legally, they are owners of the land within their boundaries. The law does provide municipalities and cantons the ability to consider companies or persons further up the chain of causality, as producers of waste and to charge disposal fees to them (e.g. fast-food companies and similar businesses, or organizers of events that generate large quantities of waste on the public space) when specific offenders cannot be identified, if objective criteria are used to determine the chain of causality. {cite}`lpe` {cite}`wpo` {cite}`findechets` {cite}`tf138`
+# Provisions in Swiss law, article 2 of the Federal Act on the Protection of the Environment (LPE) the principal of causality accounts for unlawful disposal of material and is commonly known as the principle of polluter payer. Ultimately, the responsibility of elimination and management of litter pollution in and along water systems is directly on the municipal and cantonal administrations as legally, they are owners of the land within their boundaries. The law does provide municipalities and cantons the ability to consider companies or persons further up the chain of causality, as producers of waste and to charge disposal fees to them (e.g., fast-food companies and similar businesses, or organizers of events that generate large quantities of waste on the public space) when specific offenders cannot be identified, if objective criteria are used to determine the chain of causality. {cite}`lpe` {cite}`wpo` {cite}`findechets` {cite}`tf138`
 # ## The Challenge
 # 
-# The challenge is to meet the requirements of objective criteria. The method to meet the requirements needs to be __robust, transparent and easily repeatable__.
+# Objective criteria require __robust, transparent and easily repeatable methods__. The challenge is to extract available information from the discarded objects based on quantities, material properties and environmental variables in proximity of the survey location.
 
 # In[2]:
 
@@ -156,17 +202,17 @@ code_material_map = dfCodes.material
 sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.jpeg", thumb=(1200, 700))
 
 
-# *__Above: obtaining objective criteria:__. Grand Clos, St. Gingoplh May 2020. The challenge is to extract as much information from the litter objects based on the quantity found, the properties of the object and the environmental variables in proximity of the survey location. Obtaining objective criteria from beach litter data is further complicated because of the approximately 61’000km of rivers and 1500 lakes in Switzerland* {cite}`swisslakesrivers`.
+# *__Above: obtaining objective criteria:__. Lac Léman, St. Gingolph 07 May 2020 (15.92pcs/m).*
 # 
-# The use of the object prior to it being discarded, and then later identified in a litter survey,  is the best indicator of its probable origin. When land use rates are considered there is an association between the amount of land used for buildings and recreation and the amount of cigarette filters and snack wrappers that are found at the beach,[_The land use profile_](luseprofile). This result, however, is only true for objects that are associated with the consumption of food or tobacco, approximately 26% of all objects found. 
+# The utility of discarded objects as well as land use around litter survey sites are indicators of origin. Land use rates to evaluate pollution sources are useful for some common objects. For example, increased quantities of cigarette filters and snack wrappers were identified near sites with a higher concentration of land attributed to buildings and recreation,[_The land use profile_](luseprofile). Objects associated with the consumption of food, drink and tobacco are approximately 26% of all material identified along Swiss shorelines. 
 # 
-# Other objects have no definitive geographic source or no clear association with an activity in proximity to where they are found. The most common of these objects are $\approxeq$ 40% of all litter items identified in 2020, [_Lakes and rivers_ ](allsurveys). Clearly, reducing the amount of litter on the beach includes reducing the amount litter that originates from outside the geographic limits of the beach itself. Thus, there an incentive to identify litter objects that are of local origin and those that may have arrived at the survey location by some-other means.
+# However, other objects have no definitive geographic source nor clear association with an activity in proximity to their location. The most common of these objects are $\approxeq$ 40% of all litter items identified in 2020,  [_Lakes and rivers_ ](allsurveys).    Reducing the amount of litter along Swiss shorelines includes reducing the amount of litter that originates from outside the geographic limits of the beach itself. Thus, an incentive to identify litter objects discarded on or near sites from objects transported to survey locations. 
 # 
-# The hydrologic conditions of rivers have an effect on the distance and direction that litter, once introduced into a river will travel. Large, low density objects will most likely be transported to the next reservoir or area of reduced flow. High density objects will only be transported if the flow velocity and turbulence of the water are sufficient to keep the objects off the bottom. Once high density items enter a low velocity zone they tend to settle or sink {cite}`Schwarz`.
+# Obtaining objective beach litter data is complicated by the hydrologic influences of the approximately 61’000km of rivers and 1500 lakes in Switzerland [con].  The hydrologic conditions of rivers have an effect on the distance and direction that litter introduced into a river will travel. Large, low-density objects will most likely be transported to the next reservoir or area of reduced flow. High density objects will only be transported if the flow velocity and turbulence of the water are sufficient to keep the objects off the bottom. Once high-density items enter a low velocity zone they tend to settle or sink {cite}`Schwarz`.
 
 # ## The origins of the most common objects
 # 
-# The most common objects are those objects that were either among the top ten most abundant objects or objects that were found in at least 50% of the surveys. To better understand where these objects originate from, the distinction is made between two gorups of objects:
+# The most common objects are the __ten most abundant by quantity AND/OR objects identified in at least 50% of all surveys__. To better understand where these objects originate from, the distinction is made between two groups of objects: 
 # 
 # 1. __contributed (CG):__ objects that have multiple positive associations to land use features and one association is to buildings
 #     * Cigarette ends
@@ -183,16 +229,16 @@ sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.j
 #     * Industrial sheeting
 #     * Construction plastics
 # 
-# Furthermore, the survey locations are considered in relation to the land-use rates of the surounding 1500m, [_The land use profile_](luseprofile). The median value of the space attributed to buildings was used to differentiate the survey locations into two distinct groups:
+# The survey locations are considered in relation to the land-use rates of the surrounding 1500m [_The land use profile_](luseprofile). The median value of the space attributed to buildings was used to differentiate the survey locations into two distinct groups: 
 # 
 # 1. __urban:__ locations that have a percent of land attributed to buildings GREATER than the median of all survey locations
-# 2. __rural:__ locations that have a percent of land attributed to buildings LESS than the median of all survey locations AND percent of land attributed to woods or agriculture greater than the median
+# 2. __rural:__ locations that have a percent of land attributed to buildings LESS than the median of all survey locations AND percent of land attributed to woods or agriculture greater than the median 
 # 
-# The rural class had 148 surveys for 50 locations versus 152 surveys from 34 locations in the urban class.
+# The rural class had 148 surveys for 50 locations versus 152 surveys from 34 locations in the urban class. 
 # 
-# __\*Note:__ cotton swabs are included with DG because they are usually introduced directly into a body of water after passing through a water treatment facility.
+# __\*Note:__ cotton swabs are included with DG as they are usually introduced directly into a body of water via water treatment facilities. 
 
-# *__Below: Identifying DG group items.__ DG is a diverse group of objects representing the construction, manufacturing and retail industries. In some cases like fragmented plastics and foams the original objects are no longer recognizable.*
+# *__Below: Identifying DG group items.__ DG is a diverse group of objects representing the construction, manufacturing and agricultural sectors. In some cases, such as fragmented plastics and foamed plastics the original object or utility are undeterminable.*
 
 # In[3]:
 
@@ -214,26 +260,26 @@ axone.set_title("Fragmented plastics", **ck.title_k14)
 axtwo=ax[0,1]
 sut.hide_spines_ticks_grids(axtwo)
 axtwo.imshow(img_b);
-axtwo.set_title("Fragmented foams", **ck.title_k14)
+axtwo.set_title("Expanded foams", **ck.title_k14)
 
 axthree=ax[1,0]
 sut.hide_spines_ticks_grids(axthree)
 axthree.imshow(img_c);
-axthree.set_title("Construction plastics", **ck.title_k14)
+axthree.set_title("Construction waste", **ck.title_k14)
 
 axfour=ax[1,1]
 sut.hide_spines_ticks_grids(axfour)
 axfour.imshow(img_d)
-axfour.set_title("Plastic production pellets", **ck.title_k14)
+axfour.set_title("Production pellets", **ck.title_k14)
 
 
 plt.tight_layout()
 plt.show()
 
 
-# The results from the different groups will be used to test the following null hypothesis, based on the results of Spearmans ranked correlation coefficient:
+# The results from the different groups will be used to test the following null hypothesis, based on the results of Spearmans ranked correlation coefficient: 
 # 
-# __If__ there is no statistically significant evidence that land use features contributes to the accumulation of an object then the distribution of that object should be $\approxeq$ under all land use conditions.
+# If there is no statistically significant evidence that land use features contribute to the accumulation of an object then the distribution of that object should be $\approxeq$ under all land use conditions. 
 # 
 # > Null hypothesis: there is no statistically significant difference between survey results of DG or CG objects at rural and urban locations.
 # 
@@ -260,14 +306,18 @@ sut.display_image_ipython("resources/maps/survey_locations_all.jpeg", thumb=(120
 # In[5]:
 
 
-# make date stamp
-survey_data['date'] = pd.to_datetime(survey_data['date'], format="%Y-%m-%d")
+# # make date stamp
+survey_data = pd.read_csv('resources/checked_sdata_eos_2020_21.csv')
+
+survey_data["date"] = pd.to_datetime(survey_data["date"])
+# survey_data["date"] = survey_data['date'].dt.strftime(g)
+# survey_data["date"] = pd.to_datetime(survey_data["date"], format=g)
 
 # the land use data was unvailable for these municipalities
 no_land_use = ['Walenstadt', 'Weesen', 'Glarus Nord', 'Quarten']
 
 # slice the data by start and end date, remove the locations with no land use data
-use_these_args = ((survey_data.date >= start_date)&(survey_data.date <= end_date))
+use_these_args = ((survey_data["date"] >= start_date)&(survey_data["date"] <= end_date))
 survey_data = survey_data[use_these_args].copy()
 
 # slice date to working data
@@ -451,7 +501,7 @@ md(astring)
 # months locator, can be confusing
 # https://matplotlib.org/stable/api/dates_api.html
 months = mdates.MonthLocator(interval=1)
-months_fmt = mdates.DateFormatter('%b')
+months_fmt = mdates.DateFormatter("%b")
 days = mdates.DayLocator(interval=7)
 fig, axs = plt.subplots(1,2, figsize=(11,6), sharey=True)
 
@@ -466,8 +516,9 @@ ax.set_ylim(0,grt_dtr[unit_label].quantile(.98)+50 )
 ax.set_xlabel("")
 ax.set_ylabel(unit_label, **ck.xlab_k14)
 
-ax.xaxis.set_minor_locator(days)
+ax.xaxis.set_major_locator(months)
 ax.xaxis.set_major_formatter(months_fmt)
+ax.legend(title=" ")
 
 axtwo = axs[1]
 
@@ -482,7 +533,7 @@ sns.boxplot(data=grt_dtr, x='rural', y=unit_label, dodge=False, showfliers=False
 sns.stripplot(data=cg_dg_dt,x='rural', y=unit_label, ax=axtwo, zorder=1, hue='group', palette=group_palette, jitter=.35, alpha=0.3, s=8)
 axtwo.set_ylabel(unit_label, **ck.xlab_k14)
 
-ax.tick_params(which='both', axis='both', labelsize=14)
+# ax.tick_params(which='both', axis='both', labelsize=0)
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 axtwo.set_xlabel(" ")
 
@@ -496,15 +547,16 @@ plt.close()
 # In[8]:
 
 
-change_names = {'count':'# samples', 
-                'mean':F"average {unit_label}",
-                'std':'standard deviation', 
-                'min p/50m':'min', '25%':'25%',
-                '50%':'50%', '75%':'75%',
-                'max':F"max {unit_label}", 'min':F"min {unit_label}",
-                'total objects':'total objects',
-                '# locations':'# locations',
-                'survey year':'survey year'
+change_names = {"count":"#\n Samples",
+                "mean":"Mean",
+                "std":"STD", 
+                "min":"min",
+                "max": "max",
+                "25%":"25%",
+                "50%":"50%", 
+                "75%":"75%",
+                "total objects":"Total pieces",
+                "# locations":"# locations",
                }
 
 # convenience function to change the index names in a series
@@ -519,10 +571,11 @@ data = grt_dtr
 
 # get the basic statistics from pd.describe
 desc_2020 = data.groupby('rural')[unit_label].describe()
-desc_2020.loc['all surveys', ['count', 'mean', 'std', 'min', '25%', '50%', '75%', 'max']] = grt_dtr.groupby(['loc_date', 'date'])[unit_label].sum().describe().to_numpy()
+desc_2020.loc["Alle", ['count', 'mean', 'std', 'min', '25%', '50%', '75%', 'max']] = grt_dtr.groupby(['loc_date', 'date'])[unit_label].sum().describe().to_numpy()
 desc = desc_2020.astype('int')
+desc.rename(columns=(change_names), inplace=True)
 desc = desc.applymap(lambda x: F"{x:,}")
-desc.rename(columns={'count':'samples'}, inplace= True)
+
 desc.reset_index(inplace=True)
 
 # make tables
@@ -535,11 +588,12 @@ a_col = [top_name[0], 'total']
 axone = axs
 sut.hide_spines_ticks_grids(axone)
 
-a_table = axone.table(cellText=desc.values,  colLabels=desc.columns, colWidths=[.19,*[.1]*8], loc='lower center', bbox=[0,0,1,1])
+a_table = axone.table(cellText=desc.values,  colLabels=desc.columns, colWidths=[.19,*[.1]*8], loc='lower center', bbox=[0,0,1,.95])
 the_material_table_data = sut.make_a_summary_table(a_table,desc.values,desc.columns, s_et_bottom_row=False)
 
 
 plt.tight_layout()
+axone.set_xlabel("")
 plt.subplots_adjust(wspace=0.2)
 plt.show()
 
@@ -548,14 +602,12 @@ plt.show()
 
 # ### Assessment of composition: the big picture
 # 
-# The ratio of total DG to total CG in the rural group was 2.5, in the urban group it was 1.6. On a per survey basis, DG was a greater percent of the total in all surveys from rural locations. In urban locations DG and CG compose almost equal portions of the survey total.  
+# The ratio of total DG to total CG in the rural group was 2.5, in the urban group it was 1.6. On a per survey basis, DG was a greater percent of the total in all surveys from rural locations. In urban locations DG and CG compose almost equal portions of the survey total.
 # 
-# > Sample results from rural locations had a greater portion of litter attributed to fragmented plastics, construction plastics and foams.
+# > Sample results from rural locations had a greater portion of fragmented plastics, foamed plastics and construction plastics. 
 
 # In[9]:
 
-
-# 
 
 dists = cg_dg_dt[(cg_dg_dt.group == DG)][['loc_date', 'location','rural', unit_label]].set_index('loc_date')
 conts = cg_dg_dt[(cg_dg_dt.group == CG)][['loc_date', 'location', 'rural', unit_label]].set_index('loc_date')
@@ -586,9 +638,9 @@ sns.lineplot(x=co_agecdf.x, y=co_agecdf.y, color='magenta', ax=ax, label="urban:
 sns.lineplot(x=dist_ecdf.x, y=dist_ecdf.y, color='teal', label="rural: DG", ax=ax)
 sns.lineplot(x=di_agecdf.x, y=di_agecdf.y, color='black', label="urban: DG", ax=ax)
 
-ax.set_xlabel("% of survey total", **ck.xlab_k14)
-ax.set_ylabel("% of surveys", **ck.xlab_k14)
-plt.legend(loc='lower right', title="% of total")
+ax.set_xlabel("% der of sample total", **ck.xlab_k14)
+ax.set_ylabel("% of samples", **ck.xlab_k14)
+plt.legend(loc='lower right', title="% Total")
 
 plt.show()
 
@@ -597,7 +649,7 @@ plt.show()
 # 
 # The survey results of the DG are very similar under both land use classes, there is more variance as the reported value increases but not so much that the distributions diverge. Given the standard deviation of the samples and the high variance of beach-litter-survey data in general this is expected. {cite}`eubaselines`
 # 
-# The two sample Kolmogorov-Smirnov(KS) test(ks=0.073, p=0.808) of the two sets of survey results suggest that **the survey results of DG  may not be significantly different between the two land use classes**. The results from the Mann-Whitney *U* (MWU) (U=11445.0, p=0.762) *suggest that it is possible that the two distributions are the same.**
+# The two sample Kolmogorov-Smirnov (KS) tests (ks=0.073, p=0.808) of the two sets of survey results suggest that the survey results of DG may not be significantly different between the two land use classes. The results from the Mann-Whitney U (MWU) (U=11445.0, p=0.762) suggest that it is possible that the two distributions are the same
 
 # *__Below:__ empirical cumulative distribution (eCDF) of DG and CG. __Left:__ recall that DG objects included fragmented plastics, fragmented foams, construction plastics and production pellets. __Right:__  the survey results for cigarette ends and snack wrappers have visually distinct distributions under the two land use conditions.*
 
@@ -630,7 +682,7 @@ axone = ax[0]
 sns.lineplot(x=a_d_ecdf.x, y=a_d_ecdf.y, color='salmon', label="rural", ax=axone)
 sns.lineplot(x=b_d_ecdf.x, y=b_d_ecdf.y, color='black', label="urban", ax=axone)
 axone.set_xlabel(unit_label, **ck.xlab_k14)
-axone.set_ylabel('% of surveys', **ck.xlab_k14)
+axone.set_ylabel("% of samples", **ck.xlab_k14)
 axone.legend(fontsize=12, title=DG,title_fontsize=14)
 
 
@@ -645,11 +697,11 @@ axtwo.legend(fontsize=12, title=CG,title_fontsize=14)
 plt.show()
 
 
-# According to the KS test (rho=0.09, p=0.48) there is no statistical reason to assume that more DG objects are found under the difference land use conditions, according to the MWU test  (MWU=1039, p=0.25) there is a chance that the incidence of DG objects is the same indifferent of the land use profile. On the other hand the CG survey results diverge almost immediately and results of the KS test  (rho=0.31, p<.001)  and MWU (MWU=7305, p<.001) suggest that the distribution of these objects is associated with % of land attributed to buildings.
+# According to the KS test (rho=0.09, p=0.48) there is no statistical reason to assume that more DG objects are found under the difference land use conditions, according to the MWU test (MWU=1039, p=0.25) there is a chance that the incidence of DG objects is the same indifferent of the land use profile. On the other hand the CG survey results diverge almost immediately and results of the KS test (rho=0.31, p<.001) and MWU (MWU=7305, p<.001) suggest that the distribution of these objects is associated with % of land attributed to buildings. 
 # 
 # #### Difference of means
 # 
-# The average survey result of DG objects in rural locations was 202p/100m as opposed to 237p/100m at urban locations, a difference of -35p/100m is just a small fraction of the standard deviation. A permutation test on the difference of means was conducted on the condition *rural* - *urban* of the mean of survey data. 
+# The average survey result of DG objects in rural locations was 202p/100m as opposed to 237p/100m at urban locations, a difference of -35p/100m is just a small fraction of the standard deviation. A permutation test on the difference of means was conducted on the condition rural - urban of the mean of survey data.  
 
 # *Difference of means DG objects. $\mu_{rural}$ - $\mu_{urban}$, method=shuffle, permutations=5000.*
 
@@ -702,11 +754,11 @@ plt.show()
 
 # ## Conclusion
 # 
-# A positive statistically relevant association between CG objects and land use attributed to infrastructure such as streets, recreation areas and buildings can be assumed. Representing 4/12 most common objects, they represent approximately 26% of all objects found and can be associated to activities within 1500m of the survey location. 
+# A positive statistically relevant association between CG objects and land use attributed to infrastructure such as streets, recreation areas and buildings can be assumed. Representing 4/12 most common objects, approximately 26% of all objects identified and can be associated to activities within 1500m of the survey location. 
 # 
-# In contrast the DG group has an $\approxeq$ distribution under the different land use classes and no association to the percent of land attributed to buildings. Composed of construction plastics, fragmented foams and plastics and industrial pellets the DG represents a diverse group of objects with different densities. With no statistical evidence to the contrary the null hypothesis cannot be rejected. __Therefore it can not be assumed that the primary source was within 1500m of the survey location and that a portion of these objects have origins upstream__ (economically and geographically).
+# In contrast the DG group has an $\approxeq$ distribution under the different land use classes and no association to the percent of land attributed to buildings. Composed of construction plastics, fragmented foamed plastics, plastic pieces and industrial pellets the DG represents a diverse group of objects with different densities. With no statistical evidence to the contrary the null hypothesis cannot be rejected. Therefore, it cannot be assumed that the primary source was within 1500m of the survey location and it is likely a portion of these objects have origins upstream (economically and geographically). 
 
-# *__Below:__ establishing objective criteria. Identifying and counting the objects after a litter survey can be done on the beach, if the weather permits. The inventory is always completed on paper in a designated notebook and then entered in to the app [The litter surveyor](https://www.plagespropres.ch). Objects of interest in this photo: plastic shotgun wadding, agricultural fencing and tile spacer.* 
+# *__Below:__ Establishing objective criteria. Identifying and quantifying objects collected from a litter survey may be done on site, if the weather permits. The dimensional data and initial inventory are documented in a notebook and then entered in to the app [The litter surveyor](https://www.plagespropres.ch).     Objects of interest: plastic shotgun wadding, agricultural fencing and tile spacer.* 
 
 # In[12]:
 
@@ -716,15 +768,15 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg", thumb=(1
 
 # ### Discussion
 # 
-# By comparing the survey results to the independent variables around the survey locations a numerical representation can be established that describes how likely the object was discarded where it was found. In the case of cigarette ends and candy wrappers the association established numerically is reinforced by daily experience, it is within buildings that cigarettes and snacks are purchased. It is appropriate to assume that a portion would be consumed directly and that some of the associated wrappers would escape into the environment.
+# By comparing the survey results to the independent variables around the survey locations a numerical representation can be established that describes how likely the object was discarded where it was found. The association established numerically is reinforced by daily experience. For example, a portion of cigarettes and snacks are likely consumed on or near sites where sold and some of the associated material may escape into the environment. 
 # 
-# For other objects the connection or the source may not be evident or even visible from the survey location. Objects that are distinct and whose use is limited to relatively small portions of the economy present particular challenges. Because of hydrologic transport these objects may be found all over the region but there may be a limited number of zones of accumulation, making it difficult to identify the source. 
+# Some distinctive objects used by relatively small portions of the economy may be identified throughout a region but confined to zones of accumulation due to hydrologic transport making it difficult to identify the source. 
 # 
-# However, the previous example shows that survey results increase or decrease in response to explanatory variables. For objects such as the _plastic production pellet_ (GPI) the use case of the item is definite and users and producers are relatively rare with respect to other litter items. Even though these objects are found in all survey areas it is unlikely that they are emitted at equal rates. 
+# However, the previous example shows that survey results increase or decrease in response to explanatory variables. For objects such as plastic pre- production pellets (GPI) the use case of the item is definite and users and producers are relatively rare with respect to other litter items. Even though these objects are found in all survey areas it is unlikely that they are emitted at equal rates. 
 # 
-# Given the previous example it is possible to follow the increasing survey results of GPI on two different lakes to understand how this relationship can be visualized. 
+# Given the previous example it is possible to follow the increasing survey results of GPI on two different lakes to understand how this relationship can be visualized.  
 # 
-# *__Below:__ the increase in the median p/100m as surveys approach the upstream source. GPI are small and difficult to clean up once they have been spilled making the exact source impossible to determine. However it is reasonable to assume that the handlers and consumers of GPI will have the best ideas on how to prevent them from escaping into the environment. The probability of finding at least one is double the regional rate at some of the locations below.*
+# *__Below:__ The increase in the median p/100m as surveys approach the upstream source. GPIs are small and difficult to clean up once they have been spilled making the exact source difficult to determine. However, it is reasonable to assume that the handlers and consumers of GPIs will have best insight on preventing material loss into the environment. The probability of finding at least one is double the regional rate at some of the locations below.*
 
 # In[13]:
 
@@ -734,25 +786,25 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 
 # #### Finding partners
 # 
-# The results from the test indicate that CG objects are more prevalent in urban locations. Urban was defined as the land use within 1500m of the survey area. From this it is safe to assume that the cause(s) of CG group litter are also more prevalent in urban areas and that the secondary cause of the litter is within 1500m of the survey location.
+# The results from the test indicate that CG objects are more prevalent in urban locations. Urban was defined as the land use within 1500m of the survey area. From this it is safe to assume that the cause(s) of CG group litter are also more prevalent in urban areas and that the secondary cause of the litter is within 1500m of the survey location. 
 # 
 # Stakeholders looking to reduce the incidence of CG objects within a specific zone may have a better chance of finding motivated partners within 1500m of the location of concern. 
 # 
-# The DG group has the particularity that it is distributed in $\approx$ rates indifferent of the land use and it makes up a larger proportion of the objects found than CG. This implies that __the solution is at a larger scale__ than the municipal boundaries.
+# The DG group has the particularity that it is distributed in $\approxeq$ rates indifferent of the land use and it makes up a larger proportion of the objects found than CG. This implies that the solution is at a larger scale than the municipal boundaries. 
 # 
-# Fragmented plastics is the only DG object on the list that cannot be attributed to at least one industry that is present in all the survey areas covered by this analysis.
+# Fragmented plastics is the only DG object on the list that cannot be attributed to at least one industry that is present in all the survey areas covered by this analysis. 
 # 
-# * Expanded polystyrene is used as an exterior insulation envelope in the construction industry and is also used in packaging to protect fragile objects during transport. 
-# * Plastic production pellets are used to make plastic objects in the injection molding process. 
-# * Cotton swabs are often diverted to rivers and lakes after passing through a water treatment plant. 
-# * Industrial sheeting is used in horticulture, transport and the construction industry.
+# * Expanded polystyrene is used as an exterior insulation envelope in the construction industry and is used as packaging to protect fragile objects during transport. 
+# * Plastic pre-production pellets are used to make plastic objects in the injection molding process. 
+# * Plastic cotton swab sticks are often diverted to rivers and lakes via water treatment plants. 
+# * Industrial sheeting is used in agriculture, transport and construction industries.  
 # * Construction plastics
 # 
-# Finding partners for these objects may involve an initial phase of informative targeted communication that calls attention to these study results, and current EU thresholds and baselines for beach litter {cite}`eubaselines`.
+# Finding partners for these objects may involve an initial phase of informative targeted communication using the IQAASL results and current EU thresholds and baselines for beach litter {cite}`eubaselines`.
 # 
 # #### Sharing the responsibility
 # 
-# The principle of Extended Producer Responsibility (EPR) may provide the incentive to producers and consumers to account for the real costs of end-of-life management for the most common litter items identified in Switzerland. {cite}`poulki`
+# The principle of Extended Producer Responsibility (EPR) may provide the incentive to producers and consumers to account for the real costs of end-of-life management of the most common litter items identified in Switzerland. {cite}`poulki`
 # 
 # A recent study in the Marine Policy journal identified several limitations of using preexisting beach litter survey data to assess the impact of EPR policy on observed litter quantities. {cite}`HARRIS2021104319`
 # 
@@ -771,17 +823,19 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 # 
 # The IQAASl project addresses three out of the four recommendations and it introduced a method that allows stakeholders to add specific items to the survey protocol. Thus monitoring progress towards ERP targets can be implemented as long as the objects can be defined visually and can be counted.
 # 
-# The current database of beach-litter surveys in Switzerland includes over 1,000 samples collected using the same protocol in the past six years. Switzerland has all the elements in place to accurately estimate minimum probable values for the most common objects and evaluate stochastic.
+# The current database of beach-litter surveys in Switzerland includes over 1,000 samples collected using the same protocol in the past six years. Switzerland has all the elements in place to accurately estimate minimum probable values for the most common objects and evaluate stochastic. This report offers several ways to evaluate differences between survey results, others should be considered as well. 
 # 
 # This report offers several different ways to evaluate differences between survey results, there are certainly others that should be considered. There are many improvements to be made concerning the national strategy:
 # 
-# 1. Defining a standardized reporting method for municipal, cantonal and federal stakeholders
-# 2. Define monitoring or assessment goals
-# 3. Formalize the data repository and the method for implementation at different administrative levels
-# 4. Develop a network of associations that share the responsibility and resources for surveying the territory
-# 5. Develop and implement a formal training program for surveyors that includes data science, and GIS technologies
-# 6. Determine, in collaboration with academic partners, ideal sampling scenarios and research needs
-# 7. Develop a financing method to ensure that enough samples are collected each year in each survey area so that accurate assessments can be made and research requirements are met.
+# A national strategy should include:
+# 
+# * Define a standardized reporting method for municipal, cantonal and federal stakeholders 
+# * Define monitoring or assessment goals 
+# * Formalize the data repository and the method for implementation at different administrative levels 
+# * Develop a network of associations that share the responsibility and resources for surveying the territory 
+# * Develop and implement a formal training program for surveyors that includes data science, and GIS technologies 
+# * Determine, in collaboration with academic partners, ideal sampling scenarios and research needs 
+# * Develop a financing method to ensure that enough samples are collected per year per region to accurately assess conditions and research requirements are met 
 
 # ## Annex
 
@@ -808,10 +862,12 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 # 2. Yellow is a negative association
 # 3. White means that p>0.05, there is no statistical basis to assume an association
 
+# *__Below:__ Ranked association of the most common objects with land use characteristics.* 
+
 # In[14]:
 
 
-sut.display_image_ipython("resources/images/shared_responsibility/land_use_correlation_27_0.png", thumb=(1200, 700))
+sut.display_image_ipython("resources/images/shared_responsibility/land_use_correlation_de_30_0.png", thumb=(1200, 700))
 
 
 # *__Below:__ 95% confidence interval of the median survey value under the different land use classes.* 
@@ -923,7 +979,7 @@ the_bcas.update(u_cis)
 # all surveys
 u_median = grt_dtr[unit_label].median()
 a_result = compute_bca_ci(grt_dtr[unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
-all_cis = {'all surveys':{"lower 2.5%":a_result[0], "median":u_median, "upper 97.5%": a_result[1] }}
+all_cis = {"Alle":{"lower 2.5%":a_result[0], "median":u_median, "upper 97.5%": a_result[1] }}
 
 # combine the results:
 the_bcas.update(all_cis)
@@ -948,6 +1004,12 @@ plt.show()
 plt.close()
 
 
+# In[ ]:
+
+
+
+
+
 # *__Below:__ the survey results of the most common objects under the two different land use classes.*
 
 # In[16]:
@@ -966,7 +1028,7 @@ rur_10["% of total"] = ((rur_10.quantity/rur_tot)*100).round(1)
 urb_10["% of total"] = ((urb_10.quantity/urb_tot)*100).round(1)
 
 # make tables
-fig, axs = plt.subplots(1, 2, figsize=(12,len(most_common)*.8))
+fig, axs = plt.subplots(1, 2, figsize=(14,len(most_common)*.5))
 
 # summary table
 # names for the table columns
@@ -977,12 +1039,14 @@ axtwo = axs[1]
 
 sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
-
+new_col_names = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt"}
 data_one = rur_10[['item', 'quantity', "% of total"]].copy()
+data_one.rename(columns=new_col_names, inplace=True)
 data_two = urb_10[['item', 'quantity', "% of total"]].copy()
+data_two.rename(columns=new_col_names, inplace=True)
 
 for a_df in [data_one, data_two]:
-    a_df['quantity'] = a_df.quantity.map(lambda x: F"{x:,}")
+    a_df["Gesamt"] = a_df["Gesamt"].map(lambda x: F"{x:,}")
 
 a_table = axone.table(cellText=data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
@@ -999,9 +1063,9 @@ plt.show()
 
 # ### Seasonal variations
 # 
-# Seasonal variations of beach litter survey results has been documented under many conditions and many environments. In 2018 the SLR {cite}`slr` reported the maximum value in July and the minimum in November. The year 2020-2021 presents the same results.
+# Seasonal variations of beach litter survey results have been documented under varying conditions and environments. In 2018 the SLR  {cite}`slr`  reported the maximum value in July and the minimum in November. The year 2020-2021 presents the same results.
 
-# *monthly survey results and river discharge rates m³/second*
+# *__Below:__ monthly survey results and river discharge rates m³/second*
 # 
 # *April and May 2021 are rolling averages, data not available*
 # 
@@ -1067,8 +1131,8 @@ this_month = [x.month for i,x in enumerate(data1.index)]
 twin_ax = ax.twinx()
 twin_ax.grid(None)
 
-ax.bar(this_x, data1.to_numpy(), label='contributed', bottom=data2.to_numpy(), linewidth=1, color="salmon", alpha=0.6)
-ax.bar([i for i,x in  enumerate(data2.index)], data2.to_numpy(), label='distributed', linewidth=1,color="darkslategray", alpha=0.6)
+ax.bar(this_x, data1.to_numpy(), label='CG', bottom=data2.to_numpy(), linewidth=1, color="salmon", alpha=0.6)
+ax.bar([i for i,x in  enumerate(data2.index)], data2.to_numpy(), label='DG', linewidth=1,color="darkslategray", alpha=0.6)
 
 sns.scatterplot(x=this_x,y=[*aare_schonau[2:], np.mean(aare_schonau)], color='turquoise',  edgecolor='magenta', linewidth=1, s=60, label='Aare m³/s', ax=twin_ax)
 sns.scatterplot(x=this_x,y=[*rhone_scex[2:], np.mean(rhone_scex)], color='royalblue',  edgecolor='magenta', linewidth=1, s=60, label='Rhône m³/s', ax=twin_ax)
@@ -1094,13 +1158,15 @@ plt.show()
 # 
 # __Results of KS test and Mann Whitney U__
 # 
-# The survey results for FP objects is very similar up to $\approx$ the 85<sup>th</sup> percentile where the rural survey results are noticeably larger. Suggesting that extreme values for FP were more likely in rural locations. According to the KS test (ks=0.78, pvalue=0.69) and MWU test (U=10624, pvalue=0.40) the distribution of FP objects under the two land use classes is not significantly different and may be equal. 
+# The survey results for FP objects are very similar up to $\approxeq$ the 85th percentile where the rural survey results are noticeably larger. Suggesting that extreme values for FP were more likely in rural locations. According to the KS test (ks=0.78, pvalue=0.69) and MWU test (U=10624, pvalue=0.40) the distribution of FP objects under the two land use classes is not significantly different and may be equal. 
 # 
-# The survey results for FT objects maintain the same features as the parent distribution. The results of the KS test (ks=0.29, pvalue<.001) and MWU test (U=7356.5, p<.001) agree with the results of the parent group, that there is a statistically relevant difference between the survey results under different land use classes.
+# The survey results for FT objects maintain the same features as the parent distribution. The results of the KS test (ks=0.29, pvalue<.001) and MWU test (U=7356.5, p<.001) agree with the results of the parent group, that there is a statistically relevant difference between the survey results under different land use classes. 
+# 
+# *__Below left rural - urban:__ ECDF of survey results fragmented plastics and foams (FP). __Below right rural - urban:__ ECDF of survey results cigarette ends and candy wrappers (FT)*
 
-# *Left rural - urban: ECDF of survey results fragmented plastics and foams (FP)*
+# *__Left:__ rural - urban: ECDF of survey results fragmented plastics and foams (FP)*
 # 
-# *Right rural - urban: ECDF of survey results cigarette ends and candy wrappers (FT)*
+# *__Right:__ rural - urban: ECDF of survey results cigarette ends and candy wrappers (FT)*
 
 # In[18]:
 
@@ -1123,7 +1189,7 @@ axone = ax[0]
 sns.lineplot(x=a_d_ecdf.x, y=a_d_ecdf.y, color='salmon', label="rural", ax=axone)
 sns.lineplot(x=b_d_ecdf.x, y=b_d_ecdf.y, color='black', label="urban", ax=axone)
 axone.set_xlabel(unit_label, **ck.xlab_k14)
-axone.set_ylabel('% of surveys', **ck.xlab_k14)
+axone.set_ylabel('% der Erhebungen', **ck.xlab_k14)
 
 axone.legend(fontsize=12, title='FP',title_fontsize=14)
 
@@ -1145,7 +1211,7 @@ plt.show()
 # 
 # The average survey result of FP objects in rural locations was 22.93p/50m in urban locations it was 12p/50m. A permutation test on the difference of means was conducted on the condition *rural* - *urban*.
 
-# *Difference of means fragmented foams and plastics under the two different land use classes.*
+# *__Below:__ Difference of means fragmented foams and plastics under the two different land use classes.*
 # 
 # *$\mu_{rural}$ - $\mu_{urban}$, method=shuffle, permutations=5000*
 
@@ -1186,9 +1252,9 @@ ax.set_xlabel("$\mu$ rural - $\mu$ urban", **ck.xlab_k14)
 plt.show()
 
 
-# *Refuse to reject the null hypotheses: there is no statistically significant difference between the two distributions* 
+# *__Above:__ Refuse to reject the null hypotheses: there is no statistically significant difference between the two distributions* 
 
-# *Difference of means cigarette ends and snack wrappers under the two different land use classes.*
+# *__Below:__ Difference of means cigarette ends and snack wrappers under the two different land use classes.*
 # 
 # *$\mu_{rural}$ - $\mu_{urban}$, method=shuffle, permutations=5000*
 
@@ -1228,7 +1294,7 @@ ax.set_xlabel("$\mu$ rural - $\mu$ urban", **ck.xlab_k14)
 plt.show()
 
 
-# *Reject the null hypothesis: the two distributions are most likely not the same*
+# *__Above:__ Reject the null hypothesis: the two distributions are most likely not the same*
 
 # In[21]:
 
