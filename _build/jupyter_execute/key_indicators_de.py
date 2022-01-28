@@ -443,7 +443,7 @@ plt.close()
 
 # Der gemeldete Wert ist der Median der Datenerhebung Ergebnissen für diese Aggregationsebene und dieses Objekt. Ein Medianwert von Null bedeutet, dass das Objekt in weniger als 1/2 Datenerhebungen für diese Aggregationsebene identifiziert wurde. Betrachten Sie zum Beispiel die Ergebnisse für Isoliermaterial: umfasst Sprühschäume. Der Medianwert für das Aare-Erhebungsgebiet ist Null. Wenn jedoch nur die Ergebnisse von Bielersee oder Biel/Bienne betrachtet werden, ist der Medianwert größer als Null. Das deutet darauf hin, dass am Bielersee und speziell in Biel/Bienne mehr Dämmstoffe gefunden wurden als im übrigen Aaregebiet. 
 
-# ####  Prozentsatz der Gesamt
+# ####  Prozentsatz der Gesamtmenge
 # 
 # Der prozentuale Anteil an der Gesamtzahl ist die Menge eines gefundenen Objekts geteilt durch die Gesamtzahl aller gefundenen Objekte für einen bestimmten Ort/Region und Datumsbereich. 
 # 

@@ -756,7 +756,7 @@ plt.show()
 # 
 # Im Gegensatz dazu hat die Gruppe der DG eine ≊ Verteilung unter den verschiedenen Landnutzungsklassen und keinen Zusammenhang mit dem prozentualen Anteil der Fläche, die Gebäuden zugeordnet ist. Die Gruppe DG besteht aus Baukunststoffen, fragmentierten Schaumstoffen, Kunststoffstücken und Industriepellets und stellt eine vielfältige Gruppe von Objekten mit unterschiedlicher Dichte dar. Da es keine statistischen Beweise für das Gegenteil gibt, kann die Nullhypothese nicht verworfen werden. Daher kann nicht davon ausgegangen werden, dass die primäre Quelle in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt, und es ist wahrscheinlich, dass ein Teil dieser Objekte einen (wirtschaftlich und geografisch) weiter entfernten Ursprung hat.  
 
-# *__Unten:__ Festlegen objektiver Kriterien. Die Identifizierung und Quantifizierung von Objekten, die bei einer Datenerhebung über Abfälle gesammelt wurden, kann vor Ort erfolgen, wenn das Wetter es zulässt. Die Abmessungsdaten und die erste Bestandsaufnahme werden in einem Notizbuch dokumentiert und dann in die App [The litter surveyor](https://www.plagespropres.ch)eingegeben. Objekte von Interesse: Plastikwatte, landwirtschaftliche Zäune und Abstandshalter für Ziegel.* 
+# *__Unten:__ Festlegen objektiver Kriterien. Die Identifizierung und Quantifizierung von Objekten, die bei einer Datenerhebung über Abfälle gesammelt wurden, kann vor Ort erfolgen, wenn das Wetter es zulässt. Die Abmessungsdaten und die erste Bestandsaufnahme werden in einem Notizbuch dokumentiert und dann in die App [The litter surveyor](https://www.plagespropres.ch) eingegeben. Objekte von Interesse: Plastikwatte, landwirtschaftliche Zäune und Abstandshalter für Ziegel.* 
 
 # In[12]:
 
@@ -786,7 +786,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 # 
 # Die Ergebnisse des Tests zeigen, dass CG-Objekte in städtischen Gebieten häufiger vorkommen. Als städtisch wurde die Landnutzung im Umkreis von 1500 m um das Untersuchungsgebiet definiert. Daraus lässt sich schließen, dass die Ursache(n) für die Abfälle der CG-Gruppe ebenfalls häufiger in städtischen Gebieten zu finden sind und dass die sekundäre Ursache für die ausrangierten Objekte in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt. 
 # 
-# Akteure, die die Häufigkeit von CG-Objekten in einer bestimmten Zone reduzieren möchten, haben bessere Chancen, motivierte Partner in einem Umkreis von 1500 m um den betreffenden Ort zu finden.Die DG-Gruppe hat die Besonderheit, dass sie in ≈ verteilt ist.   Raten unabhängig von der Landnutzung und macht einen größeren Anteil der gefundenen Objekte aus als CG. Dies deutet darauf hin, dass die Lösung einen größeren Maßstab hat als die Gemeindegrenzen. 
+# Akteure, die die Häufigkeit von CG-Objekten in einer bestimmten Zone reduzieren möchten, haben bessere Chancen, motivierte Partner in einem Umkreis von 1500 m um den betreffenden Ort zu finden.Die DG-Gruppe hat die Besonderheit, dass sie in $\approxeq$ verteilt ist.   Raten unabhängig von der Landnutzung und macht einen größeren Anteil der gefundenen Objekte aus als CG. Dies deutet darauf hin, dass die Lösung einen größeren Maßstab hat als die Gemeindegrenzen. 
 # 
 # Fragmentierte Kunststoffe sind das einzige DG-Objekt auf der Liste, das nicht mindestens einem Industriezweig zugeordnet werden kann, der in allen von dieser Analyse erfassten Datenerhebungen vertreten ist.  
 # 

@@ -142,7 +142,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes2.jpg")
 
 # ### Schweiz 2020
 # 
-# Das IQAASL-Projekt begann im Märsch 2020, Standorte in den definierten Erhebungsgebieten wurden 2017 beprobt oder neu eingerichtet. Ähnlich wie die Datenerhebungen Ergebnisse in der Meeresumwelt sind die Daten über Strand-Abfallobjekte in der Schweiz sehr unterschiedlich. Die Werte reichen von Null bis zu Tausenden von Objekten und Fragmenten innerhalb von 100 m vom Fluss- oder Seeufer. 
+# Das IQAASL-Projekt begann im März 2020, Standorte in den definierten Erhebungsgebieten wurden 2017 beprobt oder neu eingerichtet. Ähnlich wie die Datenerhebungen Ergebnisse in der Meeresumwelt sind die Daten über Strand-Abfallobjekte in der Schweiz sehr unterschiedlich. Die Werte reichen von Null bis zu Tausenden von Objekten und Fragmenten innerhalb von 100 m vom Fluss- oder Seeufer. 
 
 # ### Das Sammeln von Daten 
 # 
@@ -150,7 +150,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes2.jpg")
 # 
 # 1. Die empfohlene Länge bleibt bei 100 m, je nach Region ist dies jedoch nicht immer möglich. 
 # 
-# #### DFestlegung des Erhebungsgebiets
+# #### Festlegung des Erhebungsgebiets
 # 
 # Ein Vermessungsgebiet wird durch den GPS-Punkt und die aufgezeichneten Vermessungsmaße definiert. Die Mindestbreite ist der Abstand zwischen der Wasserkante und der Strandlinie. In einigen Fällen können die Strandlinie und der hintere Teil des Strandes identisch sein. Weitere Informationen darüber, wie die Vermessungsflächen gemessen werden, finden Sie unter [Das Landnutzungsprofil](luseprofilede).
 
@@ -401,9 +401,7 @@ plt.show()
 # * Einfach zu berechnen 
 # * Weithin verstanden 
 # 
-# Die beiden gebräuchlichsten Teststatistiken, die zum Vergleich von Daten verwendet werden, sind der Mittelwert und der Median. Der Mittelwert ist der beste Prädiktor für die zentrale Tendenz, wenn die Daten  
-# 
-# normal verteilt. Die Ergebnisse von Strand-Abfallaufkommen Untersuchungen weisen jedoch eine hohe Varianz im Verhältnis zum Mittelwert auf. Es können Methoden auf die Daten angewendet werden, um die Auswirkungen der hohen Varianz bei der Berechnung des Mittelwerts zu verringern: 
+# Die beiden gebräuchlichsten Teststatistiken, die zum Vergleich von Daten verwendet werden, sind der Mittelwert und der Median. Der Mittelwert ist der beste Prädiktor für die zentrale Tendenz, wenn die Daten $\approxeq$ normal verteilt sind. Die Ergebnisse von Strand-Abfallaufkommen Untersuchungen weisen jedoch eine hohe Varianz im Verhältnis zum Mittelwert auf. Es können Methoden auf die Daten angewendet werden, um die Auswirkungen der hohen Varianz bei der Berechnung des Mittelwerts zu verringern: 
 # 
 # 1. _getrimmter Mittelwert:_ entfernt einen kleinen, festgelegten Prozentsatz der größten und kleinsten Werte, bevor der Mittelwert berechnet wird 
 # 2. _tri-Mittelwert:_ der gewichtete Durchschnitt des Medians und des oberen und unteren Quartils $(Q1 + 2Q2 + Q3)/4$
@@ -419,7 +417,7 @@ plt.show()
 # 
 # Konfidenzintervalle (KI) helfen dabei, die Unsicherheit der Ergebnisse von Strand-Abfallobjekten im Hinblick auf allgemeine Schlussfolgerungen über die Häufigkeit von Strand-Abfallobjekten in einer Region zu vermitteln. Der KI gibt den unteren und oberen Bereich der Schätzung der Teststatistik angesichts der Stichprobendaten an. 
 # 
-# Der beste Weg, die Unsicherheit zu verringern, ist eine angemessene Anzahl von Proben für die Region oder das Gebiet von Interesse. Strand-Abfallerhebungen weisen jedoch eine hohe Varianz auf und jede Schätzung eines Gesamtwerts sollte diese Varianz oder Unsicherheit widerspiegeln. CIs geben einen wahrscheinlichen Wertebereich angesichts der Unsicherheit/Varianz der Daten an. {cite}`eubaselines`
+# Der beste Weg, die Unsicherheit zu verringern, ist eine angemessene Anzahl von Proben für die Region oder das Gebiet von Interesse. Strand-Abfallerhebungen weisen jedoch eine hohe Varianz auf und jede Schätzung eines Gesamtwerts sollte diese Varianz oder Unsicherheit widerspiegeln. KIs geben einen wahrscheinlichen Wertebereich angesichts der Unsicherheit/Varianz der Daten an. {cite}`eubaselines`
 # 
 # Bei dieser Methode werden die Daten NICHT von den Basisberechnungen und Konfidenzintervallen ausgeschlossen: 
 # 
@@ -437,7 +435,7 @@ plt.show()
 # 
 # Die Perzentil-Methode berücksichtigt nicht die Form der zugrunde liegenden Verteilung, was zu Konfidenzintervallen führen kann, die nicht mit den Daten übereinstimmen. Die BCa-Methode korrigiert dies. Die Implementierung dieser Methoden ist mit den bereits zitierten Paketen einfach zu bewerkstelligen. {cite}`bcatheory` {cite}`bcaimpdrysdale` {cite}`bcaconfidence`
 # 
-# ### Vergleich der Bootstrap-CIs 
+# ### Vergleich der Bootstrap-KIs 
 
 # *__Unten:__ Konfidenzintervalle berechnet mit der Percentile Bootstrap Methode*
 
@@ -797,13 +795,13 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 # * Methode der Momente (MOM) 
 # * MLE: Maximum-Likelihood-Schätzung 
 # 
-# ##### Methode der Momente 
+# ##### Methode der Momente (MOM)
 # 
 # Die Methode der Momente geht davon aus, dass die aus der Stichprobe abgeleiteten Parameter den Populationsparametern nahe kommen oder ähnlich sind. Im Falle von Strand-Abfallerhebungen bedeutet dies, dass der Median, der Mittelwert und die Varianz der Stichprobe als gute Annäherung an die tatsächlichen Werte angesehen werden können, wenn alle Strände an allen Seen und Flüssen untersucht werden. 
 # 
 # Konkret werden die Parameter eines wahrscheinlichen Verteilungsmodells geschätzt, indem sie aus den Beispieldaten berechnet werden. Diese Methode ist einfach anzuwenden, da die meisten Parameterberechnungen für die gängigsten Verteilungen gut bekannt sind.  {cite}`srikanta` {cite}`2020SciPy` {cite}`examplemmoments`
 # 
-# ##### Maximum-Likelihood-Schätzung 
+# ##### Maximum-Likelihood-Schätzung (MLE)
 # 
 # MLE ist eine Methode zur Schätzung der Parameter eines statistischen Modells bei gegebenen Daten. In dieser Hinsicht unterscheidet sie sich nicht von der MOM. Der Unterschied besteht darin, dass bei der MOM die Modellparameter aus den Daten berechnet werden, während bei der MLE die Parameter so gewählt werden, dass die Daten angesichts des statistischen Modells am wahrscheinlichsten sind. 
 # 

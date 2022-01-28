@@ -99,7 +99,7 @@ top = "Alle Erhebungsgebiete"
 top_name = ["Alle Erhebungsgebiete"]
 
 # define the feature level and components
-this_feature = {'slug':'ticino', 'name':"Aare-Erhebungsgebiet", 'level':'river_bassin'}
+this_feature = {'slug':'aare', 'name':"Aare-Erhebungsgebiet", 'level':'river_bassin'}
 this_level = 'water_name_slug'
 this_bassin = "aare"
 bassin_label = "Aare-Erhebungsgebiet"
