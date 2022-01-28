@@ -1,6 +1,6 @@
-# Identification, quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+# Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
 
-**Edition 1** ver=1e
+**Edition 1** ver=1
 
 <a href="titlepage_de.html" > Deutsch </a>
 

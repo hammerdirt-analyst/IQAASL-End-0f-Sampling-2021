@@ -169,7 +169,8 @@ codes_to_change = [
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
     ["G211", "description", "Sonstiges medizinisches Material"],
     ["G904", "description", "Feuerwerkskörper; Raketenkappen"],
-    ["G940", "description", "Schaumstoff EVA (flexibler Kunststoff)"]
+    ["G940", "description", "Schaumstoff EVA (flexibler Kunststoff)"],
+    ["G10", "description", "Kunststoff-Lebensmittelbehälter"]
 ]
 
 # apply changes
@@ -565,11 +566,13 @@ m_c_p = m_common_ft[["item", this_level, unit_label]].pivot(columns=this_level, 
 # quash the hierarchal column index
 m_c_p.columns = m_c_p.columns.get_level_values(1)
 
-# the aggregated totals for the survey area
-
+# the aggregated totals for the feature data
 c = sut.aggregate_to_group_name(fd[fd.code.isin(m_common.index)], column="code", name=this_feature["name"], val="med")
-
 m_c_p[this_feature["name"]]= sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
+
+# the aggregated totals of the survey area
+c = sut.aggregate_to_group_name(a_data[(a_data.river_bassin == this_bassin)&(a_data.code.isin(m_common.index))], column="code", name=top, val="med")
+m_c_p[bassin_label] = sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
 # the aggregated totals of all the data
 c = sut.aggregate_to_group_name(a_data[(a_data.code.isin(m_common.index))], column="code", name=top, val="med")
@@ -593,7 +596,7 @@ plt.close()
 
 # ### Häufigste Objekte im monatlichen Durchschnitt
 
-# In[14]:
+# In[16]:
 
 
 # collect the survey results of the most common objects
@@ -619,7 +622,7 @@ monthly_mc = F"""
 md(monthly_mc)
 
 
-# In[15]:
+# In[17]:
 
 
 # convenience function to lable x axis
@@ -705,7 +708,7 @@ plt.show()
 # 
 # Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
-# In[16]:
+# In[18]:
 
 
 cg_poft = F"""
@@ -715,7 +718,7 @@ cg_poft = F"""
 md(cg_poft)
 
 
-# In[17]:
+# In[19]:
 
 
 # code groups resluts aggregated by survey
@@ -743,8 +746,11 @@ cg_t["pt"] = (cg_t.quantity/cg_t.f_total).round(2)
 # pivot that
 data_table = cg_t.pivot(columns=this_level, index="groupname", values="pt")
 
+# aggregated values for the lake
+data_table[this_feature["name"]]= sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=bassin_label, val="pt")
+
 # repeat for the survey area
-data_table[bassin_label] = sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=bassin_label, val="pt")
+data_table[bassin_label] = sut.aggregate_to_group_name(a_data[a_data.river_bassin == this_bassin], unit_label=unit_label, column="groupname", name=bassin_label, val="pt")
 
 # repeat for all the data
 data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, column="groupname", name=top, val="pt")
@@ -767,7 +773,7 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# In[18]:
+# In[20]:
 
 
 cg_medpcm = F"""
@@ -777,14 +783,17 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[19]:
+# In[21]:
 
 
 # median p/50m of all the water features
 data_table = cg_t.pivot(columns=this_level, index="groupname", values=unit_label)
 
+# aggregated values for the lake
+data_table[this_feature["name"]]= sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=bassin_label, val="med")
+
 # the survey area columns
-data_table[bassin_label] = sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=bassin_label, val="med")
+data_table[bassin_label] = sut.aggregate_to_group_name(a_data[a_data.river_bassin == this_bassin], unit_label=unit_label, column="groupname", name=bassin_label, val="med")
 
 # column for all the surveys
 data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, column="groupname", name=top, val="med")
@@ -813,7 +822,7 @@ plt.show()
 # 
 # Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
-# In[20]:
+# In[22]:
 
 
 frag_foams = F"""
@@ -822,7 +831,7 @@ frag_foams = F"""
 md(frag_foams)
 
 
-# In[21]:
+# In[23]:
 
 
 # collect the data before aggregating foams for all locations in the survey area
@@ -864,7 +873,7 @@ plt.close()
 
 # __Die Erhebungsorte__
 
-# In[22]:
+# In[24]:
 
 
 # display the survey locations
@@ -880,7 +889,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[23]:
+# In[25]:
 
 
 # display inventory

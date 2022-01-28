@@ -493,7 +493,7 @@ rb_string = F"""
 md(rb_string)
 
 
-# In[13]:
+# In[24]:
 
 
 # aggregated survey totals for the most common codes for all the water features
@@ -512,13 +512,13 @@ m_c_p = m_common_ft[["item", this_level, unit_label]].pivot(columns=this_level, 
 # quash the hierarchal column index
 m_c_p.columns = m_c_p.columns.get_level_values(1)
 
-# the aggregated totals for the lake
+# the aggregated totals for the feature data
 c = sut.aggregate_to_group_name(fd[fd.code.isin(m_common.index)], column="code", name=this_feature["name"], val="med")
 m_c_p[this_feature["name"]]= sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
-# the survey area
-c = sut.aggregate_to_group_name(fd[fd.code.isin(m_common.index)], column="code", name=this_bassin, val="med")
-m_c_p[bassin_label]= sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
+# the aggregated totals of the survey area
+c = sut.aggregate_to_group_name(a_data[(a_data.river_bassin == this_bassin)&(a_data.code.isin(m_common.index))], column="code", name=top, val="med")
+m_c_p[bassin_label] = sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
 # the aggregated totals of all the data
 c = sut.aggregate_to_group_name(a_data[(a_data.code.isin(m_common.index))], column="code", name=top, val="med")
@@ -707,10 +707,11 @@ cg_t["pt"] = (cg_t.quantity/cg_t.f_total).round(2)
 # pivot that
 data_table = cg_t.pivot(columns=this_level, index="groupname", values="pt")
 
-data_table[this_feature["name"]] = sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=this_feature["name"], val="pt")
+# aggregated values for the lake
+data_table[this_feature["name"]]= sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=bassin_label, val="pt")
 
 # repeat for the survey area
-data_table[bassin_label] = sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=bassin_label, val="pt")
+data_table[bassin_label] = sut.aggregate_to_group_name(a_data[a_data.river_bassin == this_bassin], unit_label=unit_label, column="groupname", name=bassin_label, val="pt")
 
 # repeat for all the data
 data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, column="groupname", name=top, val="pt")
@@ -749,11 +750,11 @@ md(cg_medpcm)
 # median p/50m of all the water features
 data_table = cg_t.pivot(columns=this_level, index="groupname", values=unit_label)
 
-# the survey area columns
-data_table[this_feature["name"]] = sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=this_feature["name"], val="med")
+# aggregated values for the lake
+data_table[this_feature["name"]]= sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=bassin_label, val="med")
 
 # the survey area columns
-data_table[bassin_label] = sut.aggregate_to_group_name(fd, unit_label=unit_label, column="groupname", name=bassin_label, val="med")
+data_table[bassin_label] = sut.aggregate_to_group_name(a_data[a_data.river_bassin == this_bassin], unit_label=unit_label, column="groupname", name=bassin_label, val="med")
 
 # column for all the surveys
 data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, column="groupname", name=top, val="med")

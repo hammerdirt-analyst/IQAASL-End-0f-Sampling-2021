@@ -56,7 +56,7 @@ name: esummarymap_de
 
 ```
 
-{numref}`Abbildung {number}: <esummarymap_de>` *Karte der Datenerhebungen März 2020 bis Juli 2021. Der Durchmesser des Kreises ergibt sich aus dem Medianwert der Datenerhebungen für diesen Standort. Die rot markierten Standorte sind Datenerhebungen an Flüssen oder Seen und die violetten Standorte in den Alpen und im Jura.*
+{numref}`Abbildung {number}: <esummarymap_de>` *Karte der Datenerhebungen März 2020 - Juli 2021. Die rot markierten Standorte sind Datenerhebungen an Flüssen oder Seen und die violetten Standorte in den Alpen und im Jura.*
 
 ##  Seen und Flüsse 
 
@@ -64,9 +64,9 @@ An den Seen und Flüssen wurden von 2020-03 bis 2021-05 Datenerhebungen ausgefü
 
 Die meisten Datenerhebungen fanden an den Ufern von Seen statt (331 Erhebungen), da Seen im Vergleich zu Flüssen ganzjährig einen beständigeren und sichereren Zugang bieten. Außerdem handelt es sich bei Seen um große Gebiete mit reduziertem Abfluss, die von mehreren Flüssen, Bächen und Entwässerungssystemen gespeist werden und somit ideale Standorte für die Bewertung der Vielfalt von Objekten in und um die Gewässer darstellen.  
 
-Insgesamt wurden 316 Erhebungen aus sieben großen Seen in drei großen Flusseinzugsgebieten entnommen. Zwanzig Standorte wurden für eine monatliche Beprobung über einen Zeitraum von zwölf Monaten ausgewählt, mit Ausnahme des Lago Maggiore, der alle drei Monate beprobt wurde. Datenerhebungen wurden auch am Lago di Lugano, Lac des Quatre Cantons, Brienzersee und Zugersee durchgeführt. Darüber hinaus wurden 55 Datenerhebungen an 16 Flüssen durchgeführt. 
+Insgesamt wurden 316 Erhebungen aus sieben großen Seen in drei großen Flusseinzugsgebieten entnommen. Zwanzig Standorte wurden für eine monatliche Beprobung über einen Zeitraum von zwölf Monaten ausgewählt, mit Ausnahme des Lago Maggiore, der alle drei Monate beprobt wurde. Datenerhebungen wurden auch am Lago di Lugano, Vierwaldstättersee, Brienzersee und Zugersee durchgeführt. Darüber hinaus wurden 55 Datenerhebungen an 16 Flüssen durchgeführt. 
 
-__An den Seen werden monatlich Erhebungen erhoben:__ 
+__An diesen Seen werden monatlich Erhebungen erhoben:__ 
 
 * Aare survey area
   * Thunersee: Spiez, Unterseen  

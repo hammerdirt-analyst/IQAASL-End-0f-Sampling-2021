@@ -8,7 +8,7 @@ Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlu
 
 * _Erkennung von Akkumulation und Leckage mit Spearmans Rho_, Zusammenarbeit mit Wageningen [University and Research](https://www.wur.nl/): [_repository_ ](https://github.com/hammerdirt-analyst/landuse)
 
-* Die Wahrscheinlichkeit, ein Objekt zu finden Zusammenarbeit mit [_École des ponts_](https://www.ecoledesponts.fr/): [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
+* Die Wahrscheinlichkeit, ein Objekt zu finden, Zusammenarbeit mit [_École des ponts_](https://www.ecoledesponts.fr/): [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
 
 ## Bewertungsmethode
 
@@ -39,7 +39,7 @@ Das Sammeln von Daten für den Bericht (oder den nächsten Bericht) erfordert ei
 
 ---
 
-## Diesen Bericht verwenden 
+## Erklärung zur Verwendung dieses Berichts 
 
 Es ist wichtig, den Unterschied zwischen dem _Median_ {cite}`mediandef` und dem _Durchschnitt_ {cite}`meandeff` zu verstehen, wenn Sie die Ergebnisse interpretieren. Mit Ausnahme der monatlichen Ergebnisse werden die Datenerhebungen Ergebnisse als Median p/100m für den jeweiligen Standort angegeben. 
 
@@ -59,7 +59,7 @@ name: mcommonforeword_de
 
 Die Ergebnisse für Bauschutt aus Kunststoffen zeigen, dass dieser in Bönigen (4,5p/100m) und Unterseen (1,5p/100m) häufiger vorkommt als in den anderen Gemeinden, wo der Medianwert bei Null liegt. Industriefolien und Zigaretten wurden jedoch in allen Gemeinden in mindestens 1/2 der Datenerhebungen festgestellt. 
 
-Praktisch gesehen war die Chance, am Strand von Bönigen und Unterseen Bauschutt aus Kunststoff zu finden, größer als in den anderen Gemeinden. Die Wahrscheinlichkeit, Industriefolien zu finden, war jedoch überall ungefähr gleich hoch, am höchsten war sie jedoch in Brienze (67p/100m). 
+Praktisch gesehen war die Wahrscheinlichkeit, am Strand von Bönigen und Unterseen Bauschutt aus Kunststoff zu finden, größer als in den anderen Gemeinden. Die Wahrscheinlichkeit, Industriefolien zu finden, war jedoch überall ungefähr gleich hoch, am höchsten war sie jedoch in Brienze (67p/100m). 
 
 Das Kapitel [Schlüsselindikatoren](keyindicatorsde) enthält eine genaue Definition jeder der grundlegenden Statistiken, die aus den Datenerhebungen abgeleitet werden können, und wie sie zur Identifizierung von Akkumulationszonen und signifikanten Ereignissen verwendet werden. Die Methoden zur Berechnung der verschiedenen Umweltvariablen werden in [_Das Landnutzungsprofil_](luseprofilede) erläutert. Die Codes und Beschreibungen, die zur Identifizierung der Objekte verwendet werden, sowie die verschiedenen wirtschaftlichen Gruppierungen werden in [_Code-Gruppen_](codegroupsde). detailliert behandelt. Wie Proben gesammelt werden und die Methoden zur Identifizierung von Extremwerten und zur Berechnung von Basiswerten für eine Region finden Sie unter [_Basiswerte für Strandabfälle_](threshholdde). 
 

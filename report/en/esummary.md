@@ -471,7 +471,7 @@ name: esummarymcommon_fr
 
 Par exemple, dans la figure 2, un total de 8 485 filtres de cigarettes ont été identifiés dans 87 % des inventaires, ce qui représente 15 % du total des articles collectés et a une valeur médiane de 20 filtres de cigarettes par 100 m de rivage.  
 
-Les granulés industriels (GPI) et les mousses expansées < 5mm sont tous deux présents en quantités significatives mais identifiés dans moins de 50% des inventaires (médiane de 0), ce qui indique des comptages élevés à des endroits spécifiques. Bien qu'il s'agisse tous deux de micro-plastiques, leur utilisation, leur origine et leur taux d'occurrence sont différents selon la zone d'enquête. Les GPI sont des matières premières utilisées dans les processus de moulage par injection et les billes de plastique expansé sont le résultat de la fragmentation du polystyrène expansé. Localisation, quantités et taux d'occurrence des objets individuels voir[Lacs et rivières - english ](allsurveys), [Lacs et rivières - deutsch ](allsurveysde)
+Les granulés industriels (GPI) et les mousses expansées < 5mm sont tous deux présents en quantités significatives mais identifiés dans moins de 50% des inventaires (médiane de 0), ce qui indique des comptages élevés à des endroits spécifiques. Bien qu'il s'agisse tous deux de micro-plastiques, leur utilisation, leur origine et leur taux d'occurrence sont différents selon la zone d'enquête. Les GPI sont des matières premières utilisées dans les processus de moulage par injection et les billes de plastique expansé sont le résultat de la fragmentation du polystyrène expansé. Localisation, quantités et taux d'occurrence des objets individuels voir[Lacs et rivières - english ](allsurveys).
 
 ```{Figure} resources/images/esummary/mcomon_survey_area_fr.png
 ---
@@ -489,7 +489,7 @@ name: esummarysurveyareas_fr
 
 Lorsque l'on considère la médiane de chaque inventaire, il n'y a pas de différence statistique significative par rapport aux résultats de l'IQAASL. Cependant, il y avait des variations dans les composants. Au cours de la période 2020-2021, moins de cigarettes et  de bouchons de bouteilles, mais pour de nombreux sites, il n'y a pas eu de changement et il y a probablement eu une augmentation des plastiques fragmentés et des mousses.
 
-Plus d'informations [More and less 2017 - english](slr-iqaasl), [More and less 2017 - deustsch](slr-iqaaslde).
+Plus d'informations [More and less 2017 - english](slr-iqaasl).
 
 ```{figure} resources/images/esummary/slr_fr.png
 ---
@@ -507,7 +507,7 @@ name: esummaryslr_fr
 
 ## Les Alpes et le Jura 
 
-Sur les vingt relevés effectués dans la zone d'étude des Alpes, 17 ont satisfait aux critères de longueur et de largeur supérieures à 10m. La valeur médiane des inventaires était de 110 p/100m, soit moins que la valeur médiane de toutes les autres zones de denquêtes (189 p/100m). Les objets liés à la consommation, tels que la nourriture et les boissons ou le tabac, représentaient un pourcentage plus faible du total et présentaient un taux de p/100m inférieur aux résultats des sites riverains. Cette différence pourrait être en partie due aux faibles niveaux d'urbanisation qui caractérisent la zone d'enquête des Alpes par rapport à toutes les autres zones d'enquêtes et à la tendance des matériaux à s'écouler en aval. Pour la méthodologie et les résultats des inventaires sur les Alpes, voir [Les Alpes - english](lesalpes), [Les Alpes - deutsch](lesalpesde).
+Sur les vingt relevés effectués dans la zone d'étude des Alpes, 17 ont satisfait aux critères de longueur et de largeur supérieures à 10m. La valeur médiane des inventaires était de 110 p/100m, soit moins que la valeur médiane de toutes les autres zones de denquêtes (189 p/100m). Les objets liés à la consommation, tels que la nourriture et les boissons ou le tabac, représentaient un pourcentage plus faible du total et présentaient un taux de p/100m inférieur aux résultats des sites riverains. Cette différence pourrait être en partie due aux faibles niveaux d'urbanisation qui caractérisent la zone d'enquête des Alpes par rapport à toutes les autres zones d'enquêtes et à la tendance des matériaux à s'écouler en aval. Pour la méthodologie et les résultats des inventaires sur les Alpes, voir [Les Alpes - english](lesalpes).
 
 ## Communiquer les résultats  
 
