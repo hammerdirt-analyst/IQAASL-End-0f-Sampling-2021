@@ -22,7 +22,7 @@
 
 ## Imprint
 
-**Commissioned by:** Federal Office for the Environment (FOEN), Waste and Resources Division,CH 3003 Bern. The FOEN is an agency of the Federal Department of the Environment, Transport, Energy and Communications (DETEC).
+**Commissioned by:** Federal Office for the Environment (FOEN), Waste and Resources Division, CH 3003 Bern. The FOEN is an agency of the Federal Department of the Environment, Transport, Energy and Communications (DETEC).
 
 **Contractor:** Hammerdirt Brüggstrasse 39, 2503 Biel/Bienne Switzerland +41 76 699 06 16 <info@hammerdirt.ch>
 
@@ -34,7 +34,7 @@
 
 **Project surveyors:** Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, Rachel Aronoff, Thor Erismann, Bettina Siegenthaler, Théo Gürsoy, Adrien Bonny, Gaetan Buser, Louise Schreyers, Andreas Gauer, Shannon Erismann, Roger Erismann, EPFL *students of solid waste engineering*
 
-**Participating Organizations:** Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, Students of Solid Waste Engineering: EPFL, Summit Foundation, Hackuarium, hammerdirt
+**Participating Organizations:** Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, Students of Solid Waste Engineering: EPFL, Summit Foundation, Hackuarium, Hammerdirt
 
 **Support group:** Christian Ludwig (EPFL/PSI), Montserrat Filella (UNIGE), Romain Tramoy (LEESU), Gary Hare (HDCA), Taoufik Nouri (FHNW)
 
