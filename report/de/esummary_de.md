@@ -625,6 +625,8 @@ En réduisant la dépendance à l'égard des plastiques à usage unique, des pla
 
 (LPE)Loi sur la Protection de l'Environnement
 
+(LWS) Landwirtschaft
+
 (MLE) Maximum Likelihood Estimation
 
 (MCBP) Montreux Clean Beach Project
