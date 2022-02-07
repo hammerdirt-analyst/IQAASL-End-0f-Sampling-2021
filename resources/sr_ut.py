@@ -611,7 +611,7 @@ mat_ge = {"Metal":"Metall",
           "Rubber":"Gummi",
           "Wood":"Holz",
           "Cloth":"Stoff",
-          "Unidentified":"Ubekannt",
+          "Unidentified":"Unbekannt",
           "Undefined":"Unbestimmt",
           "Plastic":"Plastik"
          }
