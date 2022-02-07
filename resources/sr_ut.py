@@ -596,12 +596,12 @@ def aggregate_to_code(data, code_description_map, column="code", name="afeaturen
     return f_s_a[name]
 
 # german translations
-luse_ge = {"% to buildings": "% zu Gebäude",
+luse_ge = {"% to buildings": "% zu Gebäuden",
            "% to recreation": "% zu Erholung",
            "% to agg": "% zu LWS",
            "% to woods": "% zu Wald",
            "streets km": "Straßen km",
-           "intersects": "kreuzt"
+           "intersects": "Intersekte"
            }
 
 mat_ge = {"Metal":"Metall", 
