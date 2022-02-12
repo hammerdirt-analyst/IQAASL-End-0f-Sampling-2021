@@ -1,5 +1,7 @@
 # Identification, quantification and analysis of observable anthropogenic debris along swiss river and lakes (IQAASL)
 
+[![DOI](https://zenodo.org/badge/382063409.svg)](https://zenodo.org/badge/latestdoi/382063409)
+
 IQAASL was a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale litter surveys are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that are within the catchment area.
 
 The following components (currently being refactored), were developed specifically to manage the data collected:
