@@ -240,7 +240,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="slr_2017_de.html">
-   21. Mehr und weniger seit 2018
+   21. Vergleich der Datenerhebungen seit 2018
   </a>
  </li>
 </ul>
@@ -585,8 +585,7 @@
     <span class="p">[</span><span class="s2">&quot;G31&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Schleckstengel, Stengel von Lutscher&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;G211&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonstiges medizinisches Material&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;G904&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Feuerwerkskörper; Raketenkappen&quot;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Schaumstoff EVA (flexibler Kunststoff)&quot;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">&quot;G10&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Kunststoff-Lebensmittelbehälter&quot;</span><span class="p">]</span>
+    <span class="p">[</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Schaumstoff EVA (flexibler Kunststoff)&quot;</span><span class="p">]</span>
 <span class="p">]</span>
 
 <span class="c1"># apply changes</span>
@@ -637,7 +636,7 @@
 <span class="n">a_data</span><span class="p">[</span><span class="s2">&quot;groupname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[</span><span class="s2">&quot;groupname&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">sut</span><span class="o">.</span><span class="n">group_names_de</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">a_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">sut</span><span class="o">.</span><span class="n">luse_ge</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">fd</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">feature_data</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">],</span> <span class="n">these_features</span><span class="o">=</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;slug&quot;</span><span class="p">]])</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">feature_data</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">],</span> <span class="n">these_features</span><span class="o">=</span><span class="n">lakes_of_interest</span><span class="p">)</span>
 
 <span class="c1"># cumulative statistics for each code</span>
 <span class="n">code_totals</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">the_aggregated_object_values</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">agg</span><span class="o">=</span><span class="n">agg_pcs_median</span><span class="p">,</span> <span class="n">description_map</span><span class="o">=</span><span class="n">code_description_map</span><span class="p">,</span> <span class="n">material_map</span><span class="o">=</span><span class="n">code_material_map</span><span class="p">)</span>    
@@ -754,7 +753,7 @@
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">colLabels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.4</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">a_color</span><span class="o">=</span><span class="n">a_color</span><span class="p">)</span>
@@ -926,7 +925,7 @@
 </div>
 <div class="section" id="die-haufigsten-objekte">
 <h2><span class="section-number">7.2. </span>Die häufigsten Objekte<a class="headerlink" href="#die-haufigsten-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden.</p>
+<p>Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the top ten by quantity</span>
@@ -943,14 +942,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">rb_string</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten:__ Häufigste Objekte am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">:Fail-Pass Rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.*</span>
+<span class="s2">*__Unten:__ Häufigste Objekte am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">rb_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Häufigste Objekte am Bielersee:Fail-Pass Rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.</em></p>
+<p><em><strong>Unten:</strong> Häufigste Objekte am Bielersee: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -963,7 +962,7 @@
 <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># final table data</span>
-<span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekt&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2">er Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;Ausfallsrate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">}</span>
+<span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekt&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2">er Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;fail-rate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">}</span>
 <span class="n">all_survey_areas</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">10.8</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
@@ -997,8 +996,6 @@
 <span class="n">m_common_st</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s2">&quot;loc_date&quot;</span><span class="p">,</span><span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 <span class="n">m_common_ft</span> <span class="o">=</span> <span class="n">m_common_st</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 
-<span class="c1"># # proper name of water feature for display</span>
-<span class="c1"># m_common_ft[&quot;f_name&quot;] = m_common_ft[this_level].map(lambda x: comp_labels[x])</span>
 
 <span class="c1"># map the desctiption to the code</span>
 <span class="n">m_common_ft</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common_ft</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
@@ -1733,7 +1730,7 @@
     </tr>
     <tr>
       <th>G10</th>
-      <td>Kunststoff-Lebensmittelbehälter</td>
+      <td>Lebensmittelbehälter zum einmaligen Gebrauch a...</td>
       <td>Essen und Trinken</td>
       <td>24</td>
       <td>0.54</td>

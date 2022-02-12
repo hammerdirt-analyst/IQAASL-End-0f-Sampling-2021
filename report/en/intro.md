@@ -6,11 +6,11 @@ The aim of this project was to collect data and develop the necessary infrastruc
 
 There are at least three manuscripts being prepared that use data or explore techniques in this report:
 
-*__Detecting accumulation and leakage with Spearman's Rho__, collaboration with Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/). [Repository](https://github.com/hammerdirt-analyst/landuse)
+__Detecting accumulation and leakage with Spearman's Rho__, *collaboration with Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
 
-*__The probability of finding an object__, collaboration with Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/). [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
+__The probability of finding an object__, *collaboration with Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
 
-*__Monitoring trash with the next generation of Solid waste engineers 2016-2021__, collaboration with Bhavish Patel, [_Paul Scherer Institute](https://www.psi.ch/en), Christian Ludwig, [_Paul Scherrer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). [Repository](https://github.com/hammerdirt-analyst/swe)
+__Monitoring trash with the next generation of Solid waste engineers 2016-2021__, *collaboration with Bhavish Patel, [Paul Scherer Institute](https://www.psi.ch/en), Christian Ludwig, [_Paul Scherrer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/).* [Repository](https://github.com/hammerdirt-analyst/swe)
 
 ## Assessment method
 

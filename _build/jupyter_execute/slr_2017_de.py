@@ -151,7 +151,7 @@ code_material_map = dfCodes.material
 
 
 # (slr-iqaaslde)=
-# # Mehr und weniger seit 2018
+# # Vergleich der Datenerhebungen seit 2018
 # 
 # <a href="slr_2017.html"> English </a>
 # 
@@ -844,7 +844,7 @@ plt.show()
 # 
 # *__Unten:__ Die häufigsten Objekte waren 71% aller gezählten Objekte im Jahr 2018 gegenüber 60% im Jahr 2020. Zigarettenfilter und zerbrochene Plastikteile wurden 2018 fast doppelt so häufig gezählt wie 2020.* 
 
-# *Lakes: key indicators of the most common objects 2018 - 2020*
+# *Seen: Schlüsselindikatoren der häufigsten Abfallobjekten 2018 - 2020*
 
 # In[12]:
 
@@ -1068,7 +1068,7 @@ small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"
 # 
 # Spearman"s $\rho$ orSpearmans Rangkorrelationskoeffizient ist ein nichtparametrischer Test der Rangkorrelation zwischen zwei Variablen {cite}`defspearmans` {cite}`spearmansexplained`. Die Testergebnisse werden bei p<0,05 und 454 Stichproben ausgewertet. Zur Implementierung des Tests wird SciPy verwendet {cite}`impspearmans`.
 # 
-# 1. rot/rose ist eine positive Assoziation: p<0.05 AND $\rho$ > 0
+# 1. rot/rosa ist eine positive Assoziation: p<0.05 AND $\rho$ > 0
 # 2. gelb ist eine negative Assoziation: p<0.05 AND $\rho$ < 0
 # 3. weißen Medianen, die p>0,05 sind, gibt es keine statistische Grundlage für die Annahme eines Zusammenhangs
 # 
@@ -1130,7 +1130,7 @@ plt.subplots_adjust(wspace=0, hspace=0)
 plt.show()
 
 
-# #### Interpretieren Sie Spearmans $\rho$
+# #### Interpretation von Spearmans $\rho$
 # 
 # Eine positive Assoziation deutet darauf hin, dass Landnutzungsattribute oder -merkmale die Untersuchungsergebnisse im Vergleich zu anderen Standorten erhöhen. Dies kann auf eine Kovarianz von Attributen zurückzuführen sein. In jedem Fall __ist eine positive Assoziation ein Signal dafür, dass die Untersuchungsorte in der Nähe einer Akkumulationszone oder einer Quelle liegen.__ Dieses Signal sollte zusammen mit den anderen Schlüsselindikatoren von Untersuchungsstandorten mit ähnlichen Landnutzungsprofilen bewertet werden. Im Allgemeinen können Orte, die die Kriterien erfüllen, sowohl als Quelle als auch als Akkumulationsgebiet für alle Objekte, die positiv assoziiert sind, betrachtet werden. 
 # 
@@ -1149,8 +1149,6 @@ plt.show()
 # 
 # Es gab einen statistisch signifikanten Rückgang bei vier der sieben häufigsten Objekte aus beiden Jahren __Liste 1:__
 # 
-# 1. There was a statistically significant decrease in four of seven most common objects from both years:
-#    * Zigarettenfilter
 #    * Flaschenverschlüsse aus Metall
 #    * Kunststofffragmente > 2,5 cm
 #    * Fragmente aus Schaumstoff > 2,5 cm 
@@ -1168,7 +1166,7 @@ plt.show()
 # 
 # Die Gesamtmenge der im Jahr 2020 gesammelten Plastikteile beträgt 7.400 oder 18p/100m und 5.563 oder 5p/100m Schaumstofffragmente. Im Jahr 2020 wurden 3.662 Plastikteile zwischen 0,5 und 2,5 cm entfernt, was der Gesamtmenge von 2018 entspricht. Das Gleiche gilt für Schaumstoffteile zwischen 0,5 und 2,5 cm, siehe [_Seen und Flüsse_](allsurveysde). 
 # 
-# Der Unterschied im Protokoll und die Ergebnisse von lassen2020 Zweifel an der Wahrscheinlichkeit eines Rückgangs von fragmentierten Kunststoffen und geschäumten Kunststoffen von 2018 bis 2020 aufkommen. Geschäumte Kunststoffe und fragmentierte Kunststoffe sind Gegenstände, deren ursprüngliche Verwendung unbekannt ist, aber das Material kann unterschieden werden. __Fragmentierte Kunststoffe und Schaumstoffe, die größer als 0,5 cm sind, machen 27 % der gesamten Erhebungsergebnisse für die Seen im Jahr 2020 aus.__ Studien im Maas-/Rheindelta zeigen, dass diese kleinen, fragmentierten Objekte einen großen Teil des Gesamtaufkommens ausmachen {cite}`meuserhine`.
+# Der Unterschied im Protokoll und die Ergebnisse von 2020 lassen Zweifel an der Wahrscheinlichkeit eines Rückgangs von fragmentierten Kunststoffen und geschäumten Kunststoffen von 2018 bis 2020 aufkommen. Geschäumte Kunststoffe und fragmentierte Kunststoffe sind Gegenstände, deren ursprüngliche Verwendung unbekannt ist, aber das Material kann unterschieden werden. __Fragmentierte Kunststoffe und Schaumstoffe, die größer als 0,5 cm sind, machen 27 % der gesamten Erhebungsergebnisse für die Seen im Jahr 2020 aus.__ Studien im Maas-/Rheindelta zeigen, dass diese kleinen, fragmentierten Objekte einen großen Teil des Gesamtaufkommens ausmachen {cite}`meuserhine`.
 # 
 # Wenn Sie den Vermessungsingenieuren erlauben, eine breitere Palette von Objektcodes zu verwenden, erhöht sich die Genauigkeit der Gesamtzahl der erfassten Objekte und es lassen sich zusätzliche Ebenen zur Unterscheidung ähnlicher Materialien einrichten. Expandiertes Polystyrol zum Beispiel ist ein Objekt, das leicht zersplittert. Ob die Vermesser einige größere Stücke > 20 cm oder Tausende von Stücken < 10 mm finden, ist ein wichtiges Detail, wenn das Ziel darin besteht, diese Objekte in der Umwelt zu reduzieren.
 # 

@@ -169,9 +169,9 @@ codes_to_change = [
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
     ["G211", "description", "Sonstiges medizinisches Material"],
     ["G904", "description", "Feuerwerkskörper; Raketenkappen"],
-    ["G940", "description", "Schaumstoff EVA (flexibler Kunststoff)"],
-    ["G10", "description", "Kunststoff-Lebensmittelbehälter"]
+    ["G940", "description", "Schaumstoff EVA (flexibler Kunststoff)"]
 ]
+
 # apply changes
 for x in codes_to_change:
     dfCodes = sut.shorten_the_value(x, dfCodes)
@@ -328,7 +328,7 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.7,len(data)*.5))
+fig, ax = plt.subplots(figsize=(len(colLabels)*1.2,len(data)*.5))
 
 sut.hide_spines_ticks_grids(ax)
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
@@ -484,7 +484,7 @@ plt.show()
 
 # ## Die häufigsten Objekte
 # 
-# Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden. 
+# Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[10]:
 
@@ -503,7 +503,7 @@ m_common_percent_of_total = m_common.quantity.sum()/code_totals.quantity.sum()
 
 # figure caption
 rb_string = F"""
-*__Unten:__ Häufigste Objekte am {this_feature["name"]}:Fail-Pass Rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.*
+*__Unten:__ Häufigste Objekte am {this_feature["name"]}: fail-rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.*
 """
 md(rb_string)
 
@@ -519,7 +519,7 @@ m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
 m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 
 # final table data
-cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% der Gesamt", "fail rate":"Ausfallsrate", unit_label:unit_label}
+cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% der Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
 fig, axs = plt.subplots(figsize=(10.8,len(m_common)*.5))
@@ -553,8 +553,6 @@ md(rb_string)
 m_common_st = fd[fd.code.isin(m_common.index)].groupby([this_level, "loc_date","code"], as_index=False).agg(agg_pcs_quantity)
 m_common_ft = m_common_st.groupby([this_level, "code"], as_index=False)[unit_label].median()
 
-# # proper name of water feature for display
-# m_common_ft["f_name"] = m_common_ft[this_level].map(lambda x: comp_labels[x])
 
 # map the desctiption to the code
 m_common_ft["item"] = m_common_ft.code.map(lambda x: code_description_map.loc[x])
@@ -720,12 +718,6 @@ md(cg_poft)
 # In[17]:
 
 
-fd.water_name_slug.unique()
-
-
-# In[18]:
-
-
 # code groups resluts aggregated by survey
 groups = ["loc_date","groupname"]
 cg_t = fd.groupby([this_level,*groups], as_index=False).agg(agg_pcs_quantity)
@@ -761,6 +753,7 @@ data_table[bassin_label] = sut.aggregate_to_group_name(a_data[a_data.river_bassi
 data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, column="groupname", name=top, val="pt")
 
 data = data_table
+# data.rename(columns={x:wname_wname.loc[x][0] for x in data.columns[:-2]}, inplace=True)
 
 fig, ax = plt.subplots(figsize=(10,10))
 
@@ -777,7 +770,7 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# In[19]:
+# In[18]:
 
 
 cg_medpcm = F"""
@@ -787,7 +780,7 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[20]:
+# In[19]:
 
 
 # median p/50m of all the water features
@@ -826,7 +819,7 @@ plt.show()
 # 
 # Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
-# In[21]:
+# In[20]:
 
 
 frag_foams = F"""
@@ -835,7 +828,7 @@ frag_foams = F"""
 md(frag_foams)
 
 
-# In[22]:
+# In[21]:
 
 
 # collect the data before aggregating foams for all locations in the survey area
@@ -877,7 +870,7 @@ plt.close()
 
 # __Die Erhebungsorte__
 
-# In[23]:
+# In[22]:
 
 
 # display the survey locations
@@ -893,7 +886,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[24]:
+# In[23]:
 
 
 # display inventory

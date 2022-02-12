@@ -234,7 +234,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.j
 # * __urban:__ Orte, an denen der prozentuale Anteil der bebauten Fläche GRÖSSER ist als der Median aller Datenerhebungen 
 # * __ländlich:__ Orte, bei denen der prozentuale Anteil der bebauten Fläche WENIGER ist als der Median aller Datenerhebungen UND bei denen der prozentuale Anteil der bewaldeten oder landwirtschaftlich genutzten Fläche größer ist als der Median 
 # 
-# The rural class had 148 surveys for 50 locations versus 152 surveys from 34 locations in the urban class. 
+# Die ländlichen Orte hatte 148 Datenerhebungen, während 152 Datenerhebungen von 34 Standorten der urbanen Orte stammen.
 # 
 # __\*Hinweis:__ Wattestäbchen sind bei DG enthalten, da sie in der Regel über Wasseraufbereitungsanlagen direkt in ein Gewässer eingebracht werden. 
 

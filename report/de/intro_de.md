@@ -6,11 +6,11 @@ Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastrukt
 
 Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlung von Akkumulationszonen zu erforschen.
 
-*__Erkennung von Akkumulation und Leckage mit Spearmans Rho__, Zusammenarbeit mit Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/). [Repository](https://github.com/hammerdirt-analyst/landuse)
+__Erkennung von Akkumulation und Leckage mit Spearmans Rho__, *Zusammenarbeit mit Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
 
-*__Die Wahrscheinlichkeit, ein Objekt zu finden__, Zusammenarbeit mit Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/). [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
+__Die Wahrscheinlichkeit, ein Objekt zu finden__, *Zusammenarbeit mit Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
 
-*__Überwachung von Müll mit der nächsten Generation von Umweltingenieuren 2016-2021__, Zusammenarbeit mit Bhavish Patel, [_Paul Scherrer Institute](https://www.psi.ch/en), Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). [Repository](https://github.com/hammerdirt-analyst/swe)
+__Überwachung von Müll mit der nächsten Generation von Umweltingenieuren 2016-2021__, *Zusammenarbeit mit Bhavish Patel, [_Paul Scherrer Institute](https://www.psi.ch/en), Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/).* [Repository](https://github.com/hammerdirt-analyst/swe)
 
 ## Bewertungsmethode
 
@@ -210,4 +210,4 @@ Les résultats de chaque municipalité sont inclus avec le lac ou la rivière à
 
 ### Contribuer à ce rapport 
 
-Ce rapport est versionné, il est donc très facile de soumettre des articles ou des analyses qui corrigent, clarifient ou améliorent le contenu. Pour contribuer, envoyez une demande de retrait à[repo de fin d'échantillonnage](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021).     Les soumissions sont acceptées dans toutes les langues nationales officielles de la Suisse. 
+Ce rapport est versionné, il est donc très facile de soumettre des articles ou des analyses qui corrigent, clarifient ou améliorent le contenu. Pour contribuer, envoyez une demande de retrait à [repo de fin d'échantillonnage](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021).     Les soumissions sont acceptées dans toutes les langues nationales officielles de la Suisse. 

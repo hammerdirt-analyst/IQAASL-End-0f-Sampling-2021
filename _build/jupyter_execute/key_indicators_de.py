@@ -524,7 +524,7 @@ plt.close()
 # 
 # Beantworten Sie anhand der folgenden Datenerhebung Ergebnissen, der Karte mit den Datenerhebungs Standorten und unter Beibehaltung der zu Beginn dieses Artikels vorgestellten Annahmen die folgenden Fragen: 
 # 
-# 1. Wo besteht die größte Wahrscheinlich, mindestens ein Vorkommen des Abfallobjekts zu finden? 
+# 1. Wo besteht die größte Wahrscheinlichkeit, mindestens ein Vorkommen des Abfallobjekts zu finden? 
 # 2. Wie groß ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden? 
 # 3. Warum haben Sie sich für diesen Ort oder diese Orte entschieden? Wie sicher sind Sie sich bei Ihrer Wahl? 
 

@@ -240,7 +240,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="slr_2017_de.html">
-   21. Mehr und weniger seit 2018
+   21. Vergleich der Datenerhebungen seit 2018
   </a>
  </li>
 </ul>
@@ -635,7 +635,7 @@
 <div class="section" id="ticino">
 <span id="ticinosade"></span><h1><span class="section-number">6. </span>Ticino<a class="headerlink" href="#ticino" title="Permalink to this headline">¶</a></h1>
 <p><a href="ticino_sa.html"> English </a></p>
-<p><em><strong>Unten:</strong> Karte des Erhebungsgebiets March 2020 - Mai 2021. Markierungsdurchmesser = das mittlere Erhebungsergebnis in Abfallobjekten pro 100 Meter (p/100m).</em></p>
+<p><em><strong>Unten:</strong> Karte des Erhebungsgebiets March 2020 - Mai 2021. Markierungsdurchmesser = das mittlere Erhebungsergebnis in Müllstücken pro 100 Meter (p/100m).</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="n">bassin_map</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="mi">450</span><span class="p">))</span>
@@ -739,7 +739,7 @@
 <div class="section" id="landnutzungsprofil-der-erhebungsorte">
 <h3><span class="section-number">6.1.1. </span>Landnutzungsprofil der Erhebungsorte<a class="headerlink" href="#landnutzungsprofil-der-erhebungsorte" title="Permalink to this headline">¶</a></h3>
 <p>Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1500 m um den Erhebungsort zugeordnet wird.</p>
-<p>Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.</p>
+<p>Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.</p>
 <p>Das Verhältnis der Anzahl der Erhebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte.</p>
 <p>Für weitere Informationen <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref"><em>Landnutzungsprofil</em></span></a> für weitere Details.</p>
 <p><em><strong>Unten:</strong> Landnutzungsprofil der Erhebungsorte. Verteilung der Erhebungen in Bezug auf die Landnutzung.</em></p>
@@ -860,7 +860,7 @@
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">colLabels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.5</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.75</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 
 <span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">a_color</span><span class="o">=</span><span class="n">a_color</span><span class="p">)</span>
@@ -1033,7 +1033,7 @@
 </div>
 <div class="section" id="die-haufigsten-objekte">
 <h2><span class="section-number">6.2. </span>Die häufigsten Objekte<a class="headerlink" href="#die-haufigsten-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden.</p>
+<p>Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the top ten by quantity</span>
@@ -1050,14 +1050,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">rb_string</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten:__ Häufigste Objekte am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: Fail-Pass Rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% aller gefundenen Objekte aus. Anmerkung: : </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> = Medianwert der Erhebung.*</span>
+<span class="s2">*__Unten:__ Häufigste Objekte am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% aller gefundenen Objekte aus. Anmerkung: : </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> = Medianwert der Erhebung.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">rb_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Häufigste Objekte am Ticino-Erhebungsgebiet: Fail-Pass Rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 74% aller gefundenen Objekte aus. Anmerkung: : p/100m = Medianwert der Erhebung.</em></p>
+<p><em><strong>Unten:</strong> Häufigste Objekte am Ticino-Erhebungsgebiet: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 74% aller gefundenen Objekte aus. Anmerkung: : p/100m = Medianwert der Erhebung.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1069,10 +1069,10 @@
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekt&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% G</span><span class="s2">esamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;Ausfallsrate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">}</span>
+<span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekt&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% G</span><span class="s2">esamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;fail-rate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">}</span>
 <span class="n">all_survey_areas</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">12.1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">12.8</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">))</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
 
@@ -1273,7 +1273,7 @@
 <p>Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein statistisch signifikanter Zusammenhang zwischen der Landnutzung und den bei einer Abfallobjekte-Erhebung identifizierten Objekten besteht.</p>
 <p>Die verwendete Methode ist der Spearman’s rho oder Spearmans geordneter Korrelationskoeffizient. Die Testergebnisse werden bei p&lt;0,05 für alle gültigen Seerhebungen im Untersuchungsgebiet ausgewertet.</p>
 <ol class="simple">
-<li><p>Rot/Rose ist eine positive Assoziation</p></li>
+<li><p>Rot/Rosa ist eine positive Assoziation</p></li>
 <li><p>Gelb ist eine negative Assoziation</p></li>
 <li><p>Weiß ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p&gt;0,05</p></li>
 </ol>
@@ -1284,7 +1284,7 @@
 <span class="n">alert_less_than_100</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">corr_data</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">&lt;=</span> <span class="mi">100</span>
 
 <span class="k">if</span> <span class="n">alert_less_than_100</span><span class="p">:</span>
-    <span class="n">warning</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;**Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strandabfälle weisen eine große Streuung auf!**&quot;&quot;&quot;</span>
+    <span class="n">warning</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;**Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strand-Abfallobjekte weisen eine große Streuung auf!**&quot;&quot;&quot;</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">warning</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
@@ -1298,7 +1298,7 @@
 </div>
 <div class="cell_output docutils container">
 <p><em>Ticino-Erhebungsgebiet rangiert Korrelation der häufigsten Objekte in Bezug auf das Landnutzungsprofil. Für alle gültigen Seerhebungen n=22.</em></p>
-<p><em><strong>Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strandabfälle weisen eine große Streuung auf!</strong></em></p>
+<p><em><strong>Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strand-Abfallobjekte weisen eine große Streuung auf!</strong></em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1491,14 +1491,14 @@
 <span class="n">l_smps</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">w_t</span> <span class="o">==</span> <span class="s2">&quot;l&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;loc_date&quot;</span><span class="p">,</span><span class="s2">&quot;date&quot;</span><span class="p">,</span><span class="s2">&quot;location&quot;</span><span class="p">,</span> <span class="s2">&quot;water_name_slug&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 
 <span class="n">chart_notes</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Links:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Flüsse, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">r_smps</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Right:__ Zusammenfassende Daten.*</span>
+<span class="s2">*__Links:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Flüsse, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">r_smps</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Rechts:__ Zusammenfassende Daten.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">chart_notes</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Ticino-Erhebungsgebiet Flüsse, 01.03.2 bis 31.09.2, n=6. Werte größer als 1551.4p/100m% nicht gezeigt. <strong>Right:</strong> Zusammenfassende Daten.</em></p>
+<p><em><strong>Links:</strong> Ticino-Erhebungsgebiet Flüsse, 01.03.2 bis 31.09.2, n=6. Werte größer als 1551.4p/100m% nicht gezeigt. <strong>Rechts:</strong> Zusammenfassende Daten.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">

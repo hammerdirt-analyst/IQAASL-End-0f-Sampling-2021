@@ -297,7 +297,7 @@ wwcodes = dfCodes.loc[wastewater][cols_to_display]
 wwcodes 
 
 
-# ### Micro plastics 
+# ### Mikrokunststoffe 
 # 
 # Die Gruppe der Mikrokunststoffe umfasst alle Kunststoffe und geschäumten Kunststoffe mit einer Größe von weniger als 5 mm aus der (MSFD)-Stammliste  {cite}`mlwguidance` der Positionen G103-G123. In unseren Daten sind nicht alle Codes identifiziert worden. Das Ziel dieses Projekts war die Quantifizierung der beobachtbaren Abfälle, die in der Regel größer als 5 mm sind, aber die untere Grenze der natürlichen sichtbaren Erkennung bei der Vermessung einer Küstenlinie liegt bei etwa 2 - 5 mm. Im Laufe einer Untersuchung werden mit dem größeren Material auch sichtbare Kleinstteile gesammelt, deren Zusammensetzung im Allgemeinen identifizierbar ist. Im Rahmen des IQAASL-Projekts wurden keine Methoden zur gezielten Erfassung von Objekten mit einer Größe von weniger als 5 mm eingesetzt, aber alle sichtbaren Mikrokunststoffe, die während einer Untersuchung gesammelt wurden, wurden quantifiziert, gewogen und kategorisiert.
 
@@ -312,7 +312,7 @@ wwcodes = dfCodes.loc[codesmicro][cols_to_display]
 wwcodes
 
 
-# ### Infrastructure 
+# ### Infrastruktur 
 # 
 # Infrastruktur bezieht sich auf alle Formen des Baus, der Renovierung und der Instandhaltung von öffentlichen und privaten Bauwerken, einschließlich Straßen, Brücken und Häfen sowie der Strom- und Wasserversorgung. Entlang aller untersuchten Seen wurden bedeutende Mengen an Baukunststoffen und insbesondere an geschäumten Kunststoffen festgestellt. Siehe Erhebungsergebnisses 2020-2021 [Alle Erhebungen](allsurveysde)
 # 

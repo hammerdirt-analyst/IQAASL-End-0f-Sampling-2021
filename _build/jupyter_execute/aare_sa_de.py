@@ -191,7 +191,7 @@ code_material_map = dfCodes.material
 # 
 # <a href="aare_sa.html"> English </a>
 
-# *__Unten:__ Karte des Erhebungsgebiets March 2020 - Mai 2021. Markierungsdurchmesser = das mittlere Erhebungsergebnis in Abfallobjekten pro 100 Meter (p/100m).*
+# *__Unten:__ Karte des Erhebungsgebiets March 2020 - Mai 2021. Markierungsdurchmesser = das mittlere Erhebungsergebnis in Müllstücken pro 100 Meter (p/100m).*
 
 # In[2]:
 
@@ -277,7 +277,7 @@ md(lake_string)
 # 
 # Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1500 m um den Erhebungsort zugeordnet wird. 
 # 
-# Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren. 
+# Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren. 
 # 
 # Das Verhältnis der Anzahl der Erhebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte. 
 # 
@@ -394,7 +394,7 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.5,len(data)*.5))
+fig, ax = plt.subplots(figsize=(len(colLabels)*1.75,len(data)*.5))
 sut.hide_spines_ticks_grids(ax)
 
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
@@ -551,7 +551,7 @@ plt.show()
 
 # ## Die häufigsten Objekte
 # 
-# Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden. 
+# Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[11]:
 
@@ -570,7 +570,7 @@ m_common_percent_of_total = m_common.quantity.sum()/code_totals.quantity.sum()
 
 # figure caption
 rb_string = F"""
-*__Unten:__ Häufigste Objekte am {this_feature["name"]}: Fail-Pass Rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte aus. Anmerkung: : {unit_label} = Medianwert der Erhebung.*
+*__Unten:__ Häufigste Objekte am {this_feature["name"]}: fail-rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte aus. Anmerkung: : {unit_label} = Medianwert der Erhebung.*
 """
 md(rb_string)
 
@@ -585,10 +585,10 @@ m_common["quantity"] = m_common.quantity.map(lambda x: "{:,}".format(x))
 m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
 m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 
-cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"Ausfallsrate", unit_label:unit_label}
+cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(12.1,len(m_common)*.6))
+fig, axs = plt.subplots(figsize=(12.8,len(m_common)*.6))
 
 sut.hide_spines_ticks_grids(axs)
 
@@ -776,7 +776,7 @@ plt.show()
 # 
 # Die verwendete Methode ist der Spearman's rho oder Spearmans geordneter Korrelationskoeffizient. Die Testergebnisse werden bei p<0,05 für alle gültigen Seerhebungen im Untersuchungsgebiet ausgewertet.  
 # 
-# 1. Rot/Rose ist eine positive Assoziation 
+# 1. Rot/Rosa ist eine positive Assoziation 
 # 2. Gelb ist eine negative Assoziation 
 # 3. Weiß ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p>0,05 
 
@@ -788,7 +788,7 @@ corr_data = fd[(fd.code.isin(m_common.index))&(fd.water_name_slug.isin(lakes_of_
 alert_less_than_100 = len(corr_data.loc_date.unique()) <= 100
 
 if alert_less_than_100:
-    warning = F"""**Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strandabfälle weisen eine große Streuung auf!**"""
+    warning = F"""**Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strand-Abfallobjekte weisen eine große Streuung auf!**"""
 else:
     warning = ""
 
@@ -977,7 +977,7 @@ r_smps = rivers.groupby(["loc_date", "date", "location", "water_name_slug"], as_
 l_smps = fd[fd.w_t == "l"].groupby(["loc_date","date","location", "water_name_slug"], as_index=False).agg(agg_pcs_quantity)
 
 chart_notes = F"""
-*__Links:__ {this_feature["name"]} Flüsse, {start_date[:7]} bis {end_date[:7]}, n={len(r_smps.loc_date.unique())}. {not_included} __Right:__ Zusammenfassende Daten.*
+*__Links:__ {this_feature["name"]} Flüsse, {start_date[:7]} bis {end_date[:7]}, n={len(r_smps.loc_date.unique())}. {not_included} __Rechts:__ Zusammenfassende Daten.*
 """
 md(chart_notes )
 
