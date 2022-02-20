@@ -29,7 +29,7 @@
 % contact dev@hammerdirt.ch
 
 % Questo è un rapporto che utilizza i dati di IQAASL.
-IQAASL era un progetto finanziato dalla Confederazione Svizzera
+% IQAASL era un progetto finanziato dalla Confederazione Svizzera
 % Produce una sintesi dei risultati del sondaggio sui rifiuti per una regione definita.
 % Questi grafici servono da modello per lo sviluppo di plagespropres.ch
 % I dati sono raccolti da volontari.
