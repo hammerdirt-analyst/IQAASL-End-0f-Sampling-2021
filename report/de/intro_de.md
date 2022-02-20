@@ -80,9 +80,11 @@ Il presente progetto mira a raccogliere dati e a sviluppare l’infrastruttura n
 
 I risultati di queste indagini saranno utilizzati per esplorare altri metodi per rilevare le zone di accumulo.
 
-* _Detection of accumulation and leakage with Spearman's Rho_, collaborazione con Wageningen [Università e Ricerca](https://www.wur.nl/), colla: [_repository_ ](https://github.com/hammerdirt-analyst/landuse)
+__Rilevamento dell'accumulo e della perdita con il Rho di Spearman__, *collaborazione con Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
 
-* La probabilità di trovare un oggetto Collaborazione con [_École des ponts](https://www.ecoledesponts.fr/): [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
+__La probabilità di trovare un oggetto__, *collaborazione con Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
+
+__Monitoraggio dei rifiuti con la prossima generazione di ingegneri ambientali 2016-2021__, *collaborazione con Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/).* [Repository](https://github.com/hammerdirt-analyst/swe)
 
 ## Metodo di valutazione
 
@@ -150,9 +152,11 @@ L'objectif de ce projet était de collecter des données et de développer l'inf
 
 Les résultats de ces inventaires sont utilisés pour explorer d'autres méthodes de détection des zones d'accumulation.
 
-* _Détection de l'accumulation et des fuites avec Spearman's Rho_, collaboration avec [Wageningen University and Research](https://www.wur.nl/), colla : [_repository_ ](https://github.com/hammerdirt-analyst/landuse)
+__Détection de l'accumulation et des fuites avec Spearman's Rho__, *collaboration avec Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
 
-* _La probabilité de trouver un objet_ collaboration avec [_École des ponts Paris_](https://www.ecoledesponts.fr/) : [_repository_ ](https://github.com/hammerdirt-analyst/finding-one-object)
+__La probabilité de trouver un objet__ *collaboration avec Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
+
+__Surveillance des déchets avec la prochaine génération d'ingénieurs écologues 2016-2021__ *collaboration avec Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/).* [Repository](https://github.com/hammerdirt-analyst/swe)
 
 ## Méthode d'évaluation
 
