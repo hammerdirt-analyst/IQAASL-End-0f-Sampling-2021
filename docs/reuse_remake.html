@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>19. Recycle and remake</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="20. Shared responsibility" href="shared_responsibility.html" />
+    <link rel="prev" title="18. Bibliografie" href="references.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/iqaaslogo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="titlepage.html">
+   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Executive summary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Foreword
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="esummary.html">
+   Executive summary
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Survey results
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lakes_rivers.html">
+   1. Lakes and rivers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="alpes_valaisannes.html">
+   2. The Alps and the Jura
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Survey areas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="aare_sa.html">
+   3. Aare survey area
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linth_sa.html">
+   4. Linth survey area
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rhone_sa.html">
+   5. Rhone survey area
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ticino_sa.html">
+   6. Ticino survey area
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lakes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bielersee.html">
+   7. Bielersee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lac_leman.html">
+   8. Lac Léman
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="neuenburgersee.html">
+   9. Neuenburgersee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="maggiore_lugano.html">
+   10. Maggiore/Lugano
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="thunersee_brienzersee.html">
+   11. Thunersee/Brienzersee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="walensee.html">
+   12. Walensee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zurichsee.html">
+   13. Zurichsee
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Understand
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="baselines.html">
+   14. Beach litter baselines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="key_indicators.html">
+   15. Key statistical indicators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="code_groups.html">
+   16. Code groups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="land_use_correlation.html">
+   17. The land use profile
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   18. Bibliografie
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Application
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   19. Recycle and remake
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="shared_responsibility.html">
+   20. Shared responsibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="slr_2017.html">
+   21. More and less since 2018
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/reuse_remake.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/issues/new?title=Issue%20on%20page%20%2Freuse_remake.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorting">
+   19.1. Sorting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polyethylene-terephthalate-pet">
+     19.1.1. Polyethylene terephthalate (PET)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#high-density-polyethylene-hdpe2">
+     19.1.2. High-density polyethylene (HDPE2)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polyvinyl-chloride-pvc3">
+     19.1.3. Polyvinyl chloride (PVC3)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#low-density-polyethylene-ldpe4">
+     19.1.4. Low-density polyethylene (LDPE4)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polypropylene-pp5">
+     19.1.5. Polypropylene (PP5)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#polystyrene-ps6">
+     19.1.6. Polystyrene (PS6)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acrylonitrile-butadiene-styrene-abs">
+     19.1.7. Acrylonitrile butadiene styrene (ABS)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleaning">
+   19.2. Cleaning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transforming">
+   19.3. Transforming
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making">
+   19.4. Making
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   19.5. Discussion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="recycle-and-remake">
+<h1><span class="section-number">19. </span>Recycle and remake<a class="headerlink" href="#recycle-and-remake" title="Permalink to this headline">¶</a></h1>
+<p><a href="reuse_remake_de.html"> Deutsch </a></p>
+<p>Precious Plastic Léman <a class="reference external" href="https://preciousplasticleman.ch/">PPL</a> is an association that actively promotes the reuse and reduction of plastic waste in the Lake Geneva region. Members create new products by transforming the plastic waste from their workshop in Lausanne.</p>
+<p>As designers and fabricators PPL members spend more time in the workshop than outside collecting plastic litter. PPL primarily receives used plastics from donations dropped off at the workspace. With respect to beach-litter samples the members of PPL had two questions they wanted to answer:</p>
+<ol class="simple">
+<li><p>How much of the collected plastic waste could be used in PPL operations?</p></li>
+<li><p>What exactly would be required to recycle the plastics collected on the shoreline?</p></li>
+</ol>
+<p>The members of PPL were responsible for three survey locations on Lac Léman and collected samples from March 2020 to May 2021. The transformation of used plastics into new products is a multi-step process. Once the items have been collected, they need to be sorted, cleaned, made into granules and then injection molded. Note the total quantities and percentages of identified items discussed below is all recorded data from the IQAALS project excluding Alps and Jura.</p>
+<div class="section" id="sorting">
+<h2><span class="section-number">19.1. </span>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h2>
+<p>Different types of plastics have different properties. PPL takes care to not mix plastic types during the transforming and making of products. For objects where the type of plastic is not clearly indicated PPL uses FTIR technology to differentiate the plastic types.</p>
+<p><em>Identifying plastics from beach litter surveys</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/machine.jpeg"><img alt="Checking the material type of plastic" class="bg-primary mb-1 align-center" src="_images/machine.jpeg" style="width: 1200px;" /></a>
+<br />
+<p>A variety of plastics are encountered during a beach-litter survey. Not all of it can be transformed into products with added value. By identifying and grouping the plastics according to type, PPL can create objects best suited to the properties of the plastic being used.</p>
+<div class="section" id="polyethylene-terephthalate-pet">
+<h3><span class="section-number">19.1.1. </span>Polyethylene terephthalate (PET)<a class="headerlink" href="#polyethylene-terephthalate-pet" title="Permalink to this headline">¶</a></h3>
+<p>The majority of PET found during the sampling period was in the form of drink bottles and food containers. However, most of the world’s production of PET is used to produce fibers. PET is not well suited to the current fabrication process at PPL and therefore is not used.</p>
+<p>Only 88 PET drink bottles were recorded in 2020-2021 nationally along water system surveys.</p>
+</div>
+<div class="section" id="high-density-polyethylene-hdpe2">
+<h3><span class="section-number">19.1.2. </span>High-density polyethylene (HDPE2)<a class="headerlink" href="#high-density-polyethylene-hdpe2" title="Permalink to this headline">¶</a></h3>
+<p>HDPE2 has a high strength-to-density ratio and works well in the PPL system. HDPE2 takes the form of many items that were identified during surveys:</p>
+<ul class="simple">
+<li><p>bottle lids</p></li>
+<li><p>certain drink containers</p></li>
+<li><p>detergent and chemical containers</p></li>
+<li><p>Toys</p></li>
+</ul>
+<blockquote>
+<div><p>Combined, at least 4% of all objects could have been classified as HDPE. From these objects PPL makes key rings, flowerpots and carabiners.</p>
+</div></blockquote>
+</div>
+<div class="section" id="polyvinyl-chloride-pvc3">
+<h3><span class="section-number">19.1.3. </span>Polyvinyl chloride (PVC3)<a class="headerlink" href="#polyvinyl-chloride-pvc3" title="Permalink to this headline">¶</a></h3>
+<p>PVC3 is a common material in construction plastics. Construction plastics are among the most common items on Lac Léman and nationally. Unfortunately, this product is toxic if not handled properly, PPL does not recycle this material.</p>
+<blockquote>
+<div><p>Plastic construction waste was identified in 52% of all samples and was at least 2% of all objects identified.</p>
+</div></blockquote>
+</div>
+<div class="section" id="low-density-polyethylene-ldpe4">
+<h3><span class="section-number">19.1.4. </span>Low-density polyethylene (LDPE4)<a class="headerlink" href="#low-density-polyethylene-ldpe4" title="Permalink to this headline">¶</a></h3>
+<p>LDPE4 is not commonly recycled because it is either not labeled or very difficult to clean. LDPE4 is often classified under industrial sheeting or thin film plastic bags.</p>
+<blockquote>
+<div><p>Industrial sheeting was found in 69% of all samples and was at least 4% of all objects identified</p>
+</div></blockquote>
+</div>
+<div class="section" id="polypropylene-pp5">
+<h3><span class="section-number">19.1.5. </span>Polypropylene (PP5)<a class="headerlink" href="#polypropylene-pp5" title="Permalink to this headline">¶</a></h3>
+<p>PP5 takes diverse forms when found on the beach. PP5 can be used in chip bags, buckets, medicine bottles, straws and synthetic rope.</p>
+<p>PPL has found many uses for PP5 including pots, wall clocks, frisbees and key rings.</p>
+<blockquote>
+<div><p>PP5 represents a large group of objects in a beach-litter inventory, combined with fragmented plastics PP5 represents approximately 30-40% of all objects found and was identified in 98% of the surveys.</p>
+</div></blockquote>
+</div>
+<div class="section" id="polystyrene-ps6">
+<h3><span class="section-number">19.1.6. </span>Polystyrene (PS6)<a class="headerlink" href="#polystyrene-ps6" title="Permalink to this headline">¶</a></h3>
+<p>PS6 was found at almost all samples in either extruded or expanded foamed plastic. PS6 can be recycled by PPL into rigid sheets of material that take a fine polish. This takes two types of polystyrene expanded and extruded.</p>
+<blockquote>
+<div><p>Expanded and extruded polystyrene was identified in 68% and 53% of all samples respectively. Combined they are responsible for at least 13% of all objects identified.</p>
+</div></blockquote>
+</div>
+<div class="section" id="acrylonitrile-butadiene-styrene-abs">
+<h3><span class="section-number">19.1.7. </span>Acrylonitrile butadiene styrene (ABS)<a class="headerlink" href="#acrylonitrile-butadiene-styrene-abs" title="Permalink to this headline">¶</a></h3>
+<p>ABS is light weight and can be injection molded or extruded. PPL use ABS and high impact polystyrene (HIPS) to make rigid recycled sheets.</p>
+<p>ABS is included with construction plastics during the inventory process</p>
+</div>
+</div>
+<div class="section" id="cleaning">
+<h2><span class="section-number">19.2. </span>Cleaning<a class="headerlink" href="#cleaning" title="Permalink to this headline">¶</a></h2>
+<p><em>Objects collected during sampling</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/sampleplastics.jpeg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="_images/sampleplastics.jpeg" style="width: 800px;" /></a>
+<br />
+<p>Once the objects are identified and sorted, they need to be cleaned before any transformation can occur. PPL used a combination of baking soda and vinegar with water to remove the mud and dirt from the objects that were collected from the beach.</p>
+<br />
+<p><em>Scrubbing and soaking sample material</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/cleaning.jpeg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="_images/cleaning.jpeg" style="width: 800px;" /></a>
+<br />
+<p><em>After soaking for 12 hours the objects are brushed manually and set to dry.</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/cleaning1.jpeg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="_images/cleaning1.jpeg" style="width: 800px;" /></a>
+</div>
+<div class="section" id="transforming">
+<h2><span class="section-number">19.3. </span>Transforming<a class="headerlink" href="#transforming" title="Permalink to this headline">¶</a></h2>
+<p>The cleaned, sorted and dried plastics are shredded into granules that will then be injection molded.</p>
+<p><em>Plastics transformed into granules for production</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/granulate.jpeg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="_images/granulate.jpeg" style="width: 800px;" /></a>
+</div>
+<div class="section" id="making">
+<h2><span class="section-number">19.4. </span>Making<a class="headerlink" href="#making" title="Permalink to this headline">¶</a></h2>
+<p>PP5 and HDPE2 are the most abundant objects from the litter surveys that also work well with the PPL system. Two types of products were produced from the plastics on Lac Léman.</p>
+<p><em>Carabiniers</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/carabiniers.jpeg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="_images/carabiniers.jpeg" style="width: 800px;" /></a>
+<br />
+<p><em>Flower pots</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/flowerpot.jpeg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="_images/flowerpot.jpeg" style="width: 800px;" /></a>
+</div>
+<div class="section" id="discussion">
+<h2><span class="section-number">19.5. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Reusable plastic materials were identified in the majority of samples collected. Polypropylene, HDPE, PS6 and LDPE were the principal polymers identified. Fragmented plastics, foams and bottle caps can all be recycled locally using the methods implemented at Precious Plastic.</p>
+<p>The discarded objects required substantially more cleaning than the material that PPL is accustomed to. Cleaning of used plastic products is a major expense in the recycling industry, PPL is no exception to this reality. Large scale recycling plants have water treatment facilities to remove the detergents and impurities that result from the cleaning process. PPL used baking soda and vinegar, this reduced the total amount of water and avoided using detergents that may have a negative effect on the environment. This method is appropriate for very small production runs but is costly in terms of labor.</p>
+<p>As long as the cleaning and sorting processes were completed appropriately there was no reduction in the quality of products that were fabricated. The number of plastics that can be collected and transformed into value added products during the litter-sampling process is not sufficient to maintain any sort of production capacity. However, there is an abundance of recyclable plastics lost into the environment.</p>
+<p>The presence of easily recyclable products in the water means that there are missed opportunities with respect to valuing this resource and/or collecting it. Combined with the variety of items that are made of PP5, the estimated number of recyclable objects collected on the beach represents 40-50% of the total amount of objects collected.</p>
+<p>These results are not specific to a particular region and characterize the situation to some degree in all the survey areas of the IQAASL project.</p>
+<p><em>Beach litter survey PPl 2020.11.22 Walenstadt, Walensee</em></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/20201122walenstadtPPL.jpg"><img alt="Map of IQAASL locations" class="bg-primary mb-1 align-center" src="_images/20201122walenstadtPPL.jpg" style="width: 1200px;" /></a>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="references.html" title="previous page"><span class="section-number">18. </span>Bibliografie</a>
+    <a class='right-next' id="next-link" href="shared_responsibility.html" title="next page"><span class="section-number">20. </span>Shared responsibility</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+   Comissioned by the Swiss Federal Office for the Environment (FOEN), © 2021
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
