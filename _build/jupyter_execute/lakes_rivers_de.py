@@ -991,7 +991,7 @@ plt.close()
 
 
 frag_foams = F"""
-*{top_name[0]} fragmented foams and plastics by size group.* 
+*{top_name[0]}  fragmentierte Kunststoffe und geschäumte Kunststoffe nach Größe, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.* 
 """
 md(frag_foams)
 

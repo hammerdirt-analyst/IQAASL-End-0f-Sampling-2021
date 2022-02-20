@@ -86,7 +86,7 @@ code_material_map = dfCodes.material
 # 
 # <a href="land_use_correlation.html" > English </a>
 # 
-# Das Bodennutzungsprofil ist eine numerische Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität um den Erhebungsort. Das Profil wird anhand von Daten berechnet, die in Kartenschichten gespeichert sind, die im [Geoportal des Bundes](https://www.geo.admin.ch/) und im [Bundesamt für Statistik](https://www.bfs.admin.ch/bfs/en/home.html)verfügbar sind. 
+# Das Bodennutzungsprofil ist eine numerische Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität um den Erhebungsort. Das Profil wird anhand von Daten berechnet, die in Kartenschichten gespeichert sind, die im [Geoportal des Bundes](https://www.geo.admin.ch/) und im [Bundesamt für Statistik](https://www.bfs.admin.ch/bfs/en/home.html) verfügbar sind. 
 # 
 # Abfallobjekte sind eine Sammlung von weggeworfenen Gegenständen, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Datenerhebungen Ergebnisse berücksichtigt werden muss. {cite}`aydin` {cite}`grelaud`
 # 

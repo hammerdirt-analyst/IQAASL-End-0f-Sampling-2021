@@ -1130,16 +1130,7 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Organisationen:
-# 
-# 1. Association pour la Sauvegarde du Léman
-# 3. Precious Plastic Léman
-# 4. Hackuarium
-# 5. Solid waste engineering (EPFL)
-# 6. Geneva International School
-# 7. Hammerdirt
-
-# __Die Erhebungsorte__
+# ### Die Erhebungsorte
 
 # In[29]:
 

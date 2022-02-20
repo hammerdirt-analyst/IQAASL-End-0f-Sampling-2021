@@ -867,7 +867,7 @@ plt.tight_layout()
 plt.close()
 
 
-# __Die Erhebungsorte__
+# ### Die Erhebungsorte
 
 # In[22]:
 

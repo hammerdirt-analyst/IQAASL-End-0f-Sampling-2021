@@ -933,7 +933,7 @@ plt.show()
 # 
 # Es mussten Anpassungen an der Software und dem Berichtsschema vorgenommen werden, um die verschiedenen Arten von Daten zu verarbeiten, die bei Aufräumarbeiten anfallen. Dazu gehörte auch die Schaffung neuer Identifikationscodes für bestimmte Objekte, die im Untersuchungsgebiet der Alpen gefunden werden. Außerdem stellte die Summit Foundation die Ressourcen zur Verfügung, damit ein Mitarbeiter der Stiftung in der Anwendung des Projektprotokolls und der Software geschult werden konnte.  
 # 
-# #### Schlussfolgerungen¶ 
+# #### Schlussfolgerungen
 # 
 # Die Datenerhebungen, die entlang der Wege und Liftlinien im Untersuchungsgebiet der Alpen durchgeführt wurden, ergaben Daten, die den Daten der Erhebungen entlang der Ufer (an der Küste) sehr ähnlich waren. Wenn sich die Personen, die die Datenerhebungen durchgeführt haben, jedoch auf bestimmte Infrastruktureinrichtungen konzentrierten, wurden extreme Werte ermittelt. Die Datenerhebungen an der Ufer würden zu den gleichen Ergebnissen führen, wenn die Erhebungen nur an Orten durchgeführt würden, an denen hohe Abfallobjekte wahrscheinlicher sind.   
 # 
@@ -1010,7 +1010,7 @@ plt.close()
 
 
 # get the land use profile of AV
-lu_prof = fd[["location","% zu Gebäude", "% zu Erholung", "% zu Wald", "% zu LWS", "population"]].drop_duplicates()
+lu_prof = fd[["location","% zu Gebäuden", "% zu Erholung", "% zu Wald", "% zu LWS", "population"]].drop_duplicates()
 
 # format for printing
 lu_prof.loc[:,lu_prof.columns[1:-1]] = lu_prof.loc[:,lu_prof.columns[1:-1]].applymap(lambda x: F"{int((x*100))}%")
@@ -1037,7 +1037,7 @@ plt.show()
 # * \% zu Wald: 0 to 83\%
 # * population: 199 to 10,668
 
-# In[ ]:
+# In[21]:
 
 
 # define land use ranges based on the sample data
@@ -1104,7 +1104,7 @@ landusemap = pd.concat([mat_agg, mat_w, mat_p], axis=0)
 
 # *__Oben links:__ Gesamtsumme der Erhebung in Bezug auf den %-Anteil an Agg, Bereich=(0%, 66%). __Oben rechts:__ Gesamtzahl der Erhebungen in Bezug auf den Waldanteil, Bereich=(0%, 65%). __Unten links:__ Gesamtzahl der Erhebungen in Bezug auf die Bevölkerung, Bereich=(199, 10.668)*
 
-# In[ ]:
+# In[22]:
 
 
 fig, axs = plt.subplots(2,2, figsize=(10,8), sharey=True)
@@ -1192,7 +1192,7 @@ plt.show()
 
 # __Die Erhebungsorte__
 
-# In[ ]:
+# In[23]:
 
 
 # display the survey locations
@@ -1210,7 +1210,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[ ]:
+# In[24]:
 
 
 pd.set_option("display.max_rows", None)
