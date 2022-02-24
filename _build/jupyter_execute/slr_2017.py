@@ -820,7 +820,7 @@ plt.subplots_adjust(wspace=0.3)
 plt.show()
 
 
-# ### Difference of mean survey total¶ 
+# ### Difference of mean survey total
 # 
 # When considering only lakes the difference of medians is inversed, less litter was observed in 2020 than 2018 and the difference of means is much larger in favor of 2018. Suggesting that at the lake level there was a decrease in observed quantities. 
 # 
@@ -983,7 +983,7 @@ small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"
 # 
 # The land use features were previously calculated to compare the survey locations. To test the statistical significance of land use on beach litter survey results the survey totals and locations from both projects were considered as one group. The survey results of the most common objects were tested against the measured land use features. 
 # 
-# Spearman"s $\rho$ oor Spearmans ranked correlation coefficient is a non-parametric test of rank correlation between two variables {cite}`defspearmans` {cite}`spearmansexplained`. The test results are evaluated at p<0.05 and 454 samples, SciPy is used to implement the test {cite}`impspearmans`.
+# Spearmans $\rho$ or Spearmans ranked correlation coefficient is a non-parametric test of rank correlation between two variables {cite}`defspearmans` {cite}`spearmansexplained`. The test results are evaluated at p<0.05 and 454 samples, SciPy is used to implement the test {cite}`impspearmans`.
 # 
 # 1. Red/rose is a positive association: p<0.05 AND $\rho$ > 0
 # 2. yellow is a negative association: p<0.05 AND $\rho$ < 0
@@ -1119,11 +1119,11 @@ plt.show()
 # 
 # From 2018 - 2020 there was a statistically significant change, a decrease in the number of objects directly related to behavior at the survey site. This indicates that any perceived decreases were in locations that had a higher % of land attributed to buildings and lower % of land attributed to agriculture or woods. 
 # 
-# Locations with an opposing or different land use profile (less buildings, more agriculture or woods) will most likely not have experienced any decrease at all. For locations near river interchanges or major discharge points there would be no perceivable difference from 2018 - 2020 and increases in fragmented plastics, expanded foams and industrial sheeting were likely. Both the test of difference of medians of the most common objects and the results fromSpearmans $\rho$ oof survey results support this conclusion.
+# Locations with an opposing or different land use profile (less buildings, more agriculture or woods) will most likely not have experienced any decrease at all. For locations near river interchanges or major discharge points there would be no perceivable difference from 2018 - 2020 and increases in fragmented plastics, expanded foams and industrial sheeting were likely. Both the test of difference of medians of the most common objects and the results from Spearmans $\rho$ of survey results support this conclusion.
 # 
 # Both survey years show peak survey results in June - July (annex) and lows in November. The possible causes for the peaks and troughs are different depending on the object in question. Food and tobacco objects are more prevalent during the summer season because of increased use. Objects like fragmented plastics depend more on hydrological conditions and the peak discharge rate of the biggest rivers in this study are from May - July(  _section [Shared responsibility](transport)_ ).
 # 
-# Future surveys should include visible items of all sizes. Data aggregation can be done at the server using defined rules based on known relationships. The total count is a key indicator in all statistics that rely on count data, for modeling purposes it is essentia
+# Future surveys should include visible items of all sizes. Data aggregation can be done at the server using defined rules based on known relationships. The total count is a key indicator in all statistics that rely on count data, for modeling purposes it is essential.
 
 # ## Annex
 # 
