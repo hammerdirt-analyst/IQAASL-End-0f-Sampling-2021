@@ -4,7 +4,7 @@
 
 <a href="titlepage_de.html" > Deutsch </a>
 
-*Map of survey locations March 2020 - July 2021*
+*Map of survey locations March 2020 - August 2021*
 :::{image} resources/maps/intro_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1

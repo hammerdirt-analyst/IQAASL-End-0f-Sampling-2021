@@ -58,7 +58,7 @@ name: esummarymap
 
 ```
 
-{numref}`Figure {number}: <esummarymap>` *Map of survey locations March 2020 - July 2021. The locations in red are surveys on rivers or lakes and the purple are the locations in the Alps and Jura.*
+{numref}`Figure {number}: <esummarymap>` *Map of survey locations March 2020 - August 2021. The locations in red are surveys on rivers or lakes and the purple are the locations in the Alps and Jura.*
 
 ## Lakes and rivers
 
@@ -108,11 +108,9 @@ name: esummarymcommon
 
 ```
 
-{numref}`Figure {number}: <esummarymcommon>` _Survey totals all lakes and rivers: the most common objects identified from March 2020 - May 2021. The fail rate is the ratio of the number of times an object was identified at least once with respect to the number of surveys. The quantity is the total number of an identified object collected and the median pieces of litter per 100 meters (p/100m)_ 
+{numref}`Figure {number}: <esummarymcommon>` _Survey totals all lakes and rivers: the most common objects identified from March 2020 - May 2021. The fail rate is the ratio of the number of times an object was identified at least once with respect to the number of surveys. The quantity is the total number of an identified object collected and the median pieces of litter per 100 meters (p/100m). For example a total of 8,485 cigarette filters were identified in 87% of the surveys, representing 15 percent of the total items collected and had a median value of 20 cigarette filters per 100m of shoreline._ 
 
-For example, figure 2, a total of 8,485 cigarette filters were identified in 87% of the surveys, representing 15 percent of the total items collected and had a median value of 20 cigarette filters per 100m of shoreline.  
-
-Industrial pellets and expanded foams < 5mm both occurred in significant quantities but identified in less than 50% of the surveys (median of 0), indicating high counts at specific locations. While both micro-plastics, their use, origin and rate of occurrence are different depending on the survey area region. Industrial pellets are raw materials used in injection molding processes and foamed plastic beads are the result of fragmentation of expanded polystyrene. Location, quantities and rate of individual object occurrence see [_Lakes and rivers_](allsurveys).
+Industrial pellets and expanded foams < 5mm both occurred in significant quantities but identified in less than 50% of the surveys (median of 0), indicating high counts at specific locations. While both are micro plastics, their use, origin and rate of occurrence are different depending on the survey area region. Industrial pellets are raw materials used in injection molding processes whereas foamed plastic beads are the result of fragmentation of expanded polystyrene. For more information on location, quantities and rate of individual object occurrence see [_Lakes and rivers_](allsurveys).
 
 
 ```{figure} resources/images/esummary/mostcommoneos.png
@@ -147,24 +145,24 @@ name: esummaryslr
 
 ## The Alps and the Jura
 
-Of the twenty surveys in the Alps survey area 17 met the length and width criteria of greater than 10m. The median survey value was 110 p/100m, less than the median value of all the other survey areas (189 p/100m). Objects related to consumption such as food and drink or tobacco were a smaller percent of the total and had a lower p/100m rate compared to the results from shoreline locations. This difference could be in part due to the low levels of urbanization that characterizes the Alps survey area with respect to all other survey areas and the tendency of material to flow downstream. For Alps survey methodology and results see [Les Alpes](lesalpes).
+Of the twenty surveys in the Alps survey area 17 met the length and width criteria of greater than 10m. The median survey value was 110 p/100m, less than the median value of all the other survey areas (189 p/100m). Objects related to consumption such as food and drink or tobacco were a smaller percent of the total and had a lower p/100m rate compared to the results from shoreline locations. This difference could be in part due to the low levels of urbanization that characterizes the Alps survey area with respect to all other survey areas and the tendency of material to flow downstream. For Alps survey methodology and results see [The Alps and the Jura](lesalpes).
 
 ## Communicating results
 
-For communicating pollution quantities, converting results into a simple metric of average pieces per 100m is useful as the average is generally larger and rarely 0. However, the average maybe twice the median when extreme values are considered `causing confusion regarding the difference between observed and reported results`. Communicating the range of likely values or the likelihood of finding an object is more informative and repeatable when following similar protocols. For example, when interpretating the quantities of industrial pellets identified on Lac Léman:  
+For communicating pollution quantities, converting results into a simple metric of average pieces per 100m is tempting as the average is generally larger than the median and rarely 0. However, the average may be twice the median when extreme values are considered causing confusion regarding the difference between observed and reported results. Communicating the range of likely values or the likelihood of finding an object is more informative and repeatable when following similar protocols. For example, when interpretating the quantities of industrial pellets identified on Lac Léman:
 
-> There were 1’387 GPI or 5% of all objects identified on Lac Léman. The number of pellets per 100m ranges from 0 -1033 depending on the region. For the lake in general there is a approximately a 40% chance of finding at least one pellet at a survey, anywhere. In some locations Genève (60% chance) or Préverenges (80% chance) production pellets are regular features on these beaches, amounts between 3p/100m and 56p/100m are common.
+> There were 1’387 plastic production pellets (GPI) or 5% of all objects identified on Lac Léman. The number of pellets per 100m ranges from 0 -1,033 depending on the region. For the lake in general there is approximately a 40% chance of finding at least one pellet at a survey, anywhere. In some locations, like Genève (60% chance) or Préverenges (80% chance), production pellets are regular features on these beaches and amounts between 3p/100m and 56p/100m are common.
 
 ## Conclusions
 
-On a national scale the survey results were stable with respect to 2017. However, there was a general decrease in the quantity of food, drink and tobacco objects. Infrastructure objects and fragmented plastics and foams not decline and some locations may have experienced sharp increases. Pandemic restrictions limiting large outdoor gatherings may have had a beneficial effect on the reduction of food, drink and tobacco items. The greatest increases in infrastructure related objects were in Valais, Vaud and Brienze, locations in proximity to the Rhône and Aare Rivers discharge points.   
+On a national scale, the survey results were stable with respect to 2017. However, there was a general decrease in the quantity of food, drink and tobacco objects. Infrastructure objects and fragmented plastics and foams did not decline and some locations may have experienced sharp increases. Pandemic restrictions limiting large outdoor gatherings may have had a beneficial effect on the reduction of food, drink and tobacco items. The greatest increases in infrastructure related objects were in Valais, Vaud and Brienz, which are locations near the Rhône and Aare rivers discharge points.  
 
 The land use around a survey location has a measurable effect on the deposition of certain objects. The more buildings and fixed infrastructure there are the more tobacco and food products are found. Objects like fragmented plastics and industrial sheeting do not have the same association and are identified at approximately equal rates indifferent of the land use with increases near river/canal discharge points.    
 Count methods are preferred for assessing litter composition and density in marine environments although, a methodology has not been standardized for freshwater systems. Currently three of the four survey areas in the IQAASL are actively monitored by research and governmental agencies downstream of Switzerland using similar methods presented in this report. Additionally, regional associations in Switzerland are actively pursuing a standardization of reporting and protocols with partner organizations in the EU.
 
 There is broad-based support for this type of reporting method. The IQAASL is a citizen-science project that only uses open-source tools and shares data on GNU public license, enabling collaboration with stakeholders. At the end of the mandate, December 31, 2021, Hammerdirt will assume the responsibility of maintaining the code and data repository which is hosted publicly on Github.
 
-The associations that participated in the IQAASL are actively seeking ways to incorporate the data collection process and/or the results into their own business model. However, there is a shortage of data scientists within many regional associations which may lengthen the process of integration and stifle the rate of innovation at the level where it is needed most.  
+The associations that participated in the IQAASL are actively seeking ways to incorporate the data collection process and/or the results into their own business model. However, there is a shortage of data scientists within many regional associations which may lengthen the process of integration and stifle the rate of innovation at the level where it is needed most. 
 
 ## Recommendations
 
@@ -239,7 +237,7 @@ name: esummarymap_it
 
 ```
 
-{numref}`Figura {number}: <esummarymap_it>` *Mappa delle località oggetto d’indagine da marzo 2020 a luglio 2021. Le località in rosso indicano le indagini su fiumi o laghi e quelle in viola sulle Alpi e sul Giura.*
+{numref}`Figura {number}: <esummarymap_it>` *Mappa delle località oggetto d’indagine da marzo 2020 a augusto 2021. Le località in rosso indicano le indagini su fiumi o laghi e quelle in viola sulle Alpi e sul Giura.*
 
 ## Laghi e fiumi  
 
@@ -288,9 +286,7 @@ name: esummarymcommon_it
 
 ```
 
-{numref}`Figura {number}: <esummarymcommon_it>` _Totale delle indagini in tutti i laghi e fiumi: gli oggetti più comuni identificati da marzo 2020 a maggio 2021. Il tasso di fallimento è il rapporto tra il numero di volte in cui un oggetto è stato identificato almeno una volta rispetto al numero di indagini. La quantità è il numero totale di un oggetto identificato raccolto e la mediana dei pezzi di rifiuti per 100 metri (p/100 m)._ 
-
-Per esempio, figura 2, un totale di 8.485 filtri di sigarette sono stati identificati nell’87% delle indagini, che rappresentano il 15% del totale degli articoli raccolti e avevano un valore mediano di 20 filtri di sigarette per 100 metri di costa.
+{numref}`Figura {number}: <esummarymcommon_it>` _Totale delle indagini in tutti i laghi e fiumi: gli oggetti più comuni identificati da marzo 2020 a maggio 2021. Il tasso di fallimento è il rapporto tra il numero di volte in cui un oggetto è stato identificato almeno una volta rispetto al numero di indagini. La quantità è il numero totale di un oggetto identificato raccolto e la mediana dei pezzi di rifiuti per 100 metri (p/100 m). Per esempio, figura 2, un totale di 8.485 filtri di sigarette sono stati identificati nell’87% delle indagini, che rappresentano il 15% del totale degli articoli raccolti e avevano un valore mediano di 20 filtri di sigarette per 100 metri di costa._ 
 
 Pellet industriali e schiume espanse < 5 mm si presentavano entrambi in quantità significative ma identificati in meno del 50% delle indagini (mediana di 0), indicando conteggi elevati in luoghi specifici. Pur essendo entrambe microplastiche, il loro uso, l’origine e il tasso di occorrenza sono diversi a seconda della regione dell’area d’indagine. I pellet industriali sono materie prime usate nei processi di stampaggio ad iniezione e le perle di plastica espansa derivano dalla frammentazione del polistirolo espanso. Per localizzazione, quantità e tasso di occorrenza dei singoli oggetti vedi [ Laghi e fiumi - english ](allsurveys)
 
@@ -418,7 +414,7 @@ name: esummarymap_fr
 
 ```
 
-{numref}`Figura {number}: <esummarymap_fr>` *Carte des lieux d'inventaires mars 2020 - juillet 2021. Les emplacements en rouge sont des inventaires sur des rivières ou des lacs et le violet représente les Alpes et le Jura.*
+{numref}`Figura {number}: <esummarymap_fr>` *Carte des lieux d'inventaires mars 2020 - août 2021. Les emplacements en rouge sont des inventaires sur des rivières ou des lacs et le violet représente les Alpes et le Jura.*
 
 ## Lacs et rivières  
 
@@ -467,9 +463,9 @@ name: esummarymcommon_fr
 
 ```
 
-{numref}`Figura {number}: <esummarymcommon_fr>` _Total des relevés de tous les lacs et rivières : les objets les plus fréquemment identifiés de mars 2020 à mai 2021. Le taux d'échec est le rapport entre le nombre de fois où un objet a été identifié au moins une fois et le nombre de relevés. La quantité est le nombre total d'objets identifiés collectés et la médiane des déchets sauvages par 100 mètres (p/100m)._ 
+{numref}`Figura {number}: <esummarymcommon_fr>` _Total des relevés de tous les lacs et rivières : les objets les plus fréquemment identifiés de mars 2020 à mai 2021. Le taux d'échec est le rapport entre le nombre de fois où un objet a été identifié au moins une fois et le nombre de relevés. La quantité est le nombre total d'objets identifiés collectés et la médiane des déchets sauvages par 100 mètres (p/100m).Par exemple, un total de 8 485 filtres de cigarettes ont été identifiés dans 87 % des inventaires, ce qui représente 15 % du total des articles collectés et a une valeur médiane de 20 filtres de cigarettes par 100 m de rivage._ 
 
-Par exemple, dans la figure 2, un total de 8 485 filtres de cigarettes ont été identifiés dans 87 % des inventaires, ce qui représente 15 % du total des articles collectés et a une valeur médiane de 20 filtres de cigarettes par 100 m de rivage.  
+  
 
 Les granulés industriels (GPI) et les mousses expansées < 5mm sont tous deux présents en quantités significatives mais identifiés dans moins de 50% des inventaires (médiane de 0), ce qui indique des comptages élevés à des endroits spécifiques. Bien qu'il s'agisse tous deux de micro-plastiques, leur utilisation, leur origine et leur taux d'occurrence sont différents selon la zone d'enquête. Les GPI sont des matières premières utilisées dans les processus de moulage par injection et les billes de plastique expansé sont le résultat de la fragmentation du polystyrène expansé. Localisation, quantités et taux d'occurrence des objets individuels voir[Lacs et rivières - english ](allsurveys).
 
@@ -615,6 +611,8 @@ En réduisant la dépendance à l'égard des plastiques à usage unique, des pla
 (FHNW) University of Applied Sciences and Arts Northwestern Switzerland
 
 (FTIR) Fourier Transform Infrared
+
+(GNU) General Public License
 
 (GPI) Plastic production pellet
 

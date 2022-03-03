@@ -1,0 +1,50 @@
+# Table of contents
+# IQAASL report
+
+format: jb-book
+root: titlepage_de
+
+parts:
+  - caption: Zusammenfassung
+    numbered: False
+    chapters:
+    - file: intro_de
+    - file: esummary_de
+  - caption: Ergebnisse der Erhebung
+    numbered: True
+    chapters:
+    - file: lakes_rivers_de
+    - file: alpes_valaisannes_de
+  - caption: Erhebungsgebiete
+    numbered: True
+    chapters:
+    - file: aare_sa_de
+    - file: linth_sa_de
+    - file: rhone_sa_de
+    - file: ticino_sa_de
+  - caption: Seen
+    numbered: True
+    chapters:
+    - file: bielersee_de
+    - file: lac_leman_de
+    - file: neuenburgersee_de
+    - file: maggiore_lugano_de
+    - file: thunersee_brienzersee_de
+    - file: walensee_de
+    - file: zurichsee_de
+  - caption: Verstehen
+    numbered: True
+    chapters:
+    - file: baselines_de
+    - file: key_indicators_de
+    - file: code_groups_de
+    - file: land_use_correlation_de
+    - file: references
+  - caption: Anwendungen
+    numbered: True
+    chapters:
+    - file: reuse_remake_de
+    - file: shared_responsibility_de
+    - file: slr_2017_de
+
+

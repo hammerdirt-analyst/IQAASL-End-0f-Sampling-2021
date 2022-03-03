@@ -60,7 +60,7 @@ name: mcommonforeword
 
 The results for plastic construction waste indicate that it was more prevalent in Bönigen (4.5p/100m) and Unterseen (1.5p/100m) versus the other municipalities where the median value is zero. However Industrial sheeting and cigarettes were identified at all municipalities in at least 1/2 the surveys. 
 
-In practical terms there was a better chance of finding plastic construction waste on the beach in Bönigen and Unterseen than the other municipalities. However, the chances of finding industrial sheeting were approximately equal anywhere but the most might be found at at Brienze (67p/100m). 
+In practical terms there was a better chance of finding plastic construction waste on the beach in Bönigen and Unterseen than the other municipalities. However, the chances of finding industrial sheeting were approximately equal anywhere but the most might be found at Brienz (67p/100m) 
 
 The [key indicators](keyindicators) chapter gives a precise definition of each of the basic statistics that can be derived from the survey results and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups). How samples are collected and the methods for identifying extreme values and calculating baselines for a region can be found in [_Beach litter baselines_](threshhold).
 

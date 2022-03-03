@@ -414,7 +414,7 @@ name: esummarymap_fr
 
 ```
 
-{numref}`Figura {number}: <esummarymap_fr>` *Carte des lieux d'inventaires mars 2020 - aout 2021. Les emplacements en rouge sont des inventaires sur des rivières ou des lacs et le violet représente les Alpes et le Jura.*
+{numref}`Figura {number}: <esummarymap_fr>` *Carte des lieux d'inventaires mars 2020 - août 2021. Les emplacements en rouge sont des inventaires sur des rivières ou des lacs et le violet représente les Alpes et le Jura.*
 
 ## Lacs et rivières  
 
@@ -611,6 +611,8 @@ En réduisant la dépendance à l'égard des plastiques à usage unique, des pla
 (FHNW) University of Applied Sciences and Arts Northwestern Switzerland
 
 (FTIR) Fourier Transform Infrared
+
+(GNU) General Public License
 
 (GPI) Plastic production pellet
 
