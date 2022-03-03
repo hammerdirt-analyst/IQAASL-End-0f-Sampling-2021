@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Data &#8212; trash .oo1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to trash’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-feature_data">
+<span id="feature-data"></span><h1>Feature Data<a class="headerlink" href="#module-feature_data" title="Permalink to this headline">¶</a></h1>
+<p>The feature data module contains all the process used to generate the
+survey area and water body reports in ver 1.0 of the end-of-sampling report.</p>
+<p>The FeatureData class is the base component of the module. When instantiated
+the class has no valid attributes. The attributes define the units of measurement,
+start and end dates, fail rates and the location labels to create a
+hierarchical summary of survey results.</p>
+<p>The class produces numerical results that can be in the form of a numpy
+array, dictionary or a pandas data-frame. Intended to be used with the
+data visualization modules, the default output for each method integrates
+directly into the current visualization options.</p>
+<p><strong>Key points</strong></p>
+<ol class="arabic simple">
+<li><p>The attributes define the source of the data, the region of analysis, the units and the date range of the report</p></li>
+<li><p>The attributes are dictionaries that can be loaded from the module or command line</p></li>
+<li><p>The attributes can be changed at anytime</p></li>
+</ol>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Dimensional</strong></p>
+<p>There are three types of required attributes: dimensional, location and surveydata. The dimensional
+attributes define the start and end date, the units (meters), the fail rate (%) and the unit
+length (meters).</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Default dimensional attributes</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fd_var</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;sdate&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-03-01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;edate&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-31&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unit_label&quot;</span><span class="p">:</span> <span class="s2">&quot;p/100m&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;a_fail_rate&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s2">&quot;a_unit_length&quot;</span><span class="p">:</span> <span class="mi">100</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>The unit_label attribute refers to a column in the existing data and will be used as an axis label and
+column head for all outputs. If a different unit-length and unit_label are required then the column
+must be created before the data is added to the class. The default attributes will slice the data by the
+start and end dates and generate summaries based on pieces per 100 meters (p/100m) and a fail rate &gt;/= 50%.</p>
+<p><strong>Location</strong></p>
+<p>The location attributes define the geographic bounds of the summary. Each survey location has at least
+three different location definitions (columns in the data-frame): city, water-body and river basin. The summary
+structure is set by defining the level and component attributes. The level attribute is the region of interest,
+the component attribute defines the smallest hierarchical unit of the summary.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Default location attributes</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loc_var</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Zurichsee&quot;</span><span class="p">,</span> <span class="c1"># the title of the report</span>
+    <span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="c1"># the smallest unit</span>
+    <span class="s2">&quot;basin_slug&quot;</span><span class="p">:</span> <span class="s2">&quot;linth&quot;</span><span class="p">,</span> <span class="c1"># the river basin identifier</span>
+    <span class="s2">&quot;basin_label&quot;</span><span class="p">:</span> <span class="s2">&quot;Linth/Limmat survey area&quot;</span><span class="p">,</span> <span class="c1"># the label for the river bassin</span>
+    <span class="s2">&quot;loi&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;zurichsee&quot;</span><span class="p">],</span> <span class="c1"># these resolve to values in &lt;level&gt;</span>
+    <span class="s2">&quot;top&quot;</span><span class="p">:</span> <span class="s2">&quot;All survey areas&quot;</span><span class="p">,</span> <span class="c1"># the top level aggregation</span>
+    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;water_name_slug&quot;</span> <span class="c1"># the column name where &lt;loi&gt; values can be found</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>The example above will produce the data for a report that summarizes the survey results
+from Zurichsee and the cities that are on Zurichsee. The results will include the summarized values
+for (i) the linth river bassin and (ii) all the data.</p>
+<p>The baseline values and most common objects are defined by the data from the &lt;level&gt; attribute. The results can then
+be compared from the context of the region of interest both up and down the hierarchical chain.</p>
+<div class="section" id="data-attributes">
+<h3>Data attributes<a class="headerlink" href="#data-attributes" title="Permalink to this headline">¶</a></h3>
+<p>The data attributes define the file names (location) of the data. Three data sources are required; (i) survey data, (ii)
+location data and (iii) code or object data.</p>
+<p>For each set of data there are required columns and data types. The</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">The data attribute</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">data_source</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s2">&quot;codes&quot;</span><span class="p">:</span> <span class="s2">&quot;file-name.csv&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;locations&quot;</span><span class="p">:</span> <span class="s2">&quot;file-name.csv&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;surveys&quot;</span><span class="p">:</span> <span class="s2">&quot;file-name.csv&quot;</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Survey data</strong></p>
+<p>The survey data is the actual counts per object and survey. The survey data must be in long form so that each row is an
+object count with the date, location, code, quantity, shoreline length and unit_label value.</p>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">Example long form survey data</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 17%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>date</p></th>
+<th class="head"><p>location</p></th>
+<th class="head"><p>code</p></th>
+<th class="head"><p>qty</p></th>
+<th class="head"><p>length</p></th>
+<th class="head"><p>p/100m</p></th>
+<th class="head"><p>loc_date</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>20-08-13</p></td>
+<td><p>mullermatte</p></td>
+<td><p>G95</p></td>
+<td><p>20</p></td>
+<td><p>40</p></td>
+<td><p>50</p></td>
+<td><p>(“mullermatte”, “2020-08-12”)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The example above is the count of cotton-swabs found at a survey at mullermatte on August 13, 2020. A survey
+would contain several of these rows.</p>
+<p><strong>Code data</strong></p>
+<p>The code data contains the definition of each code, the material classification and any group labels
+that are in use. The code data is related to the survey value by the “code” field.</p>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">Example code data</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>code</p></th>
+<th class="head"><p>description</p></th>
+<th class="head"><p>material</p></th>
+<th class="head"><p>group</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>G95</p></td>
+<td><p>cotton swabs</p></td>
+<td><p>plastic</p></td>
+<td><p>hygiene</p></td>
+</tr>
+</tbody>
+</table>
+<p>The description field is used as labels for all charts and tables that display the data after the
+aggregated results are defined. The material field is used to calculate the material percentages from
+survey totals.</p>
+<p><strong>Location data</strong></p>
+<p>The location data contains the reference values for the <em>location</em> attributes. Specifically the city, water-body and river
+basin labels. If a differentiation between rivers and lakes is desired the column must exist in the location data.</p>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">Example location data</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>location</p></th>
+<th class="head"><p>city</p></th>
+<th class="head"><p>water body</p></th>
+<th class="head"><p>river basin</p></th>
+<th class="head"><p>ETC…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>mullermatte</p></td>
+<td><p>biel</p></td>
+<td><p>bielersee</p></td>
+<td><p>aare</p></td>
+<td><p>etc..</p></td>
+</tr>
+</tbody>
+</table>
+<p>The data provided must have at least the columns defined above for the FeatureData class to function.</p>
+</div>
+<div class="section" id="loading-attributes">
+<h3>Loading attributes<a class="headerlink" href="#loading-attributes" title="Permalink to this headline">¶</a></h3>
+<p>The attributes are added once a FeatureData object has been instantiated. Attributes can be added one at a time or as a
+group. The preferred method is to load all the attributes at once from a dictionary. This method works extremely well if
+there are multiple summaries to create and all the survey data is in one file. Once the data sources are assigned, the location
+and dimensional attributes can be changed as needed.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Example initiating a FeatureData class and loading dimensional attributes</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">feature_data</span> <span class="k">as</span> <span class="nn">fda</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">fda</span><span class="o">.</span><span class="n">FeatureData</span><span class="p">()</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">fd_var</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;sdate&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-03-01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;edate&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-31&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unit_label&quot;</span><span class="p">:</span> <span class="s2">&quot;p/100m&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;a_fail_rate&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s2">&quot;a_unit_length&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">add_attributes</span><span class="p">(</span><span class="n">fd_var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Check the status of attributes</strong></p>
+<p>The status of all the attributes can be accessed by calling .inst_attributes() on the current instance
+of the class.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Checking the status of the class attributes</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">inst_attributes</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">NoneType</span><span class="p">,</span>
+ <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">NoneType</span><span class="p">,</span>
+ <span class="s1">&#39;component&#39;</span><span class="p">:</span> <span class="n">NoneType</span><span class="p">,</span>
+ <span class="s1">&#39;min_att&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+ <span class="s1">&#39;sdate&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s1">&#39;edate&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s1">&#39;unit_label&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+ <span class="s1">&#39;a_fail_rate&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+ <span class="s1">&#39;a_unit_length&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example there are no data sources or location attributes. The class will not function and throw an
+error. Calling feature_data.load_defaults(&lt;class instance&gt;) with the current instance as the argument loads a
+set of attributes that include all the data from Switzerland.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Loading the default values:</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">fda</span><span class="o">.</span><span class="n">load_defaults</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+  <span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">inst_attributes</span><span class="p">()</span>
+  <span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span>
+  <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;component&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;min_att&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+   <span class="s1">&#39;sdate&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;edate&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;unit_label&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;a_fail_rate&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+   <span class="s1">&#39;a_unit_length&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+   <span class="s1">&#39;basin_slug&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;basin_label&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;loi&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+   <span class="s1">&#39;top&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="s1">&#39;beachsource&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># location data</span>
+   <span class="s1">&#39;codesource&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># code data</span>
+   <span class="s1">&#39;dimsource&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># additional data sources</span>
+   <span class="s1">&#39;notaggsource&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># additional data sources</span>
+   <span class="s1">&#39;fd&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>All the required attributes are available and there are additional data sources that can be used. The
+min_att attribute is loaded automatically. If the current attributes do not have all the elements of the min_att
+attribute no operations can be performed.</p>
+</div>
+<div class="section" id="editing-attributes">
+<h3>Editing attributes<a class="headerlink" href="#editing-attributes" title="Permalink to this headline">¶</a></h3>
+<p>Attributes can be edited or added at anytime. Once attributes are changed, any report that was run prior to the
+change needs to be update with the new values. Notice that the add_attributes() method is used for both adding and
+editing.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Editing attribute values</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">feature_data</span> <span class="k">as</span> <span class="nn">fda</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">fda</span><span class="o">.</span><span class="n">FeatureData</span><span class="p">()</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">fd_var</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;sdate&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-03-01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;edate&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-31&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unit_label&quot;</span><span class="p">:</span> <span class="s2">&quot;p/100m&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;a_fail_rate&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s2">&quot;a_unit_length&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">add_attributes</span><span class="p">(</span><span class="n">fd_var</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">sdate</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="s1">&#39;2020-03-01&#39;</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">new_dates</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;sdate&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;edate&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-06-01&quot;</span><span class="p">}</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">add_attributes</span><span class="p">(</span><span class="n">new_dates</span><span class="p">)</span>
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">sdate</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="s1">&#39;2021-01-01&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>Once the attributes are set the different reports can be generated from the module.</p>
+</div>
+</div>
+<div class="section" id="the-attribute-methods">
+<h2>The attribute methods<a class="headerlink" href="#the-attribute-methods" title="Permalink to this headline">¶</a></h2>
+<p><span class="raw-html"><br /></span></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="feature_data.FeatureData.add_attributes">
+<span class="sig-prename descclassname"><span class="pre">FeatureData.</span></span><span class="sig-name descname"><span class="pre">add_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feature_data.FeatureData.add_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the attributes of the class</p>
+<p>Can be used to create new attributes or modify existing ones. The
+keys of the dictionary become class attributes with the
+corresponding value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attributes</strong> (<em>dict</em>) – Key, value pairs of {“attribute label”: “value”}</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Values get added to class attributes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><span class="raw-html"><br /></span></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="feature_data.FeatureData.check_for_these_attributes">
+<span class="sig-prename descclassname"><span class="pre">FeatureData.</span></span><span class="sig-name descname"><span class="pre">check_for_these_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feature_data.FeatureData.check_for_these_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the current instance for the required attribute</p>
+<p>This compares the requested attributes for a method against the
+current attributes. Returns True or False and the array of missing
+attributes. Called internally for each method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attributes</strong> (<em>list</em>) – A list of required attributes</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True or False and an array of missing values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>boolean, list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><span class="raw-html"><br /></span></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="feature_data.FeatureData.inst_attributes">
+<span class="sig-prename descclassname"><span class="pre">FeatureData.</span></span><span class="sig-name descname"><span class="pre">inst_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feature_data.FeatureData.inst_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the current class attributes</p>
+<p>Provides a dict of all the current class attributes and the data
+types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – Calls an instance of self</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary of all the current attributes and data type</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><span class="raw-html"><br /></span></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="feature_data.feature_data.load_defaults">
+<span class="sig-prename descclassname"><span class="pre">feature_data.</span></span><span class="sig-name descname"><span class="pre">load_defaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">def_vals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[fd_var,</span> <span class="pre">loc_var,</span> <span class="pre">data_source]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feature_data.feature_data.load_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a list of dictionaries to  the class attributes</p>
+<p>All the attributes can be loaded at once, by providing a list of
+dictionaries. The keys become the class attribute labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>class</em>) – The class instance</p></li>
+<li><p><strong>def_vals</strong> (<em>list</em>) – The array of class attributes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The attributes are updated with the dictionaries</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">trash</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Feature Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#attributes">Attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-attributes">Data attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-attributes">Loading attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-attributes">Editing attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-attribute-methods">The attribute methods</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to trash’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, roger.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
