@@ -1,9 +1,9 @@
 .. role:: raw-html(raw)
     :format: html
 
-===============
-Feature Data
-===============
+==========================
+Managing class attributes
+==========================
 
 .. automodule:: feature_data
 
@@ -273,6 +273,23 @@ _____________________
 
 :raw-html:`<br />`
 
+.. py:method:: FeatureData.check_attribute_of_this()
+
+    Checks the current instance for the required attribute and type
+
+    This compares the required attributes for a method against the
+    current class attributes. If the required attribute exists its
+    type is compared to the required type at that instance.
+
+    :param this: A class attribute that is required
+    :type this: str
+    :param atype: A valid python data type
+    :type atype: Can be any type
+    :return: True or False, if the proposed attributed exists and it matches the data type required by the method.
+    :rtype: boolean
+
+:raw-html:`<br />`
+
 .. py:method:: FeatureData.inst_attributes()
 
     Displays the current class attributes
@@ -299,35 +316,6 @@ _____________________
     :type def_vals: list
     :return: The attributes are updated with the dictionaries
     :rtype: None
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
