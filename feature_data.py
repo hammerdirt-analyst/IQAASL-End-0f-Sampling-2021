@@ -13,38 +13,24 @@ data visualization modules, the default output for each method integrates
 directly into the current visualization options.
 """
 import pandas as pd
-fd_var = {
-    "sdate": "2020-03-01",
-    "edate": "2021-05-31",
-    "unit_label": "p/100m",
-    "a_fail_rate": 50,
-    "a_unit_length": 100
-}
 
-# set the different aggregation levels
-# the aggregation level of interest is defined by level
-# component are units of level
-# top is all the data
-# loi is the named feature(s) to be considered
-# basin is the river bassin that the feature(s) are in
-# top and bassin_label are used for charting
-
-loc_var = {
-    "name": "Zurichsee",
+default_variables = {
+    "name": "zurichsee",
     "component": "city",
     "basin_slug": "linth",
     "basin_label": "Linth/Limmat survey area",
     "loi": ["zurichsee"],
     "top": "All survey areas",
-    "level": "water_body"
-}
-
-data_source = {
-  "beachsource": "resources/beaches_with_land_use_rates.csv",
-  "codesource": "resources/codes_with_group_names_2015.csv",
-  "dimsource": "resources/corrected_dims.csv",
-  "notaggsource": "resources/checked_before_agg_sdata_eos_2020_21.csv",
-  "fd_data": "resources/checked_sdata_eos_2020_21.csv"
+    "level": "water_body",
+    "sdate": "2020-03-01",
+    "edate": "2021-05-31",
+    "unit_label": "p/100m",
+    "a_fail_rate": .50,
+    "a_unit_length": 100,
+    "beachsource": "resources/beaches_with_land_use_rates.csv",
+    "codesource": "resources/codes_with_group_names_2015.csv",
+    "dimsource": "resources/corrected_dims.csv",
+    "fd_data": "resources/checked_sdata_eos_2020_21.csv"
 }
 
 column_rename = {
@@ -78,22 +64,25 @@ dim_to_agg = {
 }
 
 
-def load_defaults(x, def_vals: list = [fd_var, loc_var, data_source]):
+def load_defaults(aninstance, def_vals: dict = default_variables):
     """Loads a list of dictionaries to  the class attributes
 
-    All the attributes can be loaded at once, by providing a list of
-    dictionaries.
+    All the attributes can be loaded at once, by providing a list of dictionaries.
+    The standard reports are generated and added as attributes to the current class instance.
 
-    :param x: The class instance
-    :type x: class
-    :param def_vals: The array of class attributes
-    :type def_vals: list
-    :return: The attributes are updated with the dictionaries
-    :rtype: None
+    :param aninstance: The class instance
+    :type aninstance: class
+    :param def_vals: The dictionary of class attributes
+    :type def_vals: dict
+    :return: The class instance with the default attributes
+    :rtype: class
     """
 
-    for atts in def_vals:
-        x.add_attributes(atts)
+    aninstance.add_attributes(def_vals)
+
+    aninstance.make_complete_summary()
+
+    return aninstance
 
 
 def add_attributes(a, attributes):
@@ -111,7 +100,7 @@ def add_attributes(a, attributes):
         setattr(a, k, v)
 
 
-def feature_data(data, level: str = None, loi: list = [],
+def feature_data(data, level: str = None, name: str = None,
                  slice_data: bool = True):
     """Slices the data at the feature level for the features in loi.
 
@@ -119,8 +108,8 @@ def feature_data(data, level: str = None, loi: list = [],
     :type data: object: pandas.core.frame.DataFrame
     :param level: Column name that has will be aggregated on
     :type level: str
-    :param loi: An array of values that are contained in feature_level
-    :type loi: array
+    :param name: The geographic region of the report
+    :type name: str
     :param slice_data: Indicate whether the data needs to be sliced
     :type slice_data: bool
     :return: A sliced data frame with the date converted to datetime object
@@ -128,16 +117,9 @@ def feature_data(data, level: str = None, loi: list = [],
     """
 
     if slice_data:
-        sliced_data = data[data[level].isin(loi)].copy()
+        sliced_data = data[data[level].isin([name])].copy()
     else:
         sliced_data = data.copy()
-    # the sample is the unique indentifier for a survey
-    sliced_data["sample"] = list(zip(sliced_data.location.values,
-                                     sliced_data["date"].values)
-                                   )
-
-    # ensure that the date is set to datetime
-    sliced_data["date"] = pd.to_datetime(sliced_data["date"])
 
     return sliced_data
 
@@ -150,7 +132,7 @@ def check_for_these_attributes(aninstance, attributes: list = []):
     current attributes. Returns True or False and the array of missing
     attributes. Called internally for each method.
 
-    :param aninstance: An valid class instance
+    :param aninstance: A valid class instance
     :type aninstance: class
     :param attributes: A list of required attributes
     :type attributes: list
@@ -168,7 +150,8 @@ def check_for_these_attributes(aninstance, attributes: list = []):
     return proceed, not_current
 
 
-def check_attribute_of_this(aninstance, this: str = None, atype: str = None):
+def check_attribute_of_this(aninstance,
+                            this: str = None, atype: str = None) -> bool:
     """Checks the current instance for the required attribute and type
 
     This compares the required attributes for a method against the
@@ -203,6 +186,21 @@ def check_attribute_of_this(aninstance, this: str = None, atype: str = None):
     return proceed
 
 
+def change_column_names(self, attname: str = "fd", renames: dict =
+                        column_rename):
+    """User defined column names are added here"""
+    status, labels = self.check_for_these_attributes([attname])
+    if status:
+        data = getattr(self, attname)
+        if isinstance(data, pd.core.frame.DataFrame):
+            data.rename(columns=renames, inplace=True)
+            setattr(self, attname, data)
+        else:
+            print("that attribute is not a dataframe")
+    else:
+        print("there is no attribute with that name")
+
+
 class FeatureData:
     """The FeatureData class slices the data by user defined variables.
 
@@ -213,7 +211,7 @@ class FeatureData:
 
     def __init__(self, name: str = None, level: str = None,
                  component: str = None,
-                 min_att: list = ["level", "loi", "sdate", "edate"]
+                 min_att: list = ["level", "loi", "sdate", "edate", "name"]
                  ) -> None:
         self.name = name
         self.level = level
@@ -250,10 +248,7 @@ class FeatureData:
         data = {k: type(v) for k, v in self.__dict__.items()}
         return data
 
-
-
-    def make_fd(self, sources: list = [],
-                new_column_names : dict = column_rename):
+    def make_fd(self, sources: list = []) -> None:
         """Applies the user defined variables to construct the feature data
 
         Make_fd is the base method for this class. It assigns a unique id for
@@ -266,8 +261,6 @@ class FeatureData:
 
         :param sources: A list that has the attribute name for the data source
         :type sources: list
-        :param new_column_names: The map from old names to new names
-        :type new_column_names: dict, gets passed to df.rename
         :return: Results are added as attributes to the class
         :rtype: None
         """
@@ -275,7 +268,7 @@ class FeatureData:
         # check for the required attributes
         # source of data, locations of interest
         status, labels = check_for_these_attributes(
-            self, attributes = [*self.min_att, *sources])
+            self, attributes=[*self.min_att, *sources])
 
         if status:
             # if all the attributes are present
@@ -286,9 +279,6 @@ class FeatureData:
                 # get the data
                 a = pd.read_csv(location)
                 # format the unique survey id
-                if new_column_names:
-                    a.rename(columns=new_column_names, inplace=True)
-
                 a["sample"] = list(zip(a["location"], a["date"]))
                 # set to datetime
                 a["date"] = pd.to_datetime(a["date"])
@@ -301,7 +291,7 @@ class FeatureData:
                 setattr(self, new_name, ad)
 
                 # slice the data by the location attributes
-                fd = feature_data(ad, self.level, loi=self.loi)
+                fd = feature_data(ad, level=self.level, name=self.name)
                 # assign the feature data as an attribute
                 setattr(self, "fd", fd)
 
@@ -309,20 +299,6 @@ class FeatureData:
             # if not identify the missing attributes
             # print to console
             print("The following attributes are undefined", labels)
-
-    def change_column_names(self, attname: str = "fd", renames: dict =
-                            column_rename):
-        """User defined column names are added here"""
-        status, labels = self.check_for_these_attributes([attname])
-        if status:
-            data = getattr(self, attname)
-            if isinstance(data, pd.core.frame.DataFrame):
-                data.rename(columns=renames, inplace=True)
-                setattr(self, attname, data)
-            else:
-                print("that attribute is not a dataframe")
-        else:
-            print("there is no attribute with that name")
 
     def summary(self, attname: str = "fd"):
         """The summary of samples, cities and population in the data.
@@ -345,7 +321,7 @@ class FeatureData:
         # retrieve the attribute that has the data
         atype = pd.core.frame.DataFrame
         # check the type against the required
-        proceed = check_attribute_of_this(self, this = attname, atype = atype)
+        proceed = check_attribute_of_this(self, this=attname, atype=atype)
 
         if proceed:
             somdata = getattr(self, attname)
@@ -381,7 +357,6 @@ class FeatureData:
             # either use a different attribute or load the data
             print("That attribute does not resolve to a dataframe")
 
-
     def code_totals(self, attname: str = "fd"):
         """ The cumulative values of the codes for the requested data.
 
@@ -397,7 +372,7 @@ class FeatureData:
         """
 
         atype = pd.core.frame.DataFrame
-        proceed = check_attribute_of_this(self, this = attname, atype = atype)
+        proceed = check_attribute_of_this(self, this=attname, atype=atype)
 
         if proceed:
             somdata = getattr(self, attname)
@@ -421,6 +396,13 @@ class FeatureData:
                 b["fail rate"] = b.fail/somdata["sample"].nunique()
 
                 setattr(self, f"{attname}_codetotals", b)
+
+                # the most common
+                mc = b[b["fail rate"] >= self.a_fail_rate]
+                mq = b.sort_values(by="quantity", ascending=False)[:10]
+                most_common = pd.concat([mc, mq], axis=0)
+
+                setattr(self, "most_common", most_common)
             else:
                 print("The required columns are not in the dataframe")
         else:
@@ -441,7 +423,7 @@ class FeatureData:
         :rtype: None
         """
         atype = pd.core.frame.DataFrame
-        proceed = check_attribute_of_this(self, this = attname, atype = atype)
+        proceed = check_attribute_of_this(self, this=attname, atype=atype)
 
         if proceed:
             somdata = getattr(self, attname)
@@ -475,7 +457,7 @@ class FeatureData:
         """
 
         atype = pd.core.frame.DataFrame
-        proceed = check_attribute_of_this(self, this = attname, atype = atype)
+        proceed = check_attribute_of_this(self, this=attname, atype=atype)
 
         if proceed:
 
@@ -534,8 +516,6 @@ class DimensionalData:
         else:
             print("The class instance does not have the required attributes")
 
-
-
     def make_dims_data(self):
         """The dimensional data for an instance of FeatureData
 
@@ -583,11 +563,9 @@ class DimensionalData:
         """
 
         a = self.dims_data.groupby(self.component).agg(self.to_aggregate)
-        b = self.fd_components.set_index(self.component, drop = True)
+        b = self.fd_components.set_index(self.component, drop=True)
 
-        dim_summary = pd.concat([a,b], axis=1)
+        dim_summary = pd.concat([a, b], axis=1)
         dim_summary.loc[self.name] = dim_summary.iloc[:, :-1].sum()
 
         setattr(self, "dims_summary", dim_summary)
-
-

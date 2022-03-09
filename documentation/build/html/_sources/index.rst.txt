@@ -10,10 +10,12 @@ Welcome to trash's documentation!
 =================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 3
    :caption: Contents:
 
-   modules
+   getting_started
+   attributes
+   reports
 
 
 
@@ -26,3 +28,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
