@@ -6,6 +6,7 @@ import seaborn as sns
 import numpy as np
 from IPython.display import display
 from PIL import Image as PILImage
+import locale
 
 
 
@@ -514,16 +515,20 @@ def fmt_pct_of_total(data, label="% of total", fmt=True, multiple=100, around=1)
     
     return data
 
-def make_string_format(data, label="quantity", aformat="{:,}"):
+def make_string_format(data, label="quantity", aformat="{:,}",
+                       use_local=True):
     """Make string formats of values of a column in a dataframe. Returns the
     data frame
     """
-    
-    data[label]=data[label].map(lambda x: aformat.format(x))
+
+    if use_local:
+        data[label] = data[label].map(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
+    else:
+        data[label] = data[label].map(lambda x: aformat.format(x))
     
     return data
 
-def fmt_combined_summary(data, nf=[-1], fmt="{:,}"):
+def fmt_combined_summary(data, nf=[-1], fmt="{:,}", use_locale=True):
     """Convenience function for formatting the values of the combined
     summary. Accepts a series and returns an array of tuples of the
     index label and the formatted value
@@ -537,8 +542,11 @@ def fmt_combined_summary(data, nf=[-1], fmt="{:,}"):
     :return: An aray of tuples (<index label>, <formatted value>)
     :rtype: array    
     """
+
+    if use_locale:
+        new_data = [(x,  f"{locale.format_string('%d', data[x], grouping=True)}") for x in data.index[:]]
     
-    if len(nf):
+    elif len(nf):
         new_data = [(x, fmt.format(int(data[x]))) for x in data.index[:-1]]
         new_data.append((data.index[-1], int(data[-1])))
         
