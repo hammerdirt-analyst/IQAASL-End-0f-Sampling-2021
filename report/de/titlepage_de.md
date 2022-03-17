@@ -1,4 +1,4 @@
-# Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+# Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
 
 __Edition 1__ ver=1
 
@@ -28,7 +28,7 @@ __Auftragnehmer:__ Hammerdirt  Brüggstrasse 39 2503 Biel/Bienne Switzerland +41
 
 __Die Autoren:__ Roger Erismann, Shannon Erismann 
 
-__Begleitung BAFU:__ Rita Barros 
+__Begleitung BAFU:__ Rita Barros, Amanda Finger, Samuel Anrig
 
 __Hinweis:__ Diese Bericht wurde im Auftrag des Bundesamtes für Umwelt (BAFU) verfasst. Für den Inhalt ist allein der Auftragnehmer verantwortlich. 
 
