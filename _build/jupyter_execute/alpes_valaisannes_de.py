@@ -66,7 +66,7 @@ from IPython.display import display
 # set the locale to the language desired
 # the locale is set back to to original at the the end of the script
 loc = locale.getlocale()
-lang =  "de_DE.utf8"
+lang =  "de_CH.utf8"
 locale.setlocale(locale.LC_ALL, lang)
 
 # the date is in iso standard:
@@ -250,11 +250,16 @@ fd_pop_map.drop_duplicates(inplace=True)
 fd_pop_map.set_index("city", drop=True, inplace=True)
 
 t.update({"nmunis":len(fd_pop_map.index)})
+# fdtotalq
+# fd_pop_map.sum()
+# # fancy print to jupyter:
+# obj_string = "{:,}".format(t["fdtotalq"])
+# surv_string = "{:,}".format(t["samples"])
+# pop_string = "{:,}".format(int(fd_pop_map.sum()[0]))
 
-# fancy print to jupyter:
-obj_string = "{:,}".format(t["fdtotalq"])
-surv_string = "{:,}".format(t["samples"])
-pop_string = "{:,}".format(int(fd_pop_map.sum()[0]))
+obj_string = locale.format_string('%d', int(t["fdtotalq"]), grouping=True)
+surv_string = locale.format_string('%d', int(t["samples"]), grouping=True)
+pop_string = locale.format_string('%d', int(fd_pop_map.sum()[0]), grouping=True)
 
 date_quantity_context = f"Zwischen {start_date[3:]} und {end_date[3:]}, wurden im Laufe von {surv_string} Datenerhebungen an {t['samples']} "
 geo_context = f"verschiedenen Orten in {t['nmunis']} Gemeinden und einer Gesamtbevölkerung von {pop_string}. Einwohnern insgesamt {t['fdtotalq']} Objekte entfernt und identifiziert."
@@ -362,7 +367,7 @@ dims_table["Std"] = (dims_table["Std"]/60).round(1)
 dims_table.reset_index(inplace=True)
 table_one = dims_table[["location","Erhebungen", "Objekten", unit_label,"Plastic kg", "Gesamt-s kg", "m²", "Länge"]].copy()
 commas = ["Erhebungen", "Objekten",  "m²", "Länge", unit_label]
-table_one.loc[:,commas[:-1]] = table_one.loc[:,commas].applymap(lambda x: F"{x:,}")
+table_one.loc[:,commas[:-1]] = table_one.loc[:,commas].applymap(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
 
 # make table
 fig, ax = plt.subplots(figsize=(12, 13))
@@ -381,7 +386,7 @@ plt.show()
 
 # table two event totals
 table_two = dims_table[["location","Gesamt-e kg", "Teilnehmer", "Mitarbeiter","Std"]].copy()
-table_two["Gesamt kg"] = table_two["Gesamt-e kg"].map(lambda x: F"{x:,}")
+table_two["Gesamt kg"] = table_two["Gesamt-e kg"].map(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
 table_two = table_two[["location", "Gesamt kg", "Teilnehmer", "Mitarbeiter", "Std"]]
 
 # make a table
@@ -502,7 +507,7 @@ dts_date = a_dt[(~a_dt.location.isin([*nvsn, *remove]))].copy()
 
 # figure caption
 chart_notes = F"""
-*__Links:__ Alle Eherebungen Seen/Flüsse und Wanderwege, {start_date[:7]} bis {end_date[:7]}, n={a_data.loc_date.nunique()}. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse, Ausreißer entfernt.*  
+*__Links:__ Die Alpen und der Jura, {start_date[3:]} bis {end_date[3:]}, n={a_data.loc_date.nunique()}. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse, Ausreißer entfernt.*  
 """
 md(chart_notes )
 
@@ -611,9 +616,9 @@ plt.subplots_adjust(wspace=0.2)
 plt.show()
 
 
-# ### Die häufigsten Obkekte
+# ## Die am häufigsten gefundenen Objekte
 # 
-# Die häufigsten Objekte sind die __zehn häufigsten Objekte nach Anzahl der Funde UND/ODER jedes Objekt, das in mindestens 50% aller Datenerhebungen identifiziert wurde__. 
+# Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[11]:
 
@@ -667,7 +672,7 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Resultate der häufigsten Objekte nach Erhebungsort  
+# ### Die am häufigsten gefundenen Objekte nach Erhebungsort   
 
 # *__Unten:__ Wanderwege häufigste Objekte: Median p/100m.*
 
@@ -729,22 +734,22 @@ plt.tight_layout()
 plt.show()
 
 
-# ## Nutzen der gefundenen Objekte 
+# ## Verwendungszweck der gefundenen Objekte 
 # 
-# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert. 
+# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert. 
 # 
 # *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
-# *  **Mikroplastik (< 5 mm):** zersplitterte Kunststoffe und Kunststoffharze aus der Vorproduktion
+# *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
-# *  **Landwirtschaft:** vor allem Industriefolien, z. B. für Mulch und 
+# *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
 # *  **Tabak:** hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen außer Lebensmittel und Getränke:** Verpackungsmaterial, das nicht als lebensmittel-, getränke- oder tabakbezogen gekennzeichnet ist
+# *  **Verpackungen außer Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # *__Unten:__ Wanderwege Nutzen der gefundenen Objekte: % der Gesamtzahl nach Wassermerkmal. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Größe klassifiziert.*  
 

@@ -70,7 +70,7 @@ from IPython.display import display
 # set the locale to the language desired
 # the locale is set back to to original at the the end of the script
 loc = locale.getlocale()
-lang =  "de_DE.utf8"
+lang =  'de_CH.utf8'
 locale.setlocale(locale.LC_ALL, lang)
 
 # the date is in iso standard:
@@ -81,7 +81,7 @@ g = "%d.%m.%Y"
 
 # set some parameters:
 start_date = "01.03.2020"
-end_date ="31.09.2021"
+end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100m"
@@ -114,7 +114,6 @@ agg_pcs_median = {unit_label:"median", "quantity":"sum"}
 
 # aggregation of dimensional data
 agg_dims = {"total_w":"sum", "mac_plast_w":"sum", "area":"sum", "length":"sum"}
-
 
 # columns needed
 use_these_cols = ["loc_date" ,
@@ -194,7 +193,7 @@ code_material_map = dfCodes.material
 # 
 # <a href="neuenburgersee.html"> English </a>
 
-# *Karte der Datenerhebungen März 2020 - Mai 2021.*
+# *__Unten:__ Karte des Erhebungsgebiets März 2020 - Mai 2021. Durchmesser der Punktsymbole = das mittlere Erhebungsergebnis in gefundene Abfallobjekte pro 100 Meter (p/100m).*
 
 # In[2]:
 
@@ -223,6 +222,7 @@ a_data["date"] = pd.to_datetime(a_data["date"], format=g)
 a_data["groupname"] = a_data["groupname"].map(lambda x: sut.group_names_de[x])
 a_data.rename(columns=sut.luse_ge, inplace=True)
 
+# the data for this report
 fd = sut.feature_data(a_data, this_feature["level"], these_features=lakes_of_interest)
 
 # cumulative statistics for each code
@@ -251,25 +251,20 @@ t.update({"locations":fd.location.unique()})
 fd_pop_map = dfBeaches.loc[fd.location.unique()][["city", "population"]].copy()
 fd_pop_map.drop_duplicates(inplace=True)
 
-# update t with the population data
-t.update(sut.make_table_values(fd_pop_map, col_nunique=["city"], col_sum=["population"], col_median=[]))
-
-# update t with the list of locations from fd
-t.update({"locations":fd.location.unique()})
-
 # number of cities
 fd_n_munis = len(fd_pop_map.index)
-# populations
+
+# total population
 fd_effected_population = fd_pop_map.sum()
 
 # join the strings into comma separated list
-obj_string = "{:,}".format(t["quantity"])
-surv_string = "{:,}".format(t["loc_date"])
-pop_string = "{:,}".format(int(t["population"]))
+obj_string = locale.format_string('%d', int(t["quantity"]), grouping=True)
+surv_string = locale.format_string('%d', int(t["loc_date"]), grouping=True)
+pop_string = locale.format_string('%d', int(t["population"]), grouping=True)
 
 # make strings
 date_quantity_context = F"Für den Zeitraum zwischen {start_date[3:]} und {end_date[3:]}, wurden im Rahmen von {surv_string} Datenerhebungen insgesamt {obj_string } Objekte entfernt und identifiziert."
-geo_context = F"Die Ergebnisse des Aare-Erhebungsgebiets umfassen {t['location']} Orte,  {t['city']} Gemeinden und eine Gesamtbevölkerung von etwa {pop_string} Einwohnern."
+geo_context = F"Die Ergebnisse des {this_feature['name']} umfassen {t['location']} Orte,  {t['city']} Gemeinden und eine Gesamtbevölkerung von etwa {pop_string} Einwohnern."
 munis_joined = ", ".join(sorted(fd_pop_map["city"]))
 
 # put that all together:
@@ -281,7 +276,7 @@ lake_string = F"""
 md(lake_string)
 
 
-# ### Kumulative Gesamtmengen nach Wassermerkmalen
+# ### Kumulative Gesamtmengen nach Gemeinden
 
 # In[4]:
 
@@ -311,7 +306,7 @@ dims_table.rename(columns={"samples":"Erhebungen","quantity":"Objekten", "total_
 
 # format kilos
 dims_table["Plastic-kg"] = dims_table["Plastic-kg"]/1000
-dims_table[["m²", "Meter", "Erhebungen", "Objekten"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekten"]].applymap(lambda x: "{:,}".format(int(x)))
+dims_table[["m²", "Meter", "Erhebungen", "Objekten"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekten"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
 dims_table[["Plastic-kg", "Gesamt-kg"]] = dims_table[["Plastic-kg", "Gesamt-kg"]].applymap(lambda x: "{:.2f}".format(x))
 
 # figure caption
@@ -388,6 +383,7 @@ ax = axs[0]
 
 # feature surveys
 sns.scatterplot(data=dts_date, x=dts_date.index, y=unit_label, label=top, color="black", alpha=0.4,  ax=ax)
+
 # all other surveys
 sns.scatterplot(data=fd_dindex, x=fd_dindex.index, y=unit_label, label=this_feature["name"], color="red", s=34, ec="white", ax=ax)
 
@@ -427,7 +423,7 @@ plt.show()
 
 # figure caption
 summary_of_survey_totals = F"""
-*__Links:__ {this_feature["name"]} Zusammenfassung der Gesamtzahlen der Erhebungen. __Rechts:__ {this_feature["name"]} Materialart und Prozentsatz der Gesamtmenge.*
+*__Links:__ Zusammenfassung der Daten aller Erhebungen im {this_feature["name"]}. __Rechts:__ Gefundene Materialarten im {this_feature["name"]} und Prozentsatz deren Gesamtmenge.*
 """
 md(summary_of_survey_totals)
 
@@ -482,9 +478,9 @@ plt.subplots_adjust(wspace=0.2)
 plt.show()
 
 
-# ## Die häufigsten Objekte
+# ## Die am häufigsten gefundenen Objekte
 # 
-# Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
+# Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[10]:
 
@@ -503,7 +499,7 @@ m_common_percent_of_total = m_common.quantity.sum()/code_totals.quantity.sum()
 
 # figure caption
 rb_string = F"""
-*__Unten:__ Häufigste Objekte am {this_feature["name"]}: fail-rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.*
+*__Unten:__ Häufigste Objekte im {this_feature["name"]}: fail-rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte aus. Anmerkung: {unit_label} = Medianwert der Erhebung.*
 """
 md(rb_string)
 
@@ -514,7 +510,7 @@ md(rb_string)
 # format values for table
 m_common["item"] = m_common.index.map(lambda x: code_description_map.loc[x])
 m_common["% of total"] = m_common["% of total"].map(lambda x: F"{x}%")
-m_common["quantity"] = m_common.quantity.map(lambda x: "{:,}".format(x))
+m_common["quantity"] = m_common.quantity.map(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
 m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
 m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 
@@ -535,13 +531,13 @@ plt.show()
 plt.close()
 
 
-# ### Die häufigsten Objekte nach Gemeinden
+# ### Die am häufigsten gefundenen Objekte nach Gemeinden
 
 # In[12]:
 
 
 rb_string = F"""
-*__Unten:__ häufigste Objekte am {this_feature["name"]}:  Median {unit_label}.*
+*__Unten:__ häufigste Objekte im {this_feature["name"]}: Median {unit_label}.*
 """
 md(rb_string)
 
@@ -552,7 +548,6 @@ md(rb_string)
 # aggregated survey totals for the most common codes for all the water features
 m_common_st = fd[fd.code.isin(m_common.index)].groupby([this_level, "loc_date","code"], as_index=False).agg(agg_pcs_quantity)
 m_common_ft = m_common_st.groupby([this_level, "code"], as_index=False)[unit_label].median()
-
 
 # map the desctiption to the code
 m_common_ft["item"] = m_common_ft.code.map(lambda x: code_description_map.loc[x])
@@ -591,7 +586,7 @@ plt.show()
 plt.close()
 
 
-# ### Häufigste Objekte im monatlichen Durchschnitt
+# ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
 
 # In[14]:
 
@@ -614,7 +609,7 @@ for a_group in an_order:
     mgr.update(this_group)
 
 monthly_mc = F"""
-*__Unten__ {this_feature["name"]}, monatliche Durchschnittsergebnisse {unit_label}. Detail der häufigsten Objekte.*
+*__Unten:__ {this_feature["name"]}, monatliche Durchschnittsergebnisse {unit_label}.*
 """
 md(monthly_mc)
 
@@ -658,6 +653,7 @@ for i, a_group in enumerate(an_order):
     # if i == 0 laydown the first bars
     if i == 0:
         ax.bar(this_x, mgr[a_group].to_numpy(), label=a_group, color=colors_palette[a_group], linewidth=1, alpha=0.6 ) 
+    
     # else use the previous results to define the bottom
     else:
         bottom += mgr[an_order[i-1]].to_numpy()        
@@ -688,29 +684,29 @@ plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper
 plt.show()
 
 
-# ## Nutzen der gefundenen Objekte 
+# ## Verwendungszweck der gefundenen Objekte 
 # 
-# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.
+# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert. 
 # 
 # *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
-# *  **Mikroplastik (< 5 mm):** zersplitterte Kunststoffe und Kunststoffharze aus der Vorproduktion
+# *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
-# *  **Landwirtschaft:** vor allem Industriefolien, z. B. für Mulch und 
+# *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
 # *  **Tabak:** hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen außer Lebensmittel und Getränke:** Verpackungsmaterial, das nicht als lebensmittel-, getränke- oder tabakbezogen gekennzeichnet ist
+# *  **Verpackungen außer Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # In[16]:
 
 
 cg_poft = F"""
 <br></br>
-*__Unten:__ {this_feature["name"]} Nutzen oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden.*
+*__Unten:__ Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden im {this_feature["name"]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*
 """
 md(cg_poft)
 
@@ -815,15 +811,15 @@ plt.show()
 
 # ## Anhang
 # 
-# ### Schaumstoffe und Kunststoffe nach Größe
+# ### Schaumstoffe und Kunststoffe nach Größe 
 # 
-# Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
+# Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert.
 
 # In[20]:
 
 
 frag_foams = F"""
-*__Unten:__ {this_feature["name"]} fragmentierte Kunststoffe und geschäumte Kunststoffe nach Größe, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.*
+*__Unten:__ Fragmentierte und geschäumte Kunststoffe nach Größe im {this_feature["name"]}, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.*
 """
 md(frag_foams)
 
@@ -847,7 +843,7 @@ fd_frags_foams = fd_frags_foams.groupby("code").agg(agg_pcs_median)
 fd_frags_foams["item"] = fd_frags_foams.index.map(lambda x: code_description_map.loc[x])
 fd_frags_foams["% of total"] = (fd_frags_foams.quantity/fd.quantity.sum()*100).round(2)
 fd_frags_foams["% of total"] = fd_frags_foams["% of total"].map(lambda x: F"{x}%")
-fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
+fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
 
 # table data
 data = fd_frags_foams[["item", unit_label, "quantity", "% of total"]]

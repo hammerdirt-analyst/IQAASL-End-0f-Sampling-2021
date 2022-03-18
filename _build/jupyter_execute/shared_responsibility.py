@@ -229,7 +229,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.j
 #     * Industrial sheeting
 #     * Construction plastics
 # 
-# The survey locations are considered in relation to the land-use rates of the surrounding 1500m [_The land use profile_](luseprofile). The median value of the space attributed to buildings was used to differentiate the survey locations into two distinct groups: 
+# The survey locations are considered in relation to the land-use rates of the surrounding 1500m,see [_The land use profile_](luseprofile). The median value of the space attributed to buildings was used to differentiate the survey locations into two distinct groups: 
 # 
 # 1. __urban:__ locations that have a percent of land attributed to buildings GREATER than the median of all survey locations
 # 2. __rural:__ locations that have a percent of land attributed to buildings LESS than the median of all survey locations AND percent of land attributed to woods or agriculture greater than the median 
@@ -295,12 +295,12 @@ plt.show()
 
 # ## The data
 # 
-# *__Below:__ Map of survey locations IQAASL.* 
+# *__Below:__ Only survey locations on lakes were considered for this analysis. The Walensee area was excluded for lack of sufficient land use data. Thus, reducing the data set to 300 surveys at 84 urban and rural locations from March 2020 - May 2021.* 
 
 # In[4]:
 
 
-sut.display_image_ipython("resources/maps/survey_locations_all.jpeg", thumb=(1200, 700))
+sut.display_image_ipython("resources/maps/sharedresponsibility.jpeg", thumb=(1200, 700))
 
 
 # In[5]:
@@ -412,10 +412,10 @@ urban = cg_dg_dt[(cg_dg_dt['rural'] == 'urban')].location.unique()
 grt_dtr = cg_dg_dt.groupby(['loc_date', 'date','rural'], as_index=False)[unit_label].agg({unit_label:"sum"})
 
 # check the survey totals for each group
-astring = F"""
-There were {t["nsamples"]} surveys  at {len(t["locations"])} different locations.
-"""
-md(astring)
+# astring = F"""
+# There were {t["nsamples"]} surveys  at {len(t["locations"])} different locations.
+# """
+# md(astring)
 
 
 # In[6]:
@@ -571,7 +571,7 @@ data = grt_dtr
 
 # get the basic statistics from pd.describe
 desc_2020 = data.groupby('rural')[unit_label].describe()
-desc_2020.loc["Alle", ['count', 'mean', 'std', 'min', '25%', '50%', '75%', 'max']] = grt_dtr.groupby(['loc_date', 'date'])[unit_label].sum().describe().to_numpy()
+desc_2020.loc["All", ['count', 'mean', 'std', 'min', '25%', '50%', '75%', 'max']] = grt_dtr.groupby(['loc_date', 'date'])[unit_label].sum().describe().to_numpy()
 desc = desc_2020.astype('int')
 desc.rename(columns=(change_names), inplace=True)
 desc = desc.applymap(lambda x: F"{x:,}")
@@ -979,7 +979,7 @@ the_bcas.update(u_cis)
 # all surveys
 u_median = grt_dtr[unit_label].median()
 a_result = compute_bca_ci(grt_dtr[unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
-all_cis = {"Alle":{"lower 2.5%":a_result[0], "median":u_median, "upper 97.5%": a_result[1] }}
+all_cis = {"All":{"lower 2.5%":a_result[0], "median":u_median, "upper 97.5%": a_result[1] }}
 
 # combine the results:
 the_bcas.update(all_cis)

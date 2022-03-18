@@ -70,7 +70,7 @@ from IPython.display import display
 # set the locale to the language desired
 # the locale is set back to to original at the the end of the script
 loc = locale.getlocale()
-lang =  "de_DE.utf8"
+lang =  'de_CH.utf8'
 locale.setlocale(locale.LC_ALL, lang)
 
 # the date is in iso standard:
@@ -81,7 +81,7 @@ g = "%d.%m.%Y"
 
 # set some parameters:
 start_date = "01.03.2020"
-end_date ="31.09.2021"
+end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100m"
@@ -105,6 +105,7 @@ this_bassin = "linth"
 bassin_label = "Linth-Erhebungsgebiet"
 
 lakes_of_interest = ['zurichsee', "walensee"]
+
 # explanatory variables:
 luse_exp =  list(sut.luse_ge.values())
 
@@ -191,7 +192,7 @@ code_material_map = dfCodes.material
 # 
 # <a href="linth_sa.html"> English </a>
 
-# *__Unten:__ Karte des Erhebungsgebiets March 2020 - Mai 2021. Markierungsdurchmesser = das mittlere Erhebungsergebnis in Müllstücken pro 100 Meter (p/100m).*
+# *__Unten:__ Karte des Erhebungsgebiets März 2020 - Mai 2021. Durchmesser der Punktsymbole = das mittlere Erhebungsergebnis in gefundene Abfallobjekte pro 100 Meter (p/100m).*
 
 # In[2]:
 
@@ -249,13 +250,14 @@ lakes = dfBeaches.loc[(dfBeaches.index.isin(t["locations"]))&(dfBeaches.water ==
 rivers = dfBeaches.loc[(dfBeaches.index.isin(t["locations"]))&(dfBeaches.water == "r")]["water_name"].unique()
 
 # join the strings into comma separated list
-obj_string = "{:,}".format(t["quantity"])
-surv_string = "{:,}".format(t["loc_date"])
-pop_string = "{:,}".format(int(t["population"]))
+obj_string = locale.format_string('%d', int(t["quantity"]), grouping=True)
+surv_string = locale.format_string('%d', int(t["loc_date"]), grouping=True)
+pop_string = locale.format_string('%d', int(t["population"]), grouping=True)
+
 
 # make strings
-date_quantity_context = F"Für den Zeitraum zwischen {start_date[3:]} und {end_date[3:]}, wurden im Rahmen von {surv_string} Datenerhebungen insgesamt {obj_string } Objekte entfernt und identifiziert."
-geo_context = F"Die Ergebnisse des Aare-Erhebungsgebiets umfassen {t['location']} Orte,  {t['city']} Gemeinden und eine Gesamtbevölkerung von etwa {pop_string} Einwohnern."
+date_quantity_context = f"Für den Zeitraum zwischen {start_date[3:]} und {end_date[3:]}, wurden im Rahmen von {surv_string}  Datenerhebungen insgesamt {obj_string} Objekte entfernt und identifiziert."
+geo_context = F"Die Ergebnisse des {bassin_label}s umfassen {t['location']} Orte,  {t['city']} Gemeinden und eine Gesamtbevölkerung von etwa {pop_string} Einwohnern."
 munis_joined = ", ".join(sorted(fd_pop_map["city"]))
 lakes_joined = ", ".join(sorted(lakes))
 rivers_joined = ", ".join(sorted(rivers))
@@ -275,13 +277,13 @@ md(lake_string)
 
 # ### Landnutzungsprofil der Erhebungsorte 
 # 
-# Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1500 m um den Erhebungsort zugeordnet wird. 
+# Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1'500 m um den Erhebungsort zugeordnet wird. 
 # 
-# Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren. 
+# Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1'500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1'500 m um den Erhebungsort herum durchqueren. 
 # 
-# Das Verhältnis der Anzahl der Erhebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte. 
+# Das Verhältnis der Anzahl der Erhebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Rahmenbedingungen der Untersuchungsstandorte.  
 # 
-# Für weitere Informationen [_Landnutzungsprofil_](luseprofilede) für weitere Details.
+# Für weitere Informationen [_Landnutzungsprofil_](luseprofilede).
 
 # *__Unten:__ Landnutzungsprofil der Erhebungsorte. Verteilung der Erhebungen in Bezug auf die Landnutzung.*
 
@@ -336,14 +338,14 @@ for i, n in enumerate(luse_exp):
     ax.get_legend().remove()    
     ax.set_xlabel(list(sut.luse_ge.values())[i], **ck.xlab_k)
 
-plt.suptitle("% Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="left", x=0.05, y=.97, fontsize=14)      
+plt.suptitle("% Landnutzung im Umkreis von 1'500 m um den Erhebungsort", ha="left", x=0.05, y=.97, fontsize=14)      
 plt.tight_layout()
 fig.legend(handles, labels,bbox_to_anchor=(.99, .99), loc="upper right",ncol=3)      
 
 plt.show()  
 
 
-# ### Kumulative Gesamtmengen nach Wassermerkmalen 
+# ### Kumulative Gesamtmengen nach Gewässer 
 
 # In[5]:
 
@@ -374,15 +376,15 @@ dims_table.loc[this_feature["name"]]= dims_table.sum(numeric_only=True, axis=0)
 # for display
 dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
 dims_table.rename(columns={"samples":"Erhebungen","quantity":"Objekten", "total_w":"Gesamt-kg", "mac_plast_w":"Plastic-kg", "area":"m²", "length":"Meter"}, inplace=True)
-
+# locale.format_string('%d', int(t["quantity"]), grouping=True)
 # format kilos
 dims_table["Plastic-kg"] = dims_table["Plastic-kg"]/1000
-dims_table[["m²", "Meter", "Erhebungen", "Objekten"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekten"]].applymap(lambda x: "{:,}".format(int(x)))
+dims_table[["m²", "Meter", "Erhebungen", "Objekten"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekten"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
 dims_table[["Plastic-kg", "Gesamt-kg"]] = dims_table[["Plastic-kg", "Gesamt-kg"]].applymap(lambda x: "{:.2f}".format(x))
 
 # figure caption
 agg_caption = F"""
-*__Unten:__     Die kumulierten Gewichte und Maße für das {this_feature["name"]} und die Wasserkörper.*
+*__Unten:__  Die kumulierten Gewichte und Merkmale für das {this_feature["name"]}und dessen Gewässer.*
 """
 md(agg_caption)
 
@@ -394,7 +396,7 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.65,len(data)*.5))
+fig, ax = plt.subplots(figsize=(len(colLabels)*1.75,len(data)*.5))
 sut.hide_spines_ticks_grids(ax)
 
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
@@ -405,7 +407,7 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Verteilung der Datenerhebungen Ergebnisse
+# ### Verteilung der Ergebnisse der Datenerhebungen
 
 # In[7]:
 
@@ -430,11 +432,13 @@ y_lim = 95
 y_limit = np.percentile(dts_date[unit_label], y_lim)
 
 # label for the chart that alerts to the scale
-not_included = F"Werte größer als {round(y_limit, 1)}{unit_label}% nicht gezeigt."
+not_included = F"Werte größer als {locale.format_string('%d', round(y_limit, 1), grouping=True)} {unit_label} werden nicht gezeigt."
+
+
 
 # figure caption
 chart_notes = F"""
-*__Links:__ {this_feature["name"]}, {start_date[:7]} bis {end_date[:7]}, n={t["loc_date"]}. {not_included} __Rechts:__ {this_feature["name"]} empirische kumulative Verteilung der Datenerhebungen Ergebnisse.*
+*__Links:__ {this_feature["name"]}, {start_date[3:]} bis {end_date[3:]}, n={t["loc_date"]}. {not_included} __Rechts:__ {this_feature["name"]} empirische kumulative Verteilung der Datenerhebunge.*
 """
 md(chart_notes )
 
@@ -487,14 +491,16 @@ plt.tight_layout()
 plt.show()
 
 
-# ### Zusammenfassende Daten und Materialtypen
+# ### Zusammengefasste Daten und Materialarten 
 
 # In[9]:
 
 
 # figure caption
+
+
 summary_of_survey_totals = F"""
-*__Links:__ {this_feature["name"]} Zusammenfassung der Gesamtzahlen der Erhebungen. __Rechts:__ Materialart im {this_feature["name"]}     und Prozentsatz der Gesamtmenge.*
+*__Links:__ Zusammenfassung der Daten aller Erhebungen im {this_feature["name"]}. __Rechts:__ Gefundene Materialarten im {this_feature["name"]} und Prozentsatz deren Gesamtmenge.*
 """
 md(summary_of_survey_totals)
 
@@ -549,9 +555,9 @@ plt.subplots_adjust(wspace=0.2)
 plt.show()
 
 
-# ## Die häufigsten Objekte
+# ## Die am häufigsten gefundenen Objekte
 # 
-# Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
+# Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[11]:
 
@@ -570,7 +576,7 @@ m_common_percent_of_total = m_common.quantity.sum()/code_totals.quantity.sum()
 
 # figure caption
 rb_string = F"""
-*__Unten:__ Häufigste Objekte am {this_feature["name"]}: fail-rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte aus. Anmerkung: : {unit_label} = Medianwert der Erhebung.*
+*__Unten:__ Häufigste Objekte im {this_feature["name"]}: fail-rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte aus. Anmerkung: {unit_label} = Medianwert der Erhebung.*
 """
 md(rb_string)
 
@@ -581,7 +587,7 @@ md(rb_string)
 # format values for table
 m_common["item"] = m_common.index.map(lambda x: code_description_map.loc[x])
 m_common["% of total"] = m_common["% of total"].map(lambda x: F"{x}%")
-m_common["quantity"] = m_common.quantity.map(lambda x: "{:,}".format(x))
+m_common["quantity"] = m_common.quantity.map(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
 m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
 m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 
@@ -600,13 +606,13 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Die häufigsten Objekte nach Wassermerkmalen 
+# ### Die am häufigsten gefundenen Objekte nach Gewässer 
 
 # In[13]:
 
 
 rb_string = F"""
-*__Unten:__ häufigste Objekte {this_feature["name"]}: Median {unit_label}.*
+*__Unten:__ häufigste Objekte im {this_feature["name"]}: Median {unit_label}.*
 """
 md(rb_string)
 
@@ -654,7 +660,7 @@ plt.show()
 plt.close()
 
 
-# ### Häufigste Objekte im monatlichen Durchschnitt
+# ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
 
 # In[15]:
 
@@ -766,15 +772,15 @@ plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper
 plt.show()
 
 
-# ## Datenerhebungen Ergebnisse und Landnutzung 
+# ## Ergebnisse der Datenerhebungen und Landnutzung 
 # 
-# Der Flächennutzungsmix ist eine einzigartige Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Datenerhebungen Ergebnissen werden mit den Flächennutzungsraten für einen Radius von 1500 m um den Erhebungsort verglichen.  
+# Der Flächennutzungsmix ist eine einzigartige Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Ergebnissen der Datenerhebungen werden mit den Flächennutzungsraten für einen Radius von 1500 m um den Erhebungsort verglichen. 
 
-# Eine Assoziation ist eine Beziehung zwischen den Datenerhebungen Ergebnissen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmaß der Beziehung ist weder definiert noch linear.  
+# Eine Assoziation ist eine Beziehung zwischen den Ergebnissen der Datenerhebungen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmaß der Beziehung ist weder definiert noch linear. 
 # 
 # Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein statistisch signifikanter Zusammenhang zwischen der Landnutzung und den bei einer Abfallobjekte-Erhebung identifizierten Objekten besteht.  
 # 
-# Die verwendete Methode ist der Spearman's rho oder Spearmans geordneter Korrelationskoeffizient. Die Testergebnisse werden bei p<0,05 für alle gültigen Seerhebungen im Untersuchungsgebiet ausgewertet.  
+# Die verwendete Methode ist der Spearman’s rho oder Spearmans geordneter Korrelationskoeffizient. Die Testergebnisse werden bei p<0,05 für alle gültigen Erhebungen an Seen im Untersuchungsgebiet ausgewertet.
 # 
 # 1. Rot/Rosa ist eine positive Assoziation 
 # 2. Gelb ist eine negative Assoziation 
@@ -792,7 +798,7 @@ if alert_less_than_100:
 else:
     warning = ""
 
-association = F"""*{this_feature["name"]} rangiert Korrelation der häufigsten Objekte in Bezug auf das Landnutzungsprofil. Für alle gültigen Seerhebungen n={len(corr_data.loc_date.unique())}.*
+association = F"""*Ausgewertete Korrelation der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil im  {this_feature["name"]}. Für alle gültigen Seerhebungen n={len(corr_data.loc_date.unique())}.*
 
 *{warning}*
 """
@@ -848,29 +854,29 @@ plt.show()
 
 # *Legende: wenn p >0,05 = weiß, wenn p < 0,05 und rho > 0 = rot, wenn p < 0,05 und rho < 0 = gelb*
 
-# ## Nutzen der gefundenen Objekte 
+# ## Verwendungszweck der gefundenen Objekte 
 # 
-# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.
+# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert. 
 # 
 # *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
-# *  **Mikroplastik (< 5 mm):** zersplitterte Kunststoffe und Kunststoffharze aus der Vorproduktion
+# *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
-# *  **Landwirtschaft:** vor allem Industriefolien, z. B. für Mulch und 
+# *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
 # *  **Tabak:** hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen außer Lebensmittel und Getränke:** Verpackungsmaterial, das nicht als lebensmittel-, getränke- oder tabakbezogen gekennzeichnet ist
+# *  **Verpackungen außer Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # In[19]:
 
 
 cg_poft = F"""
 <br></br>
-*__Unten:__ {this_feature["name"]} Nutzen oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Wassermerkmal.*
+*__Unten:__ Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gewässer im {this_feature["name"]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*
 """
 md(cg_poft)
 
@@ -932,7 +938,7 @@ plt.show()
 
 cg_medpcm = F"""
 <br></br>
-*__Unten:__ {this_feature["name"]} Nutzen der gefundenen Objekte Median p/100m Median {unit_label}.*
+*__Unten:__ {this_feature["name"]} Verwendungszweck der gefundenen Objekte Median {unit_label}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*
 """
 md(cg_medpcm)
 
@@ -977,7 +983,7 @@ r_smps = rivers.groupby(["loc_date", "date", "location", "water_name_slug"], as_
 l_smps = fd[fd.w_t == "l"].groupby(["loc_date","date","location", "water_name_slug"], as_index=False).agg(agg_pcs_quantity)
 
 chart_notes = F"""
-*__Links:__ {this_feature["name"]} Flüsse, {start_date[:7]} bis {end_date[:7]}, n={len(r_smps.loc_date.unique())}. {not_included} __Rechts:__ Zusammenfassende Daten.*
+*__Links:__ {this_feature["name"]} Flüsse, {start_date[3:]} bis {end_date[3:]}, n={len(r_smps.loc_date.unique())}. {not_included} __Rechts:__ Zusammenfassende der Daten.*
 """
 md(chart_notes )
 
@@ -1026,13 +1032,13 @@ table_five.get_celld()[(0,0)].get_text().set_text(" ")
 plt.show()
 
 
-# ### Flüsse häufigsten Objekte
+# ### Die an Flüssen am häufigsten gefundene Objekte
 
 # In[25]:
 
 
 riv_mcommon = F"""
-*{this_feature["name"]} Flüsse häufigste Objekte {unit_label}:  Medianwert der Erhebung.*
+*Häufigste Objekte {unit_label} an Flüssen im {this_feature["name"]}:  Medianwert der Erhebung.*
 """
 md(riv_mcommon)
 
@@ -1088,7 +1094,7 @@ plt.close()
 
 
 frag_foams = F"""
-*__Unten:__ {this_feature["name"]} fragmentierte Kunststoffe und geschäumte Kunststoffe nach Größe, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.*
+*__Unten:__ Fragmentierte und geschäumte Kunststoffe nach Größe im {this_feature["name"]}, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.*
 """
 md(frag_foams)
 

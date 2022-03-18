@@ -37,7 +37,7 @@
 
 # sys, file and nav packages:
 import datetime as dt
-
+import locale
 # math packages:
 import pandas as pd
 import numpy as np
@@ -69,8 +69,12 @@ from IPython.display import Markdown as md
 from IPython.display import display
 import matplotlib.image as mpimg
 
+loc = locale.getlocale()
+lang =  "de_CH.utf8"
+locale.setlocale(locale.LC_ALL, lang)
+
 # set some parameters:
-today = dt.datetime.now().date().strftime("%Y-%m-%d")
+# today = dt.datetime.now().date().strftime("%Y-%m-%d")
 start_date = '2020-03-01'
 end_date ='2021-05-31'
 
@@ -138,7 +142,7 @@ code_material_map = dfCodes.material
 sut.display_image_ipython("resources/images/baselines/takingnotes2.jpg")
 
 
-# *__Oben:__ 18.052020 Zählen von Abfallobjekten am Zürichsee, Richterswil; 3.49 Objekte pro Meter.*
+# *__Oben:__ 18.05.2020 Zählen von Abfallobjekten am Zürichsee, Richterswil; 3.49 Objekte pro Meter.*
 
 # ### Schweiz 2020
 # 
@@ -208,7 +212,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg")
 
 # ## Berechnung der Basislinien 
 # 
-# Die in den Abschnitten 3 und 4 von A European Threshold Value and Assessment Method for Macro Abfallobjekte on Coastlines und den Abschnitten 6, 7 und 8 von Analysis of a pan-European 2012-2016 beach litter data set beschriebenen Methoden werden auf die Ergebnisse der Strand-Abfallaufkommen Untersuchung von April 2020 bis Mai 2021 angewendet. 
+# Die in den Abschnitten 3 und 4 von *A European Threshold Value and Assessment Method for Macro litter on Coastlines* und den Abschnitten 6, 7 und 8 von *Analysis of a pan-European 2012-2016 beach litter data set* beschriebenen Methoden werden auf die Ergebnisse der Strand-Abfallaufkommen Untersuchung von April 2020 bis Mai 2021 angewendet. 
 # 
 # Die verschiedenen Optionen für die Berechnung von Basislinien, die Bestimmung von Konfidenzintervallen und die Identifizierung von Extremwerten werden erläutert und mit Beispielen versehen. 
 # 
@@ -303,12 +307,12 @@ days = mdates.DayLocator(interval=7)
 
 # sns.set_style('whitegrid')
 
-fig = plt.figure(figsize=(8,5))
+fig = plt.figure(figsize=(9,5))
 
-gs = GridSpec(1,5)
+gs = GridSpec(1,8)
 
-ax = fig.add_subplot(gs[:,0:3])
-axtwo = fig.add_subplot(gs[:, 3:])
+ax = fig.add_subplot(gs[:,0:4])
+axtwo = fig.add_subplot(gs[:, 4:])
 
 # scale the chart as needed to accomodate for extreme values
 scale_back = 98
@@ -326,24 +330,27 @@ ax.set_ylabel(unit_label, **ck.xlab_k14)
 ax.set_xlabel("")
 ax.xaxis.set_minor_locator(days)
 ax.xaxis.set_major_formatter(months_fmt)
+h,l = ax.get_legend_handles_labels()
+
+ax.legend(h, l)
 
 # axtwo
 a_color = "dodgerblue"
 
-# summarize the survey totals and format for printing
-table_data = dt_all[unit_label].describe()
-table_data.drop('count', inplace=True)
-table_data = table_data.astype('int')
-table_data = table_data.map(lambda x: "{:,}".format(x))
 
-# make a 2d array
-t_data = list(zip(table_data.index, table_data.values))
+# get the basic statistics from pd.describe
+cs = dt_all[unit_label].describe().round(2)
+
+# change the names
+csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="DE"))
+
+combined_summary = sut.fmt_combined_summary(csx, nf=[])
 
 sut.hide_spines_ticks_grids(axtwo)
 
-the_first_table_data = axtwo.table(t_data,  colLabels=["Stat", unit_label], colWidths=[.5,.5], bbox=[0, 0, 1, 1])
+the_first_table_data = axtwo.table(combined_summary[1:],  colLabels=["Stat", unit_label], colWidths=[.5,.5], bbox=[0, 0, 1, 1])
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,t_data,["Stat", unit_label], a_color, s_et_bottom_row=True)
+a_summary_table_one = sut.make_a_summary_table(the_first_table_data,combined_summary[1:],["Stat", unit_label], a_color, s_et_bottom_row=True)
 
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
 axtwo.tick_params(which='both', axis='both', labelsize=14)
@@ -377,8 +384,8 @@ axtwo = fig.add_subplot(gs[:, 3:])
 ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
 
 sns.histplot(data=dt_all, x=unit_label, stat='count', ax=ax, alpha=0.6)
-ax.axvline(x=dt_all[unit_label].median(), c='magenta', label='median')
-ax.axvline(x=dt_all[unit_label].mean(), c='red', label='mean')
+ax.axvline(x=dt_all[unit_label].median(), c='magenta', label='Median')
+ax.axvline(x=dt_all[unit_label].mean(), c='red', label='Durchschnitt')
 ax.legend()
 
 sut.hide_spines_ticks_grids(axtwo)
@@ -436,8 +443,6 @@ plt.show()
 # Die Perzentil-Methode berücksichtigt nicht die Form der zugrunde liegenden Verteilung, was zu Konfidenzintervallen führen kann, die nicht mit den Daten übereinstimmen. Die BCa-Methode korrigiert dies. Die Implementierung dieser Methoden ist mit den bereits zitierten Paketen einfach zu bewerkstelligen. {cite}`bcatheory` {cite}`bcaimpdrysdale` {cite}`bcaconfidence`
 # 
 # ### Vergleich der Bootstrap-KIs 
-
-# *__Unten:__ Konfidenzintervalle berechnet mit der Percentile Bootstrap Methode*
 
 # In[8]:
 
@@ -542,10 +547,6 @@ bcas = bca_cis.reset_index()
 bcas[['10', '20', '50', '90']] = bcas[['10', '20', '50', '90']].astype('int')
 bcas['b-method'] = 'BCa'
 
-
-# In[9]:
-
-
 # bootstrap percentile confidence intervals
 # resample the survey totals for n times to help
 # define the range of the sampling statistic
@@ -587,7 +588,7 @@ p_cis.reset_index(inplace=True)
 
 # *__Unten links:__ Konfidenzintervalle, die durch eine 5.000-fache Wiederholungsstichprobe der Umfrageergebnisse für jede Bedingung berechnet wurden. __Unten rechts:__ Die gleichen Intervalle unter Verwendung der verzerrungskorrigierten Methode.*
 
-# In[10]:
+# In[9]:
 
 
 fig, axs = plt.subplots(1,2, figsize=(11,3))
@@ -616,7 +617,7 @@ plt.close()
 # 
 # $(pcs/m)*100 = (123_{pcs} / 40_m)*100m \approxeq 313p/100m$
 
-# In[11]:
+# In[10]:
 
 
 sut.display_image_ipython('resources/images/baselines/mullermatte_bielersee31_01_2021.png', thumb=(1200, 700))
@@ -638,7 +639,7 @@ sut.display_image_ipython('resources/images/baselines/mullermatte_bielersee31_01
 
 # *__Unten:__ Der Median und das 95%-Konfidenzintervall der Erhebungsgebiete Linth, Aare und Rhône. Das Erhebungsgebiet Tessin ist mangels ausreichender Anzahl von Datenerhebungen nicht enthalten.*
 
-# In[12]:
+# In[11]:
 
 
 bassins = ["linth", "aare", "rhone"]
@@ -699,7 +700,7 @@ plt.close()
 # 
 # *__Unten__: Die Grenze, ab der eine Datenerhebung als extrem gilt, erstreckt sich auf das 98. Perzentil, wenn die Boxplots angepasst werden, im Gegensatz zum 90. Perzentil, wenn die Konstante bei 1,5 belassen wird.*
 
-# In[13]:
+# In[12]:
 
 
 # implementation of medcouple
@@ -761,22 +762,22 @@ ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', 
 plt.show()
 
 
-# In[14]:
+# In[13]:
 
 
 caption = F"""
-*Der Unterschied zwischen bereinigten und normalen Boxplots. Bereinigt = {int(a_2fence)} {unit_label},  nicht bereinigt = {int(limit_upper)} {unit_label}.*
+*Der Unterschied zwischen bereinigten und normalen Boxplots. Bereinigt = {f"{locale.format_string('%d', int(a_2fence), grouping=True)}"} {unit_label},  nicht bereinigt = {int(limit_upper)} {unit_label}.*
 """
 md(caption)
 
 
-# Bei Verwendung der bereinigten Boxplots steigt die Extremwertschwelle (EVT) auf über 1600p/100m. Die unbereinigten Boxplots liegen jedoch innerhalb der KI des erwarteten Perzentils der Umfragedaten. 
+# Bei Verwendung der bereinigten Boxplots steigt die Extremwertschwelle (EVT) auf über 1'600p/100m. Die unbereinigten Boxplots liegen jedoch innerhalb der KI des erwarteten Perzentils der Umfragedaten. 
 
-# *__Unten:__ Beispiel für bereinigte Extremwerte: St. Gingolph, 08-12-2020. Es wurden 514 Objekte (pcs) über 31 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert:* 
+# *__Unten:__ Beispiel für bereinigte Extremwerte: St. Gingolph, 12.08.2020 Es wurden 514 Objekte (pcs) über 31 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert:* 
 # 
-# $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1652p/100m$
+# $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1'652p/100m$
 
-# In[15]:
+# In[14]:
 
 
 sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
@@ -812,7 +813,7 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 
 # *__Anpassen der Daten an die zugrunde liegende NB-Verteilung.__ Die beobachteten Datenerhebungen Ergebnisse werden mit den geschätzten Datenerhebungen unter Verwendung der Methode der Momente und der Maximum-Likelihood-Schätzung verglichen. __Links:__ Histogramm der Ergebnisse im Vergleich zu den beobachteten Daten. __Rechts:__ Verteilung der Ergebnisse im Vergleich zu den beobachteten Daten mit 90. Perzentil.* 
 
-# In[16]:
+# In[15]:
 
 
 # implementaion of MLE
@@ -886,6 +887,9 @@ som_datax = pd.DataFrame([{unit_label:x, 'model':'MLE'}  for x in som_data])
 
 # combined the different results in to one df
 data = pd.concat([pd.DataFrame(scpsx), pd.DataFrame(obsx), pd.DataFrame(som_datax)])
+data.reset_index(inplace=True)
+
+
 
 # the 90th
 ev = data.groupby('model', as_index=False)[unit_label].quantile(.9)
@@ -901,7 +905,7 @@ axone=axs[1]
 bw=80
 
 sns.histplot(data=data, x=unit_label, ax=ax, hue='model', zorder=2, palette=box_palette, binwidth=bw, element='bars', multiple='stack', alpha=0.4)
-
+# sns.histplot(data=data, x=unit_label, ax=ax, hue='model')
 box_props = {
     'boxprops':{'facecolor':'none', 'edgecolor':'black'},
     'medianprops':{'color':'black'},
@@ -936,7 +940,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[17]:
+# In[16]:
 
 
 evx = ev.set_index('model')
@@ -959,7 +963,7 @@ md(pnt)
 
 # *__Unten:__ Vergleichen Sie die Ausgangswerte der häufigsten Objekte. Alle Datenerhebungen 2020 - 2021. Das Erhebungsgebiet Ticino/Cerisio hat weniger als 100 Datenerhebungen.*
 
-# In[18]:
+# In[17]:
 
 
 sut.display_image_ipython("resources/images/baselines/lakes_rivers_de_22_0.png", thumb=(800, 1200))
@@ -971,7 +975,7 @@ sut.display_image_ipython("resources/images/baselines/lakes_rivers_de_22_0.png",
 
 # *__Unten:__ Vergleichen Sie die Ausgangswerte der häufigsten Objekte. Aare-Erhebungsgebiet Seen und Flüsse 2020 - 2021. Orte mit mehr als 30 Datenerhebungen: Bielersee, Neuenburgersee und Thunersee.*
 
-# In[19]:
+# In[18]:
 
 
 sut.display_image_ipython("resources/images/baselines/aare_sa_de_23_0.png", thumb=(800, 800))

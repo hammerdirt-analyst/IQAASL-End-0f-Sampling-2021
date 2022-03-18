@@ -33,14 +33,20 @@ from IPython.display import Markdown as md
 from IPython.display import display
 
 loc = locale.getlocale()
-lang =  'de_DE.utf8'
+lang =  'de_CH.utf8'
 locale.setlocale(locale.LC_ALL, lang)
+
+# the date is in iso standard:
+d = "%Y-%m-%d"
+
+# it gets changed to german format
+g = "%d.%m.%Y"
 
 
 # set some parameters:
-today = dt.datetime.now().date().strftime("%Y-%m-%d")
-start_date = "2020-03-01"
-end_date ="2021-05-31"
+# today = dt.datetime.now().date().strftime("%Y-%m-%d")
+start_date = "01.03.2020"
+end_date ="31.05.2021"
 a_fail_rate = 50
 
 # the city, lake and river bassin we are aggregating to
@@ -158,6 +164,12 @@ dfSurveys = sut.fo_rmat_and_slice_date(survey_data.copy(), a_format="%Y-%m-%d", 
 dfSurveys['city'] = dfSurveys.location.map(lambda x: city_map.loc[x])
 trb = dfSurveys[dfSurveys.river_bassin == levels['river_bassin']].copy()
 
+# apply local date configuration
+trb["date"] = pd.to_datetime(trb["date"])
+trb["date"] = trb["date"].dt.strftime(g)
+trb["date"] = pd.to_datetime(trb["date"], format=g)
+
+
 # describe the data set:
 num_obs = len(trb)
 num_samps = len(trb.loc_date.unique())
@@ -183,7 +195,7 @@ biel_t = biel.quantity.sum()
 sut.display_image_ipython("resources/maps/survey_areas/aare_scaled.jpeg", thumb=(1200, 700))
 
 
-# Zwischen dem 2020-03-01 und dem 2020-05-31 wurden bei 140 Erhebungen im Aare-Erhebungsgebiet 13'847 Objekte gesammelt. 
+# Zwischen dem 01.03.2020 und dem 31.05.2021 wurden bei 140 Erhebungen im Aare-Erhebungsgebiet 13'847 Objekte gesammelt. 
 
 # *__Unten:__ Die Erhebungsresultate des Aare-Erhebungsgebietes, mit Ausschnitt Biel/Bienne und Monatsmedian. __Unten links:__ Zusammenfassende Statistik für das Erhebungsgebiet Aare. __Unten rechts:__ Zusammenfassende Statistik Biel/Bienne.*
 
@@ -250,7 +262,7 @@ not_included = F"Werte größer als das 99. Perzentil ({round(the_90th, 2)}) wer
 
 axone.set_ylabel("pcs/m", **ck.xlab_k14)
 axone.set_ylim(0,the_90th )
-axone.set_title(F"{level_names[2]}, {start_date[:7]} bis {end_date[:7]}, n={num_samps}\n{not_included}",  **ck.title_k)
+axone.set_title(F"{level_names[2]}, {start_date[3:]} bis {end_date[3:]}, n={num_samps}\n{not_included}",  **ck.title_k)
 axone.xaxis.set_minor_locator(days)
 axone.xaxis.set_major_formatter(months_fmt)
 axone.set_xlabel("")

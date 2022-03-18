@@ -39,6 +39,9 @@
 # sys, file and nav packages:
 import datetime as dt
 
+# for date and month formats in french or german
+import locale
+
 # math packages:
 import pandas as pd
 import numpy as np
@@ -64,11 +67,21 @@ from PIL import Image as PILImage
 from IPython.display import Markdown as md
 from IPython.display import display 
 
-# set some parameters:
-# today = dt.datetime.now().date().strftime("%Y-%m-%d")
-start_date = "2015-11-01"
-end_date ="2021-05-31"
+# set the locale to the language desired
+# the locale is set back to to original at the the end of the script
+loc = locale.getlocale()
+lang =  'de_CH.utf8'
+locale.setlocale(locale.LC_ALL, lang)
 
+# the date is in iso standard:
+d = "%Y-%m-%d"
+
+# it gets changed to german format
+g = "%d.%m.%Y"
+
+# set some parameters:
+start_date = "01.03.2020"
+end_date ="31.05.2021"
 start_end = [start_date, end_date]
 
 unit_label = "p/100m"
@@ -458,6 +471,7 @@ cy = combined_summary[col_rder]
 c = cy.T.reset_index()
 
 c[["2018", "2020"]] = c[["2018", "2020"]].astype("int")
+c[["2018", "2020"]] = c[["2018", "2020"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
 
 # material totals
 mat_total = df.groupby(["survey year", "code"], as_index=False).quantity.sum()
@@ -500,6 +514,7 @@ a_table.get_celld()[(0,0)].get_text().set_text(" ")
 # material totals
 a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
+the_material_table_data.get_celld()[(0,0)].get_text().set_text(" ")
 plt.tight_layout()
 plt.show()
 
@@ -602,13 +617,13 @@ for i, som_data in enumerate([com_2017, com_2020]):
     som_data.sort_values(by="quantity", ascending=False, inplace=True)
     som_data["item"] = som_data.index.map(lambda x: code_description_map.loc[x])
     som_data["% of total"] = som_data["% of total"].map(lambda x: F"{int(x)}%")
-    som_data["quantity"] = som_data.quantity.map(lambda x: F"{int(x):,}")
+    som_data["quantity"] = som_data.quantity.map(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
     som_data["fail rate"] = som_data["fail rate"].map(lambda x: F"{int(x)}%")
     som_data[unit_label] = som_data[unit_label].map(lambda x: F"{round(x,2)}")    
     table_data.append({chart_labels[i]:som_data})
 
 # the columns needed
-cols_to_use = {"item":"Objekte","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"Pass fail", unit_label:unit_label}
+cols_to_use = {"item":"Objekte","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 
 fig, axs = plt.subplots(1,2, figsize=(17.2,10*.6))
 
@@ -665,12 +680,6 @@ locs_lakes = lks_df[lks_df["survey year"] == "2020"].location.unique()
 
 
 # *__Oben links:__ Umfragesummen nach Datum, __oben rechts:__ Median der monatlichen Umfragesumme, __unten links:__ Anzahl der Stichproben in Bezug auf die Umfragesumme, __unten rechts:__ empirische kumulative Verteilung der Umfragesummen* 
-
-# In[ ]:
-
-
-
-
 
 # In[10]:
 
@@ -794,7 +803,8 @@ col_rder = ['Anzahl der Standorte',
 ]
 cy = combined_summary[col_rder]
 c = cy.T.reset_index()
-c[["2018","2020"]] =  c[["2018", "2020"]].astype("int")
+c[["2018", "2020"]] = c[["2018", "2020"]].astype("int")
+c[["2018", "2020"]] = c[["2018", "2020"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
 
 # material totals
 mat_total = lks_df.groupby(["survey year", "code"], as_index=False).quantity.sum()
@@ -836,6 +846,7 @@ a_table.get_celld()[(0,0)].get_text().set_text(" ")
 # material totals
 a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
+the_material_table_data.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.show()
 
@@ -1068,8 +1079,8 @@ small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"
 # 
 # Spearman's $\rho$ oder Spearmans Rangkorrelationskoeffizient ist ein nichtparametrischer Test der Rangkorrelation zwischen zwei Variablen {cite}`defspearmans` {cite}`spearmansexplained`. Die Testergebnisse werden bei p<0,05 und 454 Stichproben ausgewertet. Zur Implementierung des Tests wird SciPy verwendet {cite}`impspearmans`.
 # 
-# 1. rot/rosa ist eine positive Assoziation: p<0.05 AND $\rho$ > 0
-# 2. gelb ist eine negative Assoziation: p<0.05 AND $\rho$ < 0
+# 1. rot/rosa ist eine positive Assoziation: p<0.05 und $\rho$ > 0
+# 2. gelb ist eine negative Assoziation: p<0.05 und $\rho$ < 0
 # 3. weißen Medianen, die p>0,05 sind, gibt es keine statistische Grundlage für die Annahme eines Zusammenhangs
 # 
 # 

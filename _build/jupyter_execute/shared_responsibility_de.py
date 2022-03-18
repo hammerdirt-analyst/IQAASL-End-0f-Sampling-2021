@@ -204,7 +204,7 @@ code_material_map = dfCodes.material
 sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.jpeg", thumb=(1200, 700))
 
 
-# *__Oben:__ Lac Léman, St. Gingolph 07 May 2020 (15.92pcs/m).*
+# *__Oben:__ Lac Léman, St. Gingolph 07.05.2020 (1600p/100m).*
 # 
 # Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise größere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das [Landnutzungsprofil.](luseprofilede). Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabak in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde. 
 # 
@@ -295,12 +295,12 @@ plt.show()
 
 # ## Die Daten
 # 
-# *__Unten:__ Karte der Standorte der Datenerhebungen IQAASL.* 
+# *__Unten:__ Für diese Analyse wurden nur Erhebungsorte an Seen berücksichtigt. Das Walenseegebiet wurde mangels ausreichender Landnutzungsdaten ausgeschlossen. Damit reduziert sich der Datensatz auf 300 Erhebungen an 84 städtischen und ländlichen Standorten von März 2020 bis Mai 2021.* 
 
 # In[4]:
 
 
-sut.display_image_ipython("resources/maps/survey_locations_all.jpeg", thumb=(1200, 700))
+sut.display_image_ipython("resources/maps/sharedresponsibility.jpeg", thumb=(1200, 700))
 
 
 # In[5]:
@@ -412,10 +412,10 @@ urban = cg_dg_dt[(cg_dg_dt['rural'] == 'urban')].location.unique()
 grt_dtr = cg_dg_dt.groupby(['loc_date', 'date','rural'], as_index=False)[unit_label].agg({unit_label:"sum"})
 
 # check the survey totals for each group
-astring = F"""
-Es wurden {t["nsamples"]} Datenerhebungen an {len(t["locations"])} vershiedenen Orten durchgeführt.
-"""
-md(astring)
+# astring = F"""
+# Es wurden {t["nsamples"]} Datenerhebungen an {len(t["locations"])} vershiedenen Orten durchgeführt.
+# """
+# md(astring)
 
 
 # In[6]:
@@ -493,7 +493,7 @@ md(astring)
     
 
 
-# Datenerhebungen Ergebnisse städtische und ländliche Standorte März 2020 - Mai 2021. __Links:__ Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse Stadt - Land mit Detail der Code-Gruppen Ergebnisse. 
+# *__Unten:__ Datenerhebungen Ergebnisse städtische und ländliche Standorte März 2020 - Mai 2021. __Links:__ Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse Stadt - Land mit Detail der Code-Gruppen Ergebnisse.* 
 
 # In[7]:
 

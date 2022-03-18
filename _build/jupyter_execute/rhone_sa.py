@@ -396,7 +396,7 @@ dts_date.set_index("date", inplace=True)
 resample_plot, rate = sut.quarterly_or_monthly_values(fd_dindex , this_feature["name"], vals=unit_label, quarterly=["ticino"])
 
 # scale the chart as needed to accomodate for extreme values
-y_lim = 95
+y_lim = 99
 y_limit = np.percentile(dts_date[unit_label], y_lim)
 
 # label for the chart that alerts to the scale

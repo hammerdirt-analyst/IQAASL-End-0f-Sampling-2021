@@ -73,7 +73,7 @@ from myst_nb import glue
 # set the locale to the language desired
 # the locale is set back to to original at the the end of the script
 loc = locale.getlocale()
-lang =  "de_DE.utf8"
+lang =  "de_CH.utf8"
 locale.setlocale(locale.LC_ALL, lang)
 
 # the date is in iso standard:
@@ -84,7 +84,7 @@ g = "%d.%m.%Y"
 
 # set some parameters:
 start_date = "01.03.2020"
-end_date ="31.09.2021"
+end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100m"
@@ -272,13 +272,13 @@ for i, n in enumerate(luse_exp):
     
     # get the dist for all here
     a_all_surveys =  ECDF(dt_nw[n].values)
-    sns.lineplot(x=a_all_surveys.x, y=a_all_surveys.y, ax=ax, label="All surveys", color="magenta", linewidth=2.5)
+    sns.lineplot(x=a_all_surveys.x, y=a_all_surveys.y, ax=ax, label="Alle Erhebungsgebiete", color="magenta", linewidth=2.5)
  
     # get the median from the data
     the_median = np.median(dt_nw[n].values)
     
     # plot the median and drop horzontal and vertical lines
-    ax.scatter([the_median], 0.5, color="red",s=50, linewidth=2, zorder=100, label="the median")
+    ax.scatter([the_median], 0.5, color="red",s=50, linewidth=2, zorder=100, label="Median")
     ax.vlines(x=the_median, ymin=0, ymax=0.5, color="red", linewidth=2)
     ax.hlines(xmax=the_median, xmin=0, y=0.5, color="red", linewidth=2)
     
@@ -336,16 +336,17 @@ dims_table["Survey area"] = dims_table.index.map(lambda x: comp_labels[x])
 dims_table.set_index("Survey area", inplace=True)
    
 # get the sum of all survey areas
-dims_table.loc["All survey areas"]= dims_table.sum(numeric_only=True, axis=0)
+dims_table.loc["Alle Erhebungsgebiete"]= dims_table.sum(numeric_only=True, axis=0)
 
 # for display
 dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
-dims_table.rename(columns={"samples":"samples","quantity":"items", "total_w":"total kg", "mac_plast_w":"plastic kg", "area":"m²", "length":"meters"}, inplace=True)
+
+dims_table.rename(columns={"samples":"Erhebungen","quantity":"Objekten", "total_w":"Gesamt-kg", "mac_plast_w":"Plastic-kg", "area":"m²", "length":"Meter"}, inplace=True)
 
 # format kilos and text strings
-dims_table["plastic kg"] = dims_table["plastic kg"]/1000
-dims_table[["m²", "meters", "samples", "items"]] = dims_table[["m²", "meters", "samples", "items"]].applymap(lambda x: "{:,}".format(int(x)))
-dims_table[["plastic kg", "total kg"]] = dims_table[["plastic kg", "total kg"]].applymap(lambda x: "{:.2f}".format(x))
+dims_table["Plastic-kg"] = dims_table["Plastic-kg"]/1000
+dims_table[["m²", "Meter", "Erhebungen", "Objekten"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekten"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
+dims_table[["Plastic-kg", "Gesamt-kg"]] = dims_table[["Plastic-kg", "Gesamt-kg"]].applymap(lambda x: "{:.2f}".format(x))
 
 data = dims_table.reset_index()
 
@@ -386,7 +387,7 @@ fd_dindex = dt_all.set_index("date")
 monthly_plot = fd_dindex[unit_label].resample("M").median()
 
 # scale the chart as needed to accomodate for extreme values
-y_lim = 95
+y_lim = 97
 y_limit = np.percentile(dt_all[unit_label], y_lim)
 
 # months locator, can be confusing
@@ -445,7 +446,7 @@ plt.close()
 # 
 # ```
 # 
-# {numref}`Abbildung {number}: <eos_scatter_de>` __Links:__ Alle Erhebungen von 2020-03 bis 2021-05 gruppiert nach Erhebungsgebiet und aggregiert zum monatlichen Median. Werte über 2324,3 p/100 m sind nicht dargestellt. __Rechts:__ Die empirische kumulative Verteilung der Gesamtwerte der Erhebungen. 
+# {numref}`Abbildung {number}: <eos_scatter_de>` __Links:__ Alle Erhebungen von 03.2020 bis 05.2021 gruppiert nach Erhebungsgebiet und aggregiert zum monatlichen Median. Werte über 1'778 p/100 m sind nicht dargestellt. __Rechts:__ Die empirische kumulative Verteilung der Gesamtwerte der Erhebungen. 
 
 # __Zusammenfassende Daten und Materialtypen__
 
@@ -468,7 +469,7 @@ fd_mat_totals = sut.fmt_pct_of_total(fd_mat_totals)
 fd_mat_totals = sut.make_string_format(fd_mat_totals)
 
 # applly new column names for printing
-cols_to_use = {"material":"Material","quantity":"Quantity", "% of total":"% of total"}
+cols_to_use = {"material":"Material","quantity":"Gesamt", "% of total":"% Gesamt"}
 fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
 
 # make tables
@@ -516,9 +517,9 @@ plt.close()
 # md(material_type)
 
 
-# ## Die häufigsten Objekte
+# ## Die am häufigsten gefundenen Objekte
 # 
-# Die häufigsten Objekte sind __die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden__. 
+# Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[8]:
 
@@ -538,11 +539,11 @@ m_common_percent_of_total = m_common.quantity.sum()/code_totals.quantity.sum()
 # format values for table
 m_common["item"] = m_common.index.map(lambda x: code_description_map.loc[x])
 m_common["% of total"] = m_common["% of total"].map(lambda x: F"{x}%")
-m_common["quantity"] = m_common.quantity.map(lambda x: "{:,}".format(x))
+m_common["quantity"] = m_common.quantity.map(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
 m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
 m_common[unit_label] = m_common[unit_label].map(lambda x: F"{np.ceil(x)}")
 
-cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"Ausfallsrate", unit_label:unit_label}
+cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 
 # final table data
 all_survey_areas = m_common[cols_to_use.keys()].values
@@ -557,7 +558,7 @@ table_four.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.tight_layout()
 glue("mcommoneos_de", fig, display=False)
-# plt.show()
+plt.close()
 
 
 # ```{glue:figure} mcommoneos_de
@@ -719,12 +720,12 @@ new_labels = [code_description_map.loc[x] for x in labels[1:]]
 new_labels = new_labels[::-1]
 
 # insert a label for the monthly average
-new_labels.insert(0,"Monthly survey average")
+new_labels.insert(0,"Monatsdurchschnitt")
 handles = [handles[0], *handles[1:][::-1]]
     
 plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)
 glue("monthlyeos_de", fig, display=False)
-plt.close()
+# plt.close()
 
 
 # ```{glue:figure} monthlyeos_de
@@ -739,24 +740,24 @@ plt.close()
 
 # ## Erhebungsergebnisse und Landnutzung 
 # 
-# Die Erhebungsergebnisse in Bezug auf die Landnutzung auf nationaler Ebene werden ausführlich in Das [ Landnutzungsprofil ](luseprofilede) and [Shared responsibility - english](transportde).
+# Die Erhebungsergebnisse in Bezug auf die Landnutzung auf nationaler Ebene werden ausführlich in Das [ Landnutzungsprofil ](luseprofilede) and [Geteilte Verantwortung](transportde).
 
-# ## Nutzen der gefundenen Objekte 
+# ## Verwendungszweck der gefundenen Objekte 
 # 
-# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.
+# Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert. 
 # 
 # *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
-# *  **Mikroplastik (< 5 mm):** zersplitterte Kunststoffe und Kunststoffharze aus der Vorproduktion
+# *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
-# *  **Landwirtschaft:** vor allem Industriefolien, z. B. für Mulch und 
+# *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
 # *  **Tabak:** hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen außer Lebensmittel und Getränke:** Verpackungsmaterial, das nicht als lebensmittel-, getränke- oder tabakbezogen gekennzeichnet ist
+# *  **Verpackungen außer Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # Der Nutzungszweck oder die Beschreibung der identifizierten Objekte in % der Gesamtfläche der Erhebung. 
 
@@ -816,7 +817,7 @@ plt.close()
 
 
 cg_medpcm = F"""
-{top_name[0]} utility of objects found median {unit_label}. Fragmented objects with no clear identification remain classified by size:
+{top_name[0]} Verwendungszweck der gefundenen Objekte Median {unit_label}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.
 """
 md(cg_medpcm)
 
@@ -925,7 +926,7 @@ plt.close()
 # 
 # ```
 # 
-# {numref}`Abbildung {number}: <riversx_de>` *Links:* Gesamtergebnisse der Erhebungen an Flüssen für alle Erhebungsgebiete von 2020-03 bis 2021-05, n=55. Werte über 2324,3 p/100 m sind nicht dargestellt. *Rechts:* Zusammenfassende Daten zu Flüssen.
+# {numref}`Abbildung {number}: <riversx_de>` *Links:* Gesamtergebnisse der Erhebungen an Flüssen für alle Erhebungsgebiete von 03.2020 bis 05.2021, n=55. Werte über 1'779 p/100 m sind nicht dargestellt. *Rechts:* Zusammenfassende Daten zu Flüssen.
 
 # __Häufigste Objekte__
 
@@ -950,14 +951,14 @@ r_mc.sort_values(by="quantity", ascending=False, inplace=True)
 
 r_mc["% of total"]=((r_mc.quantity/r_codes.quantity.sum())*100).round(2)
 r_mc["% of total"] = r_mc["% of total"].map(lambda x: F"{x}%")
-r_mc["quantity"] = r_mc.quantity.map(lambda x: "{:,}".format(x))
+r_mc["quantity"] = r_mc.quantity.map(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
 r_mc["fail rate"] = r_mc["fail rate"].map(lambda x: F"{x}%")
 r_mc[unit_label] = r_mc[unit_label].map(lambda x: F"{np.ceil(x)}")
 
-cols_to_use = {"item":"Item","quantity":"Quantity"}
+cols_to_use =  {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 r_mc.rename(columns=cols_to_use, inplace=True)
 
-data=r_mc[["Item","Quantity", "% of total", "fail rate", unit_label]]
+data=r_mc[["Objekt","Gesamt", "% Gesamt", "fail-rate", unit_label]]
 
 fig, axs = plt.subplots(figsize=(12.3,len(data)*.8))
 
@@ -1015,10 +1016,11 @@ fd_frags_foams = fd_frags_foams.groupby("code").agg({unit_label:"median", "quant
 fd_frags_foams["item"] = fd_frags_foams.index.map(lambda x: code_description_map.loc[x])
 fd_frags_foams["% of total"] = (fd_frags_foams.quantity/fd.quantity.sum()*100).round(2)
 fd_frags_foams["% of total"] = fd_frags_foams["% of total"].map(lambda x: F"{x}%")
-fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
+fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
 
 # table data
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]]
+data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt"}, inplace=True)
 
 fig, axs = plt.subplots(figsize=(len(data.columns)*1.9,len(data)*.5))
 sut.hide_spines_ticks_grids(axs)
@@ -1035,10 +1037,11 @@ plt.show()
 # 1. Precious Plastic Léman
 # 2. Association pour la Sauvegarde du Léman
 # 3. Geneva international School
-# 4. Solid waste engineering students: École polytechnique fédéral Lausanne
-# 5. Summit foundation
+# 4. Solid waste engineering students: École polytechnique fédérale Lausanne
+# 5. Summit Foundation
 # 6. University of Raperswill
 # 7. Hackuarium
+# 8. hammerdirt
 
 # ### Gemeinden, Seen und Flüsse mit Erhebungen
 
@@ -1098,13 +1101,19 @@ fd_effected_population = fd_pop_map.sum()
 fd_locs = fd.location.unique()
 # list of survey keys
 fd_samps = fd.loc_date.unique()
+(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
+
+obj_string = locale.format_string('%d', fd_n_obj, grouping=True)
+surv_string = locale.format_string('%d', int(fd_n_samps), grouping=True)
+pop_string = locale.format_string('%d', int(fd_effected_population[0]), grouping=True)
 
 
-obj_string = "{:,}".format(fd_n_obj)
-surv_string = "{:,}".format(fd_n_samps)
-pop_string = "{:,}".format(int(fd_effected_population[0]))
 
-date_quantity_context = F"Für den Zeitraum zwischen {start_date[:-3]} und {end_date[:-3]}, wurden im Rahmen von {surv_string} Datenerhebungen insgesamt {obj_string } Objekte entfernt und identifiziert."
+# obj_string = "{:,}".format(fd_n_obj)
+# surv_string = "{:,}".format(fd_n_samps)
+# pop_string = "{:,}".format(int(fd_effected_population[0]))
+
+date_quantity_context = F"Für den Zeitraum zwischen {start_date[3:]} und {end_date[3:]}, wurden im Rahmen von {surv_string} Datenerhebungen insgesamt {obj_string } Objekte entfernt und identifiziert."
 geo_context = F"Die Ergebnisse des Aare-Erhebungsgebiets umfassen {fd_n_locs} Orte,  {fd_n_munis } Gemeinden und eine Gesamtbevölkerung von etwa {pop_string} Einwohnern."
 
 # date_quantity_context = F"For the period between {start_date[:-3]} and {end_date[:-3]}, {obj_string } objects were removed and identified in the course of {surv_string} surveys."

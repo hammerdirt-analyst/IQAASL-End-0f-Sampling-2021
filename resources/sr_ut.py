@@ -609,7 +609,7 @@ luse_ge = {"% to buildings": "% zu Gebäuden",
            "% to agg": "% zu LWS",
            "% to woods": "% zu Wald",
            "streets km": "Straßen km",
-           "intersects": "Intersekte"
+           "intersects": "Flussmündung"
            }
 
 mat_ge = {"Metal":"Metall", 

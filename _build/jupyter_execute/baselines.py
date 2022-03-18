@@ -548,10 +548,6 @@ bcas = bca_cis.reset_index()
 bcas[['10', '20', '50', '90']] = bcas[['10', '20', '50', '90']].astype('int')
 bcas['b-method'] = 'BCa'
 
-
-# In[9]:
-
-
 # bootstrap percentile confidence intervals
 # resample the survey totals for n times to help
 # define the range of the sampling statistic
@@ -593,7 +589,7 @@ p_cis.reset_index(inplace=True)
 
 # *__Below left:__ Confidence intervals calculated by resampling the survey results 5,000 times for each condition. __Below right:__ The same intervals using the bias corrected method.*
 
-# In[10]:
+# In[9]:
 
 
 fig, axs = plt.subplots(1,2, figsize=(11,3))
@@ -622,7 +618,7 @@ plt.close()
 # 
 # $(pcs/m)*100 = (123_{pcs} / 40_m)*100m \approxeq 313p/100m$
 
-# In[11]:
+# In[10]:
 
 
 sut.display_image_ipython('resources/images/baselines/mullermatte_bielersee31_01_2021.png', thumb=(1200, 700))
@@ -644,7 +640,7 @@ sut.display_image_ipython('resources/images/baselines/mullermatte_bielersee31_01
 
 # *__Below:__ The median and the 95% confidence interval of the Linth, Aare and Rhône survey areas. The Ticino survey area is not included for lack of a sufficient quantity of surveys.*
 
-# In[12]:
+# In[11]:
 
 
 bassins = ["linth", "aare", "rhone"]
@@ -704,7 +700,7 @@ plt.close()
 # 
 # *__Below__: The limit at which a survey is considered extreme extends to the 98th percentile when the boxplots are adjusted as opposed to the 90th percentile if the constant is left at 1.5.*
 
-# In[13]:
+# In[12]:
 
 
 # implementation of medcouple
@@ -766,7 +762,7 @@ ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', 
 plt.show()
 
 
-# In[14]:
+# In[13]:
 
 
 caption = F"""
@@ -781,7 +777,7 @@ md(caption)
 # 
 # $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1652p/100m$
 
-# In[15]:
+# In[14]:
 
 
 sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
@@ -817,7 +813,7 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 
 # *__Fitting the data to the underlying NB distribution.__ The observed survey results are compared to the estimated survey results using the method of moments and maximum likelihood estimation. __Left:__ histogram of simulated results compared to observed data. __Right:__ distribution of results compared to observed data with the 90<sup>th</sup> percentile.* 
 
-# In[16]:
+# In[15]:
 
 
 # implementaion of MLE
@@ -891,6 +887,7 @@ som_datax = pd.DataFrame([{unit_label:x, 'model':'MLE'}  for x in som_data])
 
 # combined the different results in to one df
 data = pd.concat([pd.DataFrame(scpsx), pd.DataFrame(obsx), pd.DataFrame(som_datax)])
+data.reset_index(inplace=True)
 
 # the 90th
 ev = data.groupby('model', as_index=False)[unit_label].quantile(.9)
@@ -942,7 +939,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[17]:
+# In[16]:
 
 
 evx = ev.set_index('model')
@@ -965,7 +962,7 @@ md(pnt)
 
 # *__Below:__ Comparing the baseline values of the most common objects. All survey areas 2020 - 2021. The Ticino/Cerisio survey area has less than 100 surveys. __units= p/100m__*
 
-# In[18]:
+# In[17]:
 
 
 sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", thumb=(800, 1200))
@@ -977,7 +974,7 @@ sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", th
 
 # *__Below:__ Comparing the baseline values of the most common objects. Aare survey area lakes and rivers 2020 - 2021. Locations with more than 30 surveys: Bielersee, Neuenburgersee and Thunersee.*
 
-# In[19]:
+# In[18]:
 
 
 sut.display_image_ipython("resources/images/baselines/example_implementation2.png", thumb=(800, 800))

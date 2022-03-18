@@ -33,7 +33,7 @@ from IPython.display import Markdown as md
 # set the locale to the language desired
 # the locale is set back to to original at the the end of the script
 loc = locale.getlocale()
-lang =  "de_DE.utf8"
+lang =  "de_CH.utf8"
 locale.setlocale(locale.LC_ALL, lang)
 
 # set some parameters:
@@ -150,7 +150,7 @@ sut.display_image_ipython("resources/images/land_use_profile/land_use_dispaly_20
 # * Kilometer Straßen 85
 # * Fluss kreutz: 2
 
-# *Datenerhebungen in einer ländlichen Umgebung. Kallnach, BE. 26-02-2021*
+# *Datenerhebungen in einer ländlichen Umgebung. Kallnach, BE 26.02.2021*
 
 # In[3]:
 
@@ -158,7 +158,7 @@ sut.display_image_ipython("resources/images/land_use_profile/land_use_dispaly_20
 sut.display_image_ipython("resources/images/land_use_profile/tightquarterswholensee.jpg", thumb=(800, 600))
 
 
-# *Datenerhebungen in einer städtischen Umgebung. Vevey, 28-02-2021*
+# *Datenerhebungen in einer städtischen Umgebung. Vevey, 28.02.2021*
 
 # In[4]:
 
@@ -285,7 +285,7 @@ plt.show()
 # 
 # Die Anzahl der Datenerhebungen reicht von Null bis 23, von den 354 Datenerhebungen hatten 50% 3 oder weniger Kreuzungen innerhalb von 1500m vom Erhebungsort. Die Größe des kreuzenden Flusses oder Kanals wurde nicht berücksichtigt. Datenerhebungen an Flüssen haben null Kreuzungen. 
 # 
-# Die Bevölkerung (nicht gezeigt) stammt aus statpop 2018 und stellt die Bevölkerung der Gemeinde dar, die den Erhebungsort umgibt. Die kleinste Einwohnerzahl betrug 442 und die größte 415.367. Von den gesamten Datenerhebungen stammen 50% aus Gemeinden mit einer Einwohnerzahl von mindestens 12.812. 
+# Die Bevölkerung (nicht gezeigt) stammt aus statpop 2018 und stellt die Bevölkerung der Gemeinde dar, die den Erhebungsort umgibt. Die kleinste Einwohnerzahl betrug 442 und die größte 415'367. Von den gesamten Datenerhebungen stammen 50% aus Gemeinden mit einer Einwohnerzahl von mindestens 12'812. 
 
 # ### Auswahl der Datenerhebungsorte
 # 
@@ -474,11 +474,11 @@ m_common["% of total"] = ((m_common.quantity/survey_data.quantity.sum())*100).as
 
 # format values for table
 m_common['% of total'] = m_common["% of total"].map(lambda x: F"{x}%")
-m_common['quantity'] = m_common.quantity.map(lambda x: F'{x:,}')
+m_common['quantity'] = m_common.quantity.map(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
 m_common['fail rate'] = m_common['fail rate'].map(lambda x: F"{x}%")
 
 mcc = m_common[cols_to_use]
-colLabels = ["Artikel", "Gesamt", "Ausfallquote", "%Gesamt"]
+colLabels = ["Artikel", "Gesamt", "fail-rate", "%Gesamt"]
 
 fig, axs = plt.subplots(figsize=(9,len(m_common)*.8))
 
