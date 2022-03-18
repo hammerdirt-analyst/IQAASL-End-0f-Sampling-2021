@@ -83,7 +83,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="titlepage_de.html">
-   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+   Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
   </a>
  </li>
 </ul>
@@ -353,8 +353,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kumulative-gesamtmengen-nach-wassermerkmalen">
-     12.1.1. Kumulative Gesamtmengen nach Wassermerkmalen
+    <a class="reference internal nav-link" href="#kumulative-gesamtmengen-nach-gemeinden">
+     12.1.1. Kumulative Gesamtmengen nach Gemeinden
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -370,25 +370,25 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-haufigsten-objekte">
-   12.2. Die häufigsten Objekte
+  <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte">
+   12.2. Die am häufigsten gefundenen Objekte
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-haufigsten-objekte-nach-gemeinden">
-     12.2.1. Die häufigsten Objekte nach Gemeinden
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte-nach-gemeinden">
+     12.2.1. Die am häufigsten gefundenen Objekte nach Gemeinden
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#haufigste-objekte-im-monatlichen-durchschnitt">
-     12.2.2. Häufigste Objekte im monatlichen Durchschnitt
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
+     12.2.2. Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nutzen-der-gefundenen-objekte">
-   12.3. Nutzen der gefundenen Objekte
+  <a class="reference internal nav-link" href="#verwendungszweck-der-gefundenen-objekte">
+   12.3. Verwendungszweck der gefundenen Objekte
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -492,7 +492,7 @@
 <span class="c1"># set the locale to the language desired</span>
 <span class="c1"># the locale is set back to to original at the the end of the script</span>
 <span class="n">loc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">()</span>
-<span class="n">lang</span> <span class="o">=</span>  <span class="s2">&quot;de_DE.utf8&quot;</span>
+<span class="n">lang</span> <span class="o">=</span>  <span class="s1">&#39;de_CH.utf8&#39;</span>
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
 
 <span class="c1"># the date is in iso standard:</span>
@@ -503,7 +503,7 @@
 
 <span class="c1"># set some parameters:</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;01.03.2020&quot;</span>
-<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;31.09.2021&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;31.05.2021&quot;</span>
 <span class="n">start_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">]</span>
 <span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;p/100m&quot;</span>
@@ -536,7 +536,6 @@
 
 <span class="c1"># aggregation of dimensional data</span>
 <span class="n">agg_dims</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;total_w&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">}</span>
-
 
 <span class="c1"># columns needed</span>
 <span class="n">use_these_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;loc_date&quot;</span> <span class="p">,</span>
@@ -616,7 +615,7 @@
 <div class="section" id="walensee">
 <span id="walenseede"></span><h1><span class="section-number">12. </span>Walensee<a class="headerlink" href="#walensee" title="Permalink to this headline">¶</a></h1>
 <p><a href="walensee.html"> English </a></p>
-<p><em>Karte der Datenerhebungen März 2020 - Mai 2021.</em></p>
+<p><em><strong>Unten:</strong> Karte des Erhebungsgebiets März 2020 - Mai 2021. Durchmesser der Punktsymbole = das mittlere Erhebungsergebnis in gefundene Abfallobjekte pro 100 Meter (p/100m).</em></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/walensee_de_3_0.png" src="_images/walensee_de_3_0.png" />
@@ -642,6 +641,7 @@
 <span class="n">a_data</span><span class="p">[</span><span class="s2">&quot;groupname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[</span><span class="s2">&quot;groupname&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">sut</span><span class="o">.</span><span class="n">group_names_de</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">a_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">sut</span><span class="o">.</span><span class="n">luse_ge</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<span class="c1"># the data for this report</span>
 <span class="n">fd</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">feature_data</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">],</span> <span class="n">these_features</span><span class="o">=</span><span class="n">lakes_of_interest</span><span class="p">)</span>
 
 <span class="c1"># cumulative statistics for each code</span>
@@ -670,25 +670,20 @@
 <span class="n">fd_pop_map</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">unique</span><span class="p">()][[</span><span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">fd_pop_map</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># update t with the population data</span>
-<span class="n">t</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sut</span><span class="o">.</span><span class="n">make_table_values</span><span class="p">(</span><span class="n">fd_pop_map</span><span class="p">,</span> <span class="n">col_nunique</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">],</span> <span class="n">col_sum</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">],</span> <span class="n">col_median</span><span class="o">=</span><span class="p">[]))</span>
-
-<span class="c1"># update t with the list of locations from fd</span>
-<span class="n">t</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;locations&quot;</span><span class="p">:</span><span class="n">fd</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">unique</span><span class="p">()})</span>
-
 <span class="c1"># number of cities</span>
 <span class="n">fd_n_munis</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fd_pop_map</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="c1"># populations</span>
+
+<span class="c1"># total population</span>
 <span class="n">fd_effected_population</span> <span class="o">=</span> <span class="n">fd_pop_map</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <span class="c1"># join the strings into comma separated list</span>
-<span class="n">obj_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">])</span>
-<span class="n">surv_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">])</span>
-<span class="n">pop_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]))</span>
+<span class="n">obj_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">surv_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pop_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># make strings</span>
 <span class="n">date_quantity_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Für den Zeitraum zwischen </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> und </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, wurden im Rahmen von </span><span class="si">{</span><span class="n">surv_string</span><span class="si">}</span><span class="s2"> Datenerhebungen insgesamt </span><span class="si">{</span><span class="n">obj_string</span> <span class="si">}</span><span class="s2"> Objekte entfernt und identifiziert.&quot;</span>
-<span class="n">geo_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Die Ergebnisse des Aare-Erhebungsgebiets umfassen </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Orte,  </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Gemeinden und eine Gesamtbevölkerung von etwa </span><span class="si">{</span><span class="n">pop_string</span><span class="si">}</span><span class="s2"> Einwohnern.&quot;</span>
+<span class="n">geo_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Die Ergebnisse des </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> umfassen </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Orte,  </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Gemeinden und eine Gesamtbevölkerung von etwa </span><span class="si">{</span><span class="n">pop_string</span><span class="si">}</span><span class="s2"> Einwohnern.&quot;</span>
 <span class="n">munis_joined</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">fd_pop_map</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]))</span>
 
 <span class="c1"># put that all together:</span>
@@ -702,15 +697,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>Für den Zeitraum zwischen 03.2020 und 09.2021, wurden im Rahmen von 31 Datenerhebungen insgesamt 3,694 Objekte entfernt und identifiziert. Die Ergebnisse des Aare-Erhebungsgebiets umfassen 9 Orte,  4 Gemeinden und eine Gesamtbevölkerung von etwa 28,823 Einwohnern.</p>
+<p>Für den Zeitraum zwischen 03.2020 und 05.2021, wurden im Rahmen von 31 Datenerhebungen insgesamt 3'694 Objekte entfernt und identifiziert. Die Ergebnisse des Walensee umfassen 9 Orte,  4 Gemeinden und eine Gesamtbevölkerung von etwa 28'823 Einwohnern.</p>
 <p><em>Die Gemeinden in diesem Bericht:</em></p>
 <blockquote>
 <div><p>Glarus Nord, Quarten, Walenstadt, Weesen</p>
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="kumulative-gesamtmengen-nach-wassermerkmalen">
-<h3><span class="section-number">12.1.1. </span>Kumulative Gesamtmengen nach Wassermerkmalen<a class="headerlink" href="#kumulative-gesamtmengen-nach-wassermerkmalen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="kumulative-gesamtmengen-nach-gemeinden">
+<h3><span class="section-number">12.1.1. </span>Kumulative Gesamtmengen nach Gemeinden<a class="headerlink" href="#kumulative-gesamtmengen-nach-gemeinden" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dims_parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">this_level</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> 
@@ -738,7 +733,7 @@
 
 <span class="c1"># format kilos</span>
 <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="c1"># figure caption</span>
@@ -810,7 +805,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Walensee, 01.03.2 bis 31.09.2, n=31. Werte größer als 2368.3p/100m 98% nicht gezeigt. <strong>Rechts:</strong> Walensee  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.</em></p>
+<p><em><strong>Links:</strong> Walensee, 01.03.2 bis 31.05.2, n=31. Werte größer als 2368.3p/100m 98% nicht gezeigt. <strong>Rechts:</strong> Walensee  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -828,6 +823,7 @@
 
 <span class="c1"># feature surveys</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dts_date</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">dts_date</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>  <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
 <span class="c1"># all other surveys</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fd_dindex</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">fd_dindex</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
@@ -870,7 +866,7 @@
 <h3><span class="section-number">12.1.3. </span>Zusammenfassende Daten und Materialtypen<a class="headerlink" href="#zusammenfassende-daten-und-materialtypen" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Walensee Zusammenfassung der Gesamtzahlen der Erhebungen. <strong>Rechts:</strong> Walensee Materialart und Prozentsatz der Gesamtmenge.</em></p>
+<p><em><strong>Links:</strong> Zusammenfassung der Daten aller Erhebungen im Walensee. <strong>Rechts:</strong> Gefundene Materialarten im Walensee und Prozentsatz deren Gesamtmenge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -929,9 +925,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="die-haufigsten-objekte">
-<h2><span class="section-number">12.2. </span>Die häufigsten Objekte<a class="headerlink" href="#die-haufigsten-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte">
+<h2><span class="section-number">12.2. </span>Die am häufigsten gefundenen Objekte<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
+<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the top ten by quantity</span>
@@ -948,14 +944,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">rb_string</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten:__ Häufigste Objekte am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.*</span>
+<span class="s2">*__Unten:__ Häufigste Objekte im </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% aller gefundenen Objekte aus. Anmerkung: </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> = Medianwert der Erhebung.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">rb_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Häufigste Objekte am Walensee: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.</em></p>
+<p><em><strong>Unten:</strong> Häufigste Objekte im Walensee: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 75% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -963,7 +959,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># format values for table</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -989,11 +985,11 @@
 <img alt="_images/walensee_de_17_0.png" src="_images/walensee_de_17_0.png" />
 </div>
 </div>
-<div class="section" id="die-haufigsten-objekte-nach-gemeinden">
-<h3><span class="section-number">12.2.1. </span>Die häufigsten Objekte nach Gemeinden<a class="headerlink" href="#die-haufigsten-objekte-nach-gemeinden" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte-nach-gemeinden">
+<h3><span class="section-number">12.2.1. </span>Die am häufigsten gefundenen Objekte nach Gemeinden<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-nach-gemeinden" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> häufigste Objekte am Walensee:  Median p/100m.</em></p>
+<p><em><strong>Unten:</strong> häufigste Objekte im Walensee: Median p/100m.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1001,7 +997,6 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregated survey totals for the most common codes for all the water features</span>
 <span class="n">m_common_st</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s2">&quot;loc_date&quot;</span><span class="p">,</span><span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 <span class="n">m_common_ft</span> <span class="o">=</span> <span class="n">m_common_st</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-
 
 <span class="c1"># map the desctiption to the code</span>
 <span class="n">m_common_ft</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common_ft</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
@@ -1046,8 +1041,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="haufigste-objekte-im-monatlichen-durchschnitt">
-<h3><span class="section-number">12.2.2. </span>Häufigste Objekte im monatlichen Durchschnitt<a class="headerlink" href="#haufigste-objekte-im-monatlichen-durchschnitt" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
+<h3><span class="section-number">12.2.2. </span>Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collect the survey results of the most common objects</span>
@@ -1068,14 +1063,14 @@
     <span class="n">mgr</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">this_group</span><span class="p">)</span>
 
 <span class="n">monthly_mc</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">, monatliche Durchschnittsergebnisse </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">. Detail der häufigsten Objekte.*</span>
+<span class="s2">*__Unten:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">, monatliche Durchschnittsergebnisse </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">monthly_mc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten</strong> Walensee, monatliche Durchschnittsergebnisse p/100m. Detail der häufigsten Objekte.</em></p>
+<p><em><strong>Unten:</strong> Walensee, monatliche Durchschnittsergebnisse p/100m.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1116,6 +1111,7 @@
     <span class="c1"># if i == 0 laydown the first bars</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">this_x</span><span class="p">,</span> <span class="n">mgr</span><span class="p">[</span><span class="n">a_group</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="n">a_group</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors_palette</span><span class="p">[</span><span class="n">a_group</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span> <span class="p">)</span> 
+    
     <span class="c1"># else use the previous results to define the bottom</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">bottom</span> <span class="o">+=</span> <span class="n">mgr</span><span class="p">[</span><span class="n">an_order</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>        
@@ -1153,26 +1149,26 @@
 </div>
 </div>
 </div>
-<div class="section" id="nutzen-der-gefundenen-objekte">
-<h2><span class="section-number">12.3. </span>Nutzen der gefundenen Objekte<a class="headerlink" href="#nutzen-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
+<div class="section" id="verwendungszweck-der-gefundenen-objekte">
+<h2><span class="section-number">12.3. </span>Verwendungszweck der gefundenen Objekte<a class="headerlink" href="#verwendungszweck-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
+<p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
 <ul class="simple">
 <li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
-<li><p><strong>Mikroplastik (&lt; 5 mm):</strong> zersplitterte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
+<li><p><strong>Mikroplastik (&lt; 5 mm):</strong> fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
 <li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen</p></li>
-<li><p><strong>Landwirtschaft:</strong> vor allem Industriefolien, z. B. für Mulch und</p></li>
+<li><p><strong>Landwirtschaft:</strong>     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
 <li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Freizeit und Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
-<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong> Verpackungsmaterial, das nicht als lebensmittel-, getränke- oder tabakbezogen gekennzeichnet ist</p></li>
+<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
 <li><p><strong>Plastikfragmente:</strong> Plastikteile unbestimmter Herkunft oder Verwendung</p></li>
 <li><p><strong>Persönliche Gegenstände:</strong> Accessoires, Hygieneartikel und Kleidung</p></li>
 </ul>
-<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Codegruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
+<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><br></br>
-<em><strong>Unten:</strong> Walensee Nutzen oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden.</em></p>
+<em><strong>Unten:</strong> Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden im Walensee. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1294,7 +1290,7 @@
 <p>Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe &gt; 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien &gt; 0,5 cm werden für die Analyse als Gfrags gruppiert.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Walensee fragmentierte Kunststoffe und geschäumte Kunststoffe nach Größe, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.</em></p>
+<p><em><strong>Unten:</strong> Fragmentierte und geschäumte Kunststoffe nach Größe im Walensee, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1315,7 +1311,7 @@
 <span class="n">fd_frags_foams</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd_frags_foams</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">fd_frags_foams</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fd_frags_foams</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">fd</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">fd_frags_foams</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd_frags_foams</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">fd_frags_foams</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd_frags_foams</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fd_frags_foams</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd_frags_foams</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># table data</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">fd_frags_foams</span><span class="p">[[</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]]</span>

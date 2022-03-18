@@ -85,7 +85,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="titlepage_de.html">
-   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+   Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
   </a>
  </li>
 </ul>
@@ -516,7 +516,7 @@
 
 <span class="c1"># sys, file and nav packages:</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-
+<span class="kn">import</span> <span class="nn">locale</span>
 <span class="c1"># math packages:</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -548,8 +548,12 @@
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
 
+<span class="n">loc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">()</span>
+<span class="n">lang</span> <span class="o">=</span>  <span class="s2">&quot;de_CH.utf8&quot;</span>
+<span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
+
 <span class="c1"># set some parameters:</span>
-<span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># today = dt.datetime.now().date().strftime(&quot;%Y-%m-%d&quot;)</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-03-01&#39;</span>
 <span class="n">end_date</span> <span class="o">=</span><span class="s1">&#39;2021-05-31&#39;</span>
 
@@ -616,7 +620,7 @@
 <img alt="_images/baselines_de_2_0.png" src="_images/baselines_de_2_0.png" />
 </div>
 </div>
-<p><em><strong>Oben:</strong> 18.052020 Zählen von Abfallobjekten am Zürichsee, Richterswil; 3.49 Objekte pro Meter.</em></p>
+<p><em><strong>Oben:</strong> 18.05.2020 Zählen von Abfallobjekten am Zürichsee, Richterswil; 3.49 Objekte pro Meter.</em></p>
 <div class="section" id="schweiz-2020">
 <h3><span class="section-number">14.1.1. </span>Schweiz 2020<a class="headerlink" href="#schweiz-2020" title="Permalink to this headline">¶</a></h3>
 <p>Das IQAASL-Projekt begann im März 2020, Standorte in den definierten Erhebungsgebieten wurden 2017 beprobt oder neu eingerichtet. Ähnlich wie die Datenerhebungen Ergebnisse in der Meeresumwelt sind die Daten über Strand-Abfallobjekte in der Schweiz sehr unterschiedlich. Die Werte reichen von Null bis zu Tausenden von Objekten und Fragmenten innerhalb von 100 m vom Fluss- oder Seeufer.</p>
@@ -692,7 +696,7 @@
 </div>
 <div class="section" id="berechnung-der-basislinien">
 <h2><span class="section-number">14.2. </span>Berechnung der Basislinien<a class="headerlink" href="#berechnung-der-basislinien" title="Permalink to this headline">¶</a></h2>
-<p>Die in den Abschnitten 3 und 4 von A European Threshold Value and Assessment Method for Macro Abfallobjekte on Coastlines und den Abschnitten 6, 7 und 8 von Analysis of a pan-European 2012-2016 beach litter data set beschriebenen Methoden werden auf die Ergebnisse der Strand-Abfallaufkommen Untersuchung von April 2020 bis Mai 2021 angewendet.</p>
+<p>Die in den Abschnitten 3 und 4 von <em>A European Threshold Value and Assessment Method for Macro litter on Coastlines</em> und den Abschnitten 6, 7 und 8 von <em>Analysis of a pan-European 2012-2016 beach litter data set</em> beschriebenen Methoden werden auf die Ergebnisse der Strand-Abfallaufkommen Untersuchung von April 2020 bis Mai 2021 angewendet.</p>
 <p>Die verschiedenen Optionen für die Berechnung von Basislinien, die Bestimmung von Konfidenzintervallen und die Identifizierung von Extremwerten werden erläutert und mit Beispielen versehen.</p>
 <p><strong>Annahmen:</strong></p>
 <ul class="simple">
@@ -784,12 +788,12 @@
 
 <span class="c1"># sns.set_style(&#39;whitegrid&#39;)</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
-<span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">axtwo</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:])</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">axtwo</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:])</span>
 
 <span class="c1"># scale the chart as needed to accomodate for extreme values</span>
 <span class="n">scale_back</span> <span class="o">=</span> <span class="mi">98</span>
@@ -807,24 +811,27 @@
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">days</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">months_fmt</span><span class="p">)</span>
+<span class="n">h</span><span class="p">,</span><span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 
 <span class="c1"># axtwo</span>
 <span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;dodgerblue&quot;</span>
 
-<span class="c1"># summarize the survey totals and format for printing</span>
-<span class="n">table_data</span> <span class="o">=</span> <span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-<span class="n">table_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">table_data</span> <span class="o">=</span> <span class="n">table_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
-<span class="n">table_data</span> <span class="o">=</span> <span class="n">table_data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-<span class="c1"># make a 2d array</span>
-<span class="n">t_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">table_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">table_data</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<span class="c1"># get the basic statistics from pd.describe</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># change the names</span>
+<span class="n">csx</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">change_series_index_labels</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">sut</span><span class="o">.</span><span class="n">create_summary_table_index</span><span class="p">(</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;DE&quot;</span><span class="p">))</span>
+
+<span class="n">combined_summary</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">fmt_combined_summary</span><span class="p">(</span><span class="n">csx</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="p">[])</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axtwo</span><span class="p">)</span>
 
-<span class="n">the_first_table_data</span> <span class="o">=</span> <span class="n">axtwo</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">t_data</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stat&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">],</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.5</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">the_first_table_data</span> <span class="o">=</span> <span class="n">axtwo</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">combined_summary</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>  <span class="n">colLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stat&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">],</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.5</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
-<span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">t_data</span><span class="p">,[</span><span class="s2">&quot;Stat&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">],</span> <span class="n">a_color</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">combined_summary</span><span class="p">[</span><span class="mi">1</span><span class="p">:],[</span><span class="s2">&quot;Stat&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">],</span> <span class="n">a_color</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -861,8 +868,8 @@
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dt_all</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Median&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Durchschnitt&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axtwo</span><span class="p">)</span>
@@ -923,7 +930,6 @@
 </div>
 <div class="section" id="vergleich-der-bootstrap-kis">
 <h3><span class="section-number">14.2.4. </span>Vergleich der Bootstrap-KIs<a class="headerlink" href="#vergleich-der-bootstrap-kis" title="Permalink to this headline">¶</a></h3>
-<p><em><strong>Unten:</strong> Konfidenzintervalle berechnet mit der Percentile Bootstrap Methode</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this code was modified from this source:</span>
@@ -1025,13 +1031,8 @@
 <span class="n">bcas</span> <span class="o">=</span> <span class="n">bca_cis</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">bcas</span><span class="p">[[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">bcas</span><span class="p">[[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
 <span class="n">bcas</span><span class="p">[</span><span class="s1">&#39;b-method&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;BCa&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bootstrap percentile confidence intervals</span>
+
+<span class="c1"># bootstrap percentile confidence intervals</span>
 <span class="c1"># resample the survey totals for n times to help</span>
 <span class="c1"># define the range of the sampling statistic</span>
 <span class="c1"># the number of reps</span>
@@ -1099,7 +1100,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_24_0.png" src="_images/baselines_de_24_0.png" />
+<img alt="_images/baselines_de_22_0.png" src="_images/baselines_de_22_0.png" />
 </div>
 </div>
 <p><em><strong>Unten:</strong> Beispielwert für das Konfidenzintervall: Das Ergebnis der Datenerhebungen in Biel am 31.01.2021 war größer als der Medianwert für alle Datenerhebungen. Es wurden 123 Objekte (pcs) über 40 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert.</em></p>
@@ -1111,7 +1112,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_26_0.png" src="_images/baselines_de_26_0.png" />
+<img alt="_images/baselines_de_24_0.png" src="_images/baselines_de_24_0.png" />
 </div>
 </div>
 </div>
@@ -1158,7 +1159,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_29_0.png" src="_images/baselines_de_29_0.png" />
+<img alt="_images/baselines_de_27_0.png" src="_images/baselines_de_27_0.png" />
 </div>
 </div>
 </div>
@@ -1252,17 +1253,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_31_0.png" src="_images/baselines_de_31_0.png" />
+<img alt="_images/baselines_de_29_0.png" src="_images/baselines_de_29_0.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em>Der Unterschied zwischen bereinigten und normalen Boxplots. Bereinigt = 1507 p/100m,  nicht bereinigt = 755 p/100m.</em></p>
+<p><em>Der Unterschied zwischen bereinigten und normalen Boxplots. Bereinigt = 1'507 p/100m,  nicht bereinigt = 755 p/100m.</em></p>
 </div>
 </div>
-<p>Bei Verwendung der bereinigten Boxplots steigt die Extremwertschwelle (EVT) auf über 1600p/100m. Die unbereinigten Boxplots liegen jedoch innerhalb der KI des erwarteten Perzentils der Umfragedaten.</p>
-<p><em><strong>Unten:</strong> Beispiel für bereinigte Extremwerte: St. Gingolph, 08-12-2020. Es wurden 514 Objekte (pcs) über 31 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert:</em></p>
-<p><span class="math notranslate nohighlight">\((pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1652p/100m\)</span></p>
+<p>Bei Verwendung der bereinigten Boxplots steigt die Extremwertschwelle (EVT) auf über 1’600p/100m. Die unbereinigten Boxplots liegen jedoch innerhalb der KI des erwarteten Perzentils der Umfragedaten.</p>
+<p><em><strong>Unten:</strong> Beispiel für bereinigte Extremwerte: St. Gingolph, 12.08.2020 Es wurden 514 Objekte (pcs) über 31 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert:</em></p>
+<p><span class="math notranslate nohighlight">\((pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1'652p/100m\)</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s1">&#39;resources/images/baselines/onethous60053pcs100m.jpg&#39;</span><span class="p">)</span>
@@ -1270,7 +1271,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_35_0.png" src="_images/baselines_de_35_0.png" />
+<img alt="_images/baselines_de_33_0.png" src="_images/baselines_de_33_0.png" />
 </div>
 </div>
 </div>
@@ -1373,6 +1374,9 @@
 
 <span class="c1"># combined the different results in to one df</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scpsx</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">obsx</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">som_datax</span><span class="p">)])</span>
+<span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
 
 <span class="c1"># the 90th</span>
 <span class="n">ev</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.9</span><span class="p">)</span>
@@ -1388,7 +1392,7 @@
 <span class="n">bw</span><span class="o">=</span><span class="mi">80</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">box_palette</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="n">bw</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="s1">&#39;bars&#39;</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-
+<span class="c1"># sns.histplot(data=data, x=unit_label, ax=ax, hue=&#39;model&#39;)</span>
 <span class="n">box_props</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;boxprops&#39;</span><span class="p">:{</span><span class="s1">&#39;facecolor&#39;</span><span class="p">:</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;edgecolor&#39;</span><span class="p">:</span><span class="s1">&#39;black&#39;</span><span class="p">},</span>
     <span class="s1">&#39;medianprops&#39;</span><span class="p">:{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;black&#39;</span><span class="p">},</span>
@@ -1425,7 +1429,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_38_0.png" src="_images/baselines_de_38_0.png" />
+<img alt="_images/baselines_de_36_0.png" src="_images/baselines_de_36_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1438,7 +1442,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>90% p/100m:  MLE=843,   Observed=727,   MOM=999</em></p>
+<p><em>90% p/100m:  MLE=742,   Observed=727,   MOM=1024</em></p>
 </div>
 </div>
 </div>
@@ -1463,7 +1467,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_42_0.png" src="_images/baselines_de_42_0.png" />
+<img alt="_images/baselines_de_40_0.png" src="_images/baselines_de_40_0.png" />
 </div>
 </div>
 <p>Der erwartete Medianwert pro Datenerhebung und der Medianwert der häufigsten Objekte pro Erhebung ist im Erhebungsgebiet Rhône höher. Wenn der Medianwert verwendet wird, zeigt die BV auch, dass 2/12 der häufigsten Objekte in weniger als 50% der Datenerhebungen landesweit gefunden wurden, nämlich diejenigen mit einem Medianwert von Null.</p>
@@ -1476,7 +1480,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_de_45_0.png" src="_images/baselines_de_45_0.png" />
+<img alt="_images/baselines_de_43_0.png" src="_images/baselines_de_43_0.png" />
 </div>
 </div>
 <p>Die empfohlene Mindestanzahl von Datenerhebungen (40) pro Probenahmezeitraum soll sicherstellen, dass die BV-Berechnungen auf einer ausreichenden Anzahl von Stichproben basieren. Dies ist wegen der hohen Variabilität der Strand-Abfallobjekte-Untersuchungen wichtig.</p>

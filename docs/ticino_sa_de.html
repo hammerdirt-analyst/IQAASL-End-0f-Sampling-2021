@@ -83,7 +83,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="titlepage_de.html">
-   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+   Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
   </a>
  </li>
 </ul>
@@ -358,47 +358,47 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kumulative-gesamtmengen-nach-wassermerkmalen">
-     6.1.2. Kumulative Gesamtmengen nach Wassermerkmalen
+    <a class="reference internal nav-link" href="#kumulative-gesamtmengen-nach-gewasser">
+     6.1.2. Kumulative Gesamtmengen nach Gewässer
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#verteilung-der-datenerhebungen-ergebnisse">
-     6.1.3. Verteilung der Datenerhebungen Ergebnisse
+    <a class="reference internal nav-link" href="#verteilung-der-ergebnisse-der-datenerhebungen">
+     6.1.3. Verteilung der Ergebnisse der Datenerhebungen
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zusammenfassende-daten-und-materialtypen">
-     6.1.4. Zusammenfassende Daten und Materialtypen
+    <a class="reference internal nav-link" href="#zusammengefasste-daten-und-materialarten">
+     6.1.4. Zusammengefasste Daten und Materialarten
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-haufigsten-objekte">
-   6.2. Die häufigsten Objekte
+  <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte">
+   6.2. Die am häufigsten gefundenen Objekte
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-haufigsten-objekte-nach-wassermerkmalen">
-     6.2.1. Die häufigsten Objekte nach Wassermerkmalen
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte-nach-gewasser">
+     6.2.1. Die am häufigsten gefundenen Objekte nach Gewässer
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#haufigste-objekte-im-monatlichen-durchschnitt">
-     6.2.2. Häufigste Objekte im monatlichen Durchschnitt
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
+     6.2.2. Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#datenerhebungen-ergebnisse-und-landnutzung">
-   6.3. Datenerhebungen Ergebnisse und Landnutzung
+  <a class="reference internal nav-link" href="#ergebnisse-der-datenerhebungen-und-landnutzung">
+   6.3. Ergebnisse der Datenerhebungen und Landnutzung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nutzen-der-gefundenen-objekte">
-   6.4. Nutzen der gefundenen Objekte
+  <a class="reference internal nav-link" href="#verwendungszweck-der-gefundenen-objekte">
+   6.4. Verwendungszweck der gefundenen Objekte
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -407,8 +407,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#flusse-haufigsten-objekte">
-     6.5.1. Flüsse häufigsten Objekte
+    <a class="reference internal nav-link" href="#die-an-flussen-am-haufigsten-gefundene-objekte">
+     6.5.1. Die an Flüssen am häufigsten gefundene Objekte
     </a>
    </li>
   </ul>
@@ -514,7 +514,7 @@
 <span class="c1"># set the locale to the language desired</span>
 <span class="c1"># the locale is set back to to original at the the end of the script</span>
 <span class="n">loc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">()</span>
-<span class="n">lang</span> <span class="o">=</span>  <span class="s2">&quot;de_DE.utf8&quot;</span>
+<span class="n">lang</span> <span class="o">=</span>  <span class="s1">&#39;de_CH.utf8&#39;</span>
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
 
 <span class="c1"># the date is in iso standard:</span>
@@ -525,7 +525,7 @@
 
 <span class="c1"># set some parameters:</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;01.03.2020&quot;</span>
-<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;31.09.2021&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;31.05.2021&quot;</span>
 <span class="n">start_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">]</span>
 <span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;p/100m&quot;</span>
@@ -635,7 +635,7 @@
 <div class="section" id="ticino">
 <span id="ticinosade"></span><h1><span class="section-number">6. </span>Ticino<a class="headerlink" href="#ticino" title="Permalink to this headline">¶</a></h1>
 <p><a href="ticino_sa.html"> English </a></p>
-<p><em><strong>Unten:</strong> Karte des Erhebungsgebiets March 2020 - Mai 2021. Markierungsdurchmesser = das mittlere Erhebungsergebnis in Müllstücken pro 100 Meter (p/100m).</em></p>
+<p><em><strong>Unten:</strong> Karte des Erhebungsgebiets März 2020 - Mai 2021. Durchmesser der Punktsymbole = das mittlere Erhebungsergebnis in gefundene Abfallobjekte pro 100 Meter (p/100m).</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="n">bassin_map</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="mi">450</span><span class="p">))</span>
@@ -695,13 +695,14 @@
 <span class="n">rivers</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dfBeaches</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;locations&quot;</span><span class="p">]))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">dfBeaches</span><span class="o">.</span><span class="n">water</span> <span class="o">==</span> <span class="s2">&quot;r&quot;</span><span class="p">)][</span><span class="s2">&quot;water_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
 <span class="c1"># join the strings into comma separated list</span>
-<span class="n">obj_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">])</span>
-<span class="n">surv_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">])</span>
-<span class="n">pop_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]))</span>
+<span class="n">obj_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">surv_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pop_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 
 <span class="c1"># make strings</span>
-<span class="n">date_quantity_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Für den Zeitraum zwischen </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> und </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, wurden im Rahmen von </span><span class="si">{</span><span class="n">surv_string</span><span class="si">}</span><span class="s2"> Datenerhebungen insgesamt </span><span class="si">{</span><span class="n">obj_string</span> <span class="si">}</span><span class="s2"> Objekte entfernt und identifiziert.&quot;</span>
-<span class="n">geo_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Die Ergebnisse des Aare-Erhebungsgebiets umfassen </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Orte,  </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Gemeinden und eine Gesamtbevölkerung von etwa </span><span class="si">{</span><span class="n">pop_string</span><span class="si">}</span><span class="s2"> Einwohnern.&quot;</span>
+<span class="n">date_quantity_context</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Für den Zeitraum zwischen </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> und </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, wurden im Rahmen von </span><span class="si">{</span><span class="n">surv_string</span><span class="si">}</span><span class="s2">  Datenerhebungen insgesamt </span><span class="si">{</span><span class="n">obj_string</span><span class="si">}</span><span class="s2"> Objekte entfernt und identifiziert.&quot;</span>
+<span class="n">geo_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Die Ergebnisse des </span><span class="si">{</span><span class="n">bassin_label</span><span class="si">}</span><span class="s2">s umfassen </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Orte,  </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Gemeinden und eine Gesamtbevölkerung von etwa </span><span class="si">{</span><span class="n">pop_string</span><span class="si">}</span><span class="s2"> Einwohnern.&quot;</span>
 <span class="n">munis_joined</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">fd_pop_map</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]))</span>
 <span class="n">lakes_joined</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">lakes</span><span class="p">))</span>
 <span class="n">rivers_joined</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">rivers</span><span class="p">))</span>
@@ -721,7 +722,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>Für den Zeitraum zwischen 03.2020 und 09.2021, wurden im Rahmen von 28 Datenerhebungen insgesamt 3,031 Objekte entfernt und identifiziert. Die Ergebnisse des Aare-Erhebungsgebiets umfassen 20 Orte,  7 Gemeinden und eine Gesamtbevölkerung von etwa 141,943 Einwohnern.</p>
+<p>Für den Zeitraum zwischen 03.2020 und 05.2021, wurden im Rahmen von 28  Datenerhebungen insgesamt 3'031 Objekte entfernt und identifiziert. Die Ergebnisse des Ticino-Erhebungsgebiets umfassen 20 Orte,  7 Gemeinden und eine Gesamtbevölkerung von etwa 141'943 Einwohnern.</p>
 <p><em>Seen:</em></p>
 <blockquote>
 <div><p>Lago Maggiore, Lago di Lugano</p>
@@ -738,10 +739,10 @@
 </div>
 <div class="section" id="landnutzungsprofil-der-erhebungsorte">
 <h3><span class="section-number">6.1.1. </span>Landnutzungsprofil der Erhebungsorte<a class="headerlink" href="#landnutzungsprofil-der-erhebungsorte" title="Permalink to this headline">¶</a></h3>
-<p>Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1500 m um den Erhebungsort zugeordnet wird.</p>
-<p>Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.</p>
-<p>Das Verhältnis der Anzahl der Erhebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte.</p>
-<p>Für weitere Informationen <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref"><em>Landnutzungsprofil</em></span></a> für weitere Details.</p>
+<p>Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1’500 m um den Erhebungsort zugeordnet wird.</p>
+<p>Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1’500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1’500 m um den Erhebungsort herum durchqueren.</p>
+<p>Das Verhältnis der Anzahl der Erhebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Rahmenbedingungen der Untersuchungsstandorte.</p>
+<p>Für weitere Informationen <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref"><em>Landnutzungsprofil</em></span></a>.</p>
 <p><em><strong>Unten:</strong> Landnutzungsprofil der Erhebungsorte. Verteilung der Erhebungen in Bezug auf die Landnutzung.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -793,7 +794,7 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">get_legend</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>    
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sut</span><span class="o">.</span><span class="n">luse_ge</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% La</span><span class="s2">ndnutzung im Umkreis von 1500 m um den Erhebungsort&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.97</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>      
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% La</span><span class="s2">ndnutzung im Umkreis von 1&#39;500 m um den Erhebungsort&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.97</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>      
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">.99</span><span class="p">,</span> <span class="mf">.99</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>      
 
@@ -806,8 +807,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="kumulative-gesamtmengen-nach-wassermerkmalen">
-<h3><span class="section-number">6.1.2. </span>Kumulative Gesamtmengen nach Wassermerkmalen<a class="headerlink" href="#kumulative-gesamtmengen-nach-wassermerkmalen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="kumulative-gesamtmengen-nach-gewasser">
+<h3><span class="section-number">6.1.2. </span>Kumulative Gesamtmengen nach Gewässer<a class="headerlink" href="#kumulative-gesamtmengen-nach-gewasser" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregate the dimensional data</span>
@@ -836,22 +837,22 @@
 <span class="c1"># for display</span>
 <span class="n">dims_table</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">dims_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;samples&quot;</span><span class="p">:</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Objekten&quot;</span><span class="p">,</span> <span class="s2">&quot;total_w&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">:</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span><span class="s2">&quot;Meter&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
+<span class="c1"># locale.format_string(&#39;%d&#39;, int(t[&quot;quantity&quot;]), grouping=True)</span>
 <span class="c1"># format kilos</span>
 <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="c1"># figure caption</span>
 <span class="n">agg_caption</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten:__     Die kumulierten Gewichte und Maße für das </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> und die Wasserkörper.*</span>
+<span class="s2">*__Unten:__  Die kumulierten Gewichte und Merkmale für das </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">und dessen Gewässer.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">agg_caption</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong>     Die kumulierten Gewichte und Maße für das Ticino-Erhebungsgebiet und die Wasserkörper.</em></p>
+<p><em><strong>Unten:</strong>  Die kumulierten Gewichte und Merkmale für das Ticino-Erhebungsgebietund dessen Gewässer.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -877,8 +878,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="verteilung-der-datenerhebungen-ergebnisse">
-<h3><span class="section-number">6.1.3. </span>Verteilung der Datenerhebungen Ergebnisse<a class="headerlink" href="#verteilung-der-datenerhebungen-ergebnisse" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="verteilung-der-ergebnisse-der-datenerhebungen">
+<h3><span class="section-number">6.1.3. </span>Verteilung der Ergebnisse der Datenerhebungen<a class="headerlink" href="#verteilung-der-ergebnisse-der-datenerhebungen" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the surveys to chart</span>
@@ -901,18 +902,20 @@
 <span class="n">y_limit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">dts_date</span><span class="p">[</span><span class="n">unit_label</span><span class="p">],</span> <span class="n">y_lim</span><span class="p">)</span>
 
 <span class="c1"># label for the chart that alerts to the scale</span>
-<span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Werte größer als </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">y_limit</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="si">}{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">% nicht gezeigt.&quot;</span>
+<span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Werte größer als </span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">y_limit</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> werden nicht gezeigt.&quot;</span>
+
+
 
 <span class="c1"># figure caption</span>
 <span class="n">chart_notes</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Links:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Rechts:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> empirische kumulative Verteilung der Datenerhebungen Ergebnisse.*</span>
+<span class="s2">*__Links:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Rechts:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> empirische kumulative Verteilung der Datenerhebunge.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">chart_notes</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Ticino-Erhebungsgebiet, 01.03.2 bis 31.09.2, n=28. Werte größer als 1551.4p/100m% nicht gezeigt. <strong>Rechts:</strong> Ticino-Erhebungsgebiet empirische kumulative Verteilung der Datenerhebungen Ergebnisse.</em></p>
+<p><em><strong>Links:</strong> Ticino-Erhebungsgebiet, 03.2020 bis 05.2021, n=28. Werte größer als 1'551 p/100m werden nicht gezeigt. <strong>Rechts:</strong> Ticino-Erhebungsgebiet empirische kumulative Verteilung der Datenerhebunge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -968,11 +971,11 @@
 </div>
 </div>
 </div>
-<div class="section" id="zusammenfassende-daten-und-materialtypen">
-<h3><span class="section-number">6.1.4. </span>Zusammenfassende Daten und Materialtypen<a class="headerlink" href="#zusammenfassende-daten-und-materialtypen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="zusammengefasste-daten-und-materialarten">
+<h3><span class="section-number">6.1.4. </span>Zusammengefasste Daten und Materialarten<a class="headerlink" href="#zusammengefasste-daten-und-materialarten" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Ticino-Erhebungsgebiet Zusammenfassung der Gesamtzahlen der Erhebungen. <strong>Rechts:</strong> Materialart im Ticino-Erhebungsgebiet     und Prozentsatz der Gesamtmenge.</em></p>
+<p><em><strong>Links:</strong> Zusammenfassung der Daten aller Erhebungen im Ticino-Erhebungsgebiet. <strong>Rechts:</strong> Gefundene Materialarten im Ticino-Erhebungsgebiet und Prozentsatz deren Gesamtmenge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1031,9 +1034,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="die-haufigsten-objekte">
-<h2><span class="section-number">6.2. </span>Die häufigsten Objekte<a class="headerlink" href="#die-haufigsten-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte">
+<h2><span class="section-number">6.2. </span>Die am häufigsten gefundenen Objekte<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
+<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the top ten by quantity</span>
@@ -1050,14 +1053,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">rb_string</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten:__ Häufigste Objekte am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% aller gefundenen Objekte aus. Anmerkung: : </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> = Medianwert der Erhebung.*</span>
+<span class="s2">*__Unten:__ Häufigste Objekte im </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% aller gefundenen Objekte aus. Anmerkung: </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> = Medianwert der Erhebung.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">rb_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Häufigste Objekte am Ticino-Erhebungsgebiet: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 74% aller gefundenen Objekte aus. Anmerkung: : p/100m = Medianwert der Erhebung.</em></p>
+<p><em><strong>Unten:</strong> Häufigste Objekte im Ticino-Erhebungsgebiet: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 74% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1065,7 +1068,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># format values for table</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -1089,11 +1092,11 @@
 <img alt="_images/ticino_sa_de_20_0.png" src="_images/ticino_sa_de_20_0.png" />
 </div>
 </div>
-<div class="section" id="die-haufigsten-objekte-nach-wassermerkmalen">
-<h3><span class="section-number">6.2.1. </span>Die häufigsten Objekte nach Wassermerkmalen<a class="headerlink" href="#die-haufigsten-objekte-nach-wassermerkmalen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte-nach-gewasser">
+<h3><span class="section-number">6.2.1. </span>Die am häufigsten gefundenen Objekte nach Gewässer<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-nach-gewasser" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> häufigste Objekte Ticino-Erhebungsgebiet: Median p/100m.</em></p>
+<p><em><strong>Unten:</strong> häufigste Objekte im Ticino-Erhebungsgebiet: Median p/100m.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1144,8 +1147,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="haufigste-objekte-im-monatlichen-durchschnitt">
-<h3><span class="section-number">6.2.2. </span>Häufigste Objekte im monatlichen Durchschnitt<a class="headerlink" href="#haufigste-objekte-im-monatlichen-durchschnitt" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
+<h3><span class="section-number">6.2.2. </span>Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collect the survey results of the most common objects</span>
@@ -1266,12 +1269,12 @@
 </div>
 </div>
 </div>
-<div class="section" id="datenerhebungen-ergebnisse-und-landnutzung">
-<h2><span class="section-number">6.3. </span>Datenerhebungen Ergebnisse und Landnutzung<a class="headerlink" href="#datenerhebungen-ergebnisse-und-landnutzung" title="Permalink to this headline">¶</a></h2>
-<p>Der Flächennutzungsmix ist eine einzigartige Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Datenerhebungen Ergebnissen werden mit den Flächennutzungsraten für einen Radius von 1500 m um den Erhebungsort verglichen.</p>
-<p>Eine Assoziation ist eine Beziehung zwischen den Datenerhebungen Ergebnissen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmaß der Beziehung ist weder definiert noch linear.</p>
+<div class="section" id="ergebnisse-der-datenerhebungen-und-landnutzung">
+<h2><span class="section-number">6.3. </span>Ergebnisse der Datenerhebungen und Landnutzung<a class="headerlink" href="#ergebnisse-der-datenerhebungen-und-landnutzung" title="Permalink to this headline">¶</a></h2>
+<p>Der Flächennutzungsmix ist eine einzigartige Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Ergebnissen der Datenerhebungen werden mit den Flächennutzungsraten für einen Radius von 1500 m um den Erhebungsort verglichen.</p>
+<p>Eine Assoziation ist eine Beziehung zwischen den Ergebnissen der Datenerhebungen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmaß der Beziehung ist weder definiert noch linear.</p>
 <p>Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein statistisch signifikanter Zusammenhang zwischen der Landnutzung und den bei einer Abfallobjekte-Erhebung identifizierten Objekten besteht.</p>
-<p>Die verwendete Methode ist der Spearman’s rho oder Spearmans geordneter Korrelationskoeffizient. Die Testergebnisse werden bei p&lt;0,05 für alle gültigen Seerhebungen im Untersuchungsgebiet ausgewertet.</p>
+<p>Die verwendete Methode ist der Spearman’s rho oder Spearmans geordneter Korrelationskoeffizient. Die Testergebnisse werden bei p&lt;0,05 für alle gültigen Erhebungen an Seen im Untersuchungsgebiet ausgewertet.</p>
 <ol class="simple">
 <li><p>Rot/Rosa ist eine positive Assoziation</p></li>
 <li><p>Gelb ist eine negative Assoziation</p></li>
@@ -1288,7 +1291,7 @@
 <span class="k">else</span><span class="p">:</span>
     <span class="n">warning</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
-<span class="n">association</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;*</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> rangiert Korrelation der häufigsten Objekte in Bezug auf das Landnutzungsprofil. Für alle gültigen Seerhebungen n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">corr_data</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">.*</span>
+<span class="n">association</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;*Ausgewertete Korrelation der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil im  </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">. Für alle gültigen Seerhebungen n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">corr_data</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">.*</span>
 
 <span class="s2">*</span><span class="si">{</span><span class="n">warning</span><span class="si">}</span><span class="s2">*</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -1297,7 +1300,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>Ticino-Erhebungsgebiet rangiert Korrelation der häufigsten Objekte in Bezug auf das Landnutzungsprofil. Für alle gültigen Seerhebungen n=22.</em></p>
+<p><em>Ausgewertete Korrelation der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil im  Ticino-Erhebungsgebiet. Für alle gültigen Seerhebungen n=22.</em></p>
 <p><em><strong>Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strand-Abfallobjekte weisen eine große Streuung auf!</strong></em></p>
 </div>
 </div>
@@ -1354,26 +1357,26 @@
 </div>
 <p><em>Legende: wenn p &gt;0,05 = weiß, wenn p &lt; 0,05 und rho &gt; 0 = rot, wenn p &lt; 0,05 und rho &lt; 0 = gelb</em></p>
 </div>
-<div class="section" id="nutzen-der-gefundenen-objekte">
-<h2><span class="section-number">6.4. </span>Nutzen der gefundenen Objekte<a class="headerlink" href="#nutzen-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
+<div class="section" id="verwendungszweck-der-gefundenen-objekte">
+<h2><span class="section-number">6.4. </span>Verwendungszweck der gefundenen Objekte<a class="headerlink" href="#verwendungszweck-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
+<p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
 <ul class="simple">
 <li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
-<li><p><strong>Mikroplastik (&lt; 5 mm):</strong> zersplitterte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
+<li><p><strong>Mikroplastik (&lt; 5 mm):</strong> fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
 <li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen</p></li>
-<li><p><strong>Landwirtschaft:</strong> vor allem Industriefolien, z. B. für Mulch und</p></li>
+<li><p><strong>Landwirtschaft:</strong>     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
 <li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Freizeit und Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
-<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong> Verpackungsmaterial, das nicht als lebensmittel-, getränke- oder tabakbezogen gekennzeichnet ist</p></li>
+<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
 <li><p><strong>Plastikfragmente:</strong> Plastikteile unbestimmter Herkunft oder Verwendung</p></li>
 <li><p><strong>Persönliche Gegenstände:</strong> Accessoires, Hygieneartikel und Kleidung</p></li>
 </ul>
-<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Codegruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
+<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><br></br>
-<em><strong>Unten:</strong> Ticino-Erhebungsgebiet Nutzen oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Wassermerkmal.</em></p>
+<em><strong>Unten:</strong> Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gewässer im Ticino-Erhebungsgebiet. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1436,7 +1439,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cg_medpcm</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;br&gt;&lt;/br&gt;</span>
-<span class="s2">*__Unten:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Nutzen der gefundenen Objekte Median p/100m Median </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">.*</span>
+<span class="s2">*__Unten:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Verwendungszweck der gefundenen Objekte Median </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">cg_medpcm</span><span class="p">)</span>
 </pre></div>
@@ -1444,7 +1447,7 @@
 </div>
 <div class="cell_output docutils container">
 <p><br></br>
-<em><strong>Unten:</strong> Ticino-Erhebungsgebiet Nutzen der gefundenen Objekte Median p/100m Median p/100m.</em></p>
+<em><strong>Unten:</strong> Ticino-Erhebungsgebiet Verwendungszweck der gefundenen Objekte Median p/100m. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1491,14 +1494,14 @@
 <span class="n">l_smps</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">w_t</span> <span class="o">==</span> <span class="s2">&quot;l&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;loc_date&quot;</span><span class="p">,</span><span class="s2">&quot;date&quot;</span><span class="p">,</span><span class="s2">&quot;location&quot;</span><span class="p">,</span> <span class="s2">&quot;water_name_slug&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 
 <span class="n">chart_notes</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Links:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Flüsse, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">r_smps</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Rechts:__ Zusammenfassende Daten.*</span>
+<span class="s2">*__Links:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Flüsse, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">r_smps</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Rechts:__ Zusammenfassende der Daten.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">chart_notes</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Ticino-Erhebungsgebiet Flüsse, 01.03.2 bis 31.09.2, n=6. Werte größer als 1551.4p/100m% nicht gezeigt. <strong>Rechts:</strong> Zusammenfassende Daten.</em></p>
+<p><em><strong>Links:</strong> Ticino-Erhebungsgebiet Flüsse, 03.2020 bis 05.2021, n=6. Werte größer als 1'551 p/100m werden nicht gezeigt. <strong>Rechts:</strong> Zusammenfassende der Daten.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1549,19 +1552,19 @@
 <img alt="_images/ticino_sa_de_39_0.png" src="_images/ticino_sa_de_39_0.png" />
 </div>
 </div>
-<div class="section" id="flusse-haufigsten-objekte">
-<h3><span class="section-number">6.5.1. </span>Flüsse häufigsten Objekte<a class="headerlink" href="#flusse-haufigsten-objekte" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-an-flussen-am-haufigsten-gefundene-objekte">
+<h3><span class="section-number">6.5.1. </span>Die an Flüssen am häufigsten gefundene Objekte<a class="headerlink" href="#die-an-flussen-am-haufigsten-gefundene-objekte" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">riv_mcommon</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Flüsse häufigste Objekte </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">:  Medianwert der Erhebung.*</span>
+<span class="s2">*Häufigste Objekte </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> an Flüssen im </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">:  Medianwert der Erhebung.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">riv_mcommon</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>Ticino-Erhebungsgebiet Flüsse häufigste Objekte p/100m:  Medianwert der Erhebung.</em></p>
+<p><em>Häufigste Objekte p/100m an Flüssen im Ticino-Erhebungsgebiet:  Medianwert der Erhebung.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1618,7 +1621,7 @@
 <p>Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe &gt; 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien &gt; 0,5 cm werden für die Analyse als Gfrags gruppiert.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Ticino-Erhebungsgebiet fragmentierte Kunststoffe und geschäumte Kunststoffe nach Größe, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.</em></p>
+<p><em><strong>Unten:</strong> Fragmentierte und geschäumte Kunststoffe nach Größe im Ticino-Erhebungsgebiet, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">

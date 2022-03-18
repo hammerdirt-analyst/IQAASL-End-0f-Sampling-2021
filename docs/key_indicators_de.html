@@ -83,7 +83,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="titlepage_de.html">
-   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+   Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
   </a>
  </li>
 </ul>
@@ -440,14 +440,20 @@
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 
 <span class="n">loc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">()</span>
-<span class="n">lang</span> <span class="o">=</span>  <span class="s1">&#39;de_DE.utf8&#39;</span>
+<span class="n">lang</span> <span class="o">=</span>  <span class="s1">&#39;de_CH.utf8&#39;</span>
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
+
+<span class="c1"># the date is in iso standard:</span>
+<span class="n">d</span> <span class="o">=</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span>
+
+<span class="c1"># it gets changed to german format</span>
+<span class="n">g</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span>
 
 
 <span class="c1"># set some parameters:</span>
-<span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2020-03-01&quot;</span>
-<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;2021-05-31&quot;</span>
+<span class="c1"># today = dt.datetime.now().date().strftime(&quot;%Y-%m-%d&quot;)</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;01.03.2020&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;31.05.2021&quot;</span>
 <span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
 
 <span class="c1"># the city, lake and river bassin we are aggregating to</span>
@@ -558,6 +564,12 @@
 <span class="n">dfSurveys</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfSurveys</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">city_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">trb</span> <span class="o">=</span> <span class="n">dfSurveys</span><span class="p">[</span><span class="n">dfSurveys</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;river_bassin&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
+<span class="c1"># apply local date configuration</span>
+<span class="n">trb</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">trb</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
+<span class="n">trb</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trb</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">trb</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">trb</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="n">g</span><span class="p">)</span>
+
+
 <span class="c1"># describe the data set:</span>
 <span class="n">num_obs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trb</span><span class="p">)</span>
 <span class="n">num_samps</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
@@ -584,7 +596,7 @@
 <img alt="_images/key_indicators_de_5_0.png" src="_images/key_indicators_de_5_0.png" />
 </div>
 </div>
-<p>Zwischen dem 2020-03-01 und dem 2020-05-31 wurden bei 140 Erhebungen im Aare-Erhebungsgebiet 13’847 Objekte gesammelt.</p>
+<p>Zwischen dem 01.03.2020 und dem 31.05.2021 wurden bei 140 Erhebungen im Aare-Erhebungsgebiet 13’847 Objekte gesammelt.</p>
 <p><em><strong>Unten:</strong> Die Erhebungsresultate des Aare-Erhebungsgebietes, mit Ausschnitt Biel/Bienne und Monatsmedian. <strong>Unten links:</strong> Zusammenfassende Statistik für das Erhebungsgebiet Aare. <strong>Unten rechts:</strong> Zusammenfassende Statistik Biel/Bienne.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -648,7 +660,7 @@
 
 <span class="n">axone</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pcs/m&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">the_90th</span> <span class="p">)</span>
-<span class="n">axone</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">level_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">num_samps</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k</span><span class="p">)</span>
+<span class="n">axone</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">level_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">num_samps</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k</span><span class="p">)</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">days</span><span class="p">)</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">months_fmt</span><span class="p">)</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>

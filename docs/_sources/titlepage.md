@@ -1,4 +1,4 @@
-# Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+# Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
 
 **Edition 1** ver=1
 
@@ -28,7 +28,7 @@
 
 **Authors:** Shannon Erismann, Roger Erismann
 
-**FOEN support:** Rita Barros
+**FOEN support:** Rita Barros, Amanda Finger, Samuel Anrig
 
 **Note:** This report was prepared under contract to the Federal Office for the Environment (FOEN). The contractor bears sole responsibility for the content.
 

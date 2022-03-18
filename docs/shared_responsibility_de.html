@@ -85,7 +85,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="titlepage_de.html">
-   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+   Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
   </a>
  </li>
 </ul>
@@ -652,7 +652,7 @@
 <img alt="_images/shared_responsibility_de_2_0.png" src="_images/shared_responsibility_de_2_0.png" />
 </div>
 </div>
-<p><em><strong>Oben:</strong> Lac Léman, St. Gingolph 07 May 2020 (15.92pcs/m).</em></p>
+<p><em><strong>Oben:</strong> Lac Léman, St. Gingolph 07.05.2020 (1600p/100m).</em></p>
 <p>Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise größere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref">Landnutzungsprofil.</span></a>. Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabak in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde.</p>
 <p>Andere Objekte haben jedoch weder einen eindeutigen geografischen Ursprung noch eine klare Verbindung zu einer Aktivität in der Nähe ihres Standorts. Die häufigsten dieser Objekte sind ≊ 40 % aller im Jahr 2020 identifizierten ausrangierten Objekte,  <a class="reference internal" href="lakes_rivers_de.html#allsurveysde"><span class="std std-ref"><em>Lakes and rivers</em> </span></a>. Die Verringerung der Menge an Abfällen an den Schweizer Ufern beinhaltet auch die Verringerung der Menge an ausrangierten Objekten, die von außerhalb der geografischen Grenzen des Strandes selbst stammen. Daher ist es ein Anreiz, ausrangierte Objekte, die an oder in der Nähe von Standorten weggeworfen werden, von Objekten zu unterscheiden, die zu den Datenerhebungen transportiert werden.</p>
 <p>Die Gewinnung objektiver Daten über Strandabfälle wird durch die hydrologischen Einflüsse der rund 61’000 km Flüsse und 1500 Seen in der Schweiz erschwert.  Die hydrologischen Bedingungen der Flüsse wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Große Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Gegenstände mit hoher Dichte werden nur dann transportiert, wenn die Fließgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Gegenstände vom Grund fernzuhalten. Sobald Gegenstände mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken <span id="id7">[<a class="reference internal" href="references.html#id68">SLBH19</a>]</span>.</p>
@@ -747,10 +747,10 @@
 </div>
 <div class="section" id="die-daten">
 <h2><span class="section-number">20.2. </span>Die Daten<a class="headerlink" href="#die-daten" title="Permalink to this headline">¶</a></h2>
-<p><em><strong>Unten:</strong> Karte der Standorte der Datenerhebungen IQAASL.</em></p>
+<p><em><strong>Unten:</strong> Für diese Analyse wurden nur Erhebungsorte an Seen berücksichtigt. Das Walenseegebiet wurde mangels ausreichender Landnutzungsdaten ausgeschlossen. Damit reduziert sich der Datensatz auf 300 Erhebungen an 84 städtischen und ländlichen Standorten von März 2020 bis Mai 2021.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/maps/survey_locations_all.jpeg&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/maps/sharedresponsibility.jpeg&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -866,20 +866,17 @@
 <span class="n">grt_dtr</span> <span class="o">=</span> <span class="n">cg_dg_dt</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;rural&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">})</span>
 
 <span class="c1"># check the survey totals for each group</span>
-<span class="n">astring</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Es wurden </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;nsamples&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Datenerhebungen an </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;locations&quot;</span><span class="p">])</span><span class="si">}</span><span class="s2"> vershiedenen Orten durchgeführt.</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">md</span><span class="p">(</span><span class="n">astring</span><span class="p">)</span>
+<span class="c1"># astring = F&quot;&quot;&quot;</span>
+<span class="c1"># Es wurden {t[&quot;nsamples&quot;]} Datenerhebungen an {len(t[&quot;locations&quot;])} vershiedenen Orten durchgeführt.</span>
+<span class="c1"># &quot;&quot;&quot;</span>
+<span class="c1"># md(astring)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<p>Es wurden 300 Datenerhebungen an 84 vershiedenen Orten durchgeführt.</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<p>Datenerhebungen Ergebnisse städtische und ländliche Standorte März 2020 - Mai 2021. <strong>Links:</strong> Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. <strong>Rechts:</strong> Verteilung der Datenerhebungen Ergebnisse Stadt - Land mit Detail der Code-Gruppen Ergebnisse.</p>
+<p><em><strong>Unten:</strong> Datenerhebungen Ergebnisse städtische und ländliche Standorte März 2020 - Mai 2021. <strong>Links:</strong> Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. <strong>Rechts:</strong> Verteilung der Datenerhebungen Ergebnisse Stadt - Land mit Detail der Code-Gruppen Ergebnisse.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># months locator, can be confusing</span>

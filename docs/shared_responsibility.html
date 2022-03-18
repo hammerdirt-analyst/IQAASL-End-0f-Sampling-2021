@@ -85,7 +85,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="titlepage.html">
-   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+   Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
   </a>
  </li>
 </ul>
@@ -677,7 +677,7 @@
 </ul>
 </li>
 </ol>
-<p>The survey locations are considered in relation to the land-use rates of the surrounding 1500m <a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref"><em>The land use profile</em></span></a>. The median value of the space attributed to buildings was used to differentiate the survey locations into two distinct groups:</p>
+<p>The survey locations are considered in relation to the land-use rates of the surrounding 1500m,see <a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref"><em>The land use profile</em></span></a>. The median value of the space attributed to buildings was used to differentiate the survey locations into two distinct groups:</p>
 <ol class="simple">
 <li><p><strong>urban:</strong> locations that have a percent of land attributed to buildings GREATER than the median of all survey locations</p></li>
 <li><p><strong>rural:</strong> locations that have a percent of land attributed to buildings LESS than the median of all survey locations AND percent of land attributed to woods or agriculture greater than the median</p></li>
@@ -744,10 +744,10 @@
 </div>
 <div class="section" id="the-data">
 <h2><span class="section-number">20.3. </span>The data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h2>
-<p><em><strong>Below:</strong> Map of survey locations IQAASL.</em></p>
+<p><em><strong>Below:</strong> Only survey locations on lakes were considered for this analysis. The Walensee area was excluded for lack of sufficient land use data. Thus, reducing the data set to 300 surveys at 84 urban and rural locations from March 2020 - May 2021.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/maps/survey_locations_all.jpeg&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/maps/sharedresponsibility.jpeg&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -863,15 +863,12 @@
 <span class="n">grt_dtr</span> <span class="o">=</span> <span class="n">cg_dg_dt</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;rural&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">})</span>
 
 <span class="c1"># check the survey totals for each group</span>
-<span class="n">astring</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">There were </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;nsamples&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2"> surveys  at </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;locations&quot;</span><span class="p">])</span><span class="si">}</span><span class="s2"> different locations.</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">md</span><span class="p">(</span><span class="n">astring</span><span class="p">)</span>
+<span class="c1"># astring = F&quot;&quot;&quot;</span>
+<span class="c1"># There were {t[&quot;nsamples&quot;]} surveys  at {len(t[&quot;locations&quot;])} different locations.</span>
+<span class="c1"># &quot;&quot;&quot;</span>
+<span class="c1"># md(astring)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<p>There were 300 surveys  at 84 different locations.</p>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -955,7 +952,7 @@
 
 <span class="c1"># get the basic statistics from pd.describe</span>
 <span class="n">desc_2020</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rural&#39;</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-<span class="n">desc_2020</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Alle&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;25%&#39;</span><span class="p">,</span> <span class="s1">&#39;50%&#39;</span><span class="p">,</span> <span class="s1">&#39;75%&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">grt_dtr</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">])[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">desc_2020</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;25%&#39;</span><span class="p">,</span> <span class="s1">&#39;50%&#39;</span><span class="p">,</span> <span class="s1">&#39;75%&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">grt_dtr</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">])[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 <span class="n">desc</span> <span class="o">=</span> <span class="n">desc_2020</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
 <span class="n">desc</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="n">change_names</span><span class="p">),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">desc</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1359,7 +1356,7 @@
 <span class="c1"># all surveys</span>
 <span class="n">u_median</span> <span class="o">=</span> <span class="n">grt_dtr</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 <span class="n">a_result</span> <span class="o">=</span> <span class="n">compute_bca_ci</span><span class="p">(</span><span class="n">grt_dtr</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="mf">.05</span><span class="p">,</span> <span class="n">n_reps</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">statfunction</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">,</span> <span class="n">stat_param</span><span class="o">=</span><span class="n">an_int</span><span class="p">)</span>
-<span class="n">all_cis</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alle&quot;</span><span class="p">:{</span><span class="s2">&quot;lower 2.5%&quot;</span><span class="p">:</span><span class="n">a_result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;median&quot;</span><span class="p">:</span><span class="n">u_median</span><span class="p">,</span> <span class="s2">&quot;upper 97.5%&quot;</span><span class="p">:</span> <span class="n">a_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">}}</span>
+<span class="n">all_cis</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;All&quot;</span><span class="p">:{</span><span class="s2">&quot;lower 2.5%&quot;</span><span class="p">:</span><span class="n">a_result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;median&quot;</span><span class="p">:</span><span class="n">u_median</span><span class="p">,</span> <span class="s2">&quot;upper 97.5%&quot;</span><span class="p">:</span> <span class="n">a_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">}}</span>
 
 <span class="c1"># combine the results:</span>
 <span class="n">the_bcas</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">all_cis</span><span class="p">)</span>

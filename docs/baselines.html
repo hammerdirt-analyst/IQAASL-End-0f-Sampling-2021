@@ -85,7 +85,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="titlepage.html">
-   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+   Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
   </a>
  </li>
 </ul>
@@ -1030,13 +1030,8 @@
 <span class="n">bcas</span> <span class="o">=</span> <span class="n">bca_cis</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">bcas</span><span class="p">[[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">bcas</span><span class="p">[[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="s1">&#39;90&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
 <span class="n">bcas</span><span class="p">[</span><span class="s1">&#39;b-method&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;BCa&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bootstrap percentile confidence intervals</span>
+
+<span class="c1"># bootstrap percentile confidence intervals</span>
 <span class="c1"># resample the survey totals for n times to help</span>
 <span class="c1"># define the range of the sampling statistic</span>
 <span class="c1"># the number of reps</span>
@@ -1104,7 +1099,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_23_0.png" src="_images/baselines_23_0.png" />
+<img alt="_images/baselines_22_0.png" src="_images/baselines_22_0.png" />
 </div>
 </div>
 <p><em><strong>Below:</strong> Confidence interval example value: the survey result at Biel on 31-01-2021 was greater than the median value for all the surveys, it exceeded the the confidence interval of the the 50<sup>th</sup> percentile. There were 123 objects (pcs) collected over 40 meters (m) of shoreline. First the survey value is converted to <strong>pieces of litter per meter (pcs/m)</strong> and then multiplied by the required number of meters (100).</em></p>
@@ -1116,7 +1111,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_25_0.png" src="_images/baselines_25_0.png" />
+<img alt="_images/baselines_24_0.png" src="_images/baselines_24_0.png" />
 </div>
 </div>
 </div>
@@ -1163,7 +1158,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_28_0.png" src="_images/baselines_28_0.png" />
+<img alt="_images/baselines_27_0.png" src="_images/baselines_27_0.png" />
 </div>
 </div>
 </div>
@@ -1256,7 +1251,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_30_0.png" src="_images/baselines_30_0.png" />
+<img alt="_images/baselines_29_0.png" src="_images/baselines_29_0.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -1274,7 +1269,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_34_0.png" src="_images/baselines_34_0.png" />
+<img alt="_images/baselines_33_0.png" src="_images/baselines_33_0.png" />
 </div>
 </div>
 </div>
@@ -1377,6 +1372,7 @@
 
 <span class="c1"># combined the different results in to one df</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scpsx</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">obsx</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">som_datax</span><span class="p">)])</span>
+<span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># the 90th</span>
 <span class="n">ev</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.9</span><span class="p">)</span>
@@ -1430,7 +1426,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_37_0.png" src="_images/baselines_37_0.png" />
+<img alt="_images/baselines_36_0.png" src="_images/baselines_36_0.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1443,7 +1439,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>90% p/100m:  MLE=853,   Observed=727,   MOM=1097</em></p>
+<p><em>90% p/100m:  MLE=810,   Observed=727,   MOM=1053</em></p>
 </div>
 </div>
 </div>
@@ -1468,7 +1464,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_41_0.png" src="_images/baselines_41_0.png" />
+<img alt="_images/baselines_40_0.png" src="_images/baselines_40_0.png" />
 </div>
 </div>
 <p>The expected median value per survey and the median value of the most common objects per survey is higher in the Rhône survey area. When the median value is used the BV also reveals that 2/12 most common objects were found in less than 50% of the surveys nationally, those with a median value of zero.</p>
@@ -1481,7 +1477,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/baselines_44_0.png" src="_images/baselines_44_0.png" />
+<img alt="_images/baselines_43_0.png" src="_images/baselines_43_0.png" />
 </div>
 </div>
 <p>The recommended minimum number of surveys (40) per sampling period is to ensure that BV calculations are based on enough samples, this is important because of the high variability of beach litter surveys.</p>

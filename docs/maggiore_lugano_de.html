@@ -83,7 +83,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="titlepage_de.html">
-   Identification, Quantification and Analysis of Observable Anthropogenic Litter Along Swiss Freshwater Systems
+   Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
   </a>
  </li>
 </ul>
@@ -353,8 +353,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kumulative-gesamtmengen-nach-wassermerkmalen">
-     10.1.1. Kumulative Gesamtmengen nach Wassermerkmalen
+    <a class="reference internal nav-link" href="#kumulative-gesamtmengen-nach-gemeinden">
+     10.1.1. Kumulative Gesamtmengen nach Gemeinden
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -370,25 +370,25 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-haufigsten-objekte">
-   10.2. Die häufigsten Objekte
+  <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte">
+   10.2. Die am häufigsten gefundenen Objekte
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-haufigsten-objekte-nach-gemeinden">
-     10.2.1. Die häufigsten Objekte nach Gemeinden
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte-nach-gemeinden">
+     10.2.1. Die am häufigsten gefundenen Objekte nach Gemeinden
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#haufigste-objekte-im-monatlichen-durchschnitt">
-     10.2.2. Häufigste Objekte im monatlichen Durchschnitt
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
+     10.2.2. Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nutzen-der-gefundenen-objekte">
-   10.3. Nutzen der gefundenen Objekte
+  <a class="reference internal nav-link" href="#verwendungszweck-der-gefundenen-objekte">
+   10.3. Verwendungszweck der gefundenen Objekte
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -492,7 +492,7 @@
 <span class="c1"># set the locale to the language desired</span>
 <span class="c1"># the locale is set back to to original at the the end of the script</span>
 <span class="n">loc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">()</span>
-<span class="n">lang</span> <span class="o">=</span>  <span class="s2">&quot;de_DE.utf8&quot;</span>
+<span class="n">lang</span> <span class="o">=</span>  <span class="s1">&#39;de_CH.utf8&#39;</span>
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
 
 <span class="c1"># the date is in iso standard:</span>
@@ -503,7 +503,7 @@
 
 <span class="c1"># set some parameters:</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;01.03.2020&quot;</span>
-<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;31.09.2021&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;31.05.2021&quot;</span>
 <span class="n">start_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">]</span>
 <span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;p/100m&quot;</span>
@@ -514,19 +514,20 @@
 <span class="n">colors_palette</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">colors_palette</span>
 
 <span class="c1"># set the maps</span>
-<span class="n">bassin_map</span> <span class="o">=</span> <span class="s2">&quot;resources/maps/leman_scaled.jpeg&quot;</span>
+<span class="n">bassin_map</span> <span class="o">=</span> <span class="s2">&quot;resources/maps/maggiore_lugano_scaled.jpeg&quot;</span>
 
 <span class="c1"># top level aggregation</span>
 <span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;Alle Erhebungsgebiete&quot;</span>
 
 <span class="c1"># define the feature level and components</span>
-<span class="n">this_feature</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;slug&quot;</span><span class="p">:</span><span class="s2">&quot;bt&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Lac Léman&quot;</span><span class="p">,</span> <span class="s2">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;water_name_slug&quot;</span><span class="p">}</span>
+<span class="n">this_feature</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span><span class="s1">&#39;walensee&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s2">&quot;Maggiore/Lugano&quot;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">}</span>
 
 <span class="n">this_level</span> <span class="o">=</span> <span class="s1">&#39;city&#39;</span>
-<span class="n">this_bassin</span> <span class="o">=</span><span class="s2">&quot;rhone&quot;</span>
-<span class="n">bassin_label</span> <span class="o">=</span> <span class="s2">&quot;Rhône-Erhebungsgebiet&quot;</span>
+<span class="n">this_bassin</span> <span class="o">=</span><span class="s2">&quot;ticino&quot;</span>
+<span class="n">bassin_label</span> <span class="o">=</span> <span class="s2">&quot;Ticino-Erhebungsgebiet&quot;</span>
 
-<span class="n">lakes_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lac-leman&quot;</span><span class="p">]</span>
+<span class="n">lakes_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lago-maggiore&quot;</span><span class="p">,</span> <span class="s2">&quot;lago-di-lugano&quot;</span> <span class="p">]</span>
+
 <span class="c1"># explanatory variables:</span>
 <span class="n">luse_exp</span> <span class="o">=</span>  <span class="nb">list</span><span class="p">(</span><span class="n">sut</span><span class="o">.</span><span class="n">luse_ge</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 
@@ -536,7 +537,6 @@
 
 <span class="c1"># aggregation of dimensional data</span>
 <span class="n">agg_dims</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;total_w&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">}</span>
-
 
 <span class="c1"># columns needed</span>
 <span class="n">use_these_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;loc_date&quot;</span> <span class="p">,</span>
@@ -616,7 +616,7 @@
 <div class="section" id="maggiore-lugano">
 <span id="maggiorede"></span><h1><span class="section-number">10. </span>Maggiore/Lugano<a class="headerlink" href="#maggiore-lugano" title="Permalink to this headline">¶</a></h1>
 <p><a href="maggiore_lugano.html"> English </a></p>
-<p><em>Karte der Datenerhebungen März 2020 - Mai 2021.</em></p>
+<p><em><strong>Unten:</strong> Karte des Erhebungsgebiets März 2020 - Mai 2021. Durchmesser der Punktsymbole = das mittlere Erhebungsergebnis in gefundene Abfallobjekte pro 100 Meter (p/100m).</em></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/maggiore_lugano_de_3_0.png" src="_images/maggiore_lugano_de_3_0.png" />
@@ -642,6 +642,7 @@
 <span class="n">a_data</span><span class="p">[</span><span class="s2">&quot;groupname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[</span><span class="s2">&quot;groupname&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">sut</span><span class="o">.</span><span class="n">group_names_de</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">a_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">sut</span><span class="o">.</span><span class="n">luse_ge</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<span class="c1"># the data for this report</span>
 <span class="n">fd</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">feature_data</span><span class="p">(</span><span class="n">a_data</span><span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">],</span> <span class="n">these_features</span><span class="o">=</span><span class="n">lakes_of_interest</span><span class="p">)</span>
 
 <span class="c1"># cumulative statistics for each code</span>
@@ -670,25 +671,20 @@
 <span class="n">fd_pop_map</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">unique</span><span class="p">()][[</span><span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">fd_pop_map</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># update t with the population data</span>
-<span class="n">t</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sut</span><span class="o">.</span><span class="n">make_table_values</span><span class="p">(</span><span class="n">fd_pop_map</span><span class="p">,</span> <span class="n">col_nunique</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">],</span> <span class="n">col_sum</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">],</span> <span class="n">col_median</span><span class="o">=</span><span class="p">[]))</span>
-
-<span class="c1"># update t with the list of locations from fd</span>
-<span class="n">t</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;locations&quot;</span><span class="p">:</span><span class="n">fd</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">unique</span><span class="p">()})</span>
-
 <span class="c1"># number of cities</span>
 <span class="n">fd_n_munis</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fd_pop_map</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="c1"># populations</span>
+
+<span class="c1"># total population</span>
 <span class="n">fd_effected_population</span> <span class="o">=</span> <span class="n">fd_pop_map</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <span class="c1"># join the strings into comma separated list</span>
-<span class="n">obj_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">])</span>
-<span class="n">surv_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">])</span>
-<span class="n">pop_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]))</span>
+<span class="n">obj_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">surv_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pop_string</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># make strings</span>
 <span class="n">date_quantity_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Für den Zeitraum zwischen </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> und </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, wurden im Rahmen von </span><span class="si">{</span><span class="n">surv_string</span><span class="si">}</span><span class="s2"> Datenerhebungen insgesamt </span><span class="si">{</span><span class="n">obj_string</span> <span class="si">}</span><span class="s2"> Objekte entfernt und identifiziert.&quot;</span>
-<span class="n">geo_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Die Ergebnisse des Aare-Erhebungsgebiets umfassen </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Orte,  </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Gemeinden und eine Gesamtbevölkerung von etwa </span><span class="si">{</span><span class="n">pop_string</span><span class="si">}</span><span class="s2"> Einwohnern.&quot;</span>
+<span class="n">geo_context</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Die Ergebnisse des </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> umfassen </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Orte,  </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> Gemeinden und eine Gesamtbevölkerung von etwa </span><span class="si">{</span><span class="n">pop_string</span><span class="si">}</span><span class="s2"> Einwohnern.&quot;</span>
 <span class="n">munis_joined</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">fd_pop_map</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]))</span>
 
 <span class="c1"># put that all together:</span>
@@ -702,15 +698,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>Für den Zeitraum zwischen 03.2020 und 09.2021, wurden im Rahmen von 98 Datenerhebungen insgesamt 27,462 Objekte entfernt und identifiziert. Die Ergebnisse des Aare-Erhebungsgebiets umfassen 24 Orte,  13 Gemeinden und eine Gesamtbevölkerung von etwa 443,854 Einwohnern.</p>
+<p>Für den Zeitraum zwischen 03.2020 und 05.2021, wurden im Rahmen von 22 Datenerhebungen insgesamt 2'735 Objekte entfernt und identifiziert. Die Ergebnisse des Maggiore/Lugano umfassen 14 Orte,  5 Gemeinden und eine Gesamtbevölkerung von etwa 82'897 Einwohnern.</p>
 <p><em>Die Gemeinden in diesem Bericht:</em></p>
 <blockquote>
-<div><p>Allaman, Bourg-en-Lavaux, Genève, Gland, La Tour-de-Peilz, Lausanne, Montreux, Préverenges, Saint-Gingolph, Saint-Sulpice (VD), Tolochenaz, Versoix, Vevey</p>
+<div><p>Ascona, Brissago, Gambarogno, Lugano, Minusio</p>
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="kumulative-gesamtmengen-nach-wassermerkmalen">
-<h3><span class="section-number">10.1.1. </span>Kumulative Gesamtmengen nach Wassermerkmalen<a class="headerlink" href="#kumulative-gesamtmengen-nach-wassermerkmalen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="kumulative-gesamtmengen-nach-gemeinden">
+<h3><span class="section-number">10.1.1. </span>Kumulative Gesamtmengen nach Gemeinden<a class="headerlink" href="#kumulative-gesamtmengen-nach-gemeinden" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dims_parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">this_level</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> 
@@ -738,7 +734,7 @@
 
 <span class="c1"># format kilos</span>
 <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="c1"># figure caption</span>
@@ -750,7 +746,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Lac Léman: kumulierten Gewichte und Maße für die Gemeinden</em></p>
+<p><em><strong>Unten:</strong> Maggiore/Lugano: kumulierten Gewichte und Maße für die Gemeinden</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -810,7 +806,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Lac Léman, 01.03.2 bis 31.09.2, n=98. Werte größer als 1054.8p/100m 98% nicht gezeigt. <strong>Rechts:</strong> Lac Léman  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.</em></p>
+<p><em><strong>Links:</strong> Maggiore/Lugano, 01.03.2 bis 31.05.2, n=22. Werte größer als 2355.5p/100m 98% nicht gezeigt. <strong>Rechts:</strong> Maggiore/Lugano  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -828,6 +824,7 @@
 
 <span class="c1"># feature surveys</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dts_date</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">dts_date</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>  <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
 <span class="c1"># all other surveys</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fd_dindex</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">fd_dindex</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
@@ -870,7 +867,7 @@
 <h3><span class="section-number">10.1.3. </span>Zusammenfassende Daten und Materialtypen<a class="headerlink" href="#zusammenfassende-daten-und-materialtypen" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Lac Léman Zusammenfassung der Gesamtzahlen der Erhebungen. <strong>Rechts:</strong> Lac Léman Materialart und Prozentsatz der Gesamtmenge.</em></p>
+<p><em><strong>Links:</strong> Zusammenfassung der Daten aller Erhebungen im Maggiore/Lugano. <strong>Rechts:</strong> Gefundene Materialarten im Maggiore/Lugano und Prozentsatz deren Gesamtmenge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -929,9 +926,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="die-haufigsten-objekte">
-<h2><span class="section-number">10.2. </span>Die häufigsten Objekte<a class="headerlink" href="#die-haufigsten-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden Objekte, UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte">
+<h2><span class="section-number">10.2. </span>Die am häufigsten gefundenen Objekte<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
+<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the top ten by quantity</span>
@@ -948,14 +945,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">rb_string</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten:__ Häufigste Objekte am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.*</span>
+<span class="s2">*__Unten:__ Häufigste Objekte im </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% aller gefundenen Objekte aus. Anmerkung: </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> = Medianwert der Erhebung.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">rb_string</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Häufigste Objekte am Lac Léman: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.</em></p>
+<p><em><strong>Unten:</strong> Häufigste Objekte im Maggiore/Lugano: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 77% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -963,7 +960,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># format values for table</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -989,11 +986,11 @@
 <img alt="_images/maggiore_lugano_de_17_0.png" src="_images/maggiore_lugano_de_17_0.png" />
 </div>
 </div>
-<div class="section" id="die-haufigsten-objekte-nach-gemeinden">
-<h3><span class="section-number">10.2.1. </span>Die häufigsten Objekte nach Gemeinden<a class="headerlink" href="#die-haufigsten-objekte-nach-gemeinden" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte-nach-gemeinden">
+<h3><span class="section-number">10.2.1. </span>Die am häufigsten gefundenen Objekte nach Gemeinden<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-nach-gemeinden" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> häufigste Objekte am Lac Léman:  Median p/100m.</em></p>
+<p><em><strong>Unten:</strong> häufigste Objekte im Maggiore/Lugano: Median p/100m.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1001,7 +998,6 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># aggregated survey totals for the most common codes for all the water features</span>
 <span class="n">m_common_st</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s2">&quot;loc_date&quot;</span><span class="p">,</span><span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg_pcs_quantity</span><span class="p">)</span>
 <span class="n">m_common_ft</span> <span class="o">=</span> <span class="n">m_common_st</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">this_level</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-
 
 <span class="c1"># map the desctiption to the code</span>
 <span class="n">m_common_ft</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common_ft</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
@@ -1046,8 +1042,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="haufigste-objekte-im-monatlichen-durchschnitt">
-<h3><span class="section-number">10.2.2. </span>Häufigste Objekte im monatlichen Durchschnitt<a class="headerlink" href="#haufigste-objekte-im-monatlichen-durchschnitt" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
+<h3><span class="section-number">10.2.2. </span>Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collect the survey results of the most common objects</span>
@@ -1068,14 +1064,14 @@
     <span class="n">mgr</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">this_group</span><span class="p">)</span>
 
 <span class="n">monthly_mc</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">, monatliche Durchschnittsergebnisse </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">. Detail der häufigsten Objekte.*</span>
+<span class="s2">*__Unten:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">, monatliche Durchschnittsergebnisse </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">monthly_mc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten</strong> Lac Léman, monatliche Durchschnittsergebnisse p/100m. Detail der häufigsten Objekte.</em></p>
+<p><em><strong>Unten:</strong> Maggiore/Lugano, monatliche Durchschnittsergebnisse p/100m.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1116,6 +1112,7 @@
     <span class="c1"># if i == 0 laydown the first bars</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">this_x</span><span class="p">,</span> <span class="n">mgr</span><span class="p">[</span><span class="n">a_group</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="n">a_group</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors_palette</span><span class="p">[</span><span class="n">a_group</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span> <span class="p">)</span> 
+    
     <span class="c1"># else use the previous results to define the bottom</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">bottom</span> <span class="o">+=</span> <span class="n">mgr</span><span class="p">[</span><span class="n">an_order</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>        
@@ -1153,26 +1150,26 @@
 </div>
 </div>
 </div>
-<div class="section" id="nutzen-der-gefundenen-objekte">
-<h2><span class="section-number">10.3. </span>Nutzen der gefundenen Objekte<a class="headerlink" href="#nutzen-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden in eine der vordefinierten Kategorien eingeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
+<div class="section" id="verwendungszweck-der-gefundenen-objekte">
+<h2><span class="section-number">10.3. </span>Verwendungszweck der gefundenen Objekte<a class="headerlink" href="#verwendungszweck-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
+<p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
 <ul class="simple">
 <li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
-<li><p><strong>Mikroplastik (&lt; 5 mm):</strong> zersplitterte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
+<li><p><strong>Mikroplastik (&lt; 5 mm):</strong> fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
 <li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen</p></li>
-<li><p><strong>Landwirtschaft:</strong> vor allem Industriefolien, z. B. für Mulch und</p></li>
+<li><p><strong>Landwirtschaft:</strong>     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
 <li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Freizeit und Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
-<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong> Verpackungsmaterial, das nicht als lebensmittel-, getränke- oder tabakbezogen gekennzeichnet ist</p></li>
+<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
 <li><p><strong>Plastikfragmente:</strong> Plastikteile unbestimmter Herkunft oder Verwendung</p></li>
 <li><p><strong>Persönliche Gegenstände:</strong> Accessoires, Hygieneartikel und Kleidung</p></li>
 </ul>
-<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Codegruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
+<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><br></br>
-<em><strong>Unten:</strong> Lac Léman Nutzen oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden.</em></p>
+<em><strong>Unten:</strong> Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden im Maggiore/Lugano. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1246,7 +1243,7 @@
 </div>
 <div class="cell_output docutils container">
 <p><br></br>
-<em><strong>Unten:</strong> Lac Léman  Nutzen der gefundenen Objekte Median p/100m. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Größe klassifiziert:</em></p>
+<em><strong>Unten:</strong> Maggiore/Lugano  Nutzen der gefundenen Objekte Median p/100m. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Größe klassifiziert:</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1294,7 +1291,7 @@
 <p>Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe &gt; 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien &gt; 0,5 cm werden für die Analyse als Gfrags gruppiert.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Lac Léman fragmentierte Kunststoffe und geschäumte Kunststoffe nach Größe, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.</em></p>
+<p><em><strong>Unten:</strong> Fragmentierte und geschäumte Kunststoffe nach Größe im Maggiore/Lugano, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1390,148 +1387,88 @@
   </thead>
   <tbody>
     <tr>
-      <th>maladaire</th>
-      <td>46.446296</td>
-      <td>6.876960</td>
-      <td>La Tour-de-Peilz</td>
+      <th>caprino</th>
+      <td>45.987963</td>
+      <td>8.986241</td>
+      <td>Lugano</td>
     </tr>
     <tr>
-      <th>preverenges</th>
-      <td>46.512690</td>
-      <td>6.527657</td>
-      <td>Préverenges</td>
+      <th>lido</th>
+      <td>46.002004</td>
+      <td>8.962156</td>
+      <td>Lugano</td>
     </tr>
     <tr>
-      <th>vidy-ruines</th>
-      <td>46.516221</td>
-      <td>6.596279</td>
-      <td>Lausanne</td>
+      <th>lugano-centro</th>
+      <td>46.002627</td>
+      <td>8.950724</td>
+      <td>Lugano</td>
     </tr>
     <tr>
-      <th>baby-plage-geneva</th>
-      <td>46.208558</td>
-      <td>6.162923</td>
-      <td>Genève</td>
+      <th>spiaggia-parco-ciani</th>
+      <td>46.002510</td>
+      <td>8.960820</td>
+      <td>Lugano</td>
     </tr>
     <tr>
-      <th>grand-clos</th>
-      <td>46.387746</td>
-      <td>6.843686</td>
-      <td>Saint-Gingolph</td>
+      <th>isole-di-brissago-porto</th>
+      <td>46.132760</td>
+      <td>8.735030</td>
+      <td>Brissago</td>
     </tr>
     <tr>
-      <th>quai-maria-belgia</th>
-      <td>46.460156</td>
-      <td>6.836718</td>
-      <td>Vevey</td>
+      <th>magadino-lido</th>
+      <td>46.149349</td>
+      <td>8.855663</td>
+      <td>Gambarogno</td>
     </tr>
     <tr>
-      <th>anarchy-beach</th>
-      <td>46.447216</td>
-      <td>6.859612</td>
-      <td>La Tour-de-Peilz</td>
+      <th>rivapiana</th>
+      <td>46.172079</td>
+      <td>8.813255</td>
+      <td>Minusio</td>
     </tr>
     <tr>
-      <th>cully-plage</th>
-      <td>46.488887</td>
-      <td>6.741396</td>
-      <td>Bourg-en-Lavaux</td>
+      <th>sentiero-giro-del-golf-spiaggia</th>
+      <td>46.145770</td>
+      <td>8.790430</td>
+      <td>Ascona</td>
     </tr>
     <tr>
-      <th>preverenges-le-sout</th>
-      <td>46.508905</td>
-      <td>6.534526</td>
-      <td>Préverenges</td>
+      <th>vira-gambarogno</th>
+      <td>46.143343</td>
+      <td>8.838759</td>
+      <td>Gambarogno</td>
     </tr>
     <tr>
-      <th>la-pecherie</th>
-      <td>46.463919</td>
-      <td>6.385732</td>
-      <td>Allaman</td>
+      <th>ascona-traghetto-spiaggia</th>
+      <td>46.153882</td>
+      <td>8.768480</td>
+      <td>Ascona</td>
     </tr>
     <tr>
-      <th>villa-barton</th>
-      <td>46.222350</td>
-      <td>6.152500</td>
-      <td>Genève</td>
+      <th>pacha-mama-gerra</th>
+      <td>46.123473</td>
+      <td>8.783508</td>
+      <td>Gambarogno</td>
     </tr>
     <tr>
-      <th>oyonne</th>
-      <td>46.456682</td>
-      <td>6.852262</td>
-      <td>La Tour-de-Peilz</td>
+      <th>gerra-gambarogno</th>
+      <td>46.123366</td>
+      <td>8.785786</td>
+      <td>Gambarogno</td>
     </tr>
     <tr>
-      <th>baby-plage-ii-geneve</th>
-      <td>46.208940</td>
-      <td>6.164330</td>
-      <td>Genève</td>
+      <th>san-nazzaro-gambarogno</th>
+      <td>46.130443</td>
+      <td>8.798657</td>
+      <td>Gambarogno</td>
     </tr>
     <tr>
-      <th>tiger-duck-beach</th>
-      <td>46.518256</td>
-      <td>6.582546</td>
-      <td>Saint-Sulpice (VD)</td>
-    </tr>
-    <tr>
-      <th>le-pierrier</th>
-      <td>46.439727</td>
-      <td>6.888968</td>
-      <td>Montreux</td>
-    </tr>
-    <tr>
-      <th>boiron</th>
-      <td>46.491030</td>
-      <td>6.480162</td>
-      <td>Tolochenaz</td>
-    </tr>
-    <tr>
-      <th>rocky-plage</th>
-      <td>46.209737</td>
-      <td>6.164952</td>
-      <td>Genève</td>
-    </tr>
-    <tr>
-      <th>lacleman_gland_lecoanets</th>
-      <td>46.402811</td>
-      <td>6.281959</td>
-      <td>Gland</td>
-    </tr>
-    <tr>
-      <th>baye-de-montreux-g</th>
-      <td>46.430834</td>
-      <td>6.908778</td>
-      <td>Montreux</td>
-    </tr>
-    <tr>
-      <th>versoix</th>
-      <td>46.289194</td>
-      <td>6.170569</td>
-      <td>Versoix</td>
-    </tr>
-    <tr>
-      <th>parc-des-pierrettes</th>
-      <td>46.515215</td>
-      <td>6.575531</td>
-      <td>Saint-Sulpice (VD)</td>
-    </tr>
-    <tr>
-      <th>plage-de-st-sulpice</th>
-      <td>46.513265</td>
-      <td>6.570977</td>
-      <td>Saint-Sulpice (VD)</td>
-    </tr>
-    <tr>
-      <th>bain-des-dames</th>
-      <td>46.450507</td>
-      <td>6.858092</td>
-      <td>La Tour-de-Peilz</td>
-    </tr>
-    <tr>
-      <th>tolochenaz</th>
-      <td>46.497509</td>
-      <td>6.482875</td>
-      <td>Tolochenaz</td>
+      <th>vira-spiaggia-left-of-river</th>
+      <td>46.142900</td>
+      <td>8.838407</td>
+      <td>Gambarogno</td>
     </tr>
   </tbody>
 </table>
@@ -1589,1484 +1526,924 @@
   </thead>
   <tbody>
     <tr>
-      <th>Gfrags</th>
-      <td>Fragmentierte Kunststoffstücke</td>
-      <td>Plastikfragmente</td>
-      <td>4212</td>
-      <td>15.34</td>
-      <td>96</td>
-    </tr>
-    <tr>
-      <th>Gfoam</th>
-      <td>Expandiertes Polystyrol</td>
-      <td>Infrastruktur</td>
-      <td>3586</td>
-      <td>13.06</td>
-      <td>83</td>
-    </tr>
-    <tr>
       <th>G27</th>
       <td>Zigarettenfilter</td>
       <td>Tabak</td>
-      <td>3116</td>
-      <td>11.35</td>
-      <td>94</td>
+      <td>701</td>
+      <td>25.63</td>
+      <td>95</td>
     </tr>
     <tr>
-      <th>G30</th>
-      <td>Snack-Verpackungen</td>
-      <td>Essen und Trinken</td>
-      <td>1679</td>
-      <td>6.11</td>
-      <td>95</td>
+      <th>Gfrags</th>
+      <td>Fragmentierte Kunststoffstücke</td>
+      <td>Plastikfragmente</td>
+      <td>253</td>
+      <td>9.25</td>
+      <td>90</td>
     </tr>
     <tr>
       <th>G112</th>
       <td>Industriepellets (Nurdles)</td>
       <td>Mikroplastik (&lt; 5mm)</td>
-      <td>1387</td>
-      <td>5.05</td>
-      <td>46</td>
+      <td>247</td>
+      <td>9.03</td>
+      <td>22</td>
     </tr>
     <tr>
-      <th>G95</th>
-      <td>Wattestäbchen</td>
-      <td>Abwasser</td>
-      <td>1112</td>
-      <td>4.05</td>
+      <th>Gfoam</th>
+      <td>Expandiertes Polystyrol</td>
+      <td>Infrastruktur</td>
+      <td>237</td>
+      <td>8.67</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>G200</th>
+      <td>Getränke Glasflasche, Stücke</td>
+      <td>Essen und Trinken</td>
+      <td>218</td>
+      <td>7.97</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>G30</th>
+      <td>Snack-Verpackungen</td>
+      <td>Essen und Trinken</td>
+      <td>127</td>
+      <td>4.64</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>G117</th>
+      <td>Styropor &lt; 5mm</td>
+      <td>Mikroplastik (&lt; 5mm)</td>
+      <td>65</td>
+      <td>2.38</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>G67</th>
+      <td>Industriefolie (Kunststoff)</td>
+      <td>Landwirtschaft</td>
+      <td>64</td>
+      <td>2.34</td>
       <td>81</td>
     </tr>
     <tr>
       <th>G74</th>
       <td>Schaumstoffverpackungen/Isolierung/Polyurethan</td>
       <td>Infrastruktur</td>
-      <td>1112</td>
-      <td>4.05</td>
+      <td>59</td>
+      <td>2.16</td>
       <td>77</td>
-    </tr>
-    <tr>
-      <th>G67</th>
-      <td>Industriefolie (Kunststoff)</td>
-      <td>Landwirtschaft</td>
-      <td>1058</td>
-      <td>3.85</td>
-      <td>77</td>
-    </tr>
-    <tr>
-      <th>G117</th>
-      <td>Styropor &lt; 5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>689</td>
-      <td>2.51</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th>G89</th>
-      <td>Kunststoff-Bauabfälle</td>
-      <td>Infrastruktur</td>
-      <td>584</td>
-      <td>2.13</td>
-      <td>66</td>
-    </tr>
-    <tr>
-      <th>G200</th>
-      <td>Getränke Glasflasche, Stücke</td>
-      <td>Essen und Trinken</td>
-      <td>510</td>
-      <td>1.86</td>
-      <td>58</td>
-    </tr>
-    <tr>
-      <th>G106</th>
-      <td>Kunststofffragmente eckig &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>427</td>
-      <td>1.55</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>G21</th>
-      <td>Getränke-Deckel, Getränkeverschluss</td>
-      <td>Essen und Trinken</td>
-      <td>425</td>
-      <td>1.55</td>
-      <td>56</td>
-    </tr>
-    <tr>
-      <th>G24</th>
-      <td>Ringe von Plastikflaschen/Behältern</td>
-      <td>Essen und Trinken</td>
-      <td>349</td>
-      <td>1.27</td>
-      <td>73</td>
-    </tr>
-    <tr>
-      <th>G70</th>
-      <td>Schrotflintenpatronen</td>
-      <td>Freizeit und Erholung</td>
-      <td>345</td>
-      <td>1.26</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <th>G178</th>
-      <td>Flaschenverschlüsse aus Metall</td>
-      <td>Essen und Trinken</td>
-      <td>308</td>
-      <td>1.12</td>
-      <td>71</td>
-    </tr>
-    <tr>
-      <th>G25</th>
-      <td>Tabak; Kunststoffverpackungen, Behälter</td>
-      <td>Tabak</td>
-      <td>295</td>
-      <td>1.07</td>
-      <td>55</td>
-    </tr>
-    <tr>
-      <th>G10</th>
-      <td>Lebensmittelbehälter zum einmaligen Gebrauch a...</td>
-      <td>Essen und Trinken</td>
-      <td>288</td>
-      <td>1.05</td>
-      <td>51</td>
-    </tr>
-    <tr>
-      <th>G35</th>
-      <td>Strohhalme und Rührstäbchen</td>
-      <td>Essen und Trinken</td>
-      <td>278</td>
-      <td>1.01</td>
-      <td>73</td>
-    </tr>
-    <tr>
-      <th>G23</th>
-      <td>unidentifizierte Deckel</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>262</td>
-      <td>0.95</td>
-      <td>58</td>
-    </tr>
-    <tr>
-      <th>G31</th>
-      <td>Schleckstengel, Stengel von Lutscher</td>
-      <td>Essen und Trinken</td>
-      <td>237</td>
-      <td>0.86</td>
-      <td>66</td>
-    </tr>
-    <tr>
-      <th>G103</th>
-      <td>Kunststofffragmente rund &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>229</td>
-      <td>0.83</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>G33</th>
-      <td>Einwegartikel; Tassen/Becher &amp; Deckel</td>
-      <td>Essen und Trinken</td>
-      <td>196</td>
-      <td>0.71</td>
-      <td>57</td>
-    </tr>
-    <tr>
-      <th>G32</th>
-      <td>Spielzeug und Partyartikel</td>
-      <td>Freizeit und Erholung</td>
-      <td>192</td>
-      <td>0.70</td>
-      <td>63</td>
-    </tr>
-    <tr>
-      <th>G177</th>
-      <td>Verpackungen aus Aluminiumfolie</td>
-      <td>Essen und Trinken</td>
-      <td>177</td>
-      <td>0.64</td>
-      <td>56</td>
-    </tr>
-    <tr>
-      <th>G22</th>
-      <td>Deckel für Chemikalien, Reinigungsmittel (Ohne...</td>
-      <td>Infrastruktur</td>
-      <td>176</td>
-      <td>0.64</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>G100</th>
-      <td>Medizin; Behälter/Röhrchen/Verpackungen</td>
-      <td>Abwasser</td>
-      <td>176</td>
-      <td>0.64</td>
-      <td>61</td>
-    </tr>
-    <tr>
-      <th>G921</th>
-      <td>Keramikfliesen und Bruchstücke</td>
-      <td>Infrastruktur</td>
-      <td>175</td>
-      <td>0.64</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>G73</th>
-      <td>Gegenstände aus Schaumstoff &amp; Teilstücke (nich...</td>
-      <td>Freizeit und Erholung</td>
-      <td>162</td>
-      <td>0.59</td>
-      <td>39</td>
-    </tr>
-    <tr>
-      <th>G3</th>
-      <td>Einkaufstaschen, Shoppingtaschen</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>156</td>
-      <td>0.57</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th>G38</th>
-      <td>Abdeckungen; Kunststoffverpackungen, Folien zu...</td>
-      <td>nicht klassifiziert</td>
-      <td>151</td>
-      <td>0.55</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G66</th>
-      <td>Umreifungsbänder; Hartplastik für Verpackung f...</td>
-      <td>Infrastruktur</td>
-      <td>130</td>
-      <td>0.47</td>
-      <td>41</td>
-    </tr>
-    <tr>
-      <th>G98</th>
-      <td>Windeln - Tücher</td>
-      <td>Abwasser</td>
-      <td>113</td>
-      <td>0.41</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>G211</th>
-      <td>Sonstiges medizinisches Material</td>
-      <td>Persönliche Gegenstände</td>
-      <td>102</td>
-      <td>0.37</td>
-      <td>43</td>
-    </tr>
-    <tr>
-      <th>G156</th>
-      <td>Papierfragmente</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>101</td>
-      <td>0.37</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>G922</th>
-      <td>Etiketten, Strichcodes</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>95</td>
-      <td>0.35</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <th>G91</th>
-      <td>Bio-Filtermaterial  / Trägermaterial aus Kunst...</td>
-      <td>Abwasser</td>
-      <td>95</td>
-      <td>0.35</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <th>G159</th>
-      <td>Kork</td>
-      <td>Essen und Trinken</td>
-      <td>90</td>
-      <td>0.33</td>
-      <td>41</td>
-    </tr>
-    <tr>
-      <th>G208</th>
-      <td>Glas oder Keramikfragmente &gt;2.5 cm</td>
-      <td>nicht klassifiziert</td>
-      <td>87</td>
-      <td>0.32</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>G904</th>
-      <td>Feuerwerkskörper; Raketenkappen</td>
-      <td>Freizeit und Erholung</td>
-      <td>85</td>
-      <td>0.31</td>
-      <td>25</td>
     </tr>
     <tr>
       <th>G941</th>
       <td>Verpackungsfolien, nicht für Lebensmittel oder...</td>
       <td>Nicht-Lebensmittelverpackungen</td>
-      <td>85</td>
-      <td>0.31</td>
-      <td>16</td>
+      <td>56</td>
+      <td>2.05</td>
+      <td>50</td>
     </tr>
     <tr>
-      <th>G90</th>
-      <td>Blumentöpfe aus Plastik</td>
-      <td>Landwirtschaft</td>
-      <td>79</td>
-      <td>0.29</td>
-      <td>26</td>
-    </tr>
-    <tr>
-      <th>G125</th>
-      <td>Luftballons und Luftballonstäbchen</td>
-      <td>Freizeit und Erholung</td>
-      <td>78</td>
-      <td>0.28</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>G124</th>
-      <td>Kunststoff-oder Schaumstoffprodukte</td>
-      <td>nicht klassifiziert</td>
-      <td>68</td>
-      <td>0.25</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <th>G165</th>
-      <td>Glacestengel (Eisstiele), Zahnstocher, Essstäb...</td>
+      <th>G178</th>
+      <td>Flaschenverschlüsse aus Metall</td>
       <td>Essen und Trinken</td>
-      <td>68</td>
-      <td>0.25</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>G96</th>
-      <td>Hygienebinden/Höscheneinlagen/Tampons und Appl...</td>
-      <td>Abwasser</td>
-      <td>67</td>
-      <td>0.24</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>G914</th>
-      <td>Büroklammern, Wäscheklammern, Gebrauchsgegenst...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>64</td>
-      <td>0.23</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>G153</th>
-      <td>Papierbecher, Lebensmittelverpackungen aus Pap...</td>
-      <td>Essen und Trinken</td>
-      <td>62</td>
-      <td>0.23</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>G50</th>
-      <td>Schnur &lt; 1cm</td>
-      <td>Freizeit und Erholung</td>
-      <td>61</td>
-      <td>0.22</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>G105</th>
-      <td>Kunststofffragmente subangulär &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>59</td>
-      <td>0.21</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G34</th>
-      <td>Besteck, Teller und Tabletts</td>
-      <td>Essen und Trinken</td>
-      <td>58</td>
-      <td>0.21</td>
-      <td>26</td>
-    </tr>
-    <tr>
-      <th>G908</th>
-      <td>Klebeband; elektrisch, isolierend</td>
-      <td>Infrastruktur</td>
-      <td>58</td>
-      <td>0.21</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <th>G28</th>
-      <td>Stifte, Deckel, Druckbleistifte usw.</td>
-      <td>Persönliche Gegenstände</td>
-      <td>55</td>
-      <td>0.20</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th>G923</th>
-      <td>Taschentücher, Toilettenpapier, Servietten, Pa...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>51</td>
-      <td>0.19</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>G93</th>
-      <td>Kabelbinder</td>
-      <td>Infrastruktur</td>
-      <td>47</td>
-      <td>0.17</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>G905</th>
-      <td>Haarspangen, Haargummis, persönliche Accessoir...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>45</td>
-      <td>0.16</td>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>G26</th>
-      <td>Feuerzeug</td>
-      <td>Tabak</td>
-      <td>45</td>
-      <td>0.16</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>G155</th>
-      <td>Feuerwerkspapierhülsen und -fragmente</td>
-      <td>Freizeit und Erholung</td>
       <td>44</td>
-      <td>0.16</td>
-      <td>3</td>
+      <td>1.61</td>
+      <td>45</td>
     </tr>
     <tr>
-      <th>G131</th>
-      <td>Gummibänder</td>
-      <td>Persönliche Gegenstände</td>
-      <td>43</td>
-      <td>0.16</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <th>G115</th>
-      <td>Schaumstoff &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>43</td>
-      <td>0.16</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>G198</th>
-      <td>Andere Metallteile &lt; 50 cm</td>
+      <th>G89</th>
+      <td>Kunststoff-Bauabfälle</td>
       <td>Infrastruktur</td>
-      <td>43</td>
-      <td>0.16</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>G146</th>
-      <td>Papier, Karton</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>40</td>
-      <td>0.15</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>G152</th>
-      <td>Papier &amp;Karton;Zigarettenschachteln, Papier/Ka...</td>
-      <td>Tabak</td>
-      <td>39</td>
-      <td>0.14</td>
-      <td>14</td>
+      <td>41</td>
+      <td>1.50</td>
+      <td>68</td>
     </tr>
     <tr>
       <th>G149</th>
       <td>Papierverpackungen</td>
       <td>Nicht-Lebensmittelverpackungen</td>
-      <td>39</td>
-      <td>0.14</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>G937</th>
-      <td>Pheromonköder für Weinberge</td>
-      <td>Landwirtschaft</td>
-      <td>38</td>
-      <td>0.14</td>
+      <td>36</td>
+      <td>1.32</td>
       <td>18</td>
     </tr>
     <tr>
-      <th>G157</th>
-      <td>Papier</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>35</td>
-      <td>0.13</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G939</th>
-      <td>Kunststoffblumen, Kunststoffpflanzen</td>
-      <td>Persönliche Gegenstände</td>
-      <td>33</td>
-      <td>0.12</td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <th>G4</th>
-      <td>Kleine Plastikbeutel; Gefrierbeutel, Zippsäckc...</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>32</td>
-      <td>0.12</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G7</th>
-      <td>Getränkeflaschen &lt; = 0,5 l</td>
-      <td>Essen und Trinken</td>
-      <td>32</td>
-      <td>0.12</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G204</th>
-      <td>Baumaterial;  Ziegel, Rohre, Zement</td>
+      <th>G921</th>
+      <td>Keramikfliesen und Bruchstücke</td>
       <td>Infrastruktur</td>
-      <td>32</td>
-      <td>0.12</td>
-      <td>15</td>
+      <td>34</td>
+      <td>1.24</td>
+      <td>45</td>
     </tr>
     <tr>
-      <th>G20</th>
-      <td>Laschen und Deckel</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>31</td>
-      <td>0.11</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G207</th>
-      <td>Tonkrüge zum Fangen von Kraken</td>
-      <td>nicht klassifiziert</td>
-      <td>30</td>
-      <td>0.11</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G137</th>
-      <td>Kleidung, Handtücher und Lappen</td>
-      <td>Persönliche Gegenstände</td>
-      <td>28</td>
-      <td>0.10</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>G213</th>
-      <td>Paraffinwachs</td>
-      <td>Freizeit und Erholung</td>
-      <td>28</td>
-      <td>0.10</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>G142</th>
-      <td>Seil, Schnur oder Netze</td>
-      <td>Freizeit und Erholung</td>
+      <th>G10</th>
+      <td>Lebensmittelbehälter zum einmaligen Gebrauch a...</td>
+      <td>Essen und Trinken</td>
       <td>27</td>
-      <td>0.10</td>
-      <td>14</td>
+      <td>0.99</td>
+      <td>36</td>
     </tr>
     <tr>
-      <th>G65</th>
-      <td>Eimer</td>
-      <td>Landwirtschaft</td>
+      <th>G177</th>
+      <td>Verpackungen aus Aluminiumfolie</td>
+      <td>Essen und Trinken</td>
       <td>26</td>
-      <td>0.09</td>
-      <td>13</td>
+      <td>0.95</td>
+      <td>50</td>
     </tr>
     <tr>
-      <th>G12</th>
-      <td>Kosmetika, Behälter für Körperpflegeprodukte, ...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>25</td>
-      <td>0.09</td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <th>G148</th>
-      <td>Kartonkisten und Stücke</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>23</td>
-      <td>0.08</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>G191</th>
-      <td>Draht und Gitter</td>
-      <td>Landwirtschaft</td>
-      <td>23</td>
-      <td>0.08</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G99</th>
-      <td>Spritzen - Nadeln</td>
-      <td>Persönliche Gegenstände</td>
-      <td>21</td>
-      <td>0.08</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <th>G135</th>
-      <td>Kleidung, Fussbekleidung, Kopfbedeckung, Hands...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>20</td>
-      <td>0.07</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G48</th>
-      <td>Seile, synthetische</td>
-      <td>Freizeit und Erholung</td>
-      <td>18</td>
-      <td>0.07</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>G943</th>
-      <td>Zäune Landwirtschaft, Kunststoff</td>
-      <td>Landwirtschaft</td>
-      <td>18</td>
-      <td>0.07</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G6</th>
-      <td>Flaschen und Behälter aus Kunststoff, nicht fü...</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>18</td>
-      <td>0.07</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>G114</th>
-      <td>Folien &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>18</td>
-      <td>0.07</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G134</th>
-      <td>Sonstiges Gummi</td>
-      <td>nicht klassifiziert</td>
-      <td>17</td>
-      <td>0.06</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>G126</th>
-      <td>Bälle</td>
-      <td>Freizeit und Erholung</td>
-      <td>17</td>
-      <td>0.06</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>G123</th>
-      <td>Polyurethan-Granulat &lt; 5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>17</td>
-      <td>0.06</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G87</th>
-      <td>Abdeckklebeband/Verpackungsklebeband</td>
-      <td>Infrastruktur</td>
-      <td>16</td>
-      <td>0.06</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G2</th>
-      <td>Säcke, Taschen</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>16</td>
-      <td>0.06</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G936</th>
-      <td>Folien für Gewächshäuser</td>
-      <td>Landwirtschaft</td>
-      <td>16</td>
-      <td>0.06</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>G194</th>
-      <td>Kabel, Metalldraht oft in Gummi- oder Kunststo...</td>
-      <td>Infrastruktur</td>
-      <td>16</td>
-      <td>0.06</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>G43</th>
-      <td>Sicherheitsetiketten, Siegel für Fischerei ode...</td>
-      <td>Freizeit und Erholung</td>
-      <td>15</td>
-      <td>0.05</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>G918</th>
-      <td>Sicherheitsnadeln, Büroklammern, kleine Gebrau...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>15</td>
-      <td>0.05</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G927</th>
-      <td>Plastikschnur von Rasentrimmern, die zum Schne...</td>
-      <td>Infrastruktur</td>
-      <td>14</td>
-      <td>0.05</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G113</th>
-      <td>Fäden &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>14</td>
-      <td>0.05</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>G182</th>
-      <td>Angeln; Haken, Gewichte, Köder, Senkblei, usw.</td>
-      <td>Freizeit und Erholung</td>
-      <td>14</td>
-      <td>0.05</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>G175</th>
-      <td>Getränkedosen (Dosen, Getränke)</td>
-      <td>Essen und Trinken</td>
-      <td>14</td>
-      <td>0.05</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>G201</th>
-      <td>Gläser, einschliesslich Stücke</td>
-      <td>Essen und Trinken</td>
-      <td>13</td>
-      <td>0.05</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>G144</th>
-      <td>Tampons</td>
+      <th>G95</th>
+      <td>Wattestäbchen</td>
       <td>Abwasser</td>
-      <td>13</td>
-      <td>0.05</td>
-      <td>8</td>
+      <td>23</td>
+      <td>0.84</td>
+      <td>50</td>
     </tr>
     <tr>
-      <th>G145</th>
-      <td>Andere Textilien</td>
+      <th>G21</th>
+      <td>Getränke-Deckel, Getränkeverschluss</td>
+      <td>Essen und Trinken</td>
+      <td>18</td>
+      <td>0.66</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>G153</th>
+      <td>Papierbecher, Lebensmittelverpackungen aus Pap...</td>
+      <td>Essen und Trinken</td>
+      <td>16</td>
+      <td>0.59</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>G156</th>
+      <td>Papierfragmente</td>
+      <td>Nicht-Lebensmittelverpackungen</td>
+      <td>15</td>
+      <td>0.55</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>G25</th>
+      <td>Tabak; Kunststoffverpackungen, Behälter</td>
+      <td>Tabak</td>
+      <td>14</td>
+      <td>0.51</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>G152</th>
+      <td>Papier &amp;Karton;Zigarettenschachteln, Papier/Ka...</td>
+      <td>Tabak</td>
+      <td>14</td>
+      <td>0.51</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>G923</th>
+      <td>Taschentücher, Toilettenpapier, Servietten, Pa...</td>
       <td>Persönliche Gegenstände</td>
+      <td>14</td>
+      <td>0.51</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>G24</th>
+      <td>Ringe von Plastikflaschen/Behältern</td>
+      <td>Essen und Trinken</td>
       <td>13</td>
-      <td>0.05</td>
-      <td>9</td>
+      <td>0.48</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>G3</th>
+      <td>Einkaufstaschen, Shoppingtaschen</td>
+      <td>Nicht-Lebensmittelverpackungen</td>
+      <td>13</td>
+      <td>0.48</td>
+      <td>22</td>
     </tr>
     <tr>
       <th>G203</th>
       <td>Geschirr aus Keramik oder Glas, Tassen, Teller...</td>
       <td>Essen und Trinken</td>
       <td>13</td>
-      <td>0.05</td>
-      <td>5</td>
+      <td>0.48</td>
+      <td>22</td>
     </tr>
     <tr>
-      <th>G930</th>
-      <td>Schaumstoff-Ohrstöpsel</td>
+      <th>G73</th>
+      <td>Gegenstände aus Schaumstoff &amp; Teilstücke (nich...</td>
+      <td>Freizeit und Erholung</td>
+      <td>12</td>
+      <td>0.44</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>G33</th>
+      <td>Einwegartikel; Tassen/Becher &amp; Deckel</td>
+      <td>Essen und Trinken</td>
+      <td>12</td>
+      <td>0.44</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>G137</th>
+      <td>Kleidung, Handtücher und Lappen</td>
       <td>Persönliche Gegenstände</td>
       <td>12</td>
-      <td>0.04</td>
+      <td>0.44</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>G22</th>
+      <td>Deckel für Chemikalien, Reinigungsmittel (Ohne...</td>
+      <td>Infrastruktur</td>
+      <td>12</td>
+      <td>0.44</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>G100</th>
+      <td>Medizin; Behälter/Röhrchen/Verpackungen</td>
+      <td>Abwasser</td>
+      <td>11</td>
+      <td>0.40</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>G32</th>
+      <td>Spielzeug und Partyartikel</td>
+      <td>Freizeit und Erholung</td>
+      <td>11</td>
+      <td>0.40</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>G66</th>
+      <td>Umreifungsbänder; Hartplastik für Verpackung f...</td>
+      <td>Infrastruktur</td>
+      <td>11</td>
+      <td>0.40</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>G70</th>
+      <td>Schrotflintenpatronen</td>
+      <td>Freizeit und Erholung</td>
       <td>10</td>
+      <td>0.37</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>G35</th>
+      <td>Strohhalme und Rührstäbchen</td>
+      <td>Essen und Trinken</td>
+      <td>10</td>
+      <td>0.37</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>G198</th>
+      <td>Andere Metallteile &lt; 50 cm</td>
+      <td>Infrastruktur</td>
+      <td>10</td>
+      <td>0.37</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>G211</th>
+      <td>Sonstiges medizinisches Material</td>
+      <td>Persönliche Gegenstände</td>
+      <td>9</td>
+      <td>0.33</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>G922</th>
+      <td>Etiketten, Strichcodes</td>
+      <td>Nicht-Lebensmittelverpackungen</td>
+      <td>9</td>
+      <td>0.33</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>G31</th>
+      <td>Schleckstengel, Stengel von Lutscher</td>
+      <td>Essen und Trinken</td>
+      <td>9</td>
+      <td>0.33</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G98</th>
+      <td>Windeln - Tücher</td>
+      <td>Abwasser</td>
+      <td>9</td>
+      <td>0.33</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>G146</th>
+      <td>Papier, Karton</td>
+      <td>Nicht-Lebensmittelverpackungen</td>
+      <td>8</td>
+      <td>0.29</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G159</th>
+      <td>Kork</td>
+      <td>Essen und Trinken</td>
+      <td>8</td>
+      <td>0.29</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>G186</th>
       <td>Industrieschrott</td>
       <td>Infrastruktur</td>
-      <td>12</td>
-      <td>0.04</td>
-      <td>4</td>
+      <td>8</td>
+      <td>0.29</td>
+      <td>18</td>
     </tr>
     <tr>
-      <th>G59</th>
-      <td>Monofile Angelschnur (Angeln)</td>
-      <td>Freizeit und Erholung</td>
-      <td>11</td>
-      <td>0.04</td>
+      <th>G204</th>
+      <td>Baumaterial;  Ziegel, Rohre, Zement</td>
+      <td>Infrastruktur</td>
       <td>7</td>
+      <td>0.26</td>
+      <td>13</td>
     </tr>
     <tr>
-      <th>G170</th>
-      <td>Holz (verarbeitet)</td>
-      <td>Landwirtschaft</td>
-      <td>11</td>
-      <td>0.04</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>G928</th>
-      <td>Bänder und Schleifen</td>
-      <td>Persönliche Gegenstände</td>
-      <td>11</td>
-      <td>0.04</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G158</th>
-      <td>Sonstige Gegenstände aus Papier</td>
+      <th>G23</th>
+      <td>unidentifizierte Deckel</td>
       <td>Nicht-Lebensmittelverpackungen</td>
-      <td>10</td>
-      <td>0.04</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>G210</th>
-      <td>Sonstiges Glas/Keramik Materialien</td>
-      <td>nicht klassifiziert</td>
-      <td>10</td>
-      <td>0.04</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>G940</th>
-      <td>Schaumstoff EVA (flexibler Kunststoff)</td>
-      <td>Freizeit und Erholung</td>
-      <td>10</td>
-      <td>0.04</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>G901</th>
-      <td>Medizinische Masken, synthetische</td>
-      <td>Persönliche Gegenstände</td>
-      <td>10</td>
-      <td>0.04</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G942</th>
-      <td>Kunststoffspäne von Drehbänken, CNC-Bearbeitung</td>
-      <td>nicht klassifiziert</td>
-      <td>10</td>
-      <td>0.04</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G11</th>
-      <td>Kosmetika für den Strand, z.B. Sonnencreme</td>
-      <td>Freizeit und Erholung</td>
-      <td>10</td>
-      <td>0.04</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G8</th>
-      <td>Getränkeflaschen &gt; 0,5L</td>
-      <td>Essen und Trinken</td>
-      <td>9</td>
-      <td>0.03</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>G938</th>
-      <td>Zahnstocher, Zahnseide Kunststoff</td>
-      <td>Essen und Trinken</td>
-      <td>9</td>
-      <td>0.03</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>G926</th>
-      <td>Kaugummi, enthält oft Kunststoffe</td>
-      <td>Essen und Trinken</td>
-      <td>8</td>
-      <td>0.03</td>
       <td>6</td>
+      <td>0.22</td>
+      <td>18</td>
     </tr>
     <tr>
-      <th>G118</th>
-      <td>Kleine Industrielle Kügelchen &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>8</td>
-      <td>0.03</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>G119</th>
-      <td>Folienartiger Kunststoff (&gt;1mm)</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>8</td>
-      <td>0.03</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G128</th>
-      <td>Reifen und Antriebsriemen</td>
-      <td>nicht klassifiziert</td>
-      <td>8</td>
-      <td>0.03</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>G133</th>
-      <td>Kondome einschließlich Verpackungen</td>
-      <td>Abwasser</td>
-      <td>8</td>
-      <td>0.03</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>G916</th>
-      <td>Bleistifte und Bruchstücke</td>
-      <td>Persönliche Gegenstände</td>
-      <td>7</td>
-      <td>0.03</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>G61</th>
-      <td>Sonstiges Angelzubehör</td>
-      <td>Freizeit und Erholung</td>
-      <td>7</td>
-      <td>0.03</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>G68</th>
-      <td>Fiberglas-Fragmente</td>
+      <th>G194</th>
+      <td>Kabel, Metalldraht oft in Gummi- oder Kunststo...</td>
       <td>Infrastruktur</td>
-      <td>7</td>
-      <td>0.03</td>
       <td>6</td>
+      <td>0.22</td>
+      <td>18</td>
     </tr>
     <tr>
-      <th>G929</th>
-      <td>Elektronik und Teile; Sensoren, Headsets usw.</td>
+      <th>G50</th>
+      <td>Schnur &lt; 1cm</td>
+      <td>Freizeit und Erholung</td>
+      <td>6</td>
+      <td>0.22</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G87</th>
+      <td>Abdeckklebeband/Verpackungsklebeband</td>
+      <td>Infrastruktur</td>
+      <td>6</td>
+      <td>0.22</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>G914</th>
+      <td>Büroklammern, Wäscheklammern, Gebrauchsgegenst...</td>
       <td>Persönliche Gegenstände</td>
-      <td>7</td>
-      <td>0.03</td>
       <td>6</td>
+      <td>0.22</td>
+      <td>22</td>
     </tr>
     <tr>
-      <th>G900</th>
-      <td>Handschuhe Latex, persönliche Schutzausrüstung</td>
-      <td>Persönliche Gegenstände</td>
-      <td>7</td>
-      <td>0.03</td>
-      <td>6</td>
+      <th>G90</th>
+      <td>Blumentöpfe aus Plastik</td>
+      <td>Landwirtschaft</td>
+      <td>5</td>
+      <td>0.18</td>
+      <td>22</td>
     </tr>
     <tr>
-      <th>G933</th>
-      <td>Taschen, Etuis für Zubehör, Brillen, Elektroni...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>6</td>
-      <td>0.02</td>
-      <td>2</td>
+      <th>G93</th>
+      <td>Kabelbinder</td>
+      <td>Infrastruktur</td>
+      <td>5</td>
+      <td>0.18</td>
+      <td>13</td>
     </tr>
     <tr>
-      <th>G176</th>
-      <td>Konservendosen (Lebensmitteldosen)</td>
-      <td>Essen und Trinken</td>
-      <td>6</td>
-      <td>0.02</td>
-      <td>3</td>
+      <th>G142</th>
+      <td>Seil, Schnur oder Netze</td>
+      <td>Freizeit und Erholung</td>
+      <td>5</td>
+      <td>0.18</td>
+      <td>22</td>
     </tr>
     <tr>
-      <th>G147</th>
-      <td>Papiertragetaschen, (Papiertüten)</td>
+      <th>G191</th>
+      <td>Draht und Gitter</td>
+      <td>Landwirtschaft</td>
+      <td>4</td>
+      <td>0.15</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G157</th>
+      <td>Papier</td>
       <td>Nicht-Lebensmittelverpackungen</td>
-      <td>5</td>
-      <td>0.02</td>
-      <td>5</td>
+      <td>4</td>
+      <td>0.15</td>
+      <td>13</td>
     </tr>
     <tr>
-      <th>G195</th>
-      <td>Batterien (Haushalt)</td>
-      <td>Persönliche Gegenstände</td>
-      <td>5</td>
-      <td>0.02</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G167</th>
-      <td>Streichhölzer oder Feuerwerke</td>
-      <td>Freizeit und Erholung</td>
-      <td>5</td>
-      <td>0.02</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>G17</th>
-      <td>Kartuschen von Kartuschen-spritzpistolen</td>
+      <th>G927</th>
+      <td>Plastikschnur von Rasentrimmern, die zum Schne...</td>
       <td>Infrastruktur</td>
-      <td>5</td>
-      <td>0.02</td>
-      <td>2</td>
+      <td>4</td>
+      <td>0.15</td>
+      <td>13</td>
     </tr>
     <tr>
-      <th>G97</th>
-      <td>Behälter von Toilettenerfrischer</td>
+      <th>G135</th>
+      <td>Kleidung, Fussbekleidung, Kopfbedeckung, Hands...</td>
+      <td>Persönliche Gegenstände</td>
+      <td>4</td>
+      <td>0.15</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G96</th>
+      <td>Hygienebinden/Höscheneinlagen/Tampons und Appl...</td>
       <td>Abwasser</td>
-      <td>5</td>
-      <td>0.02</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G101</th>
-      <td>Robidog Hundekot-Säcklein, andere Hundekotsäck...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>5</td>
-      <td>0.02</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>G919</th>
-      <td>Nägel, Schrauben, Bolzen usw.</td>
-      <td>Infrastruktur</td>
-      <td>5</td>
-      <td>0.02</td>
       <td>4</td>
+      <td>0.15</td>
+      <td>13</td>
     </tr>
     <tr>
-      <th>G917</th>
-      <td>Blähton</td>
-      <td>nicht klassifiziert</td>
-      <td>5</td>
-      <td>0.02</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>G136</th>
-      <td>Schuhe</td>
-      <td>Persönliche Gegenstände</td>
-      <td>4</td>
-      <td>0.01</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>G181</th>
-      <td>Geschirr aus Metall, Tassen, Besteck usw.</td>
-      <td>Essen und Trinken</td>
-      <td>4</td>
-      <td>0.01</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>G931</th>
-      <td>(Absperr)band für Absperrungen, Polizei, Baust...</td>
-      <td>Infrastruktur</td>
-      <td>4</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G29</th>
-      <td>Kämme, Bürsten und Sonnenbrillen</td>
-      <td>Persönliche Gegenstände</td>
-      <td>4</td>
-      <td>0.01</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>G161</th>
-      <td>Verarbeitetes Holz</td>
+      <th>G936</th>
+      <td>Folien für Gewächshäuser</td>
       <td>Landwirtschaft</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>2</td>
+      <td>4</td>
+      <td>0.15</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>G116</th>
-      <td>Granulat &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G92</th>
-      <td>Köderbehälter</td>
-      <td>Freizeit und Erholung</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>G63</th>
-      <td>Bojen</td>
-      <td>Freizeit und Erholung</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G62</th>
-      <td>Schwimmer für Netze</td>
-      <td>nicht klassifiziert</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G915</th>
-      <td>Reflektoren, Mobilitätsartikel aus Kunststoff</td>
-      <td>Persönliche Gegenstände</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>G108</th>
-      <td>Scheibenförmige Pellets &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G913</th>
-      <td>Schnuller</td>
-      <td>Persönliche Gegenstände</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>G104</th>
-      <td>Kunststofffragmente abgerundet / rundlich  &lt;5m...</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G37</th>
-      <td>Netzbeutel, Netztasche, Netzsäcke</td>
-      <td>Persönliche Gegenstände</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G906</th>
-      <td>Kaffeekapseln Aluminium</td>
+      <th>G34</th>
+      <td>Besteck, Teller und Tabletts</td>
       <td>Essen und Trinken</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>3</td>
+      <td>4</td>
+      <td>0.15</td>
+      <td>18</td>
     </tr>
     <tr>
-      <th>G19</th>
-      <td>Autoteile</td>
-      <td>nicht klassifiziert</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G197</th>
-      <td>sonstiges Metall</td>
-      <td>Infrastruktur</td>
-      <td>3</td>
-      <td>0.01</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>G139</th>
-      <td>Rucksäcke</td>
-      <td>Persönliche Gegenstände</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G140</th>
-      <td>Sack oder Beutel (Tragetasche), Jute oder Hanf</td>
+      <th>G943</th>
+      <td>Zäune Landwirtschaft, Kunststoff</td>
       <td>Landwirtschaft</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G13</th>
-      <td>Flaschen, Behälter, Fässer zum Transportieren ...</td>
-      <td>Landwirtschaft</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G150</th>
-      <td>Milchkartons, Tetrapack</td>
-      <td>Essen und Trinken</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G55</th>
-      <td>Angelschnur (verwickelt)</td>
-      <td>Freizeit und Erholung</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G932</th>
-      <td>Bio-Beads, Mikroplastik für die Abwasserbehand...</td>
-      <td>Abwasser</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G151</th>
-      <td>Tetrapack, Kartons</td>
-      <td>Essen und Trinken</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>2</td>
+      <td>4</td>
+      <td>0.15</td>
+      <td>13</td>
     </tr>
     <tr>
       <th>G36</th>
       <td>Säcke aus strapazierfähigem Kunststoff für 25 ...</td>
       <td>Landwirtschaft</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>1</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>G49</th>
-      <td>Seile &gt; 1cm</td>
+      <th>G901</th>
+      <td>Medizinische Masken, synthetische</td>
+      <td>Persönliche Gegenstände</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G903</th>
+      <td>Behälter und Packungen für Handdesinfektionsmi...</td>
+      <td>Persönliche Gegenstände</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G928</th>
+      <td>Bänder und Schleifen</td>
+      <td>Persönliche Gegenstände</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G931</th>
+      <td>(Absperr)band für Absperrungen, Polizei, Baust...</td>
+      <td>Infrastruktur</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G106</th>
+      <td>Kunststofffragmente eckig &lt;5mm</td>
+      <td>Mikroplastik (&lt; 5mm)</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G101</th>
+      <td>Robidog Hundekot-Säcklein, andere Hundekotsäck...</td>
+      <td>Persönliche Gegenstände</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G65</th>
+      <td>Eimer</td>
+      <td>Landwirtschaft</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G28</th>
+      <td>Stifte, Deckel, Druckbleistifte usw.</td>
+      <td>Persönliche Gegenstände</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G154</th>
+      <td>Zeitungen oder Zeitschriften</td>
+      <td>Persönliche Gegenstände</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G26</th>
+      <td>Feuerzeug</td>
+      <td>Tabak</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>G148</th>
+      <td>Kartonkisten und Stücke</td>
+      <td>Nicht-Lebensmittelverpackungen</td>
+      <td>3</td>
+      <td>0.11</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G136</th>
+      <td>Schuhe</td>
+      <td>Persönliche Gegenstände</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G195</th>
+      <td>Batterien (Haushalt)</td>
+      <td>Persönliche Gegenstände</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G182</th>
+      <td>Angeln; Haken, Gewichte, Köder, Senkblei, usw.</td>
       <td>Freizeit und Erholung</td>
       <td>2</td>
-      <td>0.01</td>
-      <td>2</td>
+      <td>0.07</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>G107</th>
-      <td>Zylindrische Pellets &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G109</th>
-      <td>Flache Pellets &lt;5mm</td>
-      <td>Mikroplastik (&lt; 5mm)</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G199</th>
-      <td>Andere Metallteile &gt; 50 cm</td>
+      <th>G908</th>
+      <td>Klebeband; elektrisch, isolierend</td>
       <td>Infrastruktur</td>
       <td>2</td>
-      <td>0.01</td>
-      <td>2</td>
+      <td>0.07</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>G5</th>
-      <td>Plastiksäcke/ Plastiktüten</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
+      <th>G170</th>
+      <td>Holz (verarbeitet)</td>
+      <td>Landwirtschaft</td>
       <td>2</td>
-      <td>0.01</td>
-      <td>2</td>
+      <td>0.07</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>G925</th>
-      <td>Pakete: Trockenmittel/Feuchtigkeitsabsorber, m...</td>
-      <td>Nicht-Lebensmittelverpackungen</td>
-      <td>2</td>
-      <td>0.01</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>G907</th>
-      <td>Kaffeekapseln aus Kunststoff</td>
+      <th>G906</th>
+      <td>Kaffeekapseln Aluminium</td>
       <td>Essen und Trinken</td>
       <td>2</td>
-      <td>0.01</td>
+      <td>0.07</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G904</th>
+      <td>Feuerwerkskörper; Raketenkappen</td>
+      <td>Freizeit und Erholung</td>
       <td>2</td>
+      <td>0.07</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>G166</th>
-      <td>Farbpinsel</td>
-      <td>Infrastruktur</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <th>G165</th>
+      <td>Glacestengel (Eisstiele), Zahnstocher, Essstäb...</td>
+      <td>Essen und Trinken</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>G138</th>
-      <td>Schuhe und Sandalen</td>
-      <td>Persönliche Gegenstände</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <th>G125</th>
+      <td>Luftballons und Luftballonstäbchen</td>
+      <td>Freizeit und Erholung</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G7</th>
+      <td>Getränkeflaschen &lt; = 0,5 l</td>
+      <td>Essen und Trinken</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>G53</th>
+      <td>Netze und Teilstücke &lt; 50cm</td>
+      <td>Freizeit und Erholung</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>G40</th>
       <td>Handschuhe Haushalt/Garten</td>
       <td>Persönliche Gegenstände</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>G51</th>
-      <td>Fischernetz</td>
+      <th>G19</th>
+      <td>Autoteile</td>
+      <td>nicht klassifiziert</td>
+      <td>2</td>
+      <td>0.07</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G167</th>
+      <td>Streichhölzer oder Feuerwerke</td>
       <td>Freizeit und Erholung</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>G129</th>
-      <td>Schläuche und Gummiplatten</td>
-      <td>nicht klassifiziert</td>
+      <th>G939</th>
+      <td>Kunststoffblumen, Kunststoffpflanzen</td>
+      <td>Persönliche Gegenstände</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>G183</th>
-      <td>Teile von Angelhaken</td>
+      <th>G933</th>
+      <td>Taschen, Etuis für Zubehör, Brillen, Elektroni...</td>
+      <td>Persönliche Gegenstände</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G155</th>
+      <td>Feuerwerkspapierhülsen und -fragmente</td>
       <td>Freizeit und Erholung</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>G102</th>
-      <td>Flip-Flops</td>
+      <th>G99</th>
+      <td>Spritzen - Nadeln</td>
       <td>Persönliche Gegenstände</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>G39</th>
-      <td>Handschuhe</td>
-      <td>Persönliche Gegenstände</td>
+      <th>G925</th>
+      <td>Pakete: Trockenmittel/Feuchtigkeitsabsorber, m...</td>
+      <td>Nicht-Lebensmittelverpackungen</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G14</th>
-      <td>Flaschen für Motoröl (Motorölflaschen)</td>
-      <td>nicht klassifiziert</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G179</th>
-      <td>Einweg Grill</td>
-      <td>Essen und Trinken</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G202</th>
-      <td>Glühbirnen</td>
-      <td>nicht klassifiziert</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G173</th>
-      <td>Sonstiges</td>
-      <td>nicht klassifiziert</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G935</th>
-      <td>Gummi-Puffer für Geh- und Wanderstöcke und Tei...</td>
-      <td>Persönliche Gegenstände</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>G172</th>
       <td>Sonstiges Holz &gt; 50 cm</td>
       <td>Landwirtschaft</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>G64</th>
-      <td>Kotflügel</td>
-      <td>nicht klassifiziert</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G171</th>
-      <td>Sonstiges Holz &lt; 50cm</td>
-      <td>Landwirtschaft</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>G154</th>
-      <td>Zeitungen oder Zeitschriften</td>
+      <th>G929</th>
+      <td>Elektronik und Teile; Sensoren, Headsets usw.</td>
       <td>Persönliche Gegenstände</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
     </tr>
     <tr>
-      <th>G193</th>
-      <td>Teile von Autos und Autobatterien</td>
+      <th>G134</th>
+      <td>Sonstiges Gummi</td>
       <td>nicht klassifiziert</td>
       <td>1</td>
-      <td>0.00</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G138</th>
+      <td>Schuhe und Sandalen</td>
+      <td>Persönliche Gegenstände</td>
       <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G942</th>
+      <td>Kunststoffspäne von Drehbänken, CNC-Bearbeitung</td>
+      <td>nicht klassifiziert</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G145</th>
+      <td>Andere Textilien</td>
+      <td>Persönliche Gegenstände</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G41</th>
+      <td>Handschuhe Industriell/Professionell</td>
+      <td>Landwirtschaft</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G107</th>
+      <td>Zylindrische Pellets &lt;5mm</td>
+      <td>Mikroplastik (&lt; 5mm)</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G208</th>
+      <td>Glas oder Keramikfragmente &gt;2.5 cm</td>
+      <td>nicht klassifiziert</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G6</th>
+      <td>Flaschen und Behälter aus Kunststoff, nicht fü...</td>
+      <td>Nicht-Lebensmittelverpackungen</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G4</th>
+      <td>Kleine Plastikbeutel; Gefrierbeutel, Zippsäckc...</td>
+      <td>Nicht-Lebensmittelverpackungen</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G128</th>
+      <td>Reifen und Antriebsriemen</td>
+      <td>nicht klassifiziert</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G129</th>
+      <td>Schläuche und Gummiplatten</td>
+      <td>nicht klassifiziert</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G124</th>
+      <td>Kunststoff-oder Schaumstoffprodukte</td>
+      <td>nicht klassifiziert</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G115</th>
+      <td>Schaumstoff &lt;5mm</td>
+      <td>Mikroplastik (&lt; 5mm)</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G201</th>
+      <td>Gläser, einschliesslich Stücke</td>
+      <td>Essen und Trinken</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G92</th>
+      <td>Köderbehälter</td>
+      <td>Freizeit und Erholung</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G902</th>
+      <td>Medizinische Masken, Stoff</td>
+      <td>Persönliche Gegenstände</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G131</th>
+      <td>Gummibänder</td>
+      <td>Persönliche Gegenstände</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G905</th>
+      <td>Haarspangen, Haargummis, persönliche Accessoir...</td>
+      <td>Persönliche Gegenstände</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G907</th>
+      <td>Kaffeekapseln aus Kunststoff</td>
+      <td>Essen und Trinken</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G91</th>
+      <td>Bio-Filtermaterial  / Trägermaterial aus Kunst...</td>
+      <td>Abwasser</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G52</th>
+      <td>Netze und Teilstücke</td>
+      <td>Freizeit und Erholung</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>G197</th>
+      <td>sonstiges Metall</td>
+      <td>Infrastruktur</td>
+      <td>1</td>
+      <td>0.04</td>
+      <td>4</td>
     </tr>
   </tbody>
 </table>
