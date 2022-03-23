@@ -481,7 +481,7 @@ def create_summary_table_index(unit_label, lang="EN"):
                 "25%":"25%",
                 "50%":"50%", 
                 "75%":"75%",
-                "total objects":"Totalobjekte",
+                "total objects":"Abfallobjekte total",
                 "# locations":"Anzahl der Standorte",
                }
     else:
@@ -608,7 +608,7 @@ luse_ge = {"% to buildings": "% zu Gebäuden",
            "% to recreation": "% zu Erholung",
            "% to agg": "% zu LWS",
            "% to woods": "% zu Wald",
-           "streets km": "Straßen km",
+           "streets km": "Strassen km",
            "intersects": "Flussmündung"
            }
 
