@@ -90,7 +90,7 @@ code_material_map = dfCodes.material
 # 
 # Abfallobjekte sind eine Sammlung von weggeworfenen Gegenständen, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Datenerhebungen Ergebnisse berücksichtigt werden muss. {cite}`aydin` {cite}`grelaud`
 # 
-# Im September 2020 hat die Europäische Union Basislinien und Zielwerte für Abfallobjekte am Strand veröffentlicht. Nach Abwägung vieler Faktoren, darunter die Transparenz der Berechnungsmethode und die Leistung in Bezug auf Ausreißer, hat die EU entschieden, dass der Medianwert der Datenerhebungen zum Vergleich der Basiswerte zwischen den Regionen verwendet wird. Dies hat das Interesse der Gemeinden geweckt, punktuelle Abfallobjekte besser zu identifizieren und zu quantifizieren, da sie versuchen, den effizientesten Weg zur Einhaltung der Zielwerte zu finden. Die Identifizierung relevanter Landnutzungsmuster und -merkmale ist ein wesentliches Element in diesem Prozess. {cite}`threshholdeu` {cite}`eubaselines` {cite}`vanemmerick`
+# Im September 2020 hat die Europäische Union Basislinien und Zielwerte für Abfallobjekte am Strand veröffentlicht. Nach Abwägung vieler Faktoren, darunter die Transparenz der Berechnungsmethode und die Leistung in Bezug auf Ausreisser, hat die EU entschieden, dass der Medianwert der Datenerhebungen zum Vergleich der Basiswerte zwischen den Regionen verwendet wird. Dies hat das Interesse der Gemeinden geweckt, punktuelle Abfallobjekte besser zu identifizieren und zu quantifizieren, da sie versuchen, den effizientesten Weg zur Einhaltung der Zielwerte zu finden. Die Identifizierung relevanter Landnutzungsmuster und -merkmale ist ein wesentliches Element in diesem Prozess. {cite}`threshholdeu` {cite}`eubaselines` {cite}`vanemmerick`
 # 
 # Hier schlagen wir eine Methode vor, um die Ergebnisse von Strand-Abfallaufkommen-Untersuchungen im Hinblick auf das Landnutzungsprofil im Umkreis von 1500 m um den Untersuchungsort auszuwerten. Die Datenerhebungen Ergebnisse der häufigsten Objekte werden mit Hilfe von Spearmans rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf Assoziation mit den gemessenen Landnutzungsmerkmalen getestet. {cite}`defspearmans`    {cite}`spearmansexplained`
 # 
@@ -104,7 +104,7 @@ code_material_map = dfCodes.material
 # 2. \% der Fläche, die dem Wald vorbehalten ist 
 # 3. \% der Fläche, die der Erholung dient 
 # 4. \% der Fläche, die der Landwirtschaft zugeschrieben wird 
-# 5. Länge aller Straßen und Wege in Kilometern (Schienenwege nicht eingeschlossen) 
+# 5. Länge aller Strassen und Wege in Kilometern (Schienenwege nicht eingeschlossen) 
 # 6. Anzahl der bekannten Wasserabfluss-Schnittpunkte 
 # 
 # **Berechnung des Landnutzungsprofils**
@@ -125,15 +125,15 @@ code_material_map = dfCodes.material
 # 
 # Die Kategorie Erholung umfasst verschiedene Anwendungen für die öffentliche Nutzung. Die Nutzung reicht von Sportplätzen bis hin zu Friedhöfen und umfasst alle Bereiche, die für soziale Aktivitäten zur Verfügung stehen. 
 # 
-# __Berechnung der Straßenlänge__
+# __Berechnung der Strassenlänge__
 # 
-# Die Straßenlänge wurde berechnet, indem die Kartenebene swissTLM3D_TLM_STRASSE mit dem 1500m-Puffer jedes Erhebungsortes geschnitten wurde. Alle Straßen und Wege wurden zu einer Linie zusammengefasst (QGIS: dissolve) und die Länge der Linie ist der angegebene Wert der Straßenkilometer. 
+# Die Strassenlänge wurde berechnet, indem die Kartenebene swissTLM3D_TLM_STRASSE mit dem 1500m-Puffer jedes Erhebungsortes geschnitten wurde. Alle Strassen und Wege wurden zu einer Linie zusammengefasst (QGIS: dissolve) und die Länge der Linie ist der angegebene Wert der Strassenkilometer. 
 # 
 # __Zählen der Einträge aus Flüssen__
 # 
 # Für Standorte an Seen wurde die Anzahl der sich überschneidenden Fluss-/Kanaleinleitungen im Umkreis von 1500 m von jedem Erhebungsstandort berechnet. Die Kartenebene swissTLM3D_TLM_FLIESSGEWAESSER (Flüsse) wurde mit swissTLM3D_TLM_STEHENDES_GEWAESSER (Seen) geschnitten (QGIS: "Linienschnittpunkte"), und die Anzahl der Schnittpunkte pro 1500m Puffer wurde gezählt (QGIS: "Punkte im Polygon zählen"). Die Kartenebene der Seen wurde um 100 Meter erweitert, um alle Abflussstellen oder Bäche zu erfassen, die in der Nähe des Sees enden.  {cite}`qgis_software` {cite}`tlmregio`
 
-# *Für die Berechnung des Landnutzungsprofils verwendete Kartenebenen. __Oben links:__ alle messbaren Werte innerhalb von 1500m. __Oben rechts:__ Straßen und Flusskreuzungen innerhalb von 1500 m. __Unten rechts:__ Landnutzungspunkte, die zur Berechnung von % der Gesamtfläche und der Gesamtfläche verwendet werden.*
+# *Für die Berechnung des Landnutzungsprofils verwendete Kartenebenen. __Oben links:__ alle messbaren Werte innerhalb von 1500m. __Oben rechts:__ Strassen und Flusskreuzungen innerhalb von 1500 m. __Unten rechts:__ Landnutzungspunkte, die zur Berechnung von % der Gesamtfläche und der Gesamtfläche verwendet werden.*
 
 # In[2]:
 
@@ -147,7 +147,7 @@ sut.display_image_ipython("resources/images/land_use_profile/land_use_dispaly_20
 # * zur Freizeitgestaltung: 9.9% 
 # * für die Landwirtschaft: 18.9% 
 # * zu Wald: 24.3%
-# * Kilometer Straßen 85
+# * Kilometer Strassen 85
 # * Fluss kreutz: 2
 
 # *Datenerhebungen in einer ländlichen Umgebung. Kallnach, BE 26.02.2021*
@@ -281,11 +281,11 @@ plt.show()
 
 # Die Landnutzung in der Umgebung der Datenerhebungen war stärker auf Gebäude als auf Landwirtschaft und Wald ausgerichtet. So entfielen bei der Hälfte aller Datenerhebungen mindestens 37% der Flächennutzung auf Gebäude gegenüber 19% für die Landwirtschaft und 13% für Wälder. Bei der Hälfte aller Stichproben betrug der Anteil der Landnutzung für Erholungszwecke mindestens 6%. 
 # 
-# Die Länge des Straßennetzes innerhalb der Pufferzone unterscheidet zwischen Orten, die ansonsten ähnliche Landnutzungsmerkmale aufweisen. Die Länge des Straßennetzes pro Pufferzone reicht von 13 km bis 212 km. 50 % der Datenerhebungen hatten ein Straßennetz von weniger als 67 km. 
+# Die Länge des Strassennetzes innerhalb der Pufferzone unterscheidet zwischen Orten, die ansonsten ähnliche Landnutzungsmerkmale aufweisen. Die Länge des Strassennetzes pro Pufferzone reicht von 13 km bis 212 km. 50 % der Datenerhebungen hatten ein Strassennetz von weniger als 67 km. 
 # 
-# Die Anzahl der Datenerhebungen reicht von Null bis 23, von den 354 Datenerhebungen hatten 50% 3 oder weniger Kreuzungen innerhalb von 1500m vom Erhebungsort. Die Größe des kreuzenden Flusses oder Kanals wurde nicht berücksichtigt. Datenerhebungen an Flüssen haben null Kreuzungen. 
+# Die Anzahl der Datenerhebungen reicht von Null bis 23, von den 354 Datenerhebungen hatten 50% 3 oder weniger Kreuzungen innerhalb von 1500m vom Erhebungsort. Die Grösse des kreuzenden Flusses oder Kanals wurde nicht berücksichtigt. Datenerhebungen an Flüssen haben null Kreuzungen. 
 # 
-# Die Bevölkerung (nicht gezeigt) stammt aus statpop 2018 und stellt die Bevölkerung der Gemeinde dar, die den Erhebungsort umgibt. Die kleinste Einwohnerzahl betrug 442 und die größte 415'367. Von den gesamten Datenerhebungen stammen 50% aus Gemeinden mit einer Einwohnerzahl von mindestens 12'812. 
+# Die Bevölkerung (nicht gezeigt) stammt aus statpop 2018 und stellt die Bevölkerung der Gemeinde dar, die den Erhebungsort umgibt. Die kleinste Einwohnerzahl betrug 442 und die grösste 415'367. Von den gesamten Datenerhebungen stammen 50% aus Gemeinden mit einer Einwohnerzahl von mindestens 12'812. 
 
 # ### Auswahl der Datenerhebungsorte
 # 
@@ -293,7 +293,7 @@ plt.show()
 # 
 # * Daten aus früheren Datenerhebungen (SLR, MCBP) 
 # * Ganzjährig sicherer Zugang 
-# * Innerhalb von 30 Minuten zu Fuß von den nächsten öffentlichen Verkehrsmitteln entfernt 
+# * Innerhalb von 30 Minuten zu Fuss von den nächsten öffentlichen Verkehrsmitteln entfernt 
 # 
 # Die Erhebungsorte repräsentieren die mit öffentlichen Verkehrsmitteln erreichbaren Landnutzungsbedingungen von etwa 1,7 Millionen Menschen.  
 
@@ -372,7 +372,7 @@ plt.show()
 # 1. Die Nullhypothese: Es gibt keine monotone Beziehung zwischen den beiden Variablen 
 # 2. Die Alternativhypothese: Es besteht eine monotone Beziehung und das Vorzeichen (+/-) gibt die Richtung an 
 # 
-# Sie gibt keine Auskunft über das Ausmaß der Beziehung. Betrachten Sie als Beispiel das Verhältnis der Datenerhebungen Ergebnisse von Zigarettenstummeln in Bezug auf die Menge an Land, die Gebäuden oder der Landwirtschaft zugerechnet wird.{cite}`spearmansexplained`
+# Sie gibt keine Auskunft über das Ausmass der Beziehung. Betrachten Sie als Beispiel das Verhältnis der Datenerhebungen Ergebnisse von Zigarettenstummeln in Bezug auf die Menge an Land, die Gebäuden oder der Landwirtschaft zugerechnet wird.{cite}`spearmansexplained`
 
 # *__Links:__ Datenerhebungen der Zigarettenstummel in Bezug auf den prozentualen Anteil der Grundstücke an den Gebäuden. rho= 0,39, p-value < .001. __Rechts:__ Datenerhebungen der Zigarettenstummel in Bezug auf den Prozentsatz der landwirtschaftlichen Nutzfläche. rho= -0,31, p-value < .001.*
 
@@ -495,7 +495,7 @@ plt.close()
 
 # #### Ergebnisse Spearmans $\rho$
 # 
-# Aus der ersten Abbildung lässt sich ein positiver Zusammenhang zwischen der Anzahl der identifizierten Objekte und dem prozentualen Anteil der Flächen, die Gebäuden und Erholungsgebieten zugeordnet sind, ableiten. Das Umgekehrte gilt für den prozentualen Anteil von Landwirtschaft und Wald. Es gibt keine statistische Grundlage für die Annahme eines Zusammenhangs zwischen der Länge von Straßen oder der Anzahl von Flusskreuzungen und dem Gesamtergebnis der Erhebung. 
+# Aus der ersten Abbildung lässt sich ein positiver Zusammenhang zwischen der Anzahl der identifizierten Objekte und dem prozentualen Anteil der Flächen, die Gebäuden und Erholungsgebieten zugeordnet sind, ableiten. Das Umgekehrte gilt für den prozentualen Anteil von Landwirtschaft und Wald. Es gibt keine statistische Grundlage für die Annahme eines Zusammenhangs zwischen der Länge von Strassen oder der Anzahl von Flusskreuzungen und dem Gesamtergebnis der Erhebung. 
 # 
 # Das Ergebnis von Spearman's rho für die am häufigsten vorkommenden Objekte steht im Zusammenhang mit den Ergebnissen in der vorangegangenen Abbildung und veranschaulicht, wie sich verschiedene Objekte unter verschiedenen Bedingungen anhäufen. 
 
@@ -553,7 +553,7 @@ plt.show()
 # 
 # * Allgegenwärtig: hohe Fail-Pass Rate, hohe Stückzahl pro Meter. Unabhängig von der Landnutzung im gesamten Untersuchungsgebiet in gleichbleibenden Raten gefunden 
 # 
-# * Vorübergehend: niedrige Fail-Pass Rate, hohe Menge, hohe Stückzahl pro Meter, wenige Verbände. Gelegentlich in großen Mengen an bestimmten Orten gefunden 
+# * Vorübergehend: niedrige Fail-Pass Rate, hohe Menge, hohe Stückzahl pro Meter, wenige Verbände. Gelegentlich in grossen Mengen an bestimmten Orten gefunden 
 
 # ## Diskussion 
 # 
@@ -566,32 +566,32 @@ plt.show()
 # * Industriefolien 
 # * expandiertes Polystyrol 
 # * Wattestäbchen/Stäbchen 
-# * Isolierung, einschließlich Sprühschäume 
+# * Isolierung, einschliesslich Sprühschäume 
 # 
-# Außerdem haben diese Objekte im Vergleich zu Produkten, die mit Tabak oder Nahrungsmitteln in Verbindung stehen, im Allgemeinen weniger positive Assoziationen. Dies deutet darauf hin, dass das entsprechende Landnutzungsmerkmal derzeit nicht berücksichtigt wird und/oder diese Objekte unabhängig von den Landnutzungsmerkmalen in ähnlichen Mengen identifiziert werden. Dies deutet darauf hin, dass diese Objekte in der Umwelt allgegenwärtig sind. 
+# Ausserdem haben diese Objekte im Vergleich zu Produkten, die mit Tabak oder Nahrungsmitteln in Verbindung stehen, im Allgemeinen weniger positive Assoziationen. Dies deutet darauf hin, dass das entsprechende Landnutzungsmerkmal derzeit nicht berücksichtigt wird und/oder diese Objekte unabhängig von den Landnutzungsmerkmalen in ähnlichen Mengen identifiziert werden. Dies deutet darauf hin, dass diese Objekte in der Umwelt allgegenwärtig sind. 
 # 
-# Schließlich wurden zwei der zwölf häufigsten Objekte in weniger als 50% der Datenerhebungen gefunden und weisen nur wenige positive Assoziationen auf: 
+# Schliesslich wurden zwei der zwölf häufigsten Objekte in weniger als 50% der Datenerhebungen gefunden und weisen nur wenige positive Assoziationen auf: 
 # 
 # * Industriepellets 
 # * expandierte Schaumstoffe < 5mm 
 # 
-# Diese Objekte werden in großen Mengen sporadisch an bestimmten Orten gefunden. Sie wurden in allen Untersuchungsgebieten und in allen Seen identifiziert. Industriepellets haben einen sehr spezifischen Verwendungszweck und Kundenstamm, so dass es möglich ist, auf der Grundlage der Dichte und des Standorts der identifizierten Pellets und des Standorts des nächstgelegenen Verbrauchers oder Herstellers von Pellets, siehe [Gemeinsame Verantwortung](transportde), die Quelle zu bestimmen und die Auswirkungen zu verringern.
+# Diese Objekte werden in grossen Mengen sporadisch an bestimmten Orten gefunden. Sie wurden in allen Untersuchungsgebieten und in allen Seen identifiziert. Industriepellets haben einen sehr spezifischen Verwendungszweck und Kundenstamm, so dass es möglich ist, auf der Grundlage der Dichte und des Standorts der identifizierten Pellets und des Standorts des nächstgelegenen Verbrauchers oder Herstellers von Pellets, siehe [Gemeinsame Verantwortung](transportde), die Quelle zu bestimmen und die Auswirkungen zu verringern.
 # 
 # ### Anwendung
 # 
 # Die Anzahl der Stichproben, die verwendet werden, um eine Assoziation mit Spearmans zu bestimmen, muss vorsichtig sein.  
 # 
-# und wie viel Gewicht den Ergebnissen beigemessen wird. Die Ergebnisse für Zigarettenfilter sind ein gutes Beispiel. Die Diagramme zeigen eindeutig sowohl negative als auch positive Assoziationen in Abhängigkeit von der Landnutzung, aber rho ist kleiner als |0,5|. Es handelt sich also keineswegs um eine lineare Beziehung und das Ausmaß bleibt unbestimmt. 
+# und wie viel Gewicht den Ergebnissen beigemessen wird. Die Ergebnisse für Zigarettenfilter sind ein gutes Beispiel. Die Diagramme zeigen eindeutig sowohl negative als auch positive Assoziationen in Abhängigkeit von der Landnutzung, aber rho ist kleiner als |0,5|. Es handelt sich also keineswegs um eine lineare Beziehung und das Ausmass bleibt unbestimmt. 
 # 
 # Die Betroffenen sollten diese Ergebnisse und deren Anwendbarkeit auf ihre spezifische Situation prüfen. Eine Schlussfolgerung, die gezogen werden kann, ist, dass es eine Methode gibt, um auf der Grundlage der empirischen Daten aus den Datenerhebungen mit angemessener Sicherheit Zonen der Akkumulation zu identifizieren. Diese Ergebnisse ermöglichen es den Akteuren, ihre Prioritäten auf die Herausforderungen zu stützen, die für ihre Region oder Situation spezifisch sind. 
 # 
 # Der Spearmans-Korrelationskoeffizient lässt sich leicht anwenden, sobald der endgültige Datensatz bestimmt wurde. Der Wert des Koeffizienten ändert sich jedoch je nach Erhebungsgebiet oder See, in dem der Test angewendet wird. Das bedeutet, dass das Verständnis und die Interpretation dieser Ergebnisse nicht nur ein nationales, sondern auch ein regionales und kommunales Anliegen ist. 
 # 
-# Warum 1500 Meter? Für diese Studie haben wir uns mit Objekten befasst, die hohe Werte für rho bei kleineren Radien aufwiesen, die dem Maßstab der bereitgestellten Daten angemessen waren. Es wurden auch andere Entfernungen in Betracht gezogen (2km, 2,5km, ... 5km und 10km). Generell gilt, dass mit zunehmendem Radius die den Gebäuden zugewiesene Fläche abnimmt und damit auch der Wert von rho. Dieses Thema wurde in einem Artikel, der derzeit für das Peer-Review-Verfahren vorbereitet wird, ausführlicher behandelt. 
+# Warum 1500 Meter? Für diese Studie haben wir uns mit Objekten befasst, die hohe Werte für rho bei kleineren Radien aufwiesen, die dem Massstab der bereitgestellten Daten angemessen waren. Es wurden auch andere Entfernungen in Betracht gezogen (2km, 2,5km, ... 5km und 10km). Generell gilt, dass mit zunehmendem Radius die den Gebäuden zugewiesene Fläche abnimmt und damit auch der Wert von rho. Dieses Thema wurde in einem Artikel, der derzeit für das Peer-Review-Verfahren vorbereitet wird, ausführlicher behandelt. 
 # 
 # Die Überprüfung einer Assoziation erfolgt durch die Berücksichtigung aller anderen Schlüsselindikatoren und das Urteil von Experten. Das städtische Wartungspersonal ist mit den Bedingungen vor Ort vertraut und ist eine der besten Informationsquellen. Die Wiederholung von Stichproben an einem bestimmten Ort für einen bestimmten Zeitraum und der Vergleich der Ergebnisse mit den Ausgangswerten für das Erhebungsgebiet ist ebenfalls eine zuverlässige Methode, um die Leistung in Bezug auf das Erhebungsgebiet zu bestimmen. 
 # 
-# Der Rangkorrelationskoeffizient ist eine effiziente und zuverlässige Methode, mit der sich Landnutzungsklassifizierungen identifizieren lassen, die mit erhöhten oder verringerten Mengen an bestimmten Abfallobjekten verbunden sind. Das Ausmaß der Beziehung in Bezug auf die Anzahl der Objekte auf dem Boden bleibt jedoch undefiniert. 
+# Der Rangkorrelationskoeffizient ist eine effiziente und zuverlässige Methode, mit der sich Landnutzungsklassifizierungen identifizieren lassen, die mit erhöhten oder verringerten Mengen an bestimmten Abfallobjekten verbunden sind. Das Ausmass der Beziehung in Bezug auf die Anzahl der Objekte auf dem Boden bleibt jedoch undefiniert. 
 # 
 # Um mehr darüber zu erfahren, wie sich die Datenerhebungen Ergebnisse je nach Landnutzung ändern und/oder gleich bleiben, siehe [_Gemeinsame Verantwortung_](transportde).
 # 

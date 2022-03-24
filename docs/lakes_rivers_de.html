@@ -390,8 +390,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#schaumstoffe-und-kunststoffe-nach-grosze">
-     1.7.1. Schaumstoffe und Kunststoffe nach Größe
+    <a class="reference internal nav-link" href="#schaumstoffe-und-kunststoffe-nach-grosse">
+     1.7.1. Schaumstoffe und Kunststoffe nach Grösse
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -615,7 +615,7 @@
 <img alt="_images/lakes_rivers_map.jpeg" src="_images/lakes_rivers_map.jpeg" />
 <p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#eosmap-de" title="Permalink to this image">¶</a></p>
 </div>
-<p><a class="reference internal" href="#eosmap-de"><span class="std std-numref">Abbildung 1.1</span></a>: Die Standorte der Erhebungen sind für die Analyse nach Erhebungsgebiet gruppiert. Die Größe der Markierung stellt den Median der Gesamtzahl der Erhebungen für diesen Ort dar.</p>
+<p><a class="reference internal" href="#eosmap-de"><span class="std std-numref">Abbildung 1.1</span></a>: Die Standorte der Erhebungen sind für die Analyse nach Erhebungsgebiet gruppiert. Die Grösse der Markierung stellt den Median der Gesamtzahl der Erhebungen für diesen Ort dar.</p>
 <div class="section" id="profil-der-landnutzung">
 <h2><span class="section-number">1.1. </span>Profil der Landnutzung<a class="headerlink" href="#profil-der-landnutzung" title="Permalink to this headline">¶</a></h2>
 <p>Die Erhebungsgebiete sind nach Flusseinzugsgebieten gruppiert. In diesem Bericht werden mehrere Einzugsgebiete zusammengefasst, um regionale Trends zu analysieren:</p>
@@ -632,7 +632,7 @@
 <li><p>% der Fläche, die der Forstwirtschaft zugeschrieben wird</p></li>
 <li><p>% der Fläche, die der Erholung vorbehalten ist</p></li>
 </ul>
-<p>Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.</p>
+<p>Strassen werden als Gesamtzahl der Strassenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.</p>
 <p>Das Verhältnis der Anzahl der Proben bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte.</p>
 <p>Für weitere Informationen <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref"><em>Landnutzungsprofil</em></span></a></p>
 <p><strong>Verteilung der Landnutzungsmerkmale</strong></p>
@@ -710,7 +710,7 @@
 </div>
 <p class="caption"><span class="caption-number">Fig. 1.2 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#eos-luse-de" title="Permalink to this image">¶</a></p>
 </div>
-<p><a class="reference internal" href="#eos-luse-de"><span class="std std-numref">Abbildung 1.2:</span></a> Die Erhebungen in den Gebieten Rhône und Linth/Limmat wiesen mit 47 % bzw. 40 % im Median den größten Anteil an bebauter Fläche und mit 5 % bzw. 8 % den geringsten Anteil an Wald auf. Im Erhebungsgebiet Aare war der Medianwert der bebauten Fläche mit 16 % am niedrigsten und der Anteil der landwirtschaftlich genutzten Fläche mit 30 % am höchsten. Bei den Flächen, die der Erholung zugeordnet werden, handelt es sich um Sportplätze, öffentliche Strände und andere öffentliche Versammlungsorte.</p>
+<p><a class="reference internal" href="#eos-luse-de"><span class="std std-numref">Abbildung 1.2:</span></a> Die Erhebungen in den Gebieten Rhône und Linth/Limmat wiesen mit 47 % bzw. 40 % im Median den grössten Anteil an bebauter Fläche und mit 5 % bzw. 8 % den geringsten Anteil an Wald auf. Im Erhebungsgebiet Aare war der Medianwert der bebauten Fläche mit 16 % am niedrigsten und der Anteil der landwirtschaftlich genutzten Fläche mit 30 % am höchsten. Bei den Flächen, die der Erholung zugeordnet werden, handelt es sich um Sportplätze, öffentliche Strände und andere öffentliche Versammlungsorte.</p>
 <div class="section" id="kumulierte-gesamtergebnisse-nach-erhebungsgebiet">
 <h3><span class="section-number">1.1.1. </span>Kumulierte Gesamtergebnisse nach Erhebungsgebiet<a class="headerlink" href="#kumulierte-gesamtergebnisse-nach-erhebungsgebiet" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
@@ -739,12 +739,12 @@
 <span class="c1"># for display</span>
 <span class="n">dims_table</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">dims_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;samples&quot;</span><span class="p">:</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Objekten&quot;</span><span class="p">,</span> <span class="s2">&quot;total_w&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">:</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span><span class="s2">&quot;Meter&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dims_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;samples&quot;</span><span class="p">:</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;total_w&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">:</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span><span class="s2">&quot;Meter&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># format kilos and text strings</span>
-<span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
+<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
@@ -769,7 +769,7 @@
 </div>
 <p class="caption"><span class="caption-number">Fig. 1.3 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#eos-summary-sarea-de" title="Permalink to this image">¶</a></p>
 </div>
-<p><a class="reference internal" href="#eos-summary-sarea-de"><span class="std std-numref">Abbildung 1.3:</span></a> Summen der Dimensionsergebnisse für alle Erhebungsgebiete. Das Aare-Erhebungsgebiet hatte die größte Anzahl von Proben und die geringste Anzahl von gesammelten Objekten.</p>
+<p><a class="reference internal" href="#eos-summary-sarea-de"><span class="std std-numref">Abbildung 1.3:</span></a> Summen der Dimensionsergebnisse für alle Erhebungsgebiete. Das Aare-Erhebungsgebiet hatte die grösste Anzahl von Proben und die geringste Anzahl von gesammelten Objekten.</p>
 </div>
 </div>
 <div class="section" id="erhebungsergebnisse-fur-alle-objekte">
@@ -798,7 +798,7 @@
 
 <span class="n">rate</span> <span class="o">=</span> <span class="s2">&quot;Monthly&quot;</span>
 
-<span class="n">line_label</span> <span class="o">=</span> <span class="s2">&quot;monthly median&quot;</span>
+<span class="n">line_label</span> <span class="o">=</span> <span class="s2">&quot;monatlicher Medianwert&quot;</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fd_dindex</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">this_level</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">bassin_pallette</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -911,7 +911,7 @@
 </div>
 <div class="section" id="die-am-haufigsten-gefundenen-objekte">
 <h2><span class="section-number">1.3. </span>Die am häufigsten gefundenen Objekte<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
+<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_remove-output tag_remove-input docutils container">
 </div>
 <div class="figure align-default" id="mcommon-eos-de">
@@ -1093,18 +1093,18 @@
 <h2><span class="section-number">1.5. </span>Verwendungszweck der gefundenen Objekte<a class="headerlink" href="#verwendungszweck-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
 <p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
 <ul class="simple">
-<li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
+<li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschliesslich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
 <li><p><strong>Mikroplastik (&lt; 5 mm):</strong> fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
-<li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung</p></li>
+<li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen</p></li>
 <li><p><strong>Landwirtschaft:</strong>     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
-<li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien</p></li>
+<li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Freizeit und Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
-<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
+<li><p><strong>Verpackungen ausser Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
 <li><p><strong>Plastikfragmente:</strong> Plastikteile unbestimmter Herkunft oder Verwendung</p></li>
 <li><p><strong>Persönliche Gegenstände:</strong> Accessoires, Hygieneartikel und Kleidung</p></li>
 </ul>
-<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
+<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
 <p>Der Nutzungszweck oder die Beschreibung der identifizierten Objekte in % der Gesamtfläche der Erhebung.</p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1315,12 +1315,12 @@
 </div>
 <div class="section" id="annex">
 <h2><span class="section-number">1.7. </span>Annex<a class="headerlink" href="#annex" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="schaumstoffe-und-kunststoffe-nach-grosze">
-<h3><span class="section-number">1.7.1. </span>Schaumstoffe und Kunststoffe nach Größe<a class="headerlink" href="#schaumstoffe-und-kunststoffe-nach-grosze" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="schaumstoffe-und-kunststoffe-nach-grosse">
+<h3><span class="section-number">1.7.1. </span>Schaumstoffe und Kunststoffe nach Grösse<a class="headerlink" href="#schaumstoffe-und-kunststoffe-nach-grosse" title="Permalink to this headline">¶</a></h3>
 <p>Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrags», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe &gt; 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien &gt; 0,5 cm werden für die Analyse als Gfrags gruppiert.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em>Alle Erhebungsgebiete  fragmentierte Kunststoffe und geschäumte Kunststoffe nach Größe, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.</em></p>
+<p><em>Alle Erhebungsgebiete  fragmentierte Kunststoffe und geschäumte Kunststoffe nach Grösse, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">

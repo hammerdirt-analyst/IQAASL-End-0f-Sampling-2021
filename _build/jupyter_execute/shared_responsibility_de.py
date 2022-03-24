@@ -192,7 +192,7 @@ code_material_map = dfCodes.material
 # 
 # Untersuchungen über den Transport und die Anreicherung von Abfällen in der aquatischen Umwelt zeigen, dass Flüsse eine Hauptquelle für Makroplastik vom Land in die Meeresumwelt sind {cite}`Gonzalez`. Allerdings gelangen nicht alle Objekte, die von Flüssen transportiert werden, in den Ozean, was darauf hindeutet, dass Flüsse und Binnenseen auch Senken für einen Teil des emittierten Makroplastiks sind {cite}`Kooi2018`.
 # 
-# In den Bestimmungen des Schweizer Rechts, Artikel 2 des Bundesgesetzes über den Umweltschutz (USG), wird das Prinzip der Kausalität für die illegale Entsorgung von Material berücksichtigt und ist allgemein als Verursacherprinzip bekannt. Letztendlich liegt die Verantwortung für die Beseitigung und das Management der Verschmutzung durch Abfälle in und entlang von Gewässern direkt bei den kommunalen und kantonalen Verwaltungen, da sie rechtlich gesehen Eigentümer des Landes innerhalb ihrer Grenzen sind. Das Gesetz gibt den Gemeinden und Kantonen die Möglichkeit, Unternehmen oder Personen, die weiter oben in der Kausalkette stehen, als Abfallverursacher zu betrachten und von ihnen Entsorgungsgebühren zu erheben (z.B. Fast-Food-Unternehmen und ähnliche Betriebe oder Organisatoren von Veranstaltungen, die große Mengen an Abfall im öffentlichen Raum erzeugen), wenn keine konkreten Verursacher ermittelt werden können, sofern objektive Kriterien zur Bestimmung der Kausalkette herangezogen werden. {cite}`lpe` {cite}`wpo` {cite}`findechets` {cite}`tf138`
+# In den Bestimmungen des Schweizer Rechts, Artikel 2 des Bundesgesetzes über den Umweltschutz (USG), wird das Prinzip der Kausalität für die illegale Entsorgung von Material berücksichtigt und ist allgemein als Verursacherprinzip bekannt. Letztendlich liegt die Verantwortung für die Beseitigung und das Management der Verschmutzung durch Abfälle in und entlang von Gewässern direkt bei den kommunalen und kantonalen Verwaltungen, da sie rechtlich gesehen Eigentümer des Landes innerhalb ihrer Grenzen sind. Das Gesetz gibt den Gemeinden und Kantonen die Möglichkeit, Unternehmen oder Personen, die weiter oben in der Kausalkette stehen, als Abfallverursacher zu betrachten und von ihnen Entsorgungsgebühren zu erheben (z.B. Fast-Food-Unternehmen und ähnliche Betriebe oder Organisatoren von Veranstaltungen, die grosse Mengen an Abfall im öffentlichen Raum erzeugen), wenn keine konkreten Verursacher ermittelt werden können, sofern objektive Kriterien zur Bestimmung der Kausalkette herangezogen werden. {cite}`lpe` {cite}`wpo` {cite}`findechets` {cite}`tf138`
 # 
 # ## Die Herausforderung
 # 
@@ -206,15 +206,15 @@ sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.j
 
 # *__Oben:__ Lac Léman, St. Gingolph 07.05.2020 (1600p/100m).*
 # 
-# Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise größere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das [Landnutzungsprofil.](luseprofilede). Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabak in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde. 
+# Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise grössere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das [Landnutzungsprofil.](luseprofilede). Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabak in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde. 
 # 
-# Andere Objekte haben jedoch weder einen eindeutigen geografischen Ursprung noch eine klare Verbindung zu einer Aktivität in der Nähe ihres Standorts. Die häufigsten dieser Objekte sind ≊ 40 % aller im Jahr 2020 identifizierten ausrangierten Objekte,  [_Lakes and rivers_ ](allsurveysde). Die Verringerung der Menge an Abfällen an den Schweizer Ufern beinhaltet auch die Verringerung der Menge an ausrangierten Objekten, die von außerhalb der geografischen Grenzen des Strandes selbst stammen. Daher ist es ein Anreiz, ausrangierte Objekte, die an oder in der Nähe von Standorten weggeworfen werden, von Objekten zu unterscheiden, die zu den Datenerhebungen transportiert werden.  
+# Andere Objekte haben jedoch weder einen eindeutigen geografischen Ursprung noch eine klare Verbindung zu einer Aktivität in der Nähe ihres Standorts. Die häufigsten dieser Objekte sind ≊ 40 % aller im Jahr 2020 identifizierten ausrangierten Objekte,  [_Lakes and rivers_ ](allsurveysde). Die Verringerung der Menge an Abfällen an den Schweizer Ufern beinhaltet auch die Verringerung der Menge an ausrangierten Objekten, die von ausserhalb der geografischen Grenzen des Strandes selbst stammen. Daher ist es ein Anreiz, ausrangierte Objekte, die an oder in der Nähe von Standorten weggeworfen werden, von Objekten zu unterscheiden, die zu den Datenerhebungen transportiert werden.  
 # 
-# Die Gewinnung objektiver Daten über Strandabfälle wird durch die hydrologischen Einflüsse der rund 61'000 km Flüsse und 1500 Seen in der Schweiz erschwert.  Die hydrologischen Bedingungen der Flüsse wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Große Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Gegenstände mit hoher Dichte werden nur dann transportiert, wenn die Fließgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Gegenstände vom Grund fernzuhalten. Sobald Gegenstände mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken {cite}`Schwarz`.
+# Die Gewinnung objektiver Daten über Strandabfälle wird durch die hydrologischen Einflüsse der rund 61'000 km Flüsse und 1500 Seen in der Schweiz erschwert.  Die hydrologischen Bedingungen der Flüsse wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Grosse Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Gegenstände mit hoher Dichte werden nur dann transportiert, wenn die Fliessgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Gegenstände vom Grund fernzuhalten. Sobald Gegenstände mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken {cite}`Schwarz`.
 
 # ### Die Ursprünge der häufigsten Objekte¶ 
 # 
-# Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden. Um besser zu verstehen, woher diese Objekte stammen, wird zwischen zwei Gruppen von Objekten unterschieden: 
+# Die häufigsten Objekte sind die zehn mengenmässig am häufigsten vorkommenden UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden. Um besser zu verstehen, woher diese Objekte stammen, wird zwischen zwei Gruppen von Objekten unterschieden: 
 # 
 # * beigetragen (CG): Objekte, die mehrere positive Assoziationen zu Landnutzungsmerkmalen haben und eine Assoziation ist zu Gebäuden 
 #   * Zigarettenstummel 
@@ -232,7 +232,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.j
 # Die Datenerhebungen werden in Relation zu den Flächennutzungsraten der umliegenden 1500m [Das Flächennutzungsprofil](luseprofilede). Der Medianwert der Gebäudefläche wurde verwendet, um die Datenerhebungen in zwei verschiedene Gruppen zu unterteilen: 
 # 
 # * __urban:__ Orte, an denen der prozentuale Anteil der bebauten Fläche GRÖSSER ist als der Median aller Datenerhebungen 
-# * __ländlich:__ Orte, bei denen der prozentuale Anteil der bebauten Fläche WENIGER ist als der Median aller Datenerhebungen UND bei denen der prozentuale Anteil der bewaldeten oder landwirtschaftlich genutzten Fläche größer ist als der Median 
+# * __ländlich:__ Orte, bei denen der prozentuale Anteil der bebauten Fläche WENIGER ist als der Median aller Datenerhebungen UND bei denen der prozentuale Anteil der bewaldeten oder landwirtschaftlich genutzten Fläche grösser ist als der Median 
 # 
 # Die ländlichen Orte hatte 148 Datenerhebungen, während 152 Datenerhebungen von 34 Standorten der urbanen Orte stammen.
 # 
@@ -598,11 +598,11 @@ plt.show()
 
 # *__Oben:__ Unterschiede zwischen städtischen und ländlichen Datenerhebungen. Die Datenerhebungen Ergebnisse in ländlichen Gebieten hatten einen niedrigeren Median und Mittelwert als in städtischen Gebieten und in allen Gebieten zusammen. Die Höchst- und Mindestwerte sowie die höchste Standardabweichung wurden an städtischen Standorten verzeichnet. Die 95% Konfidenzintervalle des Medianwertes der Datenerhebungen Ergebnisse in den Städten und auf dem Land überschneiden sich nicht, Anhang 1.* 
 
-# ### Bewertung der Zusammensetzung: das große Ganze¶ 
+# ### Bewertung der Zusammensetzung: das grosse Ganze¶ 
 # 
 # Das Verhältnis von DG insgesamt zu CG insgesamt betrug in der ländlichen Gruppe 2,5, in der städtischen Gruppe 1,6. Bei allen Datenerhebungen in den ländlichen Gebieten war der Anteil der DG an der Gesamtzahl in % höher. In den Städten sind die Anteile von DG und CG an der Gesamtzahl der Datenerhebungen fast gleich. 
 # 
-# > Ehrebungen aus ländlichen Gegenden wiesen einen größeren Anteil an fragmentierten Kunststoffen, geschäumten Kunststoffen und Baukunststoffen auf. 
+# > Ehrebungen aus ländlichen Gegenden wiesen einen grösseren Anteil an fragmentierten Kunststoffen, geschäumten Kunststoffen und Baukunststoffen auf. 
 
 # In[9]:
 
@@ -752,7 +752,7 @@ plt.show()
 
 # ## Fazit
 # 
-# Es kann ein positiver statistisch relevanter Zusammenhang zwischen CG-Objekten und der Landnutzung angenommen werden, der auf Infrastruktur wie Straßen, Erholungsgebiete und Gebäude zurückzuführen ist. Mit 4/12 der häufigsten Objekte wurden etwa 26% aller Objekte identifiziert und können mit Aktivitäten im Umkreis von 1500 m um den Erhebungsort in Verbindung gebracht werden.  
+# Es kann ein positiver statistisch relevanter Zusammenhang zwischen CG-Objekten und der Landnutzung angenommen werden, der auf Infrastruktur wie Strassen, Erholungsgebiete und Gebäude zurückzuführen ist. Mit 4/12 der häufigsten Objekte wurden etwa 26% aller Objekte identifiziert und können mit Aktivitäten im Umkreis von 1500 m um den Erhebungsort in Verbindung gebracht werden.  
 # 
 # Im Gegensatz dazu hat die Gruppe der DG eine ≊ Verteilung unter den verschiedenen Landnutzungsklassen und keinen Zusammenhang mit dem prozentualen Anteil der Fläche, die Gebäuden zugeordnet ist. Die Gruppe DG besteht aus Baukunststoffen, fragmentierten Schaumstoffen, Kunststoffstücken und Industriepellets und stellt eine vielfältige Gruppe von Objekten mit unterschiedlicher Dichte dar. Da es keine statistischen Beweise für das Gegenteil gibt, kann die Nullhypothese nicht verworfen werden. Daher kann nicht davon ausgegangen werden, dass die primäre Quelle in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt, und es ist wahrscheinlich, dass ein Teil dieser Objekte einen (wirtschaftlich und geografisch) weiter entfernten Ursprung hat.  
 
@@ -770,7 +770,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg", thumb=(1
 # 
 # Einige markante Objekte, die von relativ kleinen Teilen der Wirtschaft genutzt werden, können in einer ganzen Region identifiziert werden, sind aber aufgrund des hydrologischen Transports auf Zonen der Akkumulation beschränkt, was die Identifizierung der Quelle erschwert. 
 # 
-# Das vorangegangene Beispiel zeigt jedoch, dass Datenerhebungen Ergebnisse in Abhängigkeit von erklärenden Variablen erhöhen oder verringern. Bei Objekten wie Plastikpellets aus der Vorproduktion (GPI) ist der Verwendungszweck des Objekts eindeutig und die Nutzer und Hersteller sind im Vergleich zu anderen ausrangierten Objekten relativ selten. Auch wenn diese Gegenstände in allen Datenerhebungen vorkommen, ist es unwahrscheinlich, dass sie in gleichem Maße emittiert werden. 
+# Das vorangegangene Beispiel zeigt jedoch, dass Datenerhebungen Ergebnisse in Abhängigkeit von erklärenden Variablen erhöhen oder verringern. Bei Objekten wie Plastikpellets aus der Vorproduktion (GPI) ist der Verwendungszweck des Objekts eindeutig und die Nutzer und Hersteller sind im Vergleich zu anderen ausrangierten Objekten relativ selten. Auch wenn diese Gegenstände in allen Datenerhebungen vorkommen, ist es unwahrscheinlich, dass sie in gleichem Masse emittiert werden. 
 # 
 # Anhand des vorangegangenen Beispiels können Sie die steigenden Datenerhebungen Ergebnisse von GPI an zwei verschiedenen Seen verfolgen, um zu verstehen, wie diese Beziehung visualisiert werden kann.
 # 
@@ -784,13 +784,13 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 
 # #### Partner finden
 # 
-# Die Ergebnisse des Tests zeigen, dass CG-Objekte in städtischen Gebieten häufiger vorkommen. Als städtisch wurde die Landnutzung im Umkreis von 1500 m um das Untersuchungsgebiet definiert. Daraus lässt sich schließen, dass die Ursache(n) für die Abfälle der CG-Gruppe ebenfalls häufiger in städtischen Gebieten zu finden sind und dass die sekundäre Ursache für die ausrangierten Objekte in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt. 
+# Die Ergebnisse des Tests zeigen, dass CG-Objekte in städtischen Gebieten häufiger vorkommen. Als städtisch wurde die Landnutzung im Umkreis von 1500 m um das Untersuchungsgebiet definiert. Daraus lässt sich schliessen, dass die Ursache(n) für die Abfälle der CG-Gruppe ebenfalls häufiger in städtischen Gebieten zu finden sind und dass die sekundäre Ursache für die ausrangierten Objekte in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt. 
 # 
-# Akteure, die die Häufigkeit von CG-Objekten in einer bestimmten Zone reduzieren möchten, haben bessere Chancen, motivierte Partner in einem Umkreis von 1500 m um den betreffenden Ort zu finden.Die DG-Gruppe hat die Besonderheit, dass sie in $\approxeq$ verteilt ist.   Raten unabhängig von der Landnutzung und macht einen größeren Anteil der gefundenen Objekte aus als CG. Dies deutet darauf hin, dass die Lösung einen größeren Maßstab hat als die Gemeindegrenzen. 
+# Akteure, die die Häufigkeit von CG-Objekten in einer bestimmten Zone reduzieren möchten, haben bessere Chancen, motivierte Partner in einem Umkreis von 1500 m um den betreffenden Ort zu finden.Die DG-Gruppe hat die Besonderheit, dass sie in $\approxeq$ verteilt ist.   Raten unabhängig von der Landnutzung und macht einen grösseren Anteil der gefundenen Objekte aus als CG. Dies deutet darauf hin, dass die Lösung einen grösseren Massstab hat als die Gemeindegrenzen. 
 # 
 # Fragmentierte Kunststoffe sind das einzige DG-Objekt auf der Liste, das nicht mindestens einem Industriezweig zugeordnet werden kann, der in allen von dieser Analyse erfassten Datenerhebungen vertreten ist.  
 # 
-# * Expandiertes Polystyrol wird in der Bauindustrie als Außenisolierung verwendet und dient als Verpackung, um zerbrechliche Gegenstände beim Transport zu schützen. 
+# * Expandiertes Polystyrol wird in der Bauindustrie als Aussenisolierung verwendet und dient als Verpackung, um zerbrechliche Gegenstände beim Transport zu schützen. 
 # * Kunststoff-Vorproduktionsgranulat wird für die Herstellung von Kunststoffobjekten im Spritzgussverfahren verwendet. 
 # * Wattestäbchen aus Plastik werden oft über Kläranlagen in Flüsse und Seen geleitet. 
 # * Industriefolien werden in der Landwirtschaft, im Transportwesen und im Baugewerbe eingesetzt.  
@@ -850,7 +850,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 
 # ### Ergebnisse des Spearman-Rangkorrelationstests
 # 
-# Eine Assoziation ist eine Beziehung zwischen den Datenerhebungen Ergebnissen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmaß der Beziehung ist weder definiert noch linear. 
+# Eine Assoziation ist eine Beziehung zwischen den Datenerhebungen Ergebnissen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmass der Beziehung ist weder definiert noch linear. 
 # 
 # Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein statistisch signifikanter Zusammenhang zwischen der Landnutzung und den in einer Datenerhebung identifizierten Objekten besteht. 
 # 
@@ -858,7 +858,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 # 
 # * Rot/Rose ist eine positive Assoziation 
 # * Gelb ist eine negative Assoziation 
-# * Weiß bedeutet, dass es bei p>0,05 keine statistische Grundlage für die Annahme eines Zusammenhangs gibt. 
+# * Weiss bedeutet, dass es bei p>0,05 keine statistische Grundlage für die Annahme eines Zusammenhangs gibt. 
 
 # *__Unten:__ Rangfolge der häufigsten Objekte mit Landnutzungsmerkmalen.*
 

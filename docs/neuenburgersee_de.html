@@ -397,8 +397,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#schaumstoffe-und-kunststoffe-nach-grosze">
-     9.4.1. Schaumstoffe und Kunststoffe nach Größe
+    <a class="reference internal nav-link" href="#schaumstoffe-und-kunststoffe-nach-grosse">
+     9.4.1. Schaumstoffe und Kunststoffe nach Grösse
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -729,23 +729,23 @@
 
 <span class="c1"># for display</span>
 <span class="n">dims_table</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">dims_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;samples&quot;</span><span class="p">:</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Objekten&quot;</span><span class="p">,</span> <span class="s2">&quot;total_w&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">:</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span><span class="s2">&quot;Meter&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dims_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;samples&quot;</span><span class="p">:</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;total_w&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;area&quot;</span><span class="p">:</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">:</span><span class="s2">&quot;Meter&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># format kilos</span>
-<span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;Plastic-kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
+<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Meter&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-kg&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="c1"># figure caption</span>
 <span class="n">agg_caption</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Unten:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: kumulierten Gewichte und Maße für die Gemeinden*</span>
+<span class="s2">*__Unten:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">: kumulierten Gewichte und Masse für die Gemeinden*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">agg_caption</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Neuenburgersee: kumulierten Gewichte und Maße für die Gemeinden</em></p>
+<p><em><strong>Unten:</strong> Neuenburgersee: kumulierten Gewichte und Masse für die Gemeinden</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -754,7 +754,7 @@
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">colLabels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.75</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">a_color</span><span class="o">=</span><span class="n">a_color</span><span class="p">)</span>
@@ -794,7 +794,7 @@
 <span class="n">y_limit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">dts_date</span><span class="p">[</span><span class="n">unit_label</span><span class="p">],</span> <span class="n">y_lim</span><span class="p">)</span>
 
 <span class="c1"># label for the chart that alerts to the scale</span>
-<span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Werte größer als </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">y_limit</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="si">}{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">y_lim</span><span class="si">}</span><span class="s2">% nicht gezeigt.&quot;</span>
+<span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Werte grösser als </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">y_limit</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="si">}{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">y_lim</span><span class="si">}</span><span class="s2">% nicht gezeigt.&quot;</span>
 
 <span class="c1"># figure caption</span>
 <span class="n">chart_notes</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
@@ -805,7 +805,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Neuenburgersee, 01.03.2 bis 31.05.2, n=44. Werte größer als 2383.2p/100m 98% nicht gezeigt. <strong>Rechts:</strong> Neuenburgersee  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.</em></p>
+<p><em><strong>Links:</strong> Neuenburgersee, 01.03.2 bis 31.05.2, n=44. Werte grösser als 2383.2p/100m 98% nicht gezeigt. <strong>Rechts:</strong> Neuenburgersee  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -828,7 +828,7 @@
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fd_dindex</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">fd_dindex</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
 <span class="c1"># monthly or quaterly plot</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">resample_plot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">resample_plot</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">resample_plot</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> median&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">resample_plot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">resample_plot</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">resample_plot</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: monatlicher Medianwert&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">y_limit</span> <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">unit_label</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
@@ -927,7 +927,7 @@
 </div>
 <div class="section" id="die-am-haufigsten-gefundenen-objekte">
 <h2><span class="section-number">9.2. </span>Die am häufigsten gefundenen Objekte<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
+<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the top ten by quantity</span>
@@ -967,7 +967,7 @@
 <span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekt&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2">er Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;fail-rate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">}</span>
 <span class="n">all_survey_areas</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">10.8</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">10.8</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">))</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
 
@@ -1153,18 +1153,18 @@
 <h2><span class="section-number">9.3. </span>Verwendungszweck der gefundenen Objekte<a class="headerlink" href="#verwendungszweck-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
 <p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
 <ul class="simple">
-<li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
+<li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschliesslich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
 <li><p><strong>Mikroplastik (&lt; 5 mm):</strong> fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
-<li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung</p></li>
+<li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen</p></li>
 <li><p><strong>Landwirtschaft:</strong>     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
-<li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien</p></li>
+<li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Freizeit und Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
-<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
+<li><p><strong>Verpackungen ausser Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
 <li><p><strong>Plastikfragmente:</strong> Plastikteile unbestimmter Herkunft oder Verwendung</p></li>
 <li><p><strong>Persönliche Gegenstände:</strong> Accessoires, Hygieneartikel und Kleidung</p></li>
 </ul>
-<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
+<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><br></br>
@@ -1234,7 +1234,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cg_medpcm</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;br&gt;&lt;/br&gt;</span>
-<span class="s2">*__Unten:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">  Nutzen der gefundenen Objekte Median </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2">. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Größe klassifiziert:*</span>
+<span class="s2">*__Unten:__ Verwendungszweck der gefundenen Objekte Median </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> im </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">cg_medpcm</span><span class="p">)</span>
 </pre></div>
@@ -1242,7 +1242,7 @@
 </div>
 <div class="cell_output docutils container">
 <p><br></br>
-<em><strong>Unten:</strong> Neuenburgersee  Nutzen der gefundenen Objekte Median p/100m. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Größe klassifiziert:</em></p>
+<em><strong>Unten:</strong> Verwendungszweck der gefundenen Objekte Median p/100m im Neuenburgersee. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1285,12 +1285,12 @@
 </div>
 <div class="section" id="anhang">
 <h2><span class="section-number">9.4. </span>Anhang<a class="headerlink" href="#anhang" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="schaumstoffe-und-kunststoffe-nach-grosze">
-<h3><span class="section-number">9.4.1. </span>Schaumstoffe und Kunststoffe nach Größe<a class="headerlink" href="#schaumstoffe-und-kunststoffe-nach-grosze" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="schaumstoffe-und-kunststoffe-nach-grosse">
+<h3><span class="section-number">9.4.1. </span>Schaumstoffe und Kunststoffe nach Grösse<a class="headerlink" href="#schaumstoffe-und-kunststoffe-nach-grosse" title="Permalink to this headline">¶</a></h3>
 <p>Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe &gt; 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien &gt; 0,5 cm werden für die Analyse als Gfrags gruppiert.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Fragmentierte und geschäumte Kunststoffe nach Größe im Neuenburgersee, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.</em></p>
+<p><em><strong>Unten:</strong> Fragmentierte und geschäumte Kunststoffe nach Grösse im Neuenburgersee, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">

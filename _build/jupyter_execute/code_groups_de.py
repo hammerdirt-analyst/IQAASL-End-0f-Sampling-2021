@@ -77,7 +77,7 @@ def push_this_to_json(filename="", data=[]):
 # 
 # ## Buchhaltung für regionale Objekte
 # 
-# Es gibt in der Schweiz regelmäßig identifizierte Artikel, die nicht in der Stammliste erscheinen. Um dies zu berücksichtigen, wurden der Masterliste 43 Codes unter dem übergeordneten Code G124 hinzugefügt. Diese Codes beginnen mit G900 und enden mit G999. 
+# Es gibt in der Schweiz regelmässig identifizierte Artikel, die nicht in der Stammliste erscheinen. Um dies zu berücksichtigen, wurden der Masterliste 43 Codes unter dem übergeordneten Code G124 hinzugefügt. Diese Codes beginnen mit G900 und enden mit G999. 
 # 
 # Einige MSFD-Codes wie G124 Sonstige Artikel aus Kunststoff/Polystyrol, identifizierbar ermöglichen die Quantifizierung von nicht aufgelisteten identifizierbaren Kunststoffartikeln. Ein zusätzlicher Artikel wie G913 Schnuller kann unabhängig quantifiziert und mit dem MSFD-Code G124 verknüpft werden. Diese Arbeit wird auf dem Server erledigt und die Daten können in beiden Formen analysiert werden. 
 # 
@@ -131,15 +131,15 @@ cols_to_display = list(new_names.values())
 dfCodes.loc[["G124", "G902", "G145","G937"]][cols_to_display]
 
 
-# ### Modifikation von Artikeln nach Größe und Materialbeschreibungen
+# ### Modifikation von Artikeln nach Grösse und Materialbeschreibungen
 # 
-# Der IQAASL-Bericht enthält mehrere wichtige Größen- und Materialänderungen in den Kategorien zerbrochener Kunststoff und Schaumstoff. Andere Änderungen umfassen die Erweiterung oder Einschränkung von Artikelbeschreibungen.
+# Der IQAASL-Bericht enthält mehrere wichtige Grössen- und Materialänderungen in den Kategorien zerbrochener Kunststoff und Schaumstoff. Andere Änderungen umfassen die Erweiterung oder Einschränkung von Artikelbeschreibungen.
 # 
 # Zum Beispiel: 
 # 
 # * G96 Damenbinden, Slipeinlagen, die so verändert wurden, dass sie Tampon-Applikatoren aus Kunststoff enthalten. 
 # * G211 Klebebandagen, geändert von nicht klassifiziertem Material in Kunststoff. 
-# Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu quantifizieren, wurden 3 Codes aus der Masterliste nach Größe modifiziert. Codes geändert, um Objekte mit einer Größe von weniger als 5 mm zu berücksichtigen: 
+# Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu quantifizieren, wurden 3 Codes aus der Masterliste nach Grösse modifiziert. Codes geändert, um Objekte mit einer Grösse von weniger als 5 mm zu berücksichtigen: 
 # 
 # * G75 Kunststoff-/Polystyrolstücke 0 - 2,5 cm modifiziert auf 0,5 cm - 2,5 cm 
 # * G78 Kunststoffteile 0 - 2,5cm modifiziert auf 0,5cm - 2,5cm 
@@ -151,7 +151,7 @@ dfCodes.loc[["G124", "G902", "G145","G937"]][cols_to_display]
 sut.display_image_ipython("resources/images/codegroups/20200819_080041.jpg", thumb=(700,1100), rotate=0)
 
 
-# *__Oben:__ Plastikteile in verschiedenen Größen*
+# *__Oben:__ Plastikteile in verschiedenen Grössen*
 
 # In[4]:
 
@@ -176,9 +176,9 @@ code_group2 = {
 
 # ### Gfoams: Geschäumte Kunststoffe, GSchaumstoffe
 # 
-# Expandiertes Polystyrol G81, G82, G83, zusammengefasst als Gfoam, sind leichte, mürbe, oft weiße Schaumstoffe, die für Verpackungen oder zur Isolierung verwendet werden. Geschäumte Kunststoffartikel, die üblicherweise für Lebensmittel zum Mitnehmen G10, Schwammschäume G73 und dichtere Isolierschäume G74 verwendet werden, werden separat kategorisiert und sind nicht in der Gruppe des expandierten Polystyrols enthalten. 
+# Expandiertes Polystyrol G81, G82, G83, zusammengefasst als Gfoam, sind leichte, mürbe, oft weisse Schaumstoffe, die für Verpackungen oder zur Isolierung verwendet werden. Geschäumte Kunststoffartikel, die üblicherweise für Lebensmittel zum Mitnehmen G10, Schwammschäume G73 und dichtere Isolierschäume G74 verwendet werden, werden separat kategorisiert und sind nicht in der Gruppe des expandierten Polystyrols enthalten. 
 # 
-# Der Verpackungsschaumstoff/Isolierschaumstoff/Polyurethan G74 wurde in dieser Studie um extrudierte Polystyrole (XPS) erweitert, die üblicherweise als Isoliermaterial verwendet werden, und umgekehrt für G81, G82 und G83 Polystyrolstücke auf expandiertes Polystyrol (EPS) größer als 0,5 cm eingegrenzt. Mit diesen Änderungen sollten Isolierschaumstoffe von Verpackungsschaumstoffen unterschieden werden, obwohl beide für eine Vielzahl von Anwendungen verwendet werden. Die Materialänderungen an den geschäumten Kunststoffen werden für die Analyse zum übergeordneten Code zusammengefasst und separat erfasst. Ein detailliertes Verzeichnis der Art und Größe des Schaumstoffs wird mit jedem Bericht geliefert. 
+# Der Verpackungsschaumstoff/Isolierschaumstoff/Polyurethan G74 wurde in dieser Studie um extrudierte Polystyrole (XPS) erweitert, die üblicherweise als Isoliermaterial verwendet werden, und umgekehrt für G81, G82 und G83 Polystyrolstücke auf expandiertes Polystyrol (EPS) grösser als 0,5 cm eingegrenzt. Mit diesen Änderungen sollten Isolierschaumstoffe von Verpackungsschaumstoffen unterschieden werden, obwohl beide für eine Vielzahl von Anwendungen verwendet werden. Die Materialänderungen an den geschäumten Kunststoffen werden für die Analyse zum übergeordneten Code zusammengefasst und separat erfasst. Ein detailliertes Verzeichnis der Art und Grösse des Schaumstoffs wird mit jedem Bericht geliefert. 
 # 
 # :::{note}
 # Polystyrolkügelchen unter 5 mm, Markenname Styrofoam® sind mit Mikrokunststoffen (G117) Styropor < 5 mm gruppiert.
@@ -197,7 +197,7 @@ wwcodes
 sut.display_image_ipython("resources/images/codegroups/20210221CheyresFoam.jpg", thumb=(600,1000), rotate=360)
 
 
-# *__Oben:__ Verschiedene Größen von weißem expandiertem Polystyrol und anderen Schaumstoffen*
+# *__Oben:__ Verschiedene Grössen von weissem expandiertem Polystyrol und anderen Schaumstoffen*
 
 # ### Nicht anwendbar oder ausgelassene Punkte
 # 
@@ -219,12 +219,12 @@ sut.display_image_ipython("resources/images/codegroups/petite_plage_yverdon_lesB
 # 
 # Der Nutzen basiert auf der Nutzung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Nutzung unbestimmt ist. Identifizierte Objekte werden in einen der vordefinierten Kategoriecodes eingeordnet. Diese einzelnen Artikelcodes wurden gruppiert, um die Verwendung oder die Materialart für diesen Bericht bestmöglich zu beschreiben. Die Gruppierung der Codes ist eine breit angelegte Analysemethode, um die in den Wassersystemen gefundenen weggeworfenen Materialien nach Wirtschaftszweigen oder physikalischen Eigenschaften zu bewerten. Die Gegenstände werden in diesem Bericht auch unabhängig voneinander analysiert. Die Gruppierung wurde aus Feldbeobachtungen und Untersuchungen abgeleitet, um mögliche Quellen für verschiedene Schadstoffe zu ermitteln.
 # 
-# * __Abwasser:__ Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich mit der Toilette gespült werden
+# * __Abwasser:__ Gegenstände, die aus Kläranlagen freigesetzt werden, einschliesslich Gegenstände, die wahrscheinlich mit der Toilette gespült werden
 # * __Mikrokunststoffe:__ (< 5mm): zersplitterte Kunststoffe, geschäumte Kunststoffe und Kunststoffharze für die Vorproduktion  
-# * __Infrastruktur:__ Posten im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung 
+# * __Infrastruktur:__ Posten im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung 
 # * __Essen und Trinken:__ alle Materialien, die mit dem Konsum von Essen und Trinken zu tun haben 
-# * __Landwirtschaft:__ hauptsächlich industrielle Folien, z.B. Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschließlich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
-# * __Tabak:__ hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien 
+# * __Landwirtschaft:__ hauptsächlich industrielle Folien, z.B. Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
+# * __Tabak:__ hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # * __Erholung:__ Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
 # * __Verpackungen, die nicht für Lebensmittel und Getränke bestimmt sind:__ Verpackungsmaterial, das nicht als Lebensmittel, Getränke oder Tabakwaren gekennzeichnet ist
 # * __Kunststoffteile (> 5mm):__ zersplitterte Kunststoffe unbestimmter Herkunft oder Verwendung  
@@ -299,7 +299,7 @@ wwcodes
 
 # ### Mikrokunststoffe 
 # 
-# Die Gruppe der Mikrokunststoffe umfasst alle Kunststoffe und geschäumten Kunststoffe mit einer Größe von weniger als 5 mm aus der (MSFD)-Stammliste  {cite}`mlwguidance` der Positionen G103-G123. In unseren Daten sind nicht alle Codes identifiziert worden. Das Ziel dieses Projekts war die Quantifizierung der beobachtbaren Abfälle, die in der Regel größer als 5 mm sind, aber die untere Grenze der natürlichen sichtbaren Erkennung bei der Vermessung einer Küstenlinie liegt bei etwa 2 - 5 mm. Im Laufe einer Untersuchung werden mit dem größeren Material auch sichtbare Kleinstteile gesammelt, deren Zusammensetzung im Allgemeinen identifizierbar ist. Im Rahmen des IQAASL-Projekts wurden keine Methoden zur gezielten Erfassung von Objekten mit einer Größe von weniger als 5 mm eingesetzt, aber alle sichtbaren Mikrokunststoffe, die während einer Untersuchung gesammelt wurden, wurden quantifiziert, gewogen und kategorisiert.
+# Die Gruppe der Mikrokunststoffe umfasst alle Kunststoffe und geschäumten Kunststoffe mit einer Grösse von weniger als 5 mm aus der (MSFD)-Stammliste  {cite}`mlwguidance` der Positionen G103-G123. In unseren Daten sind nicht alle Codes identifiziert worden. Das Ziel dieses Projekts war die Quantifizierung der beobachtbaren Abfälle, die in der Regel grösser als 5 mm sind, aber die untere Grenze der natürlichen sichtbaren Erkennung bei der Vermessung einer Küstenlinie liegt bei etwa 2 - 5 mm. Im Laufe einer Untersuchung werden mit dem grösseren Material auch sichtbare Kleinstteile gesammelt, deren Zusammensetzung im Allgemeinen identifizierbar ist. Im Rahmen des IQAASL-Projekts wurden keine Methoden zur gezielten Erfassung von Objekten mit einer Grösse von weniger als 5 mm eingesetzt, aber alle sichtbaren Mikrokunststoffe, die während einer Untersuchung gesammelt wurden, wurden quantifiziert, gewogen und kategorisiert.
 
 # In[10]:
 
@@ -314,7 +314,7 @@ wwcodes
 
 # ### Infrastruktur 
 # 
-# Infrastruktur bezieht sich auf alle Formen des Baus, der Renovierung und der Instandhaltung von öffentlichen und privaten Bauwerken, einschließlich Straßen, Brücken und Häfen sowie der Strom- und Wasserversorgung. Entlang aller untersuchten Seen wurden bedeutende Mengen an Baukunststoffen und insbesondere an geschäumten Kunststoffen festgestellt. Siehe Erhebungsergebnisses 2020-2021 [Alle Erhebungen](allsurveysde)
+# Infrastruktur bezieht sich auf alle Formen des Baus, der Renovierung und der Instandhaltung von öffentlichen und privaten Bauwerken, einschliesslich Strassen, Brücken und Häfen sowie der Strom- und Wasserversorgung. Entlang aller untersuchten Seen wurden bedeutende Mengen an Baukunststoffen und insbesondere an geschäumten Kunststoffen festgestellt. Siehe Erhebungsergebnisses 2020-2021 [Alle Erhebungen](allsurveysde)
 # 
 # Gängige Kunststoffe im Bauwesen sind Rohrstücke, Kabelschutzvorrichtungen, flexible und starre Schläuche sowie die dazugehörigen Verbindungsstücke, Armaturen und Abdeckungen. Kunststoffe, die bei der Betonherstellung verwendet werden, wie Dübel, Anker und Abstandshalter, wurden ebenfalls häufig identifiziert. Einige Artikel, die mit Kunststoffen im Bauwesen in Verbindung gebracht werden, haben eindeutige Codes wie G93: Kabelbinder oder G17: Behälter für Injektionspistolen. 
 # 
@@ -325,7 +325,7 @@ wwcodes
 
 # ####  Infrastruktur: geschäumter Kunststoff¶ 
 # 
-# Alle geschäumten Kunststoffe, die mit Isolieranwendungen in Verbindung gebracht werden, werden der Gruppe Infrastruktur zugeordnet. Extrudierte Schaumstoffe sind relativ dichte mehrfarbige Schaumstoffplatten und Sprühschäume, die größer als 0,5 cm sind. Expandiertes Polystyrol wird aufgrund der häufigen Verwendung als Außenisolierung für oberirdische Anwendungen als Infrastruktur eingestuft. Zusätzliche Codes wurden geschaffen, um Größenvariationen von Schaumstoffen zu quantifizieren, G909 - G912. Die Änderungen in der Materialbeschreibung zielen darauf ab, Schaumstoffe zur Bauisolierung von Verpackungsschaumstoffen zu unterscheiden, obwohl beide für eine Vielzahl von Anwendungen verwendet werden. Die Materialänderungen an den geschäumten Kunststoffen werden für die Analyse unter dem übergeordneten Code zusammengefasst und separat erfasst. Ein detailliertes Verzeichnis der Art und Größe der geschäumten Kunststoffe wird mit jedem Bericht geliefert. 
+# Alle geschäumten Kunststoffe, die mit Isolieranwendungen in Verbindung gebracht werden, werden der Gruppe Infrastruktur zugeordnet. Extrudierte Schaumstoffe sind relativ dichte mehrfarbige Schaumstoffplatten und Sprühschäume, die grösser als 0,5 cm sind. Expandiertes Polystyrol wird aufgrund der häufigen Verwendung als Aussenisolierung für oberirdische Anwendungen als Infrastruktur eingestuft. Zusätzliche Codes wurden geschaffen, um Grössenvariationen von Schaumstoffen zu quantifizieren, G909 - G912. Die Änderungen in der Materialbeschreibung zielen darauf ab, Schaumstoffe zur Bauisolierung von Verpackungsschaumstoffen zu unterscheiden, obwohl beide für eine Vielzahl von Anwendungen verwendet werden. Die Materialänderungen an den geschäumten Kunststoffen werden für die Analyse unter dem übergeordneten Code zusammengefasst und separat erfasst. Ein detailliertes Verzeichnis der Art und Grösse der geschäumten Kunststoffe wird mit jedem Bericht geliefert. 
 
 # In[11]:
 
@@ -333,7 +333,7 @@ wwcodes
 sut.display_image_ipython("resources/images/codegroups/fragfoam_450_600.jpg", thumb=(600, 1000), rotate=0)
 
 
-# *__Oben:__ Schaumstoffe in verschiedenen Größen; XPS, EPS und Sprühschäume (SPF) entlang der Schweizer Uferlinien*
+# *__Oben:__ Schaumstoffe in verschiedenen Grössen; XPS, EPS und Sprühschäume (SPF) entlang der Schweizer Uferlinien*
 
 # In[12]:
 
@@ -388,7 +388,7 @@ wwcodes
 
 # ### Essen und Trinken
 # 
-# Beinhaltet alle Materialien, die mit Essen und Trinken in Verbindung stehen. Die größten Mengen an Einwegkunststoffen (SUP) werden im Zusammenhang mit dem Verzehr im Freien oder zum Mitnehmen verwendet. Verpackungen für Süßigkeiten und Snacks (G30) und Glasscherben (G200) sind an den Schweizer Küsten am häufigsten anzutreffen. Siehe Erhebungsergebnisses 2020-2021 [Alle Erhebungen](allsurveysde)
+# Beinhaltet alle Materialien, die mit Essen und Trinken in Verbindung stehen. Die grössten Mengen an Einwegkunststoffen (SUP) werden im Zusammenhang mit dem Verzehr im Freien oder zum Mitnehmen verwendet. Verpackungen für Süssigkeiten und Snacks (G30) und Glasscherben (G200) sind an den Schweizer Küsten am häufigsten anzutreffen. Siehe Erhebungsergebnisses 2020-2021 [Alle Erhebungen](allsurveysde)
 
 # In[13]:
 
@@ -433,7 +433,7 @@ wwcodes
 # 
 # Mehrere Codes wurden hinzugefügt, um Artikel zu kennzeichnen, die mit der Landwirtschaft in Verbindung stehen, wie z.B. G937: Pheromonköder aus Kunststoff, die üblicherweise in Weinbergen verwendet werden, und G943: Kunststoffzäune für die saisonale Viehweide. Der spezifische Foliencode G936: Gewächshausfolien und Silofolien wurde für eine besondere Art von Produkten hinzugefügt, bei denen die landwirtschaftliche Verwendung erkennbar ist. 
 # 
-# Industriefolien (G67) ist eine weit gefasste Kategorie, die Kunststoffplatten und -folien umfasst, bei denen es sich um flache Kunststoffteile handelt, die zur Verwendung in bestimmten Anwendungen auf eine bestimmte Dicke gebracht werden. Die Produkte unterscheiden sich in Bezug auf Materialien, Eigenschaften und Abmessungen [ogsapfpss]. Es ist schwierig, die Verwendung von Kunststofffolien in der Landwirtschaft einzugrenzen, da die gleichen Kunststoffe auch in der Verpackungs- und Baubranche in großem Umfang verwendet werden. Vor allem an den Schweizer Küsten sind die Kunststofffolien extrem verwittert und zersplittert, so dass eine eindeutige Verwendung und Herkunft schwer zu bestimmen ist. 
+# Industriefolien (G67) ist eine weit gefasste Kategorie, die Kunststoffplatten und -folien umfasst, bei denen es sich um flache Kunststoffteile handelt, die zur Verwendung in bestimmten Anwendungen auf eine bestimmte Dicke gebracht werden. Die Produkte unterscheiden sich in Bezug auf Materialien, Eigenschaften und Abmessungen [ogsapfpss]. Es ist schwierig, die Verwendung von Kunststofffolien in der Landwirtschaft einzugrenzen, da die gleichen Kunststoffe auch in der Verpackungs- und Baubranche in grossem Umfang verwendet werden. Vor allem an den Schweizer Küsten sind die Kunststofffolien extrem verwittert und zersplittert, so dass eine eindeutige Verwendung und Herkunft schwer zu bestimmen ist. 
 # 
 # Industriefolien werden der Landwirtschaft zugeschrieben, da sie über einen längeren Zeitraum physikalischen Einflüssen ausgesetzt sind und in unmittelbarer Nähe von Flüssen, Bächen und Kanälen verwendet werden. Industriefolien werden auch der Landwirtschaft zugerechnet, da Kunststoffmaterialien zunehmend in landwirtschaftlichen Anwendungen eingesetzt werden, die gemeinhin als Plastikkulturen bezeichnet werden. Die Plastikkultur umfasst Bewässerungsschläuche, Kunststofftöpfe für Baumschulen und eine umfangreiche Verwendung von Folien für den Gartenbau, den Getreideanbau und die Milchwirtschaft {cite}`plasticulture`.
 # 
@@ -495,7 +495,7 @@ wwcodes
 
 # ### Codes für die Freizeitgestaltung
 # 
-# Die Freizeitgruppe umfasst Objekte, die mit Sport und Freizeit zu tun haben, d.h. Angeln, Jagen, Wandern, Bootfahren und Strandaktivitäten, Lebensmittel, Getränke und Tabak sind ausgeschlossen. Schrotpatronen aus Plastik (G70) wurden in überraschend großen Mengen gefunden, wenn man bedenkt, dass die Jagd in der Nähe der großen Seen nicht erlaubt ist. Dies könnte ein wichtiger Indikator für die zurückgelegten Entfernungen in den Gewässern sein.
+# Die Freizeitgruppe umfasst Objekte, die mit Sport und Freizeit zu tun haben, d.h. Angeln, Jagen, Wandern, Bootfahren und Strandaktivitäten, Lebensmittel, Getränke und Tabak sind ausgeschlossen. Schrotpatronen aus Plastik (G70) wurden in überraschend grossen Mengen gefunden, wenn man bedenkt, dass die Jagd in der Nähe der grossen Seen nicht erlaubt ist. Dies könnte ein wichtiger Indikator für die zurückgelegten Entfernungen in den Gewässern sein.
 
 # In[16]:
 
@@ -582,7 +582,7 @@ wwcodes
 
 # ### Fragmentierte Kunststoffe: Gfrags¶ 
 # 
-# Die Gruppe der Kunststofffragmente (Gfrags für die Analyse) sind alle Kunststoff- und Schaumstoff-/Kunststoffverbundstücke, die größer als 0,5 cm sind. Bei den Kunststofffragmenten, die an den Schweizer Küsten gefunden wurden, handelt es sich überwiegend um kleine, harte, stark fragmentierte Stücke eines pigmentierten Gegenstands. Der ursprüngliche Verwendungszweck und die Herkunft sind im Prinzip unbestimmt. Die einzelnen Plastikteile wurden nach Material und Größe quantifiziert: 
+# Die Gruppe der Kunststofffragmente (Gfrags für die Analyse) sind alle Kunststoff- und Schaumstoff-/Kunststoffverbundstücke, die grösser als 0,5 cm sind. Bei den Kunststofffragmenten, die an den Schweizer Küsten gefunden wurden, handelt es sich überwiegend um kleine, harte, stark fragmentierte Stücke eines pigmentierten Gegenstands. Der ursprüngliche Verwendungszweck und die Herkunft sind im Prinzip unbestimmt. Die einzelnen Plastikteile wurden nach Material und Grösse quantifiziert: 
 
 # In[18]:
 
@@ -606,7 +606,7 @@ wwcodes
 sut.display_image_ipython("resources/images/codegroups/Yverdon_lesBainsLacNeuchâtel15_02_2021.jpg", thumb=(800, 1200), rotate=0)
 
 
-# *__Oben:__ Verschiedene Größen von Plastikteilen*
+# *__Oben:__ Verschiedene Grössen von Plastikteilen*
 
 # ### Persönliche Gegenstände¶ 
 # 

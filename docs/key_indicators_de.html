@@ -478,7 +478,7 @@
 <li><p>Welche Gegenstände werden gefunden?</p></li>
 <li><p>Wie viel wird gefunden? (Gesamtgewichte und Anzahl der Artikel)</p></li>
 <li><p>Wie oft werden diese Gegenstände gefunden?</p></li>
-<li><p>Wo sind diese Gegenstände in den größten Konzentrationen zu finden?</p></li>
+<li><p>Wo sind diese Gegenstände in den grössten Konzentrationen zu finden?</p></li>
 </ul>
 <p>Ähnlich wie bei der Zählung von Vögeln oder Wildblumen muss eine Person die Erhebung durchführen, um die Zielobjekte finden und dann identifizieren. Dieser Prozess ist gut dokumentiert und wurde unter vielen Bedingungen getestet. <span id="id3">[<a class="reference internal" href="references.html#id50">Rya15</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id56">RMCP+15</a>]</span>.</p>
 <p><strong>Indikatoren für die am häufigsten gestellten Fragen</strong></p>
@@ -492,13 +492,13 @@
 <p><strong>Annahmen zu den Schlüsselindikatoren:</strong></p>
 <p>Die Zuverlässigkeit dieser Indikatoren beruht auf den folgenden Annahmen:</p>
 <ol class="simple">
-<li><p>Je mehr Abfallobjekte auf dem Boden liegen, desto größer ist die Wahrscheinlichkeit, dass eine Person sie findet.</p></li>
+<li><p>Je mehr Abfallobjekte auf dem Boden liegen, desto grösser ist die Wahrscheinlichkeit, dass eine Person sie findet.</p></li>
 <li><p>Die Datenerhebung Ergebnisse stellen die Mindestmenge an Abfallobjekten an diesem Standort dar</p></li>
 <li><p>Die Besichtiger befolgen das Protokoll und zeichnen die Ergebnisse genau auf</p></li>
 <li><p>Für jede Datenerhebung: Das Auffinden eines Artikels hat keinen Einfluss auf die Wahrscheinlichkeit, einen anderen zu finden <span id="id5">[<a class="reference internal" href="references.html#id9">Sta21a</a>]</span></p></li>
 </ol>
 <p><strong>Verwendung der Schlüsselindikatoren</strong></p>
-<p>Die Schlüsselindikatoren der häufigsten Objekte werden mit jeder Datenzusammenfassung auf jeder Aggregationsebene angegeben. Wenn die vorherigen Annahmen beibehalten werden, sollte die Anzahl der Proben in der Region von Interesse immer als Maß für die Unsicherheit betrachtet werden. Je mehr Proben innerhalb definierter geografischer und zeitlicher Grenzen liegen, desto größer ist das Vertrauen in die numerischen Ergebnisse, die aus Ergebnissen innerhalb dieser Grenzen gewonnen werden.</p>
+<p>Die Schlüsselindikatoren der häufigsten Objekte werden mit jeder Datenzusammenfassung auf jeder Aggregationsebene angegeben. Wenn die vorherigen Annahmen beibehalten werden, sollte die Anzahl der Proben in der Region von Interesse immer als Mass für die Unsicherheit betrachtet werden. Je mehr Proben innerhalb definierter geografischer und zeitlicher Grenzen liegen, desto grösser ist das Vertrauen in die numerischen Ergebnisse, die aus Ergebnissen innerhalb dieser Grenzen gewonnen werden.</p>
 <div class="section" id="definition-die-haufigsten-objekte">
 <h2><span class="section-number">15.1. </span>Definition: die häufigsten Objekte<a class="headerlink" href="#definition-die-haufigsten-objekte" title="Permalink to this headline">¶</a></h2>
 <p><em>Die am häufigsten vorkommenden Objekte sind die Objekte, die eine Ausfallrate von mindestens 50% haben und/oder in einem bestimmten geografischen Gebiet unter den Top-Ten nach Menge oder Stückzahl/m sind.</em></p>
@@ -652,11 +652,11 @@
 
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dt_all</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pcs_m&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Aare-Erhebungsgebiet&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">bt_all</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;pcs_m&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Biel/Bienne&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">monthly_plot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">monthly_plot</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">monthly_plot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">F</span><span class="s2">&quot;Monatsmedian:</span><span class="si">{</span><span class="n">level_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">monthly_plot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">monthly_plot</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">monthly_plot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">level_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">: monatlicher Medianwert&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">)</span>
 
 <span class="n">the_90th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">dt_all</span><span class="o">.</span><span class="n">pcs_m</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
 
-<span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Werte größer als das 99. Perzentil (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">the_90th</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">) werden nicht angezeigt.&quot;</span>
+<span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Werte grösser als das 99. Perzentil (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">the_90th</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">) werden nicht angezeigt.&quot;</span>
 
 <span class="n">axone</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pcs/m&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">the_90th</span> <span class="p">)</span>
@@ -692,7 +692,7 @@
 <p>Die Fail-Rate ist die Anzahl der Fälle, in denen ein Objekt mindestens einmal gefunden wurde, geteilt durch die Anzahl der Datenerhebungen.</p>
 <p><strong>Was bedeutet das?</strong> Die Fail-Rate beschreibt den Prozentsatz der Fälle, in denen eine Kategorie im Verhältnis zur Anzahl der durchgeführten Datenerhebungen identifiziert wurde.</p>
 <blockquote>
-<div><p>Verwenden Sie die Fail-Rate, um festzustellen, wie häufig ein Objekt innerhalb eines geografischen Bereichs gefunden wurde. Objekte können anhand der Fail-Rate unterschieden werden. Verwenden Sie die Fail-Rate und pcs/m, um Objekte zu identifizieren, die nur selten, aber in großen Mengen gefunden werden.</p>
+<div><p>Verwenden Sie die Fail-Rate, um festzustellen, wie häufig ein Objekt innerhalb eines geografischen Bereichs gefunden wurde. Objekte können anhand der Fail-Rate unterschieden werden. Verwenden Sie die Fail-Rate und pcs/m, um Objekte zu identifizieren, die nur selten, aber in grossen Mengen gefunden werden.</p>
 </div></blockquote>
 <p><strong>Unterschiedliche Fail-Raten auf verschiedenen Ebenen</strong></p>
 <p>Die Fail-Rate wird auf jeder Aggregationsebene berechnet. Daher ändert sich die Fail-Rate für ein bestimmtes Objekt je nach den geografischen Grenzen, die die Aggregationsebene definieren. Betrachten Sie alle Objekte, die bei mindestens 1/2 Erhebungen im Aare-Erhebungsgebiet gefunden wurden.</p>
@@ -792,8 +792,8 @@
 </div>
 </div>
 </div>
-<p>Mit Ausnahme von Industriefolien und Kunststofffragmenten war die Fehlschlagquote in Biel/Bienne höher als in allen anderen Untersuchungsgebieten. Das bedeutet, dass die Wahrscheinlichkeit, diese Objekte zu finden, in Biel pro Untersuchung größer war als an den meisten anderen Orten.</p>
-<p>Die Pass-Fail-Rate ist die wahrscheinlichste Schätzung (MLE) der Wahrscheinlichkeit, mindestens ein Objekt zu finden <span id="id6">[<a class="reference internal" href="references.html#id30">CP17</a>]</span>. Wenn das Objekt in allen vorherigen Stichproben identifiziert wurde und sich die Abschwächung der Präventionsmaßnahmen nicht geändert hat, kann man davon ausgehen, dass auch in den folgenden Stichproben mindestens ein Objekt zu finden sein wird.</p>
+<p>Mit Ausnahme von Industriefolien und Kunststofffragmenten war die Fehlschlagquote in Biel/Bienne höher als in allen anderen Untersuchungsgebieten. Das bedeutet, dass die Wahrscheinlichkeit, diese Objekte zu finden, in Biel pro Untersuchung grösser war als an den meisten anderen Orten.</p>
+<p>Die Pass-Fail-Rate ist die wahrscheinlichste Schätzung (MLE) der Wahrscheinlichkeit, mindestens ein Objekt zu finden <span id="id6">[<a class="reference internal" href="references.html#id30">CP17</a>]</span>. Wenn das Objekt in allen vorherigen Stichproben identifiziert wurde und sich die Abschwächung der Präventionsmassnahmen nicht geändert hat, kann man davon ausgehen, dass auch in den folgenden Stichproben mindestens ein Objekt zu finden sein wird.</p>
 <p><strong>Hinweis:</strong> Die Fail-Rate gibt keinen Hinweis auf die Menge</p>
 </div>
 <div class="section" id="stucke-pro-meter">
@@ -801,7 +801,7 @@
 <p>Stücke pro Meter (pcs/m) ist die Anzahl der bei jeder Untersuchung gefundenen Objekte geteilt durch die Länge der untersuchten Uferlinie.</p>
 <p><strong>Was bedeutet das?</strong> pcs/m beschreibt die Menge eines Objekts, das pro Meter vermessenen Strandufer Abschnitts gefunden wurde. Es handelt sich um eine Methode zur Normalisierung der Daten aus allen Vermessungen, damit sie verglichen werden können.</p>
 <blockquote>
-<div><p>Verwenden Sie Stücke pro Meter, um die Objekte zu finden, die in den größten Mengen gefunden wurden. Verwenden Sie Stücke pro Meter, um Zonen der Anhäufung zu identifizieren.</p>
+<div><p>Verwenden Sie Stücke pro Meter, um die Objekte zu finden, die in den grössten Mengen gefunden wurden. Verwenden Sie Stücke pro Meter, um Zonen der Anhäufung zu identifizieren.</p>
 </div></blockquote>
 <p><em>Warum nicht die Fläche verwenden? Der empfohlene EU-Standard besteht darin, die Ergebnisse als Anzahl der Objekte pro Länge der untersuchten Küstenlinie anzugeben, normalerweise 100 Meter <span id="id7">[<a class="reference internal" href="references.html#id42">HG19</a>]</span>. Die Fläche wurde für 99% aller Erhebungen in IQAASL berechnet. Die Ergebnisse für diese Analyse werden in pcs/m angegeben.</em></p>
 <p><em><strong>Unten:</strong> Die Durchfallquoten der häufigsten Items aus dem Aare-Erhebungsgebiet in verschiedenen Aggregationsstufen.</em></p>
@@ -855,7 +855,7 @@
 <img alt="_images/key_indicators_de_14_0.png" src="_images/key_indicators_de_14_0.png" />
 </div>
 </div>
-<p>Der gemeldete Wert ist der Median der Datenerhebung Ergebnissen für diese Aggregationsebene und dieses Objekt. Ein Medianwert von Null bedeutet, dass das Objekt in weniger als 1/2 Datenerhebungen für diese Aggregationsebene identifiziert wurde. Betrachten Sie zum Beispiel die Ergebnisse für Isoliermaterial: umfasst Sprühschäume. Der Medianwert für das Aare-Erhebungsgebiet ist Null. Wenn jedoch nur die Ergebnisse von Bielersee oder Biel/Bienne betrachtet werden, ist der Medianwert größer als Null. Das deutet darauf hin, dass am Bielersee und speziell in Biel/Bienne mehr Dämmstoffe gefunden wurden als im übrigen Aaregebiet.</p>
+<p>Der gemeldete Wert ist der Median der Datenerhebung Ergebnissen für diese Aggregationsebene und dieses Objekt. Ein Medianwert von Null bedeutet, dass das Objekt in weniger als 1/2 Datenerhebungen für diese Aggregationsebene identifiziert wurde. Betrachten Sie zum Beispiel die Ergebnisse für Isoliermaterial: umfasst Sprühschäume. Der Medianwert für das Aare-Erhebungsgebiet ist Null. Wenn jedoch nur die Ergebnisse von Bielersee oder Biel/Bienne betrachtet werden, ist der Medianwert grösser als Null. Das deutet darauf hin, dass am Bielersee und speziell in Biel/Bienne mehr Dämmstoffe gefunden wurden als im übrigen Aaregebiet.</p>
 <div class="section" id="prozentsatz-der-gesamtmenge">
 <h4><span class="section-number">15.2.3.1. </span>Prozentsatz der Gesamtmenge<a class="headerlink" href="#prozentsatz-der-gesamtmenge" title="Permalink to this headline">¶</a></h4>
 <p>Der prozentuale Anteil an der Gesamtzahl ist die Menge eines gefundenen Objekts geteilt durch die Gesamtzahl aller gefundenen Objekte für einen bestimmten Ort/Region und Datumsbereich.</p>
@@ -863,7 +863,7 @@
 <blockquote>
 <div><p>Verwenden Sie den prozentualen Anteil an der Gesamtmenge, um die wichtigsten Abfallobjekten zu definieren. Verwenden Sie den prozentualen Anteil an der Gesamtmenge, um Prioritäten auf regionaler Ebene zu ermitteln.</p>
 </div></blockquote>
-<p>Ähnlich wie bei den Stücken pro Meter ist ein Objekt mit einer niedrigen Pass-Fail-Rate und einem hohen Prozentsatz an der Gesamtzahl ein Signal dafür, dass Objekte möglicherweise in unregelmäßigen Abständen in großen Mengen deponiert werden: Verklappung oder Unfälle.</p>
+<p>Ähnlich wie bei den Stücken pro Meter ist ein Objekt mit einer niedrigen Pass-Fail-Rate und einem hohen Prozentsatz an der Gesamtzahl ein Signal dafür, dass Objekte möglicherweise in unregelmässigen Abständen in grossen Mengen deponiert werden: Verklappung oder Unfälle.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ac</span> <span class="o">=</span> <span class="n">biel</span><span class="p">[</span><span class="n">biel</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">thecommon</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -928,19 +928,19 @@
 <div class="section" id="diskussion">
 <h3><span class="section-number">15.2.4. </span>Diskussion<a class="headerlink" href="#diskussion" title="Permalink to this headline">¶</a></h3>
 <p>Zwischen April 2020 und Mai 2021 wurden 16 Strand-Abfallaufkommen Datenerhebungen an drei verschiedenen Orten in Biel/Bienne durchgeführt, bei denen 3.067 Objekte identifiziert werden konnten. Die häufigsten Objekte aus dem Aare-Erhebungsgebiet machen 66% aller in Biel identifizierten Objekte aus. Objekte, die in direktem Zusammenhang mit dem Konsum stehen (Lebensmittel, Getränke, Tabak), werden in einer Häufigkeit gefunden, die über dem Median des Erhebungsgebiets liegt, den diese Objekte stellen rund 34% der gesammelten Abfallobjekte in Biel/Bienne dar, im Vergleich zu 25% für alle Untersuchungsgebiete.</p>
-<p>Gegenstände, die nicht direkt mit Konsumverhalten in Verbindung stehen, wie zerbrochene Kunststoffe, Industriefolien, expandiertes Polystyrol oder Industriepellets, werden in größeren Mengen gefunden als im übrigen Aare-Erhebungsgebiet. Expandiertes Polystyrol wird als äußere Isolierhülle für Gebäude (Neubauten und Renovierungen) und zum Schutz von Bauteilen beim Transport verwendet. Biel hat eine starke industrielle Basis und eine aktive Bau- und Produktionsbasis. Zusammengenommen machen diese Objekte 30% der insgesamt gesammelten Objekte aus.</p>
+<p>Gegenstände, die nicht direkt mit Konsumverhalten in Verbindung stehen, wie zerbrochene Kunststoffe, Industriefolien, expandiertes Polystyrol oder Industriepellets, werden in grösseren Mengen gefunden als im übrigen Aare-Erhebungsgebiet. Expandiertes Polystyrol wird als äussere Isolierhülle für Gebäude (Neubauten und Renovierungen) und zum Schutz von Bauteilen beim Transport verwendet. Biel hat eine starke industrielle Basis und eine aktive Bau- und Produktionsbasis. Zusammengenommen machen diese Objekte 30% der insgesamt gesammelten Objekte aus.</p>
 <div class="section" id="anwendung">
 <h4><span class="section-number">15.2.4.1. </span>Anwendung<a class="headerlink" href="#anwendung" title="Permalink to this headline">¶</a></h4>
-<p>Die Schlüsselindikatoren sind einfache Verhältnisse, die direkt aus den Datenerhebung Ergebnissen entnommen werden. Änderungen in der Größenordnung dieser Verhältnisse signalisieren Änderungen in der relativen Menge bestimmter Objekte. Wenn die Schlüsselindikatoren im Rahmen eines Überwachungsprogramms verwendet werden, ermöglichen sie die Identifizierung wahrscheinlicher Anreicherungszonen.</p>
+<p>Die Schlüsselindikatoren sind einfache Verhältnisse, die direkt aus den Datenerhebung Ergebnissen entnommen werden. Änderungen in der Grössenordnung dieser Verhältnisse signalisieren Änderungen in der relativen Menge bestimmter Objekte. Wenn die Schlüsselindikatoren im Rahmen eines Überwachungsprogramms verwendet werden, ermöglichen sie die Identifizierung wahrscheinlicher Anreicherungszonen.</p>
 </div>
 </div>
 <div class="section" id="praktische-ubung">
 <h3><span class="section-number">15.2.5. </span>Praktische Übung<a class="headerlink" href="#praktische-ubung" title="Permalink to this headline">¶</a></h3>
-<p>Industrielle Kunststoffgranulate (GPI) sind das wichtigste Material zur Herstellung von Kunststoffgegenständen, die in der Schweiz in großem Umfang verwendet werden. Sie sind scheiben- oder pelletförmig und haben einen Durchmesser von 5mm.</p>
+<p>Industrielle Kunststoffgranulate (GPI) sind das wichtigste Material zur Herstellung von Kunststoffgegenständen, die in der Schweiz in grossem Umfang verwendet werden. Sie sind scheiben- oder pelletförmig und haben einen Durchmesser von 5mm.</p>
 <p>Beantworten Sie anhand der folgenden Datenerhebung Ergebnissen, der Karte mit den Datenerhebungs Standorten und unter Beibehaltung der zu Beginn dieses Artikels vorgestellten Annahmen die folgenden Fragen:</p>
 <ol class="simple">
-<li><p>Wo besteht die größte Wahrscheinlichkeit, mindestens ein Vorkommen des Abfallobjekts zu finden?</p></li>
-<li><p>Wie groß ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden?</p></li>
+<li><p>Wo besteht die grösste Wahrscheinlichkeit, mindestens ein Vorkommen des Abfallobjekts zu finden?</p></li>
+<li><p>Wie gross ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden?</p></li>
 <li><p>Warum haben Sie sich für diesen Ort oder diese Orte entschieden? Wie sicher sind Sie sich bei Ihrer Wahl?</p></li>
 </ol>
 <div class="cell tag_hide-input docutils container">

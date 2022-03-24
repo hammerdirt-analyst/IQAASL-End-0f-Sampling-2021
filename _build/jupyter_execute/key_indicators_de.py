@@ -72,7 +72,7 @@ colors_palette = ck.colors_palette
 # *  Welche Gegenstände werden gefunden? 
 # *  Wie viel wird gefunden? (Gesamtgewichte und Anzahl der Artikel) 
 # *  Wie oft werden diese Gegenstände gefunden? 
-# *  Wo sind diese Gegenstände in den größten Konzentrationen zu finden? 
+# *  Wo sind diese Gegenstände in den grössten Konzentrationen zu finden? 
 #    
 # Ähnlich wie bei der Zählung von Vögeln oder Wildblumen muss eine Person die Erhebung durchführen, um die Zielobjekte finden und dann identifizieren. Dieser Prozess ist gut dokumentiert und wurde unter vielen Bedingungen getestet. {cite}`ryan2015` {cite}`Rech`.
 # 
@@ -89,14 +89,14 @@ colors_palette = ck.colors_palette
 # 
 # Die Zuverlässigkeit dieser Indikatoren beruht auf den folgenden Annahmen:
 # 
-# 1. Je mehr Abfallobjekte auf dem Boden liegen, desto größer ist die Wahrscheinlichkeit, dass eine Person sie findet. 
+# 1. Je mehr Abfallobjekte auf dem Boden liegen, desto grösser ist die Wahrscheinlichkeit, dass eine Person sie findet. 
 # 2. Die Datenerhebung Ergebnisse stellen die Mindestmenge an Abfallobjekten an diesem Standort dar 
 # 3. Die Besichtiger befolgen das Protokoll und zeichnen die Ergebnisse genau auf 
 # 4. Für jede Datenerhebung: Das Auffinden eines Artikels hat keinen Einfluss auf die Wahrscheinlichkeit, einen anderen zu finden {cite}`iid`
 # 
 # __Verwendung der Schlüsselindikatoren__
 # 
-# Die Schlüsselindikatoren der häufigsten Objekte werden mit jeder Datenzusammenfassung auf jeder Aggregationsebene angegeben. Wenn die vorherigen Annahmen beibehalten werden, sollte die Anzahl der Proben in der Region von Interesse immer als Maß für die Unsicherheit betrachtet werden. Je mehr Proben innerhalb definierter geografischer und zeitlicher Grenzen liegen, desto größer ist das Vertrauen in die numerischen Ergebnisse, die aus Ergebnissen innerhalb dieser Grenzen gewonnen werden. 
+# Die Schlüsselindikatoren der häufigsten Objekte werden mit jeder Datenzusammenfassung auf jeder Aggregationsebene angegeben. Wenn die vorherigen Annahmen beibehalten werden, sollte die Anzahl der Proben in der Region von Interesse immer als Mass für die Unsicherheit betrachtet werden. Je mehr Proben innerhalb definierter geografischer und zeitlicher Grenzen liegen, desto grösser ist das Vertrauen in die numerischen Ergebnisse, die aus Ergebnissen innerhalb dieser Grenzen gewonnen werden. 
 # 
 # ## Definition: die häufigsten Objekte
 # 
@@ -254,11 +254,11 @@ axthree = fig.add_subplot(spec[9:,4:8])
 
 sns.scatterplot(data=dt_all, x='date', y='pcs_m', color='black', alpha=0.4, label="Aare-Erhebungsgebiet", ax=axone)
 sns.scatterplot(data=bt_all, x='date', y='pcs_m', color='red', alpha=0.8, label="Biel/Bienne", ax=axone)
-sns.lineplot(data=monthly_plot, x=monthly_plot.index, y=monthly_plot, color='magenta', label=F"Monatsmedian:{level_names[2]}", ax=axone)
+sns.lineplot(data=monthly_plot, x=monthly_plot.index, y=monthly_plot, color='magenta', label=F"{level_names[2]}: monatlicher Medianwert", ax=axone)
 
 the_90th = np.percentile(dt_all.pcs_m, 99)
 
-not_included = F"Werte größer als das 99. Perzentil ({round(the_90th, 2)}) werden nicht angezeigt."
+not_included = F"Werte grösser als das 99. Perzentil ({round(the_90th, 2)}) werden nicht angezeigt."
 
 axone.set_ylabel("pcs/m", **ck.xlab_k14)
 axone.set_ylim(0,the_90th )
@@ -290,7 +290,7 @@ plt.show()
 # 
 # **Was bedeutet das?** Die Fail-Rate beschreibt den Prozentsatz der Fälle, in denen eine Kategorie im Verhältnis zur Anzahl der durchgeführten Datenerhebungen identifiziert wurde. 
 # 
-# > Verwenden Sie die Fail-Rate, um festzustellen, wie häufig ein Objekt innerhalb eines geografischen Bereichs gefunden wurde. Objekte können anhand der Fail-Rate unterschieden werden. Verwenden Sie die Fail-Rate und pcs/m, um Objekte zu identifizieren, die nur selten, aber in großen Mengen gefunden werden. 
+# > Verwenden Sie die Fail-Rate, um festzustellen, wie häufig ein Objekt innerhalb eines geografischen Bereichs gefunden wurde. Objekte können anhand der Fail-Rate unterschieden werden. Verwenden Sie die Fail-Rate und pcs/m, um Objekte zu identifizieren, die nur selten, aber in grossen Mengen gefunden werden. 
 # 
 # __Unterschiedliche Fail-Raten auf verschiedenen Ebenen__
 # 
@@ -389,9 +389,9 @@ def make_median_colums(df,name="Alle Erhebungsgebiete", new_col_name="p", desc="
     return b_s_a[name]
 
 
-# Mit Ausnahme von Industriefolien und Kunststofffragmenten war die Fehlschlagquote in Biel/Bienne höher als in allen anderen Untersuchungsgebieten. Das bedeutet, dass die Wahrscheinlichkeit, diese Objekte zu finden, in Biel pro Untersuchung größer war als an den meisten anderen Orten. 
+# Mit Ausnahme von Industriefolien und Kunststofffragmenten war die Fehlschlagquote in Biel/Bienne höher als in allen anderen Untersuchungsgebieten. Das bedeutet, dass die Wahrscheinlichkeit, diese Objekte zu finden, in Biel pro Untersuchung grösser war als an den meisten anderen Orten. 
 # 
-# Die Pass-Fail-Rate ist die wahrscheinlichste Schätzung (MLE) der Wahrscheinlichkeit, mindestens ein Objekt zu finden {cite}`mle`. Wenn das Objekt in allen vorherigen Stichproben identifiziert wurde und sich die Abschwächung der Präventionsmaßnahmen nicht geändert hat, kann man davon ausgehen, dass auch in den folgenden Stichproben mindestens ein Objekt zu finden sein wird. 
+# Die Pass-Fail-Rate ist die wahrscheinlichste Schätzung (MLE) der Wahrscheinlichkeit, mindestens ein Objekt zu finden {cite}`mle`. Wenn das Objekt in allen vorherigen Stichproben identifiziert wurde und sich die Abschwächung der Präventionsmassnahmen nicht geändert hat, kann man davon ausgehen, dass auch in den folgenden Stichproben mindestens ein Objekt zu finden sein wird. 
 # 
 # __Hinweis:__ Die Fail-Rate gibt keinen Hinweis auf die Menge 
 
@@ -401,7 +401,7 @@ def make_median_colums(df,name="Alle Erhebungsgebiete", new_col_name="p", desc="
 # 
 # **Was bedeutet das?** pcs/m beschreibt die Menge eines Objekts, das pro Meter vermessenen Strandufer Abschnitts gefunden wurde. Es handelt sich um eine Methode zur Normalisierung der Daten aus allen Vermessungen, damit sie verglichen werden können. 
 # 
-# > Verwenden Sie Stücke pro Meter, um die Objekte zu finden, die in den größten Mengen gefunden wurden. Verwenden Sie Stücke pro Meter, um Zonen der Anhäufung zu identifizieren.
+# > Verwenden Sie Stücke pro Meter, um die Objekte zu finden, die in den grössten Mengen gefunden wurden. Verwenden Sie Stücke pro Meter, um Zonen der Anhäufung zu identifizieren.
 # 
 # _Warum nicht die Fläche verwenden? Der empfohlene EU-Standard besteht darin, die Ergebnisse als Anzahl der Objekte pro Länge der untersuchten Küstenlinie anzugeben, normalerweise 100 Meter {cite}`eubaselines`. Die Fläche wurde für 99% aller Erhebungen in IQAASL berechnet. Die Ergebnisse für diese Analyse werden in pcs/m angegeben._
 # 
@@ -453,7 +453,7 @@ plt.show()
 plt.close()
 
 
-# Der gemeldete Wert ist der Median der Datenerhebung Ergebnissen für diese Aggregationsebene und dieses Objekt. Ein Medianwert von Null bedeutet, dass das Objekt in weniger als 1/2 Datenerhebungen für diese Aggregationsebene identifiziert wurde. Betrachten Sie zum Beispiel die Ergebnisse für Isoliermaterial: umfasst Sprühschäume. Der Medianwert für das Aare-Erhebungsgebiet ist Null. Wenn jedoch nur die Ergebnisse von Bielersee oder Biel/Bienne betrachtet werden, ist der Medianwert größer als Null. Das deutet darauf hin, dass am Bielersee und speziell in Biel/Bienne mehr Dämmstoffe gefunden wurden als im übrigen Aaregebiet. 
+# Der gemeldete Wert ist der Median der Datenerhebung Ergebnissen für diese Aggregationsebene und dieses Objekt. Ein Medianwert von Null bedeutet, dass das Objekt in weniger als 1/2 Datenerhebungen für diese Aggregationsebene identifiziert wurde. Betrachten Sie zum Beispiel die Ergebnisse für Isoliermaterial: umfasst Sprühschäume. Der Medianwert für das Aare-Erhebungsgebiet ist Null. Wenn jedoch nur die Ergebnisse von Bielersee oder Biel/Bienne betrachtet werden, ist der Medianwert grösser als Null. Das deutet darauf hin, dass am Bielersee und speziell in Biel/Bienne mehr Dämmstoffe gefunden wurden als im übrigen Aaregebiet. 
 
 # ####  Prozentsatz der Gesamtmenge
 # 
@@ -463,7 +463,7 @@ plt.close()
 # 
 # > Verwenden Sie den prozentualen Anteil an der Gesamtmenge, um die wichtigsten Abfallobjekten zu definieren. Verwenden Sie den prozentualen Anteil an der Gesamtmenge, um Prioritäten auf regionaler Ebene zu ermitteln.
 # 
-# Ähnlich wie bei den Stücken pro Meter ist ein Objekt mit einer niedrigen Pass-Fail-Rate und einem hohen Prozentsatz an der Gesamtzahl ein Signal dafür, dass Objekte möglicherweise in unregelmäßigen Abständen in großen Mengen deponiert werden: Verklappung oder Unfälle. 
+# Ähnlich wie bei den Stücken pro Meter ist ein Objekt mit einer niedrigen Pass-Fail-Rate und einem hohen Prozentsatz an der Gesamtzahl ein Signal dafür, dass Objekte möglicherweise in unregelmässigen Abständen in grossen Mengen deponiert werden: Verklappung oder Unfälle. 
 
 # In[9]:
 
@@ -524,20 +524,20 @@ plt.close()
 # 
 # Zwischen April 2020 und Mai 2021 wurden 16 Strand-Abfallaufkommen Datenerhebungen an drei verschiedenen Orten in Biel/Bienne durchgeführt, bei denen 3.067 Objekte identifiziert werden konnten. Die häufigsten Objekte aus dem Aare-Erhebungsgebiet machen 66% aller in Biel identifizierten Objekte aus. Objekte, die in direktem Zusammenhang mit dem Konsum stehen (Lebensmittel, Getränke, Tabak), werden in einer Häufigkeit gefunden, die über dem Median des Erhebungsgebiets liegt, den diese Objekte stellen rund 34% der gesammelten Abfallobjekte in Biel/Bienne dar, im Vergleich zu 25% für alle Untersuchungsgebiete. 
 # 
-# Gegenstände, die nicht direkt mit Konsumverhalten in Verbindung stehen, wie zerbrochene Kunststoffe, Industriefolien, expandiertes Polystyrol oder Industriepellets, werden in größeren Mengen gefunden als im übrigen Aare-Erhebungsgebiet. Expandiertes Polystyrol wird als äußere Isolierhülle für Gebäude (Neubauten und Renovierungen) und zum Schutz von Bauteilen beim Transport verwendet. Biel hat eine starke industrielle Basis und eine aktive Bau- und Produktionsbasis. Zusammengenommen machen diese Objekte 30% der insgesamt gesammelten Objekte aus. 
+# Gegenstände, die nicht direkt mit Konsumverhalten in Verbindung stehen, wie zerbrochene Kunststoffe, Industriefolien, expandiertes Polystyrol oder Industriepellets, werden in grösseren Mengen gefunden als im übrigen Aare-Erhebungsgebiet. Expandiertes Polystyrol wird als äussere Isolierhülle für Gebäude (Neubauten und Renovierungen) und zum Schutz von Bauteilen beim Transport verwendet. Biel hat eine starke industrielle Basis und eine aktive Bau- und Produktionsbasis. Zusammengenommen machen diese Objekte 30% der insgesamt gesammelten Objekte aus. 
 # 
 # #### Anwendung 
 # 
-# Die Schlüsselindikatoren sind einfache Verhältnisse, die direkt aus den Datenerhebung Ergebnissen entnommen werden. Änderungen in der Größenordnung dieser Verhältnisse signalisieren Änderungen in der relativen Menge bestimmter Objekte. Wenn die Schlüsselindikatoren im Rahmen eines Überwachungsprogramms verwendet werden, ermöglichen sie die Identifizierung wahrscheinlicher Anreicherungszonen. 
+# Die Schlüsselindikatoren sind einfache Verhältnisse, die direkt aus den Datenerhebung Ergebnissen entnommen werden. Änderungen in der Grössenordnung dieser Verhältnisse signalisieren Änderungen in der relativen Menge bestimmter Objekte. Wenn die Schlüsselindikatoren im Rahmen eines Überwachungsprogramms verwendet werden, ermöglichen sie die Identifizierung wahrscheinlicher Anreicherungszonen. 
 # 
 # ###  Praktische Übung
 # 
-# Industrielle Kunststoffgranulate (GPI) sind das wichtigste Material zur Herstellung von Kunststoffgegenständen, die in der Schweiz in großem Umfang verwendet werden. Sie sind scheiben- oder pelletförmig und haben einen Durchmesser von 5mm. 
+# Industrielle Kunststoffgranulate (GPI) sind das wichtigste Material zur Herstellung von Kunststoffgegenständen, die in der Schweiz in grossem Umfang verwendet werden. Sie sind scheiben- oder pelletförmig und haben einen Durchmesser von 5mm. 
 # 
 # Beantworten Sie anhand der folgenden Datenerhebung Ergebnissen, der Karte mit den Datenerhebungs Standorten und unter Beibehaltung der zu Beginn dieses Artikels vorgestellten Annahmen die folgenden Fragen: 
 # 
-# 1. Wo besteht die größte Wahrscheinlichkeit, mindestens ein Vorkommen des Abfallobjekts zu finden? 
-# 2. Wie groß ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden? 
+# 1. Wo besteht die grösste Wahrscheinlichkeit, mindestens ein Vorkommen des Abfallobjekts zu finden? 
+# 2. Wie gross ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden? 
 # 3. Warum haben Sie sich für diesen Ort oder diese Orte entschieden? Wie sicher sind Sie sich bei Ihrer Wahl? 
 
 # In[11]:

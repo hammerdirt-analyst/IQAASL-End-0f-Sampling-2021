@@ -447,8 +447,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#schaumstoffe-und-kunststoffe-nach-grosze">
-     2.7.1. Schaumstoffe und Kunststoffe nach Größe
+    <a class="reference internal nav-link" href="#schaumstoffe-und-kunststoffe-nach-grosse">
+     2.7.1. Schaumstoffe und Kunststoffe nach Grösse
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -650,7 +650,7 @@
 <div class="section" id="die-alpen-und-der-jura">
 <span id="lesalpesde"></span><h1><span class="section-number">2. </span>Die Alpen und der Jura<a class="headerlink" href="#die-alpen-und-der-jura" title="Permalink to this headline">¶</a></h1>
 <p><a href="alpes_valaisannes.html" > English </a></p>
-<p>Die Alpen und der Jura (les Alpes) sind Erhebungsgebiete, bei der die Verantwortung der Erhebungen bei der Summit Foundation liegt.  Die Summit Foundation führt seit vielen Jahren <a class="reference external" href="https://www.summit-foundation.org/en/">clean up events</a> in den Schweizer Alpen durch. Zu den Veranstaltungen im Jahr 2021 gehörten auch eine Reihe von Datenerhebungen zu Abfallobjekten, die parallel zu den regelmäßig stattfindenden Veranstaltungen durchgeführt wurden. Die Summit Foundation hatte zwei Fragen in Bezug auf IQAASL:</p>
+<p>Die Alpen und der Jura (les Alpes) sind Erhebungsgebiete, bei der die Verantwortung der Erhebungen bei der Summit Foundation liegt.  Die Summit Foundation führt seit vielen Jahren <a class="reference external" href="https://www.summit-foundation.org/en/">clean up events</a> in den Schweizer Alpen durch. Zu den Veranstaltungen im Jahr 2021 gehörten auch eine Reihe von Datenerhebungen zu Abfallobjekten, die parallel zu den regelmässig stattfindenden Veranstaltungen durchgeführt wurden. Die Summit Foundation hatte zwei Fragen in Bezug auf IQAASL:</p>
 <ol class="simple">
 <li><p>Wie kann die Datenerfassung in das aktuelle Geschäftsmodell integriert werden?</p></li>
 <li><p>Wie sind die Datenerhebungen auf den Bergpfaden im Vergleich zu denen am Wasser?</p></li>
@@ -815,9 +815,9 @@
 <span class="c1"># german column names for the dimensional data table</span>
 <span class="n">new_col_names</span><span class="o">=</span><span class="p">{</span>    
     <span class="s2">&quot;samples&quot;</span><span class="p">:</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Objekten&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Objekte&quot;</span><span class="p">,</span>
     <span class="s2">&quot;total_w&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt-e kg&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;Plastic kg&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;mac_plast_w&quot;</span><span class="p">:</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> 
     <span class="s2">&quot;mic_plas_w&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt-s kg&quot;</span><span class="p">,</span>
     <span class="s2">&quot;area&quot;</span><span class="p">:</span> <span class="s2">&quot;m²&quot;</span><span class="p">,</span>
     <span class="s2">&quot;length&quot;</span><span class="p">:</span><span class="s2">&quot;Länge&quot;</span><span class="p">,</span> 
@@ -830,11 +830,11 @@
 <span class="n">dims_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_col_names</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># kilos, these weights are recorded in grams</span>
-<span class="n">kilos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Plastic kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-s kg&quot;</span><span class="p">]</span>
+<span class="n">kilos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-s kg&quot;</span><span class="p">]</span>
 <span class="n">dims_table</span><span class="p">[</span><span class="n">kilos</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dims_table</span><span class="p">[</span><span class="n">kilos</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># numerical type and rounding</span>
-<span class="n">tints</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span><span class="s2">&quot;Gesamt-e kg&quot;</span><span class="p">,</span> <span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Länge&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">,</span> <span class="s2">&quot;Mitarbeiter&quot;</span><span class="p">,</span> <span class="s2">&quot;Teilnehmer&quot;</span><span class="p">]</span>
+<span class="n">tints</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span><span class="s2">&quot;Gesamt-e kg&quot;</span><span class="p">,</span> <span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Länge&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;Mitarbeiter&quot;</span><span class="p">,</span> <span class="s2">&quot;Teilnehmer&quot;</span><span class="p">]</span>
 <span class="n">twodec</span> <span class="o">=</span> <span class="p">[</span><span class="n">unit_label</span><span class="p">]</span>
 
 <span class="c1"># apply formatting</span>
@@ -844,8 +844,8 @@
 
 <span class="c1"># apply string formatting</span>
 <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">table_one</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;location&quot;</span><span class="p">,</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">,</span><span class="s2">&quot;Plastic kg&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-s kg&quot;</span><span class="p">,</span> <span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Länge&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">commas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekten&quot;</span><span class="p">,</span>  <span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Länge&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">]</span>
+<span class="n">table_one</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[[</span><span class="s2">&quot;location&quot;</span><span class="p">,</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">,</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamt-s kg&quot;</span><span class="p">,</span> <span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Länge&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">commas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">,</span>  <span class="s2">&quot;m²&quot;</span><span class="p">,</span> <span class="s2">&quot;Länge&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">]</span>
 <span class="n">table_one</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">commas</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">table_one</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">commas</span><span class="p">]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># make table</span>
@@ -899,7 +899,7 @@
 <li><p>% der Fläche, die der Forstwirtschaft zugeschrieben wird</p></li>
 <li><p>% der Fläche, die der Erholung vorbehalten ist</p></li>
 </ul>
-<p>Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.</p>
+<p>Strassen werden als Gesamtzahl der Strassenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.</p>
 <p>Das Verhältnis der Anzahl der Eherebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte.</p>
 <p>Für weitere Informationen <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref"><em>Landnutzungsprofil</em></span></a>.</p>
 <div class="cell tag_hide-input docutils container">
@@ -967,7 +967,7 @@
 </div>
 <p><em><strong>Oben:</strong> Die Orte im Erhebungsgebiet der Alpen wiesen einen höheren Prozentsatz an Flächen auf, die der Forst- und Landwirtschaft zugeordnet wurden, und einen geringeren Prozentsatz, der Gebäuden und Freizeiteinrichtungen zugeordnet wurde, als die Orte im IQAASL.</em></p>
 <p>Die aggregierten Ergebnisse zeigen den Unterschied zwischen den beiden Erhebungsmethoden. Die drei Standorte mit dem höchsten p/100m haben auch die kürzeste Länge. Im Fall von Cabanes-des-Diablerets ist der Meter² gleich der Länge, was darauf hindeutet, dass ein kleiner Bereich um eine Struktur oder ein Gebäude herum vermessen wurde. Veysonnaz befindet sich am Ende einer Skiliftlinie.</p>
-<p>Der Unterschied in den Methoden führt zu deutlich unterschiedlichen Ergebnissen. Außerdem wurden diese beiden Orte aufgrund der früheren Erfahrungen der Person, die die Datenerhebung ausführt, speziell für die Bestandsaufnahme ausgewählt. Aufgrund der unterschiedlichen Dimensionen und Methoden werden die Datenerhebungen Ergebnisse aus Veysonnaz, San-Beranardino und Cabanes-des-Diablerets in der weiteren Analyse nicht berücksichtigt.</p>
+<p>Der Unterschied in den Methoden führt zu deutlich unterschiedlichen Ergebnissen. Ausserdem wurden diese beiden Orte aufgrund der früheren Erfahrungen der Person, die die Datenerhebung ausführt, speziell für die Bestandsaufnahme ausgewählt. Aufgrund der unterschiedlichen Dimensionen und Methoden werden die Datenerhebungen Ergebnisse aus Veysonnaz, San-Beranardino und Cabanes-des-Diablerets in der weiteren Analyse nicht berücksichtigt.</p>
 </div>
 </div>
 <div class="section" id="verteilung-der-datenerhebungen-ergebnisse">
@@ -995,14 +995,14 @@
 
 <span class="c1"># figure caption</span>
 <span class="n">chart_notes</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Links:__ Die Alpen und der Jura, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">a_data</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse, Ausreißer entfernt.*  </span>
+<span class="s2">*__Links:__ Die Alpen und der Jura, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">a_data</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse, Ausreisser entfernt.*  </span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">chart_notes</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Die Alpen und der Jura, 03.2020 bis 09.2021, n=403. <strong>Rechts:</strong> Verteilung der Datenerhebungen Ergebnisse, Ausreißer entfernt.</em></p>
+<p><em><strong>Links:</strong> Die Alpen und der Jura, 03.2020 bis 09.2021, n=403. <strong>Rechts:</strong> Verteilung der Datenerhebungen Ergebnisse, Ausreisser entfernt.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1120,7 +1120,7 @@
 </div>
 <div class="section" id="die-am-haufigsten-gefundenen-objekte">
 <h2><span class="section-number">2.4. </span>Die am häufigsten gefundenen Objekte<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
+<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code totals for les Alps not including veysonnaz</span>
@@ -1256,19 +1256,19 @@ Objekte 69% aller gefundenen Objekte der, p/100m: Medianwert der Erhebung.</em><
 <h2><span class="section-number">2.5. </span>Verwendungszweck der gefundenen Objekte<a class="headerlink" href="#verwendungszweck-der-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
 <p>Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert.</p>
 <ul class="simple">
-<li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
+<li><p><strong>Abwasser:</strong> Gegenstände, die aus Kläranlagen freigesetzt werden, einschliesslich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden</p></li>
 <li><p><strong>Mikroplastik (&lt; 5 mm):</strong> fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
-<li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung</p></li>
+<li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen</p></li>
 <li><p><strong>Landwirtschaft:</strong>     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
-<li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien</p></li>
+<li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Freizeit und Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
-<li><p><strong>Verpackungen außer Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
+<li><p><strong>Verpackungen ausser Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
 <li><p><strong>Plastikfragmente:</strong> Plastikteile unbestimmter Herkunft oder Verwendung</p></li>
 <li><p><strong>Persönliche Gegenstände:</strong> Accessoires, Hygieneartikel und Kleidung</p></li>
 </ul>
-<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
-<p><em><strong>Unten:</strong> Wanderwege Nutzen der gefundenen Objekte: % der Gesamtzahl nach Wassermerkmal. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Größe klassifiziert.</em></p>
+<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
+<p><em><strong>Unten:</strong> Wanderwege Nutzen der gefundenen Objekte: % der Gesamtzahl nach Wassermerkmal. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Grösse klassifiziert.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the median survey total and % of total for codegroups</span>
@@ -1412,7 +1412,7 @@ Objekte 69% aller gefundenen Objekte der, p/100m: Medianwert der Erhebung.</em><
 <div class="section" id="ergebnisse-der-alpenerhebung-im-vergleich-zu-erhebungen-an-der-ufer">
 <h3><span class="section-number">2.6.1. </span>Ergebnisse der Alpenerhebung im Vergleich zu Erhebungen an der Ufer<a class="headerlink" href="#ergebnisse-der-alpenerhebung-im-vergleich-zu-erhebungen-an-der-ufer" title="Permalink to this headline">¶</a></h3>
 <p>Der Medianwert beträgt 110 p/100m für die 17 Standorte, die die Kriterien für Länge und Breite im Erhebungsgebiet Alpen erfüllen, und liegt damit unter dem Medianwert aller anderen Erhebungsgebiete (189 p/100m). Objekte, die mit dem Konsum von Nahrungsmitteln, Getränken und Tabak in Verbindung stehen, machten einen geringeren Prozentsatz der Gesamtzahl aus und wiesen eine niedrigere p/100m-Rate auf als Standorte entlang von Wassersystemen. Dieser Unterschied könnte zum Teil auf die geringe Verstädterung zurückzuführen sein, die das Erhebungsgebiet Alpen im Vergleich zu allen anderen Erhebungsgebieten kennzeichnet.</p>
-<p>Der Anteil von Objekten, die mit der Infrastruktur zusammenhängen, ist mit 36 % doppelt so hoch wie in allen Untersuchungsgebieten zusammen. Dies ist größtenteils auf die Fäden von Seilbahnbürsten zurückzuführen, die in Les-Crosets in großen Mengen gefunden wurden. Seilbahnbürsten werden verwendet, um den Schnee von der Oberseite der abgedeckten Seilbahnkabinen zu entfernen, wenn diese sich dem Einstiegsort nähern. Ähnlich wie Industriepellets oder Schaumstoffkügelchen in der aquatischen Umwelt werden Teile von Seilbahnbürsten wahrscheinlich immer wieder in gelegentlich großen Mengen an ganz bestimmten Orten gefunden.</p>
+<p>Der Anteil von Objekten, die mit der Infrastruktur zusammenhängen, ist mit 36 % doppelt so hoch wie in allen Untersuchungsgebieten zusammen. Dies ist grösstenteils auf die Fäden von Seilbahnbürsten zurückzuführen, die in Les-Crosets in grossen Mengen gefunden wurden. Seilbahnbürsten werden verwendet, um den Schnee von der Oberseite der abgedeckten Seilbahnkabinen zu entfernen, wenn diese sich dem Einstiegsort nähern. Ähnlich wie Industriepellets oder Schaumstoffkügelchen in der aquatischen Umwelt werden Teile von Seilbahnbürsten wahrscheinlich immer wieder in gelegentlich grossen Mengen an ganz bestimmten Orten gefunden.</p>
 <p>Das Verhältnis von Infrastrukturobjekten zu Lebensmitteln und Tabakwaren ist fast 1. Solche Ergebnisse sind typisch für Umgebungen mit einer besser entwickelten Infrastruktur, siehe [Gemeinsame Verantwortung] (Verkehr). Fragmentierte Kunststoffe werden in ähnlichem Umfang wie in den anderen Untersuchungsgebieten gefunden. Neu auf der Liste der häufigsten Gegenstände sind Kabelbinder und Abdeckband. Beide Gegenstände werden am Ufer gefunden, allerdings mit einer Häufigkeit von unter 50 %.</p>
 <p>Es sei daran erinnert, dass diese Erhebungen  entlang der Skiliftlinie oder eines Wanderweges in einem Skigebiet durchgeführt wurden. Auch wenn die Nutzung im Winter erhöht sein mag, sind viele Gebiete auch im Sommer hervorragende Wandergebiete, so dass eine ganzjährige Nutzung dieser Regionen möglich ist.</p>
 <div class="section" id="die-haufigsten-objekte">
@@ -1429,23 +1429,23 @@ Objekte 69% aller gefundenen Objekte der, p/100m: Medianwert der Erhebung.</em><
 </div>
 <div class="section" id="implementierung-von-datenerhebungen-uber-abfallobjekte-in-das-bestehende-geschaftsmodell">
 <h3><span class="section-number">2.6.2. </span>Implementierung von Datenerhebungen über Abfallobjekte in das bestehende Geschäftsmodell<a class="headerlink" href="#implementierung-von-datenerhebungen-uber-abfallobjekte-in-das-bestehende-geschaftsmodell" title="Permalink to this headline">¶</a></h3>
-<p>m Vergleich zu einer Strandabfall-Erhebung deckt eine Aufräumaktion ein relativ großes geographisches Gebiet ab. Freiwillige, die an diesen Veranstaltungen teilnehmen, werden von der Möglichkeit angezogen, sich um die Umwelt zu kümmern UND sich in der Gesellschaft anderer (in den Bergen) zu bewegen. Datenerhebungen zu Strand-Abfallobjekten bieten nicht dasselbe Aktivitätsniveau und sind möglicherweise nicht für alle Freiwilligen von Interesse.</p>
-<p>Die Durchführung von Strand-Abfallobjekten bedeutet, dass Sie Freiwilligen die Möglichkeit geben, vor Ort Erfahrungen zu sammeln, aber auch intern die Ressourcen bereitstellen, um sicherzustellen, dass die Untersuchung gemäß dem Protokoll durchgeführt wird. Dazu gehört das Identifizieren, Zählen und Eingeben von Daten. Die Summit Foundation war in der Lage, dies zu tun, indem sie dafür sorgte, dass bei jeder Veranstaltung eine Person anwesend war, die die Umfrage durchführen konnte.</p>
+<p>m Vergleich zu einer Strandabfall-Erhebung deckt eine Aufräumaktion ein relativ grosses geographisches Gebiet ab. Freiwillige, die an diesen Veranstaltungen teilnehmen, werden von der Möglichkeit angezogen, sich um die Umwelt zu kümmern UND sich in der Gesellschaft anderer (in den Bergen) zu bewegen. Datenerhebungen zu Strand-Abfallobjekten bieten nicht dasselbe Aktivitätsniveau und sind möglicherweise nicht für alle Freiwilligen von Interesse.</p>
+<p>Die Durchführung von Strand-Abfallobjekten bedeutet, dass Sie Freiwilligen die Möglichkeit geben, vor Ort Erfahrungen zu sammeln, aber auch intern die Ressourcen bereitstellen, um sicherzustellen, dass die Untersuchung gemäss dem Protokoll durchgeführt wird. Dazu gehört das Identifizieren, Zählen und Eingeben von Daten. Die Summit Foundation war in der Lage, dies zu tun, indem sie dafür sorgte, dass bei jeder Veranstaltung eine Person anwesend war, die die Umfrage durchführen konnte.</p>
 <p>Die Personen, die die Datenerhebung ausführten, zogen es vor, die Proben entlang der Liftlinien zu nehmen und bei der Ankunft und Abfahrt der Skilifte zu beginnen. Die auf diese Weise entnommenen Proben folgen dem Verlauf der Veranstaltung: bergab und in den Bereichen mit hohem Verkehrsaufkommen.</p>
 <p>Proben, die in der Nähe von Gebäuden oder anderen Einrichtungen genommen wurden, ergaben höhere Datenerhebungen Ergebnisse. Damit bestätigte sich, was die Mitglieder der Summit Foundation in den vergangenen Jahren festgestellt hatten. Aus diesen Erfahrungen erklärte der Projektleiter, Téo Gürsoy:</p>
 <blockquote>
 <div><p>Die Personen, die die Datenerhebung ausführt, konzentrieren sich nämlich hauptsächlich auf die Abschnitte unter den Sesselliften, Gondeln oder bei der Abfahrt und Ankunft dieser Anlagen, die stark frequentierte Orte sind.</p>
 </div></blockquote>
-<p>In einigen Fällen ist die Dichte der Objekte so groß, dass sich die Person, welche die Datenerhebung ausführt, gezwungen sah, sich auf einen Bereich zu konzentrieren, indem sie die Breite des Erfassungsbereichs vergrößerte. M. Gursoy beschrieb, was passierte, als eine Person, welche die Datenerhebung ausführt, auf einen Ort stieß, der große Mengen von Skiliftbürsten enthielt:</p>
+<p>In einigen Fällen ist die Dichte der Objekte so gross, dass sich die Person, welche die Datenerhebung ausführt, gezwungen sah, sich auf einen Bereich zu konzentrieren, indem sie die Breite des Erfassungsbereichs vergrösserte. M. Gursoy beschrieb, was passierte, als eine Person, welche die Datenerhebung ausführt, auf einen Ort stiess, der grosse Mengen von Skiliftbürsten enthielt:</p>
 <blockquote>
 <div><p>Die Person, welche die Datenerhebung ausführt, begann den Streckenabschnitt jedoch an der Ankunftsstation der Gondel. Die Skiliftbürsten erregten schnell die Aufmerksamkeit der Person, die beschloss, sich nur auf diesen Bereich zu konzentrieren, um herauszufinden, wie viele von ihnen in dieser Art von Gebiet zu finden waren…</p>
 </div></blockquote>
 <p>Die Datenerhebungen Ergebnisse rund um Infrastruktur oder Gebäude sind kein Indikator für den Zustand der Umwelt im gesamten Gebiet. Datenerhebungen in der Umgebung dieser Strukturen weisen tendenziell höhere Werte auf, machen aber nur einen kleinen Teil der gesamten Landnutzung aus.</p>
-<p>Es mussten Anpassungen an der Software und dem Berichtsschema vorgenommen werden, um die verschiedenen Arten von Daten zu verarbeiten, die bei Aufräumarbeiten anfallen. Dazu gehörte auch die Schaffung neuer Identifikationscodes für bestimmte Objekte, die im Untersuchungsgebiet der Alpen gefunden werden. Außerdem stellte die Summit Foundation die Ressourcen zur Verfügung, damit ein Mitarbeiter der Stiftung in der Anwendung des Projektprotokolls und der Software geschult werden konnte.</p>
+<p>Es mussten Anpassungen an der Software und dem Berichtsschema vorgenommen werden, um die verschiedenen Arten von Daten zu verarbeiten, die bei Aufräumarbeiten anfallen. Dazu gehörte auch die Schaffung neuer Identifikationscodes für bestimmte Objekte, die im Untersuchungsgebiet der Alpen gefunden werden. Ausserdem stellte die Summit Foundation die Ressourcen zur Verfügung, damit ein Mitarbeiter der Stiftung in der Anwendung des Projektprotokolls und der Software geschult werden konnte.</p>
 <div class="section" id="schlussfolgerungen">
 <h4><span class="section-number">2.6.2.1. </span>Schlussfolgerungen<a class="headerlink" href="#schlussfolgerungen" title="Permalink to this headline">¶</a></h4>
 <p>Die Datenerhebungen, die entlang der Wege und Liftlinien im Untersuchungsgebiet der Alpen durchgeführt wurden, ergaben Daten, die den Daten der Erhebungen entlang der Ufer (an der Küste) sehr ähnlich waren. Wenn sich die Personen, die die Datenerhebungen durchgeführt haben, jedoch auf bestimmte Infrastruktureinrichtungen konzentrierten, wurden extreme Werte ermittelt. Die Datenerhebungen an der Ufer würden zu den gleichen Ergebnissen führen, wenn die Erhebungen nur an Orten durchgeführt würden, an denen hohe Abfallobjekte wahrscheinlicher sind.</p>
-<p>Objekte aus dem Bereich Essen und Trinken machen nur 11% der insgesamt gefundenen Objekte aus, verglichen mit 36% in den anderen Untersuchungsgebieten. Der Anteil an Infrastrukturobjekten beträgt in den Alpen jedoch 75% gegenüber 18% in allen anderen Untersuchungsgebieten. Dies ist zum Teil auf den Unterschied in der menschlichen Präsenz im Vergleich zu Orten in niedrigeren Höhenlagen zurückzuführen, wo die menschliche Präsenz das ganze Jahr über konstant ist, so dass der Druck durch Nahrungs- und Genussmittel im Gegensatz zur Infrastruktur größer ist.</p>
+<p>Objekte aus dem Bereich Essen und Trinken machen nur 11% der insgesamt gefundenen Objekte aus, verglichen mit 36% in den anderen Untersuchungsgebieten. Der Anteil an Infrastrukturobjekten beträgt in den Alpen jedoch 75% gegenüber 18% in allen anderen Untersuchungsgebieten. Dies ist zum Teil auf den Unterschied in der menschlichen Präsenz im Vergleich zu Orten in niedrigeren Höhenlagen zurückzuführen, wo die menschliche Präsenz das ganze Jahr über konstant ist, so dass der Druck durch Nahrungs- und Genussmittel im Gegensatz zur Infrastruktur grösser ist.</p>
 <p>Dieses erste Projekt hat auch gezeigt, dass es möglich ist, die Überwachung mit beliebten Veranstaltungen zu kombinieren. In Vorbereitung auf die Überwachung tauschten die Mitglieder beider Teams Ideen aus und sortierten gemeinsam Proben. Dies ermöglichte es beiden Organisationen, sich gegenseitig besser zu verstehen und Basisleistungen zu bestimmen, die bei der Datenerfassung für einen nationalen Bericht erbracht werden konnten:</p>
 <ol class="simple">
 <li><p>Helfen Sie bei der Erfassung und Identifizierung</p></li>
@@ -1460,10 +1460,10 @@ Objekte 69% aller gefundenen Objekte der, p/100m: Medianwert der Erhebung.</em><
 </div>
 <div class="section" id="anhang">
 <h2><span class="section-number">2.7. </span>Anhang<a class="headerlink" href="#anhang" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="schaumstoffe-und-kunststoffe-nach-grosze">
-<h3><span class="section-number">2.7.1. </span>Schaumstoffe und Kunststoffe nach Größe<a class="headerlink" href="#schaumstoffe-und-kunststoffe-nach-grosze" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="schaumstoffe-und-kunststoffe-nach-grosse">
+<h3><span class="section-number">2.7.1. </span>Schaumstoffe und Kunststoffe nach Grösse<a class="headerlink" href="#schaumstoffe-und-kunststoffe-nach-grosse" title="Permalink to this headline">¶</a></h3>
 <p>Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe &gt; 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien &gt; 0,5 cm werden für die Analyse als Gfrags gruppiert.</p>
-<p><em><strong>Unten:</strong> fragmentierte Schaumstoffe und Kunststoffe nach Größengruppen. Median p/100m, Anzahl der Stücke, Prozent der Gesamtmenge.</em></p>
+<p><em><strong>Unten:</strong> fragmentierte Schaumstoffe und Kunststoffe nach Grössengruppen. Median p/100m, Anzahl der Stücke, Prozent der Gesamtmenge.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collect the data before aggregating foams for all locations in the survye area</span>

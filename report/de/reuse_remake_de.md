@@ -4,7 +4,7 @@
 
 Precious Plastic Léman [PPL](https://preciousplasticleman.ch/) ist ein Verein, der sich aktiv für die Wiederverwendung und Reduzierung von Kunststoffabfällen in der Genferseeregion einsetzt. Die Mitglieder stellen neue Produkte her, indem sie die Kunststoffabfälle aus ihrer Werkstatt in Lausanne umwandeln. 
 
-Als Designer und Verarbeiter verbringen die Mitglieder von PPL mehr Zeit in der Werkstatt als draußen mit dem Sammeln von Abfallobjekten aus Plastik. PPL erhält in erster Linie gebrauchte Kunststoffe aus Spenden, die am Arbeitsplatz abgegeben werden. In Bezug auf die Abfallobjekte am Strand hatten die Mitglieder von PPL zwei Fragen, die sie beantworten wollten: 
+Als Designer und Verarbeiter verbringen die Mitglieder von PPL mehr Zeit in der Werkstatt als draussen mit dem Sammeln von Abfallobjekten aus Plastik. PPL erhält in erster Linie gebrauchte Kunststoffe aus Spenden, die am Arbeitsplatz abgegeben werden. In Bezug auf die Abfallobjekte am Strand hatten die Mitglieder von PPL zwei Fragen, die sie beantworten wollten: 
 
 1. Wie viel des gesammelten Plastikmülls könnte für den Betrieb von PPL verwendet werden? 
 2. Was genau wäre erforderlich, um die an der Küste gesammelten Kunststoffe zu recyceln?
@@ -25,11 +25,11 @@ Verschiedene Arten von Kunststoffen haben unterschiedliche Eigenschaften. PPL ac
 
 <br />
 
-Bei einer Strand-Abfallaufkommen Untersuchung stößt man auf eine Vielzahl von Kunststoffen. Nicht alles davon kann in Produkte mit Mehrwert umgewandelt werden. Durch die Identifizierung und Gruppierung der Kunststoffe nach ihrer Art kann PPL Objekte herstellen, die am besten zu den Eigenschaften des verwendeten Kunststoffs passen. 
+Bei einer Strand-Abfallaufkommen Untersuchung stösst man auf eine Vielzahl von Kunststoffen. Nicht alles davon kann in Produkte mit Mehrwert umgewandelt werden. Durch die Identifizierung und Gruppierung der Kunststoffe nach ihrer Art kann PPL Objekte herstellen, die am besten zu den Eigenschaften des verwendeten Kunststoffs passen. 
 
 ### Polyethylenterephthalat (PET) 
 
-Das meiste PET, das während des Probenahmezeitraums gefunden wurde, war in Form von Getränkeflaschen und Lebensmittelbehältern. Der größte Teil der weltweiten Produktion von PET wird jedoch zur Herstellung von Fasern verwendet. PET ist für das derzeitige Herstellungsverfahren bei PPL nicht gut geeignet und wird daher nicht verwendet. 
+Das meiste PET, das während des Probenahmezeitraums gefunden wurde, war in Form von Getränkeflaschen und Lebensmittelbehältern. Der grösste Teil der weltweiten Produktion von PET wird jedoch zur Herstellung von Fasern verwendet. PET ist für das derzeitige Herstellungsverfahren bei PPL nicht gut geeignet und wird daher nicht verwendet. 
 
 Nur 88 PET-Getränkeflaschen wurden in den Jahren 2020-2021 landesweit entlang der Datenerhebungen des Wassersystems erfasst. 
 
@@ -46,7 +46,7 @@ HDPE2 hat ein hohes Verhältnis von Festigkeit zu Dichte und funktioniert gut im
 
 ### Polyvinylchlorid (PVC3) 
 
-PVC3 ist ein gängiges Material für Kunststoffe im Bauwesen. Baukunststoffe gehören zu den am häufigsten verwendeten Gegenständen am Lac Léman und im ganzen Land. Leider ist dieses Produkt bei unsachgemäßer Handhabung giftig. PPL recycelt dieses Material nicht. 
+PVC3 ist ein gängiges Material für Kunststoffe im Bauwesen. Baukunststoffe gehören zu den am häufigsten verwendeten Gegenständen am Lac Léman und im ganzen Land. Leider ist dieses Produkt bei unsachgemässer Handhabung giftig. PPL recycelt dieses Material nicht. 
 
 > Bauabfälle aus Kunststoff wurden in 52% aller Proben identifiziert und waren mindestens 2% aller identifizierten Objekte. 
 
@@ -62,7 +62,7 @@ PP5 nimmt verschiedene Formen an, wenn es am Strand gefunden wird. PP5 kann in C
 
 PPL hat viele Verwendungsmöglichkeiten für PP5 gefunden, darunter Töpfe, Wanduhren, Frisbees und Schlüsselanhänger.
 
-> PP5 rPP5 steht für eine große Gruppe von Abfallobjekten am Strand, kombiniert mit fragmentierten Kunststoffen PPL steht für $\approxeq$ 30-40% aller gefundenen Objekte und wurde in 98% der Datenerhebungen identifiziert.
+> PP5 rPP5 steht für eine grosse Gruppe von Abfallobjekten am Strand, kombiniert mit fragmentierten Kunststoffen PPL steht für $\approxeq$ 30-40% aller gefundenen Objekte und wurde in 98% der Datenerhebungen identifiziert.
 
 ### Polystyrol (PS6) 
 
@@ -148,9 +148,9 @@ PP5 und HDPE2 sind die am häufigsten vorkommenden Objekte aus den Abfallobjekte
 
 In der Mehrzahl der gesammelten Proben wurden wiederverwendbare Kunststoffe gefunden. Polypropylen, HDPE, PS6 und LDPE waren die wichtigsten identifizierten Polymere. Fragmentierte Kunststoffe, Schaumstoffe und Flaschenverschlüsse können alle vor Ort mit den bei Precious Plastic angewandten Methoden recycelt werden. 
 
-Die weggeworfenen Gegenstände erforderten einen wesentlich höheren Reinigungsaufwand als das Material, an das PPL gewöhnt ist. Die Reinigung von gebrauchten Kunststoffprodukten ist ein großer Kostenfaktor in der Recyclingindustrie, und PPL ist da keine Ausnahme. Große Recyclinganlagen verfügen über Wasseraufbereitungsanlagen, um die Reinigungsmittel und Verunreinigungen zu entfernen, die beim Reinigungsprozess entstehen. PPL verwendet Backpulver und Essig, wodurch die Gesamtmenge an Wasser reduziert und die Verwendung von Reinigungsmitteln, die sich negativ auf die Umwelt auswirken können, vermieden wird. Diese Methode eignet sich für sehr kleine Produktionsmengen, ist aber arbeitsaufwändig. 
+Die weggeworfenen Gegenstände erforderten einen wesentlich höheren Reinigungsaufwand als das Material, an das PPL gewöhnt ist. Die Reinigung von gebrauchten Kunststoffprodukten ist ein grosser Kostenfaktor in der Recyclingindustrie, und PPL ist da keine Ausnahme. Grosse Recyclinganlagen verfügen über Wasseraufbereitungsanlagen, um die Reinigungsmittel und Verunreinigungen zu entfernen, die beim Reinigungsprozess entstehen. PPL verwendet Backpulver und Essig, wodurch die Gesamtmenge an Wasser reduziert und die Verwendung von Reinigungsmitteln, die sich negativ auf die Umwelt auswirken können, vermieden wird. Diese Methode eignet sich für sehr kleine Produktionsmengen, ist aber arbeitsaufwändig. 
 
-Solange die Reinigungs- und Sortierprozesse ordnungsgemäß durchgeführt wurden, gab es keine Qualitätseinbußen bei den hergestellten Produkten. Die Anzahl der Kunststoffe, die bei der Sammlung von Abfallobjekten gesammelt und in Produkte mit Mehrwert umgewandelt werden können, reicht nicht aus, um irgendeine Art von Produktionskapazität aufrechtzuerhalten. Es gibt jedoch eine Fülle von recycelbaren Kunststoffen, die in die Umwelt gelangen. 
+Solange die Reinigungs- und Sortierprozesse ordnungsgemäss durchgeführt wurden, gab es keine Qualitätseinbussen bei den hergestellten Produkten. Die Anzahl der Kunststoffe, die bei der Sammlung von Abfallobjekten gesammelt und in Produkte mit Mehrwert umgewandelt werden können, reicht nicht aus, um irgendeine Art von Produktionskapazität aufrechtzuerhalten. Es gibt jedoch eine Fülle von recycelbaren Kunststoffen, die in die Umwelt gelangen. 
 
 Das Vorhandensein von leicht wiederverwertbaren Produkten im Wasser bedeutet, dass Gelegenheiten verpasst werden, diese Ressource wertzuschätzen und/oder zu sammeln. Zusammen mit der Vielzahl von Gegenständen, die aus PP5 hergestellt sind, macht die geschätzte Anzahl der am Strand gesammelten wiederverwertbaren Gegenstände 40-50% der Gesamtmenge der gesammelten Gegenstände aus. 
 

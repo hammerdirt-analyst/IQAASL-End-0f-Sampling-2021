@@ -278,7 +278,7 @@ md(lake_string)
 # 
 # Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1'500 m um den Erhebungsort zugeordnet wird. 
 # 
-# Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1'500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1'500 m um den Erhebungsort herum durchqueren. 
+# Strassen werden als Gesamtzahl der Strassenkilometer im Umkreis von 1'500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1'500 m um den Erhebungsort herum durchqueren. 
 # 
 # Das Verhältnis der Anzahl der Erhebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Rahmenbedingungen der Untersuchungsstandorte.  
 # 
@@ -374,12 +374,12 @@ dims_table.loc[this_feature["name"]]= dims_table.sum(numeric_only=True, axis=0)
 
 # for display
 dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
-dims_table.rename(columns={"samples":"Erhebungen","quantity":"Objekten", "total_w":"Gesamt-kg", "mac_plast_w":"Plastic-kg", "area":"m²", "length":"Meter"}, inplace=True)
+dims_table.rename(columns={"samples":"Erhebungen","quantity":"Objekte", "total_w":"Gesamt-kg", "mac_plast_w":"kg Plastik", "area":"m²", "length":"Meter"}, inplace=True)
 # locale.format_string('%d', int(t["quantity"]), grouping=True)
 # format kilos
-dims_table["Plastic-kg"] = dims_table["Plastic-kg"]/1000
-dims_table[["m²", "Meter", "Erhebungen", "Objekten"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekten"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
-dims_table[["Plastic-kg", "Gesamt-kg"]] = dims_table[["Plastic-kg", "Gesamt-kg"]].applymap(lambda x: "{:.2f}".format(x))
+dims_table["kg Plastik"] = dims_table["kg Plastik"]/1000
+dims_table[["m²", "Meter", "Erhebungen", "Objekte"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekte"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
+dims_table[["kg Plastik", "Gesamt-kg"]] = dims_table[["kg Plastik", "Gesamt-kg"]].applymap(lambda x: "{:.2f}".format(x))
 
 # figure caption
 agg_caption = F"""
@@ -395,7 +395,7 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.75,len(data)*.5))
+fig, ax = plt.subplots(figsize=(len(colLabels)*1.75,len(data)*.7))
 sut.hide_spines_ticks_grids(ax)
 
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
@@ -431,13 +431,13 @@ y_lim = 95
 y_limit = np.percentile(dts_date[unit_label], y_lim)
 
 # label for the chart that alerts to the scale
-not_included = F"Werte größer als {locale.format_string('%d', round(y_limit, 1), grouping=True)} {unit_label} werden nicht gezeigt."
+not_included = F"Werte grösser als {locale.format_string('%d', round(y_limit, 1), grouping=True)} {unit_label} werden nicht gezeigt."
 
 
 
 # figure caption
 chart_notes = F"""
-*__Links:__ {this_feature["name"]}, {start_date[3:]} bis {end_date[3:]}, n={t["loc_date"]}. {not_included} __Rechts:__ {this_feature["name"]} empirische kumulative Verteilung der Datenerhebunge.*
+*__Links:__ {this_feature["name"]}, {start_date[3:]} bis {end_date[3:]}, n={t["loc_date"]}. {not_included} __Rechts:__ {this_feature["name"]} empirische kumulative Verteilung der Datenerhebungen.*
 """
 md(chart_notes )
 
@@ -462,7 +462,7 @@ sns.scatterplot(data=dts_date, x=dts_date.index, y=unit_label, label=top, color=
 sns.scatterplot(data=fd_dindex, x=fd_dindex.index, y=unit_label, label=this_feature["name"], color="red", s=34, ec="white", ax=ax)
 
 # monthly or quaterly plot
-sns.lineplot(data=resample_plot, x=resample_plot.index, y=resample_plot, label=F"{this_feature['name']}: {rate} median", color="magenta", ax=ax)
+sns.lineplot(data=resample_plot, x=resample_plot.index, y=resample_plot, label=F"{this_feature['name']}: monatlicher Medianwert", color="magenta", ax=ax)
 
 ax.set_ylim(0,y_limit )
 ax.set_ylabel(unit_label, **ck.xlab_k14)
@@ -556,7 +556,7 @@ plt.show()
 
 # ## Die am häufigsten gefundenen Objekte
 # 
-# Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
+# Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[11]:
 
@@ -775,7 +775,7 @@ plt.show()
 # 
 # Der Flächennutzungsmix ist eine einzigartige Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Ergebnissen der Datenerhebungen werden mit den Flächennutzungsraten für einen Radius von 1500 m um den Erhebungsort verglichen. 
 
-# Eine Assoziation ist eine Beziehung zwischen den Ergebnissen der Datenerhebungen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmaß der Beziehung ist weder definiert noch linear. 
+# Eine Assoziation ist eine Beziehung zwischen den Ergebnissen der Datenerhebungen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmass der Beziehung ist weder definiert noch linear. 
 # 
 # Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein statistisch signifikanter Zusammenhang zwischen der Landnutzung und den bei einer Abfallobjekte-Erhebung identifizierten Objekten besteht.  
 # 
@@ -783,7 +783,7 @@ plt.show()
 # 
 # 1. Rot/Rosa ist eine positive Assoziation 
 # 2. Gelb ist eine negative Assoziation 
-# 3. Weiß ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p>0,05 
+# 3. Weiss ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p>0,05 
 
 # In[17]:
 
@@ -793,11 +793,11 @@ corr_data = fd[(fd.code.isin(m_common.index))&(fd.water_name_slug.isin(lakes_of_
 alert_less_than_100 = len(corr_data.loc_date.unique()) <= 100
 
 if alert_less_than_100:
-    warning = F"""**Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strand-Abfallobjekte weisen eine große Streuung auf!**"""
+    warning = F"""**Da es weniger als 100 Erhebungen gibt, ist Vorsicht geboten. Erhebungen über Strand-Abfallobjekte weisen eine grosse Streuung auf!**"""
 else:
     warning = ""
 
-association = F"""*Ausgewertete Korrelation der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil im  {this_feature["name"]}. Für alle gültigen Seerhebungen n={len(corr_data.loc_date.unique())}.*
+association = F"""*Unten: Ausgewertete Korrelation der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil im {this_feature["name"]}. Für alle gültigen Erhebungen an Seen n={len(corr_data.loc_date.unique())}.*
 
 *{warning}*
 """
@@ -851,24 +851,24 @@ plt.subplots_adjust(wspace=0, hspace=0)
 plt.show()
 
 
-# *Legende: wenn p >0,05 = weiß, wenn p < 0,05 und rho > 0 = rot, wenn p < 0,05 und rho < 0 = gelb*
+# *Legende: wenn p >0,05 = weiss, wenn p < 0,05 und rho > 0 = rot, wenn p < 0,05 und rho < 0 = gelb*
 
 # ## Verwendungszweck der gefundenen Objekte 
 # 
 # Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert. 
 # 
-# *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
+# *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschliesslich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
 # *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
-# *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung  
+# *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
 # *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
-# *  **Tabak:** hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien 
+# *  **Tabak:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen außer Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
+# *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # In[19]:
 
@@ -937,7 +937,7 @@ plt.show()
 
 cg_medpcm = F"""
 <br></br>
-*__Unten:__ {this_feature["name"]} Verwendungszweck der gefundenen Objekte Median {unit_label}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*
+*__Unten:__ Verwendungszweck der gefundenen Objekte Median {unit_label} im {this_feature["name"]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*
 """
 md(cg_medpcm)
 
@@ -1085,7 +1085,7 @@ plt.close()
 
 # ## Anhang
 # 
-# ### Schaumstoffe und Kunststoffe nach Größe 
+# ### Schaumstoffe und Kunststoffe nach Grösse 
 # 
 # Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
@@ -1093,7 +1093,7 @@ plt.close()
 
 
 frag_foams = F"""
-*__Unten:__ Fragmentierte und geschäumte Kunststoffe nach Größe im {this_feature["name"]}, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.*
+*__Unten:__ Fragmentierte und geschäumte Kunststoffe nach Grösse im {this_feature["name"]}, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.*
 """
 md(frag_foams)
 

@@ -168,7 +168,7 @@ code_material_map = dfCodes.material
 # 
 # <a href="slr_2017.html"> English </a>
 # 
-# Der erste nationale Strandabfallbericht wurde 2018 erstellt. Der Swiss Litter Report (SLR) war ein Projekt, das von Gabriele Kuhl {cite}`stoppp`  initiiert und vom World Wildlife Fund Schweiz {cite}`wwf`unterstützt wurde. Das Protokoll basierte auf dem Leitfaden für die Überwachung von Meeresmül{cite}`mlwguidance`, das Projekt wurde vom WWF geleitet und die Erhebungen wurden von Freiwilligen beider Organisationen durchgeführt. Das Projekt begann im April 2017 und endete im März 2018. Die SLR deckte einen Großteil des nationalen Territoriums ab, mit Ausnahme der Region Tessin
+# Der erste nationale Strandabfallbericht wurde 2018 erstellt. Der Swiss Litter Report (SLR) war ein Projekt, das von Gabriele Kuhl {cite}`stoppp`  initiiert und vom World Wildlife Fund Schweiz {cite}`wwf`unterstützt wurde. Das Protokoll basierte auf dem Leitfaden für die Überwachung von Meeresmül{cite}`mlwguidance`, das Projekt wurde vom WWF geleitet und die Erhebungen wurden von Freiwilligen beider Organisationen durchgeführt. Das Projekt begann im April 2017 und endete im März 2018. Die SLR deckte einen Grossteil des nationalen Territoriums ab, mit Ausnahme der Region Tessin
 # 
 # Der SLR sammelte 1.052 Proben an 112 Orten. Mehr als 150 geschulte Freiwillige aus 81 Gemeinden sammelten und kategorisierten 98.474 Abfälle an den Ufern von 48 Seen und 67 Flüssen in der Schweiz. {cite}`slr`
 # 
@@ -322,15 +322,15 @@ plt.show()
 
 # *__Oben__ Verteilung der Anzahl der Umfragen in Bezug auf das Landnutzungsprofil SLR - IQAASL* 
 
-# Die Stichprobenorte in der SLR hatten einen größeren Anteil an landwirtschaftlich genutzter Fläche und ein dichteres Straßennetz als die Orte in IQAASL. Der prozentuale Anteil der Wälder an der Gesamtfläche weicht nach dem Median ab. An diesem Punkt haben die Orte in IQAASL einen größeren Anteil an Wäldern im Vergleich zu SLR. 
+# Die Stichprobenorte in der SLR hatten einen grösseren Anteil an landwirtschaftlich genutzter Fläche und ein dichteres Strassennetz als die Orte in IQAASL. Der prozentuale Anteil der Wälder an der Gesamtfläche weicht nach dem Median ab. An diesem Punkt haben die Orte in IQAASL einen grösseren Anteil an Wäldern im Vergleich zu SLR. 
 # 
-# Die Einwohnerzahl (nicht gezeigt) stammt aus statpop 2018 {cite}`statpop`. Die kleinste Einwohnerzahl betrug 442 und die größte 415.357. Mindestens 50% der Stichproben stammten aus Gemeinden mit einer Einwohnerzahl von 13.000 oder weniger. 
+# Die Einwohnerzahl (nicht gezeigt) stammt aus statpop 2018 {cite}`statpop`. Die kleinste Einwohnerzahl betrug 442 und die grösste 415.357. Mindestens 50% der Stichproben stammten aus Gemeinden mit einer Einwohnerzahl von 13.000 oder weniger. 
 # 
 # Wenn der prozentuale Anteil der Landwirtschaft an der Landnutzung ein Zeichen für Verstädterung ist, dann waren die untersuchten Gebiete im Jahr 2020 etwas städtischer als 2018. 
 
 # ## Ergebnisse Seen und Flüsse
 
-# Betrachtet man nur die Seen und Flüsse, die in beiden Jahren Proben aufweisen, so wurden 2018 mehr Proben und Müll an weniger Orten gesammelt als 2020. Auf der Basis von Stücken pro Meter war der Median im Jahr 2020 jedoch größer. 
+# Betrachtet man nur die Seen und Flüsse, die in beiden Jahren Proben aufweisen, so wurden 2018 mehr Proben und Müll an weniger Orten gesammelt als 2020. Auf der Basis von Stücken pro Meter war der Median im Jahr 2020 jedoch grösser. 
 
 # ### Verteilung der Ergebnisse 2018 und 2020
 
@@ -523,7 +523,7 @@ plt.show()
 
 # #### Differenz der Mediane 2018 - 2020
 # 
-# Der beobachtete Unterschied der Mediane zwischen den beiden Projekten beträgt 14p/100m. Unterschiede dieser Größenordnung würden nicht wahrgenommen und könnten auf Zufall zurückzuführen sein. Um die Hypothese zu testen, wurde ein Permutationstest durchgeführt: 
+# Der beobachtete Unterschied der Mediane zwischen den beiden Projekten beträgt 14p/100m. Unterschiede dieser Grössenordnung würden nicht wahrgenommen und könnten auf Zufall zurückzuführen sein. Um die Hypothese zu testen, wurde ein Permutationstest durchgeführt: 
 # 
 # > Nullhypothese: Der Median des Umfrageergebnisses von 2018 unterscheidet sich statistisch nicht von dem Median von 2020 und der beobachtete Unterschied ist auf Zufall zurückzuführen. 
 # 
@@ -531,7 +531,7 @@ plt.show()
 # 
 # *__Unten:__ Die Verteilung der Differenz der Mediane zwischen 2018 und 2020. Die Umfrageergebnisse wurden gemischt und in der Spalte des Umfragejahres 5.000 Mal als Stichprobe gezogen. Die Nullhypothese kann nicht verworfen werden, was das Argument stützt, dass die Medianwerte der Umfrageergebnisse von Jahr zu Jahr ungefähr gleich sind.*
 
-# In[7]:
+# In[ ]:
 
 
 # data for testing
@@ -574,10 +574,10 @@ plt.show()
 
 # ### Die häufigsten Objekte
 # 
-# *__Unten:__ Die häufigsten Objekte sind die zehn mengenmäßig am häufigsten vorkommenden UND/ODER Objekte, die in mindestens 50% aller Erhebungen identifiziert wurden. Das sind 60-80% aller Objekte, die in einem bestimmten Erhebungszeitraum identifiziert wurden. Die am häufigsten vorkommenden Objekte sind nicht von Jahr zu Jahr die gleichen. Um die Veränderungen zu bewerten, werden nur die Objekte berücksichtigt, die in beiden Jahren am häufigsten vorkamen. __Links:__ häufigste Objekte 2018, __rechts:__ häufigste Objekte 2020.*
+# *__Unten:__ Die häufigsten Objekte sind die zehn mengenmässig am häufigsten vorkommenden UND/ODER Objekte, die in mindestens 50% aller Erhebungen identifiziert wurden. Das sind 60-80% aller Objekte, die in einem bestimmten Erhebungszeitraum identifiziert wurden. Die am häufigsten vorkommenden Objekte sind nicht von Jahr zu Jahr die gleichen. Um die Veränderungen zu bewerten, werden nur die Objekte berücksichtigt, die in beiden Jahren am häufigsten vorkamen. __Links:__ häufigste Objekte 2018, __rechts:__ häufigste Objekte 2020.*
 # 
 
-# In[8]:
+# In[ ]:
 
 
 # code totals by project
@@ -652,9 +652,9 @@ plt.close()
 # 5. Lac Léman
 # 6. Thunersee
 # 
-# Bei der Betrachtung der sechs Seen (oben) gab es 2020 mehr Proben und Standorte und größere Mengen an gesammeltem Abfall, aber sowohl der Median als auch der Durchschnitt waren im Vergleich zu 2018 niedriger.  
+# Bei der Betrachtung der sechs Seen (oben) gab es 2020 mehr Proben und Standorte und grössere Mengen an gesammeltem Abfall, aber sowohl der Median als auch der Durchschnitt waren im Vergleich zu 2018 niedriger.  
 
-# In[9]:
+# In[ ]:
 
 
 # a df with just the lakes of interest
@@ -681,7 +681,7 @@ locs_lakes = lks_df[lks_df["survey year"] == "2020"].location.unique()
 
 # *__Oben links:__ Umfragesummen nach Datum, __oben rechts:__ Median der monatlichen Umfragesumme, __unten links:__ Anzahl der Stichproben in Bezug auf die Umfragesumme, __unten rechts:__ empirische kumulative Verteilung der Umfragesummen* 
 
-# In[10]:
+# In[ ]:
 
 
 data=lks_df.groupby(["survey year","loc_date", "date"], as_index=False)[unit_label].sum()
@@ -768,7 +768,7 @@ plt.show()
 
 # *__Links:__ Zusammenfassung der Gesamterhebung, rechts: Materialtype*
 
-# In[11]:
+# In[ ]:
 
 
 # group by survey year and use pd.describe to get basic stats
@@ -857,7 +857,7 @@ plt.show()
 
 # *Seen: Schlüsselindikatoren der häufigsten Abfallobjekten 2018 - 2020*
 
-# In[12]:
+# In[ ]:
 
 
 # compare the key indicators of the most common objects
@@ -926,7 +926,7 @@ plt.show()
 
 # ### Differenz der durchschnittlichen Erhebungssumme
 # 
-# Bei der Betrachtung nur der Seen ist die Differenz der Mediane umgekehrt, es wurde 2020 weniger Abfall beobachtet als 2018 und die Differenz der Mittelwerte ist viel größer zugunsten von 2018. Das deutet darauf hin, dass auf der Ebene der Seen ein Rückgang der beobachteten Mengen zu verzeichnen war. 
+# Bei der Betrachtung nur der Seen ist die Differenz der Mediane umgekehrt, es wurde 2020 weniger Abfall beobachtet als 2018 und die Differenz der Mittelwerte ist viel grösser zugunsten von 2018. Das deutet darauf hin, dass auf der Ebene der Seen ein Rückgang der beobachteten Mengen zu verzeichnen war. 
 # 
 # > Nullhypothese: Der Mittelwert der Umfrageergebnisse für Seen aus dem Jahr 2018 unterscheidet sich statistisch nicht von dem Mittelwert für 2020. Der beobachtete Unterschied ist auf Zufall zurückzuführen. 
 # 
@@ -934,7 +934,7 @@ plt.show()
 # 
 # *__Unten:__ Die Verteilung der Differenz der Mittelwerte zwischen den beiden Stichprobenzeiträumen. Die Umfrageergebnisse wurden gemischt und in der Spalte des Umfragejahres 5.000 Mal als Stichprobe gezogen. Die Nullhypothese konnte verworfen werden, was die anfängliche Beobachtung stützt, dass im Jahr 2020 weniger beobachtet wurde als 2018.*
 
-# In[13]:
+# In[ ]:
 
 
 # data for testing
@@ -975,7 +975,7 @@ plt.show()
 
 # ### Differenz der durchschnittlichen Erhebungssumme
 # 
-# Bei der Betrachtung nur der Seen ist die Differenz der Mediane umgekehrt, es wurde 2020 weniger Abfall beobachtet als 2018 und die Differenz der Mittelwerte ist viel größer zugunsten von 2018. Das deutet darauf hin, dass auf der Ebene der Seen ein Rückgang der beobachteten Mengen zu verzeichnen war. 
+# Bei der Betrachtung nur der Seen ist die Differenz der Mediane umgekehrt, es wurde 2020 weniger Abfall beobachtet als 2018 und die Differenz der Mittelwerte ist viel grösser zugunsten von 2018. Das deutet darauf hin, dass auf der Ebene der Seen ein Rückgang der beobachteten Mengen zu verzeichnen war. 
 # 
 # > Nullhypothese: Der Mittelwert der Umfrageergebnisse für Seen aus dem Jahr 2018 unterscheidet sich statistisch nicht von dem Mittelwert für 2020. Der beobachtete Unterschied ist auf Zufall zurückzuführen. 
 # 
@@ -983,7 +983,7 @@ plt.show()
 # 
 # *__Unten:__ Die Verteilung der Differenz der Mittelwerte zwischen den beiden Stichprobenzeiträumen. Die Umfrageergebnisse wurden gemischt und in der Spalte des Umfragejahres 5.000 Mal als Stichprobe gezogen. Die Nullhypothese konnte verworfen werden, was die anfängliche Beobachtung stützt, dass im Jahr 2020 weniger beobachtet wurde als 2018.* 
 
-# In[14]:
+# In[ ]:
 
 
 # data testing
@@ -1062,7 +1062,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[15]:
+# In[ ]:
 
 
 small = lks_df[lks_df.code.isin([ "G20", "G21", "G22", "G23"])].groupby(["code", "survey year"], as_index=False).agg({"quantity":"sum", "p/100m":"median"})
@@ -1081,12 +1081,12 @@ small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"
 # 
 # 1. rot/rosa ist eine positive Assoziation: p<0.05 und $\rho$ > 0
 # 2. gelb ist eine negative Assoziation: p<0.05 und $\rho$ < 0
-# 3. weißen Medianen, die p>0,05 sind, gibt es keine statistische Grundlage für die Annahme eines Zusammenhangs
+# 3. weissen Medianen, die p>0,05 sind, gibt es keine statistische Grundlage für die Annahme eines Zusammenhangs
 # 
 # 
-# *__Unten:__ Eine Assoziation deutet darauf hin, dass sich die Erhebungssummen für das betreffende Objekt im Verhältnis zu der diesem Merkmal zugewiesenen Fläche oder - im Falle von Straßen oder Flusskreuzungen - der Menge ändern. Das Ausmaß der Beziehung ist nicht definiert, und jede Assoziation ist nicht linear.*
+# *__Unten:__ Eine Assoziation deutet darauf hin, dass sich die Erhebungssummen für das betreffende Objekt im Verhältnis zu der diesem Merkmal zugewiesenen Fläche oder - im Falle von Strassen oder Flusskreuzungen - der Menge ändern. Das Ausmass der Beziehung ist nicht definiert, und jede Assoziation ist nicht linear.*
 
-# In[16]:
+# In[ ]:
 
 
 corr_data = lks_df[(lks_df.code.isin(mcom))].copy()
@@ -1149,13 +1149,13 @@ plt.show()
 # Wenige oder keine Assoziationen bedeuten, dass die Landnutzungsmerkmale keinen Einfluss auf die Anhäufung dieses Objekts hatten. Die Umfrageergebnisse zu den häufigsten Objekten ohne oder mit wenigen Assoziationen lassen sich in zwei Kategorien einteilen: 
 # 
 # 1. Allgegenwärtig: hohe Ausfallrate, hohe Stückzahl pro Meter. Im gesamten Untersuchungsgebiet in gleichbleibender Häufigkeit gefunden, unabhängig von der Landnutzung 
-# 2. Vorübergehend: geringe Ausfallrate, hohe Menge, hohe Stückzahl pro Meter, wenige Verbände. Gelegentlich in großen Mengen an bestimmten Orten gefunden  in large quantities at specific locations
+# 2. Vorübergehend: geringe Ausfallrate, hohe Menge, hohe Stückzahl pro Meter, wenige Verbände. Gelegentlich in grossen Mengen an bestimmten Orten gefunden  in large quantities at specific locations
 
 # ## Fazit
 # 
 # __Per Saldo keine Änderung__ 
 # 
-# Die zusammenfassenden Statistiken und die Ergebnisse des Tests zur Differenz der Mediane deuten darauf hin, dass es auf nationaler Ebene keine statistisch messbare Veränderung von einem Projekt zum nächsten gab. Der 95%ige KI des Medianwertes der Umfrage im Jahr 2020 lag bei 137 - 188p/100m (Abschnitt Berechnung der Basislinien). Das Medianergebnis für 2018 lag bei 125p/100m mit einem CI von 112p/100m bis 146p/100m, was die untere Grenze des Medians von 2020 einschließt. __Die Differenz der Mittelwerte für die häufigsten Objekte deutet jedoch auf ein realistischeres und dynamischeres Ergebnis hin:__
+# Die zusammenfassenden Statistiken und die Ergebnisse des Tests zur Differenz der Mediane deuten darauf hin, dass es auf nationaler Ebene keine statistisch messbare Veränderung von einem Projekt zum nächsten gab. Der 95%ige KI des Medianwertes der Umfrage im Jahr 2020 lag bei 137 - 188p/100m (Abschnitt Berechnung der Basislinien). Das Medianergebnis für 2018 lag bei 125p/100m mit einem CI von 112p/100m bis 146p/100m, was die untere Grenze des Medians von 2020 einschliesst. __Die Differenz der Mittelwerte für die häufigsten Objekte deutet jedoch auf ein realistischeres und dynamischeres Ergebnis hin:__
 # 
 # Es gab einen statistisch signifikanten Rückgang bei vier der sieben häufigsten Objekte aus beiden Jahren __Liste 1:__
 # 
@@ -1171,16 +1171,16 @@ plt.show()
 # 
 # Es gab einen entscheidenden Unterschied zwischen den beiden Projekten: 
 # 
-# * Das 2020-Protokoll zählt alle sichtbaren Objekte und klassifiziert Fragmente nach Größe 
-# * Das Protokoll von 2018 beschränkte die Anzahl der Objekte auf Gegenstände, die größer oder gleich 2,5 cm lang waren
+# * Das 2020-Protokoll zählt alle sichtbaren Objekte und klassifiziert Fragmente nach Grösse 
+# * Das Protokoll von 2018 beschränkte die Anzahl der Objekte auf Gegenstände, die grösser oder gleich 2,5 cm lang waren
 # 
 # Die Gesamtmenge der im Jahr 2020 gesammelten Plastikteile beträgt 7.400 oder 18p/100m und 5.563 oder 5p/100m Schaumstofffragmente. Im Jahr 2020 wurden 3.662 Plastikteile zwischen 0,5 und 2,5 cm entfernt, was der Gesamtmenge von 2018 entspricht. Das Gleiche gilt für Schaumstoffteile zwischen 0,5 und 2,5 cm, siehe [_Seen und Flüsse_](allsurveysde). 
 # 
-# Der Unterschied im Protokoll und die Ergebnisse von 2020 lassen Zweifel an der Wahrscheinlichkeit eines Rückgangs von fragmentierten Kunststoffen und geschäumten Kunststoffen von 2018 bis 2020 aufkommen. Geschäumte Kunststoffe und fragmentierte Kunststoffe sind Gegenstände, deren ursprüngliche Verwendung unbekannt ist, aber das Material kann unterschieden werden. __Fragmentierte Kunststoffe und Schaumstoffe, die größer als 0,5 cm sind, machen 27 % der gesamten Erhebungsergebnisse für die Seen im Jahr 2020 aus.__ Studien im Maas-/Rheindelta zeigen, dass diese kleinen, fragmentierten Objekte einen großen Teil des Gesamtaufkommens ausmachen {cite}`meuserhine`.
+# Der Unterschied im Protokoll und die Ergebnisse von 2020 lassen Zweifel an der Wahrscheinlichkeit eines Rückgangs von fragmentierten Kunststoffen und geschäumten Kunststoffen von 2018 bis 2020 aufkommen. Geschäumte Kunststoffe und fragmentierte Kunststoffe sind Gegenstände, deren ursprüngliche Verwendung unbekannt ist, aber das Material kann unterschieden werden. __Fragmentierte Kunststoffe und Schaumstoffe, die grösser als 0,5 cm sind, machen 27 % der gesamten Erhebungsergebnisse für die Seen im Jahr 2020 aus.__ Studien im Maas-/Rheindelta zeigen, dass diese kleinen, fragmentierten Objekte einen grossen Teil des Gesamtaufkommens ausmachen {cite}`meuserhine`.
 # 
-# Wenn Sie den Vermessungsingenieuren erlauben, eine breitere Palette von Objektcodes zu verwenden, erhöht sich die Genauigkeit der Gesamtzahl der erfassten Objekte und es lassen sich zusätzliche Ebenen zur Unterscheidung ähnlicher Materialien einrichten. Expandiertes Polystyrol zum Beispiel ist ein Objekt, das leicht zersplittert. Ob die Vermesser einige größere Stücke > 20 cm oder Tausende von Stücken < 10 mm finden, ist ein wichtiges Detail, wenn das Ziel darin besteht, diese Objekte in der Umwelt zu reduzieren.
+# Wenn Sie den Vermessungsingenieuren erlauben, eine breitere Palette von Objektcodes zu verwenden, erhöht sich die Genauigkeit der Gesamtzahl der erfassten Objekte und es lassen sich zusätzliche Ebenen zur Unterscheidung ähnlicher Materialien einrichten. Expandiertes Polystyrol zum Beispiel ist ein Objekt, das leicht zersplittert. Ob die Vermesser einige grössere Stücke > 20 cm oder Tausende von Stücken < 10 mm finden, ist ein wichtiges Detail, wenn das Ziel darin besteht, diese Objekte in der Umwelt zu reduzieren.
 # 
-# __Geringere Kosten und besserer Zugang__ sind ein weiteres Ergebnis eines harmonisierten Protokolls. Die vom SLR und IQAASL angewandten Verfahren waren fast identisch, abgesehen von der Größenbeschränkung kann man davon ausgehen, dass die Proben unter ähnlichen Bedingungen gesammelt wurden. Die SLR-Daten liefern die Ergebnisse von über 1.000 Beobachtungen von etwa 150 Personen und die IQAASL-Daten liefern die Ergebnisse von 350 Beobachtungen von etwa 10 Personen. Beide Methoden haben Schwächen und Stärken, die sehr unterschiedliche Themen ansprechen: 
+# __Geringere Kosten und besserer Zugang__ sind ein weiteres Ergebnis eines harmonisierten Protokolls. Die vom SLR und IQAASL angewandten Verfahren waren fast identisch, abgesehen von der Grössenbeschränkung kann man davon ausgehen, dass die Proben unter ähnlichen Bedingungen gesammelt wurden. Die SLR-Daten liefern die Ergebnisse von über 1.000 Beobachtungen von etwa 150 Personen und die IQAASL-Daten liefern die Ergebnisse von 350 Beobachtungen von etwa 10 Personen. Beide Methoden haben Schwächen und Stärken, die sehr unterschiedliche Themen ansprechen: 
 # 
 # * Erfahrung des Vermessungsingenieurs 
 # * Konsistenz der Umfrageergebnisse 
@@ -1211,11 +1211,11 @@ plt.show()
 # 
 # Von 2018 bis 2020 gab es eine statistisch signifikante Veränderung, nämlich einen Rückgang der Anzahl der Objekte, die direkt mit dem Verhalten am Erhebungsort in Verbindung stehen. Dies deutet darauf hin, dass die wahrgenommenen Rückgänge an Orten stattfanden, die einen höheren Anteil an Gebäuden und einen geringeren Anteil an Landwirtschafts- oder Waldflächen aufweisen. 
 # 
-# Standorte mit einem entgegengesetzten oder anderen Landnutzungsprofil (weniger Gebäude, mehr Landwirtschaft oder Wälder) werden höchstwahrscheinlich überhaupt keinen Rückgang erfahren haben. An Standorten in der Nähe von Flusskreuzungen oder größeren Einleitungsstellen wäre kein Unterschied zwischen 2018 und 2020 erkennbar und eine Zunahme von zerbrochenen Kunststoffen, Schaumstoffen und Industriefolien wahrscheinlich. Sowohl der Test der Differenz der Mediane der häufigsten Objekte als auch die Ergebnisse von Spearmans 𝜌 der Umfrageergebnisse unterstützen diese Schlussfolgerung. 
+# Standorte mit einem entgegengesetzten oder anderen Landnutzungsprofil (weniger Gebäude, mehr Landwirtschaft oder Wälder) werden höchstwahrscheinlich überhaupt keinen Rückgang erfahren haben. An Standorten in der Nähe von Flusskreuzungen oder grösseren Einleitungsstellen wäre kein Unterschied zwischen 2018 und 2020 erkennbar und eine Zunahme von zerbrochenen Kunststoffen, Schaumstoffen und Industriefolien wahrscheinlich. Sowohl der Test der Differenz der Mediane der häufigsten Objekte als auch die Ergebnisse von Spearmans 𝜌 der Umfrageergebnisse unterstützen diese Schlussfolgerung. 
 # 
-# Beide Erhebungsjahre zeigen Spitzenwerte im Juni - Juli (Anhang) und Tiefstwerte im November. Die möglichen Ursachen für die Spitzen- und Tiefstwerte sind je nach Objekt unterschiedlich. Lebensmittel- und Tabakgegenstände sind in der Sommersaison aufgrund des verstärkten Gebrauchs häufiger anzutreffen. Objekte wie zerbrochene Kunststoffe hängen mehr von den hydrologischen Bedingungen ab und die Abflussspitzen der größten Flüsse in dieser Studie liegen zwischen Mai und Juli (Mitverantwortung). 
+# Beide Erhebungsjahre zeigen Spitzenwerte im Juni - Juli (Anhang) und Tiefstwerte im November. Die möglichen Ursachen für die Spitzen- und Tiefstwerte sind je nach Objekt unterschiedlich. Lebensmittel- und Tabakgegenstände sind in der Sommersaison aufgrund des verstärkten Gebrauchs häufiger anzutreffen. Objekte wie zerbrochene Kunststoffe hängen mehr von den hydrologischen Bedingungen ab und die Abflussspitzen der grössten Flüsse in dieser Studie liegen zwischen Mai und Juli (Mitverantwortung). 
 # 
-# Künftige Umfragen sollten sichtbare Objekte aller Größenordnungen umfassen. Die Datenaggregation kann auf dem Server anhand definierter Regeln erfolgen, die auf bekannten Beziehungen basieren. Die Gesamtzahl ist ein Schlüsselindikator in allen Statistiken, die auf Zähldaten beruhen, und für Modellierungszwecke unerlässlich. 
+# Künftige Umfragen sollten sichtbare Objekte aller Grössenordnungen umfassen. Die Datenaggregation kann auf dem Server anhand definierter Regeln erfolgen, die auf bekannten Beziehungen basieren. Die Gesamtzahl ist ein Schlüsselindikator in allen Statistiken, die auf Zähldaten beruhen, und für Modellierungszwecke unerlässlich. 
 
 # ## Anhang
 
@@ -1227,7 +1227,7 @@ plt.show()
 
 # *__Unten__ Seen 2018: Durchschnittliche monatliche Umfrageergebnisse häufigste Objekte*
 
-# In[17]:
+# In[ ]:
 
 
 # plot the monthly medidan results for the most common objects
@@ -1349,7 +1349,7 @@ plt.show()
 
 # 
 
-# In[18]:
+# In[ ]:
 
 
 # repeat for 2020
@@ -1407,7 +1407,7 @@ plt.show()
 
 # #### Erhebungsorte
 
-# In[19]:
+# In[ ]:
 
 
 # display the survey locations

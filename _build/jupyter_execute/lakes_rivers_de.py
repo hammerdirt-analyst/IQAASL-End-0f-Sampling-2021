@@ -209,7 +209,7 @@ code_material_map = dfCodes.material
 # 
 # ```
 # 
-# {numref}`Abbildung {number} <eosmap_de>`: Die Standorte der Erhebungen sind für die Analyse nach Erhebungsgebiet gruppiert. Die Größe der Markierung stellt den Median der Gesamtzahl der Erhebungen für diesen Ort dar. 
+# {numref}`Abbildung {number} <eosmap_de>`: Die Standorte der Erhebungen sind für die Analyse nach Erhebungsgebiet gruppiert. Die Grösse der Markierung stellt den Median der Gesamtzahl der Erhebungen für diesen Ort dar. 
 
 # ## Profil der Landnutzung
 # 
@@ -227,7 +227,7 @@ code_material_map = dfCodes.material
 # * \% der Fläche, die der Forstwirtschaft zugeschrieben wird 
 # * \% der Fläche, die der Erholung vorbehalten ist 
 # 
-# Straßen werden als Gesamtzahl der Straßenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.  
+# Strassen werden als Gesamtzahl der Strassenkilometer im Umkreis von 1500 m angegeben. Intersects ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1500 m um den Erhebungsort herum durchqueren.  
 # 
 # Das Verhältnis der Anzahl der Proben bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen der Untersuchungsstandorte. 
 # 
@@ -310,7 +310,7 @@ plt.close()
 # ` `
 # 
 # ```
-# {numref}`Abbildung {number}: <eos_luse_de>` Die Erhebungen in den Gebieten Rhône und Linth/Limmat wiesen mit 47 % bzw. 40 % im Median den größten Anteil an bebauter Fläche und mit 5 % bzw. 8 % den geringsten Anteil an Wald auf. Im Erhebungsgebiet Aare war der Medianwert der bebauten Fläche mit 16 % am niedrigsten und der Anteil der landwirtschaftlich genutzten Fläche mit 30 % am höchsten. Bei den Flächen, die der Erholung zugeordnet werden, handelt es sich um Sportplätze, öffentliche Strände und andere öffentliche Versammlungsorte.
+# {numref}`Abbildung {number}: <eos_luse_de>` Die Erhebungen in den Gebieten Rhône und Linth/Limmat wiesen mit 47 % bzw. 40 % im Median den grössten Anteil an bebauter Fläche und mit 5 % bzw. 8 % den geringsten Anteil an Wald auf. Im Erhebungsgebiet Aare war der Medianwert der bebauten Fläche mit 16 % am niedrigsten und der Anteil der landwirtschaftlich genutzten Fläche mit 30 % am höchsten. Bei den Flächen, die der Erholung zugeordnet werden, handelt es sich um Sportplätze, öffentliche Strände und andere öffentliche Versammlungsorte.
 
 # ### Kumulierte Gesamtergebnisse nach Erhebungsgebiet 
 
@@ -341,12 +341,12 @@ dims_table.loc["Alle Erhebungsgebiete"]= dims_table.sum(numeric_only=True, axis=
 # for display
 dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
 
-dims_table.rename(columns={"samples":"Erhebungen","quantity":"Objekten", "total_w":"Gesamt-kg", "mac_plast_w":"Plastic-kg", "area":"m²", "length":"Meter"}, inplace=True)
+dims_table.rename(columns={"samples":"Erhebungen","quantity":"Objekte", "total_w":"Gesamt-kg", "mac_plast_w":"kg Plastik", "area":"m²", "length":"Meter"}, inplace=True)
 
 # format kilos and text strings
-dims_table["Plastic-kg"] = dims_table["Plastic-kg"]/1000
-dims_table[["m²", "Meter", "Erhebungen", "Objekten"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekten"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
-dims_table[["Plastic-kg", "Gesamt-kg"]] = dims_table[["Plastic-kg", "Gesamt-kg"]].applymap(lambda x: "{:.2f}".format(x))
+dims_table["kg Plastik"] = dims_table["kg Plastik"]/1000
+dims_table[["m²", "Meter", "Erhebungen", "Objekte"]] = dims_table[["m²", "Meter", "Erhebungen", "Objekte"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
+dims_table[["kg Plastik", "Gesamt-kg"]] = dims_table[["kg Plastik", "Gesamt-kg"]].applymap(lambda x: "{:.2f}".format(x))
 
 data = dims_table.reset_index()
 
@@ -369,7 +369,7 @@ plt.close()
 # 
 # ```
 # 
-# {numref}`Abbildung {number}: <eos_summary_sarea_de>` Summen der Dimensionsergebnisse für alle Erhebungsgebiete. Das Aare-Erhebungsgebiet hatte die größte Anzahl von Proben und die geringste Anzahl von gesammelten Objekten.  
+# {numref}`Abbildung {number}: <eos_summary_sarea_de>` Summen der Dimensionsergebnisse für alle Erhebungsgebiete. Das Aare-Erhebungsgebiet hatte die grösste Anzahl von Proben und die geringste Anzahl von gesammelten Objekten.  
 
 # ## Erhebungsergebnisse für alle Objekte
 # 
@@ -399,7 +399,7 @@ fig, axs = plt.subplots(1,2, figsize=(10,5))
 
 rate = "Monthly"
 
-line_label = "monthly median"
+line_label = "monatlicher Medianwert"
 
 ax = axs[0]
 sns.scatterplot(data=fd_dindex, x="date", y=unit_label, hue=this_level, palette=bassin_pallette, alpha=0.8, ax=ax)
@@ -519,7 +519,7 @@ plt.close()
 
 # ## Die am häufigsten gefundenen Objekte
 # 
-# Die am häufigsten gefundenen Objekte sind die zehn mengenmäßig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
+# Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[8]:
 
@@ -746,18 +746,18 @@ glue("monthlyeos_de", fig, display=False)
 # 
 # Die Nutzungsart basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert. 
 # 
-# *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschließlich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
+# *  **Abwasser:** Gegenstände, die aus Kläranlagen freigesetzt werden, einschliesslich Gegenstände, die wahrscheinlich über die Toilette entsorgt werden   
 # *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
-# *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Straßen und der Wasser-/Stromversorgung  
+# *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
 # *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
-# *  **Tabak:** hauptsächlich Zigarettenfilter, einschließlich aller mit dem Rauchen verbundenen Materialien 
+# *  **Tabak:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen außer Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
+# *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschließlich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # Der Nutzungszweck oder die Beschreibung der identifizierten Objekte in % der Gesamtfläche der Erhebung. 
 
@@ -984,7 +984,7 @@ plt.close()
 
 # ## Annex
 # 
-# ### Schaumstoffe und Kunststoffe nach Größe 
+# ### Schaumstoffe und Kunststoffe nach Grösse 
 # 
 # Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrags», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
@@ -992,7 +992,7 @@ plt.close()
 
 
 frag_foams = F"""
-*{top_name[0]}  fragmentierte Kunststoffe und geschäumte Kunststoffe nach Größe, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.* 
+*{top_name[0]}  fragmentierte Kunststoffe und geschäumte Kunststoffe nach Grösse, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.* 
 """
 md(frag_foams)
 

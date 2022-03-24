@@ -124,7 +124,7 @@ code_material_map = dfCodes.material
 # 
 # <a href="baselines.html"> English </a>
 # 
-# Basiswerte (BVs), die manchmal auch als Benchmarks bezeichnet werden, sind die Mengen oder Werte, die zur statistischen Definition einer Situation verwendet werden. Die BVs beziehen sich auf eine Reihe von Daten, die sowohl zeitlich als auch geografisch begrenzt sind und auch als Referenzpunkt oder Basisperiode bezeichnet werden. BVs sind die Größen, an denen der Fortschritt gemessen wird. In dieser Hinsicht sind die BVs eng mit den Daten und den zu ihrer Erhebung verwendeten Methoden verbunden. 
+# Basiswerte (BVs), die manchmal auch als Benchmarks bezeichnet werden, sind die Mengen oder Werte, die zur statistischen Definition einer Situation verwendet werden. Die BVs beziehen sich auf eine Reihe von Daten, die sowohl zeitlich als auch geografisch begrenzt sind und auch als Referenzpunkt oder Basisperiode bezeichnet werden. BVs sind die Grössen, an denen der Fortschritt gemessen wird. In dieser Hinsicht sind die BVs eng mit den Daten und den zu ihrer Erhebung verwendeten Methoden verbunden. 
 # 
 # ## Zählen von Abfallobjekten am Strand: ein Überblick
 # 
@@ -134,7 +134,7 @@ code_material_map = dfCodes.material
 # 
 # 2019 veröffentlichte die Gemeinsame Forschungsstelle (JRC) eine Analyse eines paneuropäischen Datensatzes zu Abfallobjekten am Strand aus den Jahren 2012-2016, ein technisches Dokument, in dem die Methoden und verschiedenen Szenarien zur Berechnung von Basiswerten aus Abfallobjekten am Strand detailliert beschrieben werden. Von besonderem Interesse für das JRC war die Robustheit der Methoden gegenüber Extremwerten und die Transparenz der Berechnungsmethode.{cite}`eubaselines`
 # 
-# Im September 2020 schließlich legte die EU Basis- und Zielwerte auf der Grundlage der 2015-2016 erhobenen Daten fest. Die Zielwerte beziehen sich auf den guten Umweltzustand der Meeresgewässer, der in der Meeresstrategie-Rahmenrichtlinie (MSRL) beschrieben wird, und die Basiswerte wurden anhand der in der Veröffentlichung von 2019 beschriebenen Methoden berechnet. {cite}`threshholdeu`
+# Im September 2020 schliesslich legte die EU Basis- und Zielwerte auf der Grundlage der 2015-2016 erhobenen Daten fest. Die Zielwerte beziehen sich auf den guten Umweltzustand der Meeresgewässer, der in der Meeresstrategie-Rahmenrichtlinie (MSRL) beschrieben wird, und die Basiswerte wurden anhand der in der Veröffentlichung von 2019 beschriebenen Methoden berechnet. {cite}`threshholdeu`
 
 # In[2]:
 
@@ -156,7 +156,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes2.jpg")
 # 
 # #### Festlegung des Erhebungsgebiets
 # 
-# Ein Vermessungsgebiet wird durch den GPS-Punkt und die aufgezeichneten Vermessungsmaße definiert. Die Mindestbreite ist der Abstand zwischen der Wasserkante und der Strandlinie. In einigen Fällen können die Strandlinie und der hintere Teil des Strandes identisch sein. Weitere Informationen darüber, wie die Vermessungsflächen gemessen werden, finden Sie unter [Das Landnutzungsprofil](luseprofilede).
+# Ein Vermessungsgebiet wird durch den GPS-Punkt und die aufgezeichneten Vermessungsmasse definiert. Die Mindestbreite ist der Abstand zwischen der Wasserkante und der Strandlinie. In einigen Fällen können die Strandlinie und der hintere Teil des Strandes identisch sein. Weitere Informationen darüber, wie die Vermessungsflächen gemessen werden, finden Sie unter [Das Landnutzungsprofil](luseprofilede).
 
 # *__Unten:__ Verschiedene Arten von Datenerhebungen:*
 
@@ -218,7 +218,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg")
 # 
 # __Annahmen:__
 # 
-# * Je mehr Abfallobjekte auf dem Boden liegen, desto größer ist die Wahrscheinlichkeit, dass eine Person sie findet 
+# * Je mehr Abfallobjekte auf dem Boden liegen, desto grösser ist die Wahrscheinlichkeit, dass eine Person sie findet 
 # * **Die Datenerhebungen Ergebnisse stellen die Mindestmenge an Abfallobjekten an diesem Ort dar**
 # * Für jede Datenerhebung: Das Auffinden eines Artikels hat keinen Einfluss auf die Wahrscheinlichkeit, einen anderen zu finden. 
 
@@ -289,7 +289,7 @@ agg_pcs_quantity = {unit_label:'sum', 'quantity':'sum'}
 dt_all = gten_lhun.groupby(['loc_date','location','river_bassin', 'water_name_slug','date'], as_index=False).agg(agg_pcs_quantity)
 
 
-# *__Unten:__ Datenerhebungen Ergebnisse und zusammenfassende Statistiken: Proben größer als 10m und ohne Objekte kleiner als 2,5cm und Chemikalien, n=372*
+# *__Unten:__ Datenerhebungen Ergebnisse und zusammenfassende Statistiken: Proben grösser als 10m und ohne Objekte kleiner als 2,5cm und Chemikalien, n=372*
 
 # In[6]:
 
@@ -362,7 +362,7 @@ plt.show()
 plt.close()
 
 
-# *__Unten:__ Verteilung der Datenerhebungen und Perzentilwerte: alle Erhebungen. Beachten Sie, dass der Mittelwert (341p/100m) größer ist als der Median (180p/100m).*
+# *__Unten:__ Verteilung der Datenerhebungen und Perzentilwerte: alle Erhebungen. Beachten Sie, dass der Mittelwert (341p/100m) grösser ist als der Median (180p/100m).*
 
 # In[7]:
 
@@ -404,17 +404,17 @@ plt.show()
 # 
 # Die Berechnung von Basiswerten erfordert die Aggregation von Datenerhebungen Ergebnissen auf verschiedenen zeitlichen und geografischen Ebenen. Das ist die beste Methode: 
 # 
-# * Robust in Bezug auf Ausreißer 
+# * Robust in Bezug auf Ausreisser 
 # * Einfach zu berechnen 
 # * Weithin verstanden 
 # 
 # Die beiden gebräuchlichsten Teststatistiken, die zum Vergleich von Daten verwendet werden, sind der Mittelwert und der Median. Der Mittelwert ist der beste Prädiktor für die zentrale Tendenz, wenn die Daten $\approxeq$ normal verteilt sind. Die Ergebnisse von Strand-Abfallaufkommen Untersuchungen weisen jedoch eine hohe Varianz im Verhältnis zum Mittelwert auf. Es können Methoden auf die Daten angewendet werden, um die Auswirkungen der hohen Varianz bei der Berechnung des Mittelwerts zu verringern: 
 # 
-# 1. _getrimmter Mittelwert:_ entfernt einen kleinen, festgelegten Prozentsatz der größten und kleinsten Werte, bevor der Mittelwert berechnet wird 
+# 1. _getrimmter Mittelwert:_ entfernt einen kleinen, festgelegten Prozentsatz der grössten und kleinsten Werte, bevor der Mittelwert berechnet wird 
 # 2. _tri-Mittelwert:_ der gewichtete Durchschnitt des Medians und des oberen und unteren Quartils $(Q1 + 2Q2 + Q3)/4$
 # 3. _mittleres Scharnier:_ $(Q1 + Q3)/2$
 # 
-# Die bisherigen Methoden sind zwar wirksam, um die Auswirkungen von Ausreißern zu reduzieren, aber sie sind nicht so einfach zu berechnen wie der Mittelwert oder der Median, so dass die Signifikanz der Ergebnisse möglicherweise nicht richtig verstanden wird. 
+# Die bisherigen Methoden sind zwar wirksam, um die Auswirkungen von Ausreissern zu reduzieren, aber sie sind nicht so einfach zu berechnen wie der Mittelwert oder der Median, so dass die Signifikanz der Ergebnisse möglicherweise nicht richtig verstanden wird. 
 # 
 # Der Median (50. Perzentil) ist ein ebenso guter Prädiktor für die zentrale Tendenz, wird aber im Vergleich zum Mittelwert viel weniger von Extremwerten beeinflusst. Je mehr sich ein Datensatz einer Normalverteilung nähert, desto näher kommen sich Median und Mittelwert. Der Median und die dazugehörigen Perzentil-Funktionen sind in den meisten Tabellenkalkulationsprogrammen verfügbar. 
 # 
@@ -428,7 +428,7 @@ plt.show()
 # 
 # Bei dieser Methode werden die Daten NICHT von den Basisberechnungen und Konfidenzintervallen ausgeschlossen: 
 # 
-# > Man einigte sich darauf, die extremen Ergebnisse im Datensatz zu belassen, gleichzeitig aber die Notwendigkeit zu betonen, extreme Daten von Fall zu Fall zu überprüfen und den Median für die Berechnung von Durchschnittswerten zu verwenden. Auf diese Weise können alle Daten verwendet werden, ohne dass die Ergebnisse durch einzelne außergewöhnlich hohe Abfallobjekte verzerrt werden.  {cite}`threshholdeu`
+# > Man einigte sich darauf, die extremen Ergebnisse im Datensatz zu belassen, gleichzeitig aber die Notwendigkeit zu betonen, extreme Daten von Fall zu Fall zu überprüfen und den Median für die Berechnung von Durchschnittswerten zu verwenden. Auf diese Weise können alle Daten verwendet werden, ohne dass die Ergebnisse durch einzelne aussergewöhnlich hohe Abfallobjekte verzerrt werden.  {cite}`threshholdeu`
 # 
 # #### Bootstrap-Methoden: 
 # Bootstrapping ist eine Methode zur Wiederholung von Stichproben, bei der Zufallsstichproben mit Ersetzung verwendet werden, um den Stichprobenprozess zu wiederholen oder zu simulieren. Bootstrapping ermöglicht die Schätzung der Stichprobenverteilung von Stichprobenstatistiken unter Verwendung von Zufallsstichprobenverfahren. {cite}`bootstrapdef` {cite}`bsci` {cite}`usingbootstrap`
@@ -613,7 +613,7 @@ plt.show()
 plt.close()
 
 
-# *__Unten:__ Beispielwert für das Konfidenzintervall: Das Ergebnis der Datenerhebungen in Biel am 31.01.2021 war größer als der Medianwert für alle Datenerhebungen. Es wurden 123 Objekte (pcs) über 40 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert.* 
+# *__Unten:__ Beispielwert für das Konfidenzintervall: Das Ergebnis der Datenerhebungen in Biel am 31.01.2021 war grösser als der Medianwert für alle Datenerhebungen. Es wurden 123 Objekte (pcs) über 40 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert.* 
 # 
 # $(pcs/m)*100 = (123_{pcs} / 40_m)*100m \approxeq 313p/100m$
 
@@ -629,7 +629,7 @@ sut.display_image_ipython('resources/images/baselines/mullermatte_bielersee31_01
 # 
 # #### Basismedianwert aller Datenerhebungen Ergebnisse 
 # 
-# Wenn man nur Datenerhebungen mit einer Länge von mehr als 10 Metern berücksichtigt und Objekte mit einer Größe von weniger als 2,5 cm ausschließt, __lag der Medianwert aller Daten bei 181 p/100 m mit einem CI von 147 p/100 m - 213 p/100 m__. Der gemeldete Medianwert für die EU lag bei 133p/100m und damit im Bereich des CI der IQAASL-Erhebungsergebnisse. Während der Medianwert in der Schweiz höher sein könnte, liegt der Mittelwert der EU-Studie bei 504p/100m gegenüber 341p/100m in der Schweiz.{cite}`eubaselines`
+# Wenn man nur Datenerhebungen mit einer Länge von mehr als 10 Metern berücksichtigt und Objekte mit einer Grösse von weniger als 2,5 cm ausschliesst, __lag der Medianwert aller Daten bei 181 p/100 m mit einem CI von 147 p/100 m - 213 p/100 m__. Der gemeldete Medianwert für die EU lag bei 133p/100m und damit im Bereich des CI der IQAASL-Erhebungsergebnisse. Während der Medianwert in der Schweiz höher sein könnte, liegt der Mittelwert der EU-Studie bei 504p/100m gegenüber 341p/100m in der Schweiz.{cite}`eubaselines`
 # 
 # Das deutet darauf hin, dass die höheren Extremwerte eher in der Meeresumwelt zu finden sind, aber der erwartete Medianwert beider Datensätze ist ähnlich. 
 # 
@@ -671,11 +671,11 @@ plt.close()
 
 # ## Extremwerte 
 # 
-# Wie bereits erwähnt, werden Extremwerte (EVs) oder Ausreißer bei der Berechnung von Basislinien oder CIs nicht aus den Daten ausgeschlossen. Die Identifizierung von EVs und wo und wann sie auftreten, ist jedoch ein wesentlicher Bestandteil des Überwachungsprozesses. 
+# Wie bereits erwähnt, werden Extremwerte (EVs) oder Ausreisser bei der Berechnung von Basislinien oder CIs nicht aus den Daten ausgeschlossen. Die Identifizierung von EVs und wo und wann sie auftreten, ist jedoch ein wesentlicher Bestandteil des Überwachungsprozesses. 
 # 
 # Das Auftreten von Extremwerten kann den Durchschnitt der Daten und die Interpretation der Datenerhebungen Ergebnisse beeinflussen. Laut dem GFS-Bericht: 
 # 
-# >  Die Methodik zur Identifizierung von Extremwerten kann entweder auf einem Expertenurteil beruhen oder auf statistischen und modellierenden Ansätzen, wie der Anwendung von Tukey's Box Plots zur Erkennung potenzieller Ausreißer. Für schiefe Verteilungen ist der angepasste Boxplot besser geeignet. {cite}`eubaselines`
+# >  Die Methodik zur Identifizierung von Extremwerten kann entweder auf einem Expertenurteil beruhen oder auf statistischen und modellierenden Ansätzen, wie der Anwendung von Tukey's Box Plots zur Erkennung potenzieller Ausreisser. Für schiefe Verteilungen ist der angepasste Boxplot besser geeignet. {cite}`eubaselines`
 # 
 # ### Extremwerte definieren
 # 
@@ -683,7 +683,7 @@ plt.close()
 # 
 # #### Angepasste Boxplots 
 # 
-# Tukey's Boxplot wird verwendet, um die Verteilung eines univariaten Datensatzes zu visualisieren. Die Proben, die innerhalb des ersten Quartils (25%) und des dritten Quartils (75%) liegen, werden als innerhalb des inneren Quartilsbereichs (IQR) betrachtet. Punkte, die außerhalb des inneren Quartils liegen, werden als Ausreißer betrachtet, wenn ihr Wert größer oder kleiner als einer der beiden Grenzwerte ist: 
+# Tukey's Boxplot wird verwendet, um die Verteilung eines univariaten Datensatzes zu visualisieren. Die Proben, die innerhalb des ersten Quartils (25%) und des dritten Quartils (75%) liegen, werden als innerhalb des inneren Quartilsbereichs (IQR) betrachtet. Punkte, die ausserhalb des inneren Quartils liegen, werden als Ausreisser betrachtet, wenn ihr Wert grösser oder kleiner als einer der beiden Grenzwerte ist: 
 # 
 # * Untere Grenze =   $Q_1 - (1.5*IQR)$
 # * Obergrenze =   $Q_3 + (1.5*IQR)$
@@ -696,7 +696,7 @@ plt.close()
 # 
 # * Obergrenze = $Q_3 + (1.5e^{3MC}*IQR)$
 # 
-# Die Grenzen werden erweitert oder reduziert, um der Form der Daten besser zu entsprechen. Infolgedessen repräsentieren die oberen und unteren Grenzen einen größeren Wertebereich in Bezug auf das Perzentil-Ranking als bei der unangepassten Version.  
+# Die Grenzen werden erweitert oder reduziert, um der Form der Daten besser zu entsprechen. Infolgedessen repräsentieren die oberen und unteren Grenzen einen grösseren Wertebereich in Bezug auf das Perzentil-Ranking als bei der unangepassten Version.  
 # 
 # *__Unten__: Die Grenze, ab der eine Datenerhebung als extrem gilt, erstreckt sich auf das 98. Perzentil, wenn die Boxplots angepasst werden, im Gegensatz zum 90. Perzentil, wenn die Konstante bei 1,5 belassen wird.*
 
@@ -785,7 +785,7 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 
 # #### Modellierung 
 # 
-# Extremwerte können identifiziert werden, indem man davon ausgeht, dass die Daten zu einer zugrunde liegenden bekannten statistischen Verteilung gehören. Im Allgemeinen wird davon ausgegangen, dass Zähldaten eine Poisson-Verteilung oder eine sehr ähnliche Form aufweisen. Bei der Poisson-Verteilung wird angenommen, dass der Mittelwert gleich der Varianz ist. Die Daten des IQAASL und die Abfallobjekte am Strand haben im Allgemeinen eine hohe Varianz, die in der Regel größer als der Mittelwert ist. 
+# Extremwerte können identifiziert werden, indem man davon ausgeht, dass die Daten zu einer zugrunde liegenden bekannten statistischen Verteilung gehören. Im Allgemeinen wird davon ausgegangen, dass Zähldaten eine Poisson-Verteilung oder eine sehr ähnliche Form aufweisen. Bei der Poisson-Verteilung wird angenommen, dass der Mittelwert gleich der Varianz ist. Die Daten des IQAASL und die Abfallobjekte am Strand haben im Allgemeinen eine hohe Varianz, die in der Regel grösser als der Mittelwert ist. 
 # 
 # Für die negative Binomialverteilung (NB) gilt diese Anforderung nicht. Die NB ist eine Poisson-Verteilung mit dem Parameter λ, wobei λ selbst nicht fest ist, sondern eine Zufallsvariable, die einer Gamma-Verteilung folgt. {cite}`cameron` {cite}`wolfram` {cite}`nbinom` 
 # 
@@ -809,7 +809,7 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 # Diese Methode ist rechenintensiver als die MOM, hat aber einige Vorteile: 
 # 
 # * Wenn das Modell korrekt angenommen wird, ist der MLE der effizienteste Schätzer. 
-# * Es führt zu unverzerrten Schätzungen in größeren Stichproben. 
+# * Es führt zu unverzerrten Schätzungen in grösseren Stichproben. 
 
 # *__Anpassen der Daten an die zugrunde liegende NB-Verteilung.__ Die beobachteten Datenerhebungen Ergebnisse werden mit den geschätzten Datenerhebungen unter Verwendung der Methode der Momente und der Maximum-Likelihood-Schätzung verglichen. __Links:__ Histogramm der Ergebnisse im Vergleich zu den beobachteten Daten. __Rechts:__ Verteilung der Ergebnisse im Vergleich zu den beobachteten Daten mit 90. Perzentil.* 
 
@@ -951,7 +951,7 @@ md(pnt)
 
 # ## Umsetzung
 # 
-# Die vorgeschlagenen Bewertungsmaßstäbe und -methoden für die Ergebnisse der Strand-Abfallaufkommen Untersuchungen sind ähnlich und kompatibel mit den zuvor in der Schweiz angewandten Methoden. Diese erste Analyse hat gezeigt, dass: 
+# Die vorgeschlagenen Bewertungsmassstäbe und -methoden für die Ergebnisse der Strand-Abfallaufkommen Untersuchungen sind ähnlich und kompatibel mit den zuvor in der Schweiz angewandten Methoden. Diese erste Analyse hat gezeigt, dass: 
 # 
 # * Die von der EU vorgeschlagenen Methoden zur Überwachung von Abfallobjekten sind in der Schweiz anwendbar
 # * Konfidenzintervalle und Basislinien können für verschiedene Erhebungsgebiete berechnet werden
@@ -991,11 +991,11 @@ sut.display_image_ipython("resources/images/baselines/aare_sa_de_23_0.png", thum
 # 
 # Für Bewertungszwecke bedeutet dies, dass eine Stichprobe als Stichprobenbewertung dienen kann und die Ergebnisse direkt mit einer der regionalen Basislinien verglichen werden können, was ein sofortiges Feedback ermöglicht. Diese Art der Bewertung vereinfacht den Prozess und versetzt die lokalen Akteure in die Lage, unabhängige Bewertungen vorzunehmen, Schlussfolgerungen zu ziehen und auf der Grundlage der Ergebnisse der festgelegten BV für das Erhebungsgebiet Minderungsstrategien festzulegen. 
 # 
-# In den vorherigen Beispielen sind keine Schwellenwerte oder Extremwerte angegeben. Werte, die größer als Null sind, sind der erwartete Medianwert des Objekts für jede gemessene Einheit. Ein Nullwert bedeutet, dass das Objekt in weniger als 50% der Datenerhebungen gefunden wurde. Der Perzentil-Rang für ein bestimmtes Objekt lässt sich ableiten, indem Sie die Wertetabelle in horizontaler Richtung lesen. 
+# In den vorherigen Beispielen sind keine Schwellenwerte oder Extremwerte angegeben. Werte, die grösser als Null sind, sind der erwartete Medianwert des Objekts für jede gemessene Einheit. Ein Nullwert bedeutet, dass das Objekt in weniger als 50% der Datenerhebungen gefunden wurde. Der Perzentil-Rang für ein bestimmtes Objekt lässt sich ableiten, indem Sie die Wertetabelle in horizontaler Richtung lesen. 
 # 
 # Wie aussagekräftig diese Ergebnisse für die Bewertung von Minderungsstrategien sind, hängt von der Anzahl und Qualität der Proben ab. Interessengruppen auf kommunaler oder lokaler Ebene benötigen detaillierte Daten über bestimmte Objekte. Nationale und internationale Stakeholder hingegen tendieren dazu, breitere, aggregierte Gruppen zu verwenden. 
 # 
-# Die Qualität der Daten steht in direktem Zusammenhang mit der Ausbildung und Unterstützung der Personen, die die Datenerhebung durchführen. Der Identifizierungsprozess erfordert ein gewisses Maß an Fachwissen, da viele Objekte und Materialien dem Durchschnittsbürger nicht bekannt sind. Ein Kernteam von erfahrenen Personen, die bei der Entwicklung und Schulung helfen, stellt sicher, dass die Datenerhebungen im Laufe der Zeit konsistent durchgeführt werden. 
+# Die Qualität der Daten steht in direktem Zusammenhang mit der Ausbildung und Unterstützung der Personen, die die Datenerhebung durchführen. Der Identifizierungsprozess erfordert ein gewisses Mass an Fachwissen, da viele Objekte und Materialien dem Durchschnittsbürger nicht bekannt sind. Ein Kernteam von erfahrenen Personen, die bei der Entwicklung und Schulung helfen, stellt sicher, dass die Datenerhebungen im Laufe der Zeit konsistent durchgeführt werden. 
 # 
 # Das Überwachungsprogramm in der Schweiz hat es geschafft, mit den Entwicklungen auf dem Kontinent Schritt zu halten, es gibt jedoch viele Bereiche, die verbessert werden können: 
 # 
@@ -1007,7 +1007,7 @@ sut.display_image_ipython("resources/images/baselines/aare_sa_de_23_0.png", thum
 # 6. Bestimmen Sie in Zusammenarbeit mit akademischen Partnern die idealen Stichproben-Szenarien und den Forschungsbedarf.
 # 7. Entwickeln Sie eine Finanzierungsmethode, um die empfohlene Mindestanzahl von Datenerhebungen (40) pro Stichprobenzeitraum und pro Erhebungsgebiet durchzuführen, um sicherzustellen, dass genaue Bewertungen vorgenommen werden können und die Forschungsanforderungen erfüllt werden. 
 # 
-# Veränderungen in den Ergebnissen von Strand-Abfalluntersuchungen sind Signale, und die Verwendung von Basiswerten hilft, das Ausmaß dieser Signale zu erkennen. Ohne Kontext oder zusätzliche Informationen können diese Signale jedoch zufällig erscheinen. 
+# Veränderungen in den Ergebnissen von Strand-Abfalluntersuchungen sind Signale, und die Verwendung von Basiswerten hilft, das Ausmass dieser Signale zu erkennen. Ohne Kontext oder zusätzliche Informationen können diese Signale jedoch zufällig erscheinen. 
 # 
 # Zu einem fachkundigen Urteil gehört die Fähigkeit, Datenerhebungen Ergebnisse in den Kontext lokaler Ereignisse und der Topographie einzuordnen. Dieses Urteilsvermögen in Bezug auf die Daten und die Umgebung ist entscheidend für die Identifizierung potenzieller Quellen und Prioritäten. 
 
