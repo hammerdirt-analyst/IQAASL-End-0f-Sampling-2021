@@ -11,7 +11,7 @@ import locale
 
 
 luse_exp = ["% to buildings", "% to recreation", "% to agg", "% to woods", "streets km", "intersects"]
-# luse_ge = ["% zu Gebäude", "% zu Erholung", "% Landwirtschaft", "% zu Wald", "Straßen km", "kreuzt"]
+# luse_ge = ["% zu Gebäude", "% zu Erholung", "% Landwirtschaft", "% zu Wald", "Strassen km", "kreuzt"]
 
 
 # columns needed
