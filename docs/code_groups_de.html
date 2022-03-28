@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>16. Code-Gruppen</title>
+    <title>16. Codegruppen</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="17. Das Profil der Landnutzung" href="land_use_correlation_de.html" />
+    <link rel="next" title="17. Das Landnutzungsprofil" href="land_use_correlation_de.html" />
     <link rel="prev" title="15. Statistische Schlüsselindikatoren" href="key_indicators_de.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -71,6 +76,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
       
@@ -78,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -87,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Zusammenfassung
  </span>
@@ -104,15 +113,15 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Ergebnisse der Erhebung
+  Erhebungsergebnisse
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lakes_rivers_de.html">
-   1. Seen und Flüsse
+   1. Seen und Fliessgewässer
   </a>
  </li>
  <li class="toctree-l1">
@@ -121,7 +130,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Erhebungsgebiete
  </span>
@@ -148,7 +157,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Seen
  </span>
@@ -190,7 +199,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Verstehen
  </span>
@@ -208,12 +217,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   16. Code-Gruppen
+   16. Codegruppen
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="land_use_correlation_de.html">
-   17. Das Profil der Landnutzung
+   17. Das Landnutzungsprofil
   </a>
  </li>
  <li class="toctree-l1">
@@ -222,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anwendungen
  </span>
@@ -289,7 +298,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -340,12 +349,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#buchhaltung-fur-regionale-objekte">
@@ -407,8 +416,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tabak-codes">
-     16.2.6. Tabak-Codes
+    <a class="reference internal nav-link" href="#tabakwaren">
+     16.2.6. Tabakwaren
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -456,7 +465,126 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Codegruppen</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#buchhaltung-fur-regionale-objekte">
+   16.1. Buchhaltung für regionale Objekte
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modifikation-von-artikeln-nach-grosse-und-materialbeschreibungen">
+     16.1.1. Modifikation von Artikeln nach Grösse und Materialbeschreibungen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gfoams-geschaumte-kunststoffe-gschaumstoffe">
+     16.1.2. Gfoams: Geschäumte Kunststoffe, GSchaumstoffe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicht-anwendbar-oder-ausgelassene-punkte">
+     16.1.3. Nicht anwendbar oder ausgelassene Punkte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objekte-gruppiert-nach-nutzen">
+   16.2. Objekte gruppiert nach Nutzen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#abwasserbehandlung">
+     16.2.1. Abwasserbehandlung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mikrokunststoffe">
+     16.2.2. Mikrokunststoffe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infrastruktur">
+     16.2.3. Infrastruktur
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#infrastruktur-geschaumter-kunststoff">
+       16.2.3.1. Infrastruktur: geschäumter Kunststoff¶
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#essen-und-trinken">
+     16.2.4. Essen und Trinken
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#landwirtschaft">
+     16.2.5. Landwirtschaft
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tabakwaren">
+     16.2.6. Tabakwaren
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#codes-fur-die-freizeitgestaltung">
+     16.2.7. Codes für die Freizeitgestaltung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verpackungen-die-sich-nicht-auf-lebensmittel-getranke-tabak-oder-unbekannte-herkunft-beziehen">
+     16.2.8. Verpackungen, die sich nicht auf Lebensmittel, Getränke, Tabak oder unbekannte Herkunft beziehen.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fragmentierte-kunststoffe-gfrags">
+     16.2.9. Fragmentierte Kunststoffe: Gfrags¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personliche-gegenstande">
+     16.2.10. Persönliche Gegenstände¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nicht-klassifizierte-posten">
+     16.2.11. Nicht klassifizierte Posten¶
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#liste-der-zusatzcodes">
+   16.3. Liste der Zusatzcodes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lokale-codes-fur-die-schweizer-alpen-hinzugefugt">
+   16.4. Lokale Codes für die Schweizer Alpen hinzugefügt
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell tag_hide-input docutils container">
@@ -527,10 +655,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="code-gruppen">
-<span id="codegroupsde"></span><h1><span class="section-number">16. </span>Code-Gruppen<a class="headerlink" href="#code-gruppen" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="codegruppen">
+<span id="codegroupsde"></span><h1><span class="section-number">16. </span>Codegruppen<a class="headerlink" href="#codegruppen" title="Permalink to this headline">¶</a></h1>
 <p><a href="code_groups.html"> English </a></p>
-<p>Das IQAASL-Projekt verwendete die Objektcodes und Beschreibungen aus der Masterliste des Marine Strategy Framework (MSFD) <span id="id1">[<a class="reference internal" href="references.html#id41">Han13</a>]</span>. Die Identifizierung von Gegenständen folgt den Protokollen der MSFD Technical Subgroup on Marine Litter. Die Hauptliste wurde auf der Grundlage der in einer Reihe von Programmen verwendeten Kategorien von Gegenständen entwickelt und ist eine der detailliertesten, die etablierte EU-Protokolle repräsentiert. Es gibt 217 Identifikationscodes, um alle bei einer Erhebung gesammelten Gegenstände zu klassifizieren. Die Objektcodes beginnen mit G1 und enden mit G217.</p>
+<p>Das IQAASL-Projekt verwendete die Objektcodes und Beschreibungen aus der Masterliste des Marine Strategy Framework (MSFD) <span id="id1">[<a class="reference internal" href="references.html#id41" title="George Hanke. Guidance on monitoring of marine litter in european seas. Joint Research Centre of the European Commission, 2013. URL: https://indicit-europa.eu/cms/wp-content/uploads/2017/05/guidance_monitoring_marine_litter_2013.pdf.">Han13</a>]</span>. Die Identifizierung von Gegenständen folgt den Protokollen der MSFD Technical Subgroup on Marine Litter. Die Hauptliste wurde auf der Grundlage der in einer Reihe von Programmen verwendeten Kategorien von Gegenständen entwickelt und ist eine der detailliertesten, die etablierte EU-Protokolle repräsentiert. Es gibt 217 Identifikationscodes, um alle bei einer Erhebung gesammelten Gegenstände zu klassifizieren. Die Objektcodes beginnen mit G1 und enden mit G217.</p>
 <div class="section" id="buchhaltung-fur-regionale-objekte">
 <h2><span class="section-number">16.1. </span>Buchhaltung für regionale Objekte<a class="headerlink" href="#buchhaltung-fur-regionale-objekte" title="Permalink to this headline">¶</a></h2>
 <p>Es gibt in der Schweiz regelmässig identifizierte Artikel, die nicht in der Stammliste erscheinen. Um dies zu berücksichtigen, wurden der Masterliste 43 Codes unter dem übergeordneten Code G124 hinzugefügt. Diese Codes beginnen mit G900 und enden mit G999.</p>
@@ -566,7 +694,10 @@
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">de_codes</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
     <span class="n">dfCodes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">de_codes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;german&quot;</span><span class="p">]</span>
 
+
 <span class="c1"># translate the material</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Metal&#39;</span><span class="p">,</span> <span class="s1">&#39;Chemicals&#39;</span><span class="p">,</span> <span class="s1">&#39;Cloth&#39;</span><span class="p">,</span> <span class="s1">&#39;Glass&#39;</span><span class="p">,</span> <span class="s1">&#39;Paper&#39;</span><span class="p">,</span> <span class="s1">&#39;Plastic&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;Rubber&#39;</span><span class="p">,</span> <span class="s1">&#39;Undefined&#39;</span><span class="p">,</span> <span class="s1">&#39;Unidentified&#39;</span><span class="p">,</span> <span class="s1">&#39;Wood&#39;</span><span class="p">])]</span>
 <span class="n">dfCodes</span><span class="p">[</span><span class="s2">&quot;material&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">sut</span><span class="o">.</span><span class="n">mat_ge</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 
 <span class="c1"># translate the code groups and columns to local</span>
@@ -809,7 +940,7 @@ Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu qu
 <li><p><strong>Infrastruktur:</strong> Posten im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken zu tun haben</p></li>
 <li><p><strong>Landwirtschaft:</strong> hauptsächlich industrielle Folien, z.B. Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
-<li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien</p></li>
+<li><p><strong>Tabakwaren:</strong> hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
 <li><p><strong>Verpackungen, die nicht für Lebensmittel und Getränke bestimmt sind:</strong> Verpackungsmaterial, das nicht als Lebensmittel, Getränke oder Tabakwaren gekennzeichnet ist</p></li>
 <li><p><strong>Kunststoffteile (&gt; 5mm):</strong> zersplitterte Kunststoffe unbestimmter Herkunft oder Verwendung</p></li>
@@ -926,7 +1057,7 @@ Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu qu
     </tr>
     <tr>
       <th>G95</th>
-      <td>Wattestäbchen</td>
+      <td>Wattestäbchen / Tupfer</td>
       <td>Abwasser</td>
       <td>Plastik</td>
       <td>none</td>
@@ -987,7 +1118,7 @@ Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu qu
 </div>
 <div class="section" id="mikrokunststoffe">
 <h3><span class="section-number">16.2.2. </span>Mikrokunststoffe<a class="headerlink" href="#mikrokunststoffe" title="Permalink to this headline">¶</a></h3>
-<p>Die Gruppe der Mikrokunststoffe umfasst alle Kunststoffe und geschäumten Kunststoffe mit einer Grösse von weniger als 5 mm aus der (MSFD)-Stammliste  <span id="id2">[<a class="reference internal" href="references.html#id41">Han13</a>]</span> der Positionen G103-G123. In unseren Daten sind nicht alle Codes identifiziert worden. Das Ziel dieses Projekts war die Quantifizierung der beobachtbaren Abfälle, die in der Regel grösser als 5 mm sind, aber die untere Grenze der natürlichen sichtbaren Erkennung bei der Vermessung einer Küstenlinie liegt bei etwa 2 - 5 mm. Im Laufe einer Untersuchung werden mit dem grösseren Material auch sichtbare Kleinstteile gesammelt, deren Zusammensetzung im Allgemeinen identifizierbar ist. Im Rahmen des IQAASL-Projekts wurden keine Methoden zur gezielten Erfassung von Objekten mit einer Grösse von weniger als 5 mm eingesetzt, aber alle sichtbaren Mikrokunststoffe, die während einer Untersuchung gesammelt wurden, wurden quantifiziert, gewogen und kategorisiert.</p>
+<p>Die Gruppe der Mikrokunststoffe umfasst alle Kunststoffe und geschäumten Kunststoffe mit einer Grösse von weniger als 5 mm aus der (MSFD)-Stammliste  <span id="id2">[<a class="reference internal" href="references.html#id41" title="George Hanke. Guidance on monitoring of marine litter in european seas. Joint Research Centre of the European Commission, 2013. URL: https://indicit-europa.eu/cms/wp-content/uploads/2017/05/guidance_monitoring_marine_litter_2013.pdf.">Han13</a>]</span> der Positionen G103-G123. In unseren Daten sind nicht alle Codes identifiziert worden. Das Ziel dieses Projekts war die Quantifizierung der beobachtbaren Abfälle, die in der Regel grösser als 5 mm sind, aber die untere Grenze der natürlichen sichtbaren Erkennung bei der Vermessung einer Küstenlinie liegt bei etwa 2 - 5 mm. Im Laufe einer Untersuchung werden mit dem grösseren Material auch sichtbare Kleinstteile gesammelt, deren Zusammensetzung im Allgemeinen identifizierbar ist. Im Rahmen des IQAASL-Projekts wurden keine Methoden zur gezielten Erfassung von Objekten mit einer Grösse von weniger als 5 mm eingesetzt, aber alle sichtbaren Mikrokunststoffe, die während einer Untersuchung gesammelt wurden, wurden quantifiziert, gewogen und kategorisiert.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define group</span>
@@ -1675,7 +1806,7 @@ Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu qu
     </tr>
     <tr>
       <th>G10</th>
-      <td>Lebensmittelbehälter zum einmaligen Gebrauch a...</td>
+      <td>Einwegbehälter für Lebensmittel aus Schaumstof...</td>
       <td>Essen und Trinken</td>
       <td>Plastik</td>
       <td>none</td>
@@ -1864,7 +1995,7 @@ Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu qu
 <h3><span class="section-number">16.2.5. </span>Landwirtschaft<a class="headerlink" href="#landwirtschaft" title="Permalink to this headline">¶</a></h3>
 <p>Mehrere Codes wurden hinzugefügt, um Artikel zu kennzeichnen, die mit der Landwirtschaft in Verbindung stehen, wie z.B. G937: Pheromonköder aus Kunststoff, die üblicherweise in Weinbergen verwendet werden, und G943: Kunststoffzäune für die saisonale Viehweide. Der spezifische Foliencode G936: Gewächshausfolien und Silofolien wurde für eine besondere Art von Produkten hinzugefügt, bei denen die landwirtschaftliche Verwendung erkennbar ist.</p>
 <p>Industriefolien (G67) ist eine weit gefasste Kategorie, die Kunststoffplatten und -folien umfasst, bei denen es sich um flache Kunststoffteile handelt, die zur Verwendung in bestimmten Anwendungen auf eine bestimmte Dicke gebracht werden. Die Produkte unterscheiden sich in Bezug auf Materialien, Eigenschaften und Abmessungen [ogsapfpss]. Es ist schwierig, die Verwendung von Kunststofffolien in der Landwirtschaft einzugrenzen, da die gleichen Kunststoffe auch in der Verpackungs- und Baubranche in grossem Umfang verwendet werden. Vor allem an den Schweizer Küsten sind die Kunststofffolien extrem verwittert und zersplittert, so dass eine eindeutige Verwendung und Herkunft schwer zu bestimmen ist.</p>
-<p>Industriefolien werden der Landwirtschaft zugeschrieben, da sie über einen längeren Zeitraum physikalischen Einflüssen ausgesetzt sind und in unmittelbarer Nähe von Flüssen, Bächen und Kanälen verwendet werden. Industriefolien werden auch der Landwirtschaft zugerechnet, da Kunststoffmaterialien zunehmend in landwirtschaftlichen Anwendungen eingesetzt werden, die gemeinhin als Plastikkulturen bezeichnet werden. Die Plastikkultur umfasst Bewässerungsschläuche, Kunststofftöpfe für Baumschulen und eine umfangreiche Verwendung von Folien für den Gartenbau, den Getreideanbau und die Milchwirtschaft <span id="id3">[<a class="reference internal" href="references.html#id83">Orz17</a>]</span>.</p>
+<p>Industriefolien werden der Landwirtschaft zugeschrieben, da sie über einen längeren Zeitraum physikalischen Einflüssen ausgesetzt sind und in unmittelbarer Nähe von Flüssen, Bächen und Kanälen verwendet werden. Industriefolien werden auch der Landwirtschaft zugerechnet, da Kunststoffmaterialien zunehmend in landwirtschaftlichen Anwendungen eingesetzt werden, die gemeinhin als Plastikkulturen bezeichnet werden. Die Plastikkultur umfasst Bewässerungsschläuche, Kunststofftöpfe für Baumschulen und eine umfangreiche Verwendung von Folien für den Gartenbau, den Getreideanbau und die Milchwirtschaft <span id="id3">[<a class="reference internal" href="references.html#id83" title="Michael D. Orzolek. A Guide to the Manufacture, Performance, and Potential of Plastics in Agriculture. Matthew Deans, 2017.">Orz17</a>]</span>.</p>
 <p>Folien und Filme aus Plastikkulturen G67:</p>
 <ul class="simple">
 <li><p>Mulchfolie</p></li>
@@ -2074,8 +2205,8 @@ Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu qu
 </div></div></div>
 </div>
 </div>
-<div class="section" id="tabak-codes">
-<h3><span class="section-number">16.2.6. </span>Tabak-Codes<a class="headerlink" href="#tabak-codes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tabakwaren">
+<h3><span class="section-number">16.2.6. </span>Tabakwaren<a class="headerlink" href="#tabakwaren" title="Permalink to this headline">¶</a></h3>
 <p>Alle tabakbezogenen Artikel.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -2127,28 +2258,28 @@ Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu qu
     <tr>
       <th>G25</th>
       <td>Tabak; Kunststoffverpackungen, Behälter</td>
-      <td>Tabak</td>
+      <td>Tabakwaren</td>
       <td>Plastik</td>
       <td>none</td>
     </tr>
     <tr>
       <th>G26</th>
       <td>Feuerzeug</td>
-      <td>Tabak</td>
+      <td>Tabakwaren</td>
       <td>Plastik</td>
       <td>none</td>
     </tr>
     <tr>
       <th>G27</th>
       <td>Zigarettenfilter</td>
-      <td>Tabak</td>
+      <td>Tabakwaren</td>
       <td>Plastik</td>
       <td>none</td>
     </tr>
     <tr>
       <th>G152</th>
       <td>Papier &amp;Karton;Zigarettenschachteln, Papier/Ka...</td>
-      <td>Tabak</td>
+      <td>Tabakwaren</td>
       <td>Papier</td>
       <td>none</td>
     </tr>
@@ -4114,37 +4245,45 @@ Um Mikrokunststoffe für dieses Projekt bestmöglich zu identifizieren und zu qu
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="key_indicators_de.html" title="previous page"><span class="section-number">15. </span>Statistische Schlüsselindikatoren</a>
-    <a class='right-next' id="next-link" href="land_use_correlation_de.html" title="next page"><span class="section-number">17. </span>Das Profil der Landnutzung</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="key_indicators_de.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">15. </span>Statistische Schlüsselindikatoren</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="land_use_correlation_de.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Das Landnutzungsprofil</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <p>
    Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

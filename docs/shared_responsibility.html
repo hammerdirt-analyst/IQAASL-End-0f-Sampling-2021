@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>20. Shared responsibility</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,32 +31,37 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="21. More and less since 2018" href="slr_2017.html" />
     <link rel="prev" title="19. Recycle and remake" href="reuse_remake.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -73,6 +78,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
       
@@ -80,7 +89,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -89,7 +98,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Executive summary
  </span>
@@ -106,7 +115,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Survey results
  </span>
@@ -123,7 +132,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Survey areas
  </span>
@@ -150,7 +159,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lakes
  </span>
@@ -192,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Understand
  </span>
@@ -224,7 +233,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Application
  </span>
@@ -291,7 +300,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -342,12 +351,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-challenge">
@@ -444,7 +453,112 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Shared responsibility</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-challenge">
+   20.1. The Challenge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-origins-of-the-most-common-objects">
+   20.2. The origins of the most common objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   20.3. The data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assessment-of-composition-the-big-picture">
+     20.3.1. Assessment of composition: the big picture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribution-of-survey-totals-for-the-different-object-groups">
+     20.3.2. Distribution of survey totals for the different object groups
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#difference-of-means">
+       20.3.2.1. Difference of means
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   20.4. Conclusion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discussion">
+     20.4.1. Discussion
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finding-partners">
+       20.4.1.1. Finding partners
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sharing-the-responsibility">
+       20.4.1.2. Sharing the responsibility
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#annex">
+   20.5. Annex
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results-of-speramans-ranked-correlation-test">
+     20.5.1. Results of Speramans ranked correlation test
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seasonal-variations">
+     20.5.2. Seasonal variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-survey-results-of-fp-and-ft-with-respect-to-land-use">
+   20.6. The survey results of FP and FT with respect to land use
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fp-and-ft-difference-of-means">
+     20.6.1. FP and FT difference of means.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell tag_hide-input docutils container">
@@ -631,11 +745,11 @@
 </div>
 </div>
 </div>
-<div class="section" id="shared-responsibility">
+<div class="tex2jax_ignore mathjax_ignore section" id="shared-responsibility">
 <span id="transport"></span><h1><span class="section-number">20. </span>Shared responsibility<a class="headerlink" href="#shared-responsibility" title="Permalink to this headline">¶</a></h1>
 <p><a href="shared_responsibility_de.html" > Deutsch </a></p>
-<p>Research on litter transport and accumulation in the aquatic environment indicates that rivers are a primary source of land based macro-plastics to the marine environment <span id="id1">[<a class="reference internal" href="references.html#id70">GFCH+21</a>]</span>. However not all objects that are transported by rivers make it to the ocean, suggesting that rivers and inland lakes are also sinks for a portion of macro-plastics emitted <span id="id2">[<a class="reference internal" href="references.html#id72">KBK+18</a>]</span>.</p>
-<p>Provisions in Swiss law, article 2 of the Federal Act on the Protection of the Environment (LPE) the principal of causality accounts for unlawful disposal of material and is commonly known as the principle of polluter payer. Ultimately, the responsibility of elimination and management of litter pollution in and along water systems is directly on the municipal and cantonal administrations as legally, they are owners of the land within their boundaries. The law does provide municipalities and cantons the ability to consider companies or persons further up the chain of causality, as producers of waste and to charge disposal fees to them (e.g., fast-food companies and similar businesses, or organizers of events that generate large quantities of waste on the public space) when specific offenders cannot be identified, if objective criteria are used to determine the chain of causality. <span id="id3">[<a class="reference internal" href="references.html#id7">fdlCs20a</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id2">cfs20</a>]</span> <span id="id5">[<a class="reference internal" href="references.html#id5">fdlenvironnement18</a>]</span> <span id="id6">[<a class="reference internal" href="references.html#id3">fc12</a>]</span></p>
+<p>Research on litter transport and accumulation in the aquatic environment indicates that rivers are a primary source of land based macro-plastics to the marine environment <span id="id1">[<a class="reference internal" href="references.html#id70" title="Daniel González Fernández, Andrés Cózar, Georg Hanke, Josué Viejo, Carmen Morales-Caselles, Rigers Bakiu, Damia Barcelo, Filipa Bessa, Antoine Bruge, María Cabrera Fernández, Javier Castro-Jiménez, Mel Constant, Roberto Crosti, Yuri Galletti, Ahmet Kideys, Nino Machitadze, Joana Brito, Maria Pogojeva, Nuno Ratola, and Myrto Tourgeli Provata. Floating macrolitter leaked from europe into the ocean. Nature Sustainability, 4:474-483, 06 2021. doi:10.1038/s41893-021-00722-6.">GFCH+21</a>]</span>. However not all objects that are transported by rivers make it to the ocean, suggesting that rivers and inland lakes are also sinks for a portion of macro-plastics emitted <span id="id2">[<a class="reference internal" href="references.html#id72" title="Merel Kooi, Ellen Besseling, Carolien Kroeze, Annemarie P. van Wezel, and Albert A. Koelmans. Modeling the Fate and Transport of Plastic Debris in Freshwaters: Review and Guidance. Springer International Publishing, 2018. URL: https://doi.org/10.1007/978-3-319-61615-5_7, doi:10.1007/978-3-319-61615-5_7.">KBK+18</a>]</span>.</p>
+<p>Provisions in Swiss law, article 2 of the Federal Act on the Protection of the Environment (LPE) the principal of causality accounts for unlawful disposal of material and is commonly known as the principle of polluter payer. Ultimately, the responsibility of elimination and management of litter pollution in and along water systems is directly on the municipal and cantonal administrations as legally, they are owners of the land within their boundaries. The law does provide municipalities and cantons the ability to consider companies or persons further up the chain of causality, as producers of waste and to charge disposal fees to them (e.g., fast-food companies and similar businesses, or organizers of events that generate large quantities of waste on the public space) when specific offenders cannot be identified, if objective criteria are used to determine the chain of causality. <span id="id3">[<a class="reference internal" href="references.html#id7" title="L’Assemblée fédérale de la Confédération suisse. Loi fédérale sur la protection de l'environnement. La plateforme de publication du droit fédéral: 814.01, 2020.">fdlCs20a</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id2" title="Le conseil fédéral suisse. Ordonnance sur la protection des eaux. La plateforme de publication du droit fédéral: 814.201, 2020.">cfs20</a>]</span> <span id="id5">[<a class="reference internal" href="references.html#id5" title="Office fédéral de l’environnement. Financement de l’élimination des déchets urbains. aide à l’exécution relative au financement de l’élimination des déchets urbains selon le principe de causalité. L’environnement pratique n° 1827, 2018.">fdlenvironnement18</a>]</span> <span id="id6">[<a class="reference internal" href="references.html#id3" title="Swiss federal court. Federal court decision: tf 138 ii 111. Register of federal court decisions, 2012. URL: https://www.bger.ch/ext/eurospider/live/fr/php/aza/http/index.php?highlight_docid=atf%3A%2F%2F138-II-111%3Afr%3Aregeste&amp;lang=fr&amp;type=show_document&amp;zoom=YES&amp;.">fc12</a>]</span></p>
 <div class="section" id="the-challenge">
 <h2><span class="section-number">20.1. </span>The Challenge<a class="headerlink" href="#the-challenge" title="Permalink to this headline">¶</a></h2>
 <p>Objective criteria require <strong>robust, transparent and easily repeatable methods</strong>. The challenge is to extract available information from the discarded objects based on quantities, material properties and environmental variables in proximity of the survey location.</p>
@@ -652,7 +766,7 @@
 <p><em><strong>Above: obtaining objective criteria:</strong>. Lac Léman, St. Gingolph 07 May 2020 (15.92pcs/m).</em></p>
 <p>The utility of discarded objects as well as land use around litter survey sites are indicators of origin. Land use rates to evaluate pollution sources are useful for some common objects. For example, increased quantities of cigarette filters and snack wrappers were identified near sites with a higher concentration of land attributed to buildings and recreation,<a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref"><em>The land use profile</em></span></a>. Objects associated with the consumption of food, drink and tobacco are approximately 26% of all material identified along Swiss shorelines.</p>
 <p>However, other objects have no definitive geographic source nor clear association with an activity in proximity to their location. The most common of these objects are <span class="math notranslate nohighlight">\(\approxeq\)</span> 40% of all litter items identified in 2020,  <a class="reference internal" href="lakes_rivers.html#allsurveys"><span class="std std-ref"><em>Lakes and rivers</em> </span></a>.    Reducing the amount of litter along Swiss shorelines includes reducing the amount of litter that originates from outside the geographic limits of the beach itself. Thus, an incentive to identify litter objects discarded on or near sites from objects transported to survey locations.</p>
-<p>Obtaining objective beach litter data is complicated by the hydrologic influences of the approximately 61’000km of rivers and 1500 lakes in Switzerland [con].  The hydrologic conditions of rivers have an effect on the distance and direction that litter introduced into a river will travel. Large, low-density objects will most likely be transported to the next reservoir or area of reduced flow. High density objects will only be transported if the flow velocity and turbulence of the water are sufficient to keep the objects off the bottom. Once high-density items enter a low velocity zone they tend to settle or sink <span id="id7">[<a class="reference internal" href="references.html#id68">SLBH19</a>]</span>.</p>
+<p>Obtaining objective beach litter data is complicated by the hydrologic influences of the approximately 61’000km of rivers and 1500 lakes in Switzerland [con].  The hydrologic conditions of rivers have an effect on the distance and direction that litter introduced into a river will travel. Large, low-density objects will most likely be transported to the next reservoir or area of reduced flow. High density objects will only be transported if the flow velocity and turbulence of the water are sufficient to keep the objects off the bottom. Once high-density items enter a low velocity zone they tend to settle or sink <span id="id7">[<a class="reference internal" href="references.html#id68" title="Anna Schwarz, Tom Ligthart, E Boukris, and T Harmelen. Sources, transport, and accumulation of different types of plastic litter in aquatic environments: a review study ☆. Marine Pollution Bulletin, 143:92-100, 05 2019. doi:10.1016/j.marpolbul.2019.04.029.">SLBH19</a>]</span>.</p>
 </div>
 <div class="section" id="the-origins-of-the-most-common-objects">
 <h2><span class="section-number">20.2. </span>The origins of the most common objects<a class="headerlink" href="#the-origins-of-the-most-common-objects" title="Permalink to this headline">¶</a></h2>
@@ -737,9 +851,9 @@
 <p><strong>methods</strong></p>
 <p>The hypothesis is tested using a combination of non-parametric tests to confirm significance:</p>
 <ol class="simple">
-<li><p>Two sample Kolmogorov-Smirnov <span id="id8">[<a class="reference internal" href="references.html#id14">sca</a>]</span></p></li>
-<li><p>Mann-Whitney <em>U</em> (MWU) <span id="id9">[<a class="reference internal" href="references.html#id15">scb</a>]</span></p></li>
-<li><p>Bootstrap resampling difference of means <span id="id10">[<a class="reference internal" href="references.html#id27">Efr87</a>]</span> <span id="id11">[<a class="reference internal" href="references.html#id28">dry20</a>]</span></p></li>
+<li><p>Two sample Kolmogorov-Smirnov <span id="id8">[<a class="reference internal" href="references.html#id14" title="Python scientific computing. Scipy stats kolmogorov-smirnov: implementation. URL: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html.">sca</a>]</span></p></li>
+<li><p>Mann-Whitney <em>U</em> (MWU) <span id="id9">[<a class="reference internal" href="references.html#id15" title="Python scientific computing. Scipy stats mann-whitney u test: implementation. URL: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html.">scb</a>]</span></p></li>
+<li><p>Bootstrap resampling difference of means <span id="id10">[<a class="reference internal" href="references.html#id27" title="Bradley Efron. Better bootstrap confidence intervals. Journal of the American Statistical Association, 82(397):171-185, 1987. URL: https://www.tandfonline.com/doi/abs/10.1080/01621459.1987.10478410, arXiv:https://www.tandfonline.com/doi/pdf/10.1080/01621459.1987.10478410, doi:10.1080/01621459.1987.10478410.">Efr87</a>]</span> <span id="id11">[<a class="reference internal" href="references.html#id28" title="Erik drysdale. Implementing the bias-corrected and accelerated bootstrap in python. 2020. URL: https://www.erikdrysdale.com/bca_python/.">dry20</a>]</span></p></li>
 </ol>
 </div>
 <div class="section" id="the-data">
@@ -1037,7 +1151,7 @@
 </div>
 <div class="section" id="distribution-of-survey-totals-for-the-different-object-groups">
 <h3><span class="section-number">20.3.2. </span>Distribution of survey totals for the different object groups<a class="headerlink" href="#distribution-of-survey-totals-for-the-different-object-groups" title="Permalink to this headline">¶</a></h3>
-<p>The survey results of the DG are very similar under both land use classes, there is more variance as the reported value increases but not so much that the distributions diverge. Given the standard deviation of the samples and the high variance of beach-litter-survey data in general this is expected. <span id="id12">[<a class="reference internal" href="references.html#id42">HG19</a>]</span></p>
+<p>The survey results of the DG are very similar under both land use classes, there is more variance as the reported value increases but not so much that the distributions diverge. Given the standard deviation of the samples and the high variance of beach-litter-survey data in general this is expected. <span id="id12">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span></p>
 <p>The two sample Kolmogorov-Smirnov (KS) tests (ks=0.073, p=0.808) of the two sets of survey results suggest that the survey results of DG may not be significantly different between the two land use classes. The results from the Mann-Whitney U (MWU) (U=11445.0, p=0.762) suggest that it is possible that the two distributions are the same</p>
 <p><em><strong>Below:</strong> empirical cumulative distribution (eCDF) of DG and CG. <strong>Left:</strong> recall that DG objects included fragmented plastics, fragmented foams, construction plastics and production pellets. <strong>Right:</strong>  the survey results for cigarette ends and snack wrappers have visually distinct distributions under the two land use conditions.</em></p>
 <div class="cell tag_hide-input docutils container">
@@ -1186,12 +1300,12 @@
 <li><p>Industrial sheeting is used in agriculture, transport and construction industries.</p></li>
 <li><p>Construction plastics</p></li>
 </ul>
-<p>Finding partners for these objects may involve an initial phase of informative targeted communication using the IQAASL results and current EU thresholds and baselines for beach litter <span id="id13">[<a class="reference internal" href="references.html#id42">HG19</a>]</span>.</p>
+<p>Finding partners for these objects may involve an initial phase of informative targeted communication using the IQAASL results and current EU thresholds and baselines for beach litter <span id="id13">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span>.</p>
 </div>
 <div class="section" id="sharing-the-responsibility">
 <h4><span class="section-number">20.4.1.2. </span>Sharing the responsibility<a class="headerlink" href="#sharing-the-responsibility" title="Permalink to this headline">¶</a></h4>
-<p>The principle of Extended Producer Responsibility (EPR) may provide the incentive to producers and consumers to account for the real costs of end-of-life management of the most common litter items identified in Switzerland. <span id="id14">[<a class="reference internal" href="references.html#id76">Pou20</a>]</span></p>
-<p>A recent study in the Marine Policy journal identified several limitations of using preexisting beach litter survey data to assess the impact of EPR policy on observed litter quantities. <span id="id15">[<a class="reference internal" href="references.html#id74">HLCM21</a>]</span></p>
+<p>The principle of Extended Producer Responsibility (EPR) may provide the incentive to producers and consumers to account for the real costs of end-of-life management of the most common litter items identified in Switzerland. <span id="id14">[<a class="reference internal" href="references.html#id76" title="k Poulki. Concretising the role of extended producer responsibility in european union waste law and policy through the lens of the circular economy. ERA Forum 20, 2020. doi:s12027-020-00596-9.">Pou20</a>]</span></p>
+<p>A recent study in the Marine Policy journal identified several limitations of using preexisting beach litter survey data to assess the impact of EPR policy on observed litter quantities. <span id="id15">[<a class="reference internal" href="references.html#id74" title="Lucas Harris, Max Liboiron, Louis Charron, and Charles Mather. Using citizen science to evaluate extended producer responsibility policy to reduce marine plastic debris shows no reduction in pollution levels. Marine Policy, 123:104319, 2021. URL: https://www.sciencedirect.com/science/article/pii/S0308597X20309660, doi:https://doi.org/10.1016/j.marpol.2020.104319.">HLCM21</a>]</span></p>
 <ol class="simple">
 <li><p>Limited data</p></li>
 <li><p>Heterogeneous methods</p></li>
@@ -1204,7 +1318,7 @@
 <li><p>Use litter counts to establish baselines</p></li>
 <li><p>Frequent monitoring</p></li>
 </ol>
-<p>Litter counts mitigate the effects of light-weight packaging when collection results are based on weights. <span id="id16">[<a class="reference internal" href="references.html#id74">HLCM21</a>]</span></p>
+<p>Litter counts mitigate the effects of light-weight packaging when collection results are based on weights. <span id="id16">[<a class="reference internal" href="references.html#id74" title="Lucas Harris, Max Liboiron, Louis Charron, and Charles Mather. Using citizen science to evaluate extended producer responsibility policy to reduce marine plastic debris shows no reduction in pollution levels. Marine Policy, 123:104319, 2021. URL: https://www.sciencedirect.com/science/article/pii/S0308597X20309660, doi:https://doi.org/10.1016/j.marpol.2020.104319.">HLCM21</a>]</span></p>
 <p>The IQAASl project addresses three out of the four recommendations and it introduced a method that allows stakeholders to add specific items to the survey protocol. Thus monitoring progress towards ERP targets can be implemented as long as the objects can be defined visually and can be counted.</p>
 <p>The current database of beach-litter surveys in Switzerland includes over 1,000 samples collected using the same protocol in the past six years. Switzerland has all the elements in place to accurately estimate minimum probable values for the most common objects and evaluate stochastic. This report offers several ways to evaluate differences between survey results, others should be considered as well.</p>
 <p>This report offers several different ways to evaluate differences between survey results, there are certainly others that should be considered. There are many improvements to be made concerning the national strategy:</p>
@@ -1443,7 +1557,7 @@
 </div>
 <div class="section" id="seasonal-variations">
 <h3><span class="section-number">20.5.2. </span>Seasonal variations<a class="headerlink" href="#seasonal-variations" title="Permalink to this headline">¶</a></h3>
-<p>Seasonal variations of beach litter survey results have been documented under varying conditions and environments. In 2018 the SLR  <span id="id17">[<a class="reference internal" href="references.html#id60">Bla18</a>]</span>  reported the maximum value in July and the minimum in November. The year 2020-2021 presents the same results.</p>
+<p>Seasonal variations of beach litter survey results have been documented under varying conditions and environments. In 2018 the SLR  <span id="id17">[<a class="reference internal" href="references.html#id60" title="Pascal Blarer. The swiss litter report. 2018. URL: http://stoppp.org/researchvalue.">Bla18</a>]</span>  reported the maximum value in July and the minimum in November. The year 2020-2021 presents the same results.</p>
 <p><em><strong>Below:</strong> monthly survey results and river discharge rates m³/second</em></p>
 <p><em>April and May 2021 are rolling averages, data not available</em></p>
 <p><em>source : <a class="reference external" href="https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu">https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu</a></em></p>
@@ -1704,37 +1818,45 @@
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="reuse_remake.html" title="previous page"><span class="section-number">19. </span>Recycle and remake</a>
-    <a class='right-next' id="next-link" href="slr_2017.html" title="next page"><span class="section-number">21. </span>More and less since 2018</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="reuse_remake.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">19. </span>Recycle and remake</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="slr_2017.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>More and less since 2018</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <p>
    Comissioned by the Swiss Federal Office for the Environment (FOEN), © 2021
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

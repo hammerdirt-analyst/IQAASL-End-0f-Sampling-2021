@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Executive summary</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="1. Lakes and rivers" href="lakes_rivers.html" />
     <link rel="prev" title="Foreword" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -71,6 +76,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
       
@@ -78,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -87,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Executive summary
  </span>
@@ -104,7 +113,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Survey results
  </span>
@@ -121,7 +130,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Survey areas
  </span>
@@ -148,7 +157,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lakes
  </span>
@@ -190,7 +199,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Understand
  </span>
@@ -222,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Application
  </span>
@@ -289,7 +298,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -323,12 +332,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
@@ -526,14 +535,220 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Executive summary</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Executive summary
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lakes-and-rivers">
+     Lakes and rivers
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#median-survey-total">
+       Median survey total
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-most-common-objects">
+       The most common objects
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trends-from-2017-2018">
+     Trends from 2017-2018
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-alps-and-the-jura">
+     The Alps and the Jura
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#communicating-results">
+     Communicating results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusions">
+     Conclusions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recommendations">
+     Recommendations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monitoring-and-reporting">
+       Monitoring and reporting
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#elimination-and-reduction">
+       Elimination and reduction
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#riassunto-esecutivo">
+   Riassunto esecutivo
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#laghi-e-fiumi">
+     Laghi e fiumi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#totale-mediano-dellindagine">
+       Totale mediano dell’indagine
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gli-oggetti-piu-comuni">
+       Gli oggetti più comuni
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tendenze-dal-2017-2018">
+     Tendenze dal 2017-2018
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-alpi-e-il-giura">
+     Le Alpi e il Giura
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comunicare-i-risultati">
+     Comunicare i risultati
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusioni">
+     Conclusioni
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raccomandazioni">
+     Raccomandazioni
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monitoraggio-e-rapporto">
+       Monitoraggio e rapporto
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#eliminazione-e-riduzione">
+       Eliminazione e riduzione
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resume">
+   Résumé
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lacs-et-rivieres">
+     Lacs et rivières
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#le-resultat-median-de-tous-les-inventaires">
+       Le résultat médian de tous les inventaires
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-objets-les-plus-courants">
+       Les objets les plus courants
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tendances-de-2017-2018">
+     Tendances de 2017-2018
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-alpes-et-le-jura">
+     Les Alpes et le Jura
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#communiquer-les-resultats">
+     Communiquer les résultats
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Conclusions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recommandations">
+     Recommandations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#suivi-et-rapports">
+       Suivi et rapports
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#elimination-et-reduction">
+       Élimination et réduction
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acronyms">
+     Acronyms
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="executive-summary">
+  <div class="tex2jax_ignore mathjax_ignore section" id="executive-summary">
 <h1>Executive summary<a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h1>
 <p>| <a href="esummary_de.html"> Deutsch </a> | <a class="reference internal" href="#italian"><span class="std std-ref">Italiano</span></a> | <a class="reference internal" href="#francais"><span class="std std-ref">Français</span></a> |</p>
 <p>Identification, quantification and analysis of anthropogenic Swiss litter (IQAASL) is a project commissioned by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All discarded materials were collected and identified using litter survey techniques. The project was expanded to include 20 locations in the Alps and Jura, in total there were 406 samples from 163 locations in 95 municipalities.</p>
-<p>This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from March 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR)<span id="id1">[<a class="reference internal" href="references.html#id60">Bla18</a>]</span>, the last national level project to use the standard protocol described in the <em>Guide to monitoring beach litter</em> <span id="id2">[<a class="reference internal" href="references.html#id41">Han13</a>]</span> or any other comparable method.</p>
+<p>This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from March 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR)<span id="id1">[<a class="reference internal" href="references.html#id60" title="Pascal Blarer. The swiss litter report. 2018. URL: http://stoppp.org/researchvalue.">Bla18</a>]</span>, the last national level project to use the standard protocol described in the <em>Guide to monitoring beach litter</em> <span id="id2">[<a class="reference internal" href="references.html#id41" title="George Hanke. Guidance on monitoring of marine litter in european seas. Joint Research Centre of the European Commission, 2013. URL: https://indicit-europa.eu/cms/wp-content/uploads/2017/05/guidance_monitoring_marine_litter_2013.pdf.">Han13</a>]</span> or any other comparable method.</p>
 <div class="figure align-default" id="esummarymap">
 <a class="reference internal image-reference" href="_images/intro_map.jpeg"><img alt="_images/intro_map.jpeg" src="_images/intro_map.jpeg" style="width: 1200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#esummarymap" title="Permalink to this image">¶</a></p>
@@ -573,8 +788,8 @@
 <div class="section" id="median-survey-total">
 <h3>Median survey total<a class="headerlink" href="#median-survey-total" title="Permalink to this headline">¶</a></h3>
 <p>The results are in units of pieces of litter per 100 meters (p/100m). The median survey result of all data was approximately 189 p/100m. The maximum recorded value was 6,617 p/100m (Rhône survey area) and the minimum recorded was 2p/100m (Aare survey area). The Rhône survey area had the highest median survey total of 442p/100m, this can in part be explained by the high number of urban survey locations with respect to the other survey areas and the deposition of fragmented plastics and foamed plastics at the Rhône River out flow in the upper lake region.</p>
-<p>A reference value was calculated excluding the results from samples that were less than 10m and objects less than 2.5cm. This method, described in EU Marine Beach Litter Baselines <span id="id3">[<a class="reference internal" href="references.html#id42">HG19</a>]</span> was used to calculate the reference and threshold values for all European beaches in 2015 and 2016 resulting in a median value of 131 p/100m. The results from the European baseline value lie outside the 95% confidence interval (CI) of 147 - 213p/100m established using the data from IQAASL.</p>
-<p>Surveys in Switzerland were on average, smaller scale than in marine environments and in locations that would be considered urban under most circumstances. To date monitoring of lakes and rivers upstream of coastal regions has not generalized on the European continent. However, there is a concerted effort by a group of associations in Switzerland and France to establish a common monitoring and data exchange protocol for the Rhône basin. Additionally, the Wageningen University &amp; Research has begun analyzing data collected in the Meusse - Rhine delta using protocols like those in IQAASL <span id="id4">[<a class="reference internal" href="references.html#id52">vE</a>]</span>.</p>
+<p>A reference value was calculated excluding the results from samples that were less than 10m and objects less than 2.5cm. This method, described in EU Marine Beach Litter Baselines <span id="id3">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span> was used to calculate the reference and threshold values for all European beaches in 2015 and 2016 resulting in a median value of 131 p/100m. The results from the European baseline value lie outside the 95% confidence interval (CI) of 147 - 213p/100m established using the data from IQAASL.</p>
+<p>Surveys in Switzerland were on average, smaller scale than in marine environments and in locations that would be considered urban under most circumstances. To date monitoring of lakes and rivers upstream of coastal regions has not generalized on the European continent. However, there is a concerted effort by a group of associations in Switzerland and France to establish a common monitoring and data exchange protocol for the Rhône basin. Additionally, the Wageningen University &amp; Research has begun analyzing data collected in the Meusse - Rhine delta using protocols like those in IQAASL <span id="id4">[<a class="reference internal" href="references.html#id52" title="Tim van Emmerik. Riverbank macrolitter in the dutch rhine–meuse delta. URL: https://iopscience.iop.org/article/10.1088/1748-9326/abb2c6.">vE</a>]</span>.</p>
 </div>
 <div class="section" id="the-most-common-objects">
 <h3>The most common objects<a class="headerlink" href="#the-most-common-objects" title="Permalink to this headline">¶</a></h3>
@@ -676,10 +891,10 @@ Count methods are preferred for assessing litter composition and density in mari
 </div>
 </div>
 </div>
-<div class="section" id="riassunto-esecutivo">
+<div class="tex2jax_ignore mathjax_ignore section" id="riassunto-esecutivo">
 <span id="italian"></span><h1>Riassunto esecutivo<a class="headerlink" href="#riassunto-esecutivo" title="Permalink to this headline">¶</a></h1>
 <p>IQAASL (Identificazione, quantificazione e analisi dei rifiuti antropogenici svizzeri) è un progetto commissionato dall’Ufficio federale svizzero dell’ambiente per raccogliere dati sugli inquinanti visibili lungo i laghi e i fiumi svizzeri. Tutti i materiali di scarto sono stati raccolti e identificati usando tecniche d’indagine sui rifiuti. Il progetto è stato ampliato per includere 20 località nelle Alpi e nel Giura, in totale ci sono stati 406 campioni prelevati in 163 località di 95 comuni.</p>
-<p>Il presente rapporto è un riassunto e un’analisi delle indagini condotte sul littering e dei metodi impiegati in Svizzera da marzo 2020 ad agosto 2021. Questo lasso di tempo coincide con la data di inizio e fine dello Swiss Litter Report (SLR) <span id="id5">[<a class="reference internal" href="references.html#id60">Bla18</a>]</span>, l’ultimo progetto a livello nazionale ad utilizzare il protocollo standard descritto nella Guida al monitoraggio del littering delle spiagge <span id="id6">[<a class="reference internal" href="references.html#id41">Han13</a>]</span> o qualsiasi altro metodo comparabile.</p>
+<p>Il presente rapporto è un riassunto e un’analisi delle indagini condotte sul littering e dei metodi impiegati in Svizzera da marzo 2020 ad agosto 2021. Questo lasso di tempo coincide con la data di inizio e fine dello Swiss Litter Report (SLR) <span id="id5">[<a class="reference internal" href="references.html#id60" title="Pascal Blarer. The swiss litter report. 2018. URL: http://stoppp.org/researchvalue.">Bla18</a>]</span>, l’ultimo progetto a livello nazionale ad utilizzare il protocollo standard descritto nella Guida al monitoraggio del littering delle spiagge <span id="id6">[<a class="reference internal" href="references.html#id41" title="George Hanke. Guidance on monitoring of marine litter in european seas. Joint Research Centre of the European Commission, 2013. URL: https://indicit-europa.eu/cms/wp-content/uploads/2017/05/guidance_monitoring_marine_litter_2013.pdf.">Han13</a>]</span> o qualsiasi altro metodo comparabile.</p>
 <div class="figure align-default" id="esummarymap-it">
 <a class="reference internal image-reference" href="_images/intro_map.jpeg"><img alt="_images/intro_map.jpeg" src="_images/intro_map.jpeg" style="width: 1200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#esummarymap-it" title="Permalink to this image">¶</a></p>
@@ -719,8 +934,8 @@ Count methods are preferred for assessing litter composition and density in mari
 <div class="section" id="totale-mediano-dellindagine">
 <h3>Totale mediano dell’indagine<a class="headerlink" href="#totale-mediano-dellindagine" title="Permalink to this headline">¶</a></h3>
 <p>I risultati sono in unità di pezzi di rifiuti per 100 metri (p/100 m). Il risultato mediano dell’indagine di tutti i dati era di circa 189 p/100 m. Il valore massimo registrato è stato di 6.617 p/100 m (area d’indagine Rodano) e il minimo è stato di 2 p/100 m (area d’indagine Aare). L’area d’indagine Rodano ha registrato il totale d’indagine mediano più alto di 442 p/100m, questo può essere in parte spiegato dall’alto numero di località d’indagine urbane rispetto alle altre aree d’indagine e dalla plastica frammentata depositata e dalla plastica espansa all’uscita del fiume Rodano nella regione superiore del lago.</p>
-<p>È stato calcolato un valore di riferimento escludendo i risultati dei campioni inferiori a 10 m e gli oggetti inferiori a 2,5 cm. Questo metodo, descritto in EU Marine Beach Litter Baselines <span id="id7">[<a class="reference internal" href="references.html#id42">HG19</a>]</span> è stato utilizzato per calcolare i valori di riferimento e di soglia per tutte le spiagge europee nel 2015 e nel 2016, dal quale risulta un valore mediano di 131 p/100 m. I risultati del valore di riferimento europeo si trovano al di fuori dell’intervallo di confidenza (CI) del 95% di 147 – 213 p/100 m stabilito utilizzando i dati di IQAASL.</p>
-<p>Le indagini in Svizzera si sono attestate in media su scala minore rispetto agli ambienti marini e in luoghi che sarebbero considerati urbani nella maggior parte delle circostanze. Finora non si effettua un monitoraggio generalizzato di laghi e fiumi a monte delle regioni costiere nel continente europeo. Tuttavia, esiste uno sforzo coordinato da un gruppo di associazioni in Svizzera e Francia per stabilire un protocollo comune di monitoraggio e scambio di dati per il bacino del Rodano. Inoltre, la Wageningen University &amp; Research ha iniziato ad analizzare i dati raccolti nel delta del Meusse - Reno usando protocolli come quelli di IQAASL  <span id="id8">[<a class="reference internal" href="references.html#id52">vE</a>]</span>.</p>
+<p>È stato calcolato un valore di riferimento escludendo i risultati dei campioni inferiori a 10 m e gli oggetti inferiori a 2,5 cm. Questo metodo, descritto in EU Marine Beach Litter Baselines <span id="id7">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span> è stato utilizzato per calcolare i valori di riferimento e di soglia per tutte le spiagge europee nel 2015 e nel 2016, dal quale risulta un valore mediano di 131 p/100 m. I risultati del valore di riferimento europeo si trovano al di fuori dell’intervallo di confidenza (CI) del 95% di 147 – 213 p/100 m stabilito utilizzando i dati di IQAASL.</p>
+<p>Le indagini in Svizzera si sono attestate in media su scala minore rispetto agli ambienti marini e in luoghi che sarebbero considerati urbani nella maggior parte delle circostanze. Finora non si effettua un monitoraggio generalizzato di laghi e fiumi a monte delle regioni costiere nel continente europeo. Tuttavia, esiste uno sforzo coordinato da un gruppo di associazioni in Svizzera e Francia per stabilire un protocollo comune di monitoraggio e scambio di dati per il bacino del Rodano. Inoltre, la Wageningen University &amp; Research ha iniziato ad analizzare i dati raccolti nel delta del Meusse - Reno usando protocolli come quelli di IQAASL  <span id="id8">[<a class="reference internal" href="references.html#id52" title="Tim van Emmerik. Riverbank macrolitter in the dutch rhine–meuse delta. URL: https://iopscience.iop.org/article/10.1088/1748-9326/abb2c6.">vE</a>]</span>.</p>
 </div>
 <div class="section" id="gli-oggetti-piu-comuni">
 <h3>Gli oggetti più comuni<a class="headerlink" href="#gli-oggetti-piu-comuni" title="Permalink to this headline">¶</a></h3>
@@ -822,10 +1037,10 @@ Count methods are preferred for assessing litter composition and density in mari
 </div>
 </div>
 </div>
-<div class="section" id="resume">
+<div class="tex2jax_ignore mathjax_ignore section" id="resume">
 <span id="francais"></span><h1>Résumé<a class="headerlink" href="#resume" title="Permalink to this headline">¶</a></h1>
 <p>L’identification, la quantification et l’analyse des déchets anthropique suisse (IQAASL) est un projet mandaté par l’Office fédéral de l’environnement pour collecter des données concernant les polluants visibles le long des lacs et rivières suisses. Tous les matériaux jetés ont été collectés et identifiés à l’aide de techniques d’inventaire de déchets. Le projet a été élargi pour inclure des 20 sites dans les Alpes et le Jura. Au total, il y a eu 406 inventaires provenant de 163 sites dans 95 municipalités.</p>
-<p>Ce rapport est un résumé et une analyse des inventaires effectués et des méthodes employées en Suisse de mars 2020 à août 2021. Cette fourchette de dates chevauche les dates de début et de fin du Swiss Litter Report (SLR) <span id="id9">[<a class="reference internal" href="references.html#id60">Bla18</a>]</span>, le dernier projet de niveau national à utiliser le protocole standard décrit dans le Guide de surveillance des déchets de plage <span id="id10">[<a class="reference internal" href="references.html#id41">Han13</a>]</span> ou toute autre méthode comparable.</p>
+<p>Ce rapport est un résumé et une analyse des inventaires effectués et des méthodes employées en Suisse de mars 2020 à août 2021. Cette fourchette de dates chevauche les dates de début et de fin du Swiss Litter Report (SLR) <span id="id9">[<a class="reference internal" href="references.html#id60" title="Pascal Blarer. The swiss litter report. 2018. URL: http://stoppp.org/researchvalue.">Bla18</a>]</span>, le dernier projet de niveau national à utiliser le protocole standard décrit dans le Guide de surveillance des déchets de plage <span id="id10">[<a class="reference internal" href="references.html#id41" title="George Hanke. Guidance on monitoring of marine litter in european seas. Joint Research Centre of the European Commission, 2013. URL: https://indicit-europa.eu/cms/wp-content/uploads/2017/05/guidance_monitoring_marine_litter_2013.pdf.">Han13</a>]</span> ou toute autre méthode comparable.</p>
 <div class="figure align-default" id="esummarymap-fr">
 <a class="reference internal image-reference" href="_images/intro_map.jpeg"><img alt="_images/intro_map.jpeg" src="_images/intro_map.jpeg" style="width: 1200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#esummarymap-fr" title="Permalink to this image">¶</a></p>
@@ -865,8 +1080,8 @@ Count methods are preferred for assessing litter composition and density in mari
 <div class="section" id="le-resultat-median-de-tous-les-inventaires">
 <h3>Le résultat médian de tous les inventaires<a class="headerlink" href="#le-resultat-median-de-tous-les-inventaires" title="Permalink to this headline">¶</a></h3>
 <p>Les résultats sont exprimés en unités de pièces par 100 mètres (p/100m). <strong>Le résultat médian de l’ensemble des données était d’environ 189 p/100m</strong>. La valeur maximale enregistrée était de 6 617 p/100m (zone d’étude du Rhône) et la minimale enregistrée était de 2p/100m (zone d’étude de l’Aar). La zone d’étude du Rhône présentait le total médian le plus élevé de 442 p/100m, ce qui peut s’expliquer en partie par le nombre élevé de sites d’étude urbains par rapport aux autres zones d’étude et par le dépôt de plastiques fragmentés et de plastiques expansés au niveau de l’écoulement du Rhône dans la région du Haut Lac.</p>
-<p>Une valeur de référence a été calculée en excluant les résultats des inventaires de moins de 10m et des objets de moins de 2,5cm. Cette méthode, décrite dans EU Marine Beach Litter Baselines <span id="id11">[<a class="reference internal" href="references.html#id42">HG19</a>]</span>     a été utilisée pour calculer les valeurs de référence et de seuil pour toutes les plages européennes en 2015 et 2016, ce qui a donné une valeur médiane de 131 p/100m. Les résultats de la valeur de référence européenne se situent en dehors de l’intervalle de confiance (IC) à 95 % de 147 - 213p/100m établi pour l’année 2020-21 en Suisse.</p>
-<p>Les relevés effectués en Suisse étaient en moyenne à plus petite échelle que dans les milieux marins et dans des endroits qui seraient considérés comme urbains dans la plupart des circonstances. À ce jour, la surveillance des lacs et des rivières en amont des régions côtières ne s’est pas généralisée sur le continent européen. Cependant, il existe un effort concerté d’un groupe d’associations en Suisse et en France pour établir un protocole commun de surveillance et d’échange de données pour le bassin du Rhône. En outre, l’université et la recherche de Wageningen ont commencé à analyser les données recueillies dans le delta de la Meusse et du Rhin en utilisant des protocoles comme ceux de l’IQAASL  <span id="id12">[<a class="reference internal" href="references.html#id52">vE</a>]</span>.</p>
+<p>Une valeur de référence a été calculée en excluant les résultats des inventaires de moins de 10m et des objets de moins de 2,5cm. Cette méthode, décrite dans EU Marine Beach Litter Baselines <span id="id11">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span>     a été utilisée pour calculer les valeurs de référence et de seuil pour toutes les plages européennes en 2015 et 2016, ce qui a donné une valeur médiane de 131 p/100m. Les résultats de la valeur de référence européenne se situent en dehors de l’intervalle de confiance (IC) à 95 % de 147 - 213p/100m établi pour l’année 2020-21 en Suisse.</p>
+<p>Les relevés effectués en Suisse étaient en moyenne à plus petite échelle que dans les milieux marins et dans des endroits qui seraient considérés comme urbains dans la plupart des circonstances. À ce jour, la surveillance des lacs et des rivières en amont des régions côtières ne s’est pas généralisée sur le continent européen. Cependant, il existe un effort concerté d’un groupe d’associations en Suisse et en France pour établir un protocole commun de surveillance et d’échange de données pour le bassin du Rhône. En outre, l’université et la recherche de Wageningen ont commencé à analyser les données recueillies dans le delta de la Meusse et du Rhin en utilisant des protocoles comme ceux de l’IQAASL  <span id="id12">[<a class="reference internal" href="references.html#id52" title="Tim van Emmerik. Riverbank macrolitter in the dutch rhine–meuse delta. URL: https://iopscience.iop.org/article/10.1088/1748-9326/abb2c6.">vE</a>]</span>.</p>
 </div>
 <div class="section" id="les-objets-les-plus-courants">
 <h3>Les objets les plus courants<a class="headerlink" href="#les-objets-les-plus-courants" title="Permalink to this headline">¶</a></h3>
@@ -1043,37 +1258,45 @@ Count methods are preferred for assessing litter composition and density in mari
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Foreword</a>
-    <a class='right-next' id="next-link" href="lakes_rivers.html" title="next page"><span class="section-number">1. </span>Lakes and rivers</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Foreword</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="lakes_rivers.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Lakes and rivers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <p>
    Comissioned by the Swiss Federal Office for the Environment (FOEN), © 2021
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

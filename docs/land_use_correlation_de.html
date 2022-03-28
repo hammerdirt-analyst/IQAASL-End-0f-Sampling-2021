@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Das Profil der Landnutzung</title>
+    <title>17. Das Landnutzungsprofil</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,32 +31,37 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="18. Bibliografie" href="references.html" />
-    <link rel="prev" title="16. Code-Gruppen" href="code_groups_de.html" />
+    <link rel="prev" title="16. Codegruppen" href="code_groups_de.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -73,6 +78,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
       
@@ -80,7 +89,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -89,7 +98,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Zusammenfassung
  </span>
@@ -106,15 +115,15 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Ergebnisse der Erhebung
+  Erhebungsergebnisse
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lakes_rivers_de.html">
-   1. Seen und Flüsse
+   1. Seen und Fliessgewässer
   </a>
  </li>
  <li class="toctree-l1">
@@ -123,7 +132,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Erhebungsgebiete
  </span>
@@ -150,7 +159,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Seen
  </span>
@@ -192,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Verstehen
  </span>
@@ -210,12 +219,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="code_groups_de.html">
-   16. Code-Gruppen
+   16. Codegruppen
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   17. Das Profil der Landnutzung
+   17. Das Landnutzungsprofil
   </a>
  </li>
  <li class="toctree-l1">
@@ -224,7 +233,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anwendungen
  </span>
@@ -291,7 +300,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -342,12 +351,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#berechnung-des-landnutzungsprofils">
@@ -367,8 +376,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zuordnung-von-landnutzung-zu-datenerhebungen-ergebnissen">
-   17.2. Zuordnung von Landnutzung zu Datenerhebungen Ergebnissen
+  <a class="reference internal nav-link" href="#zuordnung-von-landnutzung-zu-erhebungsergebnissen">
+   17.2. Zuordnung von Landnutzung zu Erhebungsergebnissen
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -427,7 +436,95 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Das Landnutzungsprofil</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#berechnung-des-landnutzungsprofils">
+   17.1. Berechnung des Landnutzungsprofils
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#landnutzungsprofil-des-projekts">
+     17.1.1. Landnutzungsprofil des Projekts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auswahl-der-datenerhebungsorte">
+     17.1.2. Auswahl der Datenerhebungsorte
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zuordnung-von-landnutzung-zu-erhebungsergebnissen">
+   17.2. Zuordnung von Landnutzung zu Erhebungsergebnissen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spearmans-rho-ein-beispiel">
+     17.2.1. Spearmans
+     <span class="math notranslate nohighlight">
+      \(\rho\)
+     </span>
+     ein Beispiel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zuordnung-der-erhebungssummen-zur-bodennutzung">
+     17.2.2. Zuordnung der Erhebungssummen zur Bodennutzung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zuordnung-der-haufigsten-objekte-zur-landnutzung">
+     17.2.3. Zuordnung der häufigsten Objekte zur Landnutzung
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ergebnisse-spearmans-rho">
+       17.2.3.1. Ergebnisse Spearmans
+       <span class="math notranslate nohighlight">
+        \(\rho\)
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spearmans-interpretieren">
+     17.2.4. Spearmans interpretieren
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diskussion">
+   17.3. Diskussion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anwendung">
+     17.3.1. Anwendung
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell tag_hide-input docutils container">
@@ -511,16 +608,16 @@
 </div>
 </div>
 </div>
-<div class="section" id="das-profil-der-landnutzung">
-<span id="luseprofilede"></span><h1><span class="section-number">17. </span>Das Profil der Landnutzung<a class="headerlink" href="#das-profil-der-landnutzung" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="das-landnutzungsprofil">
+<span id="luseprofilede"></span><h1><span class="section-number">17. </span>Das Landnutzungsprofil<a class="headerlink" href="#das-landnutzungsprofil" title="Permalink to this headline">¶</a></h1>
 <p><a href="land_use_correlation.html" > English </a></p>
 <p>Das Bodennutzungsprofil ist eine numerische Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität um den Erhebungsort. Das Profil wird anhand von Daten berechnet, die in Kartenschichten gespeichert sind, die im <a class="reference external" href="https://www.geo.admin.ch/">Geoportal des Bundes</a> und im <a class="reference external" href="https://www.bfs.admin.ch/bfs/en/home.html">Bundesamt für Statistik</a> verfügbar sind.</p>
-<p>Abfallobjekte sind eine Sammlung von weggeworfenen Gegenständen, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Datenerhebungen Ergebnisse berücksichtigt werden muss. <span id="id1">[<a class="reference internal" href="references.html#id62">ea16</a>]</span> <span id="id2">[<a class="reference internal" href="references.html#id64">GM20</a>]</span></p>
-<p>Im September 2020 hat die Europäische Union Basislinien und Zielwerte für Abfallobjekte am Strand veröffentlicht. Nach Abwägung vieler Faktoren, darunter die Transparenz der Berechnungsmethode und die Leistung in Bezug auf Ausreisser, hat die EU entschieden, dass der Medianwert der Datenerhebungen zum Vergleich der Basiswerte zwischen den Regionen verwendet wird. Dies hat das Interesse der Gemeinden geweckt, punktuelle Abfallobjekte besser zu identifizieren und zu quantifizieren, da sie versuchen, den effizientesten Weg zur Einhaltung der Zielwerte zu finden. Die Identifizierung relevanter Landnutzungsmuster und -merkmale ist ein wesentliches Element in diesem Prozess. <span id="id3">[<a class="reference internal" href="references.html#id44">VLW20</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id42">HG19</a>]</span> <span id="id5">[<a class="reference internal" href="references.html#id65">vEV21</a>]</span></p>
-<p>Hier schlagen wir eine Methode vor, um die Ergebnisse von Strand-Abfallaufkommen-Untersuchungen im Hinblick auf das Landnutzungsprofil im Umkreis von 1500 m um den Untersuchungsort auszuwerten. Die Datenerhebungen Ergebnisse der häufigsten Objekte werden mit Hilfe von Spearmans rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf Assoziation mit den gemessenen Landnutzungsmerkmalen getestet. <span id="id6">[<a class="reference internal" href="references.html#id10">Wikd</a>]</span>    <span id="id7">[<a class="reference internal" href="references.html#id13">Inn</a>]</span></p>
+<p>Abfallobjekte sind eine Sammlung von weggeworfenen Gegenständen, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Erhebungsergebnisse berücksichtigt werden muss. <span id="id1">[<a class="reference internal" href="references.html#id62" title="C. Aydin et all. The influence of land use on coastal litter: an approach to identify abundance and sources in the coastal area of cilician basin, turkey. Turkish Journal of Fisheries and Aquatic Sciences, 2016.">ea16</a>]</span> <span id="id2">[<a class="reference internal" href="references.html#id64" title="Ziveri P. Grelaud M. The generation of marine litter in mediterranean island beaches as an effect of tourism and its mitigation. Science Reports, 2020. doi:10.1038/s41598-020-77225-5.">GM20</a>]</span></p>
+<p>Im September 2020 hat die Europäische Union Basislinien und Zielwerte für Abfallobjekte am Strand veröffentlicht. Nach Abwägung vieler Faktoren, darunter die Transparenz der Berechnungsmethode und die Leistung in Bezug auf Ausreisser, hat die EU entschieden, dass der Medianwert der Datenerhebungen zum Vergleich der Basiswerte zwischen den Regionen verwendet wird. Dies hat das Interesse der Gemeinden geweckt, punktuelle Abfallobjekte besser zu identifizieren und zu quantifizieren, da sie versuchen, den effizientesten Weg zur Einhaltung der Zielwerte zu finden. Die Identifizierung relevanter Landnutzungsmuster und -merkmale ist ein wesentliches Element in diesem Prozess. <span id="id3">[<a class="reference internal" href="references.html#id44" title="Fleet D. Van Loon W., Hanke G. A european threshold value and assessment method for macro litter on coastlines. Publications Office of the European Union, 2020.">VLW20</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span> <span id="id5">[<a class="reference internal" href="references.html#id65" title="T.H.M. van Emmerik and P. Vriend. Roadmap litter monitoring in dutch rivers. Wageningen University, Report., 2021. doi:10.18174/537439.">vEV21</a>]</span></p>
+<p>Hier schlagen wir eine Methode vor, um die Ergebnisse von Strand-Abfallaufkommen-Untersuchungen im Hinblick auf das Landnutzungsprofil im Umkreis von 1500 m um den Untersuchungsort auszuwerten. Die Erhebungsergebnisse der häufigsten Objekte werden mit Hilfe von Spearmans rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf Assoziation mit den gemessenen Landnutzungsmerkmalen getestet. <span id="id6">[<a class="reference internal" href="references.html#id10" title="Wikepedia. Spearman's rank correlation coefficient. URL: https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient.">Wikd</a>]</span>    <span id="id7">[<a class="reference internal" href="references.html#id13" title="Mathematics Education Innovation. Spearmans rank correlation. URL: https://mei.org.uk/files/pdf/Spearmanrcc.pdf.">Inn</a>]</span></p>
 <div class="section" id="berechnung-des-landnutzungsprofils">
 <h2><span class="section-number">17.1. </span>Berechnung des Landnutzungsprofils<a class="headerlink" href="#berechnung-des-landnutzungsprofils" title="Permalink to this headline">¶</a></h2>
-<p>Das Landnutzungsprofil setzt sich aus den messbaren Eigenschaften zusammen, die geografisch verortet sind und aus den aktuellen Versionen von Statistique Suisse de la superficie und swissTlmRegio extrahiert werden können.  <span id="id8">[<a class="reference internal" href="references.html#id35">Con21a</a>]</span> <span id="id9">[<a class="reference internal" href="references.html#id36">Con21b</a>]</span>.</p>
+<p>Das Landnutzungsprofil setzt sich aus den messbaren Eigenschaften zusammen, die geografisch verortet sind und aus den aktuellen Versionen von Statistique Suisse de la superficie und swissTlmRegio extrahiert werden können.  <span id="id8">[<a class="reference internal" href="references.html#id35" title="Confederation. Statistique de la superficie selon nomenclature 2004 - utilisation du sol, description: métainformations sur les géodonnées. 2021. URL: https://www.bfs.admin.ch/bfs/en/home/services/geostat/swiss-federal-statistics-geodata/land-use-cover-suitability/swiss-land-use-statistics/standard-nomenclature.html.">Con21a</a>]</span> <span id="id9">[<a class="reference internal" href="references.html#id36" title="Confederation. Swisstlmregio: le modèle numérique de la suisse à petite échelle. 2021. URL: https://www.swisstopo.admin.ch/fr/geodata/landscape/tlmregio.html.">Con21b</a>]</span>.</p>
 <p>Die folgenden Werte wurden in einem Radius von 1500 m um jeden Erhebungsort berechnet:</p>
 <ol class="simple">
 <li><p>% der Fläche, die auf Gebäude entfällt</p></li>
@@ -547,7 +644,7 @@
 <p><strong>Berechnung der Strassenlänge</strong></p>
 <p>Die Strassenlänge wurde berechnet, indem die Kartenebene swissTLM3D_TLM_STRASSE mit dem 1500m-Puffer jedes Erhebungsortes geschnitten wurde. Alle Strassen und Wege wurden zu einer Linie zusammengefasst (QGIS: dissolve) und die Länge der Linie ist der angegebene Wert der Strassenkilometer.</p>
 <p><strong>Zählen der Einträge aus Flüssen</strong></p>
-<p>Für Standorte an Seen wurde die Anzahl der sich überschneidenden Fluss-/Kanaleinleitungen im Umkreis von 1500 m von jedem Erhebungsstandort berechnet. Die Kartenebene swissTLM3D_TLM_FLIESSGEWAESSER (Flüsse) wurde mit swissTLM3D_TLM_STEHENDES_GEWAESSER (Seen) geschnitten (QGIS: “Linienschnittpunkte”), und die Anzahl der Schnittpunkte pro 1500m Puffer wurde gezählt (QGIS: “Punkte im Polygon zählen”). Die Kartenebene der Seen wurde um 100 Meter erweitert, um alle Abflussstellen oder Bäche zu erfassen, die in der Nähe des Sees enden.  <span id="id10">[<a class="reference internal" href="references.html#id34">QGISDTeam09</a>]</span> <span id="id11">[<a class="reference internal" href="references.html#id36">Con21b</a>]</span></p>
+<p>Für Standorte an Seen wurde die Anzahl der sich überschneidenden Fluss-/Kanaleinleitungen im Umkreis von 1500 m von jedem Erhebungsstandort berechnet. Die Kartenebene swissTLM3D_TLM_FLIESSGEWAESSER (Flüsse) wurde mit swissTLM3D_TLM_STEHENDES_GEWAESSER (Seen) geschnitten (QGIS: “Linienschnittpunkte”), und die Anzahl der Schnittpunkte pro 1500m Puffer wurde gezählt (QGIS: “Punkte im Polygon zählen”). Die Kartenebene der Seen wurde um 100 Meter erweitert, um alle Abflussstellen oder Bäche zu erfassen, die in der Nähe des Sees enden.  <span id="id10">[<a class="reference internal" href="references.html#id34" title="QGIS Development Team. QGIS Geographic Information System. Open Source Geospatial Foundation, 2009. URL: http://qgis.osgeo.org.">QGISDTeam09</a>]</span> <span id="id11">[<a class="reference internal" href="references.html#id36" title="Confederation. Swisstlmregio: le modèle numérique de la suisse à petite échelle. 2021. URL: https://www.swisstopo.admin.ch/fr/geodata/landscape/tlmregio.html.">Con21b</a>]</span></p>
 <p><em>Für die Berechnung des Landnutzungsprofils verwendete Kartenebenen. <strong>Oben links:</strong> alle messbaren Werte innerhalb von 1500m. <strong>Oben rechts:</strong> Strassen und Flusskreuzungen innerhalb von 1500 m. <strong>Unten rechts:</strong> Landnutzungspunkte, die zur Berechnung von % der Gesamtfläche und der Gesamtfläche verwendet werden.</em></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -713,10 +810,10 @@
 <p>Die Erhebungsorte repräsentieren die mit öffentlichen Verkehrsmitteln erreichbaren Landnutzungsbedingungen von etwa 1,7 Millionen Menschen.</p>
 </div>
 </div>
-<div class="section" id="zuordnung-von-landnutzung-zu-datenerhebungen-ergebnissen">
-<h2><span class="section-number">17.2. </span>Zuordnung von Landnutzung zu Datenerhebungen Ergebnissen<a class="headerlink" href="#zuordnung-von-landnutzung-zu-datenerhebungen-ergebnissen" title="Permalink to this headline">¶</a></h2>
-<p>Es gibt 350 Datenerhebungen von 129 Standorten entlang von Flüssen und Seen. Der Mittelwert war mehr als doppelt so hoch wie der Median, was die extremen Werte widerspiegelt, die für Strand-Abfallobjekte-Untersuchungen typisch sind. <span id="id12">[<a class="reference internal" href="references.html#id42">HG19</a>]</span></p>
-<p><em><strong>links</strong> Datenerhebungen Ergebnisse und <strong>rechts</strong>:kumulative Verteilung alle Seen und Flüsse (ohne Walensee). Anzahl der Proben: 350,  Anzahl der Standorte:129, Median:2.14 pcs/m, Mittelwert:4.15 pcs/m</em></p>
+<div class="section" id="zuordnung-von-landnutzung-zu-erhebungsergebnissen">
+<h2><span class="section-number">17.2. </span>Zuordnung von Landnutzung zu Erhebungsergebnissen<a class="headerlink" href="#zuordnung-von-landnutzung-zu-erhebungsergebnissen" title="Permalink to this headline">¶</a></h2>
+<p>Es gibt 350 Datenerhebungen von 129 Standorten entlang von Flüssen und Seen. Der Mittelwert war mehr als doppelt so hoch wie der Median, was die extremen Werte widerspiegelt, die für Strand-Abfallobjekte-Untersuchungen typisch sind. <span id="id12">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span></p>
+<p><em><strong>links</strong> Erhebungsergebnisse und <strong>rechts</strong>:kumulative Verteilung alle Seen und Flüsse (ohne Walensee). Anzahl der Proben: 350,  Anzahl der Standorte:129, Median:2.14 pcs/m, Mittelwert:4.15 pcs/m</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the date intervals for the chart</span>
@@ -783,13 +880,13 @@
 </div>
 <div class="section" id="spearmans-rho-ein-beispiel">
 <h3><span class="section-number">17.2.1. </span>Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> ein Beispiel<a class="headerlink" href="#spearmans-rho-ein-beispiel" title="Permalink to this headline">¶</a></h3>
-<p>Die Rangkorrelation nach Spearmans testet auf eine statistisch signifikante monotone Beziehung oder Assoziation zwischen zwei Variablen. Die Hypothese lautet, dass es keinen Zusammenhang zwischen dem Landnutzungsprofil und den Datenerhebungen Ergebnissen gibt. <span id="id13">[<a class="reference internal" href="references.html#id10">Wikd</a>]</span></p>
-<p>Die Testergebnisse beziehen sich auf die Richtung (rho) einer Assoziation und darauf, ob diese Assoziation wahrscheinlich auf einen Zufall zurückzuführen ist (p-Wert) oder nicht.) Damit ein Test als signifikant gilt, muss der p-Wert kleiner als 0,05 sein. <span id="id14">[<a class="reference internal" href="references.html#id11">scc</a>]</span></p>
+<p>Die Rangkorrelation nach Spearmans testet auf eine statistisch signifikante monotone Beziehung oder Assoziation zwischen zwei Variablen. Die Hypothese lautet, dass es keinen Zusammenhang zwischen dem Landnutzungsprofil und den Erhebungsergebnissen gibt. <span id="id13">[<a class="reference internal" href="references.html#id10" title="Wikepedia. Spearman's rank correlation coefficient. URL: https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient.">Wikd</a>]</span></p>
+<p>Die Testergebnisse beziehen sich auf die Richtung (rho) einer Assoziation und darauf, ob diese Assoziation wahrscheinlich auf einen Zufall zurückzuführen ist (p-Wert) oder nicht.) Damit ein Test als signifikant gilt, muss der p-Wert kleiner als 0,05 sein. <span id="id14">[<a class="reference internal" href="references.html#id11" title="Python scientific computing. Scipy stats spearmanr: implementation. URL: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html.">scc</a>]</span></p>
 <ol class="simple">
 <li><p>Die Nullhypothese: Es gibt keine monotone Beziehung zwischen den beiden Variablen</p></li>
 <li><p>Die Alternativhypothese: Es besteht eine monotone Beziehung und das Vorzeichen (+/-) gibt die Richtung an</p></li>
 </ol>
-<p>Sie gibt keine Auskunft über das Ausmass der Beziehung. Betrachten Sie als Beispiel das Verhältnis der Datenerhebungen Ergebnisse von Zigarettenstummeln in Bezug auf die Menge an Land, die Gebäuden oder der Landwirtschaft zugerechnet wird.<span id="id15">[<a class="reference internal" href="references.html#id13">Inn</a>]</span></p>
+<p>Sie gibt keine Auskunft über das Ausmass der Beziehung. Betrachten Sie als Beispiel das Verhältnis der Erhebungsergebnisse von Zigarettenstummeln in Bezug auf die Menge an Land, die Gebäuden oder der Landwirtschaft zugerechnet wird.<span id="id15">[<a class="reference internal" href="references.html#id13" title="Mathematics Education Innovation. Spearmans rank correlation. URL: https://mei.org.uk/files/pdf/Spearmanrcc.pdf.">Inn</a>]</span></p>
 <p><em><strong>Links:</strong> Datenerhebungen der Zigarettenstummel in Bezug auf den prozentualen Anteil der Grundstücke an den Gebäuden. rho= 0,39, p-value &lt; .001. <strong>Rechts:</strong> Datenerhebungen der Zigarettenstummel in Bezug auf den Prozentsatz der landwirtschaftlichen Nutzfläche. rho= -0,31, p-value &lt; .001.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -820,7 +917,7 @@
 <img alt="_images/land_use_correlation_de_20_0.png" src="_images/land_use_correlation_de_20_0.png" />
 </div>
 </div>
-<p>Betrachtet man die Datenerhebungen Ergebnisse für Zigarettenstummel in Bezug auf den prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ist der Wert von rho entgegengesetzt.</p>
+<p>Betrachtet man die Erhebungsergebnisse für Zigarettenstummel in Bezug auf den prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ist der Wert von rho entgegengesetzt.</p>
 </div>
 <div class="section" id="zuordnung-der-erhebungssummen-zur-bodennutzung">
 <h3><span class="section-number">17.2.2. </span>Zuordnung der Erhebungssummen zur Bodennutzung<a class="headerlink" href="#zuordnung-der-erhebungssummen-zur-bodennutzung" title="Permalink to this headline">¶</a></h3>
@@ -861,7 +958,7 @@
 <img alt="_images/land_use_correlation_de_25_0.png" src="_images/land_use_correlation_de_25_0.png" />
 </div>
 </div>
-<p>Im Allgemeinen kann ein positiver Zusammenhang zwischen den Datenerhebungen Ergebnissen und dem prozentualen Anteil der Flächen für Gebäude oder Erholung und ein negativer Zusammenhang mit Wäldern und Landwirtschaft angenommen werden.</p>
+<p>Im Allgemeinen kann ein positiver Zusammenhang zwischen den Erhebungsergebnissen und dem prozentualen Anteil der Flächen für Gebäude oder Erholung und ein negativer Zusammenhang mit Wäldern und Landwirtschaft angenommen werden.</p>
 </div>
 <div class="section" id="zuordnung-der-haufigsten-objekte-zur-landnutzung">
 <h3><span class="section-number">17.2.3. </span>Zuordnung der häufigsten Objekte zur Landnutzung<a class="headerlink" href="#zuordnung-der-haufigsten-objekte-zur-landnutzung" title="Permalink to this headline">¶</a></h3>
@@ -972,9 +1069,9 @@
 </div>
 <div class="section" id="spearmans-interpretieren">
 <h3><span class="section-number">17.2.4. </span>Spearmans interpretieren<a class="headerlink" href="#spearmans-interpretieren" title="Permalink to this headline">¶</a></h3>
-<p>Eine positive Assoziation bedeutet, dass die Datenerhebungen Ergebnisse tendenziell zunehmen, wenn der prozentuale Wert des Landnutzungsmerkmals steigt. Dies kann auf eine Kovarianz der Attribute zurückzuführen sein. In jedem Fall ist eine positive Assoziation ein Signal dafür, dass sich die Objekte unter diesen Bedingungen eher häufen.</p>
+<p>Eine positive Assoziation bedeutet, dass die Erhebungsergebnisse tendenziell zunehmen, wenn der prozentuale Wert des Landnutzungsmerkmals steigt. Dies kann auf eine Kovarianz der Attribute zurückzuführen sein. In jedem Fall ist eine positive Assoziation ein Signal dafür, dass sich die Objekte unter diesen Bedingungen eher häufen.</p>
 <p>Eine negative Assoziation bedeutet, dass das Landnutzungsmerkmal oder -attribut die Akkumulation des Objekts nicht erleichtert. Dieses Ergebnis ist für landwirtschaftliche Flächen und Wälder auf nationaler Ebene üblich. Eine negative Assoziation ist ein Signal dafür, dass die Objekte unter diesen Bedingungen nicht zur Akkumulation neigen.</p>
-<p>Keine oder wenige Assoziationen bedeutet, dass die Landnutzungsmerkmale keinen Einfluss auf die Akkumulation des Objekts hatten. Die Datenerhebungen Ergebnisse der häufigsten Objekte ohne oder mit wenigen Assoziationen lassen sich in zwei Kategorien einteilen:</p>
+<p>Keine oder wenige Assoziationen bedeutet, dass die Landnutzungsmerkmale keinen Einfluss auf die Akkumulation des Objekts hatten. Die Erhebungsergebnisse der häufigsten Objekte ohne oder mit wenigen Assoziationen lassen sich in zwei Kategorien einteilen:</p>
 <ul class="simple">
 <li><p>Allgegenwärtig: hohe Fail-Pass Rate, hohe Stückzahl pro Meter. Unabhängig von der Landnutzung im gesamten Untersuchungsgebiet in gleichbleibenden Raten gefunden</p></li>
 <li><p>Vorübergehend: niedrige Fail-Pass Rate, hohe Menge, hohe Stückzahl pro Meter, wenige Verbände. Gelegentlich in grossen Mengen an bestimmten Orten gefunden</p></li>
@@ -983,7 +1080,7 @@
 </div>
 <div class="section" id="diskussion">
 <h2><span class="section-number">17.3. </span>Diskussion<a class="headerlink" href="#diskussion" title="Permalink to this headline">¶</a></h2>
-<p>Insgesamt war es wahrscheinlich, dass Datenerhebungen an Orten mit mehr Gebäuden und Erholungsgebieten die Anhäufung von Gegenständen an der Küste begünstigten. Betrachtet man die häufigsten Gegenstände, so wurden nur vier der zwölf Gegenstände in Anwesenheit von mehr Gebäuden häufiger identifiziert. Dabei handelt es sich in der Regel um Gegenstände, die mit dem Verzehr von Lebensmitteln und/oder Tabak in der Nähe des Ortes zusammenhängen. Das deutet darauf hin, dass in stark frequentierten Gebieten in Wassernähe noch einiges an Vorbeugung und Abschwächung möglich ist.</p>
+<p>Insgesamt war es wahrscheinlich, dass Datenerhebungen an Orten mit mehr Gebäuden und Erholungsgebieten die Anhäufung von Gegenständen an der Küste begünstigten. Betrachtet man die häufigsten Gegenstände, so wurden nur vier der zwölf Gegenstände in Anwesenheit von mehr Gebäuden häufiger identifiziert. Dabei handelt es sich in der Regel um Gegenstände, die mit dem Verzehr von Lebensmitteln und/oder Tabakwaren in der Nähe des Ortes zusammenhängen. Das deutet darauf hin, dass in stark frequentierten Gebieten in Wassernähe noch einiges an Vorbeugung und Abschwächung möglich ist.</p>
 <p>Sechs der zwölf Objekte haben jedoch keine positive Assoziation zur Landnutzung, die Gebäuden zugeschrieben wird, wurden aber in mindestens 50% aller Datenerhebungen gefunden. Diese Gegenstände werden im Allgemeinen mit der beruflichen Nutzung oder im Fall der Wattestäbchen mit der persönlichen Hygiene in Verbindung gebracht:</p>
 <ul class="simple">
 <li><p>Kunststoff-Bauabfälle</p></li>
@@ -993,7 +1090,7 @@
 <li><p>Wattestäbchen/Stäbchen</p></li>
 <li><p>Isolierung, einschliesslich Sprühschäume</p></li>
 </ul>
-<p>Ausserdem haben diese Objekte im Vergleich zu Produkten, die mit Tabak oder Nahrungsmitteln in Verbindung stehen, im Allgemeinen weniger positive Assoziationen. Dies deutet darauf hin, dass das entsprechende Landnutzungsmerkmal derzeit nicht berücksichtigt wird und/oder diese Objekte unabhängig von den Landnutzungsmerkmalen in ähnlichen Mengen identifiziert werden. Dies deutet darauf hin, dass diese Objekte in der Umwelt allgegenwärtig sind.</p>
+<p>Ausserdem haben diese Objekte im Vergleich zu Produkten, die mit Tabakwaren oder Nahrungsmitteln in Verbindung stehen, im Allgemeinen weniger positive Assoziationen. Dies deutet darauf hin, dass das entsprechende Landnutzungsmerkmal derzeit nicht berücksichtigt wird und/oder diese Objekte unabhängig von den Landnutzungsmerkmalen in ähnlichen Mengen identifiziert werden. Dies deutet darauf hin, dass diese Objekte in der Umwelt allgegenwärtig sind.</p>
 <p>Schliesslich wurden zwei der zwölf häufigsten Objekte in weniger als 50% der Datenerhebungen gefunden und weisen nur wenige positive Assoziationen auf:</p>
 <ul class="simple">
 <li><p>Industriepellets</p></li>
@@ -1009,10 +1106,8 @@
 <p>Warum 1500 Meter? Für diese Studie haben wir uns mit Objekten befasst, die hohe Werte für rho bei kleineren Radien aufwiesen, die dem Massstab der bereitgestellten Daten angemessen waren. Es wurden auch andere Entfernungen in Betracht gezogen (2km, 2,5km, … 5km und 10km). Generell gilt, dass mit zunehmendem Radius die den Gebäuden zugewiesene Fläche abnimmt und damit auch der Wert von rho. Dieses Thema wurde in einem Artikel, der derzeit für das Peer-Review-Verfahren vorbereitet wird, ausführlicher behandelt.</p>
 <p>Die Überprüfung einer Assoziation erfolgt durch die Berücksichtigung aller anderen Schlüsselindikatoren und das Urteil von Experten. Das städtische Wartungspersonal ist mit den Bedingungen vor Ort vertraut und ist eine der besten Informationsquellen. Die Wiederholung von Stichproben an einem bestimmten Ort für einen bestimmten Zeitraum und der Vergleich der Ergebnisse mit den Ausgangswerten für das Erhebungsgebiet ist ebenfalls eine zuverlässige Methode, um die Leistung in Bezug auf das Erhebungsgebiet zu bestimmen.</p>
 <p>Der Rangkorrelationskoeffizient ist eine effiziente und zuverlässige Methode, mit der sich Landnutzungsklassifizierungen identifizieren lassen, die mit erhöhten oder verringerten Mengen an bestimmten Abfallobjekten verbunden sind. Das Ausmass der Beziehung in Bezug auf die Anzahl der Objekte auf dem Boden bleibt jedoch undefiniert.</p>
-<p>Um mehr darüber zu erfahren, wie sich die Datenerhebungen Ergebnisse je nach Landnutzung ändern und/oder gleich bleiben, siehe <a class="reference internal" href="shared_responsibility_de.html#transportde"><span class="std std-ref"><em>Gemeinsame Verantwortung</em></span></a>.</p>
+<p>Um mehr darüber zu erfahren, wie sich die Erhebungsergebnisse je nach Landnutzung ändern und/oder gleich bleiben, siehe <a class="reference internal" href="shared_responsibility_de.html#transportde"><span class="std std-ref"><em>Gemeinsame Verantwortung</em></span></a>.</p>
 <p>Um zu verstehen, wie die Abfallobjekte für diesen Bericht berechnet wurden, siehe <a class="reference internal" href="baselines_de.html#threshholdde"><span class="std std-ref"><em>Abfallobjekte am Strand</em></span></a>.</p>
-<div class="cell tag_remove-input tag_remove-output docutils container">
-</div>
 </div>
 </div>
 </div>
@@ -1039,37 +1134,45 @@
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="code_groups_de.html" title="previous page"><span class="section-number">16. </span>Code-Gruppen</a>
-    <a class='right-next' id="next-link" href="references.html" title="next page"><span class="section-number">18. </span>Bibliografie</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="code_groups_de.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">16. </span>Codegruppen</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="references.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Bibliografie</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <p>
    Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>20. Geteilte Verantwortung</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,32 +31,37 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="21. Vergleich der Datenerhebungen seit 2018" href="slr_2017_de.html" />
     <link rel="prev" title="19. Recyceln und neu gestalten" href="reuse_remake_de.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -73,6 +78,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
       
@@ -80,7 +89,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -89,7 +98,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Zusammenfassung
  </span>
@@ -106,15 +115,15 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Ergebnisse der Erhebung
+  Erhebungsergebnisse
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lakes_rivers_de.html">
-   1. Seen und Flüsse
+   1. Seen und Fliessgewässer
   </a>
  </li>
  <li class="toctree-l1">
@@ -123,7 +132,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Erhebungsgebiete
  </span>
@@ -150,7 +159,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Seen
  </span>
@@ -192,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Verstehen
  </span>
@@ -210,12 +219,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="code_groups_de.html">
-   16. Code-Gruppen
+   16. Codegruppen
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="land_use_correlation_de.html">
-   17. Das Profil der Landnutzung
+   17. Das Landnutzungsprofil
   </a>
  </li>
  <li class="toctree-l1">
@@ -224,7 +233,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anwendungen
  </span>
@@ -291,7 +300,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -342,12 +351,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#die-herausforderung">
@@ -427,8 +436,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-datenerhebungen-ergebnisse-von-fp-und-ft-in-bezug-auf-die-landnutzung">
-   20.5. Die Datenerhebungen Ergebnisse von FP und FT in Bezug auf die Landnutzung
+  <a class="reference internal nav-link" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">
+   20.5. Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -446,7 +455,114 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Geteilte Verantwortung</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-herausforderung">
+   20.1. Die Herausforderung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-ursprunge-der-haufigsten-objekte">
+     20.1.1. Die Ursprünge der häufigsten Objekte¶
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-daten">
+   20.2. Die Daten
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bewertung-der-zusammensetzung-das-grosse-ganze">
+     20.2.1. Bewertung der Zusammensetzung: das grosse Ganze¶
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">
+     20.2.2. Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#differenz-der-mittelwerte">
+       20.2.2.1. Differenz der Mittelwerte
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fazit">
+   20.3. Fazit
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diskussion">
+     20.3.1. Diskussion
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#partner-finden">
+       20.3.1.1. Partner finden
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#die-verantwortung-teilen">
+       20.3.1.2. Die Verantwortung teilen
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anhang">
+   20.4. Anhang
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ergebnisse-des-spearman-rangkorrelationstests">
+     20.4.1. Ergebnisse des Spearman-Rangkorrelationstests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saisonale-schwankungen">
+     20.4.2. Saisonale Schwankungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">
+   20.5. Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fp-und-ft-differenz-der-mittelwerte">
+     20.5.1. FP und FT Differenz der Mittelwerte.
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell tag_hide-input docutils container">
@@ -519,7 +635,7 @@
 <span class="c1"># set the locale to the language desired</span>
 <span class="c1"># the locale is set back to to original at the the end of the script</span>
 <span class="n">loc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">()</span>
-<span class="n">lang</span> <span class="o">=</span>  <span class="s2">&quot;de_DE.utf8&quot;</span>
+<span class="n">lang</span> <span class="o">=</span>  <span class="s2">&quot;de_CH.utf8&quot;</span>
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
 
 <span class="c1"># the date is in iso standard:</span>
@@ -529,11 +645,13 @@
 <span class="n">g</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span>
 
 <span class="c1"># set some parameters:</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;01.03.2020&quot;</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;30.09.2021&quot;</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2020-03-01&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;2021-05-31&quot;</span>
+<span class="c1"># ge_start = &quot;01.03.2020&quot;</span>
+<span class="c1"># ge_end =&quot;31.05.2021&quot;</span>
 <span class="n">start_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">]</span>
 <span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">unit_label</span> <span class="o">=</span> <span class="s1">&#39;p/100m&#39;</span>
+<span class="n">unit_label</span> <span class="o">=</span> <span class="s1">&#39;p/100 m&#39;</span>
 <span class="n">reporting_unit</span> <span class="o">=</span> <span class="mi">100</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
@@ -634,11 +752,11 @@
 </div>
 </div>
 </div>
-<div class="section" id="geteilte-verantwortung">
+<div class="tex2jax_ignore mathjax_ignore section" id="geteilte-verantwortung">
 <span id="transportde"></span><h1><span class="section-number">20. </span>Geteilte Verantwortung<a class="headerlink" href="#geteilte-verantwortung" title="Permalink to this headline">¶</a></h1>
 <p><a href="shared_responsibility.html" > English </a></p>
-<p>Untersuchungen über den Transport und die Anreicherung von Abfällen in der aquatischen Umwelt zeigen, dass Flüsse eine Hauptquelle für Makroplastik vom Land in die Meeresumwelt sind <span id="id1">[<a class="reference internal" href="references.html#id70">GFCH+21</a>]</span>. Allerdings gelangen nicht alle Objekte, die von Flüssen transportiert werden, in den Ozean, was darauf hindeutet, dass Flüsse und Binnenseen auch Senken für einen Teil des emittierten Makroplastiks sind <span id="id2">[<a class="reference internal" href="references.html#id72">KBK+18</a>]</span>.</p>
-<p>In den Bestimmungen des Schweizer Rechts, Artikel 2 des Bundesgesetzes über den Umweltschutz (USG), wird das Prinzip der Kausalität für die illegale Entsorgung von Material berücksichtigt und ist allgemein als Verursacherprinzip bekannt. Letztendlich liegt die Verantwortung für die Beseitigung und das Management der Verschmutzung durch Abfälle in und entlang von Gewässern direkt bei den kommunalen und kantonalen Verwaltungen, da sie rechtlich gesehen Eigentümer des Landes innerhalb ihrer Grenzen sind. Das Gesetz gibt den Gemeinden und Kantonen die Möglichkeit, Unternehmen oder Personen, die weiter oben in der Kausalkette stehen, als Abfallverursacher zu betrachten und von ihnen Entsorgungsgebühren zu erheben (z.B. Fast-Food-Unternehmen und ähnliche Betriebe oder Organisatoren von Veranstaltungen, die grosse Mengen an Abfall im öffentlichen Raum erzeugen), wenn keine konkreten Verursacher ermittelt werden können, sofern objektive Kriterien zur Bestimmung der Kausalkette herangezogen werden. <span id="id3">[<a class="reference internal" href="references.html#id7">fdlCs20a</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id2">cfs20</a>]</span> <span id="id5">[<a class="reference internal" href="references.html#id5">fdlenvironnement18</a>]</span> <span id="id6">[<a class="reference internal" href="references.html#id3">fc12</a>]</span></p>
+<p>Untersuchungen über den Transport und die Anreicherung von Abfällen in der aquatischen Umwelt zeigen, dass Flüsse eine Hauptquelle für Makroplastik vom Land in die Meeresumwelt sind <span id="id1">[<a class="reference internal" href="references.html#id70" title="Daniel González Fernández, Andrés Cózar, Georg Hanke, Josué Viejo, Carmen Morales-Caselles, Rigers Bakiu, Damia Barcelo, Filipa Bessa, Antoine Bruge, María Cabrera Fernández, Javier Castro-Jiménez, Mel Constant, Roberto Crosti, Yuri Galletti, Ahmet Kideys, Nino Machitadze, Joana Brito, Maria Pogojeva, Nuno Ratola, and Myrto Tourgeli Provata. Floating macrolitter leaked from europe into the ocean. Nature Sustainability, 4:474-483, 06 2021. doi:10.1038/s41893-021-00722-6.">GFCH+21</a>]</span>. Allerdings gelangen nicht alle Objekte, die von Flüssen transportiert werden, in den Ozean, was darauf hindeutet, dass Flüsse und Binnenseen auch Senken für einen Teil des emittierten Makroplastiks sind <span id="id2">[<a class="reference internal" href="references.html#id72" title="Merel Kooi, Ellen Besseling, Carolien Kroeze, Annemarie P. van Wezel, and Albert A. Koelmans. Modeling the Fate and Transport of Plastic Debris in Freshwaters: Review and Guidance. Springer International Publishing, 2018. URL: https://doi.org/10.1007/978-3-319-61615-5_7, doi:10.1007/978-3-319-61615-5_7.">KBK+18</a>]</span>.</p>
+<p>In den Bestimmungen des Schweizer Rechts, Artikel 2 des Bundesgesetzes über den Umweltschutz (USG), wird das Prinzip der Kausalität für die illegale Entsorgung von Material berücksichtigt und ist allgemein als Verursacherprinzip bekannt. Letztendlich liegt die Verantwortung für die Beseitigung und das Management der Verschmutzung durch Abfälle in und entlang von Gewässern direkt bei den kommunalen und kantonalen Verwaltungen, da sie rechtlich gesehen Eigentümer des Landes innerhalb ihrer Grenzen sind. Das Gesetz gibt den Gemeinden und Kantonen die Möglichkeit, Unternehmen oder Personen, die weiter oben in der Kausalkette stehen, als Abfallverursacher zu betrachten und von ihnen Entsorgungsgebühren zu erheben (z.B. Fast-Food-Unternehmen und ähnliche Betriebe oder Organisatoren von Veranstaltungen, die grosse Mengen an Abfall im öffentlichen Raum erzeugen), wenn keine konkreten Verursacher ermittelt werden können, sofern objektive Kriterien zur Bestimmung der Kausalkette herangezogen werden. <span id="id3">[<a class="reference internal" href="references.html#id7" title="L’Assemblée fédérale de la Confédération suisse. Loi fédérale sur la protection de l'environnement. La plateforme de publication du droit fédéral: 814.01, 2020.">fdlCs20a</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id2" title="Le conseil fédéral suisse. Ordonnance sur la protection des eaux. La plateforme de publication du droit fédéral: 814.201, 2020.">cfs20</a>]</span> <span id="id5">[<a class="reference internal" href="references.html#id5" title="Office fédéral de l’environnement. Financement de l’élimination des déchets urbains. aide à l’exécution relative au financement de l’élimination des déchets urbains selon le principe de causalité. L’environnement pratique n° 1827, 2018.">fdlenvironnement18</a>]</span> <span id="id6">[<a class="reference internal" href="references.html#id3" title="Swiss federal court. Federal court decision: tf 138 ii 111. Register of federal court decisions, 2012. URL: https://www.bger.ch/ext/eurospider/live/fr/php/aza/http/index.php?highlight_docid=atf%3A%2F%2F138-II-111%3Afr%3Aregeste&amp;lang=fr&amp;type=show_document&amp;zoom=YES&amp;.">fc12</a>]</span></p>
 <div class="section" id="die-herausforderung">
 <h2><span class="section-number">20.1. </span>Die Herausforderung<a class="headerlink" href="#die-herausforderung" title="Permalink to this headline">¶</a></h2>
 <p>Objektive Kriterien erfordern <strong>robuste, transparente und leicht wiederholbare</strong> Methoden. Die Herausforderung besteht darin, verfügbare Informationen aus den weggeworfenen Objekten zu extrahieren, die auf Mengen, Materialeigenschaften und Umweltvariablen in der Nähe des Erhebungsortes basieren.</p>
@@ -652,10 +770,10 @@
 <img alt="_images/shared_responsibility_de_2_0.png" src="_images/shared_responsibility_de_2_0.png" />
 </div>
 </div>
-<p><em><strong>Oben:</strong> Lac Léman, St. Gingolph 07.05.2020 (1600p/100m).</em></p>
-<p>Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise grössere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref">Landnutzungsprofil.</span></a>. Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabak in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde.</p>
+<p><em><strong>Oben:</strong> Lac Léman, St. Gingolph 07.05.2020 (1600p/100 m).</em></p>
+<p>Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise grössere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref">Landnutzungsprofil.</span></a>. Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabakwaren in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde.</p>
 <p>Andere Objekte haben jedoch weder einen eindeutigen geografischen Ursprung noch eine klare Verbindung zu einer Aktivität in der Nähe ihres Standorts. Die häufigsten dieser Objekte sind ≊ 40 % aller im Jahr 2020 identifizierten ausrangierten Objekte,  <a class="reference internal" href="lakes_rivers_de.html#allsurveysde"><span class="std std-ref"><em>Lakes and rivers</em> </span></a>. Die Verringerung der Menge an Abfällen an den Schweizer Ufern beinhaltet auch die Verringerung der Menge an ausrangierten Objekten, die von ausserhalb der geografischen Grenzen des Strandes selbst stammen. Daher ist es ein Anreiz, ausrangierte Objekte, die an oder in der Nähe von Standorten weggeworfen werden, von Objekten zu unterscheiden, die zu den Datenerhebungen transportiert werden.</p>
-<p>Die Gewinnung objektiver Daten über Strandabfälle wird durch die hydrologischen Einflüsse der rund 61’000 km Flüsse und 1500 Seen in der Schweiz erschwert.  Die hydrologischen Bedingungen der Flüsse wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Grosse Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Gegenstände mit hoher Dichte werden nur dann transportiert, wenn die Fliessgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Gegenstände vom Grund fernzuhalten. Sobald Gegenstände mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken <span id="id7">[<a class="reference internal" href="references.html#id68">SLBH19</a>]</span>.</p>
+<p>Die Gewinnung objektiver Daten über Strandabfälle wird durch die hydrologischen Einflüsse der rund 61’000 km Flüsse und 1500 Seen in der Schweiz erschwert.  Die hydrologischen Bedingungen der Flüsse wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Grosse Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Gegenstände mit hoher Dichte werden nur dann transportiert, wenn die Fliessgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Gegenstände vom Grund fernzuhalten. Sobald Gegenstände mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken <span id="id7">[<a class="reference internal" href="references.html#id68" title="Anna Schwarz, Tom Ligthart, E Boukris, and T Harmelen. Sources, transport, and accumulation of different types of plastic litter in aquatic environments: a review study ☆. Marine Pollution Bulletin, 143:92-100, 05 2019. doi:10.1016/j.marpolbul.2019.04.029.">SLBH19</a>]</span>.</p>
 <div class="section" id="die-ursprunge-der-haufigsten-objekte">
 <h3><span class="section-number">20.1.1. </span>Die Ursprünge der häufigsten Objekte¶<a class="headerlink" href="#die-ursprunge-der-haufigsten-objekte" title="Permalink to this headline">¶</a></h3>
 <p>Die häufigsten Objekte sind die zehn mengenmässig am häufigsten vorkommenden UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden. Um besser zu verstehen, woher diese Objekte stammen, wird zwischen zwei Gruppen von Objekten unterschieden:</p>
@@ -739,9 +857,9 @@
 <p><strong>Methoden</strong></p>
 <p>Die Hypothese wird mit einer Kombination von nicht-parametrischen Tests getestet, um die Signifikanz zu bestätigen:</p>
 <ol class="simple">
-<li><p>Two sample Kolmogorov-Smirnov <span id="id8">[<a class="reference internal" href="references.html#id14">sca</a>]</span></p></li>
-<li><p>Mann-Whitney <em>U</em> (MWU) <span id="id9">[<a class="reference internal" href="references.html#id15">scb</a>]</span></p></li>
-<li><p>Bootstrap resampling difference of means <span id="id10">[<a class="reference internal" href="references.html#id27">Efr87</a>]</span> <span id="id11">[<a class="reference internal" href="references.html#id28">dry20</a>]</span></p></li>
+<li><p>Two sample Kolmogorov-Smirnov <span id="id8">[<a class="reference internal" href="references.html#id14" title="Python scientific computing. Scipy stats kolmogorov-smirnov: implementation. URL: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html.">sca</a>]</span></p></li>
+<li><p>Mann-Whitney <em>U</em> (MWU) <span id="id9">[<a class="reference internal" href="references.html#id15" title="Python scientific computing. Scipy stats mann-whitney u test: implementation. URL: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html.">scb</a>]</span></p></li>
+<li><p>Bootstrap resampling difference of means <span id="id10">[<a class="reference internal" href="references.html#id27" title="Bradley Efron. Better bootstrap confidence intervals. Journal of the American Statistical Association, 82(397):171-185, 1987. URL: https://www.tandfonline.com/doi/abs/10.1080/01621459.1987.10478410, arXiv:https://www.tandfonline.com/doi/pdf/10.1080/01621459.1987.10478410, doi:10.1080/01621459.1987.10478410.">Efr87</a>]</span> <span id="id11">[<a class="reference internal" href="references.html#id28" title="Erik drysdale. Implementing the bias-corrected and accelerated bootstrap in python. 2020. URL: https://www.erikdrysdale.com/bca_python/.">dry20</a>]</span></p></li>
 </ol>
 </div>
 </div>
@@ -763,9 +881,9 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # make date stamp</span>
 <span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/checked_sdata_eos_2020_21.csv&#39;</span><span class="p">)</span>
 
-<span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
-<span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">survey_data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-<span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="n">g</span><span class="p">)</span>
+<span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+<span class="c1"># survey_data[&quot;date&quot;] = survey_data[&#39;date&#39;].dt.strftime(g)</span>
+<span class="c1"># survey_data[&quot;date&quot;] = pd.to_datetime(survey_data[&quot;date&quot;], format=g)</span>
 
 <span class="c1"># the land use data was unvailable for these municipalities</span>
 <span class="n">no_land_use</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Walenstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;Weesen&#39;</span><span class="p">,</span> <span class="s1">&#39;Glarus Nord&#39;</span><span class="p">,</span> <span class="s1">&#39;Quarten&#39;</span><span class="p">]</span>
@@ -776,6 +894,7 @@
 
 <span class="c1"># slice date to working data</span>
 <span class="n">a_data</span> <span class="o">=</span> <span class="n">survey_data</span><span class="p">[(</span><span class="o">~</span><span class="n">survey_data</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">no_land_use</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">a_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;p/100m&quot;</span><span class="p">:</span><span class="n">unit_label</span><span class="p">},</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># summarize the data</span>
 <span class="n">nsamps</span> <span class="o">=</span> <span class="n">a_data</span><span class="o">.</span><span class="n">loc_date</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
@@ -876,7 +995,7 @@
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<p><em><strong>Unten:</strong> Datenerhebungen Ergebnisse städtische und ländliche Standorte März 2020 - Mai 2021. <strong>Links:</strong> Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. <strong>Rechts:</strong> Verteilung der Datenerhebungen Ergebnisse Stadt - Land mit Detail der Code-Gruppen Ergebnisse.</em></p>
+<p><em><strong>Unten:</strong> Erhebungsergebnissestädtische und ländliche Standorte März 2020 - Mai 2021. <strong>Links:</strong> Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. <strong>Rechts:</strong> Verteilung der ErhebungsergebnisseStadt - Land mit Detail der Codegruppen Ergebnisse.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># months locator, can be confusing</span>
@@ -986,7 +1105,7 @@
 <img alt="_images/shared_responsibility_de_14_0.png" src="_images/shared_responsibility_de_14_0.png" />
 </div>
 </div>
-<p><em><strong>Oben:</strong> Unterschiede zwischen städtischen und ländlichen Datenerhebungen. Die Datenerhebungen Ergebnisse in ländlichen Gebieten hatten einen niedrigeren Median und Mittelwert als in städtischen Gebieten und in allen Gebieten zusammen. Die Höchst- und Mindestwerte sowie die höchste Standardabweichung wurden an städtischen Standorten verzeichnet. Die 95% Konfidenzintervalle des Medianwertes der Datenerhebungen Ergebnisse in den Städten und auf dem Land überschneiden sich nicht, Anhang 1.</em></p>
+<p><em><strong>Oben:</strong> Unterschiede zwischen städtischen und ländlichen Datenerhebungen. Die Erhebungsergebnissein ländlichen Gebieten hatten einen niedrigeren Median und Mittelwert als in städtischen Gebieten und in allen Gebieten zusammen. Die Höchst- und Mindestwerte sowie die höchste Standardabweichung wurden an städtischen Standorten verzeichnet. Die 95% Konfidenzintervalle des Medianwertes der Erhebungsergebnissein den Städten und auf dem Land überschneiden sich nicht, Anhang 1.</em></p>
 <div class="section" id="bewertung-der-zusammensetzung-das-grosse-ganze">
 <h3><span class="section-number">20.2.1. </span>Bewertung der Zusammensetzung: das grosse Ganze¶<a class="headerlink" href="#bewertung-der-zusammensetzung-das-grosse-ganze" title="Permalink to this headline">¶</a></h3>
 <p>Das Verhältnis von DG insgesamt zu CG insgesamt betrug in der ländlichen Gruppe 2,5, in der städtischen Gruppe 1,6. Bei allen Datenerhebungen in den ländlichen Gebieten war der Anteil der DG an der Gesamtzahl in % höher. In den Städten sind die Anteile von DG und CG an der Gesamtzahl der Datenerhebungen fast gleich.</p>
@@ -1039,9 +1158,9 @@
 </div>
 <div class="section" id="verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">
 <h3><span class="section-number">20.2.2. </span>Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen<a class="headerlink" href="#verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen" title="Permalink to this headline">¶</a></h3>
-<p>Die Datenerhebungen Ergebnisse der GD sind unter beiden Landnutzungsklassen sehr ähnlich, es gibt mehr Varianz, wenn der gemeldete Wert steigt, aber nicht so viel, dass die Verteilungen auseinander gehen. Angesichts der Standardabweichung der Stichproben und der hohen Varianz der Datenerhebungen zum Strand-Abfallaufkommen im Allgemeinen ist dies zu erwarten. <span id="id12">[<a class="reference internal" href="references.html#id42">HG19</a>]</span></p>
+<p>Die Erhebungsergebnisseder GD sind unter beiden Landnutzungsklassen sehr ähnlich, es gibt mehr Varianz, wenn der gemeldete Wert steigt, aber nicht so viel, dass die Verteilungen auseinander gehen. Angesichts der Standardabweichung der Stichproben und der hohen Varianz der Datenerhebungen zum Strand-Abfallaufkommen im Allgemeinen ist dies zu erwarten. <span id="id12">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span></p>
 <p>Die Kolmogorov-Smirnov (KS)-Tests mit zwei Stichproben (ks=0,073, p=0,808) der beiden Gruppen von Datenerhebungen deuten darauf hin, dass sich die Datenerhebungsergebnisse der DG zwischen den beiden Landnutzungsklassen möglicherweise nicht signifikant unterscheiden. Die Ergebnisse des Mann-Whitney U (MWU) (U=11445.0, p=0.762) deuten darauf hin, dass es möglich ist, dass die beiden Verteilungen gleich sind.</p>
-<p><em><strong>Unten:</strong> Empirische kumulative Verteilung (eCDF) von DG und CG. <strong>Links:</strong> Sie erinnern sich, dass zu den DG-Objekten fragmentierte Kunststoffe, Schaumstoffe, Kunststoffe für den Bau und Industriepellets gehören. <strong>Rechts:</strong> Die Datenerhebungen Ergebnisse für Zigarettenfilter und Snack-Verpackungen haben visuell unterschiedliche Verteilungen unter den beiden Landnutzungsbedingungen.</em></p>
+<p><em><strong>Unten:</strong> Empirische kumulative Verteilung (eCDF) von DG und CG. <strong>Links:</strong> Sie erinnern sich, dass zu den DG-Objekten fragmentierte Kunststoffe, Schaumstoffe, Kunststoffe für den Bau und Industriepellets gehören. <strong>Rechts:</strong> Die Erhebungsergebnissefür Zigarettenfilter und Snack-Verpackungen haben visuell unterschiedliche Verteilungen unter den beiden Landnutzungsbedingungen.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the dg group objects evaluated at rural locations</span>
@@ -1090,10 +1209,10 @@
 <img alt="_images/shared_responsibility_de_20_0.png" src="_images/shared_responsibility_de_20_0.png" />
 </div>
 </div>
-<p>Nach dem KS-Test (rho=0,09, p=0,48) gibt es keinen statistischen Grund für die Annahme, dass unter den unterschiedlichen Landnutzungsbedingungen mehr DG-Objekte gefunden werden, nach dem MWU-Test (MWU=1039, p=0,25) besteht die Chance, dass die Häufigkeit der DG-Objekte unabhängig vom Landnutzungsprofil gleich ist. Andererseits weichen die Datenerhebungen Ergebnisse von CG fast sofort ab und die Ergebnisse des KS-Tests (rho=0,31, p&lt;.001) und des MWU-Tests (MWU=7305, p&lt;.001) deuten darauf hin, dass die Verteilung dieser Objekte mit den Flächen in %, die Gebäuden zugeordnet sind, zusammenhängt.</p>
+<p>Nach dem KS-Test (rho=0,09, p=0,48) gibt es keinen statistischen Grund für die Annahme, dass unter den unterschiedlichen Landnutzungsbedingungen mehr DG-Objekte gefunden werden, nach dem MWU-Test (MWU=1039, p=0,25) besteht die Chance, dass die Häufigkeit der DG-Objekte unabhängig vom Landnutzungsprofil gleich ist. Andererseits weichen die Erhebungsergebnissevon CG fast sofort ab und die Ergebnisse des KS-Tests (rho=0,31, p&lt;.001) und des MWU-Tests (MWU=7305, p&lt;.001) deuten darauf hin, dass die Verteilung dieser Objekte mit den Flächen in %, die Gebäuden zugeordnet sind, zusammenhängt.</p>
 <div class="section" id="differenz-der-mittelwerte">
 <h4><span class="section-number">20.2.2.1. </span>Differenz der Mittelwerte<a class="headerlink" href="#differenz-der-mittelwerte" title="Permalink to this headline">¶</a></h4>
-<p>Das durchschnittliche Ergebnis der Datenerhebungen von DG-Objekten in ländlichen Gebieten lag bei 202p/100m gegenüber 237p/100m in städtischen Gebieten, ein Unterschied von -35p/100m ist nur ein kleiner Bruchteil der Standardabweichung. Es wurde ein Permutationstest auf die Differenz der Mittelwerte unter der Bedingung ländlich - städtisch der Mittelwerte der Datenerhebungen durchgeführt.</p>
+<p>Das durchschnittliche Ergebnis der Datenerhebungen von DG-Objekten in ländlichen Gebieten lag bei 202 p/100 m gegenüber 237 p/100 m in städtischen Gebieten, ein Unterschied von -35 p/100 m ist nur ein kleiner Bruchteil der Standardabweichung. Es wurde ein Permutationstest auf die Differenz der Mittelwerte unter der Bedingung ländlich - städtisch der Mittelwerte der Datenerhebungen durchgeführt.</p>
 <p><em>Differenz der Mittelwerte DG Objekte.  <span class="math notranslate nohighlight">\(\mu_{rural}\)</span> - <span class="math notranslate nohighlight">\(\mu_{urban}\)</span>, method=shuffle, permutations=5000.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1165,11 +1284,11 @@
 </div>
 <div class="section" id="diskussion">
 <h3><span class="section-number">20.3.1. </span>Diskussion<a class="headerlink" href="#diskussion" title="Permalink to this headline">¶</a></h3>
-<p>Durch den Vergleich der Datenerhebungen Ergebnisse mit den unabhängigen Variablen rund um die Erhebungsorte kann eine numerische Darstellung erstellt werden, die beschreibt, wie wahrscheinlich es ist, dass der Gegenstand dort weggeworfen wurde, wo er gefunden wurde. Die numerisch ermittelte Assoziation wird durch die tägliche Erfahrung verstärkt. Zum Beispiel wird ein Teil der Zigaretten und Snacks wahrscheinlich an oder in der Nähe der Verkaufsstellen konsumiert, und ein Teil des damit verbundenen Materials kann in die Umwelt gelangen.</p>
+<p>Durch den Vergleich der Erhebungsergebnissemit den unabhängigen Variablen rund um die Erhebungsorte kann eine numerische Darstellung erstellt werden, die beschreibt, wie wahrscheinlich es ist, dass der Gegenstand dort weggeworfen wurde, wo er gefunden wurde. Die numerisch ermittelte Assoziation wird durch die tägliche Erfahrung verstärkt. Zum Beispiel wird ein Teil der Zigaretten und Snacks wahrscheinlich an oder in der Nähe der Verkaufsstellen konsumiert, und ein Teil des damit verbundenen Materials kann in die Umwelt gelangen.</p>
 <p>Einige markante Objekte, die von relativ kleinen Teilen der Wirtschaft genutzt werden, können in einer ganzen Region identifiziert werden, sind aber aufgrund des hydrologischen Transports auf Zonen der Akkumulation beschränkt, was die Identifizierung der Quelle erschwert.</p>
-<p>Das vorangegangene Beispiel zeigt jedoch, dass Datenerhebungen Ergebnisse in Abhängigkeit von erklärenden Variablen erhöhen oder verringern. Bei Objekten wie Plastikpellets aus der Vorproduktion (GPI) ist der Verwendungszweck des Objekts eindeutig und die Nutzer und Hersteller sind im Vergleich zu anderen ausrangierten Objekten relativ selten. Auch wenn diese Gegenstände in allen Datenerhebungen vorkommen, ist es unwahrscheinlich, dass sie in gleichem Masse emittiert werden.</p>
-<p>Anhand des vorangegangenen Beispiels können Sie die steigenden Datenerhebungen Ergebnisse von GPI an zwei verschiedenen Seen verfolgen, um zu verstehen, wie diese Beziehung visualisiert werden kann.</p>
-<p><em><strong>Unten:</strong> Der Anstieg des mittleren p/100m-Wertes, wenn sich die Datenerhebungen der flussaufwärts gelegenen Quelle nähern. GPIs sind klein und schwer zu reinigen, wenn sie einmal verschüttet wurden, so dass die genaue Quelle schwer zu bestimmen ist. Man kann jedoch davon ausgehen, dass die Verarbeiter und Verbraucher von GPIs am besten wissen, wie man den Verlust von Material in die Umwelt verhindert. Die Wahrscheinlichkeit, mindestens einen GPI zu finden, ist an einigen der unten aufgeführten Orte doppelt so hoch wie die regionale Rate.</em></p>
+<p>Das vorangegangene Beispiel zeigt jedoch, dass Erhebungsergebnissein Abhängigkeit von erklärenden Variablen erhöhen oder verringern. Bei Objekten wie Plastikpellets aus der Vorproduktion (GPI) ist der Verwendungszweck des Objekts eindeutig und die Nutzer und Hersteller sind im Vergleich zu anderen ausrangierten Objekten relativ selten. Auch wenn diese Gegenstände in allen Datenerhebungen vorkommen, ist es unwahrscheinlich, dass sie in gleichem Masse emittiert werden.</p>
+<p>Anhand des vorangegangenen Beispiels können Sie die steigenden Erhebungsergebnissevon GPI an zwei verschiedenen Seen verfolgen, um zu verstehen, wie diese Beziehung visualisiert werden kann.</p>
+<p><em><strong>Unten:</strong> Der Anstieg des mittleren p/100 m-Wertes, wenn sich die Datenerhebungen der flussaufwärts gelegenen Quelle nähern. GPIs sind klein und schwer zu reinigen, wenn sie einmal verschüttet wurden, so dass die genaue Quelle schwer zu bestimmen ist. Man kann jedoch davon ausgehen, dass die Verarbeiter und Verbraucher von GPIs am besten wissen, wie man den Verlust von Material in die Umwelt verhindert. Die Wahrscheinlichkeit, mindestens einen GPI zu finden, ist an einigen der unten aufgeführten Orte doppelt so hoch wie die regionale Rate.</em></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/shared_responsibility_de_29_0.png" src="_images/shared_responsibility_de_29_0.png" />
@@ -1187,11 +1306,11 @@
 <li><p>Industriefolien werden in der Landwirtschaft, im Transportwesen und im Baugewerbe eingesetzt.</p></li>
 <li><p>Baukunststoffe</p></li>
 </ul>
-<p>Die Suche nach Partnern für diese Objekte kann eine erste Phase informativer, gezielter Kommunikation unter Verwendung der IQAASL-Ergebnisse und der aktuellen EU-Schwellenwerte und Basiswerte für Strandabfälle  <span id="id13">[<a class="reference internal" href="references.html#id42">HG19</a>]</span>.</p>
+<p>Die Suche nach Partnern für diese Objekte kann eine erste Phase informativer, gezielter Kommunikation unter Verwendung der IQAASL-Ergebnisse und der aktuellen EU-Schwellenwerte und Basiswerte für Strandabfälle  <span id="id13">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span>.</p>
 </div>
 <div class="section" id="die-verantwortung-teilen">
 <h4><span class="section-number">20.3.1.2. </span>Die Verantwortung teilen<a class="headerlink" href="#die-verantwortung-teilen" title="Permalink to this headline">¶</a></h4>
-<p>Das Prinzip der erweiterten Herstellerverantwortung (EPR) kann für Hersteller und Verbraucher ein Anreiz sein, die tatsächlichen Kosten für die Entsorgung der in der Schweiz am häufigsten ausgerangierten Objekte zu übernehmen. <span id="id14">[<a class="reference internal" href="references.html#id74">HLCM21</a>]</span></p>
+<p>Das Prinzip der erweiterten Herstellerverantwortung (EPR) kann für Hersteller und Verbraucher ein Anreiz sein, die tatsächlichen Kosten für die Entsorgung der in der Schweiz am häufigsten ausgerangierten Objekte zu übernehmen. <span id="id14">[<a class="reference internal" href="references.html#id74" title="Lucas Harris, Max Liboiron, Louis Charron, and Charles Mather. Using citizen science to evaluate extended producer responsibility policy to reduce marine plastic debris shows no reduction in pollution levels. Marine Policy, 123:104319, 2021. URL: https://www.sciencedirect.com/science/article/pii/S0308597X20309660, doi:https://doi.org/10.1016/j.marpol.2020.104319.">HLCM21</a>]</span></p>
 <p>In einer kürzlich in der Zeitschrift Marine Policy veröffentlichten Studie wurden mehrere Einschränkungen bei der Verwendung bereits vorhandener Datenerhebungen über Strand-Abfallaufkommen zur Bewertung der Auswirkungen der EPR-Politik auf die beobachteten Abfallmengen festgestellt.</p>
 <ul class="simple">
 <li><p>Begrenzte Daten</p></li>
@@ -1205,7 +1324,7 @@
 <li><p>Zählen Sie die ausrangierten Objekte, um die Basiswerte zu ermitteln.</p></li>
 <li><p>Häufige Überwachung</p></li>
 </ul>
-<p>Die Zählung der ausrangierten Objekte mildert die Auswirkungen von Leichtverpackungen ab, wenn die Sammelergebnisse auf Gewichten basieren. <span id="id15">[<a class="reference internal" href="references.html#id74">HLCM21</a>]</span></p>
+<p>Die Zählung der ausrangierten Objekte mildert die Auswirkungen von Leichtverpackungen ab, wenn die Sammelergebnisse auf Gewichten basieren. <span id="id15">[<a class="reference internal" href="references.html#id74" title="Lucas Harris, Max Liboiron, Louis Charron, and Charles Mather. Using citizen science to evaluate extended producer responsibility policy to reduce marine plastic debris shows no reduction in pollution levels. Marine Policy, 123:104319, 2021. URL: https://www.sciencedirect.com/science/article/pii/S0308597X20309660, doi:https://doi.org/10.1016/j.marpol.2020.104319.">HLCM21</a>]</span></p>
 <p>Das IQAASl-Projekt geht auf drei der vier Empfehlungen ein und hat eine Methode eingeführt, die es den Beteiligten ermöglicht, dem Erhebungsprotokoll bestimmte Objekte hinzuzufügen. So kann die Überwachung des Fortschritts in Bezug auf die ERP-Ziele umgesetzt werden, solange die Objekte visuell definiert und gezählt werden können.</p>
 <p>Die aktuelle Datenbank der Strand-Abfallaufkommen Untersuchungen in der Schweiz umfasst über 1.000 Proben, die in den letzten sechs Jahren nach demselben Protokoll gesammelt wurden. Die Schweiz verfügt über alle Elemente, um die Mindestwahrscheinlichkeit für die häufigsten Objekte genau zu schätzen und stochastische Werte zu bewerten. Dieser Bericht bietet mehrere Möglichkeiten, die Unterschiede zwischen den Datenerhebungen Ergebnissen zu bewerten, andere sollten ebenfalls in Betracht gezogen werden.</p>
 <p>Eine nationale Strategie sollte Folgendes beinhalten:</p>
@@ -1388,7 +1507,7 @@
 <img alt="_images/shared_responsibility_de_37_0.png" src="_images/shared_responsibility_de_37_0.png" />
 </div>
 </div>
-<p><em><strong>Unten:</strong> Die Datenerhebungen Ergebnisse der am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.</em></p>
+<p><em><strong>Unten:</strong> Die Erhebungsergebnisseder am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rur_10</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;ländlich&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">most_common</span><span class="p">))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1404,7 +1523,7 @@
 <span class="n">urb_10</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">urb_10</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">urb_tot</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># make tables</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">most_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">most_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">))</span>
 
 <span class="c1"># summary table</span>
 <span class="c1"># names for the table columns</span>
@@ -1433,20 +1552,20 @@
 <span class="n">axone</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;ländlich&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;urban&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_de_40_0.png" src="_images/shared_responsibility_de_40_0.png" />
+<img alt="_images/shared_responsibility_de_39_0.png" src="_images/shared_responsibility_de_39_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="saisonale-schwankungen">
 <h3><span class="section-number">20.4.2. </span>Saisonale Schwankungen<a class="headerlink" href="#saisonale-schwankungen" title="Permalink to this headline">¶</a></h3>
-<p>Saisonale Schwankungen der Ergebnisse von Strand-Abfallaufkommen Untersuchungen sind unter verschiedenen Bedingungen und Umgebungen dokumentiert worden. Im Jahr 2018 meldete der SLR <span id="id16">[<a class="reference internal" href="references.html#id60">Bla18</a>]</span> den Höchstwert im Juli und den Mindestwert im November. Für das Jahr 2020-2021 liegen die gleichen Ergebnisse vor.</p>
-<p><em><strong>Unten:</strong> monatliche Datenerhebungen Ergebnisse und Abflussmengen m³/Sekunde</em></p>
+<p>Saisonale Schwankungen der Ergebnisse von Strand-Abfallaufkommen Untersuchungen sind unter verschiedenen Bedingungen und Umgebungen dokumentiert worden. Im Jahr 2018 meldete der SLR <span id="id16">[<a class="reference internal" href="references.html#id60" title="Pascal Blarer. The swiss litter report. 2018. URL: http://stoppp.org/researchvalue.">Bla18</a>]</span> den Höchstwert im Juli und den Mindestwert im November. Für das Jahr 2020-2021 liegen die gleichen Ergebnisse vor.</p>
+<p><em><strong>Unten:</strong> monatliche Erhebungsergebnisseund Abflussmengen m³/Sekunde</em></p>
 <p><em>April und Mai 2021 sind gleitende Durchschnitte, Daten nicht verfügbar</em></p>
 <p><em>source : <a class="reference external" href="https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu">https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu</a></em></p>
 <div class="cell tag_hide-input docutils container">
@@ -1532,18 +1651,20 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_de_43_0.png" src="_images/shared_responsibility_de_43_0.png" />
+<img alt="_images/shared_responsibility_de_42_0.png" src="_images/shared_responsibility_de_42_0.png" />
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="die-datenerhebungen-ergebnisse-von-fp-und-ft-in-bezug-auf-die-landnutzung">
-<h2><span class="section-number">20.5. </span>Die Datenerhebungen Ergebnisse von FP und FT in Bezug auf die Landnutzung<a class="headerlink" href="#die-datenerhebungen-ergebnisse-von-fp-und-ft-in-bezug-auf-die-landnutzung" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">
+<h2><span class="section-number">20.5. </span>Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung<a class="headerlink" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung" title="Permalink to this headline">¶</a></h2>
+<p>FP = Fragmentierte Kunststoffstücke und Geschäumte Kunststoffe</p>
+<p>FT = Zigaretten und Snack-Verpackungen</p>
 <p><strong>Ergebnisse von KS-Test und Mann Whitney U</strong></p>
-<p>Die Datenerhebungen Ergebnisse für FP Objekte sind sehr ähnlich bis zu <span class="math notranslate nohighlight">\(\approxeq\)</span>  das 85-Perzentilth, wo die Ergebnisse der Datenerhebungen auf dem Land deutlich höher sind. Das deutet darauf hin, dass extreme Werte für FP in ländlichen Gebieten wahrscheinlicher waren. Nach dem KS-Test (ks=0,78, pvalue=0,69) und dem MWU-Test (U=10624, pvalue=0,40) ist die Verteilung der FP-Objekte unter den beiden Landnutzungsklassen nicht signifikant unterschiedlich und könnte gleich sein.</p>
-<p>Die Datenerhebungen Ergebnisse für FT-Objekte behalten die gleichen Merkmale wie die der übergeordneten Verteilung. Die Ergebnisse des KS-Tests (ks=0,29, pWert&lt;.001) und des MWU-Tests (U=7356,5, p&lt;.001) stimmen mit den Ergebnissen der Elterngruppe überein, dass es einen statistisch relevanten Unterschied zwischen den Datenerhebungen Ergebnissen unter verschiedenen Landnutzungsklassen gibt.</p>
-<p><em><strong>Links:</strong> Land - Stadt: ECDF der Datenerhebungen Ergebnisse fragmentierte Kunststoffe und Schaumstoffe (FP)</em></p>
-<p><em><strong>Rechts:</strong> Land - Stadt: ECDF der Datenerhebungen Ergebnisse Zigarettenstummel und Bonbonverpackungen (FT)</em></p>
+<p>Die Erhebungsergebnissefür FP Objekte sind sehr ähnlich bis zu <span class="math notranslate nohighlight">\(\approxeq\)</span>  das 85. Perzentil, wo die Erhebungsergebnisseauf dem Land deutlich höher sind. Das deutet darauf hin, dass extreme Werte für FP in ländlichen Gebieten wahrscheinlicher waren. Nach dem KS-Test (ks=0,78, pvalue=0,69) und dem MWU-Test (U=10624, pvalue=0,40) ist die Verteilung der FP-Objekte unter den beiden Landnutzungsklassen nicht signifikant unterschiedlich und könnte gleich sein.</p>
+<p>Die Erhebungsergebnissefür FT-Objekte behalten die gleichen Merkmale wie die der übergeordneten Verteilung. Die Ergebnisse des KS-Tests (ks=0,29, pWert&lt;.001) und des MWU-Tests (U=7356,5, p&lt;.001) stimmen mit den Ergebnissen der Elterngruppe überein, dass es einen statistisch relevanten Unterschied zwischen den Datenerhebungen Ergebnissen unter verschiedenen Landnutzungsklassen gibt.</p>
+<p><em><strong>Links:</strong> Land - Stadt: ECDF der Erhebungsergebnissefragmentierte Kunststoffe und Schaumstoffe (FP)</em></p>
+<p><em><strong>Rechts:</strong> Land - Stadt: ECDF der ErhebungsergebnisseZigarettenstummel und Bonbonverpackungen (FT)</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agg_dobj</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;ländlich&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Gfrags&#39;</span><span class="p">,</span> <span class="s1">&#39;Gfoam&#39;</span><span class="p">]))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">])[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
@@ -1584,7 +1705,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_de_45_0.png" src="_images/shared_responsibility_de_45_0.png" />
+<img alt="_images/shared_responsibility_de_44_0.png" src="_images/shared_responsibility_de_44_0.png" />
 </div>
 </div>
 <div class="section" id="fp-und-ft-differenz-der-mittelwerte">
@@ -1601,7 +1722,7 @@
 <span class="n">buld_obj</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;urban&#39;</span>
 
 <span class="c1"># merge into one </span>
-<span class="n">objs_merged</span> <span class="o">=</span> <span class="n">agg_dobj</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">buld_obj</span><span class="p">)</span>
+<span class="n">objs_merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">agg_dobj</span><span class="p">,</span> <span class="n">buld_obj</span><span class="p">])</span>
 
 <span class="c1"># store the mean per class</span>
 <span class="n">the_mean</span> <span class="o">=</span> <span class="n">objs_merged</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1629,7 +1750,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_de_47_0.png" src="_images/shared_responsibility_de_47_0.png" />
+<img alt="_images/shared_responsibility_de_46_0.png" src="_images/shared_responsibility_de_46_0.png" />
 </div>
 </div>
 <p><em><strong>Oben:</strong> Verwerfen Sie die Nullhypothese: Es gibt keinen statistisch signifikanten Unterschied zwischen den beiden Verteilungen</em></p>
@@ -1645,7 +1766,7 @@
 <span class="n">b_cont</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;urban&#39;</span>
 
 <span class="c1"># merge into one </span>
-<span class="n">objs_merged</span> <span class="o">=</span> <span class="n">agg_cont</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b_cont</span><span class="p">)</span>
+<span class="n">objs_merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">agg_cont</span><span class="p">,</span> <span class="n">b_cont</span><span class="p">])</span>
 
 <span class="c1"># store the mean per class</span>
 <span class="n">the_mean</span> <span class="o">=</span> <span class="n">objs_merged</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1672,7 +1793,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_de_49_0.png" src="_images/shared_responsibility_de_49_0.png" />
+<img alt="_images/shared_responsibility_de_48_0.png" src="_images/shared_responsibility_de_48_0.png" />
 </div>
 </div>
 <p><em><strong>Oben:</strong> Verwerfen Sie die Nullhypothese: die beiden Verteilungen sind höchstwahrscheinlich nicht identisch.</em></p>
@@ -1704,37 +1825,45 @@
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="reuse_remake_de.html" title="previous page"><span class="section-number">19. </span>Recyceln und neu gestalten</a>
-    <a class='right-next' id="next-link" href="slr_2017_de.html" title="next page"><span class="section-number">21. </span>Vergleich der Datenerhebungen seit 2018</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="reuse_remake_de.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">19. </span>Recyceln und neu gestalten</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="slr_2017_de.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Vergleich der Datenerhebungen seit 2018</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <p>
    Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

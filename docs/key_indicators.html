@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>15. Key statistical indicators</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,32 +31,37 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="16. Code groups" href="code_groups.html" />
     <link rel="prev" title="14. Beach litter baselines" href="baselines.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -73,6 +78,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
       
@@ -80,7 +89,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -89,7 +98,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Executive summary
  </span>
@@ -106,7 +115,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Survey results
  </span>
@@ -123,7 +132,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Survey areas
  </span>
@@ -150,7 +159,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lakes
  </span>
@@ -192,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Understand
  </span>
@@ -224,7 +233,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Application
  </span>
@@ -291,7 +300,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -342,12 +351,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definition-the-most-common-objects">
@@ -408,23 +417,92 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Key statistical indicators</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-the-most-common-objects">
+   15.1. Definition: the most common objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-key-indicators">
+   15.2. The key indicators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-number-of-samples">
+     15.2.1. The number of samples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-fail-rate">
+     15.2.2. The fail-rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pieces-per-meter">
+     15.2.3. Pieces per meter
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#percent-of-total">
+       15.2.3.1. Percent of total
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discussion">
+     15.2.4. Discussion
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#application">
+       15.2.4.1. Application
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#practical-exercise">
+     15.2.5. Practical exercise
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="key-statistical-indicators">
+<div class="tex2jax_ignore mathjax_ignore section" id="key-statistical-indicators">
 <span id="keyindicators"></span><h1><span class="section-number">15. </span>Key statistical indicators<a class="headerlink" href="#key-statistical-indicators" title="Permalink to this headline">¶</a></h1>
 <p><a href="key_indicators_de.html"> Deutsch </a></p>
-<p>Easy to calculate and taken directly from the survey results the key indicators are essential to identifying zones of accumulation within the watershed. When used in the context of a litter monitoring program and combined with specific knowledge of the surrounding area the key indicators help identify potential sources of litter. <span id="id1">[<a class="reference internal" href="references.html#id41">Han13</a>]</span></p>
-<p>Assessments of beach-litter surveys describe the location, abundance and composition of the objects found <span id="id2">[<a class="reference internal" href="references.html#id42">HG19</a>]</span>. The key indicators answer the following questions:</p>
+<p>Easy to calculate and taken directly from the survey results the key indicators are essential to identifying zones of accumulation within the watershed. When used in the context of a litter monitoring program and combined with specific knowledge of the surrounding area the key indicators help identify potential sources of litter. <span id="id1">[<a class="reference internal" href="references.html#id41" title="George Hanke. Guidance on monitoring of marine litter in european seas. Joint Research Centre of the European Commission, 2013. URL: https://indicit-europa.eu/cms/wp-content/uploads/2017/05/guidance_monitoring_marine_litter_2013.pdf.">Han13</a>]</span></p>
+<p>Assessments of beach-litter surveys describe the location, abundance and composition of the objects found <span id="id2">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span>. The key indicators answer the following questions:</p>
 <ul class="simple">
 <li><p>What items are found?</p></li>
 <li><p>How much is found? (total weights and item counts)</p></li>
 <li><p>How often are these items found?</p></li>
 <li><p>Where are these items found in the greatest concentrations?</p></li>
 </ul>
-<p>Similar to counting birds or wildflowers a litter-surveyor has to find the quarry and then identify it, this process is well documented and has been tested under many conditions<span id="id3">[<a class="reference internal" href="references.html#id50">Rya15</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id56">RMCP+15</a>]</span>.</p>
+<p>Similar to counting birds or wildflowers a litter-surveyor has to find the quarry and then identify it, this process is well documented and has been tested under many conditions<span id="id3">[<a class="reference internal" href="references.html#id50" title="Peter G. Ryan. A Brief History of Marine Litter Research. Springer International Publishing, 2015. URL: https://doi.org/10.1007/978-3-319-16510-3_1, doi:10.1007/978-3-319-16510-3_1.">Rya15</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id56" title="Sabine Rech, Vivian Macaya-Caquilpán, Jose Pantoja, Marcelo Rivadeneira, C Campodónico, and Martin Thiel. Sampling of riverine litter with citizen scientists—findings and recommendations. Environmental monitoring and assessment, 187:4473, 06 2015. doi:10.1007/s10661-015-4473-y.">RMCP+15</a>]</span>.</p>
 <p><strong>Indicators for the most frequent questions</strong></p>
 <p>The key indicators provide answers to the most frequent questions about the state of litter in the natural environment. The key indicators are:</p>
 <ol class="simple">
@@ -439,7 +517,7 @@
 <li><p>The more trash there is on the ground the more a person is likely to find</p></li>
 <li><p>The survey results represent the minimum amount of trash at that site</p></li>
 <li><p>The surveyors are following the protocol and recording findings accurately</p></li>
-<li><p>For each survey: finding one item does not effect the chance of finding another <span id="id5">[<a class="reference internal" href="references.html#id9">Sta21a</a>]</span></p></li>
+<li><p>For each survey: finding one item does not effect the chance of finding another <span id="id5">[<a class="reference internal" href="references.html#id9" title="StackExcahnge. What does independent observations mean? 2021. URL: https://stats.stackexchange.com/questions/116355/what-does-independent-observations-mean.">Sta21a</a>]</span></p></li>
 </ol>
 <p><strong>Using the key indicators</strong></p>
 <p>The key indicators of the most common objects are given with every data summary at each aggregation level. If the previous assumptions are maintained then the number of samples in the region of interest should always be considered as a measure of uncertainty. The more samples that there are within defined geographic and temporal bounds the more confidence can be had in the numerical results that are obtained from surveys within those bounds.</p>
@@ -661,7 +739,7 @@
 </div>
 </div>
 <p>With the exception of industrial sheeting and fragmented plastics the fail rate was greater in Biel/Bienne than all other survey areas. This means that on a per survey basis there was a greater chance of finding those objects at Biel/Bienne than most other places.</p>
-<p>The pass-fail rate is the  most likely estimate (MLE) of the probability of finding at least one object <span id="id6">[<a class="reference internal" href="references.html#id30">CP17</a>]</span>. If the object was identified in all previous samples and there has been no changes in attenuation of prevention measures it is reasonable to assume that there will be at least one in the proceeding samples.</p>
+<p>The pass-fail rate is the  most likely estimate (MLE) of the probability of finding at least one object <span id="id6">[<a class="reference internal" href="references.html#id30" title="Mehran Sahami Chris Piech. Parameter estimation. 2017. URL: https://web.stanford.edu/class/archive/cs/cs109/cs109.1192/reader/11%20Parameter%20Estimation.pdf.">CP17</a>]</span>. If the object was identified in all previous samples and there has been no changes in attenuation of prevention measures it is reasonable to assume that there will be at least one in the proceeding samples.</p>
 <p><strong>Note:</strong> the fail rate gives no indication of quantity.</p>
 </div>
 <div class="section" id="pieces-per-meter">
@@ -671,7 +749,7 @@
 <blockquote>
 <div><p>Use pieces per meter to find the objects that were found in the greatest quantities. Use pieces per meter to identify zones of accumulation.</p>
 </div></blockquote>
-<p><em>Why not use the surface area?</em> The recommended EU standard is to report the results as quantity of objects per length of shoreline surveyed, usually 100 meters <span id="id7">[<a class="reference internal" href="references.html#id42">HG19</a>]</span>. The surface area was calculated for 99% of all surveys in IQAASL. The results for this analysis are reported in pcs/m.</p>
+<p><em>Why not use the surface area?</em> The recommended EU standard is to report the results as quantity of objects per length of shoreline surveyed, usually 100 meters <span id="id7">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span>. The surface area was calculated for 99% of all surveys in IQAASL. The results for this analysis are reported in pcs/m.</p>
 <p><em><strong>Below:</strong> Aare survey area: the median pcs/m of the most common objects</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -960,37 +1038,45 @@
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="baselines.html" title="previous page"><span class="section-number">14. </span>Beach litter baselines</a>
-    <a class='right-next' id="next-link" href="code_groups.html" title="next page"><span class="section-number">16. </span>Code groups</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="baselines.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">14. </span>Beach litter baselines</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="code_groups.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Code groups</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <p>
    Comissioned by the Swiss Federal Office for the Environment (FOEN), © 2021
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

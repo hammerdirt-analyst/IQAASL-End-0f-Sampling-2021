@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>16. Code groups</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="17. The land use profile" href="land_use_correlation.html" />
     <link rel="prev" title="15. Key statistical indicators" href="key_indicators.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -71,6 +76,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
       
@@ -78,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -87,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Executive summary
  </span>
@@ -104,7 +113,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Survey results
  </span>
@@ -121,7 +130,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Survey areas
  </span>
@@ -148,7 +157,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Lakes
  </span>
@@ -190,7 +199,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Understand
  </span>
@@ -222,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Application
  </span>
@@ -289,7 +298,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -340,12 +349,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#accounting-for-regional-objects">
@@ -456,7 +465,126 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Code groups</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accounting-for-regional-objects">
+   16.1. Accounting for regional objects
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modification-of-items-by-size-and-material-descriptions">
+     16.1.1. Modification of items by size and material descriptions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#foamed-plastics-gfoams">
+     16.1.2. Foamed plastics: Gfoams
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-applicable-or-omitted-items">
+     16.1.3. Not applicable or omitted items
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objects-grouped-by-use">
+   16.2. Objects grouped by use
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wastewater-treatment">
+     16.2.1. Wastewater treatment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-plastics">
+     16.2.2. Micro plastics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infrastructure">
+     16.2.3. Infrastructure
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#infrastrucutre-foamed-plastics">
+       16.2.3.1. Infrastrucutre: foamed plastics
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#food-and-drink">
+     16.2.4. Food and drink
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agriculture">
+     16.2.5. Agriculture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tobacco-codes">
+     16.2.6. Tobacco codes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recreation-codes">
+     16.2.7. Recreation codes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packaging-not-related-to-food-drink-tobacco-or-unknown-origin">
+     16.2.8. Packaging not related to food, drink, tobacco or unknown origin.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fragmented-plastics-gfrags">
+     16.2.9. Fragmented plastics: Gfrags
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-items">
+     16.2.10. Personal Items
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unclassified-items">
+     16.2.11. Unclassified items
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-of-additional-codes">
+   16.3. List of additional codes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-codes-added-for-swiss-alps">
+   16.4. Local codes added for Swiss alps
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell tag_hide-input docutils container">
@@ -525,10 +653,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="code-groups">
+<div class="tex2jax_ignore mathjax_ignore section" id="code-groups">
 <span id="codegroups"></span><h1><span class="section-number">16. </span>Code groups<a class="headerlink" href="#code-groups" title="Permalink to this headline">¶</a></h1>
 <p><a href="baselines_de.html"> Deutsch </a></p>
-<p>The IQAASL project used the item codes and descriptions from the Marine Strategy Framework (MSFD) master list  <span id="id1">[<a class="reference internal" href="references.html#id41">Han13</a>]</span>.      Item identification follows the protocols from the MSFD Technical Subgroup on Marine Litter. The master list was developed based on the categories of items used in a series of programs and is one of the most detailed, representing established EU protocols. There are 217 identification codes to classify all objects collected from a survey. The item codes begin with G1 and end with G217.</p>
+<p>The IQAASL project used the item codes and descriptions from the Marine Strategy Framework (MSFD) master list  <span id="id1">[<a class="reference internal" href="references.html#id41" title="George Hanke. Guidance on monitoring of marine litter in european seas. Joint Research Centre of the European Commission, 2013. URL: https://indicit-europa.eu/cms/wp-content/uploads/2017/05/guidance_monitoring_marine_litter_2013.pdf.">Han13</a>]</span>.      Item identification follows the protocols from the MSFD Technical Subgroup on Marine Litter. The master list was developed based on the categories of items used in a series of programs and is one of the most detailed, representing established EU protocols. There are 217 identification codes to classify all objects collected from a survey. The item codes begin with G1 and end with G217.</p>
 <div class="section" id="accounting-for-regional-objects">
 <h2><span class="section-number">16.1. </span>Accounting for regional objects<a class="headerlink" href="#accounting-for-regional-objects" title="Permalink to this headline">¶</a></h2>
 <p>There are items identified regularly in Switzerland that do not appear in the master list. To account for this 43 codes were added to the master list under the parent code G124. These codes begin with G900 and end with G999.</p>
@@ -845,7 +973,7 @@ narrowed for G81, G82, and G83 polystyrene pieces to expanded polystyrene (EPS) 
 <span class="p">]</span>
 
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">wastewater</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span> 
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -868,72 +996,68 @@ narrowed for G81, G82, and G83 polystyrene pieces to expanded polystyrene (EPS) 
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>13</th>
-      <td>G144</td>
+      <th>G144</th>
       <td>Tampons</td>
       <td>waste water</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>78</th>
-      <td>G100</td>
+      <th>G100</th>
       <td>Medical; containers/tubes/ packaging</td>
       <td>waste water</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>208</th>
-      <td>G91</td>
+      <th>G91</th>
       <td>Biomass holder</td>
       <td>waste water</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>224</th>
-      <td>G932</td>
+      <th>G932</th>
       <td>Bio-beads, micro plastic for wastewater treatm...</td>
       <td>waste water</td>
       <td>G91</td>
     </tr>
     <tr>
-      <th>238</th>
-      <td>G95</td>
+      <th>G95</th>
       <td>Cotton bud/swab sticks</td>
       <td>waste water</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>239</th>
-      <td>G96</td>
+      <th>G96</th>
       <td>Sanitary pads /panty liners/tampons and applic...</td>
       <td>waste water</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>240</th>
-      <td>G97</td>
+      <th>G97</th>
       <td>Toilet fresheners</td>
       <td>waste water</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>241</th>
-      <td>G98</td>
+      <th>G98</th>
       <td>Diapers - wipes</td>
       <td>waste water</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>251</th>
-      <td>G133</td>
+      <th>G133</th>
       <td>Condoms incl. packaging</td>
       <td>waste water</td>
       <td>none</td>
@@ -955,7 +1079,7 @@ Over the course of a survey, visible micro items are collected with the lager ma
 
 <span class="c1"># make table</span>
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">codesmicro</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -978,156 +1102,140 @@ Over the course of a survey, visible micro items are collected with the lager ma
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>81</th>
-      <td>G103</td>
+      <th>G103</th>
       <td>Plastic fragments rounded &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>82</th>
-      <td>G104</td>
+      <th>G104</th>
       <td>Plastic fragments subrounded &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>83</th>
-      <td>G105</td>
+      <th>G105</th>
       <td>Plastic fragments subangular &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>84</th>
-      <td>G106</td>
+      <th>G106</th>
       <td>Plastic fragments angular &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>85</th>
-      <td>G107</td>
+      <th>G107</th>
       <td>Cylindrical pellets &lt; 5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>86</th>
-      <td>G108</td>
+      <th>G108</th>
       <td>disk pellets  &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>87</th>
-      <td>G109</td>
+      <th>G109</th>
       <td>Flat pellets  &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>89</th>
-      <td>G110</td>
+      <th>G110</th>
       <td>Ovoid pellets &lt; 5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>90</th>
-      <td>G111</td>
+      <th>G111</th>
       <td>Spheruloid pellets &lt; 5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>91</th>
-      <td>G112</td>
+      <th>G112</th>
       <td>Industrial pellets (nurdles)</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>92</th>
-      <td>G113</td>
+      <th>G113</th>
       <td>Filaments  &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>93</th>
-      <td>G114</td>
+      <th>G114</th>
       <td>Films  &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>94</th>
-      <td>G115</td>
+      <th>G115</th>
       <td>Foamed  plastic &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>95</th>
-      <td>G116</td>
+      <th>G116</th>
       <td>Granules &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>96</th>
-      <td>G117</td>
+      <th>G117</th>
       <td>Styrofoam &lt; 5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>97</th>
-      <td>G118</td>
+      <th>G118</th>
       <td>Small industrial spheres &lt;5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>98</th>
-      <td>G119</td>
+      <th>G119</th>
       <td>Sheetlike user plastic (&gt;1mm)</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>100</th>
-      <td>G120</td>
+      <th>G120</th>
       <td>Threadlike user plastic ( &gt;1mm)</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>101</th>
-      <td>G121</td>
+      <th>G121</th>
       <td>Foamed user plastic ( &gt;1mm)</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>102</th>
-      <td>G122</td>
+      <th>G122</th>
       <td>Plastic fragments ( &gt;1mm)</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>103</th>
-      <td>G123</td>
+      <th>G123</th>
       <td>Polyurethane granules &lt; 5mm</td>
       <td>micro plastics (&lt; 5mm)</td>
       <td>none</td>
@@ -1208,7 +1316,7 @@ Over the course of a survey, visible micro items are collected with the lager ma
 <span class="p">]</span>
 
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">construction2</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1231,289 +1339,254 @@ Over the course of a survey, visible micro items are collected with the lager ma
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>3</th>
-      <td>G214</td>
+      <th>G214</th>
       <td>Oil/tar</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>21</th>
-      <td>G204</td>
+      <th>G204</th>
       <td>Construction material; bricks, pipes, cement</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>G921</td>
+      <th>G921</th>
       <td>Ceramic tile and pieces</td>
       <td>infrastructure</td>
       <td>G204</td>
     </tr>
     <tr>
-      <th>30</th>
-      <td>G174</td>
+      <th>G174</th>
       <td>Aerosol spray cans</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>42</th>
-      <td>G186</td>
+      <th>G186</th>
       <td>Industrial scrap</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>43</th>
-      <td>G187</td>
+      <th>G187</th>
       <td>Drums</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>44</th>
-      <td>G188</td>
+      <th>G188</th>
       <td>Other cans &lt; 4 L</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>45</th>
-      <td>G189</td>
+      <th>G189</th>
       <td>Gas bottles, drums and buckets &gt; 4 L</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>46</th>
-      <td>G190</td>
+      <th>G190</th>
       <td>Paint cans</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>50</th>
-      <td>G194</td>
+      <th>G194</th>
       <td>Cables, metal wire(s) often inside rubber or p...</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>53</th>
-      <td>G197</td>
+      <th>G197</th>
       <td>Other metal</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>54</th>
-      <td>G198</td>
+      <th>G198</th>
       <td>Other metal pieces &lt; 50cm</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>55</th>
-      <td>G199</td>
+      <th>G199</th>
       <td>Other metal pieces &gt; 50cm</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>59</th>
-      <td>G919</td>
+      <th>G919</th>
       <td>Nails, screws, bolts etc.</td>
       <td>infrastructure</td>
       <td>G197</td>
     </tr>
     <tr>
-      <th>109</th>
-      <td>G17</td>
+      <th>G17</th>
       <td>Injection gun cartridge</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>116</th>
-      <td>G22</td>
+      <th>G22</th>
       <td>Lids for chemicals, detergents (non-food)</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>163</th>
-      <td>G65</td>
+      <th>G65</th>
       <td>Buckets</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>164</th>
-      <td>G66</td>
+      <th>G66</th>
       <td>Straps/bands;  hard, plastic package fastener</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>166</th>
-      <td>G68</td>
+      <th>G68</th>
       <td>Fiberglass fragments</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>167</th>
-      <td>G69</td>
+      <th>G69</th>
       <td>Helmets or hardhats</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>180</th>
-      <td>G72</td>
+      <th>G72</th>
       <td>Traffic cones</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>182</th>
-      <td>G74</td>
+      <th>G74</th>
       <td>Foam packaging/insulation/polyurethane</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>190</th>
-      <td>G81</td>
+      <th>G81</th>
       <td>Foamed polystyrene pieces 0.5cm - 2.5cm</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>191</th>
-      <td>G82</td>
+      <th>G82</th>
       <td>Foam polystyrene  2.5 - 50cm</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>192</th>
-      <td>G83</td>
+      <th>G83</th>
       <td>Polystyrene pieces &gt; 50cm</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>196</th>
-      <td>G87</td>
+      <th>G87</th>
       <td>Tape, masking/duct/packing</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>198</th>
-      <td>G89</td>
+      <th>G89</th>
       <td>Plastic construction waste</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>199</th>
-      <td>G9</td>
+      <th>G9</th>
       <td>Cleaner, chemical bottles &amp; containers</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>206</th>
-      <td>G908</td>
+      <th>G908</th>
       <td>Tape; electrical, insulating</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>207</th>
-      <td>G909</td>
+      <th>G909</th>
       <td>Foamed plastic insulation, spray and foam boar...</td>
       <td>infrastructure</td>
       <td>G74</td>
     </tr>
     <tr>
-      <th>209</th>
-      <td>G910</td>
+      <th>G910</th>
       <td>Foamed plastic insulation, spray and foam boar...</td>
       <td>infrastructure</td>
       <td>G74</td>
     </tr>
     <tr>
-      <th>210</th>
-      <td>G911</td>
+      <th>G911</th>
       <td>Foam expanded polystyrene pieces 0.5 - 2.5 cm</td>
       <td>infrastructure</td>
       <td>G81</td>
     </tr>
     <tr>
-      <th>211</th>
-      <td>G912</td>
+      <th>G912</th>
       <td>Foam expanded polystyrene pieces 2.5 - 50cm</td>
       <td>infrastructure</td>
       <td>G82</td>
     </tr>
     <tr>
-      <th>219</th>
-      <td>G927</td>
+      <th>G927</th>
       <td>String trimmer line, used to cut grass, weeds,...</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>221</th>
-      <td>G93</td>
+      <th>G93</th>
       <td>Cable ties; steggel, zip, zap straps</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>223</th>
-      <td>G931</td>
+      <th>G931</th>
       <td>Tape-caution for barrier, police, construction...</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>257</th>
-      <td>G160</td>
+      <th>G160</th>
       <td>Pallets</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>259</th>
-      <td>G162</td>
+      <th>G162</th>
       <td>Crates</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>263</th>
-      <td>G166</td>
+      <th>G166</th>
       <td>Paint brushes</td>
       <td>infrastructure</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>266</th>
-      <td>G169</td>
+      <th>G169</th>
       <td>Beams, dunnage</td>
       <td>infrastructure</td>
       <td>none</td>
@@ -1562,7 +1635,7 @@ Over the course of a survey, visible micro items are collected with the lager ma
     <span class="p">]</span>
 
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">foodstuff</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1585,212 +1658,188 @@ Over the course of a survey, visible micro items are collected with the lager ma
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>17</th>
-      <td>G200</td>
+      <th>G200</th>
       <td>Glass drink bottles, pieces</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>18</th>
-      <td>G201</td>
+      <th>G201</th>
       <td>Jars, includes pieces</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>20</th>
-      <td>G203</td>
+      <th>G203</th>
       <td>Tableware ceramic or glass, cups, plates, pieces</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>31</th>
-      <td>G175</td>
+      <th>G175</th>
       <td>Cans, beverage</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>32</th>
-      <td>G176</td>
+      <th>G176</th>
       <td>Cans, food</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>33</th>
-      <td>G177</td>
+      <th>G177</th>
       <td>Foil wrappers, aluminum foil</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>34</th>
-      <td>G178</td>
+      <th>G178</th>
       <td>Metal bottle caps, lids &amp; pull tabs from cans</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>35</th>
-      <td>G179</td>
+      <th>G179</th>
       <td>Disposable BBQs</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>37</th>
-      <td>G181</td>
+      <th>G181</th>
       <td>Tableware metal;  cups, cutlery etc.</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>57</th>
-      <td>G906</td>
+      <th>G906</th>
       <td>coffee capsules aluminum</td>
       <td>food and drink</td>
       <td>G177</td>
     </tr>
     <tr>
-      <th>66</th>
-      <td>G150</td>
+      <th>G150</th>
       <td>Milk cartons, tetrapack</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>67</th>
-      <td>G151</td>
+      <th>G151</th>
       <td>Cartons, Tetrapacks</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>69</th>
-      <td>G153</td>
+      <th>G153</th>
       <td>Cups, food containers, wrappers (paper)</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>76</th>
-      <td>G1</td>
+      <th>G1</th>
       <td>Six pack rings</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>77</th>
-      <td>G10</td>
+      <th>G10</th>
       <td>Food containers single use foamed or plastic</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>114</th>
-      <td>G21</td>
+      <th>G21</th>
       <td>Drink lids</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>118</th>
-      <td>G24</td>
+      <th>G24</th>
       <td>Lid/cap rings from plastic bottles/containers</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>125</th>
-      <td>G30</td>
+      <th>G30</th>
       <td>Food wrappers; candy, snacks</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>126</th>
-      <td>G31</td>
+      <th>G31</th>
       <td>Lollypop sticks</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>128</th>
-      <td>G33</td>
+      <th>G33</th>
       <td>Cups, lids, single use foamed and hard plastic</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>129</th>
-      <td>G34</td>
+      <th>G34</th>
       <td>Cutlery, plates and trays</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>130</th>
-      <td>G35</td>
+      <th>G35</th>
       <td>Straws and stirrers</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>168</th>
-      <td>G7</td>
+      <th>G7</th>
       <td>Drink bottles &lt; = 0.5L</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>188</th>
-      <td>G8</td>
+      <th>G8</th>
       <td>Drink bottles  &gt; 0.5L</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>205</th>
-      <td>G907</td>
+      <th>G907</th>
       <td>coffee capsules plastic</td>
       <td>food and drink</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>218</th>
-      <td>G926</td>
+      <th>G926</th>
       <td>Chewing gum, often contains plastics</td>
       <td>food and drink</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>230</th>
-      <td>G938</td>
+      <th>G938</th>
       <td>Toothpicks, dental floss plastic</td>
       <td>food and drink</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>256</th>
-      <td>G159</td>
+      <th>G159</th>
       <td>Corks</td>
       <td>food and drink</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>262</th>
-      <td>G165</td>
+      <th>G165</th>
       <td>Ice cream sticks, toothpicks, chopsticks</td>
       <td>food and drink</td>
       <td>none</td>
@@ -1803,10 +1852,10 @@ Over the course of a survey, visible micro items are collected with the lager ma
 <div class="section" id="agriculture">
 <h3><span class="section-number">16.2.5. </span>Agriculture<a class="headerlink" href="#agriculture" title="Permalink to this headline">¶</a></h3>
 <p>Several codes were added to identify items pertaining to agriculture such as G937: <em>plastic pheromone baits</em> commonly used in vineyards and G943: <em>plastic fencing</em> associated with seasonal animal pasturing. The specific sheeting code G936: <em>greenhouse films and silage wrap</em> was added for a particular type of product where the agriculture use is identifiable.</p>
-<p>Industrial sheeting (G67) is a broad category that includes plastic sheets and films that are flat pieces of plastic formed to a precise thickness for use in specific applications. Products differ in terms of materials, properties, and dimensions <span id="id2">[<a class="reference internal" href="references.html#id82">ogsapfpss</a>]</span>.
+<p>Industrial sheeting (G67) is a broad category that includes plastic sheets and films that are flat pieces of plastic formed to a precise thickness for use in specific applications. Products differ in terms of materials, properties, and dimensions <span id="id2">[<a class="reference internal" href="references.html#id82" title="Website of global spec a plastic film and plastic sheeting supplier. Plastic sheet film. URL: https://www.www.globalspec.com.">ogsapfpss</a>]</span>.
 Isolating agricultural plastic sheeting use is difficult as the same plastics are utilized extensively in the packaging and construction sectors. Predominately along Swiss shorelines plastic sheeting and films are extremely weathered and fragmented making definitive use and origin difficult to determine.</p>
 <p>Industrial sheeting is attributed to the agriculture group due to continious exposure to physical elements and use in close proximity to  rivers, streams and canals. Industrial sheeting is also attributed to agriculture due to the continuously increasing use of plastic materials in agricultural applications commonly referred to as plasticulture.
-Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive use of sheeting, wraps and films for horticultural, grain crops and dairy sectors <span id="id3">[<a class="reference internal" href="references.html#id83">Orz17</a>]</span>.</p>
+Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive use of sheeting, wraps and films for horticultural, grain crops and dairy sectors <span id="id3">[<a class="reference internal" href="references.html#id83" title="Michael D. Orzolek. A Guide to the Manufacture, Performance, and Potential of Plastics in Agriculture. Matthew Deans, 2017.">Orz17</a>]</span>.</p>
 <p>Plasticulture sheeting and films G67:</p>
 <ul class="simple">
 <li><p>mulch film</p></li>
@@ -1841,7 +1890,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
 <span class="p">]</span>
 
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ag2</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span> 
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -1864,142 +1913,128 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>9</th>
-      <td>G140</td>
+      <th>G140</th>
       <td>Bags, burlap, hessian, jute or hemp</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>47</th>
-      <td>G191</td>
+      <th>G191</th>
       <td>Wire and mesh</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>48</th>
-      <td>G192</td>
+      <th>G192</th>
       <td>Barrels</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>105</th>
-      <td>G13</td>
+      <th>G13</th>
       <td>Bottles, containers, drums to transport, store...</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>110</th>
-      <td>G18</td>
+      <th>G18</th>
       <td>Crates/baskets</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>131</th>
-      <td>G36</td>
+      <th>G36</th>
       <td>Bags/sacks heavy duty plastic for 25 Kg or mor...</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>137</th>
-      <td>G41</td>
+      <th>G41</th>
       <td>Glove industrial/professional</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>163</th>
-      <td>G65</td>
+      <th>G65</th>
       <td>Buckets</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>165</th>
-      <td>G67</td>
+      <th>G67</th>
       <td>Industrial sheeting</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>200</th>
-      <td>G90</td>
+      <th>G90</th>
       <td>Plastic flower pots</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>226</th>
-      <td>G934</td>
+      <th>G934</th>
       <td>Sandbag, plastic for flood, erosion control etc..</td>
       <td>agriculture</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>228</th>
-      <td>G936</td>
+      <th>G936</th>
       <td>Sheeting ag. greenhouse film</td>
       <td>agriculture</td>
       <td>G67</td>
     </tr>
     <tr>
-      <th>229</th>
-      <td>G937</td>
+      <th>G937</th>
       <td>Pheromone baits for vineyards</td>
       <td>agriculture</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>236</th>
-      <td>G943</td>
+      <th>G943</th>
       <td>Fencing agriculture, plastic</td>
       <td>agriculture</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>258</th>
-      <td>G161</td>
+      <th>G161</th>
       <td>Processed timber</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>265</th>
-      <td>G168</td>
+      <th>G168</th>
       <td>Wood boards</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>267</th>
-      <td>G170</td>
+      <th>G170</th>
       <td>Wood (processed)</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>268</th>
-      <td>G171</td>
+      <th>G171</th>
       <td>Other wood &lt; 50cm</td>
       <td>agriculture</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>269</th>
-      <td>G172</td>
+      <th>G172</th>
       <td>Other wood &gt; 50cm</td>
       <td>agriculture</td>
       <td>none</td>
@@ -2022,7 +2057,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
     <span class="p">]</span>
 
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">tobac</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2045,37 +2080,38 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>68</th>
-      <td>G152</td>
+      <th>G152</th>
       <td>Cigarette boxes, tobacco related paper/cardboard</td>
       <td>tobacco</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>119</th>
-      <td>G25</td>
+      <th>G25</th>
       <td>Tobacco; plastic packaging, containers</td>
       <td>tobacco</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>120</th>
-      <td>G26</td>
+      <th>G26</th>
       <td>Cigarette lighters</td>
       <td>tobacco</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>121</th>
-      <td>G27</td>
+      <th>G27</th>
       <td>Cigarette filters</td>
       <td>tobacco</td>
       <td>none</td>
@@ -2133,7 +2169,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <span class="p">]</span>
 
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">recreation</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2156,268 +2192,236 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
-      <td>G213</td>
+      <th>G213</th>
       <td>Paraffin wax</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>G142</td>
+      <th>G142</th>
       <td>Rope , string or nets</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>G143</td>
+      <th>G143</th>
       <td>Sails and canvas</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>23</th>
-      <td>G206</td>
+      <th>G206</th>
       <td>Glass buoys</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>38</th>
-      <td>G182</td>
+      <th>G182</th>
       <td>Fishing; hooks, weights, lures, sinkers etc.</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>39</th>
-      <td>G183</td>
+      <th>G183</th>
       <td>Fish hook remains</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>71</th>
-      <td>G155</td>
+      <th>G155</th>
       <td>Fireworks paper tubes and fragments</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>88</th>
-      <td>G11</td>
+      <th>G11</th>
       <td>Cosmetics for the beach, e.g. sunblock</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>127</th>
-      <td>G32</td>
+      <th>G32</th>
       <td>Toys and party favors</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>139</th>
-      <td>G43</td>
+      <th>G43</th>
       <td>Tags fishing or industry (security tags, seals)</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>144</th>
-      <td>G48</td>
+      <th>G48</th>
       <td>Rope, synthetic</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>145</th>
-      <td>G49</td>
+      <th>G49</th>
       <td>Rope &gt; 1cm</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>147</th>
-      <td>G50</td>
+      <th>G50</th>
       <td>String &lt; 1cm</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>148</th>
-      <td>G51</td>
+      <th>G51</th>
       <td>Fishing net</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>149</th>
-      <td>G52</td>
+      <th>G52</th>
       <td>Nets and pieces</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>150</th>
-      <td>G53</td>
+      <th>G53</th>
       <td>Nets and pieces &lt; 50cm</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>151</th>
-      <td>G54</td>
+      <th>G54</th>
       <td>Nets and pieces &gt; 50cm</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>152</th>
-      <td>G55</td>
+      <th>G55</th>
       <td>Fishing line (entangled)</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>153</th>
-      <td>G56</td>
+      <th>G56</th>
       <td>Tangled nets</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>154</th>
-      <td>G57</td>
+      <th>G57</th>
       <td>Fish boxes</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>155</th>
-      <td>G58</td>
+      <th>G58</th>
       <td>Foam fish box</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>156</th>
-      <td>G59</td>
+      <th>G59</th>
       <td>Fishing line monofilament (angling)</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>158</th>
-      <td>G60</td>
+      <th>G60</th>
       <td>Light sticks</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>159</th>
-      <td>G61</td>
+      <th>G61</th>
       <td>Other fishing related</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>161</th>
-      <td>G63</td>
+      <th>G63</th>
       <td>Buoys</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>169</th>
-      <td>G70</td>
+      <th>G70</th>
       <td>Shotgun cartridges</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>181</th>
-      <td>G73</td>
+      <th>G73</th>
       <td>Foamed items &amp; pieces (non packaging/insulatio...</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>195</th>
-      <td>G86</td>
+      <th>G86</th>
       <td>Fin trees</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>203</th>
-      <td>G904</td>
+      <th>G904</th>
       <td>Fireworks; rocket caps, exploded parts &amp; packa...</td>
       <td>recreation</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>215</th>
-      <td>G92</td>
+      <th>G92</th>
       <td>Bait containers</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>232</th>
-      <td>G94</td>
+      <th>G94</th>
       <td>Table cloth</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>233</th>
-      <td>G940</td>
+      <th>G940</th>
       <td>Foamed EVA (flexible plastic) for crafts &amp; wat...</td>
       <td>recreation</td>
       <td>G73</td>
     </tr>
     <tr>
-      <th>243</th>
-      <td>G125</td>
+      <th>G125</th>
       <td>Balloons and balloon sticks</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>244</th>
-      <td>G126</td>
+      <th>G126</th>
       <td>Balls</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>250</th>
-      <td>G132</td>
+      <th>G132</th>
       <td>Bobbers (fishing)</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>261</th>
-      <td>G164</td>
+      <th>G164</th>
       <td>Fish boxes</td>
       <td>recreation</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>264</th>
-      <td>G167</td>
+      <th>G167</th>
       <td>Matches or fireworks</td>
       <td>recreation</td>
       <td>none</td>
@@ -2455,7 +2459,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
 
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">packaging</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
 <span class="n">wwcodes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">wwcodes</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;G925&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Dessicants/moisture absorbers&quot;</span>
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2478,128 +2482,116 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>62</th>
-      <td>G146</td>
+      <th>G146</th>
       <td>Paper, cardboard</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>63</th>
-      <td>G147</td>
+      <th>G147</th>
       <td>Paper bags</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>64</th>
-      <td>G148</td>
+      <th>G148</th>
       <td>Cardboard (boxes and fragments)</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>65</th>
-      <td>G149</td>
+      <th>G149</th>
       <td>Paper packaging</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>72</th>
-      <td>G156</td>
+      <th>G156</th>
       <td>Paper fragments</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>73</th>
-      <td>G157</td>
+      <th>G157</th>
       <td>Paper</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>74</th>
-      <td>G158</td>
+      <th>G158</th>
       <td>Other paper items</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>112</th>
-      <td>G2</td>
+      <th>G2</th>
       <td>Bags</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>113</th>
-      <td>G20</td>
+      <th>G20</th>
       <td>Caps and lids</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>117</th>
-      <td>G23</td>
+      <th>G23</th>
       <td>Lids unidentified</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>124</th>
-      <td>G3</td>
+      <th>G3</th>
       <td>Bags; plastic shopping/carrier/grocery and pieces</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>135</th>
-      <td>G4</td>
+      <th>G4</th>
       <td>Small plastic bags; freezer, zip-lock etc.</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>146</th>
-      <td>G5</td>
+      <th>G5</th>
       <td>Generic plastic bags</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>157</th>
-      <td>G6</td>
+      <th>G6</th>
       <td>Bottles and containers, plastic non food/drink</td>
       <td>packaging non food</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>216</th>
-      <td>G922</td>
+      <th>G922</th>
       <td>Labels, bar codes</td>
       <td>packaging non food</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>217</th>
-      <td>G925</td>
+      <th>G925</th>
       <td>Dessicants/moisture absorbers</td>
       <td>packaging non food</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>234</th>
-      <td>G941</td>
+      <th>G941</th>
       <td>Packaging films nonfood or unknown</td>
       <td>packaging non food</td>
       <td>G124</td>
@@ -2625,7 +2617,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
     <span class="p">]</span>
 
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">plasticpcs</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2648,51 +2640,50 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>183</th>
-      <td>G75</td>
+      <th>G75</th>
       <td>Plastic/polystyrene pcs 0.5 - 2.5 cm</td>
       <td>plastic pieces</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>184</th>
-      <td>G76</td>
+      <th>G76</th>
       <td>Plastic/foamed polystyrene 2.5 &gt; &lt; 50</td>
       <td>plastic pieces</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>185</th>
-      <td>G77</td>
+      <th>G77</th>
       <td>Plastic or polystyrene  &gt; 50cm</td>
       <td>plastic pieces</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>186</th>
-      <td>G78</td>
+      <th>G78</th>
       <td>Plastic pieces 0.5cm - 2.5cm</td>
       <td>plastic pieces</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>187</th>
-      <td>G79</td>
+      <th>G79</th>
       <td>Plastic pieces 2.5cm - 50cm</td>
       <td>plastic pieces</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>189</th>
-      <td>G80</td>
+      <th>G80</th>
       <td>Plastic pieces &gt; 50cm</td>
       <td>plastic pieces</td>
       <td>none</td>
@@ -2769,7 +2760,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
     <span class="s2">&quot;G930&quot;</span>
     <span class="p">]</span>
 <span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">pi</span><span class="p">)][</span><span class="n">cols_to_display</span><span class="p">]</span>
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2792,296 +2783,260 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>G135</td>
+      <th>G135</th>
       <td>Clothes, footware, headware, gloves</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>G136</td>
+      <th>G136</th>
       <td>Shoes</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>G137</td>
+      <th>G137</th>
       <td>Clothing, towels &amp; rags</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>G138</td>
+      <th>G138</th>
       <td>Shoes and sandals</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>G139</td>
+      <th>G139</th>
       <td>Backpacks</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>14</th>
-      <td>G145</td>
+      <th>G145</th>
       <td>Other textiles</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>16</th>
-      <td>G902</td>
+      <th>G902</th>
       <td>Mask medical, cloth</td>
       <td>personal items</td>
       <td>G145</td>
     </tr>
     <tr>
-      <th>51</th>
-      <td>G195</td>
+      <th>G195</th>
       <td>Batteries - household</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>58</th>
-      <td>G918</td>
+      <th>G918</th>
       <td>Safety pins, paper clips, small metal utility ...</td>
       <td>personal items</td>
       <td>G198</td>
     </tr>
     <tr>
-      <th>60</th>
-      <td>G929</td>
+      <th>G929</th>
       <td>Electronics and pieces; sensors, headsets etc.</td>
       <td>personal items</td>
       <td>G198</td>
     </tr>
     <tr>
-      <th>61</th>
-      <td>G945</td>
+      <th>G945</th>
       <td>Razor blades</td>
       <td>personal items</td>
       <td>G198</td>
     </tr>
     <tr>
-      <th>70</th>
-      <td>G154</td>
+      <th>G154</th>
       <td>Newspapers or magazines</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>75</th>
-      <td>G923</td>
+      <th>G923</th>
       <td>Tissue, toilet paper, napkins, paper towels</td>
       <td>personal items</td>
       <td>G158</td>
     </tr>
     <tr>
-      <th>79</th>
-      <td>G101</td>
+      <th>G101</th>
       <td>Dog feces bag</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>80</th>
-      <td>G102</td>
+      <th>G102</th>
       <td>Flip-flops</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>99</th>
-      <td>G12</td>
+      <th>G12</th>
       <td>Cosmetics, non-beach use personal care containers</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>115</th>
-      <td>G211</td>
+      <th>G211</th>
       <td>Other medical (swabs, bandaging, adhesive plas...</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>122</th>
-      <td>G28</td>
+      <th>G28</th>
       <td>Pens, lids, mechanical pencils etc.</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>123</th>
-      <td>G29</td>
+      <th>G29</th>
       <td>Combs, brushes and sunglasses</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>132</th>
-      <td>G37</td>
+      <th>G37</th>
       <td>Mesh bags</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>134</th>
-      <td>G39</td>
+      <th>G39</th>
       <td>Gloves</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>136</th>
-      <td>G40</td>
+      <th>G40</th>
       <td>Gloves household/gardening</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>176</th>
-      <td>G71</td>
+      <th>G71</th>
       <td>Shoes sandals</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>193</th>
-      <td>G84</td>
+      <th>G84</th>
       <td>CD or CD box</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>197</th>
-      <td>G88</td>
+      <th>G88</th>
       <td>Telephone incl. parts</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>201</th>
-      <td>G901</td>
+      <th>G901</th>
       <td>Mask medical, synthetic</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>202</th>
-      <td>G903</td>
+      <th>G903</th>
       <td>Hand sanitizer containers &amp; packets</td>
       <td>personal items</td>
       <td>G12</td>
     </tr>
     <tr>
-      <th>204</th>
-      <td>G905</td>
+      <th>G905</th>
       <td>Hair clip,  hair ties, personal accessories pl...</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>212</th>
-      <td>G913</td>
+      <th>G913</th>
       <td>Pacifier</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>213</th>
-      <td>G914</td>
+      <th>G914</th>
       <td>Paperclips, clothespins, plastic utility items</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>214</th>
-      <td>G915</td>
+      <th>G915</th>
       <td>Reflectors, plastic mobility items</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>220</th>
-      <td>G928</td>
+      <th>G928</th>
       <td>Ribbons and bows</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>222</th>
-      <td>G930</td>
+      <th>G930</th>
       <td>Foam earplugs</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>225</th>
-      <td>G933</td>
+      <th>G933</th>
       <td>Bags, cases for accessories; glasses, electron...</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>227</th>
-      <td>G935</td>
+      <th>G935</th>
       <td>Walking stick pads and pieces, often elastomer...</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>231</th>
-      <td>G939</td>
+      <th>G939</th>
       <td>Flowers, plants plastic</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>242</th>
-      <td>G99</td>
+      <th>G99</th>
       <td>Syringes - needles</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>245</th>
-      <td>G127</td>
+      <th>G127</th>
       <td>Rubber boots</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>249</th>
-      <td>G131</td>
+      <th>G131</th>
       <td>Rubber bands</td>
       <td>personal items</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>253</th>
-      <td>G900</td>
+      <th>G900</th>
       <td>Gloves latex  personal protective equipment</td>
       <td>personal items</td>
       <td>G134</td>
     </tr>
     <tr>
-      <th>272</th>
-      <td>G916</td>
+      <th>G916</th>
       <td>Pencils and pieces</td>
       <td>personal items</td>
       <td>G170</td>
@@ -3100,7 +3055,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wwcodes</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="p">[</span><span class="n">dfCodes</span><span class="o">.</span><span class="n">groupname</span> <span class="o">==</span> <span class="s2">&quot;unclassified&quot;</span><span class="p">][</span><span class="n">cols_to_display</span><span class="p">]</span>
 <span class="n">wwcodes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">wwcodes</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;G38&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Coverings sheeting for protecting large cargo items&quot;</span>
-<span class="n">wwcodes</span> 
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3123,282 +3078,248 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>G212</td>
+      <th>G212</th>
       <td>Oil nodules or coal fragments -- not from a BBQ</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>G141</td>
+      <th>G141</th>
       <td>Carpet</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>19</th>
-      <td>G202</td>
+      <th>G202</th>
       <td>Light bulbs</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>22</th>
-      <td>G205</td>
+      <th>G205</th>
       <td>Fluorescent light tubes</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>G207</td>
+      <th>G207</th>
       <td>Octopus pots</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>25</th>
-      <td>G208</td>
+      <th>G208</th>
       <td>Glass or ceramic fragments &gt; 2.5 cm</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>26</th>
-      <td>G209</td>
+      <th>G209</th>
       <td>Large glass objects</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>27</th>
-      <td>G210</td>
+      <th>G210</th>
       <td>Other glass/ceramic</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>28</th>
-      <td>G917</td>
+      <th>G917</th>
       <td>Terracotta balls</td>
       <td>unclassified</td>
       <td>G210</td>
     </tr>
     <tr>
-      <th>36</th>
-      <td>G180</td>
+      <th>G180</th>
       <td>Appliances</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>40</th>
-      <td>G184</td>
+      <th>G184</th>
       <td>Lobster pots</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>41</th>
-      <td>G185</td>
+      <th>G185</th>
       <td>Middle size containers</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>49</th>
-      <td>G193</td>
+      <th>G193</th>
       <td>car parts and batteries</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>52</th>
-      <td>G196</td>
+      <th>G196</th>
       <td>Large metallic objects</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>104</th>
-      <td>G124</td>
+      <th>G124</th>
       <td>Other plastic or foam products</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>106</th>
-      <td>G14</td>
+      <th>G14</th>
       <td>Engine oil bottles</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>107</th>
-      <td>G15</td>
+      <th>G15</th>
       <td>Engine oil bottles &gt; 50cm</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>108</th>
-      <td>G16</td>
+      <th>G16</th>
       <td>Jerry cans</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>111</th>
-      <td>G19</td>
+      <th>G19</th>
       <td>Car parts</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>133</th>
-      <td>G38</td>
+      <th>G38</th>
       <td>Coverings sheeting for protecting large cargo ...</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>138</th>
-      <td>G42</td>
+      <th>G42</th>
       <td>Crab lobster pots</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>140</th>
-      <td>G44</td>
+      <th>G44</th>
       <td>Octopus pots</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>141</th>
-      <td>G45</td>
+      <th>G45</th>
       <td>Mussel nets</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>142</th>
-      <td>G46</td>
+      <th>G46</th>
       <td>Oyster trays</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>143</th>
-      <td>G47</td>
+      <th>G47</th>
       <td>Sheeting from mussel culture</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>160</th>
-      <td>G62</td>
+      <th>G62</th>
       <td>Floats for nets</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>162</th>
-      <td>G64</td>
+      <th>G64</th>
       <td>Fenders</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>170</th>
-      <td>G700</td>
+      <th>G700</th>
       <td>The results from a clean up event</td>
       <td>unclassified</td>
       <td>G700</td>
     </tr>
     <tr>
-      <th>194</th>
-      <td>G85</td>
+      <th>G85</th>
       <td>Salt packaging</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>235</th>
-      <td>G942</td>
+      <th>G942</th>
       <td>Plastic shavings from lathes, CNC machining</td>
       <td>unclassified</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>237</th>
-      <td>G944</td>
+      <th>G944</th>
       <td>Pellet mass from injection molding</td>
       <td>unclassified</td>
       <td>G112</td>
     </tr>
     <tr>
-      <th>246</th>
-      <td>G128</td>
+      <th>G128</th>
       <td>Tires and belts</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>247</th>
-      <td>G129</td>
+      <th>G129</th>
       <td>Inner tubes and rubber sheets</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>248</th>
-      <td>G130</td>
+      <th>G130</th>
       <td>Wheels</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>252</th>
-      <td>G134</td>
+      <th>G134</th>
       <td>Other rubber</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>254</th>
-      <td>G998</td>
+      <th>G998</th>
       <td>No exposed shoreline</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>255</th>
-      <td>G999</td>
+      <th>G999</th>
       <td>No objects found on this survey</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>260</th>
-      <td>G163</td>
+      <th>G163</th>
       <td>Crab lobster pots</td>
       <td>unclassified</td>
       <td>none</td>
     </tr>
     <tr>
-      <th>270</th>
-      <td>G173</td>
+      <th>G173</th>
       <td>Other</td>
       <td>unclassified</td>
       <td>none</td>
@@ -3466,7 +3387,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
 <span class="n">wwcodes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">wwcodes</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;G933&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bags cases for accesories&quot;</span>
 <span class="n">wwcodes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">wwcodes</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;G932&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Biomass beads for waste water treatment&quot;</span>
 
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3489,317 +3410,278 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>16</th>
-      <td>G902</td>
+      <th>G902</th>
       <td>Mask medical, cloth</td>
       <td>personal items</td>
       <td>G145</td>
     </tr>
     <tr>
-      <th>28</th>
-      <td>G917</td>
+      <th>G917</th>
       <td>Terracotta balls</td>
       <td>unclassified</td>
       <td>G210</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>G921</td>
+      <th>G921</th>
       <td>Ceramic tile and pieces</td>
       <td>infrastructure</td>
       <td>G204</td>
     </tr>
     <tr>
-      <th>57</th>
-      <td>G906</td>
+      <th>G906</th>
       <td>coffee capsules aluminum</td>
       <td>food and drink</td>
       <td>G177</td>
     </tr>
     <tr>
-      <th>58</th>
-      <td>G918</td>
+      <th>G918</th>
       <td>Safety pins, paper clips, small metal utility ...</td>
       <td>personal items</td>
       <td>G198</td>
     </tr>
     <tr>
-      <th>59</th>
-      <td>G919</td>
+      <th>G919</th>
       <td>Nails, screws, bolts etc.</td>
       <td>infrastructure</td>
       <td>G197</td>
     </tr>
     <tr>
-      <th>60</th>
-      <td>G929</td>
+      <th>G929</th>
       <td>Electronics and pieces; sensors, headsets etc.</td>
       <td>personal items</td>
       <td>G198</td>
     </tr>
     <tr>
-      <th>61</th>
-      <td>G945</td>
+      <th>G945</th>
       <td>Razor blades</td>
       <td>personal items</td>
       <td>G198</td>
     </tr>
     <tr>
-      <th>75</th>
-      <td>G923</td>
+      <th>G923</th>
       <td>Tissue, toilet paper, napkins, paper towels</td>
       <td>personal items</td>
       <td>G158</td>
     </tr>
     <tr>
-      <th>201</th>
-      <td>G901</td>
+      <th>G901</th>
       <td>Mask medical, synthetic</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>202</th>
-      <td>G903</td>
+      <th>G903</th>
       <td>Hand sanitizer containers &amp; packets</td>
       <td>personal items</td>
       <td>G12</td>
     </tr>
     <tr>
-      <th>203</th>
-      <td>G904</td>
+      <th>G904</th>
       <td>Fireworks; rocket caps, exploded parts &amp; packa...</td>
       <td>recreation</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>204</th>
-      <td>G905</td>
+      <th>G905</th>
       <td>Hair clip,  hair ties, personal accessories pl...</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>205</th>
-      <td>G907</td>
+      <th>G907</th>
       <td>coffee capsules plastic</td>
       <td>food and drink</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>206</th>
-      <td>G908</td>
+      <th>G908</th>
       <td>Tape; electrical, insulating</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>207</th>
-      <td>G909</td>
+      <th>G909</th>
       <td>Foamed plastic insulation, spray and foam boar...</td>
       <td>infrastructure</td>
       <td>G74</td>
     </tr>
     <tr>
-      <th>209</th>
-      <td>G910</td>
+      <th>G910</th>
       <td>Foamed plastic insulation, spray and foam boar...</td>
       <td>infrastructure</td>
       <td>G74</td>
     </tr>
     <tr>
-      <th>210</th>
-      <td>G911</td>
+      <th>G911</th>
       <td>Foam expanded polystyrene pieces 0.5 - 2.5 cm</td>
       <td>infrastructure</td>
       <td>G81</td>
     </tr>
     <tr>
-      <th>211</th>
-      <td>G912</td>
+      <th>G912</th>
       <td>Foam expanded polystyrene pieces 2.5 - 50cm</td>
       <td>infrastructure</td>
       <td>G82</td>
     </tr>
     <tr>
-      <th>212</th>
-      <td>G913</td>
+      <th>G913</th>
       <td>Pacifier</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>213</th>
-      <td>G914</td>
+      <th>G914</th>
       <td>Paperclips, clothespins, plastic utility items</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>214</th>
-      <td>G915</td>
+      <th>G915</th>
       <td>Reflectors, plastic mobility items</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>216</th>
-      <td>G922</td>
+      <th>G922</th>
       <td>Labels, bar codes</td>
       <td>packaging non food</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>217</th>
-      <td>G925</td>
+      <th>G925</th>
       <td>Packets: desiccant/ moisture absorbers, plasti...</td>
       <td>packaging non food</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>218</th>
-      <td>G926</td>
+      <th>G926</th>
       <td>Chewing gum, often contains plastics</td>
       <td>food and drink</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>219</th>
-      <td>G927</td>
+      <th>G927</th>
       <td>String trimmer line, used to cut grass, weeds,...</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>220</th>
-      <td>G928</td>
+      <th>G928</th>
       <td>Ribbons and bows</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>222</th>
-      <td>G930</td>
+      <th>G930</th>
       <td>Foam earplugs</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>223</th>
-      <td>G931</td>
+      <th>G931</th>
       <td>Tape-caution for barrier, police, construction...</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>224</th>
-      <td>G932</td>
+      <th>G932</th>
       <td>Biomass beads for waste water treatment</td>
       <td>waste water</td>
       <td>G91</td>
     </tr>
     <tr>
-      <th>225</th>
-      <td>G933</td>
+      <th>G933</th>
       <td>Bags cases for accesories</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>226</th>
-      <td>G934</td>
+      <th>G934</th>
       <td>Sandbag, plastic for flood, erosion control etc..</td>
       <td>agriculture</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>227</th>
-      <td>G935</td>
+      <th>G935</th>
       <td>Walking stick pads and pieces, often elastomer...</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>228</th>
-      <td>G936</td>
+      <th>G936</th>
       <td>Sheeting ag. greenhouse film</td>
       <td>agriculture</td>
       <td>G67</td>
     </tr>
     <tr>
-      <th>229</th>
-      <td>G937</td>
+      <th>G937</th>
       <td>Pheromone baits for vineyards</td>
       <td>agriculture</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>230</th>
-      <td>G938</td>
+      <th>G938</th>
       <td>Toothpicks, dental floss plastic</td>
       <td>food and drink</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>231</th>
-      <td>G939</td>
+      <th>G939</th>
       <td>Flowers, plants plastic</td>
       <td>personal items</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>233</th>
-      <td>G940</td>
+      <th>G940</th>
       <td>Foamed EVA (flexible plastic) for crafts &amp; wat...</td>
       <td>recreation</td>
       <td>G73</td>
     </tr>
     <tr>
-      <th>234</th>
-      <td>G941</td>
+      <th>G941</th>
       <td>Packaging films nonfood or unknown</td>
       <td>packaging non food</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>235</th>
-      <td>G942</td>
+      <th>G942</th>
       <td>Plastic shavings from lathes, CNC machining</td>
       <td>unclassified</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>236</th>
-      <td>G943</td>
+      <th>G943</th>
       <td>Fencing agriculture, plastic</td>
       <td>agriculture</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>237</th>
-      <td>G944</td>
+      <th>G944</th>
       <td>Pellet mass from injection molding</td>
       <td>unclassified</td>
       <td>G112</td>
     </tr>
     <tr>
-      <th>253</th>
-      <td>G900</td>
+      <th>G900</th>
       <td>Gloves latex  personal protective equipment</td>
       <td>personal items</td>
       <td>G134</td>
     </tr>
     <tr>
-      <th>272</th>
-      <td>G916</td>
+      <th>G916</th>
       <td>Pencils and pieces</td>
       <td>personal items</td>
       <td>G170</td>
@@ -3832,7 +3714,7 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
 <span class="n">wwcodes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">wwcodes</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;G933&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bags cases for accesories&quot;</span>
 <span class="n">wwcodes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">wwcodes</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;G932&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Biomass beads for waste water treatment&quot;</span>
 
-<span class="n">wwcodes</span>
+<span class="n">wwcodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3855,93 +3737,86 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>code</th>
       <th>description</th>
       <th>groupname</th>
       <th>parent_code</th>
     </tr>
+    <tr>
+      <th>code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>G708</td>
+      <th>G708</th>
       <td>Batons de ski</td>
       <td>recreation</td>
       <td>G199</td>
     </tr>
     <tr>
-      <th>15</th>
-      <td>G712</td>
+      <th>G712</th>
       <td>Gants de ski</td>
       <td>recreation</td>
       <td>G135</td>
     </tr>
     <tr>
-      <th>56</th>
-      <td>G705</td>
+      <th>G705</th>
       <td>Screws and bolts</td>
       <td>infrastructure</td>
       <td>G197</td>
     </tr>
     <tr>
-      <th>171</th>
-      <td>G703</td>
+      <th>G703</th>
       <td>piquet de ballisage</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>172</th>
-      <td>G704</td>
+      <th>G704</th>
       <td>Brosse de télésiège</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>173</th>
-      <td>G706</td>
+      <th>G706</th>
       <td>Abonnement de ski</td>
       <td>recreation</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>174</th>
-      <td>G707</td>
+      <th>G707</th>
       <td>étiquette d’équipement de ski</td>
       <td>recreation</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>175</th>
-      <td>G709</td>
+      <th>G709</th>
       <td>Batons de ski parties (rondelles, attaches)</td>
       <td>recreation</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>177</th>
-      <td>G710</td>
+      <th>G710</th>
       <td>Ski / Snowboards (ski, fixations et autres piè...</td>
       <td>recreation</td>
       <td>G79</td>
     </tr>
     <tr>
-      <th>178</th>
-      <td>G711</td>
+      <th>G711</th>
       <td>Chaufferette</td>
       <td>recreation</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>179</th>
-      <td>G713</td>
+      <th>G713</th>
       <td>Carpet from ski lift</td>
       <td>infrastructure</td>
       <td>G124</td>
     </tr>
     <tr>
-      <th>271</th>
-      <td>G702</td>
+      <th>G702</th>
       <td>piquet de ballisage</td>
       <td>infrastructure</td>
       <td>G173</td>
@@ -3977,37 +3852,45 @@ Plasticulture includes irrigation tubing, plastic nursery pots, and an extensive
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="key_indicators.html" title="previous page"><span class="section-number">15. </span>Key statistical indicators</a>
-    <a class='right-next' id="next-link" href="land_use_correlation.html" title="next page"><span class="section-number">17. </span>The land use profile</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="key_indicators.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">15. </span>Key statistical indicators</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="land_use_correlation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>The land use profile</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <p>
    Comissioned by the Swiss Federal Office for the Environment (FOEN), © 2021
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

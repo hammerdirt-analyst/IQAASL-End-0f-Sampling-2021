@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>11. Thunersee/Brienzersee</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="12. Walensee" href="walensee_de.html" />
     <link rel="prev" title="10. Maggiore/Lugano" href="maggiore_lugano_de.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -71,6 +76,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/iqaaslogo.png" class="logo" alt="logo">
       
       
@@ -78,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -87,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Zusammenfassung
  </span>
@@ -104,15 +113,15 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Ergebnisse der Erhebung
+  Erhebungsergebnisse
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lakes_rivers_de.html">
-   1. Seen und Flüsse
+   1. Seen und Fliessgewässer
   </a>
  </li>
  <li class="toctree-l1">
@@ -121,7 +130,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Erhebungsgebiete
  </span>
@@ -148,7 +157,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Seen
  </span>
@@ -190,7 +199,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Verstehen
  </span>
@@ -208,12 +217,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="code_groups_de.html">
-   16. Code-Gruppen
+   16. Codegruppen
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="land_use_correlation_de.html">
-   17. Das Profil der Landnutzung
+   17. Das Landnutzungsprofil
   </a>
  </li>
  <li class="toctree-l1">
@@ -222,7 +231,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anwendungen
  </span>
@@ -289,7 +298,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -340,12 +349,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#erhebungsorte">
@@ -358,8 +367,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#verteilung-der-datenerhebungen-ergebnisse">
-     11.1.2. Verteilung der Datenerhebungen Ergebnisse
+    <a class="reference internal nav-link" href="#verteilung-der-erhebungsergebnisse">
+     11.1.2. Verteilung der Erhebungsergebnisse
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -375,13 +384,13 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte-nach-gemeinden">
-     11.2.1. Die am häufigsten gefundenen Objekte nach Gemeinden
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-gegenstandenach-gemeinden">
+     11.2.1. Die am häufigsten gefundenen Gegenständenach Gemeinden
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
-     11.2.2. Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-gegenstandeim-monatlichen-durchschnitt">
+     11.2.2. Die am häufigsten gefundenen Gegenständeim monatlichen Durchschnitt
     </a>
    </li>
   </ul>
@@ -421,7 +430,91 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Thunersee/Brienzersee</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#erhebungsorte">
+   11.1. Erhebungsorte
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kumulative-gesamtmengen-nach-gemeinden">
+     11.1.1. Kumulative Gesamtmengen nach Gemeinden
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verteilung-der-erhebungsergebnisse">
+     11.1.2. Verteilung der Erhebungsergebnisse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zusammenfassende-daten-und-materialtypen">
+     11.1.3. Zusammenfassende Daten und Materialtypen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-objekte">
+   11.2. Die am häufigsten gefundenen Objekte
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-gegenstandenach-gemeinden">
+     11.2.1. Die am häufigsten gefundenen Gegenständenach Gemeinden
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-am-haufigsten-gefundenen-gegenstandeim-monatlichen-durchschnitt">
+     11.2.2. Die am häufigsten gefundenen Gegenständeim monatlichen Durchschnitt
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verwendungszweck-der-gefundenen-objekte">
+   11.3. Verwendungszweck der gefundenen Objekte
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anhang">
+   11.4. Anhang
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schaumstoffe-und-kunststoffe-nach-grosse">
+     11.4.1. Schaumstoffe und Kunststoffe nach Grösse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-erhebungsorte">
+     11.4.2. Die Erhebungsorte
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inventar-der-objekte">
+     11.4.3. Inventar der Objekte
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell tag_hide-input docutils container">
@@ -506,13 +599,12 @@
 <span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;31.05.2021&quot;</span>
 <span class="n">start_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">]</span>
 <span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;p/100m&quot;</span>
+<span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;p/100 m&quot;</span>
 <span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;dodgerblue&quot;</span>
 
 <span class="c1"># colors for gradients</span>
 <span class="n">cmap2</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">cmap2</span>
 <span class="n">colors_palette</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">colors_palette</span>
-
 <span class="c1"># set the maps</span>
 <span class="n">bassin_map</span> <span class="o">=</span><span class="s2">&quot;resources/maps/thunersee_brienzersee_scaled.jpeg&quot;</span>
 
@@ -612,7 +704,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="thunersee-brienzersee">
+<div class="tex2jax_ignore mathjax_ignore section" id="thunersee-brienzersee">
 <span id="thunersee-brienzerseede"></span><h1><span class="section-number">11. </span>Thunersee/Brienzersee<a class="headerlink" href="#thunersee-brienzersee" title="Permalink to this headline">¶</a></h1>
 <p><a href="thunersee_brienzersee.html"> English </a></p>
 <p><em><strong>Unten:</strong> Karte des Erhebungsgebiets März 2020 - Mai 2021. Durchmesser der Punktsymbole = das mittlere Erhebungsergebnis in gefundene Abfallobjekte pro 100 Meter (p/100m).</em></p>
@@ -639,6 +731,8 @@
 
 <span class="c1"># rename the code groups and columns to local</span>
 <span class="n">a_data</span><span class="p">[</span><span class="s2">&quot;groupname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_data</span><span class="p">[</span><span class="s2">&quot;groupname&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">sut</span><span class="o">.</span><span class="n">group_names_de</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="c1"># rename unit labels to FOEN spec</span>
+<span class="n">a_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;p/100m&quot;</span><span class="p">:</span> <span class="n">unit_label</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">a_data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">sut</span><span class="o">.</span><span class="n">luse_ge</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># the data for this report</span>
@@ -697,7 +791,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>Für den Zeitraum zwischen 03.2020 und 05.2021, wurden im Rahmen von 36 Datenerhebungen insgesamt 3'764 Objekte entfernt und identifiziert. Die Ergebnisse des Thunersee/Brienzersee umfassen 10 Orte,  6 Gemeinden und eine Gesamtbevölkerung von etwa 69'120 Einwohnern.</p>
+<p>Für den Zeitraum zwischen 03.2020 und 05.2021, wurden im Rahmen von 36 Datenerhebungen insgesamt 3’764 Objekte entfernt und identifiziert. Die Ergebnisse des Thunersee/Brienzersee umfassen 10 Orte,  6 Gemeinden und eine Gesamtbevölkerung von etwa 69’120 Einwohnern.</p>
 <p><em>Die Gemeinden in diesem Bericht:</em></p>
 <blockquote>
 <div><p>Beatenberg, Brienz (BE), Bönigen, Spiez, Thun, Unterseen</p>
@@ -771,8 +865,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="verteilung-der-datenerhebungen-ergebnisse">
-<h3><span class="section-number">11.1.2. </span>Verteilung der Datenerhebungen Ergebnisse<a class="headerlink" href="#verteilung-der-datenerhebungen-ergebnisse" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="verteilung-der-erhebungsergebnisse">
+<h3><span class="section-number">11.1.2. </span>Verteilung der Erhebungsergebnisse<a class="headerlink" href="#verteilung-der-erhebungsergebnisse" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the feature surveys to chart</span>
@@ -790,22 +884,22 @@
 <span class="n">resample_plot</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">quarterly_or_monthly_values</span><span class="p">(</span><span class="n">fd_dindex</span> <span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">vals</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">quarterly</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ticino&quot;</span><span class="p">])</span>    
 
 <span class="c1"># scale the chart as needed to accomodate for extreme values</span>
-<span class="n">y_lim</span> <span class="o">=</span> <span class="mi">98</span>
+<span class="n">y_lim</span> <span class="o">=</span> <span class="mi">99</span>
 <span class="n">y_limit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">dts_date</span><span class="p">[</span><span class="n">unit_label</span><span class="p">],</span> <span class="n">y_lim</span><span class="p">)</span>
 
 <span class="c1"># label for the chart that alerts to the scale</span>
-<span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Werte grösser als </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">y_limit</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="si">}{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">y_lim</span><span class="si">}</span><span class="s2">% nicht gezeigt.&quot;</span>
+<span class="n">not_included</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;Werte grösser als </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">y_limit</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">unit_label</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">y_lim</span><span class="si">}</span><span class="s2">% nicht gezeigt.&quot;</span>
 
 <span class="c1"># figure caption</span>
 <span class="n">chart_notes</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*__Links:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Rechts:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.*</span>
+<span class="s2">*__Links:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">start_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2"> bis </span><span class="si">{</span><span class="n">end_date</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">not_included</span><span class="si">}</span><span class="s2"> __Rechts:__ </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">  empirische kumulative Verteilung der Erhebungsergebnisse.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">md</span><span class="p">(</span><span class="n">chart_notes</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Thunersee/Brienzersee, 01.03.2 bis 31.05.2, n=36. Werte grösser als 2375.0p/100m 98% nicht gezeigt. <strong>Rechts:</strong> Thunersee/Brienzersee  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.</em></p>
+<p><em><strong>Links:</strong> Thunersee/Brienzersee, 03.2020 bis 05.2021, n=36. Werte grösser als 4549.2 p/100 m 99% nicht gezeigt. <strong>Rechts:</strong> Thunersee/Brienzersee  empirische kumulative Verteilung der Erhebungsergebnisse.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -927,14 +1021,14 @@
 </div>
 <div class="section" id="die-am-haufigsten-gefundenen-objekte">
 <h2><span class="section-number">11.2. </span>Die am häufigsten gefundenen Objekte<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte" title="Permalink to this headline">¶</a></h2>
-<p>Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
+<p>Die am häufigsten gefundenen Gegenständesind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the top ten by quantity</span>
 <span class="n">most_abundant</span> <span class="o">=</span> <span class="n">code_totals</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="c1"># the most common</span>
-<span class="n">most_common</span> <span class="o">=</span> <span class="n">code_totals</span><span class="p">[</span><span class="n">code_totals</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">49.999</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">most_common</span> <span class="o">=</span> <span class="n">code_totals</span><span class="p">[</span><span class="n">code_totals</span><span class="p">[</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">a_fail_rate</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># merge with most_common and drop duplicates</span>
 <span class="n">m_common</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">most_abundant</span><span class="p">,</span> <span class="n">most_common</span><span class="p">])</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -951,7 +1045,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Häufigste Objekte im Thunersee/Brienzersee: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 72% aller gefundenen Objekte aus. Anmerkung: p/100m = Medianwert der Erhebung.</em></p>
+<p><em><strong>Unten:</strong> Häufigste Objekte im Thunersee/Brienzersee: fail-rate &gt;/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 72% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -967,7 +1061,7 @@
 <span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekt&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2">er Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;fail-rate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">}</span>
 <span class="n">all_survey_areas</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">10.8</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">))</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
 
@@ -985,11 +1079,11 @@
 <img alt="_images/thunersee_brienzersee_de_17_0.png" src="_images/thunersee_brienzersee_de_17_0.png" />
 </div>
 </div>
-<div class="section" id="die-am-haufigsten-gefundenen-objekte-nach-gemeinden">
-<h3><span class="section-number">11.2.1. </span>Die am häufigsten gefundenen Objekte nach Gemeinden<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-nach-gemeinden" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-am-haufigsten-gefundenen-gegenstandenach-gemeinden">
+<h3><span class="section-number">11.2.1. </span>Die am häufigsten gefundenen Gegenständenach Gemeinden<a class="headerlink" href="#die-am-haufigsten-gefundenen-gegenstandenach-gemeinden" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> häufigste Objekte im Thunersee/Brienzersee: Median p/100m.</em></p>
+<p><em><strong>Unten:</strong> häufigste Objekte im Thunersee/Brienzersee: Median p/100 m.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1008,15 +1102,15 @@
 <span class="n">m_c_p</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">m_c_p</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># the aggregated totals for the feature data</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">aggregate_to_group_name</span><span class="p">(</span><span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)],</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">val</span><span class="o">=</span><span class="s2">&quot;med&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">aggregate_to_group_name</span><span class="p">(</span><span class="n">fd</span><span class="p">[</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">)],</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">val</span><span class="o">=</span><span class="s2">&quot;med&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="o">=</span><span class="n">unit_label</span><span class="p">)</span>
 <span class="n">m_c_p</span><span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span><span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">change_series_index_labels</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">index</span><span class="p">})</span>
 
 <span class="c1"># the aggregated totals of the survey area</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">aggregate_to_group_name</span><span class="p">(</span><span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">this_bassin</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">))],</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="s2">&quot;med&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">aggregate_to_group_name</span><span class="p">(</span><span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">this_bassin</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">a_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">))],</span> <span class="n">unit_label</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="s2">&quot;med&quot;</span><span class="p">)</span>
 <span class="n">m_c_p</span><span class="p">[</span><span class="n">bassin_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">change_series_index_labels</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">index</span><span class="p">})</span>
 
 <span class="c1"># the aggregated totals of all the data</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">aggregate_to_group_name</span><span class="p">(</span><span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">))],</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="s2">&quot;med&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">aggregate_to_group_name</span><span class="p">(</span><span class="n">a_data</span><span class="p">[(</span><span class="n">a_data</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="p">))],</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="s2">&quot;med&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="o">=</span><span class="n">unit_label</span><span class="p">)</span>
 <span class="n">m_c_p</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">change_series_index_labels</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">code_description_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">index</span><span class="p">})</span>
 
 <span class="c1"># chart that</span>
@@ -1041,8 +1135,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
-<h3><span class="section-number">11.2.2. </span>Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-am-haufigsten-gefundenen-gegenstandeim-monatlichen-durchschnitt">
+<h3><span class="section-number">11.2.2. </span>Die am häufigsten gefundenen Gegenständeim monatlichen Durchschnitt<a class="headerlink" href="#die-am-haufigsten-gefundenen-gegenstandeim-monatlichen-durchschnitt" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collect the survey results of the most common objects</span>
@@ -1070,7 +1164,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Unten:</strong> Thunersee/Brienzersee, monatliche Durchschnittsergebnisse p/100m.</em></p>
+<p><em><strong>Unten:</strong> Thunersee/Brienzersee, monatliche Durchschnittsergebnisse p/100 m.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1158,13 +1252,13 @@
 <li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen</p></li>
 <li><p><strong>Landwirtschaft:</strong>     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
-<li><p><strong>Tabak:</strong> hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien</p></li>
+<li><p><strong>Tabakwaren:</strong> hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Freizeit und Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
 <li><p><strong>Verpackungen ausser Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
 <li><p><strong>Plastikfragmente:</strong> Plastikteile unbestimmter Herkunft oder Verwendung</p></li>
 <li><p><strong>Persönliche Gegenstände:</strong> Accessoires, Hygieneartikel und Kleidung</p></li>
 </ul>
-<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Code-Gruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
+<p>Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref">Codegruppen</span></a> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <p><br></br>
@@ -1242,7 +1336,7 @@
 </div>
 <div class="cell_output docutils container">
 <p><br></br>
-<em><strong>Unten:</strong> Verwendungszweck der gefundenen Objekte Median p/100m im Thunersee/Brienzersee. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</em></p>
+<em><strong>Unten:</strong> Verwendungszweck der gefundenen Objekte Median p/100 m im Thunersee/Brienzersee. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1301,6 +1395,7 @@
 <span class="n">some_foams</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;G81&quot;</span><span class="p">,</span> <span class="s2">&quot;G82&quot;</span><span class="p">,</span> <span class="s2">&quot;G83&quot;</span><span class="p">,</span> <span class="s2">&quot;G74&quot;</span><span class="p">]</span>
 
 <span class="c1"># the codes for the fragmented plastics</span>
+<span class="n">before_agg</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;p/100m&quot;</span><span class="p">:</span> <span class="n">unit_label</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">some_frag_plas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">before_agg</span><span class="p">[</span><span class="n">before_agg</span><span class="o">.</span><span class="n">groupname</span> <span class="o">==</span> <span class="s2">&quot;plastic pieces&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 
 <span class="c1"># aggregate all the codes by loc_date and get the total quantity and the median pcs/m</span>
@@ -1458,7 +1553,7 @@
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">loc</span><span class="p">)</span>
 <span class="n">complete_inventory</span> <span class="o">=</span> <span class="n">code_totals</span><span class="p">[</span><span class="n">code_totals</span><span class="o">.</span><span class="n">quantity</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">][[</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="s2">&quot;groupname&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">,</span><span class="s2">&quot;fail rate&quot;</span><span class="p">]]</span>
-<span class="n">complete_inventory</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;groupname&quot;</span><span class="p">:</span><span class="s2">&quot;Gruppenname&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% G</span><span class="s2">esamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;Ausfallsrate&quot;</span> <span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">complete_inventory</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;groupname&quot;</span><span class="p">:</span><span class="s2">&quot;Gruppenname&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% G</span><span class="s2">esamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;fail rate&quot;</span> <span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
 <span class="n">complete_inventory</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1488,7 +1583,7 @@
       <th>Gruppenname</th>
       <th>Gesamt</th>
       <th>% Gesamt</th>
-      <th>Ausfallsrate</th>
+      <th>fail rate</th>
     </tr>
     <tr>
       <th>code</th>
@@ -1503,7 +1598,7 @@
     <tr>
       <th>G27</th>
       <td>Zigarettenfilter</td>
-      <td>Tabak</td>
+      <td>Tabakwaren</td>
       <td>748</td>
       <td>19.87</td>
       <td>88</td>
@@ -1614,7 +1709,7 @@
     </tr>
     <tr>
       <th>G95</th>
-      <td>Wattestäbchen</td>
+      <td>Wattestäbchen / Tupfer</td>
       <td>Abwasser</td>
       <td>35</td>
       <td>0.93</td>
@@ -1711,7 +1806,7 @@
     <tr>
       <th>G25</th>
       <td>Tabak; Kunststoffverpackungen, Behälter</td>
-      <td>Tabak</td>
+      <td>Tabakwaren</td>
       <td>19</td>
       <td>0.50</td>
       <td>27</td>
@@ -1726,7 +1821,7 @@
     </tr>
     <tr>
       <th>G10</th>
-      <td>Lebensmittelbehälter zum einmaligen Gebrauch a...</td>
+      <td>Einwegbehälter für Lebensmittel aus Schaumstof...</td>
       <td>Essen und Trinken</td>
       <td>18</td>
       <td>0.48</td>
@@ -1919,7 +2014,7 @@
     <tr>
       <th>G152</th>
       <td>Papier &amp;Karton;Zigarettenschachteln, Papier/Ka...</td>
-      <td>Tabak</td>
+      <td>Tabakwaren</td>
       <td>10</td>
       <td>0.27</td>
       <td>16</td>
@@ -2279,7 +2374,7 @@
     <tr>
       <th>G26</th>
       <td>Feuerzeug</td>
-      <td>Tabak</td>
+      <td>Tabakwaren</td>
       <td>2</td>
       <td>0.05</td>
       <td>5</td>
@@ -2546,37 +2641,45 @@
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="maggiore_lugano_de.html" title="previous page"><span class="section-number">10. </span>Maggiore/Lugano</a>
-    <a class='right-next' id="next-link" href="walensee_de.html" title="next page"><span class="section-number">12. </span>Walensee</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="maggiore_lugano_de.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>Maggiore/Lugano</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="walensee_de.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Walensee</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <p>
    Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
