@@ -45,8 +45,12 @@ g = "%d.%m.%Y"
 
 # set some parameters:
 # today = dt.datetime.now().date().strftime("%Y-%m-%d")
-start_date = "01.03.2020"
-end_date ="31.05.2021"
+start_date = "2020-03-01"
+end_date ="2021-05-31"
+
+ge_start = "01.03.2020"
+ge_end ="31.05.2021"
+
 a_fail_rate = 50
 
 # the city, lake and river bassin we are aggregating to
@@ -165,9 +169,9 @@ dfSurveys['city'] = dfSurveys.location.map(lambda x: city_map.loc[x])
 trb = dfSurveys[dfSurveys.river_bassin == levels['river_bassin']].copy()
 
 # apply local date configuration
-trb["date"] = pd.to_datetime(trb["date"])
-trb["date"] = trb["date"].dt.strftime(g)
-trb["date"] = pd.to_datetime(trb["date"], format=g)
+trb["date"] = pd.to_datetime(trb["date"], format=d)
+# trb["date"] = trb["date"].dt.strftime(g)
+# trb["date"] = pd.to_datetime(trb["date"], format=g)
 
 
 # describe the data set:
@@ -262,7 +266,7 @@ not_included = F"Werte grösser als das 99. Perzentil ({round(the_90th, 2)}) wer
 
 axone.set_ylabel("pcs/m", **ck.xlab_k14)
 axone.set_ylim(0,the_90th )
-axone.set_title(F"{level_names[2]}, {start_date[3:]} bis {end_date[3:]}, n={num_samps}\n{not_included}",  **ck.title_k)
+axone.set_title(F"{level_names[2]}, {ge_start[3:]} bis {ge_end[3:]}, n={num_samps}\n{not_included}",  **ck.title_k)
 axone.xaxis.set_minor_locator(days)
 axone.xaxis.set_major_formatter(months_fmt)
 axone.set_xlabel("")

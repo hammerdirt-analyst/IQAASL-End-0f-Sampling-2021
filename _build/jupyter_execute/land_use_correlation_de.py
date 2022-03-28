@@ -82,17 +82,17 @@ code_material_map = dfCodes.material
 
 
 # (luseprofilede)=
-# # Das Profil der Landnutzung
+# # Das Landnutzungsprofil
 # 
 # <a href="land_use_correlation.html" > English </a>
 # 
 # Das Bodennutzungsprofil ist eine numerische Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität um den Erhebungsort. Das Profil wird anhand von Daten berechnet, die in Kartenschichten gespeichert sind, die im [Geoportal des Bundes](https://www.geo.admin.ch/) und im [Bundesamt für Statistik](https://www.bfs.admin.ch/bfs/en/home.html) verfügbar sind. 
 # 
-# Abfallobjekte sind eine Sammlung von weggeworfenen Gegenständen, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Datenerhebungen Ergebnisse berücksichtigt werden muss. {cite}`aydin` {cite}`grelaud`
+# Abfallobjekte sind eine Sammlung von weggeworfenen Gegenständen, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Erhebungsergebnisse berücksichtigt werden muss. {cite}`aydin` {cite}`grelaud`
 # 
 # Im September 2020 hat die Europäische Union Basislinien und Zielwerte für Abfallobjekte am Strand veröffentlicht. Nach Abwägung vieler Faktoren, darunter die Transparenz der Berechnungsmethode und die Leistung in Bezug auf Ausreisser, hat die EU entschieden, dass der Medianwert der Datenerhebungen zum Vergleich der Basiswerte zwischen den Regionen verwendet wird. Dies hat das Interesse der Gemeinden geweckt, punktuelle Abfallobjekte besser zu identifizieren und zu quantifizieren, da sie versuchen, den effizientesten Weg zur Einhaltung der Zielwerte zu finden. Die Identifizierung relevanter Landnutzungsmuster und -merkmale ist ein wesentliches Element in diesem Prozess. {cite}`threshholdeu` {cite}`eubaselines` {cite}`vanemmerick`
 # 
-# Hier schlagen wir eine Methode vor, um die Ergebnisse von Strand-Abfallaufkommen-Untersuchungen im Hinblick auf das Landnutzungsprofil im Umkreis von 1500 m um den Untersuchungsort auszuwerten. Die Datenerhebungen Ergebnisse der häufigsten Objekte werden mit Hilfe von Spearmans rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf Assoziation mit den gemessenen Landnutzungsmerkmalen getestet. {cite}`defspearmans`    {cite}`spearmansexplained`
+# Hier schlagen wir eine Methode vor, um die Ergebnisse von Strand-Abfallaufkommen-Untersuchungen im Hinblick auf das Landnutzungsprofil im Umkreis von 1500 m um den Untersuchungsort auszuwerten. Die Erhebungsergebnisse der häufigsten Objekte werden mit Hilfe von Spearmans rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf Assoziation mit den gemessenen Landnutzungsmerkmalen getestet. {cite}`defspearmans`    {cite}`spearmansexplained`
 # 
 # ## Berechnung des Landnutzungsprofils 
 # 
@@ -297,11 +297,11 @@ plt.show()
 # 
 # Die Erhebungsorte repräsentieren die mit öffentlichen Verkehrsmitteln erreichbaren Landnutzungsbedingungen von etwa 1,7 Millionen Menschen.  
 
-# ## Zuordnung von Landnutzung zu Datenerhebungen Ergebnissen
+# ## Zuordnung von Landnutzung zu Erhebungsergebnissen
 # 
 # Es gibt 350 Datenerhebungen von 129 Standorten entlang von Flüssen und Seen. Der Mittelwert war mehr als doppelt so hoch wie der Median, was die extremen Werte widerspiegelt, die für Strand-Abfallobjekte-Untersuchungen typisch sind. {cite}`eubaselines` 
 
-# *__links__ Datenerhebungen Ergebnisse und __rechts__:kumulative Verteilung alle Seen und Flüsse (ohne Walensee). Anzahl der Proben: 350,  Anzahl der Standorte:129, Median:2.14 pcs/m, Mittelwert:4.15 pcs/m*
+# *__links__ Erhebungsergebnisse und __rechts__:kumulative Verteilung alle Seen und Flüsse (ohne Walensee). Anzahl der Proben: 350,  Anzahl der Standorte:129, Median:2.14 pcs/m, Mittelwert:4.15 pcs/m*
 
 # In[6]:
 
@@ -365,14 +365,14 @@ plt.show()
 
 # ### Spearmans $\rho$ ein Beispiel 
 # 
-# Die Rangkorrelation nach Spearmans testet auf eine statistisch signifikante monotone Beziehung oder Assoziation zwischen zwei Variablen. Die Hypothese lautet, dass es keinen Zusammenhang zwischen dem Landnutzungsprofil und den Datenerhebungen Ergebnissen gibt. {cite}`defspearmans` 
+# Die Rangkorrelation nach Spearmans testet auf eine statistisch signifikante monotone Beziehung oder Assoziation zwischen zwei Variablen. Die Hypothese lautet, dass es keinen Zusammenhang zwischen dem Landnutzungsprofil und den Erhebungsergebnissen gibt. {cite}`defspearmans` 
 # 
 # Die Testergebnisse beziehen sich auf die Richtung (rho) einer Assoziation und darauf, ob diese Assoziation wahrscheinlich auf einen Zufall zurückzuführen ist (p-Wert) oder nicht.) Damit ein Test als signifikant gilt, muss der p-Wert kleiner als 0,05 sein. {cite}`impspearmans`
 # 
 # 1. Die Nullhypothese: Es gibt keine monotone Beziehung zwischen den beiden Variablen 
 # 2. Die Alternativhypothese: Es besteht eine monotone Beziehung und das Vorzeichen (+/-) gibt die Richtung an 
 # 
-# Sie gibt keine Auskunft über das Ausmass der Beziehung. Betrachten Sie als Beispiel das Verhältnis der Datenerhebungen Ergebnisse von Zigarettenstummeln in Bezug auf die Menge an Land, die Gebäuden oder der Landwirtschaft zugerechnet wird.{cite}`spearmansexplained`
+# Sie gibt keine Auskunft über das Ausmass der Beziehung. Betrachten Sie als Beispiel das Verhältnis der Erhebungsergebnisse von Zigarettenstummeln in Bezug auf die Menge an Land, die Gebäuden oder der Landwirtschaft zugerechnet wird.{cite}`spearmansexplained`
 
 # *__Links:__ Datenerhebungen der Zigarettenstummel in Bezug auf den prozentualen Anteil der Grundstücke an den Gebäuden. rho= 0,39, p-value < .001. __Rechts:__ Datenerhebungen der Zigarettenstummel in Bezug auf den Prozentsatz der landwirtschaftlichen Nutzfläche. rho= -0,31, p-value < .001.*
 
@@ -403,7 +403,7 @@ plt.show()
 
 # 
 
-# Betrachtet man die Datenerhebungen Ergebnisse für Zigarettenstummel in Bezug auf den prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ist der Wert von rho entgegengesetzt.  
+# Betrachtet man die Erhebungsergebnisse für Zigarettenstummel in Bezug auf den prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ist der Wert von rho entgegengesetzt.  
 
 # ### Zuordnung der Erhebungssummen zur Bodennutzung
 
@@ -441,7 +441,7 @@ plt.tight_layout()
 plt.show()
 
 
-# Im Allgemeinen kann ein positiver Zusammenhang zwischen den Datenerhebungen Ergebnissen und dem prozentualen Anteil der Flächen für Gebäude oder Erholung und ein negativer Zusammenhang mit Wäldern und Landwirtschaft angenommen werden. 
+# Im Allgemeinen kann ein positiver Zusammenhang zwischen den Erhebungsergebnissen und dem prozentualen Anteil der Flächen für Gebäude oder Erholung und ein negativer Zusammenhang mit Wäldern und Landwirtschaft angenommen werden. 
 
 # ### Zuordnung der häufigsten Objekte zur Landnutzung 
 # 
@@ -545,11 +545,11 @@ plt.show()
 
 # ### Spearmans interpretieren  
 # 
-# Eine positive Assoziation bedeutet, dass die Datenerhebungen Ergebnisse tendenziell zunehmen, wenn der prozentuale Wert des Landnutzungsmerkmals steigt. Dies kann auf eine Kovarianz der Attribute zurückzuführen sein. In jedem Fall ist eine positive Assoziation ein Signal dafür, dass sich die Objekte unter diesen Bedingungen eher häufen. 
+# Eine positive Assoziation bedeutet, dass die Erhebungsergebnisse tendenziell zunehmen, wenn der prozentuale Wert des Landnutzungsmerkmals steigt. Dies kann auf eine Kovarianz der Attribute zurückzuführen sein. In jedem Fall ist eine positive Assoziation ein Signal dafür, dass sich die Objekte unter diesen Bedingungen eher häufen. 
 # 
 # Eine negative Assoziation bedeutet, dass das Landnutzungsmerkmal oder -attribut die Akkumulation des Objekts nicht erleichtert. Dieses Ergebnis ist für landwirtschaftliche Flächen und Wälder auf nationaler Ebene üblich. Eine negative Assoziation ist ein Signal dafür, dass die Objekte unter diesen Bedingungen nicht zur Akkumulation neigen. 
 # 
-# Keine oder wenige Assoziationen bedeutet, dass die Landnutzungsmerkmale keinen Einfluss auf die Akkumulation des Objekts hatten. Die Datenerhebungen Ergebnisse der häufigsten Objekte ohne oder mit wenigen Assoziationen lassen sich in zwei Kategorien einteilen: 
+# Keine oder wenige Assoziationen bedeutet, dass die Landnutzungsmerkmale keinen Einfluss auf die Akkumulation des Objekts hatten. Die Erhebungsergebnisse der häufigsten Objekte ohne oder mit wenigen Assoziationen lassen sich in zwei Kategorien einteilen: 
 # 
 # * Allgegenwärtig: hohe Fail-Pass Rate, hohe Stückzahl pro Meter. Unabhängig von der Landnutzung im gesamten Untersuchungsgebiet in gleichbleibenden Raten gefunden 
 # 
@@ -557,7 +557,7 @@ plt.show()
 
 # ## Diskussion 
 # 
-# Insgesamt war es wahrscheinlich, dass Datenerhebungen an Orten mit mehr Gebäuden und Erholungsgebieten die Anhäufung von Gegenständen an der Küste begünstigten. Betrachtet man die häufigsten Gegenstände, so wurden nur vier der zwölf Gegenstände in Anwesenheit von mehr Gebäuden häufiger identifiziert. Dabei handelt es sich in der Regel um Gegenstände, die mit dem Verzehr von Lebensmitteln und/oder Tabak in der Nähe des Ortes zusammenhängen. Das deutet darauf hin, dass in stark frequentierten Gebieten in Wassernähe noch einiges an Vorbeugung und Abschwächung möglich ist. 
+# Insgesamt war es wahrscheinlich, dass Datenerhebungen an Orten mit mehr Gebäuden und Erholungsgebieten die Anhäufung von Gegenständen an der Küste begünstigten. Betrachtet man die häufigsten Gegenstände, so wurden nur vier der zwölf Gegenstände in Anwesenheit von mehr Gebäuden häufiger identifiziert. Dabei handelt es sich in der Regel um Gegenstände, die mit dem Verzehr von Lebensmitteln und/oder Tabakwaren in der Nähe des Ortes zusammenhängen. Das deutet darauf hin, dass in stark frequentierten Gebieten in Wassernähe noch einiges an Vorbeugung und Abschwächung möglich ist. 
 # 
 # Sechs der zwölf Objekte haben jedoch keine positive Assoziation zur Landnutzung, die Gebäuden zugeschrieben wird, wurden aber in mindestens 50% aller Datenerhebungen gefunden. Diese Gegenstände werden im Allgemeinen mit der beruflichen Nutzung oder im Fall der Wattestäbchen mit der persönlichen Hygiene in Verbindung gebracht: 
 # 
@@ -568,7 +568,7 @@ plt.show()
 # * Wattestäbchen/Stäbchen 
 # * Isolierung, einschliesslich Sprühschäume 
 # 
-# Ausserdem haben diese Objekte im Vergleich zu Produkten, die mit Tabak oder Nahrungsmitteln in Verbindung stehen, im Allgemeinen weniger positive Assoziationen. Dies deutet darauf hin, dass das entsprechende Landnutzungsmerkmal derzeit nicht berücksichtigt wird und/oder diese Objekte unabhängig von den Landnutzungsmerkmalen in ähnlichen Mengen identifiziert werden. Dies deutet darauf hin, dass diese Objekte in der Umwelt allgegenwärtig sind. 
+# Ausserdem haben diese Objekte im Vergleich zu Produkten, die mit Tabakwaren oder Nahrungsmitteln in Verbindung stehen, im Allgemeinen weniger positive Assoziationen. Dies deutet darauf hin, dass das entsprechende Landnutzungsmerkmal derzeit nicht berücksichtigt wird und/oder diese Objekte unabhängig von den Landnutzungsmerkmalen in ähnlichen Mengen identifiziert werden. Dies deutet darauf hin, dass diese Objekte in der Umwelt allgegenwärtig sind. 
 # 
 # Schliesslich wurden zwei der zwölf häufigsten Objekte in weniger als 50% der Datenerhebungen gefunden und weisen nur wenige positive Assoziationen auf: 
 # 
@@ -593,15 +593,9 @@ plt.show()
 # 
 # Der Rangkorrelationskoeffizient ist eine effiziente und zuverlässige Methode, mit der sich Landnutzungsklassifizierungen identifizieren lassen, die mit erhöhten oder verringerten Mengen an bestimmten Abfallobjekten verbunden sind. Das Ausmass der Beziehung in Bezug auf die Anzahl der Objekte auf dem Boden bleibt jedoch undefiniert. 
 # 
-# Um mehr darüber zu erfahren, wie sich die Datenerhebungen Ergebnisse je nach Landnutzung ändern und/oder gleich bleiben, siehe [_Gemeinsame Verantwortung_](transportde).
+# Um mehr darüber zu erfahren, wie sich die Erhebungsergebnisse je nach Landnutzung ändern und/oder gleich bleiben, siehe [_Gemeinsame Verantwortung_](transportde).
 # 
 # Um zu verstehen, wie die Abfallobjekte für diesen Bericht berechnet wurden, siehe [_Abfallobjekte am Strand_](threshholdde).
-
-# In[11]:
-
-
-new_locale = locale.setlocale(locale.LC_ALL, loc)
-
 
 # In[ ]:
 

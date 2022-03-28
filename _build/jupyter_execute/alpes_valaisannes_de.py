@@ -82,7 +82,7 @@ end_date ="31.09.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 reporting_unit = 100
-unit_label = "p/100m"
+unit_label = "p/100 m"
 
 # colors for gradients, tables and charts
 cmap2 = ck.cmap2
@@ -220,6 +220,7 @@ predata["loc_date"] = list(zip(predata.location, predata["date"]))
 predata["date"] = pd.to_datetime(predata["date"])
 predata["date"] = predata["date"].dt.strftime(g)
 predata["date"] = pd.to_datetime(predata["date"], format=g)
+predata.rename(columns={"p/100m": unit_label}, inplace=True)
  
 # remove prefixes from the alps location names in the surveys
 fd = predata[predata.river_bassin == "les-alpes"].copy()
@@ -250,12 +251,6 @@ fd_pop_map.drop_duplicates(inplace=True)
 fd_pop_map.set_index("city", drop=True, inplace=True)
 
 t.update({"nmunis":len(fd_pop_map.index)})
-# fdtotalq
-# fd_pop_map.sum()
-# # fancy print to jupyter:
-# obj_string = "{:,}".format(t["fdtotalq"])
-# surv_string = "{:,}".format(t["samples"])
-# pop_string = "{:,}".format(int(fd_pop_map.sum()[0]))
 
 obj_string = locale.format_string('%d', int(t["fdtotalq"]), grouping=True)
 surv_string = locale.format_string('%d', int(t["samples"]), grouping=True)
@@ -477,11 +472,11 @@ plt.show()
 
 # *__Oben:__ Die Orte im Erhebungsgebiet der Alpen wiesen einen höheren Prozentsatz an Flächen auf, die der Forst- und Landwirtschaft zugeordnet wurden, und einen geringeren Prozentsatz, der Gebäuden und Freizeiteinrichtungen zugeordnet wurde, als die Orte im IQAASL.* 
 
-# Die aggregierten Ergebnisse zeigen den Unterschied zwischen den beiden Erhebungsmethoden. Die drei Standorte mit dem höchsten p/100m haben auch die kürzeste Länge. Im Fall von Cabanes-des-Diablerets ist der Meter² gleich der Länge, was darauf hindeutet, dass ein kleiner Bereich um eine Struktur oder ein Gebäude herum vermessen wurde. Veysonnaz befindet sich am Ende einer Skiliftlinie. 
+# Die aggregierten Ergebnisse zeigen den Unterschied zwischen den beiden Erhebungsmethoden. Die drei Standorte mit dem höchsten p/100 m haben auch die kürzeste Länge. Im Fall von Cabanes-des-Diablerets ist der Meter² gleich der Länge, was darauf hindeutet, dass ein kleiner Bereich um eine Struktur oder ein Gebäude herum vermessen wurde. Veysonnaz befindet sich am Ende einer Skiliftlinie. 
 # 
-# Der Unterschied in den Methoden führt zu deutlich unterschiedlichen Ergebnissen. Ausserdem wurden diese beiden Orte aufgrund der früheren Erfahrungen der Person, die die Datenerhebung ausführt, speziell für die Bestandsaufnahme ausgewählt. Aufgrund der unterschiedlichen Dimensionen und Methoden werden die Datenerhebungen Ergebnisse aus Veysonnaz, San-Beranardino und Cabanes-des-Diablerets in der weiteren Analyse nicht berücksichtigt. 
+# Der Unterschied in den Methoden führt zu deutlich unterschiedlichen Ergebnissen. Ausserdem wurden diese beiden Orte aufgrund der früheren Erfahrungen der Person, die die Datenerhebung ausführt, speziell für die Bestandsaufnahme ausgewählt. Aufgrund der unterschiedlichen Dimensionen und Methoden werden die Erhebungsergebnisse aus Veysonnaz, San-Beranardino und Cabanes-des-Diablerets in der weiteren Analyse nicht berücksichtigt. 
 
-# ## Verteilung der Datenerhebungen Ergebnisse¶
+# ## Verteilung der Erhebungsergebnisse¶
 
 # In[8]:
 
@@ -507,7 +502,7 @@ dts_date = a_dt[(~a_dt.location.isin([*nvsn, *remove]))].copy()
 
 # figure caption
 chart_notes = F"""
-*__Links:__ Die Alpen und der Jura, {start_date[3:]} bis {end_date[3:]}, n={a_data.loc_date.nunique()}. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse, Ausreisser entfernt.*  
+*__Links:__ Die Alpen und der Jura, {start_date[3:]} bis {end_date[3:]}, n={a_data.loc_date.nunique()}. __Rechts:__ Verteilung der Erhebungsergebnisse, Ausreisser entfernt.*  
 """
 md(chart_notes )
 
@@ -616,9 +611,9 @@ plt.subplots_adjust(wspace=0.2)
 plt.show()
 
 
-# ## Die am häufigsten gefundenen Objekte
+# ## Die am häufigsten gefundenen Gegenstände
 # 
-# Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
+# Die am häufigsten gefundenen Gegenstände sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[11]:
 
@@ -672,9 +667,9 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Die am häufigsten gefundenen Objekte nach Erhebungsort   
+# ### Die am häufigsten gefundenen Gegenstände nach Erhebungsort   
 
-# *__Unten:__ Wanderwege häufigste Objekte: Median p/100m.*
+# *__Unten:__ Wanderwege häufigste Objekte: Median p/100 m.*
 
 # In[13]:
 
@@ -692,11 +687,10 @@ m_c_p = m_common_ft[["item", unit_label, "location"]].pivot(columns="location", 
 # quash the hierarchal column index
 m_c_p.columns = m_c_p.columns.get_level_values(1)
 
-# the aggregated totals for the survey area
-m_c_p[level_names[0]]= sut.aggregate_to_code(wt_data[wt_data.code.isin(m_common.index)], code_description_map,name=level_names[0])
+# the aggregated totals for the locations
+m_c_p[level_names[0]]= sut.aggregate_to_code(wt_data[wt_data.code.isin(m_common.index)], code_description_map,name=level_names[0], unit_label=unit_label)
 
-# a_s_a = a_data[(a_data["date"] >= start_date)&(a_data["date"] <= end_date)&(a_data.code.isin(m_common.index))].groupby(["water_name_slug", "loc_date", "code"], as_index=False).agg(agg_pcs_quantity)
-m_c_p[level_names[1]] = sut.aggregate_to_code(a_data[a_data.code.isin(m_common.index)], code_description_map,name=level_names[1])
+m_c_p[level_names[1]] = sut.aggregate_to_code(a_data[a_data.code.isin(m_common.index)], code_description_map,name=level_names[1], unit_label=unit_label)
 
 # chart that
 fig, ax  = plt.subplots(figsize=(len(m_c_p.columns)*.8,len(m_c_p)*.9))
@@ -743,13 +737,13 @@ plt.show()
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
 # *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
-# *  **Tabak:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
+# *  **Tabakwaren:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
 # *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # *__Unten:__ Wanderwege Nutzen der gefundenen Objekte: % der Gesamtzahl nach Wassermerkmal. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Grösse klassifiziert.*  
 
@@ -802,13 +796,13 @@ plt.show()
 data_table = cg_t.pivot(columns="location", index="groupname", values=unit_label)
 
 # survey area median
-data_table[level_names[0]] = sut.aggregate_to_group_name(fd, name=level_names[0], val="med")
+data_table[level_names[0]] = sut.aggregate_to_group_name(fd, name=level_names[0], val="med", unit_label=unit_label)
 
 # all survey area median
 data_table[level_names[1]] = sut.aggregate_to_group_name(sd, unit_label=unit_label, name=level_names[1], val="med" )
 
 
-# *__Unten:__ Wanderwege Nutzen der gefundenen Objekte: Median p/100m.*
+# *__Unten:__ Wanderwege Nutzen der gefundenen Objekte: Median p/100 m.*
 
 # In[17]:
 
@@ -893,13 +887,13 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# *__Oben:__ Die Rangfolge der untersuchten Alpen-Standorte in Bezug auf die Landnutzung. Die Ergebnisse der Erhebung in Airolo waren zum Beispiel höher als 83 % aller Erhebungen (Seen, Flüsse und Alpen). In Andermatt liegen die Erhebungsergebnisse unter 95 % aller Erhebungen mit einem vergleichbaren Landnutzungsprofil.*
+# *__Oben:__ Die Rangfolge der untersuchten Alpen-Standorte in Bezug auf die Landnutzung. Die Erhebungsergebnisse in Airolo waren zum Beispiel höher als 83 % aller Erhebungen (Seen, Flüsse und Alpen). In Andermatt liegen die Erhebungsergebnisse unter 95 % aller Erhebungen mit einem vergleichbaren Landnutzungsprofil.*
 
 # ## Diskussion
 # 
 # ### Ergebnisse der Alpenerhebung im Vergleich zu Erhebungen an der Ufer
 # 
-# Der Medianwert beträgt 110 p/100m für die 17 Standorte, die die Kriterien für Länge und Breite im Erhebungsgebiet Alpen erfüllen, und liegt damit unter dem Medianwert aller anderen Erhebungsgebiete (189 p/100m). Objekte, die mit dem Konsum von Nahrungsmitteln, Getränken und Tabak in Verbindung stehen, machten einen geringeren Prozentsatz der Gesamtzahl aus und wiesen eine niedrigere p/100m-Rate auf als Standorte entlang von Wassersystemen. Dieser Unterschied könnte zum Teil auf die geringe Verstädterung zurückzuführen sein, die das Erhebungsgebiet Alpen im Vergleich zu allen anderen Erhebungsgebieten kennzeichnet. 
+# Der Medianwert beträgt 110 p/100 m für die 17 Standorte, die die Kriterien für Länge und Breite im Erhebungsgebiet Alpen erfüllen, und liegt damit unter dem Medianwert aller anderen Erhebungsgebiete (189 p/100 m). Objekte, die mit dem Konsum von Nahrungsmitteln, Getränken und Tabakwaren in Verbindung stehen, machten einen geringeren Prozentsatz der Gesamtzahl aus und wiesen eine niedrigere p/100 m-Rate auf als Standorte entlang von Wassersystemen. Dieser Unterschied könnte zum Teil auf die geringe Verstädterung zurückzuführen sein, die das Erhebungsgebiet Alpen im Vergleich zu allen anderen Erhebungsgebieten kennzeichnet. 
 # 
 # Der Anteil von Objekten, die mit der Infrastruktur zusammenhängen, ist mit 36 % doppelt so hoch wie in allen Untersuchungsgebieten zusammen. Dies ist grösstenteils auf die Fäden von Seilbahnbürsten zurückzuführen, die in Les-Crosets in grossen Mengen gefunden wurden. Seilbahnbürsten werden verwendet, um den Schnee von der Oberseite der abgedeckten Seilbahnkabinen zu entfernen, wenn diese sich dem Einstiegsort nähern. Ähnlich wie Industriepellets oder Schaumstoffkügelchen in der aquatischen Umwelt werden Teile von Seilbahnbürsten wahrscheinlich immer wieder in gelegentlich grossen Mengen an ganz bestimmten Orten gefunden. 
 # 
@@ -926,7 +920,7 @@ plt.show()
 # 
 # Die Personen, die die Datenerhebung ausführten, zogen es vor, die Proben entlang der Liftlinien zu nehmen und bei der Ankunft und Abfahrt der Skilifte zu beginnen. Die auf diese Weise entnommenen Proben folgen dem Verlauf der Veranstaltung: bergab und in den Bereichen mit hohem Verkehrsaufkommen. 
 # 
-# Proben, die in der Nähe von Gebäuden oder anderen Einrichtungen genommen wurden, ergaben höhere Datenerhebungen Ergebnisse. Damit bestätigte sich, was die Mitglieder der Summit Foundation in den vergangenen Jahren festgestellt hatten. Aus diesen Erfahrungen erklärte der Projektleiter, Téo Gürsoy:   
+# Proben, die in der Nähe von Gebäuden oder anderen Einrichtungen genommen wurden, ergaben höhere Erhebungsergebnisse. Damit bestätigte sich, was die Mitglieder der Summit Foundation in den vergangenen Jahren festgestellt hatten. Aus diesen Erfahrungen erklärte der Projektleiter, Téo Gürsoy:   
 # 
 # > Die Personen, die die Datenerhebung ausführt, konzentrieren sich nämlich hauptsächlich auf die Abschnitte unter den Sesselliften, Gondeln oder bei der Abfahrt und Ankunft dieser Anlagen, die stark frequentierte Orte sind.
 # 
@@ -934,7 +928,7 @@ plt.show()
 # 
 # > Die Person, welche die Datenerhebung ausführt, begann den Streckenabschnitt jedoch an der Ankunftsstation der Gondel. Die Skiliftbürsten erregten schnell die Aufmerksamkeit der Person, die beschloss, sich nur auf diesen Bereich zu konzentrieren, um herauszufinden, wie viele von ihnen in dieser Art von Gebiet zu finden waren… 
 # 
-# Die Datenerhebungen Ergebnisse rund um Infrastruktur oder Gebäude sind kein Indikator für den Zustand der Umwelt im gesamten Gebiet. Datenerhebungen in der Umgebung dieser Strukturen weisen tendenziell höhere Werte auf, machen aber nur einen kleinen Teil der gesamten Landnutzung aus.  
+# Die Erhebungsergebnisse rund um Infrastruktur oder Gebäude sind kein Indikator für den Zustand der Umwelt im gesamten Gebiet. Datenerhebungen in der Umgebung dieser Strukturen weisen tendenziell höhere Werte auf, machen aber nur einen kleinen Teil der gesamten Landnutzung aus.  
 # 
 # Es mussten Anpassungen an der Software und dem Berichtsschema vorgenommen werden, um die verschiedenen Arten von Daten zu verarbeiten, die bei Aufräumarbeiten anfallen. Dazu gehörte auch die Schaffung neuer Identifikationscodes für bestimmte Objekte, die im Untersuchungsgebiet der Alpen gefunden werden. Ausserdem stellte die Summit Foundation die Ressourcen zur Verfügung, damit ein Mitarbeiter der Stiftung in der Anwendung des Projektprotokolls und der Software geschult werden konnte.  
 # 
@@ -962,7 +956,7 @@ plt.show()
 # 
 # Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
-# *__Unten:__ fragmentierte Schaumstoffe und Kunststoffe nach Grössengruppen. Median p/100m, Anzahl der Stücke, Prozent der Gesamtmenge.*
+# *__Unten:__ fragmentierte Schaumstoffe und Kunststoffe nach Grössengruppen. Median p/100 m, Anzahl der Stücke, Prozent der Gesamtmenge.*
 
 # In[19]:
 
@@ -1225,6 +1219,12 @@ new_names = {"item":"Objekte", "groupname":"Gruppenname", "quantity":"Menge", "f
 
 complete_inventory.rename(columns=new_names, inplace=True)
 complete_inventory.sort_values(by="Menge", ascending=False)
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:

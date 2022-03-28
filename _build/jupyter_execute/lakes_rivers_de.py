@@ -83,11 +83,13 @@ d = "%Y-%m-%d"
 g = "%d.%m.%Y"
 
 # set some parameters:
-start_date = "01.03.2020"
-end_date ="31.05.2021"
+start_date = "2020-03-01"
+end_date ="2021-05-31"
+ge_start = "01.03.2020"
+ge_end ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
-unit_label = "p/100m"
+unit_label = "p/100 m"
 reporting_unit = 100
 a_color = "dodgerblue"
 
@@ -189,7 +191,7 @@ code_material_map = dfCodes.material
 
 
 # (allsurveysde)=
-# # Seen und Flüsse
+# # Seen und Fliessgewässer
 # 
 # <a href="lakes_rivers.html"> English </a>
 # 
@@ -241,17 +243,20 @@ code_material_map = dfCodes.material
 # this is the data before the expanded fragmented plastics and foams are aggregated to Gfrags and Gfoams
 before_agg = pd.read_csv("resources/checked_before_agg_sdata_eos_2020_21.csv")
 before_agg["loc_date"] = list(zip(before_agg.location, before_agg["date"]))
+before_agg.rename(columns={"p/100m":unit_label}, inplace=True)
 
 # this is the aggregated survey data that is being used
 fd = pd.read_csv(F"resources/checked_sdata_eos_2020_21.csv")
+
 fd["loc_date"] = list(zip(fd.location, fd["date"]))
 
 # apply local date configuration
-fd["date"] = pd.to_datetime(fd["date"])
-fd["date"] = fd["date"].dt.strftime(g)
-fd["date"] = pd.to_datetime(fd["date"], format=g)
+fd["date"] = pd.to_datetime(fd.date, format=d)
+
+fd = fd[(fd["date"] >= start_date)&(fd["date"] <= end_date)].copy()
 
 fd["groupname"] = fd["groupname"].map(lambda x: sut.group_names_de[x])
+fd.rename(columns={"p/100m":unit_label}, inplace=True)
 fd.rename(columns=sut.luse_ge, inplace=True)
 
 # cumulative statistics for each code
@@ -379,7 +384,7 @@ plt.close()
 
 
 # the surveys to chart
-dt_all["date"] = pd.to_datetime(dt_all["date"], format="%Y-%m-%d")
+dt_all["date"] = pd.to_datetime(dt_all["date"], format=g)
 fd_n_samps = dt_all.loc_date.nunique()
 fd_dindex = dt_all.set_index("date")
 
@@ -434,7 +439,7 @@ axtwo.set_ylabel("Verhältnis der Erhebungen", **ck.xlab_k14)
 plt.tight_layout()
 
 glue("eosscatter_de", fig, display=False)
-# plt.show()
+plt.show()
 plt.close()
 
 
@@ -507,21 +512,11 @@ plt.close()
 # 
 # {numref}`Abbildung {number}: <summarymaterial_de>` __Links:__ Zusammenfassung der Erhebungen insgesamt für alle Erhebungsgebiete. __Rechts:__ Materialtypen und Prozentsatz der Gesamtmenge für alle Erhebungsgebiete. 
 
-# In[7]:
-
-
-# # figure caption
-# material_type = F"""
-# *__Right:__ {top_name[0]} material type and percent of total*
-# """
-# md(material_type)
-
-
-# ## Die am häufigsten gefundenen Objekte
+# ## Die am häufigsten gefundenen Gegenstände
 # 
-# Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
+# Die am häufigsten gefundenen Gegenstände sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
-# In[8]:
+# In[7]:
 
 
 # the top ten by quantity
@@ -570,9 +565,9 @@ plt.close()
 # 
 # {numref}`Abbildung {number}: <mcommon_eos_de>` Die häufigsten Objekte für alle Erhebungsgebiete. Die Fail-Pass-Rate gibt an, wie oft ein Objekt in Bezug auf die Anzahl der Erhebungen identifiziert wurde. Zusammengenommen machen die häufigsten Objekte 68 % aller gefundenen Objekte aus.  
 
-# __Häufigste Objekte im Median p/100m nach Erhebungsgebiet__
+# __Häufigste Objekte im Median p/100 m nach Erhebungsgebiet__
 
-# In[9]:
+# In[8]:
 
 
 # aggregated survey totals for the most common codes for all the survey areas
@@ -594,7 +589,7 @@ m_c_p.columns = m_c_p.columns.get_level_values(1)
 
 # the aggregated totals of all the data
 a_s_a = fd[fd.code.isin(m_common.index)].groupby(["water_name_slug", "loc_date", "code"], as_index=False).agg(agg_pcs_quantity)
-a_s_a_cols = sut.aggregate_to_code(a_s_a, code_description_map,name=top_name[0])
+a_s_a_cols = sut.aggregate_to_code(a_s_a, code_description_map,name=top_name[0], unit_label=unit_label)
 
 ad_t_ten = pd.concat([m_c_p, a_s_a_cols], axis=1).sort_values(by=top_name[0], ascending=False)
 
@@ -625,7 +620,7 @@ plt.close()
 
 # __Häufigste Objekte im Monatsdurchschnitt__
 
-# In[10]:
+# In[9]:
 
 
 # collect the survey results of the most common objects
@@ -646,21 +641,7 @@ for a_group in an_order:
     this_group = {a_group:a_plot}
     mgr.update(this_group)
 
-months={
-    0:"Jan",
-    1:"Feb",
-    2:"Mar",
-    3:"Apr",
-    4:"May",
-    5:"Jun",
-    6:"Jul",
-    7:"Aug",
-    8:"Sep",
-    9:"Oct",
-    10:"Nov",
-    11:"Dec"
-}
-
+months=sut.months_de
 # convenience function to lable x axis
 def new_month(x):
     if x <= 11:
@@ -725,7 +706,7 @@ handles = [handles[0], *handles[1:][::-1]]
     
 plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)
 glue("monthlyeos_de", fig, display=False)
-# plt.close()
+#plt.close()
 
 
 # ```{glue:figure} monthlyeos_de
@@ -751,17 +732,17 @@ glue("monthlyeos_de", fig, display=False)
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
 # *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
-# *  **Tabak:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
+# *  **Tabakwaren:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
 # *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # Der Nutzungszweck oder die Beschreibung der identifizierten Objekte in % der Gesamtfläche der Erhebung. 
 
-# In[11]:
+# In[10]:
 
 
 # code groups aggregated by survey for each survey area
@@ -813,7 +794,7 @@ plt.close()
 # 
 # {numref}`Abbildung {number}: <utility_eos_de>` Der Nutzungszweck der Objekte in % der Gesamtmenge für die Erhebungsgebiete.
 
-# In[12]:
+# In[11]:
 
 
 cg_medpcm = F"""
@@ -822,7 +803,7 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[13]:
+# In[12]:
 
 
 # median p/50m solve cg_t for unit_label
@@ -864,11 +845,11 @@ plt.close()
 # 
 # ```
 # 
-# {numref}`Abbildung {number}: <utility2_eos_de>` Das Erhebungsgebiet Rhône weist die höchsten Medianwerte für die häufigsten Objekte auf. Allerdings ist der prozentuale Anteil von Objekten, die mit Tabak, Essen und Trinken zu tun haben, geringer als der von Objekten, die mit der Infrastruktur zu tun haben.  
+# {numref}`Abbildung {number}: <utility2_eos_de>` Das Erhebungsgebiet Rhône weist die höchsten Medianwerte für die häufigsten Objekte auf. Allerdings ist der prozentuale Anteil von Objekten, die mit Tabakwaren, Essen und Trinken zu tun haben, geringer als der von Objekten, die mit der Infrastruktur zu tun haben.  
 
-# ## Flüsse
+# ## Fleisgewässer
 
-# In[14]:
+# In[13]:
 
 
 rivers = fd[fd.w_t == "r"].copy()
@@ -895,7 +876,7 @@ ax = fig.add_subplot(aspec[:, :6])
 line_label = F"{rate} median:{top_name[0]}"
 
 sns.scatterplot(data=l_smps, x="date", y=unit_label, color="black", alpha=0.4, label="Seen", ax=ax)
-sns.scatterplot(data=r_smps, x="date", y=unit_label, color="red", s=34, ec="white",label="Flüsse", ax=ax)
+sns.scatterplot(data=r_smps, x="date", y=unit_label, color="red", s=34, ec="white",label="Fleisgewässer", ax=ax)
 
 ax.set_ylim(-10,y_limit)
 
@@ -926,11 +907,11 @@ plt.close()
 # 
 # ```
 # 
-# {numref}`Abbildung {number}: <riversx_de>` *Links:* Gesamtergebnisse der Erhebungen an Flüssen für alle Erhebungsgebiete von 03.2020 bis 05.2021, n=55. Werte über 1'779 p/100 m sind nicht dargestellt. *Rechts:* Zusammenfassende Daten zu Flüssen.
+# {numref}`Abbildung {number}: <riversx_de>` *Links:* Gesamtergebnisse der Erhebungen an Fleisgewässer für alle Erhebungsgebiete von 03.2020 bis 05.2021, n=55. Werte über 1'779 p/100 m sind nicht dargestellt. *Rechts:* Zusammenfassende Daten zu Fleisgewässer.
 
 # __Häufigste Objekte__
 
-# In[15]:
+# In[14]:
 
 
 # the most common items rivers
@@ -980,7 +961,7 @@ plt.close()
 # 
 # ```
 # 
-# {numref}`Abbildung {number}: <rivers_2_de>` Die häufigsten Objekte aus Erhebungen an Flüssen. Windel – Tücher und Plastiktüten sind nicht unter den häufigsten Gegenständen, wenn Seen berücksichtigt werden.
+# {numref}`Abbildung {number}: <rivers_2_de>` Die häufigsten Objekte aus Erhebungen an Fleisgewässer. Windel – Tücher und Plastiktüten sind nicht unter den häufigsten Gegenständen, wenn Seen berücksichtigt werden.
 
 # ## Annex
 # 
@@ -988,16 +969,16 @@ plt.close()
 # 
 # Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrags», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
-# In[16]:
+# In[15]:
 
 
 frag_foams = F"""
-*{top_name[0]}  fragmentierte Kunststoffe und geschäumte Kunststoffe nach Grösse, Median p/100m, Anzahl der Stücke und Prozent der Gesamtmenge.* 
+*{top_name[0]}  fragmentierte Kunststoffe und geschäumte Kunststoffe nach Grösse, Median p/100 m, Anzahl der Stücke und Prozent der Gesamtmenge.* 
 """
 md(frag_foams)
 
 
-# In[17]:
+# In[16]:
 
 
 # collect the data before aggregating foams for all locations in the survye area
@@ -1008,6 +989,7 @@ some_foams = ["G81", "G82", "G83", "G74"]
 
 # the codes for the fragmented plastics
 some_frag_plas = list(before_agg[before_agg.groupname == "plastic pieces"].code.unique())
+
 
 fd_frags_foams = before_agg[(before_agg.code.isin([*some_frag_plas, *some_foams]))&(before_agg.location.isin(fd.location.unique()))].groupby(["loc_date","code"], as_index=False).agg(agg_pcs_quantity)
 fd_frags_foams = fd_frags_foams.groupby("code").agg({unit_label:"median", "quantity":"sum"})
@@ -1045,7 +1027,7 @@ plt.show()
 
 # ### Gemeinden, Seen und Flüsse mit Erhebungen
 
-# In[18]:
+# In[17]:
 
 
 lakes = dfBeaches.loc[(dfBeaches.index.isin(fd.location.unique()))&(dfBeaches.water == "l")]["water_name"].unique()
@@ -1063,7 +1045,7 @@ muni_string = F"""**Gemeinden:**\n\n >{munis_joined}
 md(muni_string)
 
 
-# In[19]:
+# In[18]:
 
 
 lakes_joined = ", ".join(sorted(lakes))
@@ -1073,7 +1055,7 @@ lake_string = F"""**Seen:**\n\n >{lakes_joined}
 md(lake_string)
 
 
-# In[20]:
+# In[19]:
 
 
 rivers_joined = ", ".join(sorted(rivers))
@@ -1083,7 +1065,7 @@ river_string = F"""**Flüsse:**\n\n >{rivers_joined}
 md(river_string)
 
 
-# In[21]:
+# In[20]:
 
 
 # summary statistics:
@@ -1107,22 +1089,13 @@ obj_string = locale.format_string('%d', fd_n_obj, grouping=True)
 surv_string = locale.format_string('%d', int(fd_n_samps), grouping=True)
 pop_string = locale.format_string('%d', int(fd_effected_population[0]), grouping=True)
 
-
-
-# obj_string = "{:,}".format(fd_n_obj)
-# surv_string = "{:,}".format(fd_n_samps)
-# pop_string = "{:,}".format(int(fd_effected_population[0]))
-
-date_quantity_context = F"Für den Zeitraum zwischen {start_date[3:]} und {end_date[3:]}, wurden im Rahmen von {surv_string} Datenerhebungen insgesamt {obj_string } Objekte entfernt und identifiziert."
+date_quantity_context = F"Für den Zeitraum zwischen {ge_start[3:]} und {ge_end[3:]}, wurden im Rahmen von {surv_string} Datenerhebungen insgesamt {obj_string } Objekte entfernt und identifiziert."
 geo_context = F"Die Ergebnisse des Aare-Erhebungsgebiets umfassen {fd_n_locs} Orte,  {fd_n_munis } Gemeinden und eine Gesamtbevölkerung von etwa {pop_string} Einwohnern."
 
-# date_quantity_context = F"For the period between {start_date[:-3]} and {end_date[:-3]}, {obj_string } objects were removed and identified in the course of {surv_string} surveys."
-# geo_context = F"Those surveys were conducted at {fd_n_locs} different locations."
-# admin_context = F"There are {fd_n_munis} different municipalities represented in these results with a combined population of approximately {pop_string}."
 md(F"{date_quantity_context} {geo_context }")
 
 
-# In[22]:
+# In[21]:
 
 
 # display the survey locations
@@ -1138,7 +1111,7 @@ disp_beaches.set_index("Standort", inplace=True, drop=True)
 disp_beaches
 
 
-# In[23]:
+# In[22]:
 
 
 

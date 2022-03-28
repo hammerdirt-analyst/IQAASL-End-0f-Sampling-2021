@@ -830,7 +830,7 @@ plt.show()
 # 
 # *__Below:__ The distribution of the difference of means between the two sampling periods. The survey results were shuffled and sampled 5,000 times on the survey year column. The null hypothesis could be rejected, supporting the initial observation that there was less observed in 2020 than 2018.* 
 
-# In[13]:
+# In[ ]:
 
 
 # data for testing
@@ -883,7 +883,7 @@ plt.show()
 # 
 # *__Below:__ The observed difference in means between the two years could be in part explained by the decrease in the quantities of cigarettes, foam polystyrene, metal bottle tops and fragmented plastics.*
 
-# In[14]:
+# In[ ]:
 
 
 # data testing
@@ -968,7 +968,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[15]:
+# In[ ]:
 
 
 small = lks_df[lks_df.code.isin([ "G20", "G21", "G22", "G23"])].groupby(["code", "survey year"], as_index=False).agg({"quantity":"sum", "p/100m":"median"})
@@ -991,7 +991,7 @@ small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"
 # 
 # *__Below:__ An association suggests that survey totals for that object will change in relation to the amount of space attributed to that feature, or in the case of roads or river intersections, the quantity. The magnitude of the relationship is not defined, and any association is not linear.* 
 
-# In[16]:
+# In[ ]:
 
 
 corr_data = lks_df[(lks_df.code.isin(mcom))].copy()
@@ -1140,7 +1140,7 @@ plt.show()
 
 # *Lakes 2018: monthly average survey result most common objects*
 
-# In[17]:
+# In[ ]:
 
 
 # plot the monthly medidan results for the most common objects
@@ -1262,7 +1262,7 @@ plt.show()
 
 # 
 
-# In[18]:
+# In[ ]:
 
 
 # repeat for 2020
@@ -1321,7 +1321,7 @@ plt.show()
 # <a id="gps"></a>
 # #### [Survey locations](#annex)
 
-# In[19]:
+# In[ ]:
 
 
 # display the survey locations

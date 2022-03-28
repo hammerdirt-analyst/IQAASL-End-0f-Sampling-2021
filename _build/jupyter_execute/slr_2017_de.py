@@ -84,7 +84,7 @@ start_date = "01.03.2020"
 end_date ="31.05.2021"
 start_end = [start_date, end_date]
 
-unit_label = "p/100m"
+unit_label = "p/100 m"
 
 unit_value = 100
 
@@ -276,8 +276,8 @@ dfdt = df.groupby(use_these_cols[:-2], as_index=False).agg(agg_pcs_quantity)
 # chart the distribtuion of survey results with respect to the land use profile
 fig, axs = plt.subplots(1, len(luse_exp), figsize=(len(luse_exp)*3,4), sharey="row")
 
-data=dfdt[(dfdt["survey year"] == "2018")].groupby(use_these_cols[:-2], as_index=False).agg({"p/100m":"sum", "quantity":"sum"})
-data2=dfdt[(dfdt["survey year"] == "2020")].groupby(use_these_cols[:-2], as_index=False).agg({"p/100m":"sum", "quantity":"sum"})
+data=dfdt[(dfdt["survey year"] == "2018")].groupby(use_these_cols[:-2], as_index=False).agg({"p/100 m":"sum", "quantity":"sum"})
+data2=dfdt[(dfdt["survey year"] == "2020")].groupby(use_these_cols[:-2], as_index=False).agg({"p/100 m":"sum", "quantity":"sum"})
 
 for i, n in enumerate(luse_exp):
     ax=axs[i]
@@ -375,13 +375,13 @@ combined_summary = c_s.pivot(columns="variable", index="survey year")
 data.set_index("date", inplace=True)
 
 # get the median monthly value
-monthly_2017 = data.loc[data["survey year"] == "2018"]["p/100m"].resample("M").median()
+monthly_2017 = data.loc[data["survey year"] == "2018"]["p/100 m"].resample("M").median()
 
 # change the date to the name of the month for charting
 months_2017 = pd.DataFrame({"month":[dt.datetime.strftime(x, "%b") for x in monthly_2017.index], unit_label:monthly_2017.values})
 
 # repeat for 2020
-monthly_2020 = data.loc[data["survey year"] == "2020"]["p/100m"].resample("M").median()
+monthly_2020 = data.loc[data["survey year"] == "2020"]["p/100 m"].resample("M").median()
 months_2020 = pd.DataFrame({"month":[dt.datetime.strftime(x, "%b") for x in monthly_2020.index], unit_label:monthly_2020.values})
 
 # set the date intervals for the chart
@@ -390,7 +390,7 @@ months_fmt = mdates.DateFormatter("%b")
 years = mdates.YearLocator()
 
 # set a y limit axis:
-the_90th = np.percentile(data["p/100m"], 95)
+the_90th = np.percentile(data["p/100 m"], 95)
 
 # chart that
 fig, ax = plt.subplots(2,2, figsize=(14,9), sharey=False)
@@ -421,7 +421,7 @@ data_long = pd.melt(data[["survey year", "loc_date", unit_label]],id_vars=["surv
 data_long["year_bin"] = np.where(data_long["survey year"] == "2018", 0, 1)
 
 # scatter plot of surveys both years
-sns.scatterplot(data=data, x="date", y="p/100m", color="red", s=10, ec="black",label="Erhebungsjahr", hue="survey year", palette=this_palette, ax=axone)
+sns.scatterplot(data=data, x="date", y="p/100 m", color="red", s=10, ec="black",label="Erhebungsjahr", hue="survey year", palette=this_palette, ax=axone)
 axone.legend(loc="upper center")
 
 # monthly median
@@ -442,7 +442,7 @@ axfour.xaxis.set_minor_locator(ticker.MultipleLocator(100))
 
 axfour.legend(loc="center right", title="Erhebungsjahr")
 axfour.tick_params(which="both", bottom=True)
-axfour.grid(b=True, which="minor",linewidth=0.5)
+axfour.grid(visible=True, which="minor",linewidth=0.5)
 
 plt.show()
 
@@ -458,14 +458,14 @@ plt.show()
 combined_summary.columns = combined_summary.columns.get_level_values(1)
 col_rder = ['Anzahl der Standorte',
     '# Erhebungen',
-    'Durchschnitt p/100m',
+    'Durchschnitt p/100 m',
     'Standardfehler',
-    'min p/100m',
+    'min p/100 m',
     '25%',
     '50%',
     '75%',
-    'max p/100m',
-    'Totalobjekte'
+    'max p/100 m',
+    'Abfallobjekte total'
 ]
 cy = combined_summary[col_rder]
 c = cy.T.reset_index()
@@ -523,7 +523,7 @@ plt.show()
 
 # #### Differenz der Mediane 2018 - 2020
 # 
-# Der beobachtete Unterschied der Mediane zwischen den beiden Projekten beträgt 14p/100m. Unterschiede dieser Grössenordnung würden nicht wahrgenommen und könnten auf Zufall zurückzuführen sein. Um die Hypothese zu testen, wurde ein Permutationstest durchgeführt: 
+# Der beobachtete Unterschied der Mediane zwischen den beiden Projekten beträgt 14p/100 m. Unterschiede dieser Grössenordnung würden nicht wahrgenommen und könnten auf Zufall zurückzuführen sein. Um die Hypothese zu testen, wurde ein Permutationstest durchgeführt: 
 # 
 # > Nullhypothese: Der Median des Umfrageergebnisses von 2018 unterscheidet sich statistisch nicht von dem Median von 2020 und der beobachtete Unterschied ist auf Zufall zurückzuführen. 
 # 
@@ -531,7 +531,7 @@ plt.show()
 # 
 # *__Unten:__ Die Verteilung der Differenz der Mediane zwischen 2018 und 2020. Die Umfrageergebnisse wurden gemischt und in der Spalte des Umfragejahres 5.000 Mal als Stichprobe gezogen. Die Nullhypothese kann nicht verworfen werden, was das Argument stützt, dass die Medianwerte der Umfrageergebnisse von Jahr zu Jahr ungefähr gleich sind.*
 
-# In[ ]:
+# In[7]:
 
 
 # data for testing
@@ -577,7 +577,7 @@ plt.show()
 # *__Unten:__ Die häufigsten Objekte sind die zehn mengenmässig am häufigsten vorkommenden UND/ODER Objekte, die in mindestens 50% aller Erhebungen identifiziert wurden. Das sind 60-80% aller Objekte, die in einem bestimmten Erhebungszeitraum identifiziert wurden. Die am häufigsten vorkommenden Objekte sind nicht von Jahr zu Jahr die gleichen. Um die Veränderungen zu bewerten, werden nur die Objekte berücksichtigt, die in beiden Jahren am häufigsten vorkamen. __Links:__ häufigste Objekte 2018, __rechts:__ häufigste Objekte 2020.*
 # 
 
-# In[ ]:
+# In[8]:
 
 
 # code totals by project
@@ -654,7 +654,7 @@ plt.close()
 # 
 # Bei der Betrachtung der sechs Seen (oben) gab es 2020 mehr Proben und Standorte und grössere Mengen an gesammeltem Abfall, aber sowohl der Median als auch der Durchschnitt waren im Vergleich zu 2018 niedriger.  
 
-# In[ ]:
+# In[9]:
 
 
 # a df with just the lakes of interest
@@ -681,7 +681,7 @@ locs_lakes = lks_df[lks_df["survey year"] == "2020"].location.unique()
 
 # *__Oben links:__ Umfragesummen nach Datum, __oben rechts:__ Median der monatlichen Umfragesumme, __unten links:__ Anzahl der Stichproben in Bezug auf die Umfragesumme, __unten rechts:__ empirische kumulative Verteilung der Umfragesummen* 
 
-# In[ ]:
+# In[10]:
 
 
 data=lks_df.groupby(["survey year","loc_date", "date"], as_index=False)[unit_label].sum()
@@ -709,7 +709,7 @@ monthly_2020.reset_index(inplace=True)
 monthly_2020["month"] = monthly_2020.date.map(lambda x: dt.datetime.strftime(x, "%b"))
 
 # long form data for histogram
-data_long = pd.melt(data[["survey year", "p/100m"]],id_vars=["survey year"], value_vars=("p/100m",), value_name="survey total")
+data_long = pd.melt(data[["survey year", "p/100 m"]],id_vars=["survey year"], value_vars=("p/100 m",), value_name="survey total")
 data_long["year_bin"] = np.where(data_long["survey year"] == "2018", 0, 1)
 data_long = data_long[data_long["survey total"] < the_90th].copy()
 
@@ -738,7 +738,7 @@ axfour.set_ylabel("% der Erhebungen", **ck.xlab_k14)
 axfour.set_xlabel(unit_label, **ck.xlab_k)
 
 # scatter plot of surveys both years
-sns.scatterplot(data=data, x="date", y="p/100m", color="red", s=10, ec="black",label="Erhebungsjahr", hue="survey year", palette=this_palette, ax=axone)
+sns.scatterplot(data=data, x="date", y="p/100 m", color="red", s=10, ec="black",label="Erhebungsjahr", hue="survey year", palette=this_palette, ax=axone)
 axone.legend(loc="upper center")
 
 # monthly median
@@ -758,7 +758,7 @@ axfour.xaxis.set_major_locator(ticker.MultipleLocator(1000))
 axfour.xaxis.set_minor_locator(ticker.MultipleLocator(100)) 
 axfour.legend(loc="center right", title="Erhebungsjahr")
 axfour.tick_params(which="both", bottom=True)
-axfour.grid(b=True, which="minor",linewidth=0.5)
+axfour.grid(visible=True, which="minor",linewidth=0.5)
 
 axone.legend(loc="upper center")
 
@@ -768,7 +768,7 @@ plt.show()
 
 # *__Links:__ Zusammenfassung der Gesamterhebung, rechts: Materialtype*
 
-# In[ ]:
+# In[11]:
 
 
 # group by survey year and use pd.describe to get basic stats
@@ -792,14 +792,14 @@ combined_summary = c_s.pivot(columns="variable", index="survey year")
 combined_summary.columns = combined_summary.columns.get_level_values(1)
 col_rder = ['Anzahl der Standorte',
     '# Erhebungen',
-    'Durchschnitt p/100m',
+    'Durchschnitt p/100 m',
     'Standardfehler',
-    'min p/100m',
+    'min p/100 m',
     '25%',
     '50%',
     '75%',
-    'max p/100m',
-    'Totalobjekte'
+    'max p/100 m',
+    'Abfallobjekte total'
 ]
 cy = combined_summary[col_rder]
 c = cy.T.reset_index()
@@ -857,7 +857,7 @@ plt.show()
 
 # *Seen: Schlüsselindikatoren der häufigsten Abfallobjekten 2018 - 2020*
 
-# In[ ]:
+# In[12]:
 
 
 # compare the key indicators of the most common objects
@@ -869,15 +869,12 @@ for a_year in ["2020", "2018"]:
     lks_codes.loc[lks_codes["survey year"] == a_year, "fail rate"] = lks_codes.fail/lks_df[lks_df["survey year"]==a_year].loc_date.nunique()
     lks_codes.loc[lks_codes["survey year"] == a_year, "% of total"] = lks_codes.quantity/lks_df[lks_df["survey year"]==a_year].quantity.sum()
 
-# pivot on the survey year column and keep all the values
-pivot_2017_2020 = lks_codes.pivot(columns="survey year", values=[unit_label, "fail rate", "% of total"], index="code")
+lks_codes["d"] = lks_codes.code.map(lambda x: code_description_map.loc[x])
 
-# map description to code
-pivot_2017_2020["Item"] = pivot_2017_2020.index.map(lambda x: code_description_map.loc[x])
 
-# set index and sort
-pivot_2017_2020.set_index("Item", inplace=True, drop=True)
-pivot_2017_2020.sort_values(by=(unit_label,"2018"), ascending=False, inplace=True)
+a = lks_codes.pivot(columns="survey year", values=unit_label, index="d")
+b = lks_codes.pivot(columns="survey year", values="fail rate", index="d").astype(float)
+c = lks_codes.pivot(columns="survey year", values="% of total", index="d")
 
 # plot that
 fig = plt.figure(figsize=(8, 12))
@@ -889,28 +886,33 @@ axtwo = fig.add_subplot(spec[:,3:5])
 axthree = fig.add_subplot(spec[:,5:7])
 
 # get an order to assign each ax
-an_order = pivot_2017_2020["p/100m"].sort_values(by="2018", ascending=False).index
+an_order = a.sort_values(by="2018", ascending=False).index
 
 # index axtwo and and axthree to axone
-axtwo_data = pivot_2017_2020["fail rate"].sort_values(by="2018", ascending=False).reindex(an_order)
-axthree_data = pivot_2017_2020["% of total"].sort_values(by="2018", ascending=False).reindex(an_order)
+axone_data = a.sort_values(by="2018", ascending=False)
+axtwo_data = b.sort_values(by="2018", ascending=False).reindex(an_order)
+axthree_data = c.sort_values(by="2018", ascending=False).reindex(an_order)
 
 # pieces per meter
 
-sns.heatmap(pivot_2017_2020[unit_label], cmap=cmap2, annot=True, fmt=".0f", annot_kws={"fontsize":12},  ax=axone, square=True, cbar=False, linewidth=.05,  linecolor="white")
+
+
+sns.heatmap(axone_data, cmap=cmap2, annot=True, annot_kws={"fontsize":12},  ax=axone, square=True, cbar=False, linewidth=.05,  linecolor="white")
 axone.tick_params(**dict(labeltop=True, labelbottom=True, pad=12, labelsize=12), **ck.no_xticks)
 axone.set_xlabel(" ")
-axone.set_title("Median p/100m",**ck.title_k14r)
+axone.set_title("Median p/100 m",**ck.title_k14r)
 
 # fail rate
-sns.heatmap(pivot_2017_2020["fail rate"], cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axtwo, square=True,  cbar=False, linewidth=.05,  linecolor="white")
+
+
+sns.heatmap(axtwo_data, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axtwo, square=True,  cbar=False, linewidth=.05,  linecolor="white")
 axtwo.tick_params(**dict(labeltop=True, labelbottom=True, pad=12, labelsize=12), **ck.no_xticks)
 axtwo.tick_params(labelleft=False, left=False)
 axtwo.set_xlabel(" ")
 axtwo.set_title("fail rate", **ck.title_k14r)
 
 # percent of total
-sns.heatmap(pivot_2017_2020["% of total"], cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axthree, square=True,  cbar=False, linewidth=.05,  linecolor="white")
+sns.heatmap(axthree_data, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axthree, square=True,  cbar=False, linewidth=.05,  linecolor="white")
 axthree.tick_params(**dict(labeltop=True, labelbottom=True, pad=12, labelsize=12), **ck.no_xticks)
 axthree.tick_params(labelleft=False, left=False)
 axthree.set_xlabel(" ")
@@ -934,7 +936,7 @@ plt.show()
 # 
 # *__Unten:__ Die Verteilung der Differenz der Mittelwerte zwischen den beiden Stichprobenzeiträumen. Die Umfrageergebnisse wurden gemischt und in der Spalte des Umfragejahres 5.000 Mal als Stichprobe gezogen. Die Nullhypothese konnte verworfen werden, was die anfängliche Beobachtung stützt, dass im Jahr 2020 weniger beobachtet wurde als 2018.*
 
-# In[ ]:
+# In[13]:
 
 
 # data for testing
@@ -983,7 +985,7 @@ plt.show()
 # 
 # *__Unten:__ Die Verteilung der Differenz der Mittelwerte zwischen den beiden Stichprobenzeiträumen. Die Umfrageergebnisse wurden gemischt und in der Spalte des Umfragejahres 5.000 Mal als Stichprobe gezogen. Die Nullhypothese konnte verworfen werden, was die anfängliche Beobachtung stützt, dass im Jahr 2020 weniger beobachtet wurde als 2018.* 
 
-# In[ ]:
+# In[14]:
 
 
 # data testing
@@ -1062,10 +1064,10 @@ plt.tight_layout()
 plt.show()
 
 
-# In[ ]:
+# In[15]:
 
 
-small = lks_df[lks_df.code.isin([ "G20", "G21", "G22", "G23"])].groupby(["code", "survey year"], as_index=False).agg({"quantity":"sum", "p/100m":"median"})
+small = lks_df[lks_df.code.isin([ "G20", "G21", "G22", "G23"])].groupby(["code", "survey year"], as_index=False).agg({"quantity":"sum", "p/100 m":"median"})
 ttl = combined_data.groupby("survey year").quantity.sum()
 small.loc[small["survey year"] == "2018", "p_t"] = small.quantity/ttl.loc["2018"]
 small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"]
@@ -1086,7 +1088,7 @@ small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"
 # 
 # *__Unten:__ Eine Assoziation deutet darauf hin, dass sich die Erhebungssummen für das betreffende Objekt im Verhältnis zu der diesem Merkmal zugewiesenen Fläche oder - im Falle von Strassen oder Flusskreuzungen - der Menge ändern. Das Ausmass der Beziehung ist nicht definiert, und jede Assoziation ist nicht linear.*
 
-# In[ ]:
+# In[16]:
 
 
 corr_data = lks_df[(lks_df.code.isin(mcom))].copy()
@@ -1123,7 +1125,7 @@ for i,code in enumerate(mcom):
         else:
             ax.set_xlabel(" ")
             ax.set_ylabel(" ")
-        _, corr, a_p = sut.make_plot_with_spearmans(data, ax, n)
+        _, corr, a_p = sut.make_plot_with_spearmans(data, ax, n, unit_label=unit_label)
         
         # assign the facecolor based on the value of p and rho
         if a_p < 0.05:
@@ -1155,7 +1157,7 @@ plt.show()
 # 
 # __Per Saldo keine Änderung__ 
 # 
-# Die zusammenfassenden Statistiken und die Ergebnisse des Tests zur Differenz der Mediane deuten darauf hin, dass es auf nationaler Ebene keine statistisch messbare Veränderung von einem Projekt zum nächsten gab. Der 95%ige KI des Medianwertes der Umfrage im Jahr 2020 lag bei 137 - 188p/100m (Abschnitt Berechnung der Basislinien). Das Medianergebnis für 2018 lag bei 125p/100m mit einem CI von 112p/100m bis 146p/100m, was die untere Grenze des Medians von 2020 einschliesst. __Die Differenz der Mittelwerte für die häufigsten Objekte deutet jedoch auf ein realistischeres und dynamischeres Ergebnis hin:__
+# Die zusammenfassenden Statistiken und die Ergebnisse des Tests zur Differenz der Mediane deuten darauf hin, dass es auf nationaler Ebene keine statistisch messbare Veränderung von einem Projekt zum nächsten gab. Der 95%ige KI des Medianwertes der Umfrage im Jahr 2020 lag bei 137 - 188 p/100 m (Abschnitt Berechnung der Basislinien). Das Medianergebnis für 2018 lag bei 125 p/100 m mit einem CI von 112 p/100 m bis 146 p/100 m, was die untere Grenze des Medians von 2020 einschliesst. __Die Differenz der Mittelwerte für die häufigsten Objekte deutet jedoch auf ein realistischeres und dynamischeres Ergebnis hin:__
 # 
 # Es gab einen statistisch signifikanten Rückgang bei vier der sieben häufigsten Objekte aus beiden Jahren __Liste 1:__
 # 
@@ -1174,7 +1176,7 @@ plt.show()
 # * Das 2020-Protokoll zählt alle sichtbaren Objekte und klassifiziert Fragmente nach Grösse 
 # * Das Protokoll von 2018 beschränkte die Anzahl der Objekte auf Gegenstände, die grösser oder gleich 2,5 cm lang waren
 # 
-# Die Gesamtmenge der im Jahr 2020 gesammelten Plastikteile beträgt 7.400 oder 18p/100m und 5.563 oder 5p/100m Schaumstofffragmente. Im Jahr 2020 wurden 3.662 Plastikteile zwischen 0,5 und 2,5 cm entfernt, was der Gesamtmenge von 2018 entspricht. Das Gleiche gilt für Schaumstoffteile zwischen 0,5 und 2,5 cm, siehe [_Seen und Flüsse_](allsurveysde). 
+# Die Gesamtmenge der im Jahr 2020 gesammelten Plastikteile beträgt 7.400 oder 18 p/100 m und 5.563 oder 5 p/100 m Schaumstofffragmente. Im Jahr 2020 wurden 3.662 Plastikteile zwischen 0,5 und 2,5 cm entfernt, was der Gesamtmenge von 2018 entspricht. Das Gleiche gilt für Schaumstoffteile zwischen 0,5 und 2,5 cm, siehe [_Seen und Flüsse_](allsurveysde). 
 # 
 # Der Unterschied im Protokoll und die Ergebnisse von 2020 lassen Zweifel an der Wahrscheinlichkeit eines Rückgangs von fragmentierten Kunststoffen und geschäumten Kunststoffen von 2018 bis 2020 aufkommen. Geschäumte Kunststoffe und fragmentierte Kunststoffe sind Gegenstände, deren ursprüngliche Verwendung unbekannt ist, aber das Material kann unterschieden werden. __Fragmentierte Kunststoffe und Schaumstoffe, die grösser als 0,5 cm sind, machen 27 % der gesamten Erhebungsergebnisse für die Seen im Jahr 2020 aus.__ Studien im Maas-/Rheindelta zeigen, dass diese kleinen, fragmentierten Objekte einen grossen Teil des Gesamtaufkommens ausmachen {cite}`meuserhine`.
 # 
@@ -1227,7 +1229,7 @@ plt.show()
 
 # *__Unten__ Seen 2018: Durchschnittliche monatliche Umfrageergebnisse häufigste Objekte*
 
-# In[ ]:
+# In[17]:
 
 
 # plot the monthly medidan results for the most common objects
@@ -1349,11 +1351,11 @@ plt.show()
 
 # 
 
-# In[ ]:
+# In[18]:
 
 
 # repeat for 2020
-top_ten_month = lks_df[(lks_df["survey year"] == "2020")&(lks_df.code.isin(mcom))].groupby(["loc_date", "date", "code"], as_index=False)["p/100m"].sum()
+top_ten_month = lks_df[(lks_df["survey year"] == "2020")&(lks_df.code.isin(mcom))].groupby(["loc_date", "date", "code"], as_index=False)["p/100 m"].sum()
 top_ten_month["month"] = top_ten_month.date.dt.month
 
 dts_date = top_ten_month.copy()
@@ -1362,7 +1364,7 @@ dts_date.set_index("date", inplace=True)
 mgr2020 = {}
 
 for a_group in group_names:
-    a_plot = dts_date[(dts_date.code==a_group)]["p/100m"].resample("M").mean().fillna(0)
+    a_plot = dts_date[(dts_date.code==a_group)]["p/100 m"].resample("M").mean().fillna(0)
     this_group = {a_group:a_plot}
     mgr2020.update(this_group)
 fig, ax = plt.subplots(figsize=(12,7))
@@ -1407,7 +1409,7 @@ plt.show()
 
 # #### Erhebungsorte
 
-# In[ ]:
+# In[19]:
 
 
 # display the survey locations

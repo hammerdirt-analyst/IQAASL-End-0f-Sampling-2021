@@ -273,7 +273,7 @@ wastewater = [
 ]
 
 wwcodes = dfCodes[dfCodes.code.isin(wastewater)][cols_to_display]
-wwcodes 
+wwcodes.set_index("code", drop=True)
 
 
 # ### Micro plastics 
@@ -291,7 +291,7 @@ codesmicro=["G112", "G106", "G117", "G103", "G104", "G105", "G107", "G108", "G10
 
 # make table
 wwcodes = dfCodes[dfCodes.code.isin(codesmicro)][cols_to_display]
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # ### Infrastructure 
@@ -367,7 +367,7 @@ construction2= [
 ]
 
 wwcodes = dfCodes[dfCodes.code.isin(construction2)][cols_to_display]
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # ### Food and drink 
@@ -409,7 +409,7 @@ foodstuff = [
     ]
 
 wwcodes = dfCodes[dfCodes.code.isin(foodstuff)][cols_to_display]
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # ### Agriculture
@@ -458,7 +458,7 @@ ag2 = [
 ]
 
 wwcodes = dfCodes[dfCodes.code.isin(ag2)][cols_to_display]
-wwcodes 
+wwcodes.set_index("code", drop=True) 
 
 
 # ### Tobacco codes
@@ -476,7 +476,7 @@ tobac = [
     ]
 
 wwcodes = dfCodes[dfCodes.code.isin(tobac)][cols_to_display]
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # ### Recreation codes
@@ -529,7 +529,7 @@ recreation = [
   ]
 
 wwcodes = dfCodes[dfCodes.code.isin(recreation)][cols_to_display]
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # ### Packaging not related to food, drink, tobacco or unknown origin.
@@ -565,7 +565,7 @@ packaging = [
 
 wwcodes = dfCodes[dfCodes.code.isin(packaging)][cols_to_display]
 wwcodes.loc[wwcodes.code == "G925", "description"] = "Dessicants/moisture absorbers"
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # ### Fragmented plastics: Gfrags
@@ -587,7 +587,7 @@ plasticpcs = [
     ]
 
 wwcodes = dfCodes[dfCodes.code.isin(plasticpcs)][cols_to_display]
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # In[19]:
@@ -657,7 +657,7 @@ pi = [
     "G930"
     ]
 wwcodes = dfCodes[dfCodes.code.isin(pi)][cols_to_display]
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # ### Unclassified items 
@@ -673,7 +673,7 @@ wwcodes
 
 wwcodes = dfCodes[dfCodes.groupname == "unclassified"][cols_to_display]
 wwcodes.loc[wwcodes.code == "G38", "description"] = "Coverings sheeting for protecting large cargo items"
-wwcodes 
+wwcodes.set_index("code", drop=True)
 
 
 # ## List of additional codes
@@ -735,7 +735,7 @@ wwcodes = dfCodes[dfCodes.code.isin(addcodes)][cols_to_display]
 wwcodes.loc[wwcodes.code == "G933", "description"] = "Bags cases for accesories"
 wwcodes.loc[wwcodes.code == "G932", "description"] = "Biomass beads for waste water treatment"
 
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # ## Local codes added for Swiss alps
@@ -762,7 +762,7 @@ wwcodes = dfCodes[dfCodes.code.isin(alpcodes)][cols_to_display]
 wwcodes.loc[wwcodes.code == "G933", "description"] = "Bags cases for accesories"
 wwcodes.loc[wwcodes.code == "G932", "description"] = "Biomass beads for waste water treatment"
 
-wwcodes
+wwcodes.set_index("code", drop=True)
 
 
 # In[24]:

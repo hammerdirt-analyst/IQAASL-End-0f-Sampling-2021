@@ -69,7 +69,7 @@ def push_this_to_json(filename="", data=[]):
 
 
 # (codegroupsde)=
-# # Code-Gruppen
+# # Codegruppen
 # 
 # <a href="code_groups.html"> English </a>
 # 
@@ -115,7 +115,10 @@ dfCodes.loc["G708", "material"] = "Metal"
 for x in de_codes.index:
     dfCodes.loc[x, "description"] = de_codes.loc[x, "german"]
 
+
 # translate the material
+dfCodes = dfCodes[dfCodes.material.isin(['Metal', 'Chemicals', 'Cloth', 'Glass', 'Paper', 'Plastic',
+       'Rubber', 'Undefined', 'Unidentified', 'Wood'])]
 dfCodes["material"] = dfCodes.material.map(lambda x: sut.mat_ge[x])
 
 # translate the code groups and columns to local
@@ -224,7 +227,7 @@ sut.display_image_ipython("resources/images/codegroups/petite_plage_yverdon_lesB
 # * __Infrastruktur:__ Posten im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung 
 # * __Essen und Trinken:__ alle Materialien, die mit dem Konsum von Essen und Trinken zu tun haben 
 # * __Landwirtschaft:__ hauptsächlich industrielle Folien, z.B. Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
-# * __Tabak:__ hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
+# * __Tabakwaren:__ hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # * __Erholung:__ Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
 # * __Verpackungen, die nicht für Lebensmittel und Getränke bestimmt sind:__ Verpackungsmaterial, das nicht als Lebensmittel, Getränke oder Tabakwaren gekennzeichnet ist
 # * __Kunststoffteile (> 5mm):__ zersplitterte Kunststoffe unbestimmter Herkunft oder Verwendung  
@@ -475,7 +478,7 @@ wwcodes = dfCodes.loc[ag2][cols_to_display]
 wwcodes 
 
 
-# ### Tabak-Codes
+# ### Tabakwaren
 # 
 # Alle tabakbezogenen Artikel. 
 

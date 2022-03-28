@@ -10,7 +10,7 @@ parts:
     chapters:
     - file: intro_de
     - file: esummary_de
-  - caption: Ergebnisse der Erhebung
+  - caption: Erhebungsergebnisse
     numbered: True
     chapters:
     - file: lakes_rivers_de

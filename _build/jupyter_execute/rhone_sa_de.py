@@ -84,7 +84,7 @@ start_date = "01.03.2020"
 end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
-unit_label = "p/100m"
+unit_label = "p/100 m"
 a_color = "dodgerblue"
 
 # colors for gradients
@@ -191,7 +191,7 @@ code_material_map = dfCodes.material
 # 
 # <a href="rhone_sa.html"> English </a>
 
-# *__Unten:__ Karte des Erhebungsgebiets März 2020 - Mai 2021. Durchmesser der Punktsymbole = das mittlere Erhebungsergebnis in gefundene Abfallobjekte pro 100 Meter (p/100m).*
+# *__Unten:__ Karte des Erhebungsgebiets März 2020 - Mai 2021. Durchmesser der Punktsymbole = das mittlere Erhebungsergebnis in gefundene Abfallobjekte pro 100 Meter (p/100 m).*
 
 # In[2]:
 
@@ -218,6 +218,9 @@ a_data["date"] = pd.to_datetime(a_data["date"], format=g)
 
 # rename the code groups and columns to local
 a_data["groupname"] = a_data["groupname"].map(lambda x: sut.group_names_de[x])
+# rename the units per foen spec
+a_data.rename(columns={"p/100m":unit_label}, inplace=True)
+# german land use categories
 a_data.rename(columns=sut.luse_ge, inplace=True)
 
 fd = sut.feature_data(a_data, this_feature["level"], these_features=[this_feature["slug"]])
@@ -267,7 +270,7 @@ lake_string = F"""
 
 *Seen:*\n\n >{lakes_joined}
 
-*Flüsse:*\n\n >{rivers_joined}
+*Fliesgewässer:*\n\n >{rivers_joined}
 
 *Gemeinden:*\n\n >{munis_joined}
 """
@@ -278,7 +281,7 @@ md(lake_string)
 # 
 # Die Landnutzung wird als Prozentsatz der Gesamtfläche angegeben, die jeder Landnutzungskategorie innerhalb eines Radius von 1'500 m um den Erhebungsort zugeordnet wird. 
 # 
-# Strassen werden als Gesamtzahl der Strassenkilometer im Umkreis von 1'500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Flüsse/Kanäle, die einen See innerhalb von 1'500 m um den Erhebungsort herum durchqueren. 
+# Strassen werden als Gesamtzahl der Strassenkilometer im Umkreis von 1'500 m angegeben. Flussmündung ist ebenfalls eine ordinale Rangfolge der Anzahl der Fliesgewässer/Kanäle, die einen See innerhalb von 1'500 m um den Erhebungsort herum durchqueren. 
 # 
 # Das Verhältnis der Anzahl der Erhebungen bei unterschiedlichen Landnutzungsprofilen gibt einen Hinweis auf die ökologischen und wirtschaftlichen Rahmenbedingungen der Untersuchungsstandorte.  
 # 
@@ -406,7 +409,7 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Verteilung der Ergebnisse der Datenerhebungen
+# ### Verteilung der Erhebungsergebnisse
 
 # In[7]:
 
@@ -427,7 +430,7 @@ dts_date.set_index("date", inplace=True)
 resample_plot, rate = sut.quarterly_or_monthly_values(fd_dindex , this_feature["name"], vals=unit_label, quarterly=["ticino"])
 
 # scale the chart as needed to accomodate for extreme values
-y_lim = 95
+y_lim = 99
 y_limit = np.percentile(dts_date[unit_label], y_lim)
 
 # label for the chart that alerts to the scale
@@ -554,9 +557,9 @@ plt.subplots_adjust(wspace=0.2)
 plt.show()
 
 
-# ## Die am häufigsten gefundenen Objekte
+# ## Die am häufigsten gefundenen Gegenstände
 # 
-# Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
+# Die am häufigsten gefundenen Gegenstände sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[11]:
 
@@ -605,7 +608,7 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Die am häufigsten gefundenen Objekte nach Gewässer 
+# ### Die am häufigsten gefundenen Gegenstände nach Gewässer 
 
 # In[13]:
 
@@ -616,7 +619,7 @@ rb_string = F"""
 md(rb_string)
 
 
-# In[14]:
+# In[15]:
 
 
 # aggregated survey totals for the most common codes for all the water features
@@ -636,11 +639,12 @@ m_c_p = m_common_ft[["item", unit_label, "f_name"]].pivot(columns="f_name", inde
 m_c_p.columns = m_c_p.columns.get_level_values(1)
 
 # the aggregated totals for the survey area
-c = sut.aggregate_to_group_name(fd[fd.code.isin(m_common.index)], column="code", name=this_feature["name"], val="med")
+c = sut.aggregate_to_group_name(fd[fd.code.isin(m_common.index)], column="code", name=this_feature["name"], val="med", unit_label=unit_label)
+
 m_c_p[this_feature["name"]]= sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
 # the aggregated totals of all the data
-c = sut.aggregate_to_group_name(a_data[(a_data.code.isin(m_common.index))], column="code", name=top, val="med")
+c = sut.aggregate_to_group_name(a_data[(a_data.code.isin(m_common.index))], column="code", name=top, val="med", unit_label=unit_label)
 m_c_p[top] = sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
 # chart that
@@ -659,9 +663,9 @@ plt.show()
 plt.close()
 
 
-# ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
+# ### Die am häufigsten gefundenen Gegenstände im monatlichen Durchschnitt
 
-# In[15]:
+# In[16]:
 
 
 # collect the survey results of the most common objects
@@ -687,7 +691,7 @@ monthly_mc = F"""
 md(monthly_mc)
 
 
-# In[16]:
+# In[17]:
 
 
 months={
@@ -771,7 +775,7 @@ plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper
 plt.show()
 
 
-# ## Ergebnisse der Datenerhebungen und Landnutzung 
+# ## Erhebungsergebnisse und Landnutzung 
 # 
 # Der Flächennutzungsmix ist eine einzigartige Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Ergebnissen der Datenerhebungen werden mit den Flächennutzungsraten für einen Radius von 1500 m um den Erhebungsort verglichen. 
 
@@ -785,7 +789,7 @@ plt.show()
 # 2. Gelb ist eine negative Assoziation 
 # 3. Weiss ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p>0,05 
 
-# In[17]:
+# In[18]:
 
 
 corr_data = fd[(fd.code.isin(m_common.index))&(fd.water_name_slug.isin(lakes_of_interest))].copy()
@@ -799,12 +803,12 @@ else:
 
 association = F"""*Unten: Ausgewertete Korrelation der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil im {this_feature["name"]}. Für alle gültigen Erhebungen an Seen n={len(corr_data.loc_date.unique())}.*
 
-*{warning}*
+{warning}
 """
 md(association)
 
 
-# In[18]:
+# In[19]:
 
 
 # chart the results of test for association
@@ -835,7 +839,7 @@ for i,code in enumerate(m_common.index):
             ax.set_xlabel(" ")
             ax.set_ylabel(" ")
         # run test
-        _, corr, a_p = sut.make_plot_with_spearmans(data, ax, n)
+        _, corr, a_p = sut.make_plot_with_spearmans(data, ax, n, unit_label=unit_label)
         
         # if siginficant set adjust color to direction
         if a_p < 0.05:
@@ -862,15 +866,15 @@ plt.show()
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
 # *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
-# *  **Tabak:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
+# *  **Tabakwaren:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
 # *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
-# In[19]:
+# In[20]:
 
 
 cg_poft = F"""
@@ -880,7 +884,7 @@ cg_poft = F"""
 md(cg_poft)
 
 
-# In[20]:
+# In[21]:
 
 
 # code groups resluts aggregated by survey
@@ -932,7 +936,7 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# In[21]:
+# In[22]:
 
 
 cg_medpcm = F"""
@@ -942,7 +946,7 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[22]:
+# In[23]:
 
 
 # median p/50m of all the water features
@@ -972,9 +976,9 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# ## Flüsse 
+# ## Fliesgewässer 
 
-# In[23]:
+# In[24]:
 
 
 rivers = fd[fd.w_t == "r"].copy()
@@ -982,12 +986,12 @@ r_smps = rivers.groupby(["loc_date", "date", "location", "water_name_slug"], as_
 l_smps = fd[fd.w_t == "l"].groupby(["loc_date","date","location", "water_name_slug"], as_index=False).agg(agg_pcs_quantity)
 
 chart_notes = F"""
-*__Links:__ {this_feature["name"]} Flüsse, {start_date[3:]} bis {end_date[3:]}, n={len(r_smps.loc_date.unique())}. {not_included} __Rechts:__ Zusammenfassende der Daten.*
+*__Links:__ {this_feature["name"]} Fliesgewässer, {start_date[3:]} bis {end_date[3:]}, n={len(r_smps.loc_date.unique())}. {not_included} __Rechts:__ Zusammenfassende der Daten.*
 """
 md(chart_notes )
 
 
-# In[24]:
+# In[25]:
 
 
 cs = r_smps[unit_label].describe().round(2)
@@ -1031,18 +1035,18 @@ table_five.get_celld()[(0,0)].get_text().set_text(" ")
 plt.show()
 
 
-# ### Die an Flüssen am häufigsten gefundene Objekte
+# ### Die an Fliesgewässer am häufigsten gefundene Objekte
 
-# In[25]:
+# In[26]:
 
 
 riv_mcommon = F"""
-*Häufigste Objekte {unit_label} an Flüssen im {this_feature["name"]}:  Medianwert der Erhebung.*
+*Häufigste Objekte {unit_label} an Fliesgewässer im {this_feature["name"]}:  Medianwert der Erhebung.*
 """
 md(riv_mcommon)
 
 
-# In[26]:
+# In[27]:
 
 
 # the most common items rivers
@@ -1089,16 +1093,16 @@ plt.close()
 # 
 # Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
-# In[27]:
+# In[28]:
 
 
 frag_foams = F"""
-*__Unten:__ Fragmentierte und geschäumte Kunststoffe nach Grösse im {this_feature["name"]}, Median p/100m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.*
+*__Unten:__ Fragmentierte und geschäumte Kunststoffe nach Grösse im {this_feature["name"]}, Median p/100 m, Anzahl der gefundenen Stücke und Prozent der Gesamtmenge.*
 """
 md(frag_foams)
 
 
-# In[28]:
+# In[29]:
 
 
 # collect the data before aggregating foams for all locations in the survye area
@@ -1109,9 +1113,11 @@ some_foams = ["G81", "G82", "G83", "G74"]
 
 # the codes for the fragmented plastics
 some_frag_plas = list(before_agg[before_agg.groupname == "plastic pieces"].code.unique())
+before_agg.rename(columns={"p/100m":unit_label}, inplace=True)
 
 fd_frags_foams = before_agg[(before_agg.code.isin([*some_frag_plas, *some_foams]))&(before_agg.location.isin(t["locations"]))].groupby(["loc_date","code"], as_index=False).agg(agg_pcs_quantity)
 fd_frags_foams = fd_frags_foams.groupby("code").agg(agg_pcs_median)
+
 
 # add code description and format for printing
 fd_frags_foams["item"] = fd_frags_foams.index.map(lambda x: code_description_map.loc[x])
@@ -1137,7 +1143,7 @@ plt.close()
 
 # ### Die Erhebungsorte
 
-# In[29]:
+# In[30]:
 
 
 # display the survey locations
@@ -1154,7 +1160,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[30]:
+# In[31]:
 
 
 pd.set_option("display.max_rows", None)

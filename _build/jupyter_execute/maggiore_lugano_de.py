@@ -84,7 +84,7 @@ start_date = "01.03.2020"
 end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
-unit_label = "p/100m"
+unit_label = "p/100 m"
 a_color = "dodgerblue"
 
 # colors for gradients
@@ -220,6 +220,8 @@ a_data["date"] = pd.to_datetime(a_data["date"], format=g)
 
 # rename the code groups and columns to local
 a_data["groupname"] = a_data["groupname"].map(lambda x: sut.group_names_de[x])
+# rename unit labels to FOEN spec
+a_data.rename(columns={"p/100m": unit_label}, inplace=True)
 a_data.rename(columns=sut.luse_ge, inplace=True)
 
 # the data for this report
@@ -334,7 +336,7 @@ plt.tight_layout()
 plt.close()
 
 
-# ### Verteilung der Datenerhebungen Ergebnisse
+# ### Verteilung der Erhebungsergebnisse
 
 # In[6]:
 
@@ -354,15 +356,15 @@ dts_date = sut.group_these_columns(dts_date, **ots_params)
 resample_plot, rate = sut.quarterly_or_monthly_values(fd_dindex , this_feature["name"], vals=unit_label, quarterly=["ticino"])    
 
 # scale the chart as needed to accomodate for extreme values
-y_lim = 98
+y_lim = 99
 y_limit = np.percentile(dts_date[unit_label], y_lim)
 
 # label for the chart that alerts to the scale
-not_included = F"Werte grösser als {round(y_limit, 1)}{unit_label} {y_lim}% nicht gezeigt."
+not_included = F"Werte grösser als {round(y_limit, 1)} {unit_label} {y_lim}% nicht gezeigt."
 
 # figure caption
 chart_notes = F"""
-*__Links:__ {this_feature['name']}, {start_date[:7]} bis {end_date[:7]}, n={t["loc_date"]}. {not_included} __Rechts:__ {this_feature['name']}  empirische kumulative Verteilung der Datenerhebungen Ergebnisse.*
+*__Links:__ {this_feature['name']}, {start_date[3:]} bis {end_date[3:]}, n={t["loc_date"]}. {not_included} __Rechts:__ {this_feature['name']}  empirische kumulative Verteilung der Erhebungsergebnisse.*
 """
 md(chart_notes )
 
@@ -480,7 +482,7 @@ plt.show()
 
 # ## Die am häufigsten gefundenen Objekte
 # 
-# Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
+# Die am häufigsten gefundenen Gegenständesind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
 # In[10]:
 
@@ -489,7 +491,7 @@ plt.show()
 most_abundant = code_totals.sort_values(by="quantity", ascending=False)[:10]
 
 # the most common
-most_common = code_totals[code_totals["fail rate"] > 49.999].sort_values(by="quantity", ascending=False)
+most_common = code_totals[code_totals["fail rate"] >= a_fail_rate].sort_values(by="quantity", ascending=False)
 
 # merge with most_common and drop duplicates
 m_common = pd.concat([most_abundant, most_common]).drop_duplicates()
@@ -518,7 +520,7 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% der Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(10.8,len(m_common)*.6))
+fig, axs = plt.subplots(figsize=(12,len(m_common)*.6))
 
 sut.hide_spines_ticks_grids(axs)
 
@@ -531,7 +533,7 @@ plt.show()
 plt.close()
 
 
-# ### Die am häufigsten gefundenen Objekte nach Gemeinden
+# ### Die am häufigsten gefundenen Gegenständenach Gemeinden
 
 # In[12]:
 
@@ -559,15 +561,15 @@ m_c_p = m_common_ft[["item", this_level, unit_label]].pivot(columns=this_level, 
 m_c_p.columns = m_c_p.columns.get_level_values(1)
 
 # the aggregated totals for the feature data
-c = sut.aggregate_to_group_name(fd[fd.code.isin(m_common.index)], column="code", name=this_feature["name"], val="med")
+c = sut.aggregate_to_group_name(fd[fd.code.isin(m_common.index)], column="code", name=this_feature["name"], val="med", unit_label=unit_label)
 m_c_p[this_feature["name"]]= sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
 # the aggregated totals of the survey area
-c = sut.aggregate_to_group_name(a_data[(a_data.river_bassin == this_bassin)&(a_data.code.isin(m_common.index))], column="code", name=top, val="med")
+c = sut.aggregate_to_group_name(a_data[(a_data.river_bassin == this_bassin)&(a_data.code.isin(m_common.index))], unit_label=unit_label, column="code", name=top, val="med")
 m_c_p[bassin_label] = sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
 # the aggregated totals of all the data
-c = sut.aggregate_to_group_name(a_data[(a_data.code.isin(m_common.index))], column="code", name=top, val="med")
+c = sut.aggregate_to_group_name(a_data[(a_data.code.isin(m_common.index))], column="code", name=top, val="med", unit_label=unit_label)
 m_c_p[top] = sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
 # chart that
@@ -586,7 +588,7 @@ plt.show()
 plt.close()
 
 
-# ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
+# ### Die am häufigsten gefundenen Gegenständeim monatlichen Durchschnitt
 
 # In[14]:
 
@@ -693,13 +695,13 @@ plt.show()
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
 # *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
-# *  **Tabak:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
+# *  **Tabakwaren:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
 # *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
-# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Code-Gruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # In[16]:
 
@@ -833,6 +835,7 @@ md(frag_foams)
 some_foams = ["G81", "G82", "G83", "G74"]
 
 # the codes for the fragmented plastics
+before_agg.rename(columns={"p/100m": unit_label}, inplace=True)
 some_frag_plas = list(before_agg[before_agg.groupname == "plastic pieces"].code.unique())
 
 # aggregate all the codes by loc_date and get the total quantity and the median pcs/m
@@ -889,7 +892,7 @@ disp_beaches
 pd.set_option("display.max_rows", None)
 locale.setlocale(locale.LC_ALL, loc)
 complete_inventory = code_totals[code_totals.quantity>0][["item", "groupname", "quantity", "% of total","fail rate"]]
-complete_inventory.rename(columns={"item":"Objekte", "groupname":"Gruppenname", "quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"Ausfallsrate" }, inplace=True)
+complete_inventory.rename(columns={"item":"Objekte", "groupname":"Gruppenname", "quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail rate" }, inplace=True)
 
 
 complete_inventory.sort_values(by="Gesamt", ascending=False)

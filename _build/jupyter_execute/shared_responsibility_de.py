@@ -72,7 +72,7 @@ import matplotlib.image as mpimg
 # set the locale to the language desired
 # the locale is set back to to original at the the end of the script
 loc = locale.getlocale()
-lang =  "de_DE.utf8"
+lang =  "de_CH.utf8"
 locale.setlocale(locale.LC_ALL, lang)
 
 # the date is in iso standard:
@@ -82,11 +82,13 @@ d = "%Y-%m-%d"
 g = "%d.%m.%Y"
 
 # set some parameters:
-start_date = "01.03.2020"
-end_date = "30.09.2021"
+start_date = "2020-03-01"
+end_date ="2021-05-31"
+# ge_start = "01.03.2020"
+# ge_end ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
-unit_label = 'p/100m'
+unit_label = 'p/100 m'
 reporting_unit = 100
 
 sns.set_style('whitegrid')
@@ -204,9 +206,9 @@ code_material_map = dfCodes.material
 sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.jpeg", thumb=(1200, 700))
 
 
-# *__Oben:__ Lac Léman, St. Gingolph 07.05.2020 (1600p/100m).*
+# *__Oben:__ Lac Léman, St. Gingolph 07.05.2020 (1600p/100 m).*
 # 
-# Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise grössere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das [Landnutzungsprofil.](luseprofilede). Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabak in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde. 
+# Der Nutzen von weggeworfenen Objekten sowie die Flächennutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Die Flächennutzungsraten zur Bewertung der Verschmutzungsquellen sind für einige gängige Objekte nützlich. So wurden beispielsweise grössere Mengen an Zigarettenfiltern und Snackverpackungen in der Nähe von Standorten mit einer höheren Konzentration von Flächen, die Gebäuden und Freizeiteinrichtungen zugeordnet werden, festgestellt, Das [Landnutzungsprofil.](luseprofilede). Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabakwaren in Verbindung gebracht werden, machen etwa 26% des gesamten Materials aus, das an den Schweizer Küsten gefunden wurde. 
 # 
 # Andere Objekte haben jedoch weder einen eindeutigen geografischen Ursprung noch eine klare Verbindung zu einer Aktivität in der Nähe ihres Standorts. Die häufigsten dieser Objekte sind ≊ 40 % aller im Jahr 2020 identifizierten ausrangierten Objekte,  [_Lakes and rivers_ ](allsurveysde). Die Verringerung der Menge an Abfällen an den Schweizer Ufern beinhaltet auch die Verringerung der Menge an ausrangierten Objekten, die von ausserhalb der geografischen Grenzen des Strandes selbst stammen. Daher ist es ein Anreiz, ausrangierte Objekte, die an oder in der Nähe von Standorten weggeworfen werden, von Objekten zu unterscheiden, die zu den Datenerhebungen transportiert werden.  
 # 
@@ -309,9 +311,9 @@ sut.display_image_ipython("resources/maps/sharedresponsibility.jpeg", thumb=(120
 # # make date stamp
 survey_data = pd.read_csv('resources/checked_sdata_eos_2020_21.csv')
 
-survey_data["date"] = pd.to_datetime(survey_data["date"])
-survey_data["date"] = survey_data['date'].dt.strftime(g)
-survey_data["date"] = pd.to_datetime(survey_data["date"], format=g)
+survey_data["date"] = pd.to_datetime(survey_data["date"], format=d)
+# survey_data["date"] = survey_data['date'].dt.strftime(g)
+# survey_data["date"] = pd.to_datetime(survey_data["date"], format=g)
 
 # the land use data was unvailable for these municipalities
 no_land_use = ['Walenstadt', 'Weesen', 'Glarus Nord', 'Quarten']
@@ -322,6 +324,7 @@ survey_data = survey_data[use_these_args].copy()
 
 # slice date to working data
 a_data = survey_data[(~survey_data.city.isin(no_land_use))].copy()
+a_data.rename(columns={"p/100m":unit_label},inplace=True)
 
 # summarize the data
 nsamps = a_data.loc_date.nunique()
@@ -493,7 +496,7 @@ grt_dtr = cg_dg_dt.groupby(['loc_date', 'date','rural'], as_index=False)[unit_la
     
 
 
-# *__Unten:__ Datenerhebungen Ergebnisse städtische und ländliche Standorte März 2020 - Mai 2021. __Links:__ Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. __Rechts:__ Verteilung der Datenerhebungen Ergebnisse Stadt - Land mit Detail der Code-Gruppen Ergebnisse.* 
+# *__Unten:__ Erhebungsergebnissestädtische und ländliche Standorte März 2020 - Mai 2021. __Links:__ Gesamtzahl der Datenerhebungen in der Stadt und auf dem Land, n=300. __Rechts:__ Verteilung der ErhebungsergebnisseStadt - Land mit Detail der Codegruppen Ergebnisse.* 
 
 # In[7]:
 
@@ -596,7 +599,7 @@ plt.subplots_adjust(wspace=0.2)
 plt.show()
 
 
-# *__Oben:__ Unterschiede zwischen städtischen und ländlichen Datenerhebungen. Die Datenerhebungen Ergebnisse in ländlichen Gebieten hatten einen niedrigeren Median und Mittelwert als in städtischen Gebieten und in allen Gebieten zusammen. Die Höchst- und Mindestwerte sowie die höchste Standardabweichung wurden an städtischen Standorten verzeichnet. Die 95% Konfidenzintervalle des Medianwertes der Datenerhebungen Ergebnisse in den Städten und auf dem Land überschneiden sich nicht, Anhang 1.* 
+# *__Oben:__ Unterschiede zwischen städtischen und ländlichen Datenerhebungen. Die Erhebungsergebnissein ländlichen Gebieten hatten einen niedrigeren Median und Mittelwert als in städtischen Gebieten und in allen Gebieten zusammen. Die Höchst- und Mindestwerte sowie die höchste Standardabweichung wurden an städtischen Standorten verzeichnet. Die 95% Konfidenzintervalle des Medianwertes der Erhebungsergebnissein den Städten und auf dem Land überschneiden sich nicht, Anhang 1.* 
 
 # ### Bewertung der Zusammensetzung: das grosse Ganze¶ 
 # 
@@ -645,11 +648,11 @@ plt.show()
 
 # ### Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen
 # 
-# Die Datenerhebungen Ergebnisse der GD sind unter beiden Landnutzungsklassen sehr ähnlich, es gibt mehr Varianz, wenn der gemeldete Wert steigt, aber nicht so viel, dass die Verteilungen auseinander gehen. Angesichts der Standardabweichung der Stichproben und der hohen Varianz der Datenerhebungen zum Strand-Abfallaufkommen im Allgemeinen ist dies zu erwarten. {cite}`eubaselines`
+# Die Erhebungsergebnisseder GD sind unter beiden Landnutzungsklassen sehr ähnlich, es gibt mehr Varianz, wenn der gemeldete Wert steigt, aber nicht so viel, dass die Verteilungen auseinander gehen. Angesichts der Standardabweichung der Stichproben und der hohen Varianz der Datenerhebungen zum Strand-Abfallaufkommen im Allgemeinen ist dies zu erwarten. {cite}`eubaselines`
 # 
 # Die Kolmogorov-Smirnov (KS)-Tests mit zwei Stichproben (ks=0,073, p=0,808) der beiden Gruppen von Datenerhebungen deuten darauf hin, dass sich die Datenerhebungsergebnisse der DG zwischen den beiden Landnutzungsklassen möglicherweise nicht signifikant unterscheiden. Die Ergebnisse des Mann-Whitney U (MWU) (U=11445.0, p=0.762) deuten darauf hin, dass es möglich ist, dass die beiden Verteilungen gleich sind.
 
-# *__Unten:__ Empirische kumulative Verteilung (eCDF) von DG und CG. __Links:__ Sie erinnern sich, dass zu den DG-Objekten fragmentierte Kunststoffe, Schaumstoffe, Kunststoffe für den Bau und Industriepellets gehören. __Rechts:__ Die Datenerhebungen Ergebnisse für Zigarettenfilter und Snack-Verpackungen haben visuell unterschiedliche Verteilungen unter den beiden Landnutzungsbedingungen.* 
+# *__Unten:__ Empirische kumulative Verteilung (eCDF) von DG und CG. __Links:__ Sie erinnern sich, dass zu den DG-Objekten fragmentierte Kunststoffe, Schaumstoffe, Kunststoffe für den Bau und Industriepellets gehören. __Rechts:__ Die Erhebungsergebnissefür Zigarettenfilter und Snack-Verpackungen haben visuell unterschiedliche Verteilungen unter den beiden Landnutzungsbedingungen.* 
 
 # In[10]:
 
@@ -695,11 +698,11 @@ axtwo.legend(fontsize=12, title=CG,title_fontsize=14)
 plt.show()
 
 
-# Nach dem KS-Test (rho=0,09, p=0,48) gibt es keinen statistischen Grund für die Annahme, dass unter den unterschiedlichen Landnutzungsbedingungen mehr DG-Objekte gefunden werden, nach dem MWU-Test (MWU=1039, p=0,25) besteht die Chance, dass die Häufigkeit der DG-Objekte unabhängig vom Landnutzungsprofil gleich ist. Andererseits weichen die Datenerhebungen Ergebnisse von CG fast sofort ab und die Ergebnisse des KS-Tests (rho=0,31, p<.001) und des MWU-Tests (MWU=7305, p<.001) deuten darauf hin, dass die Verteilung dieser Objekte mit den Flächen in %, die Gebäuden zugeordnet sind, zusammenhängt. 
+# Nach dem KS-Test (rho=0,09, p=0,48) gibt es keinen statistischen Grund für die Annahme, dass unter den unterschiedlichen Landnutzungsbedingungen mehr DG-Objekte gefunden werden, nach dem MWU-Test (MWU=1039, p=0,25) besteht die Chance, dass die Häufigkeit der DG-Objekte unabhängig vom Landnutzungsprofil gleich ist. Andererseits weichen die Erhebungsergebnissevon CG fast sofort ab und die Ergebnisse des KS-Tests (rho=0,31, p<.001) und des MWU-Tests (MWU=7305, p<.001) deuten darauf hin, dass die Verteilung dieser Objekte mit den Flächen in %, die Gebäuden zugeordnet sind, zusammenhängt. 
 # 
 # #### Differenz der Mittelwerte
 # 
-# Das durchschnittliche Ergebnis der Datenerhebungen von DG-Objekten in ländlichen Gebieten lag bei 202p/100m gegenüber 237p/100m in städtischen Gebieten, ein Unterschied von -35p/100m ist nur ein kleiner Bruchteil der Standardabweichung. Es wurde ein Permutationstest auf die Differenz der Mittelwerte unter der Bedingung ländlich - städtisch der Mittelwerte der Datenerhebungen durchgeführt.   
+# Das durchschnittliche Ergebnis der Datenerhebungen von DG-Objekten in ländlichen Gebieten lag bei 202 p/100 m gegenüber 237 p/100 m in städtischen Gebieten, ein Unterschied von -35 p/100 m ist nur ein kleiner Bruchteil der Standardabweichung. Es wurde ein Permutationstest auf die Differenz der Mittelwerte unter der Bedingung ländlich - städtisch der Mittelwerte der Datenerhebungen durchgeführt.   
 
 # *Differenz der Mittelwerte DG Objekte.  $\mu_{rural}$ - $\mu_{urban}$, method=shuffle, permutations=5000.*
 
@@ -766,15 +769,15 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg", thumb=(1
 
 # ### Diskussion
 # 
-# Durch den Vergleich der Datenerhebungen Ergebnisse mit den unabhängigen Variablen rund um die Erhebungsorte kann eine numerische Darstellung erstellt werden, die beschreibt, wie wahrscheinlich es ist, dass der Gegenstand dort weggeworfen wurde, wo er gefunden wurde. Die numerisch ermittelte Assoziation wird durch die tägliche Erfahrung verstärkt. Zum Beispiel wird ein Teil der Zigaretten und Snacks wahrscheinlich an oder in der Nähe der Verkaufsstellen konsumiert, und ein Teil des damit verbundenen Materials kann in die Umwelt gelangen. 
+# Durch den Vergleich der Erhebungsergebnissemit den unabhängigen Variablen rund um die Erhebungsorte kann eine numerische Darstellung erstellt werden, die beschreibt, wie wahrscheinlich es ist, dass der Gegenstand dort weggeworfen wurde, wo er gefunden wurde. Die numerisch ermittelte Assoziation wird durch die tägliche Erfahrung verstärkt. Zum Beispiel wird ein Teil der Zigaretten und Snacks wahrscheinlich an oder in der Nähe der Verkaufsstellen konsumiert, und ein Teil des damit verbundenen Materials kann in die Umwelt gelangen. 
 # 
 # Einige markante Objekte, die von relativ kleinen Teilen der Wirtschaft genutzt werden, können in einer ganzen Region identifiziert werden, sind aber aufgrund des hydrologischen Transports auf Zonen der Akkumulation beschränkt, was die Identifizierung der Quelle erschwert. 
 # 
-# Das vorangegangene Beispiel zeigt jedoch, dass Datenerhebungen Ergebnisse in Abhängigkeit von erklärenden Variablen erhöhen oder verringern. Bei Objekten wie Plastikpellets aus der Vorproduktion (GPI) ist der Verwendungszweck des Objekts eindeutig und die Nutzer und Hersteller sind im Vergleich zu anderen ausrangierten Objekten relativ selten. Auch wenn diese Gegenstände in allen Datenerhebungen vorkommen, ist es unwahrscheinlich, dass sie in gleichem Masse emittiert werden. 
+# Das vorangegangene Beispiel zeigt jedoch, dass Erhebungsergebnissein Abhängigkeit von erklärenden Variablen erhöhen oder verringern. Bei Objekten wie Plastikpellets aus der Vorproduktion (GPI) ist der Verwendungszweck des Objekts eindeutig und die Nutzer und Hersteller sind im Vergleich zu anderen ausrangierten Objekten relativ selten. Auch wenn diese Gegenstände in allen Datenerhebungen vorkommen, ist es unwahrscheinlich, dass sie in gleichem Masse emittiert werden. 
 # 
-# Anhand des vorangegangenen Beispiels können Sie die steigenden Datenerhebungen Ergebnisse von GPI an zwei verschiedenen Seen verfolgen, um zu verstehen, wie diese Beziehung visualisiert werden kann.
+# Anhand des vorangegangenen Beispiels können Sie die steigenden Erhebungsergebnissevon GPI an zwei verschiedenen Seen verfolgen, um zu verstehen, wie diese Beziehung visualisiert werden kann.
 # 
-# *__Unten:__ Der Anstieg des mittleren p/100m-Wertes, wenn sich die Datenerhebungen der flussaufwärts gelegenen Quelle nähern. GPIs sind klein und schwer zu reinigen, wenn sie einmal verschüttet wurden, so dass die genaue Quelle schwer zu bestimmen ist. Man kann jedoch davon ausgehen, dass die Verarbeiter und Verbraucher von GPIs am besten wissen, wie man den Verlust von Material in die Umwelt verhindert. Die Wahrscheinlichkeit, mindestens einen GPI zu finden, ist an einigen der unten aufgeführten Orte doppelt so hoch wie die regionale Rate.*
+# *__Unten:__ Der Anstieg des mittleren p/100 m-Wertes, wenn sich die Datenerhebungen der flussaufwärts gelegenen Quelle nähern. GPIs sind klein und schwer zu reinigen, wenn sie einmal verschüttet wurden, so dass die genaue Quelle schwer zu bestimmen ist. Man kann jedoch davon ausgehen, dass die Verarbeiter und Verbraucher von GPIs am besten wissen, wie man den Verlust von Material in die Umwelt verhindert. Die Wahrscheinlichkeit, mindestens einen GPI zu finden, ist an einigen der unten aufgeführten Orte doppelt so hoch wie die regionale Rate.*
 
 # In[13]:
 
@@ -1002,13 +1005,7 @@ plt.show()
 plt.close()
 
 
-# In[ ]:
-
-
-
-
-
-# *__Unten:__ Die Datenerhebungen Ergebnisse der am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.*
+# *__Unten:__ Die Erhebungsergebnisseder am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.*
 
 # In[16]:
 
@@ -1026,7 +1023,7 @@ rur_10["% of total"] = ((rur_10.quantity/rur_tot)*100).round(1)
 urb_10["% of total"] = ((urb_10.quantity/urb_tot)*100).round(1)
 
 # make tables
-fig, axs = plt.subplots(1, 2, figsize=(14,len(most_common)*.5))
+fig, axs = plt.subplots(1, 2, figsize=(15,len(most_common)*.6))
 
 # summary table
 # names for the table columns
@@ -1055,7 +1052,7 @@ the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_
 axone.set_xlabel("ländlich", **ck.xlab_k14)
 axtwo.set_xlabel("urban", **ck.xlab_k14)
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.2)
+plt.subplots_adjust(wspace=0.05)
 plt.show()
 
 
@@ -1063,7 +1060,7 @@ plt.show()
 # 
 # Saisonale Schwankungen der Ergebnisse von Strand-Abfallaufkommen Untersuchungen sind unter verschiedenen Bedingungen und Umgebungen dokumentiert worden. Im Jahr 2018 meldete der SLR {cite}`slr` den Höchstwert im Juli und den Mindestwert im November. Für das Jahr 2020-2021 liegen die gleichen Ergebnisse vor. 
 
-# *__Unten:__ monatliche Datenerhebungen Ergebnisse und Abflussmengen m³/Sekunde*
+# *__Unten:__ monatliche Erhebungsergebnisseund Abflussmengen m³/Sekunde*
 # 
 # *April und Mai 2021 sind gleitende Durchschnitte, Daten nicht verfügbar*
 # 
@@ -1151,17 +1148,21 @@ plt.legend([*handles, *handles2], [*labels, *labels2], bbox_to_anchor=(0,-.1), l
 plt.show()
 
 
-# ## Die Datenerhebungen Ergebnisse von FP und FT in Bezug auf die Landnutzung
+# ## Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung
+# 
+# FP = Fragmentierte Kunststoffstücke und Geschäumte Kunststoffe
+# 
+# FT = Zigaretten und Snack-Verpackungen
 # 
 # __Ergebnisse von KS-Test und Mann Whitney U__
 # 
-# Die Datenerhebungen Ergebnisse für FP Objekte sind sehr ähnlich bis zu $\approxeq$  das 85-Perzentilth, wo die Ergebnisse der Datenerhebungen auf dem Land deutlich höher sind. Das deutet darauf hin, dass extreme Werte für FP in ländlichen Gebieten wahrscheinlicher waren. Nach dem KS-Test (ks=0,78, pvalue=0,69) und dem MWU-Test (U=10624, pvalue=0,40) ist die Verteilung der FP-Objekte unter den beiden Landnutzungsklassen nicht signifikant unterschiedlich und könnte gleich sein.  
+# Die Erhebungsergebnissefür FP Objekte sind sehr ähnlich bis zu $\approxeq$  das 85. Perzentil, wo die Erhebungsergebnisseauf dem Land deutlich höher sind. Das deutet darauf hin, dass extreme Werte für FP in ländlichen Gebieten wahrscheinlicher waren. Nach dem KS-Test (ks=0,78, pvalue=0,69) und dem MWU-Test (U=10624, pvalue=0,40) ist die Verteilung der FP-Objekte unter den beiden Landnutzungsklassen nicht signifikant unterschiedlich und könnte gleich sein.  
 # 
-# Die Datenerhebungen Ergebnisse für FT-Objekte behalten die gleichen Merkmale wie die der übergeordneten Verteilung. Die Ergebnisse des KS-Tests (ks=0,29, pWert<.001) und des MWU-Tests (U=7356,5, p<.001) stimmen mit den Ergebnissen der Elterngruppe überein, dass es einen statistisch relevanten Unterschied zwischen den Datenerhebungen Ergebnissen unter verschiedenen Landnutzungsklassen gibt.  
+# Die Erhebungsergebnissefür FT-Objekte behalten die gleichen Merkmale wie die der übergeordneten Verteilung. Die Ergebnisse des KS-Tests (ks=0,29, pWert<.001) und des MWU-Tests (U=7356,5, p<.001) stimmen mit den Ergebnissen der Elterngruppe überein, dass es einen statistisch relevanten Unterschied zwischen den Datenerhebungen Ergebnissen unter verschiedenen Landnutzungsklassen gibt.  
 # 
-# *__Links:__ Land - Stadt: ECDF der Datenerhebungen Ergebnisse fragmentierte Kunststoffe und Schaumstoffe (FP)* 
+# *__Links:__ Land - Stadt: ECDF der Erhebungsergebnissefragmentierte Kunststoffe und Schaumstoffe (FP)* 
 # 
-# *__Rechts:__ Land - Stadt: ECDF der Datenerhebungen Ergebnisse Zigarettenstummel und Bonbonverpackungen (FT)*
+# *__Rechts:__ Land - Stadt: ECDF der ErhebungsergebnisseZigarettenstummel und Bonbonverpackungen (FT)*
 
 # In[18]:
 
@@ -1219,7 +1220,7 @@ agg_dobj['class'] = 'ländlich'
 buld_obj['class'] = 'urban'
 
 # merge into one 
-objs_merged = agg_dobj.append(buld_obj)
+objs_merged = pd.concat([agg_dobj, buld_obj])
 
 # store the mean per class
 the_mean = objs_merged.groupby('class')[unit_label].mean()
@@ -1262,7 +1263,7 @@ agg_cont['class'] = 'ländlich'
 b_cont['class'] = 'urban'
 
 # merge into one 
-objs_merged = agg_cont.append(b_cont)
+objs_merged = pd.concat([agg_cont, b_cont])
 
 # store the mean per class
 the_mean = objs_merged.groupby('class')[unit_label].mean()

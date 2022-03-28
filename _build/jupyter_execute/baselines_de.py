@@ -83,7 +83,7 @@ name_of_project = 'threshold_values'
 
 # the scale for pieces per meter and the column and chart label for the units
 reporting_unit = 100
-unit_label = 'p/100m'
+unit_label = 'p/100 m'
 
 # get your data:
 survey_data = pd.read_csv('resources/checked_sdata_eos_2020_21.csv')
@@ -146,7 +146,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes2.jpg")
 
 # ### Schweiz 2020
 # 
-# Das IQAASL-Projekt begann im März 2020, Standorte in den definierten Erhebungsgebieten wurden 2017 beprobt oder neu eingerichtet. Ähnlich wie die Datenerhebungen Ergebnisse in der Meeresumwelt sind die Daten über Strand-Abfallobjekte in der Schweiz sehr unterschiedlich. Die Werte reichen von Null bis zu Tausenden von Objekten und Fragmenten innerhalb von 100 m vom Fluss- oder Seeufer. 
+# Das IQAASL-Projekt begann im März 2020, Standorte in den definierten Erhebungsgebieten wurden 2017 beprobt oder neu eingerichtet. Ähnlich wie die Erhebungsergebnisse in der Meeresumwelt sind die Daten über Strand-Abfallobjekte in der Schweiz sehr unterschiedlich. Die Werte reichen von Null bis zu Tausenden von Objekten und Fragmenten innerhalb von 100 m vom Fluss- oder Seeufer. 
 
 # ### Das Sammeln von Daten 
 # 
@@ -219,7 +219,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg")
 # __Annahmen:__
 # 
 # * Je mehr Abfallobjekte auf dem Boden liegen, desto grösser ist die Wahrscheinlichkeit, dass eine Person sie findet 
-# * **Die Datenerhebungen Ergebnisse stellen die Mindestmenge an Abfallobjekten an diesem Ort dar**
+# * **Die Erhebungsergebnisse stellen die Mindestmenge an Abfallobjekten an diesem Ort dar**
 # * Für jede Datenerhebung: Das Auffinden eines Artikels hat keinen Einfluss auf die Wahrscheinlichkeit, einen anderen zu finden. 
 
 # ### Die Daten 
@@ -289,7 +289,7 @@ agg_pcs_quantity = {unit_label:'sum', 'quantity':'sum'}
 dt_all = gten_lhun.groupby(['loc_date','location','river_bassin', 'water_name_slug','date'], as_index=False).agg(agg_pcs_quantity)
 
 
-# *__Unten:__ Datenerhebungen Ergebnisse und zusammenfassende Statistiken: Proben grösser als 10m und ohne Objekte kleiner als 2,5cm und Chemikalien, n=372*
+# *__Unten:__ Erhebungsergebnisse und zusammenfassende Statistiken: Proben grösser als 10m und ohne Objekte kleiner als 2,5cm und Chemikalien, n=372*
 
 # In[6]:
 
@@ -355,7 +355,7 @@ a_summary_table_one = sut.make_a_summary_table(the_first_table_data,combined_sum
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
-ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
+ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
 
 plt.tight_layout()
 plt.show()
@@ -381,7 +381,7 @@ gs = GridSpec(1,5)
 
 ax = fig.add_subplot(gs[:,0:3])
 axtwo = fig.add_subplot(gs[:, 3:])
-ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
+ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
 
 sns.histplot(data=dt_all, x=unit_label, stat='count', ax=ax, alpha=0.6)
 ax.axvline(x=dt_all[unit_label].median(), c='magenta', label='Median')
@@ -402,7 +402,7 @@ plt.show()
 
 # ### Die Bewertungsmetrik 
 # 
-# Die Berechnung von Basiswerten erfordert die Aggregation von Datenerhebungen Ergebnissen auf verschiedenen zeitlichen und geografischen Ebenen. Das ist die beste Methode: 
+# Die Berechnung von Basiswerten erfordert die Aggregation von Erhebungsergebnisse auf verschiedenen zeitlichen und geografischen Ebenen. Das ist die beste Methode: 
 # 
 # * Robust in Bezug auf Ausreisser 
 # * Einfach zu berechnen 
@@ -625,9 +625,9 @@ sut.display_image_ipython('resources/images/baselines/mullermatte_bielersee31_01
 
 # ### Baseline Werte 
 # 
-# Für diesen Datensatz sind die Unterschiede zwischen den mit der BCa-Methode oder der Perzentilmethode berechneten KI minimal. Die BCa-Methode wird verwendet, um die Basiswerte und KI's anzugeben. 
+# Für diesen Datensatz sind die Unterschiede zwischen den mit der BCa-Methode oder der Perzentil methode berechneten KI minimal. Die BCa-Methode wird verwendet, um die Basiswerte und KI's anzugeben. 
 # 
-# #### Basismedianwert aller Datenerhebungen Ergebnisse 
+# #### Basismedianwert aller Erhebungsergebnisse 
 # 
 # Wenn man nur Datenerhebungen mit einer Länge von mehr als 10 Metern berücksichtigt und Objekte mit einer Grösse von weniger als 2,5 cm ausschliesst, __lag der Medianwert aller Daten bei 181 p/100 m mit einem CI von 147 p/100 m - 213 p/100 m__. Der gemeldete Medianwert für die EU lag bei 133p/100m und damit im Bereich des CI der IQAASL-Erhebungsergebnisse. Während der Medianwert in der Schweiz höher sein könnte, liegt der Mittelwert der EU-Studie bei 504p/100m gegenüber 341p/100m in der Schweiz.{cite}`eubaselines`
 # 
@@ -673,7 +673,7 @@ plt.close()
 # 
 # Wie bereits erwähnt, werden Extremwerte (EVs) oder Ausreisser bei der Berechnung von Basislinien oder CIs nicht aus den Daten ausgeschlossen. Die Identifizierung von EVs und wo und wann sie auftreten, ist jedoch ein wesentlicher Bestandteil des Überwachungsprozesses. 
 # 
-# Das Auftreten von Extremwerten kann den Durchschnitt der Daten und die Interpretation der Datenerhebungen Ergebnisse beeinflussen. Laut dem GFS-Bericht: 
+# Das Auftreten von Extremwerten kann den Durchschnitt der Daten und die Interpretation der Erhebungsergebnisse beeinflussen. Laut dem GFS-Bericht: 
 # 
 # >  Die Methodik zur Identifizierung von Extremwerten kann entweder auf einem Expertenurteil beruhen oder auf statistischen und modellierenden Ansätzen, wie der Anwendung von Tukey's Box Plots zur Erkennung potenzieller Ausreisser. Für schiefe Verteilungen ist der angepasste Boxplot besser geeignet. {cite}`eubaselines`
 # 
@@ -757,7 +757,7 @@ ax.annotate("nicht bereinigt",
                   arrowprops=dict(arrowstyle="-|>",
                                   connectionstyle="arc3,rad=-0.2",
                                   fc="black"),)
-ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
+ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
 
 plt.show()
 
@@ -811,7 +811,7 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 # * Wenn das Modell korrekt angenommen wird, ist der MLE der effizienteste Schätzer. 
 # * Es führt zu unverzerrten Schätzungen in grösseren Stichproben. 
 
-# *__Anpassen der Daten an die zugrunde liegende NB-Verteilung.__ Die beobachteten Datenerhebungen Ergebnisse werden mit den geschätzten Datenerhebungen unter Verwendung der Methode der Momente und der Maximum-Likelihood-Schätzung verglichen. __Links:__ Histogramm der Ergebnisse im Vergleich zu den beobachteten Daten. __Rechts:__ Verteilung der Ergebnisse im Vergleich zu den beobachteten Daten mit 90. Perzentil.* 
+# *__Anpassen der Daten an die zugrunde liegende NB-Verteilung.__ Die beobachteten Erhebungsergebnisse werden mit den geschätzten Datenerhebungen unter Verwendung der Methode der Momente und der Maximum-Likelihood-Schätzung verglichen. __Links:__ Histogramm der Ergebnisse im Vergleich zu den beobachteten Daten. __Rechts:__ Verteilung der Ergebnisse im Vergleich zu den beobachteten Daten mit 90. Perzentil.* 
 
 # In[15]:
 
@@ -870,7 +870,7 @@ r = stats.nbinom.rvs(n,p, size=len(vals))
 
 # format data for charting
 df = pd.DataFrame({unit_label:vals, 'group':"Beobachtung"})
-df = df.append(pd.DataFrame({unit_label:r, 'group':'MOM'}))
+df = pd.concat([df, pd.DataFrame({unit_label:r, 'group':'MOM'})])
 
 scp = df[df.group == 'MOM'][unit_label].to_numpy()
 obs = df[df.group == "Beobachtung"][unit_label].to_numpy()
@@ -932,8 +932,8 @@ ax.tick_params(which='both', axis='both', labelsize=14)
 l3 = labels[:3]
 llast = labels[-1:]
 
-ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
-axone.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
+ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
+axone.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
 
 fig.legend([*h3, *hlast], [*l3, *llast], bbox_to_anchor=(.48, .96), loc='upper right', fontsize=14)
 plt.tight_layout()
@@ -1009,7 +1009,7 @@ sut.display_image_ipython("resources/images/baselines/aare_sa_de_23_0.png", thum
 # 
 # Veränderungen in den Ergebnissen von Strand-Abfalluntersuchungen sind Signale, und die Verwendung von Basiswerten hilft, das Ausmass dieser Signale zu erkennen. Ohne Kontext oder zusätzliche Informationen können diese Signale jedoch zufällig erscheinen. 
 # 
-# Zu einem fachkundigen Urteil gehört die Fähigkeit, Datenerhebungen Ergebnisse in den Kontext lokaler Ereignisse und der Topographie einzuordnen. Dieses Urteilsvermögen in Bezug auf die Daten und die Umgebung ist entscheidend für die Identifizierung potenzieller Quellen und Prioritäten. 
+# Zu einem fachkundigen Urteil gehört die Fähigkeit, Erhebungsergebnisse in den Kontext lokaler Ereignisse und der Topographie einzuordnen. Dieses Urteilsvermögen in Bezug auf die Daten und die Umgebung ist entscheidend für die Identifizierung potenzieller Quellen und Prioritäten. 
 
 # In[ ]:
 
