@@ -140,22 +140,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="aare_sa.html">
-   3. Aare survey area
+   3. Aare
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="linth_sa.html">
-   4. Linth survey area
+   4. Linth
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="rhone_sa.html">
-   5. Rhone survey area
+   5. Rhône
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ticino_sa.html">
-   6. Ticino survey area
+   6. Ticino
   </a>
  </li>
 </ul>
@@ -182,12 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="maggiore_lugano.html">
-   10. Maggiore/Lugano
+   10. Maggiore / Lugano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="thunersee_brienzersee.html">
-   11. Thunersee/Brienzersee
+   11. Thunersee / Brienzersee
   </a>
  </li>
  <li class="toctree-l1">
@@ -489,7 +489,55 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="cell tag_remove-input docutils container">
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys, file and nav packages:</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="c1"># math packages:</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1"># charting:</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">ticker</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="kn">from</span> <span class="nn">matplotlib.gridspec</span> <span class="kn">import</span> <span class="n">GridSpec</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># home brew utitilties</span>
+<span class="kn">import</span> <span class="nn">resources.chart_kwargs</span> <span class="k">as</span> <span class="nn">ck</span>
+<span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
+
+<span class="c1"># images and display</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="c1"># set some parameters:</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s1">&#39;2020-03-01&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s1">&#39;2021-05-31&#39;</span>
+
+<span class="n">fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">unit_label</span><span class="o">=</span> <span class="s1">&#39;pcs_m&#39;</span>
+
+<span class="c1"># the city, lake and river bassin we are aggregating to</span>
+<span class="c1"># the keys are column names in the survey data</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span><span class="s2">&quot;Biel/Bienne&quot;</span><span class="p">,</span><span class="s2">&quot;water_name_slug&quot;</span><span class="p">:</span><span class="s1">&#39;bielersee&#39;</span><span class="p">,</span> <span class="s2">&quot;river_bassin&quot;</span><span class="p">:</span><span class="s1">&#39;aare&#39;</span><span class="p">}</span>
+<span class="n">level_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">levels</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">],</span> <span class="s2">&quot;Bielersee&quot;</span><span class="p">,</span><span class="s2">&quot;Aare survey area&quot;</span><span class="p">]</span>
+<span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;All survey areas&quot;</span>
+
+<span class="c1"># colors for gradients</span>
+<span class="n">cmap2</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">cmap2</span>
+<span class="n">colors_palette</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">colors_palette</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="key-statistical-indicators">
 <span id="keyindicators"></span><h1><span class="section-number">15. </span>Key statistical indicators<a class="headerlink" href="#key-statistical-indicators" title="Permalink to this headline">¶</a></h1>
@@ -524,15 +572,59 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="definition-the-most-common-objects">
 <h2><span class="section-number">15.1. </span>Definition: the most common objects<a class="headerlink" href="#definition-the-most-common-objects" title="Permalink to this headline">¶</a></h2>
 <p><em>The most common objects are those objects that have a fail rate greater than or equal to 50% and/or are in the top-ten by quantity or pieces/m for any defined geographic area.</em></p>
-<div class="cell tag_remove-input docutils container">
-</div>
 </div>
 <div class="section" id="the-key-indicators">
 <h2><span class="section-number">15.2. </span>The key indicators<a class="headerlink" href="#the-key-indicators" title="Permalink to this headline">¶</a></h2>
 <p><em><strong>Below:</strong> Aare survey area, map of survey locations.</em></p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/key_indicators_2_0.png" src="_images/key_indicators_2_0.png" />
+</div>
+</div>
+<p><em>There were 13,847 objects collected from 140 surveys in the Aare survey area between 2020-03-01 and 2020-05-31.</em></p>
+<p><em><strong>Below:</strong> The survey results of the Aare survey area, with detail of Biel/Bienne and monthly median. <strong>Botton left:</strong> Summary statisitics for the Aare Survey area. <strong>Bottom right:</strong> Summary statistics Biel/Bienne.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfSurveys</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">fo_rmat_and_slice_date</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">a_format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="n">end_date</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get your data:</span>
+<span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/checked_sdata_eos_2020_21.csv&#39;</span><span class="p">)</span>
+<span class="n">dfBeaches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/beaches_with_land_use_rates.csv&quot;</span><span class="p">)</span>
+<span class="n">dfCodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/codes_with_group_names_2015.csv&quot;</span><span class="p">)</span>
+<span class="n">dfDims</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/corrected_dims.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># set the index of the beach data to location slug</span>
+<span class="n">dfBeaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;slug&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">city_map</span> <span class="o">=</span> <span class="n">dfBeaches</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span>
+
+<span class="n">dfCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">codes_to_change</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;G74&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Insulation foams&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G940&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Foamed EVA for crafts and sports&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G96&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Sanitary-pads/tampons, applicators&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Metal bottle caps and lids&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G82&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams 2.5cm - 50cm&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G81&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams .5cm - 2.5cm&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G117&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded foams &lt; 5mm&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G75&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 0 - 2.5cm&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G76&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic/foamed polystyrene 2.5cm - 50cm&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G24&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic lid rings&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G33&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Lids for togo drinks plastic&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G3&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic bags, carier bags&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G204&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Bricks, pipes not plastic&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G904&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Plastic fireworks&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G211&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Swabs, bandaging, medical&quot;</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">codes_to_change</span><span class="p">:</span>
+    <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">shorten_the_value</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dfCodes</span><span class="p">)</span>
+    
+<span class="c1"># make a map to the code descriptions</span>
+<span class="n">code_description_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">description</span>
+
+<span class="c1"># make a map to the code descriptions</span>
+<span class="n">code_material_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">material</span>
+<span class="n">dfSurveys</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">fo_rmat_and_slice_date</span><span class="p">(</span><span class="n">survey_data</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">a_format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="n">end_date</span><span class="p">)</span>
 
 <span class="n">trb</span> <span class="o">=</span> <span class="n">dfSurveys</span><span class="p">[</span><span class="n">dfSurveys</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;river_bassin&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -553,29 +645,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># example data summary and keys</span>
 <span class="n">biel_t</span> <span class="o">=</span> <span class="n">biel</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="_images/key_indicators_5_0.png" src="_images/key_indicators_5_0.png" />
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">There were </span><span class="si">{</span><span class="s1">&#39;</span><span class="si">{:,}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_obj</span><span class="p">)</span><span class="si">}</span><span class="s2"> objects collected from </span><span class="si">{</span><span class="n">num_samps</span><span class="si">}</span><span class="s2"> surveys in the Aare survey area between 2020-03-01 and 2020-05-31.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<p>There were 13,847 objects collected from 140 surveys in the Aare survey area between 2020-03-01 and 2020-05-31.</p>
-</div>
-</div>
-<p><em><strong>Below:</strong> The survey results of the Aare survey area, with detail of Biel/Bienne and monthly median. <strong>Botton left:</strong> Summary statisitics for the Aare Survey area. <strong>Bottom right:</strong> Summary statistics Biel/Bienne.</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select data</span>
+<span class="c1"># select data</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">trb</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span><span class="s1">&#39;location&#39;</span><span class="p">,</span>  <span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;pcs_m&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">})</span>
 
 <span class="c1"># get the basic statistics from pd.describe</span>
@@ -598,7 +668,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># add project totals</span>
 <span class="n">d_biel</span><span class="p">[</span><span class="s1">&#39;total objects&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">d_biel</span><span class="p">[</span><span class="s1">&#39;# locations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-
 <span class="c1"># format table two</span>
 <span class="n">biel_table</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">change_series_index_labels</span><span class="p">(</span><span class="n">d_biel</span><span class="p">,</span> <span class="n">sut</span><span class="o">.</span><span class="n">create_summary_table_index</span><span class="p">(</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;EN&quot;</span><span class="p">))</span>
 <span class="n">table_two</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">fmt_combined_summary</span><span class="p">(</span><span class="n">biel_table</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="p">[])</span>
@@ -651,7 +720,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/key_indicators_8_0.png" src="_images/key_indicators_8_0.png" />
+<img alt="_images/key_indicators_5_0.png" src="_images/key_indicators_5_0.png" />
 </div>
 </div>
 <div class="section" id="the-number-of-samples">
@@ -735,7 +804,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/key_indicators_10_0.png" src="_images/key_indicators_10_0.png" />
+<img alt="_images/key_indicators_7_0.png" src="_images/key_indicators_7_0.png" />
 </div>
 </div>
 <p>With the exception of industrial sheeting and fragmented plastics the fail rate was greater in Biel/Bienne than all other survey areas. This means that on a per survey basis there was a greater chance of finding those objects at Biel/Bienne than most other places.</p>
@@ -798,7 +867,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/key_indicators_13_0.png" src="_images/key_indicators_13_0.png" />
+<img alt="_images/key_indicators_10_0.png" src="_images/key_indicators_10_0.png" />
 </div>
 </div>
 <p>The reported value is the median survey result for that aggregation level and object. A median value of zero means that the object was identified in less than 1/2 surveys for that aggregation level. For example, consider the results for <em>insulation: includes spray foams</em>. The median value for the Aare survey area is zero however, when just the results of Bielersee or Biel/Bienne are considered the median value is greater than zero. Suggesting that insulation was found at greater rates on Bielersee and specifically in Biel/Bienne than the rest of the Aare survey area.</p>
@@ -810,6 +879,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p>Use the percent of total to define the principal trash objects. Use percent of total to identify priorities on a regional scale</p>
 </div></blockquote>
 <p>Similar to pieces per meter, if an object has a low pass-fail rate and an elevated % of total it is a signal that objects are possibly being deposited in large quantities at irregular intervals: dumping or accidents.</p>
+<p><em><strong>Below:</strong> The most common objects of the Aare survey area are <span class="math notranslate nohighlight">\(\approxeq\)</span> 66% (2,022) of the total number of objects recorded (3,067) at the three locations in Biel/Bienne</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ac</span> <span class="o">=</span> <span class="n">biel</span><span class="p">[</span><span class="n">biel</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">thecommon</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -820,12 +890,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">bsee</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">biel</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">these_codes</span> <span class="o">=</span> <span class="n">bsee</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">bsee</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># bsee[&#39;item&#39;] = bsee.code.map(lambda x: code_description_map.loc[x])</span>
-<span class="c1"># bsee.set_index(&#39;item&#39;, inplace=True)</span>
 <span class="n">bsee</span><span class="p">[</span><span class="n">level_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">bsee</span><span class="p">[</span><span class="s1">&#39;pt&#39;</span><span class="p">]</span>
 <span class="n">bsee</span> <span class="o">=</span> <span class="n">bsee</span><span class="p">[[</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">level_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]]]</span>
-<span class="n">bsee</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
-
+<span class="n">bsee</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># for the lake</span>
 <span class="n">condition</span> <span class="o">=</span> <span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">thecommon</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">trb</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">==</span> <span class="s1">&#39;bielersee&#39;</span><span class="p">)</span>
@@ -840,14 +907,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">bsee</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bsee</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">code_description_map</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">bsee</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><em><strong>Below:</strong> The most common objects of the Aare survey area are <span class="math notranslate nohighlight">\(\approxeq\)</span> 66% (2,022) of the total number of objects recorded (3,067) at the three locations in Biel/Bienne</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># chart that</span>
+<span class="c1"># chart that</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bsee</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">bsee</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">))</span>
 <span class="n">axone</span> <span class="o">=</span> <span class="n">ax</span>
 
@@ -864,7 +924,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/key_indicators_18_0.png" src="_images/key_indicators_18_0.png" />
+<img alt="_images/key_indicators_14_0.png" src="_images/key_indicators_14_0.png" />
 </div>
 </div>
 </div>
@@ -1009,7 +1069,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><br></br></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/key_indicators_22_0.png" src="_images/key_indicators_22_0.png" />
+<img alt="_images/key_indicators_18_0.png" src="_images/key_indicators_18_0.png" />
 </div>
 </div>
 </div>

@@ -91,13 +91,26 @@ colors_palette = ck.colors_palette
 # ## Definition: the most common objects
 # 
 # _The most common objects are those objects that have a fail rate greater than or equal to 50% and/or are in the top-ten by quantity or pieces/m for any defined geographic area._
+# 
+# ## The key indicators
+# 
+# *__Below:__ Aare survey area, map of survey locations.* 
 
 # In[2]:
 
 
+sut.display_image_ipython("resources/maps/survey_areas/aare_scaled.jpeg", thumb=(1200, 700))
+
+
+# _There were 13,847 objects collected from 140 surveys in the Aare survey area between 2020-03-01 and 2020-05-31._
+
+# *__Below:__ The survey results of the Aare survey area, with detail of Biel/Bienne and monthly median. __Botton left:__ Summary statisitics for the Aare Survey area. __Bottom right:__ Summary statistics Biel/Bienne.*
+
+# In[3]:
+
+
 # get your data:
 survey_data = pd.read_csv('resources/checked_sdata_eos_2020_21.csv')
-# river_bassins = ut.json_file_get("resources/river_basins.json")
 dfBeaches = pd.read_csv("resources/beaches_with_land_use_rates.csv")
 dfCodes = pd.read_csv("resources/codes_with_group_names_2015.csv")
 dfDims = pd.read_csv("resources/corrected_dims.csv")
@@ -135,15 +148,6 @@ code_description_map = dfCodes.description
 
 # make a map to the code descriptions
 code_material_map = dfCodes.material
-
-
-# ## The key indicators
-# 
-# *__Below:__ Aare survey area, map of survey locations.* 
-
-# In[3]:
-
-
 dfSurveys = sut.fo_rmat_and_slice_date(survey_data.copy(), a_format="%Y-%m-%d", start_date=start_date, end_date=end_date)
 
 trb = dfSurveys[dfSurveys.river_bassin == levels['river_bassin']].copy()
@@ -165,25 +169,6 @@ biel_loc = biel.location.unique()
 
 # example data summary and keys
 biel_t = biel.quantity.sum()
-
-
-# In[4]:
-
-
-sut.display_image_ipython("resources/maps/survey_areas/aare_scaled.jpeg", thumb=(1200, 700))
-
-
-# In[5]:
-
-
-md(F"\n\nThere were {'{:,}'.format(num_obj)} objects collected from {num_samps} surveys in the Aare survey area between 2020-03-01 and 2020-05-31.\n")
-
-
-# *__Below:__ The survey results of the Aare survey area, with detail of Biel/Bienne and monthly median. __Botton left:__ Summary statisitics for the Aare Survey area. __Bottom right:__ Summary statistics Biel/Bienne.*
-
-# In[6]:
-
-
 # select data
 data = trb.groupby(['loc_date','location',  'date'], as_index=False).agg({'pcs_m':'sum', 'quantity':'sum'})
 
@@ -207,7 +192,6 @@ d_biel = db['pcs_m'].describe().round(2)
 # add project totals
 d_biel['total objects'] = db.quantity.sum()
 d_biel['# locations'] = db.location.nunique()
-
 # format table two
 biel_table = sut.change_series_index_labels(d_biel, sut.create_summary_table_index(unit_label, lang="EN"))
 table_two = sut.fmt_combined_summary(biel_table, nf=[])
@@ -276,7 +260,7 @@ plt.show()
 # 
 # *__Below:__ The fail rates of the most common items from the Aare survey area at different aggreagtion levels.*
 
-# In[7]:
+# In[4]:
 
 
 # identify the most common and the most abundant objects in the river bassin
@@ -360,7 +344,7 @@ plt.close()
 # 
 # *__Below:__ Aare survey area: the median pcs/m of the most common objects*  
 
-# In[8]:
+# In[5]:
 
 
 # aggregated survey totals for the most common codes for all the water features
@@ -418,7 +402,9 @@ plt.close()
 # 
 # Similar to pieces per meter, if an object has a low pass-fail rate and an elevated % of total it is a signal that objects are possibly being deposited in large quantities at irregular intervals: dumping or accidents.
 
-# In[9]:
+# *__Below:__ The most common objects of the Aare survey area are $\approxeq$ 66% (2,022) of the total number of objects recorded (3,067) at the three locations in Biel/Bienne*
+
+# In[6]:
 
 
 ac = biel[biel.code.isin(thecommon)].groupby('code', as_index=False).quantity.sum()
@@ -429,12 +415,9 @@ bsee = ac.copy()
 bsee['pt'] = ac.quantity/biel.quantity.sum()
 these_codes = bsee.sort_values(by='pt', ascending=False).code.unique()
 bsee.sort_values(by='pt', ascending=False, inplace=True)
-# bsee['item'] = bsee.code.map(lambda x: code_description_map.loc[x])
-# bsee.set_index('item', inplace=True)
 bsee[level_names[0]] = bsee['pt']
 bsee = bsee[["code", level_names[0]]]
-bsee.set_index("code", inplace=True, drop=True )
-
+bsee.set_index("code", inplace=True, drop=True)
 
 # for the lake
 condition = (trb.code.isin(thecommon))&(trb.water_name_slug == 'bielersee')
@@ -449,13 +432,6 @@ bsee[top] = sut.aggregate_to_group_name(dfSurveys,column="code", unit_label=unit
 
 bsee["item"] = bsee.index.map(lambda x: code_description_map[x])
 bsee.set_index("item", drop=True, inplace=True)
-
-
-# *__Below:__ The most common objects of the Aare survey area are $\approxeq$ 66% (2,022) of the total number of objects recorded (3,067) at the three locations in Biel/Bienne*
-
-# In[10]:
-
-
 # chart that
 fig, ax  = plt.subplots(figsize=(len(bsee.columns)*.9,len(bsee)*.9))
 axone = ax
@@ -491,7 +467,7 @@ plt.close()
 # 2. If a survey of 50 meters is conducted what is the probable minimum amount of pellets would you find?
 # 3. Why did you pick that location or locations? How sure are you of your choices?
 
-# In[11]:
+# In[7]:
 
 
 aggs = {'loc_date':'nunique', 'fail':'sum', 'pcs_m':'mean', "quantity":"sum"}
@@ -505,7 +481,7 @@ biel_g95
 
 # <br></br>
 
-# In[12]:
+# In[8]:
 
 
 sut.display_image_ipython("resources/maps/key_indicators.jpeg", thumb=(1200, 700))

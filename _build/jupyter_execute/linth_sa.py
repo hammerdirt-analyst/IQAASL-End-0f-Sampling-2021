@@ -162,7 +162,7 @@ code_material_map = dfCodes.material
 
 
 # (linthsa)=
-# # Linth survey area
+# # Linth
 # 
 # <a href="linth_sa_de.html"> Deutsch </a>
 
@@ -269,12 +269,13 @@ dt_nw = fd[["loc_date", this_feature["level"], *luse_exp]].drop_duplicates()
 comps = [this_feature["slug"]]
 comp_labels = {x:wname_wname.loc[x][0] for x in fd[this_level].unique()}
 
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(17,4), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
 
 for i, n in enumerate(luse_exp):
-    # get the dist for each survey area here
+    r = i%2
+    c = i%3
+    ax=axs[r,c]
     for element in[this_feature["slug"]]:
-        ax=axs[i]
         data=dt_nw[dt_nw[this_feature["level"]] == element][n].values
         the_data = ECDF(data)
         
@@ -285,7 +286,7 @@ for i, n in enumerate(luse_exp):
     a_all_surveys =  ECDF(project_profile[n].values)
     
     # plot that    
-    sns.lineplot(x=a_all_surveys.x, y=a_all_surveys.y, ax=ax, label="All surveys", color="magenta")
+    sns.lineplot(x=a_all_surveys.x, y=a_all_surveys.y, ax=ax, label="All survey areas", color="magenta")
     
     # get the median from the data
     the_median = np.median(data)
@@ -296,7 +297,7 @@ for i, n in enumerate(luse_exp):
     ax.hlines(xmax=the_median, xmin=0, y=0.5, color="red", linewidth=2)
     
     if i <= 3:
-        if i == 0:            
+        if c == 0:            
             ax.set_ylabel("Ratio of samples", **ck.xlab_k)
         ax.xaxis.set_major_formatter(ticker.PercentFormatter(1.0, 0, "%"))        
     else:
@@ -306,9 +307,10 @@ for i, n in enumerate(luse_exp):
     handles, labels = ax.get_legend_handles_labels()
     ax.get_legend().remove()    
     ax.set_xlabel(n, **ck.xlab_k)
-plt.suptitle("% land use within 1500m of the survey location", ha="left", x=0.05, y=.97, fontsize=14)    
 plt.tight_layout()
-fig.legend(handles, labels,bbox_to_anchor=(.99, .99), loc="upper right",ncol=3)      
+plt.subplots_adjust(top=.9, hspace=.3)
+plt.suptitle("Land use within 1500m of the survey location", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.5,.94), loc="center", ncol=3)    
 
 plt.show()
 
@@ -364,11 +366,12 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.8,len(data)*.8))
+fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 sut.hide_spines_ticks_grids(ax)
 
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -499,6 +502,7 @@ sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
@@ -507,6 +511,7 @@ sut.hide_spines_ticks_grids(axtwo)
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -555,12 +560,13 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 cols_to_use = {"item":"Item","quantity":"Quantity", "% of total":"% of total", "fail rate":"Fail rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(10,len(m_common)*.8))
+fig, axs = plt.subplots(figsize=(10,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
+table_four.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -731,7 +737,7 @@ new_labels = new_labels[::-1]
 new_labels.insert(0,"Monthly survey average")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)    
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)       
 plt.show()
 
 
@@ -992,6 +998,7 @@ sut.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_five.get_celld()[(0,0)].get_text().set_text(" ")
+table_five.set_fontsize(14)
 
 plt.show()
 
@@ -1041,6 +1048,7 @@ sut.hide_spines_ticks_grids(axs)
 
 table_six = sut.make_a_table(axs, data.values,  colLabels=list(data.columns), colWidths=[.48, .13,.13,.13, .13], **{"loc":"lower center"})
 table_six.get_celld()[(0,0)].get_text().set_text(" ")
+table_six.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -1092,6 +1100,7 @@ sut.hide_spines_ticks_grids(axs)
 
 table_seven = sut.make_a_table(axs,data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], a_color=a_color)
 table_seven.get_celld()[(0,0)].get_text().set_text(" ")
+table_seven.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()

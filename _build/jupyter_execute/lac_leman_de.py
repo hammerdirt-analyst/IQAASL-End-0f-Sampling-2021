@@ -90,10 +90,6 @@ a_color = "dodgerblue"
 # colors for gradients
 cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
-
-# set the maps
-bassin_map = "resources/maps/leman_scaled.jpeg"
-
 # top level aggregation
 top = "Alle Erhebungsgebiete"
 
@@ -102,9 +98,10 @@ this_feature = {"slug":"bt", "name":"Lac Léman", "level":"water_name_slug"}
 
 this_level = 'city'
 this_bassin ="rhone"
-bassin_label = "Rhône-Erhebungsgebiet"
+bassin_label = "Erhebungsgebiet Rhône"
 
 lakes_of_interest = ["lac-leman"]
+# explanatory variables:
 # explanatory variables:
 luse_exp =  list(sut.luse_ge.values())
 
@@ -203,7 +200,7 @@ sut.display_image_ipython(bassin_map, thumb=(800,450))
 
 # ## Erhebungsorte
 
-# In[3]:
+# In[ ]:
 
 
 # this is the data before the expanded foams and fragmented plastics are aggregated to Gfrags and Gfoams
@@ -280,7 +277,7 @@ md(lake_string)
 
 # ### Kumulative Gesamtmengen nach Gemeinden
 
-# In[4]:
+# In[ ]:
 
 
 dims_parameters = dict(this_level=this_level, 
@@ -318,18 +315,19 @@ agg_caption = F"""
 md(agg_caption)
 
 
-# In[5]:
+# In[ ]:
 
 
 # make table
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.75,len(data)*.7))
+fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 
 sut.hide_spines_ticks_grids(ax)
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -338,7 +336,7 @@ plt.close()
 
 # ### Verteilung der Erhebungsergebnisse
 
-# In[6]:
+# In[ ]:
 
 
 # the feature surveys to chart
@@ -369,7 +367,7 @@ chart_notes = F"""
 md(chart_notes )
 
 
-# In[7]:
+# In[ ]:
 
 
 # months locator, can be confusing
@@ -420,7 +418,7 @@ plt.show()
 
 # ### Zusammenfassende Daten und Materialtypen
 
-# In[8]:
+# In[ ]:
 
 
 # figure caption
@@ -430,17 +428,14 @@ summary_of_survey_totals = F"""
 md(summary_of_survey_totals)
 
 
-# In[9]:
+# In[ ]:
 
 
 # get the basic statistics from pd.describe
 cs = dt_all[unit_label].describe().round(2)
 
-# add project totals
-cs["total objects"] = dt_all.quantity.sum()
-
 # change the names
-csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="DE"))
+csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="EN"))
 
 combined_summary = sut.fmt_combined_summary(csx, nf=[])
 
@@ -452,7 +447,7 @@ cols_to_use = {"material":"Material","quantity":"Quantity", "% of total":"% of t
 fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
 
 # make tables
-fig, axs = plt.subplots(1,2, figsize=(7,5))
+fig, axs = plt.subplots(1,2, figsize=(8,6))
 
 # summary table
 # names for the table columns
@@ -463,17 +458,16 @@ sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
 axtwo.set_xlabel(" ")
 sut.hide_spines_ticks_grids(axtwo)
 
-# column names for display
-cols_to_use = {"material":"Material","quantity":"Gesamt", "% of total":"% Gesamt"}
-
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -484,7 +478,7 @@ plt.show()
 # 
 # Die am häufigsten gefundenen Gegenständesind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
-# In[10]:
+# In[ ]:
 
 
 # the top ten by quantity
@@ -506,7 +500,7 @@ rb_string = F"""
 md(rb_string)
 
 
-# In[11]:
+# In[ ]:
 
 
 # format values for table
@@ -520,12 +514,13 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% der Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(12,len(m_common)*.6))
+fig, axs = plt.subplots(figsize=(10,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
+table_four.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()
@@ -535,7 +530,7 @@ plt.close()
 
 # ### Die am häufigsten gefundenen Gegenständenach Gemeinden
 
-# In[12]:
+# In[ ]:
 
 
 rb_string = F"""
@@ -544,7 +539,7 @@ rb_string = F"""
 md(rb_string)
 
 
-# In[13]:
+# In[ ]:
 
 
 # aggregated survey totals for the most common codes for all the water features
@@ -590,7 +585,7 @@ plt.close()
 
 # ### Die am häufigsten gefundenen Gegenständeim monatlichen Durchschnitt
 
-# In[14]:
+# In[ ]:
 
 
 # collect the survey results of the most common objects
@@ -616,7 +611,7 @@ monthly_mc = F"""
 md(monthly_mc)
 
 
-# In[15]:
+# In[ ]:
 
 
 # convenience function to lable x axis
@@ -682,7 +677,7 @@ new_labels = new_labels[::-1]
 new_labels.insert(0,"Monatsdurchschnitt")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)    
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)       
 plt.show()
 
 
@@ -694,16 +689,16 @@ plt.show()
 # *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
-# *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
+# *  **Landwirtschaft:** z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
 # *  **Tabakwaren:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
+# *  **Verpackungen ausser Lebensmittel und Getränke:** Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
 # Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
-# In[16]:
+# In[ ]:
 
 
 cg_poft = F"""
@@ -713,7 +708,7 @@ cg_poft = F"""
 md(cg_poft)
 
 
-# In[17]:
+# In[ ]:
 
 
 # code groups resluts aggregated by survey
@@ -768,7 +763,7 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# In[18]:
+# In[ ]:
 
 
 cg_medpcm = F"""
@@ -778,7 +773,7 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[19]:
+# In[ ]:
 
 
 # median p/50m of all the water features
@@ -817,7 +812,7 @@ plt.show()
 # 
 # Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert.
 
-# In[20]:
+# In[ ]:
 
 
 frag_foams = F"""
@@ -826,7 +821,7 @@ frag_foams = F"""
 md(frag_foams)
 
 
-# In[21]:
+# In[ ]:
 
 
 # collect the data before aggregating foams for all locations in the survey area
@@ -853,7 +848,7 @@ data = fd_frags_foams[["item", unit_label, "quantity", "% of total"]]
 
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt" }, inplace=True)
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.5,len(data)*.8))
+fig, axs = plt.subplots(figsize=(11,len(data)*.8))
 sut.hide_spines_ticks_grids(axs)
 
 the_first_table_data = axs.table(data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
@@ -862,6 +857,7 @@ a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data.values,
 
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
 
+a_summary_table_one.set_fontsize(14)
 plt.show()
 plt.tight_layout()
 plt.close()
@@ -869,7 +865,7 @@ plt.close()
 
 # ### Die Erhebungsorte
 
-# In[22]:
+# In[ ]:
 
 
 # display the survey locations
@@ -885,14 +881,14 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[23]:
+# In[ ]:
 
 
 # display inventory
 pd.set_option("display.max_rows", None)
 locale.setlocale(locale.LC_ALL, loc)
 complete_inventory = code_totals[code_totals.quantity>0][["item", "groupname", "quantity", "% of total","fail rate"]]
-complete_inventory.rename(columns={"item":"Objekte", "groupname":"Gruppenname", "quantity":"Gesamt", "% of total":"% Gesamt"}, inplace=True)
+complete_inventory.rename(columns={"item":"Objekte", "groupname":"Gruppenname", "quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail rate" }, inplace=True)
 
 
 complete_inventory.sort_values(by="Gesamt", ascending=False)

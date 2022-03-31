@@ -350,11 +350,12 @@ sut.hide_spines_ticks_grids(axtwo)
 the_first_table_data = axtwo.table(t_data,  colLabels=["Stat", unit_label], colWidths=[.5,.5], bbox=[0, 0, 1, 1])
 
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,t_data,["Stat", unit_label], a_color, s_et_bottom_row=True)
-
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+a_summary_table_one.set_fontsize(14)
+
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
-ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
+ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
 
 plt.tight_layout()
 plt.show()
@@ -380,7 +381,7 @@ gs = GridSpec(1,5)
 
 ax = fig.add_subplot(gs[:,0:3])
 axtwo = fig.add_subplot(gs[:, 3:])
-ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
+ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
 
 sns.histplot(data=dt_all, x=unit_label, stat='count', ax=ax, alpha=0.6)
 ax.axvline(x=dt_all[unit_label].median(), c='magenta', label='median')
@@ -392,8 +393,9 @@ sut.hide_spines_ticks_grids(axtwo)
 the_first_table_data = axtwo.table(these_vals,  colLabels=('ranking', unit_label), colWidths=[.5,.5], bbox=[0, 0, 1, 1])
 
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,these_vals,('ranking', unit_label), a_color, s_et_bottom_row=True)
-
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text("ranking")
+a_summary_table_one.set_fontsize(14)
+
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
 plt.show()
@@ -558,9 +560,6 @@ n=5000
 observed_median = dt_all[unit_label].median()
 observed_tenth = dt_all[unit_label].quantile(.15)
 
-# quantiles = [.1, .2, .5, .9]
-# q_vals = {x:dt_all[unit_label].quantile(x) for x in quantiles}
-
 the_cis = {}
 
 for a_rank in quantiles:
@@ -587,13 +586,12 @@ p_cis['b-method'] = '%'
 p_cis.reset_index(inplace=True)
 
 
-# *__Below left:__ Confidence intervals calculated by resampling the survey results 5,000 times for each condition. __Below right:__ The same intervals using the bias corrected method.*
+# *__Below top:__ Confidence intervals calculated by resampling the survey results 5,000 times for each condition. __Below bottom:__ The same intervals using the bias corrected method.*
 
 # In[9]:
 
 
-fig, axs = plt.subplots(1,2, figsize=(11,3))
-
+fig, axs = plt.subplots(2,1, figsize=(8,8))
 axone = axs[0]
 axtwo = axs[1]
 
@@ -606,10 +604,14 @@ colLabels.append('method')
 table_one = sut.make_a_table(axone, data, colLabels=colLabels, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
 table_two = sut.make_a_table(axtwo, bcas.values, colLabels=colLabels, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
 
-table_one.get_celld()[(0,0)].get_text().set_text(" ")
-table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.set_fontsize(14)
+table_two.set_fontsize(14)    
+                        
+table_one.get_celld()[(0,0)].get_text().set_text("Percentile")
+table_two.get_celld()[(0,0)].get_text().set_text("BCa")
 
 plt.tight_layout()
+plt.subplots_adjust(hspace=.3)
 plt.show()
 plt.close()
 
@@ -655,7 +657,7 @@ sas = pd.DataFrame(the_sas)
 sas['b-method'] = 'bca'
 sas = sas.reset_index()
 
-fig, axs = plt.subplots()
+fig, axs = plt.subplots(figsize=(7,4))
 
 data = sas.values
 sut.hide_spines_ticks_grids(axs)
@@ -665,6 +667,8 @@ the_first_table_data = axs.table(data, colLabels=sas.columns, colWidths=[.25,*[.
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data,sas.columns, a_color, s_et_bottom_row=True)
 
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+
+a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.close()
@@ -757,7 +761,7 @@ ax.annotate("Not Adjusted",
                   arrowprops=dict(arrowstyle="-|>",
                                   connectionstyle="arc3,rad=-0.2",
                                   fc="black"),)
-ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
+ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
 
 plt.show()
 
@@ -870,7 +874,7 @@ r = stats.nbinom.rvs(n,p, size=len(vals))
 
 # format data for charting
 df = pd.DataFrame({unit_label:vals, 'group':'observed'})
-df = df.append(pd.DataFrame({unit_label:r, 'group':'MOM'}))
+df = pd.concat([df,pd.DataFrame({unit_label:r, 'group':'MOM'})])
 
 scp = df[df.group == 'MOM'][unit_label].to_numpy()
 obs = df[df.group == 'observed'][unit_label].to_numpy()
@@ -930,8 +934,8 @@ ax.tick_params(which='both', axis='both', labelsize=14)
 l3 = labels[:3]
 llast = labels[-1:]
 
-ax.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
-axone.grid(b=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
+ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
+axone.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.2, zorder=0)
 
 
 fig.legend([*h3, *hlast], [*l3, *llast], bbox_to_anchor=(.48, .96), loc='upper right', fontsize=14)
@@ -974,7 +978,7 @@ sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", th
 
 # *__Below:__ Comparing the baseline values of the most common objects. Aare survey area lakes and rivers 2020 - 2021. Locations with more than 30 surveys: Bielersee, Neuenburgersee and Thunersee.*
 
-# In[18]:
+# In[19]:
 
 
 sut.display_image_ipython("resources/images/baselines/example_implementation2.png", thumb=(800, 800))

@@ -108,7 +108,7 @@ name: esummarymcommon
 
 ```
 
-{numref}`Figure {number}: <esummarymcommon>` _Survey totals all lakes and rivers: the most common objects identified from March 2020 - May 2021. The fail rate is the ratio of the number of times an object was identified at least once with respect to the number of surveys. The quantity is the total number of an identified object collected and the median pieces of litter per 100 meters (p/100m). For example a total of 8,485 cigarette filters were identified in 87% of the surveys, representing 15 percent of the total items collected and had a median value of 20 cigarette filters per 100m of shoreline._ 
+{numref}`Figure {number}: <esummarymcommon>` _Survey totals all lakes and rivers: the most common objects identified from March 2020 - May 2021. The fail rate is the ratio of the number of times an object was identified at least once with respect to the total number of surveys. The quantity is the total number of an identified object collected and the median pieces of litter per 100 meters (p/100m). For example a total of 8,485 cigarette filters were identified in 87% of the surveys, representing 15 percent of the total items collected and had a median value of 20 cigarette filters per 100m of shoreline._ 
 
 Industrial pellets and expanded foams < 5mm both occurred in significant quantities but identified in less than 50% of the surveys (median of 0), indicating high counts at specific locations. While both are micro plastics, their use, origin and rate of occurrence are different depending on the survey area region. Industrial pellets are raw materials used in injection molding processes whereas foamed plastic beads are the result of fragmentation of expanded polystyrene. For more information on location, quantities and rate of individual object occurrence see [_Lakes and rivers_](allsurveys).
 
@@ -123,7 +123,7 @@ name: esummarysurveyareas
 
 ```
 
-{numref}`Figure {number}: <esummarysurveyareas>` *All lakes and rivers by region: The median survey total of the most common objects identified; rates vary depending on the survey area region. For example, fragmented plastics had the greatest median value in the Aare (18.5p/100m) and Rhône (48p/100m) survey areas.* 
+{numref}`Figure {number}: <esummarysurveyareas>` *All lakes and rivers by survey area: The median survey total of the most common objects identified; rates vary depending on the survey area region. For example, fragmented plastics had the greatest median value in the Aare (18.5p/100m) and Rhône (48p/100m) survey areas.* 
 
 ## Trends from 2017-2018
 

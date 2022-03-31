@@ -182,12 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="maggiore_lugano_de.html">
-   10. Maggiore/Lugano
+   10. Maggiore / Lugano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="thunersee_brienzersee_de.html">
-   11. Thunersee/Brienzersee
+   11. Thunersee / Brienzersee
   </a>
  </li>
  <li class="toctree-l1">
@@ -758,12 +758,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Auf den Leitfaden folgte 2016 der Leitfaden Riverine Abfallobjekte Monitoring - Options and Recommendations<span id="id4">[<a class="reference internal" href="references.html#id45" title="Georg Hanke, Daniel González Fernández, Tweehuysen, Bellert, Holzhauer, Andreja Palatinus, Hohenblum, and L. Oosterbaan. Riverine litter monitoring - options and recommendations. publications Office of the European Union, 02 2017. doi:10.2788/461233.">HGFT+17</a>]</span>, der die zunehmende Erkenntnis widerspiegelt, dass Flüsse wichtige Quellen für Haushaltsabfälle in Küstenregionen sind. Zu diesem Zeitpunkt war das erste Projekt zur Überwachung von Abfallobjekten am Genfer See bereits abgeschlossen und die Vorbereitungen für ein einjähriges nationales Projekt in der Schweiz, das von STOPPP initiiert und von WWF-Freiwilligen unterstützt wurde, liefen an, siehe <a class="reference internal" href="slr_2017_de.html#slr-iqaaslde"><span class="std std-ref"><em>Mehr und weniger Müll seit 2017</em></span></a>.</p>
 <p>2019 veröffentlichte die Gemeinsame Forschungsstelle (JRC) eine Analyse eines paneuropäischen Datensatzes zu Abfallobjekten am Strand aus den Jahren 2012-2016, ein technisches Dokument, in dem die Methoden und verschiedenen Szenarien zur Berechnung von Basiswerten aus Abfallobjekten am Strand detailliert beschrieben werden. Von besonderem Interesse für das JRC war die Robustheit der Methoden gegenüber Extremwerten und die Transparenz der Berechnungsmethode.<span id="id5">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span></p>
 <p>Im September 2020 schliesslich legte die EU Basis- und Zielwerte auf der Grundlage der 2015-2016 erhobenen Daten fest. Die Zielwerte beziehen sich auf den guten Umweltzustand der Meeresgewässer, der in der Meeresstrategie-Rahmenrichtlinie (MSRL) beschrieben wird, und die Basiswerte wurden anhand der in der Veröffentlichung von 2019 beschriebenen Methoden berechnet. <span id="id6">[<a class="reference internal" href="references.html#id44" title="Fleet D. Van Loon W., Hanke G. A european threshold value and assessment method for macro litter on coastlines. Publications Office of the European Union, 2020.">VLW20</a>]</span></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/takingnotes2.jpg&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/baselines_de_2_0.png" src="_images/baselines_de_2_0.png" />
 </div>
@@ -783,42 +778,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h4><span class="section-number">14.1.2.1. </span>Festlegung des Erhebungsgebiets<a class="headerlink" href="#festlegung-des-erhebungsgebiets" title="Permalink to this headline">¶</a></h4>
 <p>Ein Vermessungsgebiet wird durch den GPS-Punkt und die aufgezeichneten Vermessungsmasse definiert. Die Mindestbreite ist der Abstand zwischen der Wasserkante und der Strandlinie. In einigen Fällen können die Strandlinie und der hintere Teil des Strandes identisch sein. Weitere Informationen darüber, wie die Vermessungsflächen gemessen werden, finden Sie unter <a class="reference internal" href="land_use_correlation_de.html#luseprofilede"><span class="std std-ref">Das Landnutzungsprofil</span></a>.</p>
 <p><em><strong>Unten:</strong> Verschiedene Arten von Datenerhebungen:</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read images</span>
-<span class="n">img_a</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/tightquarterswholensee.jpg&quot;</span><span class="p">)</span>
-<span class="n">img_b</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/deltabad.jpg&quot;</span><span class="p">)</span>
-<span class="n">img_c</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/lcherz.jpg&quot;</span><span class="p">)</span>
-<span class="n">img_d</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/snow.jpg&quot;</span><span class="p">)</span>
-
-<span class="c1"># display images</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-
-<span class="n">axone</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axone</span><span class="p">)</span>
-<span class="n">axone</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_a</span><span class="p">);</span>
-<span class="n">axone</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Kalnach, Wohlensee: ländliches Erholungsgebiet&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
-
-<span class="n">axtwo</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axtwo</span><span class="p">)</span>
-<span class="n">axtwo</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_b</span><span class="p">);</span>
-<span class="n">axtwo</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Spiez, Thunersee: Vorstadt-Erholungsgebiet&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
-
-<span class="n">axthree</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axthree</span><span class="p">)</span>
-<span class="n">axthree</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_c</span><span class="p">);</span>
-<span class="n">axthree</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Lüscherz, Bielersee: ländlicher See&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
-
-<span class="n">axfour</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axfour</span><span class="p">)</span>
-<span class="n">axfour</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Richterswil, Zurichsee: Stadtwanderweg&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
-<span class="n">axfour</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_d</span><span class="p">);</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/baselines_de_7_0.png" src="_images/baselines_de_7_0.png" />
 </div>
@@ -829,12 +789,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h4><span class="section-number">14.1.2.2. </span>Zählen von Objekten<a class="headerlink" href="#zahlen-von-objekten" title="Permalink to this headline">¶</a></h4>
 <p>Alle sichtbaren Objekte innerhalb eines Untersuchungsgebiets werden gesammelt, klassifiziert und gezählt. Das Gesamtgewicht von Material und Plastik wird ebenfalls erfasst. Die Objekte werden anhand von <a class="reference internal" href="code_groups_de.html#codegroupsde"><span class="std std-ref"> Code-Definitionen </span></a> klassifiziert, die auf einer Masterliste von Codes im Handbuch basieren. Spezielle Objekte, die von lokalem Interesse sind, wurden unter G9xx und G7xx hinzugefügt.</p>
 <p><em><strong>Unten:</strong> Zählen und Klassifizieren einer Probe. Die Objekte werden nach dem Sammeln sortiert und gezählt. Die ursprüngliche Zählung wird in einem Notizbuch festgehalten, und die Daten werden in die Anwendung <a class="reference external" href="https://www.plagespropres.ch/"> plages-propres </a> eingegeben wenn der Erheber es wünscht.</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/takingnotes.jpg&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/baselines_de_10_0.png" src="_images/baselines_de_10_0.png" />
 </div>
@@ -936,7 +891,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># sns.set_style(&#39;whitegrid&#39;)</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 
@@ -980,8 +935,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">the_first_table_data</span> <span class="o">=</span> <span class="n">axtwo</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">combined_summary</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>  <span class="n">colLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stat&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">],</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.5</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
 <span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">combined_summary</span><span class="p">[</span><span class="mi">1</span><span class="p">:],[</span><span class="s2">&quot;Stat&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">],</span> <span class="n">a_color</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
 <span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+
 <span class="n">axtwo</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1025,8 +981,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">the_first_table_data</span> <span class="o">=</span> <span class="n">axtwo</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">these_vals</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;ranking&#39;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">),</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.5</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
 <span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">these_vals</span><span class="p">,(</span><span class="s1">&#39;ranking&#39;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">),</span> <span class="n">a_color</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
 <span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot;ranking&quot;</span><span class="p">)</span>
+<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+
 <span class="n">axtwo</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1221,10 +1178,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p><em><strong>Unten links:</strong> Konfidenzintervalle, die durch eine 5.000-fache Wiederholungsstichprobe der Umfrageergebnisse für jede Bedingung berechnet wurden. <strong>Unten rechts:</strong> Die gleichen Intervalle unter Verwendung der verzerrungskorrigierten Methode.</em></p>
+<p><em><strong>Unten Spitze:</strong> Konfidenzintervalle, die durch eine 5.000-fache Wiederholungsstichprobe der Umfrageergebnisse für jede Bedingung berechnet wurden. <strong>Unten boden:</strong> Die gleichen Intervalle unter Verwendung der verzerrungskorrigierten Methode.</em></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 
 <span class="n">axone</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">axtwo</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -1238,10 +1195,14 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axone</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.25</span><span class="p">,</span><span class="o">*</span><span class="p">[</span><span class="mf">.15</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">table_two</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axtwo</span><span class="p">,</span> <span class="n">bcas</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.25</span><span class="p">,</span><span class="o">*</span><span class="p">[</span><span class="mf">.15</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
-<span class="n">table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="n">table_two</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">table_two</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>    
+                        
+<span class="n">table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot;Perzentlie&quot;</span><span class="p">)</span>
+<span class="n">table_two</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot;BCa&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1252,13 +1213,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><em><strong>Unten:</strong> Beispielwert für das Konfidenzintervall: Das Ergebnis der Datenerhebungen in Biel am 31.01.2021 war grösser als der Medianwert für alle Datenerhebungen. Es wurden 123 Objekte (pcs) über 40 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert.</em></p>
-<p><span class="math notranslate nohighlight">\((pcs/m)*100 = (123_{pcs} / 40_m)*100m \approxeq 313p/100m\)</span></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s1">&#39;resources/images/baselines/mullermatte_bielersee31_01_2021.png&#39;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<p><span class="math notranslate nohighlight">\((pcs/m)*100 = (123_{pcs} / 40_m)*100 m \approxeq \text{313 p/100 m}\)</span></p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/baselines_de_24_0.png" src="_images/baselines_de_24_0.png" />
 </div>
@@ -1290,7 +1246,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">sas</span><span class="p">[</span><span class="s1">&#39;b-method&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bca&#39;</span>
 <span class="n">sas</span> <span class="o">=</span> <span class="n">sas</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">sas</span><span class="o">.</span><span class="n">values</span>
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
@@ -1300,6 +1256,8 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">sas</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">a_color</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1411,13 +1369,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Bei Verwendung der bereinigten Boxplots steigt die Extremwertschwelle (EVT) auf über 1’600p/100m. Die unbereinigten Boxplots liegen jedoch innerhalb der KI des erwarteten Perzentils der Umfragedaten.</p>
 <p><em><strong>Unten:</strong> Beispiel für bereinigte Extremwerte: St. Gingolph, 12.08.2020 Es wurden 514 Objekte (pcs) über 31 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert:</em></p>
-<p><span class="math notranslate nohighlight">\((pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1'652p/100m\)</span></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s1">&#39;resources/images/baselines/onethous60053pcs100m.jpg&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<p><span class="math notranslate nohighlight">\((pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq  \text{1'652 p/100 m}\)</span></p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/baselines_de_33_0.png" src="_images/baselines_de_33_0.png" />
 </div>
@@ -1590,7 +1543,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em>90% p/100m:  MLE=859,   Observed=727,   MOM=1021</em></p>
+<p><em>90% p/100m:  MLE=863,   Observed=727,   MOM=947</em></p>
 </div>
 </div>
 </div>
@@ -1608,12 +1561,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Sobald die BV für ein Erhebungsgebiet berechnet ist, können alle Proben, die innerhalb dieses Erhebungsgebiets durchgeführt werden, direkt mit ihr verglichen werden. Es ist der Fall, dass die Erhebungsgebiete in der Schweiz in den Jahren 2020 - 2021 unterschiedliche Median-Baselines haben. Diese Situation ist analog zur EU, was die Unterschiede zwischen den verschiedenen Regionen und Verwaltungsgebieten des Kontinents betrifft.</p>
 <p>Durch die Anwendung der vorgeschlagenen Methoden auf die aktuellen Ergebnisse von IQAASL können die bedenklichen Objekte für jedes Untersuchungsgebiet identifiziert werden.</p>
 <p><em><strong>Unten:</strong> Vergleichen Sie die Ausgangswerte der häufigsten Objekte. Alle Datenerhebungen 2020 - 2021. Das Erhebungsgebiet Ticino/Cerisio hat weniger als 100 Datenerhebungen.</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/lakes_rivers_de_22_0.png&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/baselines_de_40_0.png" src="_images/baselines_de_40_0.png" />
 </div>
@@ -1621,12 +1569,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Der erwartete Medianwert pro Datenerhebung und der Medianwert der häufigsten Objekte pro Erhebung ist im Erhebungsgebiet Rhône höher. Wenn der Medianwert verwendet wird, zeigt die BV auch, dass 2/12 der häufigsten Objekte in weniger als 50% der Datenerhebungen landesweit gefunden wurden, nämlich diejenigen mit einem Medianwert von Null.</p>
 <p>Die Methode kann vertikal skaliert werden, um eine detailliertere Ansicht eines Erhebungsgebiets zu erhalten. Die Berechnungsmethode bleibt dieselbe, daher sind Vergleiche vom See bis zur nationalen Ebene möglich.</p>
 <p><em><strong>Unten:</strong> Vergleichen Sie die Ausgangswerte der häufigsten Objekte. Aare-Erhebungsgebiet Seen und Flüsse 2020 - 2021. Orte mit mehr als 30 Datenerhebungen: Bielersee, Neuenburgersee und Thunersee.</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/aare_sa_de_23_0.png&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/baselines_de_43_0.png" src="_images/baselines_de_43_0.png" />
 </div>

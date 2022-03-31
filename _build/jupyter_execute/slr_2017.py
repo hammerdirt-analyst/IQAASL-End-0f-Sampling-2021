@@ -27,19 +27,6 @@ import seaborn as sns
 import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
-# images and display
-# import base64, io, IPython
-from PIL import Image as PILImage
-from IPython.display import Markdown as md
-from IPython.display import display 
-
-# set some parameters:
-# today = dt.datetime.now().date().strftime("%Y-%m-%d")
-start_date = "2015-11-01"
-end_date ="2021-05-31"
-
-start_end = [start_date, end_date]
-
 unit_label = "p/100m"
 
 unit_value = 100
@@ -52,8 +39,8 @@ sns.set_style("whitegrid")
 cmap2 = ck.cmap2
 
 # colors for projects
-this_palette = {"2020":"dodgerblue", "2018":"magenta"}
-this_palettel = {"2020":"teal", "2018":"indigo"}
+this_palette = {"2021":"dodgerblue", "2018":"magenta"}
+this_palettel = {"2021":"teal", "2018":"indigo"}
 
 # get the data:
 survey_data = pd.read_csv("resources/agg_results_with_land_use_2015.csv")
@@ -99,10 +86,9 @@ code_material_map = dfCodes.material
 # 
 # The SLR collected 1,052 samples from 112 locations. More than 150 trained volunteers from 81 municipalities collected and categorized 98,474 pieces of trash from the shores of 48 lakes and 67 rivers in Switzerland. {cite}`slr`
 # 
-# The most obvious question is: Was there more or less litter observed in 2020 than 2018? To answer the question the survey locations from each project were first compared based on the land use profile within 1500m of each survey location for each project. The survey results were limited to: 
+# The most obvious question is: Was there more or less litter observed in 2021 than 2018? To answer the question the survey locations from each project were first compared based on the land use profile within 1500m of each survey location for each project. The survey results were limited to: 
 # 
-# 1. Rivers and lakes with samples in both years 
-# 2. Only objects that were identified in 2018 were considered
+# 1. Only objects that were identified in 2018 were considered
 # 
 # From this subset of data, the median survey total of all objects and the average survey total of the most common objects were compared to identify statistically significant changes in either direction from one project to the next. This test was conducted on two groups of the subset: 
 # 
@@ -123,7 +109,7 @@ sut.display_image_ipython("resources/maps/slr_iqasl.jpeg", thumb=(1200, 700))
 # make sure date is time stamp
 survey_data["date"] = pd.to_datetime(survey_data["date"], format="%Y-%m-%d")
 
-# get only the water features that were sampled in 2020
+# get only the water features that were sampled in 2021
 after_2020 = survey_data[survey_data["date"] >= "2020-01-01"].water_name_slug.unique()
 a_data = survey_data[survey_data.water_name_slug.isin(after_2020)].copy()
 
@@ -143,7 +129,7 @@ iqasl_data = a_data[second_date_range].copy()
 these_codes = slr_data[slr_data.quantity > 0].code.unique()
 
 # add a survey year column to each data set
-iqasl_data["survey year"] = "2020"
+iqasl_data["survey year"] = "2021"
 slr_data["survey year"] = "2018"
 
 # put the two sets of data back together
@@ -159,7 +145,7 @@ both_years = list(set(sdlocs).intersection(iqs))
 
 # locations specific to each year
 just_2017 = [x for x in sdlocs if x not in iqs]
-j_2020 = [x for x in iqs if x not in sdlocs]
+j_2021 = [x for x in iqs if x not in sdlocs]
 
 # use only the codes identified in 2017, the protocol only called for certain MLW codes
 df = combined_data[combined_data.code.isin(these_codes)].copy()
@@ -179,7 +165,7 @@ df["streets km"] = (df.streets/1000).round(1)
 # 5. length in meters of all roadways 
 # 6. number of river discharge intersections
 # 
-# As of June 22, 2021, the land use data for Walensee was not up to date. Walensse has been estimated by visually inspecting the relevant map layers and comparing land use rates to other locations that have a similar population. For details on how this is calculated and why it is important see The land use profile. [_The land use profile_](luseprofile).
+# As of June 22, 2021, the land use data for Walensee was not up to date. Walensse has been estimated by visually inspecting the relevant map layers and comparing land use rates to other locations that have a similar population. For details on how this is calculated and why it is important see [_The land use profile_](luseprofile).
 
 # In[4]:
 
@@ -201,13 +187,15 @@ for a_param in estimate_luse.index:
 dfdt = df.groupby(use_these_cols[:-2], as_index=False).agg(agg_pcs_quantity)
 
 # chart the distribtuion of survey results with respect to the land use profile
-fig, axs = plt.subplots(1, len(luse_exp), figsize=(len(luse_exp)*3,4), sharey="row")
+fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
 
 data=dfdt[(dfdt["survey year"] == "2018")].groupby(use_these_cols[:-2], as_index=False).agg({"p/100m":"sum", "quantity":"sum"})
-data2=dfdt[(dfdt["survey year"] == "2020")].groupby(use_these_cols[:-2], as_index=False).agg({"p/100m":"sum", "quantity":"sum"})
+data2=dfdt[(dfdt["survey year"] == "2021")].groupby(use_these_cols[:-2], as_index=False).agg({"p/100m":"sum", "quantity":"sum"})
 
 for i, n in enumerate(luse_exp):
-    ax=axs[i]
+    r = i%2
+    c = i%3
+    ax=axs[r,c]
     
     # land use data for each project
     the_data = ECDF(data[n].values)       
@@ -219,7 +207,7 @@ for i, n in enumerate(luse_exp):
     
     # plot the curves
     sns.lineplot(x= the_data.x, y=the_data.y, ax=ax, color=this_palette["2018"], label="SLR")
-    sns.lineplot(x=the_data2.x, y=the_data2.y, ax=ax, color=this_palette["2020"], label="IQAASL")
+    sns.lineplot(x=the_data2.x, y=the_data2.y, ax=ax, color=this_palette["2021"], label="IQAASL")
     
     # plot the median and drop horzontal and vertical lines
     ax.scatter([the_median], 0.5, color=this_palette["2018"],s=50, linewidth=2, zorder=100, label="the median SLR")
@@ -227,10 +215,10 @@ for i, n in enumerate(luse_exp):
     ax.hlines(xmax=the_median, xmin=0, y=0.5, color=this_palette["2018"], linewidth=1)
     
     # plot the median and drop horzontal and vertical lines
-    ax.scatter([median_two], 0.5, color=this_palette["2020"],s=50, linewidth=2, zorder=100, label="the median IQAASL")
-    ax.vlines(x=median_two, ymin=0, ymax=0.5, color=this_palette["2020"], linewidth=1)
-    ax.hlines(xmax=median_two, xmin=0, y=0.5, color=this_palette["2020"], linewidth=1)
-    if i == 0:
+    ax.scatter([median_two], 0.5, color=this_palette["2021"],s=50, linewidth=2, zorder=100, label="the median IQAASL")
+    ax.vlines(x=median_two, ymin=0, ymax=0.5, color=this_palette["2021"], linewidth=1)
+    ax.hlines(xmax=median_two, xmin=0, y=0.5, color=this_palette["2021"], linewidth=1)
+    if c == 0:
         ax.get_legend().remove()
         ax.set_ylabel("Percent of samples", **ck.xlab_k)
     else:
@@ -239,10 +227,10 @@ for i, n in enumerate(luse_exp):
     
 handles, labels=ax.get_legend_handles_labels()
 
-plt.subplots_adjust(top=.9)
-plt.suptitle("% land use within 1500m of the survey location", ha="left", x=0.05, y=.97, fontsize=14)    
 plt.tight_layout()
-fig.legend(handles, labels, bbox_to_anchor=(.9,1), loc="upper right", ncol=4)
+plt.subplots_adjust(top=.9, hspace=.3)
+plt.suptitle("Land use within 1500m of the survey location", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.5,.94), loc="center", ncol=4)
 
 plt.show()
 
@@ -253,13 +241,13 @@ plt.show()
 # 
 # The population (not shown) is taken from statpop 2018  {cite}`statpop`.     The smallest population was 442 and the largest was 415,357. At least 50% of the samples came from municipalities with a population of 13,000 or less. 
 # 
-# If percent of land use attributed to agriculture is a sign of urbanization, then the survey areas in 2020 were slightly more urban than 2018. 
+# If percent of land use attributed to agriculture is a sign of urbanization, then the survey areas in 2021 were slightly more urban than 2018. 
 
 # ## Results lakes and rivers
 
-# Considering only lakes and rivers that have samples in both years, there were more samples and trash collected from fewer locations in 2018 than 2020. However, on a pieces per meter basis the median was greater in 2020. 
+# Considering only lakes and rivers that have samples in both years, there were more samples and trash collected from fewer locations in 2018 than 2021. However, on a pieces per meter basis the median was greater in 2021. 
 
-# ### Distribution of results 2018 and 2020
+# ### Distribution of results 2018 and 2021
 
 # *__Top Left:__ survey totals by date. __Top right:__ median monthly survey total. __bottom Left:__ number of samples with respect to the survey total. __bottom right:__ empirical cumulative distribution of survey totals.*
 
@@ -272,14 +260,14 @@ data["lakes"] = data.water_name_slug.isin(these_lakes)
 
 # get the ecdf for both projects
 ecdf_2017 = ECDF(data[data["survey year"] == "2018"][unit_label].values)
-ecdf_2020 = ECDF(data[data["survey year"] == "2020"][unit_label].values)
+ecdf_2021 = ECDF(data[data["survey year"] == "2021"][unit_label].values)
 
 # get the ecddf for the condition lakes in both years
 l2017 = data[(data.water_name_slug.isin(these_lakes))&(data["survey year"] == "2018")].copy()
-l2020 = data[(data.water_name_slug.isin(these_lakes))&(data["survey year"] == "2020")].copy()
+l2021 = data[(data.water_name_slug.isin(these_lakes))&(data["survey year"] == "2021")].copy()
 
 ecdf_2017l = ECDF(l2017[unit_label].values)
-ecdf_2020l = ECDF(l2020[unit_label].values)
+ecdf_2021l = ECDF(l2021[unit_label].values)
 
 # convenience func and dict to display table values
 change_names = {"count":"# samples", "mean":F"average {unit_label}", "std":"standard deviation", "min":F"min {unit_label}",  "25%":"25%",  "50%":"50%", "75%":"75%", "max":F"max {unit_label}", "min":"min p/100", "total objects":"total objects", "# locations":"# locations", "survey year":"survey year"}
@@ -303,7 +291,7 @@ combined_summary = c_s.pivot(columns="survey year", index="variable", values="va
 
 # format for printing
 combined_summary["2018"] = combined_summary["2018"].map(lambda x: F"{int(x):,}")
-combined_summary["2020"] = combined_summary["2020"].map(lambda x: F"{int(x):,}")
+combined_summary["2021"] = combined_summary["2021"].map(lambda x: F"{int(x):,}")
 
 # change the index to date
 data.set_index("date", inplace=True)
@@ -314,9 +302,9 @@ monthly_2017 = data.loc[data["survey year"] == "2018"]["p/100m"].resample("M").m
 # change the date to the name of the month for charting
 months_2017 = pd.DataFrame({"month":[dt.datetime.strftime(x, "%b") for x in monthly_2017.index], unit_label:monthly_2017.values})
 
-# repeat for 2020
-monthly_2020 = data.loc[data["survey year"] == "2020"]["p/100m"].resample("M").median()
-months_2020 = pd.DataFrame({"month":[dt.datetime.strftime(x, "%b") for x in monthly_2020.index], unit_label:monthly_2020.values})
+# repeat for 2021
+monthly_2021 = data.loc[data["survey year"] == "2021"]["p/100m"].resample("M").median()
+months_2021 = pd.DataFrame({"month":[dt.datetime.strftime(x, "%b") for x in monthly_2021.index], unit_label:monthly_2021.values})
 
 # set the date intervals for the chart
 months = mdates.MonthLocator(interval=1)
@@ -355,20 +343,22 @@ data_long = pd.melt(data[["survey year", "loc_date", unit_label]],id_vars=["surv
 data_long["year_bin"] = np.where(data_long["survey year"] == "2018", 0, 1)
 
 # scatter plot of surveys both years
-sns.scatterplot(data=data, x="date", y="p/100m", color="red", s=10, ec="black",label="survey total", hue="survey year", palette=this_palette, ax=axone)
+sns.scatterplot(data=data, x="date", y="p/100m", color="red", s=10, ec="black", hue="survey year", palette=this_palette, ax=axone)
 # sns.scatterplot(data=data[data.water_name_slug.isin(these_lakes)], x="date", y="p/100m", color="red", s=34, ec="white",label="survey total", hue="survey year", palette= this_palettel, ax=axone)
-axone.legend(loc="upper center")
+axone.legend(loc="upper center", title="Survey total")
 
 # monthly median
-sns.lineplot(data=months_2017, x="month", y=unit_label, color=this_palette["2018"], label=F"Monthly median:2018", ax=axtwo)
-sns.lineplot(data=months_2020, x="month", y=unit_label, color=this_palette["2020"], label=F"Monthly median:2020", ax=axtwo)
-
+sns.lineplot(data=months_2017, x="month", y=unit_label, color=this_palette["2018"], label="2018", ax=axtwo)
+sns.lineplot(data=months_2021, x="month", y=unit_label, color=this_palette["2021"], label="2021", ax=axtwo)
+axtwo.legend(title="Monthly Median")
 # histogram
 sns.histplot(data=data_long, x="survey total", hue="survey year", stat="count", multiple="stack",palette=this_palette, ax=axthree, bins=[x*20 for x in np.arange(80)])
 
 # empirical cumulative distribution
-sns.lineplot(x=ecdf_2017.x, y=ecdf_2017.y, ax=axfour, color=this_palette["2018"], label="survey results 2018")
-sns.lineplot(x=ecdf_2020.x, y=ecdf_2020.y, ax=axfour, color=this_palette["2020"], label="survey results 2020")
+sns.lineplot(x=ecdf_2017.x, y=ecdf_2017.y, ax=axfour, color=this_palette["2018"], label="2018")
+sns.lineplot(x=ecdf_2021.x, y=ecdf_2021.y, ax=axfour, color=this_palette["2021"], label="2021")
+axthreel = axthree.get_legend()
+axthreel.set_title("Survey year")
 
 
 axfour.xaxis.set_major_locator(ticker.MultipleLocator(1000)) 
@@ -376,12 +366,12 @@ axfour.xaxis.set_minor_locator(ticker.MultipleLocator(100))
 
 axfour.legend(loc="center right")
 axfour.tick_params(which="both", bottom=True)
-axfour.grid(b=True, which="minor",linewidth=0.5)
+axfour.grid(visible=True, which="minor",linewidth=0.5)
 
 plt.show()
 
 
-# ### Summary data and material types 2018 and 2020
+# ### Summary data and material types 2018 and 2021
 
 # *__Left:__ summary of survey totals. __Right:__ material type*
 
@@ -400,7 +390,7 @@ mat_total = mat_total.groupby(["survey year", "mat"], as_index=False).quantity.s
 # get the % of total and fail rate for each object from each year
 # add the yearly total column
 mat_total.loc[mat_total["survey year"] == "2018", "yt"] = mat_total[mat_total["survey year"] == "2018"].quantity.sum()
-mat_total.loc[mat_total["survey year"] == "2020", "yt"] = mat_total[mat_total["survey year"] == "2020"].quantity.sum()
+mat_total.loc[mat_total["survey year"] == "2021", "yt"] = mat_total[mat_total["survey year"] == "2021"].quantity.sum()
 
 # get % of total
 mat_total["pt"] =((mat_total.quantity/mat_total.yt)*100).round(2)
@@ -426,23 +416,26 @@ sut.hide_spines_ticks_grids(axtwo)
 # summary data table
 a_table = axone.table(cellText=combined_summary.values,  colLabels=combined_summary.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,combined_summary,combined_summary.columns, s_et_bottom_row=True)
-
+the_material_table_data.set_fontsize(14)
 # material totals
 a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
+the_material_table_data.set_fontsize(14)
+
+plt.tight_layout()
 
 plt.show()
 
 
 # *Chemicals refers to parafin wax and wood refers to treated or wood shaped for use*
 
-# #### Difference of medians 2018 - 2020
+# #### Difference of medians 2018 - 2021
 # 
 # The observed difference of the medians between the two projects is  14p/100m, differences of this magnitude would not be perceived and may be due to chance. A permutation test was conducted to test the hypothesis:
 # 
-# >*Null hypothesis:* The median survey result from 2018 is not statistically different than the median from 2020. The observed difference is due to chance.
+# >*Null hypothesis:* The median survey result from 2018 is not statistically different than the median from 2021. The observed difference is due to chance.
 # 
-# >*Alternate hypothesis:* The median survey result from 2018 is not statistically different than the median from 2020. The observed difference in the samples is not due to chance.
+# >*Alternate hypothesis:* The median survey result from 2018 is not statistically different than the median from 2021. The observed difference in the samples is not due to chance.
 # 
 # *__Below:__ The distribution of the difference of medians between the two sampling periods. The survey results were shuffled and sampled 5,000 times on the survey year column. The null hypothesis can not be rejected, supporting the argument that the median survey results were approximately equal year over year.*
 
@@ -458,8 +451,8 @@ pre_shuffle = data.groupby(["loc_date", "survey year"], as_index=False)[unit_lab
 # get the median from each year
 observed_median = pre_shuffle.groupby("survey year")[unit_label].median()
 
-# get the dif mu_2020 - mu_2017
-observed_dif = observed_median.loc["2020"] - observed_median.loc["2018"]
+# get the dif mu_2021 - mu_2017
+observed_dif = observed_median.loc["2021"] - observed_median.loc["2018"]
 
 # a place to store the sample statistics
 new_medians=[]
@@ -472,7 +465,7 @@ for element in np.arange(5000):
     # get the median for both "survey years"
     b=pre_shuffle.groupby("new_class").median()
     # get the change and store it    
-    new_medians.append((b.loc["2018"] - b.loc["2020"]).values[0])
+    new_medians.append((b.loc["2018"] - b.loc["2021"]).values[0])
 
 # calculate the empirical p
 emp_p = np.count_nonzero(new_medians <= observed_dif )/ 5000
@@ -483,13 +476,13 @@ fig, ax = plt.subplots()
 sns.histplot(new_medians, ax=ax)
 ax.set_title(F"observed $\u0394\mu$ = {np.round(observed_dif, 2)}, perm=5000, p={emp_p} ", **ck.title_k14)
 ax.set_ylabel("permutations", **ck.xlab_k14)
-ax.set_xlabel("$\mu$ 2020 - $\mu$ 2018", **ck.xlab_k14)
+ax.set_xlabel("$\mu$ 2021 - $\mu$ 2018", **ck.xlab_k14)
 plt.show()
 
 
 # ### The most common objects year over year
 # 
-# *__Below:__ The most common objects are the ten most abundant by quantity AND/OR objects identified in at least 50% of all surveys. This accounts for 60% - 80% of all objects identified in any given survey period. The most common objects are not the same year over year. To assess the changes only the objects that were the most common in both years are included. __Left:__ most common objects 2018, __right:__ most common objects 2020*
+# *__Below:__ The most common objects are the ten most abundant by quantity AND/OR objects identified in at least 50% of all surveys. This accounts for 60% - 80% of all objects identified in any given survey period. The most common objects are not the same year over year. To assess the changes only the objects that were the most common in both years are included. __Left:__ most common objects 2018, __right:__ most common objects 2021*
 # 
 
 # In[8]:
@@ -499,7 +492,7 @@ plt.show()
 c_totals = df.groupby(["survey year", "code"], as_index=False).agg({"quantity":"sum", "fail":"sum", unit_label:"median"})
 
 # calculate the fail rate % of total for each code and survey year
-for a_year in ["2018", "2020"]:
+for a_year in ["2018", "2021"]:
     c_totals.loc[c_totals["survey year"] == a_year, "fail rate"] = ((c_totals.fail/df[df["survey year"] == a_year].loc_date.nunique())*100).astype("int")
     c_totals.loc[c_totals["survey year"] == a_year, "% of total"] = ((c_totals.quantity/df[df["survey year"] == a_year].quantity.sum())*100).astype("int")
     
@@ -508,26 +501,26 @@ c_50 = c_totals.loc[c_totals["fail rate"] >= fail_rate]
 
 # the top ten from each project
 ten_2017 = c_totals[c_totals["survey year"] == "2018"].sort_values(by="quantity", ascending=False)[:10].code.unique()
-ten_2020 = c_totals[c_totals["survey year"] == "2020"].sort_values(by="quantity", ascending=False)[:10].code.unique()
+ten_2021 = c_totals[c_totals["survey year"] == "2021"].sort_values(by="quantity", ascending=False)[:10].code.unique()
 
 # combine the most common from each year with the top ten from each year
 # most common 2017
 mcom_2017 = list(set(c_50[c_50["survey year"]=="2018"].code.unique())|set(ten_2017))
 
-# most common 2020
-mcom_2020 = list(set(c_50[c_50["survey year"]=="2020"].code.unique())|set(ten_2020))
+# most common 2021
+mcom_2021 = list(set(c_50[c_50["survey year"]=="2021"].code.unique())|set(ten_2021))
 
 # the set of objects that were the most common in both years:
-mcom = list(set(mcom_2017)&set(mcom_2020))
+mcom = list(set(mcom_2017)&set(mcom_2021))
 
 # get the data
 com_2017 = c_totals[(c_totals["survey year"] == "2018")&(c_totals.code.isin(mcom))]
-com_2020 = c_totals[(c_totals["survey year"] == "2020")&(c_totals.code.isin(mcom))]
+com_2021 = c_totals[(c_totals["survey year"] == "2021")&(c_totals.code.isin(mcom))]
 
 # format values for table
 table_data = []
-chart_labels = ["2018", "2020"]
-for i, som_data in enumerate([com_2017, com_2020]):
+chart_labels = ["2018", "2021"]
+for i, som_data in enumerate([com_2017, com_2021]):
     som_data = som_data.set_index("code")
     som_data.sort_values(by="quantity", ascending=False, inplace=True)
     som_data["item"] = som_data.index.map(lambda x: code_description_map.loc[x])
@@ -540,15 +533,19 @@ for i, som_data in enumerate([com_2017, com_2020]):
 # the columns needed
 cols_to_use = {"item":"Item","quantity":"Quantity", "% of total":"% of total", "fail rate":"fail rate", unit_label:unit_label}
 
-fig, axs = plt.subplots(1,2, figsize=(17,10*.8))
+fig, axs = plt.subplots(2,1, figsize=(8,20*.6))
 
 for i,this_table in enumerate(table_data):
-    this_ax = axs[i]
-    
+    this_ax = axs[i]    
     sut.hide_spines_ticks_grids(this_ax)
+    
     the_first_table_data = this_ax.table(table_data[i][chart_labels[i]][cols_to_use.keys()].values,  colLabels=list(cols_to_use.values()), colWidths=[.48, .13,.13,.13, .13], bbox=[0, 0, 1, 1])
-    a_summary_table_one = sut.make_a_summary_table(the_first_table_data,table_data[i][chart_labels[i]][cols_to_use.keys()].values,list(cols_to_use.values()), this_palette["2020"])
-    this_ax.set_xlabel(chart_labels[i], fontsize=16, labelpad=16)
+    a_summary_table_one = sut.make_a_summary_table(the_first_table_data,table_data[i][chart_labels[i]][cols_to_use.keys()].values,list(cols_to_use.values()), this_palette["2021"])
+    this_ax.set_xlabel(" ")
+    a_summary_table_one.set_fontsize(14)
+    a_summary_table_one.get_celld()[(0,0)].get_text().set_text(chart_labels[i])
+
+    
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.15)
 plt.show()
@@ -556,7 +553,7 @@ plt.show()
 plt.close()
 
 
-# ## Results lakes 2018 and 2020
+# ## Results lakes 2018 and 2021
 # The following lakes were sampled in both project years:
 # 
 # 1. Zurichsee
@@ -566,7 +563,9 @@ plt.close()
 # 5. Lac Léman
 # 6. Thunersee
 # 
-# When considering the six lakes (above), in 2020 there were more samples and locations and greater quantities of litter collected, but the median and average were both lower with respect to 2018. 
+# When considering the six lakes (above), in 2021 there were more samples and locations and greater quantities of litter collected, but the median and average were both lower with respect to 2018. 
+
+# *__Top Left:__ survey totals by date, __Top right:__ median monthly survey total, __bottom Left:__ number of samples with respect to the survey total, __bottom right:__ empirical cumulative distribution of survey totals* 
 
 # In[9]:
 
@@ -584,30 +583,24 @@ lks_dt = lks_df.groupby(["survey year", "water_name_slug","loc_date","date", "mo
 com_locs_df = lks_df[lks_df.location.isin(both_years)].copy()
 
 # nsamps from locations in both years
-nsamps_com_locs = com_locs_df[com_locs_df["survey year"] == "2020"].groupby(["location"], as_index=True).loc_date.nunique()
+nsamps_com_locs = com_locs_df[com_locs_df["survey year"] == "2021"].groupby(["location"], as_index=True).loc_date.nunique()
 
-# common locations surveyed in 2020
-com_locs_20 = com_locs_df[com_locs_df["survey year"] == "2020"].location.unique()
+# common locations surveyed in 2021
+com_locs_20 = com_locs_df[com_locs_df["survey year"] == "2021"].location.unique()
 
-# locations surveyed in 2020
-locs_lakes = lks_df[lks_df["survey year"] == "2020"].location.unique()
-
-
-# *__Top Left:__ survey totals by date, __Top right:__ median monthly survey total, __bottom Left:__ number of samples with respect to the survey total, __bottom right:__ empirical cumulative distribution of survey totals* 
-
-# In[10]:
-
+# locations surveyed in 2021
+locs_lakes = lks_df[lks_df["survey year"] == "2021"].location.unique()
 
 data=lks_df.groupby(["survey year","loc_date", "date"], as_index=False)[unit_label].sum()
 data.set_index("date", inplace=True)
 
 # the empirical distributions for each year
 ecdf_2017 = ECDF(data[data["survey year"] == "2018"][unit_label].values)
-ecdf_2020 = ECDF(data[data["survey year"] == "2020"][unit_label].values)
+ecdf_2021 = ECDF(data[data["survey year"] == "2021"][unit_label].values)
 
 # get the x,y vals for each year
 ecdf_2017_x, ecdf_2017_y = ecdf_2017.x, ecdf_2017.y
-ecdf_2020_x, ecdf_2020_y = ecdf_2020.x, ecdf_2020.y
+ecdf_2021_x, ecdf_2021_y = ecdf_2021.x, ecdf_2021.y
 
 the_90th = np.percentile(data[unit_label], 95)
 
@@ -617,10 +610,10 @@ monthly_2017 = pd.DataFrame(just_2017)
 monthly_2017.reset_index(inplace=True)
 monthly_2017["month"] = monthly_2017.date.map(lambda x: dt.datetime.strftime(x, "%b"))
 
-just_2020 = data[data["survey year"] == "2020"][unit_label].resample("M").median()
-monthly_2020 = pd.DataFrame(just_2020)
-monthly_2020.reset_index(inplace=True)
-monthly_2020["month"] = monthly_2020.date.map(lambda x: dt.datetime.strftime(x, "%b"))
+just_2021 = data[data["survey year"] == "2021"][unit_label].resample("M").median()
+monthly_2021 = pd.DataFrame(just_2021)
+monthly_2021.reset_index(inplace=True)
+monthly_2021["month"] = monthly_2021.date.map(lambda x: dt.datetime.strftime(x, "%b"))
 
 # long form data for histogram
 data_long = pd.melt(data[["survey year", "p/100m"]],id_vars=["survey year"], value_vars=("p/100m",), value_name="survey total")
@@ -644,6 +637,7 @@ axone.xaxis.set_major_locator(years)
 axtwo.set_xlabel(" ")
 axtwo.set_ylabel("pieces of trash per 100m", **ck.xlab_k14)
 
+
 axthree.set_ylabel("nummber of surveys", **ck.xlab_k14)
 axthree.set_xlabel("pieces of trash per 100m", **ck.xlab_k)
 axtwo.set_ylim(0, the_90th)
@@ -652,26 +646,28 @@ axfour.set_ylabel("percent of surveys", **ck.xlab_k14)
 axfour.set_xlabel("pieces of trash per 100m", **ck.xlab_k)
 
 # all samples scatter
-sns.scatterplot(data=data, x="date", y=unit_label, color="red", s=34, ec="white",label="survey total", hue="survey year", palette= this_palette, ax=axone)
+sns.scatterplot(data=data, x="date", y=unit_label, color="red", s=34, ec="white", hue="survey year", palette= this_palette, ax=axone)
+axone.legend(loc="upper center", title="Survey total")
 
 # monthly medians
-sns.lineplot(data=monthly_2017, x="month", y=unit_label, color=this_palette["2018"], label=F"Monthly median:2018", ax=axtwo)
-sns.lineplot(data=monthly_2020, x="month", y=unit_label, color=this_palette["2020"],label=F"Monthly median:2020",  ax=axtwo)
+sns.lineplot(data=monthly_2017, x="month", y=unit_label, color=this_palette["2018"], label=F"2018", ax=axtwo)
+sns.lineplot(data=monthly_2021, x="month", y=unit_label, color=this_palette["2021"],label=F"2021",  ax=axtwo)
+axtwo.legend(title="Monthly Median")
 
 # histogram of survey results
 sns.histplot(data=data_long, x="survey total", hue="survey year", stat="count", multiple="stack", palette=this_palette, ax=axthree)
 
 # ecdfs
-sns.lineplot(x=ecdf_2017_x, y=ecdf_2017_y, ax=axfour, color=this_palette["2018"], label="survey results 2018")
-sns.lineplot(x=ecdf_2020_x, y=ecdf_2020_y, ax=axfour, color=this_palette["2020"], label="survey results 2020")
+sns.lineplot(x=ecdf_2017_x, y=ecdf_2017_y, ax=axfour, color=this_palette["2018"], label="2018")
+sns.lineplot(x=ecdf_2021_x, y=ecdf_2021_y, ax=axfour, color=this_palette["2021"], label="2021")
 
 axfour.xaxis.set_major_locator(ticker.MultipleLocator(1000)) 
 axfour.xaxis.set_minor_locator(ticker.MultipleLocator(100)) 
 axfour.legend(loc="center right")
 axfour.tick_params(which="both", bottom=True)
-axfour.grid(b=True, which="minor",linewidth=0.5)
+axfour.grid(visible=True, which="minor",linewidth=0.5)
 
-axone.legend(loc="upper center")
+
 
 plt.tight_layout()
 plt.show()
@@ -679,7 +675,7 @@ plt.show()
 
 # *__Left:__ summary of survey totals, __right:__ material type*
 
-# In[11]:
+# In[10]:
 
 
 # group by survey year and use pd.describe to get basic stats
@@ -701,7 +697,7 @@ combined_summary = c_s.pivot(columns="survey year", index="variable", values="va
 
 # format for printing
 combined_summary["2018"] = combined_summary["2018"].map(lambda x: F"{int(x):,}")
-combined_summary["2020"] = combined_summary["2020"].map(lambda x: F"{int(x):,}")
+combined_summary["2021"] = combined_summary["2021"].map(lambda x: F"{int(x):,}")
 
 # material totals
 mat_total = lks_df.groupby(["survey year", "code"], as_index=False).quantity.sum()
@@ -715,7 +711,7 @@ mat_total = mat_total.groupby(["survey year", "mat"], as_index=False).quantity.s
 # get the % of total and fail rate for each object from each year
 # add the yearly total column
 mat_total.loc[mat_total["survey year"] == "2018", "yt"] = mat_total[mat_total["survey year"] == "2018"].quantity.sum()
-mat_total.loc[mat_total["survey year"] == "2020", "yt"] = mat_total[mat_total["survey year"] == "2020"].quantity.sum()
+mat_total.loc[mat_total["survey year"] == "2021", "yt"] = mat_total[mat_total["survey year"] == "2021"].quantity.sum()
 
 # get % of total
 mat_total["pt"] =((mat_total.quantity/mat_total.yt)*100).round(2)
@@ -728,7 +724,7 @@ m_t = mat_total[["survey year","mat", "quantity", "pt"]].pivot(columns="survey y
 m_t.rename(columns={"mat":"material", "pt":"% of total"}, inplace=True)
 
 # put that in a table
-fig, axs = plt.subplots(1, 2, figsize=(10,8))
+fig, axs = plt.subplots(1, 2, figsize=(10,6))
 
 axone = axs[0]
 axtwo= axs[1]
@@ -739,21 +735,24 @@ sut.hide_spines_ticks_grids(axtwo)
 # summary data table
 a_table = axone.table(cellText=combined_summary.values,  colLabels=combined_summary.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,combined_summary,combined_summary.columns, s_et_bottom_row=True)
-
+the_material_table_data.set_fontsize(14)
 # material totals
 a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
+the_material_table_data.set_fontsize(14)
+
+plt.tight_layout()
 
 plt.show()
 
 
 # ### Lakes: results most common objects from 2018
 # 
-# *__Below:__ the most common objects were 71% of all objects counted in 2018 versus 60% in 2020. Cigarette filters and fragmented plastic pieces were recorded at almost double the rate in 2018 versus 2020.* 
+# *__Below:__ the most common objects were 71% of all objects counted in 2018 versus 60% in 2021. Cigarette filters and fragmented plastic pieces were recorded at almost double the rate in 2018 versus 2021.* 
 
-# *Lakes: key indicators of the most common objects 2018 - 2020*
+# *Lakes: key indicators of the most common objects 2018 - 2021*
 
-# In[12]:
+# In[11]:
 
 
 # compare the key indicators of the most common objects
@@ -761,19 +760,16 @@ lks_codes = lks_df[lks_df.code.isin(mcom)].copy()
 lks_codes = lks_df[lks_df.code.isin(mcom)].groupby(["code", "survey year"], as_index=False).agg({unit_label:"median", "quantity":"sum", "fail":"sum", "loc_date":"nunique"})
 
 # get fail rate and % of total
-for a_year in ["2020", "2018"]:
+for a_year in ["2021", "2018"]:
     lks_codes.loc[lks_codes["survey year"] == a_year, "fail rate"] = lks_codes.fail/lks_df[lks_df["survey year"]==a_year].loc_date.nunique()
     lks_codes.loc[lks_codes["survey year"] == a_year, "% of total"] = lks_codes.quantity/lks_df[lks_df["survey year"]==a_year].quantity.sum()
 
-# pivot on the survey year column and keep all the values
-pivot_2017_2020 = lks_codes.pivot(columns="survey year", values=[unit_label, "fail rate", "% of total"], index="code")
+lks_codes["d"] = lks_codes.code.map(lambda x: code_description_map.loc[x])
 
-# map description to code
-pivot_2017_2020["Item"] = pivot_2017_2020.index.map(lambda x: code_description_map.loc[x])
 
-# set index and sort
-pivot_2017_2020.set_index("Item", inplace=True, drop=True)
-pivot_2017_2020.sort_values(by=(unit_label,"2018"), ascending=False, inplace=True)
+a = lks_codes.pivot(columns="survey year", values=unit_label, index="d")
+b = lks_codes.pivot(columns="survey year", values="fail rate", index="d").astype(float)
+c = lks_codes.pivot(columns="survey year", values="% of total", index="d")
 
 # plot that
 fig = plt.figure(figsize=(8, 12))
@@ -785,32 +781,37 @@ axtwo = fig.add_subplot(spec[:,3:5])
 axthree = fig.add_subplot(spec[:,5:7])
 
 # get an order to assign each ax
-an_order = pivot_2017_2020["p/100m"].sort_values(by="2018", ascending=False).index
+an_order = a.sort_values(by="2018", ascending=False).index
 
 # index axtwo and and axthree to axone
-axtwo_data = pivot_2017_2020["fail rate"].sort_values(by="2018", ascending=False).reindex(an_order)
-axthree_data = pivot_2017_2020["% of total"].sort_values(by="2018", ascending=False).reindex(an_order)
+axone_data = a.sort_values(by="2018", ascending=False)
+axtwo_data = b.sort_values(by="2018", ascending=False).reindex(an_order)
+axthree_data = c.sort_values(by="2018", ascending=False).reindex(an_order)
 
 # pieces per meter
 
-sns.heatmap(pivot_2017_2020[unit_label], cmap=cmap2, annot=True, fmt=".0f", annot_kws={"fontsize":12},  ax=axone, square=True, cbar=False, linewidth=.05,  linecolor="white")
+
+
+sns.heatmap(axone_data, cmap=cmap2, annot=True, annot_kws={"fontsize":12},  ax=axone, square=True, cbar=False, linewidth=.05,  linecolor="white")
 axone.tick_params(**dict(labeltop=True, labelbottom=True, pad=12, labelsize=12), **ck.no_xticks)
 axone.set_xlabel(" ")
-axone.set_title("median p/100m",**ck.title_k14r)
+axone.set_title("Median p/100 m",**ck.title_k14r)
 
 # fail rate
-sns.heatmap(pivot_2017_2020["fail rate"], cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axtwo, square=True,  cbar=False, linewidth=.05,  linecolor="white")
+
+
+sns.heatmap(axtwo_data, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axtwo, square=True,  cbar=False, linewidth=.05,  linecolor="white")
 axtwo.tick_params(**dict(labeltop=True, labelbottom=True, pad=12, labelsize=12), **ck.no_xticks)
 axtwo.tick_params(labelleft=False, left=False)
 axtwo.set_xlabel(" ")
 axtwo.set_title("fail rate", **ck.title_k14r)
 
 # percent of total
-sns.heatmap(pivot_2017_2020["% of total"], cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axthree, square=True,  cbar=False, linewidth=.05,  linecolor="white")
+sns.heatmap(axthree_data, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0%", ax=axthree, square=True,  cbar=False, linewidth=.05,  linecolor="white")
 axthree.tick_params(**dict(labeltop=True, labelbottom=True, pad=12, labelsize=12), **ck.no_xticks)
 axthree.tick_params(labelleft=False, left=False)
 axthree.set_xlabel(" ")
-axthree.set_title("% of total", **ck.title_k14r)
+axthree.set_title("% total", **ck.title_k14r)
 
 for anax in [axone, axtwo, axthree]:
     anax.set_ylabel("")
@@ -822,15 +823,15 @@ plt.show()
 
 # ### Difference of mean survey total
 # 
-# When considering only lakes the difference of medians is inversed, less litter was observed in 2020 than 2018 and the difference of means is much larger in favor of 2018. Suggesting that at the lake level there was a decrease in observed quantities. 
+# When considering only lakes the difference of medians is inversed, less litter was observed in 2021 than 2018 and the difference of means is much larger in favor of 2018. Suggesting that at the lake level there was a decrease in observed quantities. 
 # 
-# > Null hypothesis: The mean of the survey results for lakes from 2018 is not statistically different than the mean for 2020. The observed difference is due to chance. 
+# > Null hypothesis: The mean of the survey results for lakes from 2018 is not statistically different than the mean for 2021. The observed difference is due to chance. 
 # 
-# > Alternate hypothesis: The mean survey results for lakes in 2018 is not the same in 2020. The observed difference in the samples is significant. 
+# > Alternate hypothesis: The mean survey results for lakes in 2018 is not the same in 2021. The observed difference in the samples is significant. 
 # 
-# *__Below:__ The distribution of the difference of means between the two sampling periods. The survey results were shuffled and sampled 5,000 times on the survey year column. The null hypothesis could be rejected, supporting the initial observation that there was less observed in 2020 than 2018.* 
+# *__Below:__ The distribution of the difference of means between the two sampling periods. The survey results were shuffled and sampled 5,000 times on the survey year column. The null hypothesis could be rejected, supporting the initial observation that there was less observed in 2021 than 2018.* 
 
-# In[ ]:
+# In[12]:
 
 
 # data for testing
@@ -843,7 +844,7 @@ pre_shuffle = data.groupby(["survey year", "loc_date"], as_index=False)[unit_lab
 observed_mean = pre_shuffle.groupby("survey year")[unit_label].mean()
 
 # get the diff
-observed_dif = observed_mean.loc["2020"] - observed_mean.loc["2018"]
+observed_dif = observed_mean.loc["2021"] - observed_mean.loc["2018"]
 
 new_means=[]
 # resampling:
@@ -854,7 +855,7 @@ for element in np.arange(5000):
     # get the means for both years
     b=pre_shuffle.groupby("new_class").mean()
     # get the change and store it
-    new_means.append((b.loc["2020"] - b.loc["2018"]).values[0])
+    new_means.append((b.loc["2021"] - b.loc["2018"]).values[0])
 
 # calculate p
 emp_p = np.count_nonzero(new_means <= observed_dif )/ 5000
@@ -865,7 +866,7 @@ fig, ax = plt.subplots()
 sns.histplot(new_means, ax=ax)
 ax.set_title(F"$\u0394\mu$ = {np.round(observed_dif, 2)}, perm=5000, p={emp_p} ", **ck.title_k14)
 ax.set_ylabel("permutations", **ck.xlab_k14)
-ax.set_xlabel("$\mu$ 2020 - $\mu$ 2018", **ck.xlab_k14)
+ax.set_xlabel("$\mu$ 2021 - $\mu$ 2018", **ck.xlab_k14)
 plt.show()
 
 
@@ -875,22 +876,19 @@ plt.show()
 # 
 # __Test one:__
 # 
-# > Null hypothesis: The mean of the of the survey results of the most common objects from 2018 is the same as 2020. The observed difference is due to chance.
+# > Null hypothesis: The mean of the of the survey results of the most common objects from 2018 is the same as 2021. The observed difference is due to chance.
 # 
-# > Alternate hypothesis: The mean of the survey results of the most common objects from 2018 is different than 2020. The observed difference in the samples is significant.
+# > Alternate hypothesis: The mean of the survey results of the most common objects from 2018 is different than 2021. The observed difference in the samples is significant.
 # 
 # * if p < 0.05 = yellow: the difference is statistically significant.
 # 
 # *__Below:__ The observed difference in means between the two years could be in part explained by the decrease in the quantities of cigarettes, foam polystyrene, metal bottle tops and fragmented plastics.*
 
-# In[ ]:
+# In[13]:
 
 
 # data testing
 data=df[df.water_name_slug.isin(these_lakes)].copy()
-
-# # the common codes from both years
-# common_codes_both_years = list(set([*mcom_2017, *mcom_2020]))
 
 # data to resample
 pre_shuffle = data[data.code.isin(mcom)].groupby(["survey year", "loc_date", "code"], as_index=False)[unit_label].sum()
@@ -899,8 +897,8 @@ pre_shuffle = data[data.code.isin(mcom)].groupby(["survey year", "loc_date", "co
 observed_mean = pre_shuffle.groupby(["survey year", "code"])[unit_label].mean()
 
 # get the differences from one year to the next: check the inverse
-observed_dif = observed_mean.loc["2020"] - observed_mean.loc["2018"]
-inv_diff = observed_mean.loc["2018"] - observed_mean.loc["2020"]
+observed_dif = observed_mean.loc["2021"] - observed_mean.loc["2018"]
+inv_diff = observed_mean.loc["2018"] - observed_mean.loc["2021"]
 
 # number of shuffles
 perms = 1000
@@ -911,7 +909,6 @@ for a_code in mcom:
     
     # store the test statisitc
     cdif = []
-#     invdif=[]
     
     # code data
     c_data = pre_shuffle[pre_shuffle.code == a_code].copy()
@@ -919,13 +916,11 @@ for a_code in mcom:
         # shuffle labels
         c_data["new_class"] = c_data["survey year"].sample(frac=1).values
         b=c_data.groupby("new_class").mean()
-        cdif.append((b.loc["2020"] - b.loc["2018"]).values[0])
-#         invdif.append((b.loc["2018"] - b.loc["2020"]).values[0])
+        cdif.append((b.loc["2021"] - b.loc["2018"]).values[0])
     
     # calculate p
     emp_p = np.count_nonzero(cdif <= (observed_dif.loc[a_code])) / perms
-#     inv_p = np.count_nonzero(invdif >= (observed_dif.loc[a_code])) / perms
-    
+
     # store that result
     new_means.append({a_code:{"p":emp_p,"difs":cdif}})    
 
@@ -952,7 +947,7 @@ for i,code in enumerate(mcom):
         ax.patch.set_facecolor("palegoldenrod")
         ax.patch.set_alpha(0.5)        
     # plot that    
-    sns.histplot(data, ax=ax, color=this_palette["2020"])
+    sns.histplot(data, ax=ax, color=this_palette["2021"])
     
     ax.set_title(code_description_map.loc[code], **ck.title_k)
     ax.set_xlabel(F"$\u0394\mu$={np.round(observed_dif.loc[code], 2)}, p={new_means[i][code]['p']}", fontsize=12)
@@ -962,19 +957,18 @@ for i,code in enumerate(mcom):
 sut.hide_spines_ticks_grids(axs[3,1])
 
 # get some space for xaxis label
-plt.subplots_adjust(hspace=0.25)
-
 plt.tight_layout()
+plt.subplots_adjust(hspace=0.7, wspace=.7)
 plt.show()
 
 
-# In[ ]:
+# In[14]:
 
 
 small = lks_df[lks_df.code.isin([ "G20", "G21", "G22", "G23"])].groupby(["code", "survey year"], as_index=False).agg({"quantity":"sum", "p/100m":"median"})
 ttl = combined_data.groupby("survey year").quantity.sum()
 small.loc[small["survey year"] == "2018", "p_t"] = small.quantity/ttl.loc["2018"]
-small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"]
+small.loc[small["survey year"] == "2021", "p_t"] = small.quantity/ttl.loc["2021"]
 # print(small.groupby(["survey year","code"]).sum())
 # print(small.groupby(["survey year"]).sum())
 
@@ -991,7 +985,7 @@ small.loc[small["survey year"] == "2020", "p_t"] = small.quantity/ttl.loc["2020"
 # 
 # *__Below:__ An association suggests that survey totals for that object will change in relation to the amount of space attributed to that feature, or in the case of roads or river intersections, the quantity. The magnitude of the relationship is not defined, and any association is not linear.* 
 
-# In[ ]:
+# In[15]:
 
 
 corr_data = lks_df[(lks_df.code.isin(mcom))].copy()
@@ -1062,7 +1056,7 @@ plt.show()
 # 
 # ### On balance no change
 # 
-# The summary statistics and the results of the difference of medians test imply that there was no statistically measurable change on the national scale from one project to the next. The 95% CI of the median survey total in 2020 was 137 - 188p/100m \( _section [Calculating Baselines](threshhold)_ \). The median result for 2018 was 125p/100m with a CI of 112p/100m to 146p/100m, which includes the lower bound of the median from 2020. __However, the difference of means for the most common objects suggest a more realistic and dynamic result:__
+# The summary statistics and the results of the difference of medians test imply that there was no statistically measurable change on the national scale from one project to the next. The 95% CI of the median survey total in 2021 was 137 - 188p/100m \( _section [Calculating Baselines](threshhold)_ \). The median result for 2018 was 125p/100m with a CI of 112p/100m to 146p/100m, which includes the lower bound of the median from 2021. __However, the difference of means for the most common objects suggest a more realistic and dynamic result:__
 # 
 # 1. There was a statistically significant decrease in four of seven most common objects from both years:
 #    * cigarette ends
@@ -1070,7 +1064,7 @@ plt.show()
 #    * plastic fragments
 #    * foam fragments
 #   
-# The decrease in tobacco and bottle tops is likely the result of pandemic related restrictions that marked 2020. These results suggest that perceived local decreases in litter quantities were most likely the result of a general decline in usage as opposed to a sweeping change in behavior. Consequently the survey results for list 1 items will most likely return to 2018 levels as pandemic related restrictions are relaxed and usage patterns return to _normal_.
+# The decrease in tobacco and bottle tops is likely the result of pandemic related restrictions that marked 2021. These results suggest that perceived local decreases in litter quantities were most likely the result of a general decline in usage as opposed to a sweeping change in behavior. Consequently the survey results for list 1 items will most likely return to 2018 levels as pandemic related restrictions are relaxed and usage patterns return to _normal_.
 # 
 # The decreases in fragmented foams and plastics is likely due to a difference in protocols between the two years. 
 # 
@@ -1078,12 +1072,12 @@ plt.show()
 # 
 # There was a key difference between the two projects:
 # 
-# * The 2020 protocol counts all visible objects and classifies fragments by size
+# * The 2021 protocol counts all visible objects and classifies fragments by size
 # * The 2018 protocol limited the object counts to items greater than or equal to 2.5cm in length
 # 
-# The total amount of plastic pieces collected in 2020 is 7,400 or 18p/100m and 5,563 or 5p/100m foamed plastic fragments. There were 3,662 plastic pieces between 0.5cm and 2.5cm removed in 2020, equal to the total amount recorded in 2018. The same for foamed plastics between 0.5cm and 2.5cm, see [_Lakes and rivers_](allsurveys). 
+# The total amount of plastic pieces collected in 2021 is 7,400 or 18p/100m and 5,563 or 5p/100m foamed plastic fragments. There were 3,662 plastic pieces between 0.5cm and 2.5cm removed in 2021, equal to the total amount recorded in 2018. The same for foamed plastics between 0.5cm and 2.5cm, see [_Lakes and rivers_](allsurveys). 
 # 
-# The difference in protocol and the results from 2020 cast doubt on the likelihood of any decrease of fragmented plastics and foamed plastics from 2018 to 2020. Foamed plastics and fragmented plastics are objects whose original use is unknown but the material can be distinguished. Fragmented plastics and foamed plastics greater than 0.5cm are 27% of the total survey results for the lakes in 2020. Studies in the Meuse/Rhine delta show that these small, fragmented objects make up large portions of the total abundance {cite}`meuserhine`.
+# The difference in protocol and the results from 2021 cast doubt on the likelihood of any decrease of fragmented plastics and foamed plastics from 2018 to 2021. Foamed plastics and fragmented plastics are objects whose original use is unknown but the material can be distinguished. Fragmented plastics and foamed plastics greater than 0.5cm are 27% of the total survey results for the lakes in 2021. Studies in the Meuse/Rhine delta show that these small, fragmented objects make up large portions of the total abundance {cite}`meuserhine`.
 # 
 # Allowing surveyors to use a broader range of object codes increases the accuracy of the total survey count and adds levels of differentiation between similar materials. For example, expanded polystyrene is an object that fragments easily. Whether or not surveyors are finding a few larger pieces > 20cm or thousands of pieces < 10mm is an important detail if reducing these objects in the environment is the goal. 
 # 
@@ -1105,11 +1099,11 @@ plt.show()
 # 2. household cleaners etc..
 # 3. unknown
 # 
-# As group plastic lids make up 2% of the total objects in 2018 and 3% in 2020. Drink lids were ~51% of all lids found in 2018, 45% in 2020. On a pieces per meter basis there was a decrease in the amount of drink lids and an increase of non-drink lids from 2018 - 2020. 
+# As group plastic lids make up 2% of the total objects in 2018 and 3% in 2021. Drink lids were ~51% of all lids found in 2018, 45% in 2021. On a pieces per meter basis there was a decrease in the amount of drink lids and an increase of non-drink lids from 2018 - 2021. 
 #    
 # ### Land use profile
 # 
-# The land use profile for each location was calculated using the same data for both years. When survey results from both years are considered as a group the results from Spearmans 𝜌 lend support to the SLR conclusions in 2018 that survey results were elevated in urban and suburban environments and this was also true in 2020. At the same time the ubiquitous nature of fragmented plastics, industrial sheeting and expanded foams noted in [_The land use profile_](luseprofile) was likely prevalent in 2018. 
+# The land use profile for each location was calculated using the same data for both years. When survey results from both years are considered as a group the results from Spearmans 𝜌 lend support to the SLR conclusions in 2018 that survey results were elevated in urban and suburban environments and this was also true in 2021. At the same time the ubiquitous nature of fragmented plastics, industrial sheeting and expanded foams noted in [_The land use profile_](luseprofile) was likely prevalent in 2018. 
 # 
 # The amount of land attributed to recreational activities are locations near the survey site designed to accommodate groups of people for various activities. The positive association of tobacco and food/drink related products with this land attribute could be interpreted as the result of temporary increases in population near the survey site. 
 # 
@@ -1117,9 +1111,9 @@ plt.show()
 # 
 # The samples from both projects were taken from locations, in some cases the same location, that had similar levels of infrastructure and economic development. A common protocol was used in both projects, the samples were collected by two different groups and managed by two different associations. 
 # 
-# From 2018 - 2020 there was a statistically significant change, a decrease in the number of objects directly related to behavior at the survey site. This indicates that any perceived decreases were in locations that had a higher % of land attributed to buildings and lower % of land attributed to agriculture or woods. 
+# From 2018 - 2021 there was a statistically significant change, a decrease in the number of objects directly related to behavior at the survey site. This indicates that any perceived decreases were in locations that had a higher % of land attributed to buildings and lower % of land attributed to agriculture or woods. 
 # 
-# Locations with an opposing or different land use profile (less buildings, more agriculture or woods) will most likely not have experienced any decrease at all. For locations near river interchanges or major discharge points there would be no perceivable difference from 2018 - 2020 and increases in fragmented plastics, expanded foams and industrial sheeting were likely. Both the test of difference of medians of the most common objects and the results from Spearmans $\rho$ of survey results support this conclusion.
+# Locations with an opposing or different land use profile (less buildings, more agriculture or woods) will most likely not have experienced any decrease at all. For locations near river interchanges or major discharge points there would be no perceivable difference from 2018 - 2021 and increases in fragmented plastics, expanded foams and industrial sheeting were likely. Both the test of difference of medians of the most common objects and the results from Spearmans $\rho$ of survey results support this conclusion.
 # 
 # Both survey years show peak survey results in June - July (annex) and lows in November. The possible causes for the peaks and troughs are different depending on the object in question. Food and tobacco objects are more prevalent during the summer season because of increased use. Objects like fragmented plastics depend more on hydrological conditions and the peak discharge rate of the biggest rivers in this study are from May - July(  _section [Shared responsibility](transport)_ ).
 # 
@@ -1134,17 +1128,17 @@ plt.show()
 # 3. Geneva international School
 # 4. Solid waste management: École polytechnique fédéral Lausanne
 
-# ### Lakes monthly median common objects: 
+# ### Lakes: monthly median common objects: 
 # 
-# All lakes were sampled in all months in both projects. In 2018 the minimum samples per month  was 12 and the maximum was 17 compared to a minimum of 17 and max of 34 in 2020.
+# All lakes were sampled in all months in both projects. In 2018 the minimum samples per month  was 12 and the maximum was 17 compared to a minimum of 17 and max of 34 in 2021.
 
 # *Lakes 2018: monthly average survey result most common objects*
 
-# In[ ]:
+# In[24]:
 
 
 # plot the monthly medidan results for the most common objects
-# the code for 2020 is hidden just because it is redundant to see
+# the code for 2021 is hidden just because it is redundant to see
 # slice by survey year
 top_ten_month = lks_df[(lks_df["survey year"] == "2018")&(lks_df.code.isin(mcom))].groupby(["loc_date", "date", "code"], as_index=False)[unit_label].sum()
 top_ten_month["month"] = top_ten_month.date.dt.month
@@ -1223,7 +1217,7 @@ monthly_total = mt[unit_label].resample("M").mean().fillna(0)
 
 # chart that
 this_x = [i for i,x in  enumerate(monthly_total.index)]
-ax.bar(this_x, monthly_total.to_numpy(), color=this_palette["2020"], alpha=0.1, linewidth=1, edgecolor="teal", width=1, label="Monthly survey average")
+ax.bar(this_x, monthly_total.to_numpy(), color=this_palette["2021"], alpha=0.1, linewidth=1, edgecolor="teal", width=1, label="Monthly survey average")
 
 # for each code lay down a box
 for i, a_group in enumerate(group_names):       
@@ -1253,52 +1247,52 @@ new_labels.insert(0,"Monthly survey average")
 handles = [handles[0], *handles[1:][::-1]]
 ax.set_title("")
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)    
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)      
 plt.show()
 
 
 # <br></br>
-# *Lakes 2020: monthly average survey result most common objects*
+# *Lakes 2021: monthly average survey result most common objects*
 
 # 
 
-# In[ ]:
+# In[25]:
 
 
-# repeat for 2020
-top_ten_month = lks_df[(lks_df["survey year"] == "2020")&(lks_df.code.isin(mcom))].groupby(["loc_date", "date", "code"], as_index=False)["p/100m"].sum()
+# repeat for 2021
+top_ten_month = lks_df[(lks_df["survey year"] == "2021")&(lks_df.code.isin(mcom))].groupby(["loc_date", "date", "code"], as_index=False)["p/100m"].sum()
 top_ten_month["month"] = top_ten_month.date.dt.month
 
 dts_date = top_ten_month.copy()
 dts_date.set_index("date", inplace=True)
 
-mgr2020 = {}
+mgr2021 = {}
 
 for a_group in group_names:
     a_plot = dts_date[(dts_date.code==a_group)]["p/100m"].resample("M").mean().fillna(0)
     this_group = {a_group:a_plot}
-    mgr2020.update(this_group)
+    mgr2021.update(this_group)
 fig, ax = plt.subplots(figsize=(12,7))
 
-bottom = [0]*len(mgr2020["G27"])
+bottom = [0]*len(mgr2021["G27"])
 
-mt = lks_df[lks_df["survey year"] == "2020"].groupby(["loc_date", "date"], as_index=False).agg({unit_label:"sum", "quantity":"sum"})
+mt = lks_df[lks_df["survey year"] == "2021"].groupby(["loc_date", "date"], as_index=False).agg({unit_label:"sum", "quantity":"sum"})
 mt.set_index("date", inplace=True)
 monthly_total = mt[unit_label].resample("M").mean().fillna(0)
 
 this_x = [i for i,x in  enumerate(monthly_total.index)]
-ax.bar(this_x, monthly_total.to_numpy(), color=this_palette["2020"], alpha=0.1, linewidth=1, edgecolor="teal", width=1, label="Monthly survey average")
+ax.bar(this_x, monthly_total.to_numpy(), color=this_palette["2021"], alpha=0.1, linewidth=1, edgecolor="teal", width=1, label="Monthly survey average")
 
 for i, a_group in enumerate(group_names):       
     
-    this_x = [i for i,x in  enumerate(mgr2020[a_group].index)]
-    this_month = [x.month for i,x in enumerate(mgr2020[a_group].index)]
+    this_x = [i for i,x in  enumerate(mgr2021[a_group].index)]
+    this_month = [x.month for i,x in enumerate(mgr2021[a_group].index)]
     
     if i == 0:
-        ax.bar(this_x, mgr2020[a_group].to_numpy(), label=a_group, color=colors_palette[a_group], linewidth=1, alpha=0.6) 
+        ax.bar(this_x, mgr2021[a_group].to_numpy(), label=a_group, color=colors_palette[a_group], linewidth=1, alpha=0.6) 
     else:
-        bottom += mgr2020[group_names[i-1]].to_numpy()        
-        ax.bar(this_x, mgr2020[a_group].to_numpy(), bottom=bottom, label=a_group, color=colors_palette[a_group], linewidth=1, alpha=0.8)
+        bottom += mgr2021[group_names[i-1]].to_numpy()        
+        ax.bar(this_x, mgr2021[a_group].to_numpy(), bottom=bottom, label=a_group, color=colors_palette[a_group], linewidth=1, alpha=0.8)
 
 handles, labels = ax.get_legend_handles_labels()
 ax.xaxis.set_major_locator(ticker.FixedLocator([i for i in np.arange(len(this_x))]))
@@ -1314,20 +1308,20 @@ new_labels.insert(0,"Monthly survey average")
 handles = [handles[0], *handles[1:][::-1]]
 ax.set_title("", **ck.title_k14)
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)    
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)      
 plt.show()
 
 
 # <a id="gps"></a>
 # #### [Survey locations](#annex)
 
-# In[ ]:
+# In[18]:
 
 
 # display the survey locations
 pd.set_option("display.max_rows", None)
-disp_columns = ["latitude", "longitude", "water_name", "city", "is_2020"]
-disp_beaches = dfBeaches.loc[lks_df.location.unique()][disp_columns].sort_values(by="is_2020")
+disp_columns = ["latitude", "longitude", "city"]
+disp_beaches = dfBeaches.loc[lks_df.location.unique()][disp_columns]
 disp_beaches
 
 

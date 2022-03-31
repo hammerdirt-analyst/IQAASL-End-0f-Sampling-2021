@@ -62,9 +62,9 @@ import resources.sr_ut as sut
 import resources.chart_kwargs as ck
 
 # images and display
-from PIL import Image as PILImage
+# from PIL import Image as PILImage
 from IPython.display import Markdown as md
-from IPython.display import display
+# from IPython.display import display
 
 from myst_nb import glue
 
@@ -108,7 +108,7 @@ this_level = "river_bassin"
 comps = ["linth", "rhone", "aare", "ticino"]
 
 # proper labels for charts and tables
-comp_labels = {"linth":"Linth/Limmat", "rhone":"Rhône", "aare":"Aare", "ticino":"Ticino/Cerisio", "reuss":"Reuss"}
+comp_labels = {"linth":"Linth", "rhone":"Rhône", "aare":"Aare", "ticino":"Ticino", "reuss":"Reuss"}
 top_name = ["Alle Erhebungsgebiete"]
 
 # explanatory variables:
@@ -167,8 +167,8 @@ codes_to_change = [
     ["Gfrags", "description", "Fragmentierte Kunststoffstücke"],
     ["G30", "description", "Snack-Verpackungen"],
     ["G124", "description", "Kunststoff-oder Schaumstoffprodukte"],
-    ["G87", "description", "Abdeckklebeband/Verpackungsklebeband"],
-    ["G178","description","Flaschenverschlüsse aus Metall"],
+    ["G87", "description", "Abdeckklebeband / Verpackungsklebeband"],
+    ["G178","description","Flaschenverschlüsse und Deckel aus Metall"],
     ["G3","description","Einkaufstaschen, Shoppingtaschen"],
     ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
@@ -197,12 +197,6 @@ code_material_map = dfCodes.material
 # 
 # Karte der Erhebungsorte IQAASL März 2020 - Mai 2021.
 
-# In[2]:
-
-
-# sut.display_image_ipython(bassin_map, thumb=(800,450))
-
-
 # ```{figure} resources/maps/lakes_rivers_map.jpeg
 # :figwidth: 800px
 # :name: "eosmap_de"
@@ -218,7 +212,7 @@ code_material_map = dfCodes.material
 # Die Erhebungsgebiete sind nach Flusseinzugsgebieten gruppiert. In diesem Bericht werden mehrere Einzugsgebiete zusammengefasst, um regionale Trends zu analysieren: 
 # 
 # * Aare: Emme, Aare 
-# * Linth/Limmat: Reuss, Linth, Limmat 
+# * Linth: Reuss, Linth, Limmat 
 # * Rhône: Rhône 
 # * Tessin/Ceresio: Tessin, Lago di Lugano, Lago Maggiore 
 # 
@@ -237,7 +231,7 @@ code_material_map = dfCodes.material
 
 # __Verteilung der Landnutzungsmerkmale__
 
-# In[3]:
+# In[2]:
 
 
 # this is the data before the expanded fragmented plastics and foams are aggregated to Gfrags and Gfoams
@@ -266,12 +260,14 @@ dt_nw = fd.groupby(["loc_date", "river_bassin", *luse_exp], as_index=False).agg(
 
 sns.set_style("whitegrid")
 
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(17,4), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,9), sharey="row")
 
 for i, n in enumerate(luse_exp):
     # get the dist for each survey area here
+    r = i%2
+    c = i%3
+    ax=axs[r,c]
     for element in comps:
-        ax=axs[i]
         the_data = ECDF(dt_nw[dt_nw[this_level] == element][n].values)
         sns.lineplot(x=the_data.x, y=the_data.y, ax=ax, label=comp_labels[element], color=bassin_pallette[element])
     
@@ -289,7 +285,7 @@ for i, n in enumerate(luse_exp):
     
     # format the % of total on the xaxis:
     if i <= 3:
-        if i == 0:            
+        if c == 0:            
             ax.set_ylabel("% der Erhebungen", **ck.xlab_k)
         ax.xaxis.set_major_formatter(ticker.PercentFormatter(1.0, 0, "%"))        
     else:
@@ -298,13 +294,14 @@ for i, n in enumerate(luse_exp):
     ax.set_xlabel(n, **ck.xlab_k)
     handles, labels = ax.get_legend_handles_labels()
     ax.get_legend().remove()
-    ax.set_title(F"median: {(round(the_median, 2))}",fontsize=12, loc="left")
+    ax.set_title(F"Median: {(round(the_median, 2))}",fontsize=12, loc="left")
 
-plt.legend(handles, labels)       
 plt.tight_layout()
-
+plt.subplots_adjust(top=.88, hspace=.35)
+plt.suptitle("Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.53,.94), loc="center", ncol=6)
 glue("eosluse_de", fig, display=False)
-plt.close() 
+# plt.close() 
 
 
 # ```{glue:figure} eosluse_de
@@ -315,11 +312,11 @@ plt.close()
 # ` `
 # 
 # ```
-# {numref}`Abbildung {number}: <eos_luse_de>` Die Erhebungen in den Gebieten Rhône und Linth/Limmat wiesen mit 47 % bzw. 40 % im Median den grössten Anteil an bebauter Fläche und mit 5 % bzw. 8 % den geringsten Anteil an Wald auf. Im Erhebungsgebiet Aare war der Medianwert der bebauten Fläche mit 16 % am niedrigsten und der Anteil der landwirtschaftlich genutzten Fläche mit 30 % am höchsten. Bei den Flächen, die der Erholung zugeordnet werden, handelt es sich um Sportplätze, öffentliche Strände und andere öffentliche Versammlungsorte.
+# {numref}`Abbildung {number}: <eos_luse_de>` Die Erhebungen in den Gebieten Rhône und Linth wiesen mit 47 % bzw. 40 % im Median den grössten Anteil an bebauter Fläche und mit 5 % bzw. 8 % den geringsten Anteil an Wald auf. Im Erhebungsgebiet Aare war der Medianwert der bebauten Fläche mit 16 % am niedrigsten und der Anteil der landwirtschaftlich genutzten Fläche mit 30 % am höchsten. Bei den Flächen, die der Erholung zugeordnet werden, handelt es sich um Sportplätze, öffentliche Strände und andere öffentliche Versammlungsorte.
 
 # ### Kumulierte Gesamtergebnisse nach Erhebungsgebiet 
 
-# In[4]:
+# In[3]:
 
 
 # aggregate the dimensional data
@@ -360,6 +357,7 @@ sut.hide_spines_ticks_grids(axs)
 
 table_one = sut.make_a_table(axs, data.values, colLabels=data.columns, colWidths=[.22, *[.13]*6],a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.set_fontsize(14)
 
 plt.tight_layout()
 glue("eos_summary_sarea_de", fig, display=False)
@@ -380,7 +378,7 @@ plt.close()
 # 
 # Verteilung der Erhebungsergebnisse. Die Werte werden als die Anzahl der identifizierten Stücke pro 100 Meter (p/100 m) dargestellt. 
 
-# In[5]:
+# In[4]:
 
 
 # the surveys to chart
@@ -439,7 +437,7 @@ axtwo.set_ylabel("Verhältnis der Erhebungen", **ck.xlab_k14)
 plt.tight_layout()
 
 glue("eosscatter_de", fig, display=False)
-plt.show()
+
 plt.close()
 
 
@@ -455,7 +453,7 @@ plt.close()
 
 # __Zusammenfassende Daten und Materialtypen__
 
-# In[6]:
+# In[5]:
 
 
 # get the basic statistics from pd.describe
@@ -489,6 +487,7 @@ sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
@@ -497,6 +496,7 @@ sut.hide_spines_ticks_grids(axtwo)
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -516,7 +516,7 @@ plt.close()
 # 
 # Die am häufigsten gefundenen Gegenstände sind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
-# In[7]:
+# In[6]:
 
 
 # the top ten by quantity
@@ -543,12 +543,13 @@ cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fa
 # final table data
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(9,len(m_common)*.5))
+fig, axs = plt.subplots(figsize=(9,len(m_common)*.6))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
+table_four.set_fontsize(14)
 
 
 plt.tight_layout()
@@ -567,7 +568,7 @@ plt.close()
 
 # __Häufigste Objekte im Median p/100 m nach Erhebungsgebiet__
 
-# In[8]:
+# In[7]:
 
 
 # aggregated survey totals for the most common codes for all the survey areas
@@ -620,7 +621,7 @@ plt.close()
 
 # __Häufigste Objekte im Monatsdurchschnitt__
 
-# In[9]:
+# In[8]:
 
 
 # collect the survey results of the most common objects
@@ -704,9 +705,9 @@ new_labels = new_labels[::-1]
 new_labels.insert(0,"Monatsdurchschnitt")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14) 
 glue("monthlyeos_de", fig, display=False)
-#plt.close()
+plt.close()
 
 
 # ```{glue:figure} monthlyeos_de
@@ -742,7 +743,7 @@ glue("monthlyeos_de", fig, display=False)
 
 # Der Nutzungszweck oder die Beschreibung der identifizierten Objekte in % der Gesamtfläche der Erhebung. 
 
-# In[10]:
+# In[9]:
 
 
 # code groups aggregated by survey for each survey area
@@ -794,7 +795,7 @@ plt.close()
 # 
 # {numref}`Abbildung {number}: <utility_eos_de>` Der Nutzungszweck der Objekte in % der Gesamtmenge für die Erhebungsgebiete.
 
-# In[11]:
+# In[10]:
 
 
 cg_medpcm = F"""
@@ -803,7 +804,7 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[12]:
+# In[11]:
 
 
 # median p/50m solve cg_t for unit_label
@@ -849,7 +850,7 @@ plt.close()
 
 # ## Fleisgewässer
 
-# In[13]:
+# In[12]:
 
 
 rivers = fd[fd.w_t == "r"].copy()
@@ -893,6 +894,7 @@ sut.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_five.get_celld()[(0,0)].get_text().set_text(" ")
+table_five.set_fontsize(14)
 
 glue("rivers_de", fig, display=False)
 
@@ -909,9 +911,9 @@ plt.close()
 # 
 # {numref}`Abbildung {number}: <riversx_de>` *Links:* Gesamtergebnisse der Erhebungen an Fleisgewässer für alle Erhebungsgebiete von 03.2020 bis 05.2021, n=55. Werte über 1'779 p/100 m sind nicht dargestellt. *Rechts:* Zusammenfassende Daten zu Fleisgewässer.
 
-# __Häufigste Objekte__
+# __Die an Fliessgewässern am häufigsten gefundenen Objekte__
 
-# In[14]:
+# In[13]:
 
 
 # the most common items rivers
@@ -941,12 +943,13 @@ r_mc.rename(columns=cols_to_use, inplace=True)
 
 data=r_mc[["Objekt","Gesamt", "% Gesamt", "fail-rate", unit_label]]
 
-fig, axs = plt.subplots(figsize=(12.3,len(data)*.8))
+fig, axs = plt.subplots(figsize=(11,len(data)*.6))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_six = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_six.get_celld()[(0,0)].get_text().set_text(" ")
+table_six.set_fontsize(14)
 
 plt.tight_layout()
 glue("rivers2_de", fig, display=False)
@@ -969,7 +972,7 @@ plt.close()
 # 
 # Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrags», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
-# In[15]:
+# In[14]:
 
 
 frag_foams = F"""
@@ -978,7 +981,7 @@ frag_foams = F"""
 md(frag_foams)
 
 
-# In[16]:
+# In[15]:
 
 
 # collect the data before aggregating foams for all locations in the survye area
@@ -1004,11 +1007,12 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: f"{locale.
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]]
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt"}, inplace=True)
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*1.9,len(data)*.5))
+fig, axs = plt.subplots(figsize=(9,len(data)*.6))
 sut.hide_spines_ticks_grids(axs)
 
 table_seven = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13],a_color=a_color)
 table_seven.get_celld()[(0,0)].get_text().set_text(" ")
+table_seven.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()
@@ -1027,7 +1031,7 @@ plt.show()
 
 # ### Gemeinden, Seen und Flüsse mit Erhebungen
 
-# In[17]:
+# In[16]:
 
 
 lakes = dfBeaches.loc[(dfBeaches.index.isin(fd.location.unique()))&(dfBeaches.water == "l")]["water_name"].unique()
@@ -1045,7 +1049,7 @@ muni_string = F"""**Gemeinden:**\n\n >{munis_joined}
 md(muni_string)
 
 
-# In[18]:
+# In[17]:
 
 
 lakes_joined = ", ".join(sorted(lakes))
@@ -1055,7 +1059,7 @@ lake_string = F"""**Seen:**\n\n >{lakes_joined}
 md(lake_string)
 
 
-# In[19]:
+# In[18]:
 
 
 rivers_joined = ", ".join(sorted(rivers))
@@ -1065,7 +1069,7 @@ river_string = F"""**Flüsse:**\n\n >{rivers_joined}
 md(river_string)
 
 
-# In[20]:
+# In[19]:
 
 
 # summary statistics:
@@ -1095,7 +1099,7 @@ geo_context = F"Die Ergebnisse des Aare-Erhebungsgebiets umfassen {fd_n_locs} Or
 md(F"{date_quantity_context} {geo_context }")
 
 
-# In[21]:
+# In[20]:
 
 
 # display the survey locations
@@ -1111,7 +1115,7 @@ disp_beaches.set_index("Standort", inplace=True, drop=True)
 disp_beaches
 
 
-# In[22]:
+# In[21]:
 
 
 

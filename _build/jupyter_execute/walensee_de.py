@@ -101,7 +101,7 @@ this_feature = {"slug":"bt", "name":"Walensee", "level":"water_name_slug"}
 
 this_level = 'city'
 this_bassin ="linth"
-bassin_label = "Linth-Erhebungsgebiet"
+bassin_label = "Erhebungsgebiet Linth"
 
 lakes_of_interest = ["walensee"]
 # explanatory variables:
@@ -324,11 +324,12 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.75,len(data)*.7))
+fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 
 sut.hide_spines_ticks_grids(ax)
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -435,11 +436,8 @@ md(summary_of_survey_totals)
 # get the basic statistics from pd.describe
 cs = dt_all[unit_label].describe().round(2)
 
-# add project totals
-cs["total objects"] = dt_all.quantity.sum()
-
 # change the names
-csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="DE"))
+csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="EN"))
 
 combined_summary = sut.fmt_combined_summary(csx, nf=[])
 
@@ -451,7 +449,7 @@ cols_to_use = {"material":"Material","quantity":"Quantity", "% of total":"% of t
 fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
 
 # make tables
-fig, axs = plt.subplots(1,2, figsize=(7,5))
+fig, axs = plt.subplots(1,2, figsize=(8,6))
 
 # summary table
 # names for the table columns
@@ -462,17 +460,16 @@ sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
 axtwo.set_xlabel(" ")
 sut.hide_spines_ticks_grids(axtwo)
 
-# column names for display
-cols_to_use = {"material":"Material","quantity":"Gesamt", "% of total":"% Gesamt"}
-
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -519,12 +516,13 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% der Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(10,len(m_common)*.6))
+fig, axs = plt.subplots(figsize=(10,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
+table_four.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()
@@ -681,7 +679,7 @@ new_labels = new_labels[::-1]
 new_labels.insert(0,"Monatsdurchschnitt")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)    
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)       
 plt.show()
 
 
@@ -693,10 +691,10 @@ plt.show()
 # *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
-# *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
+# *  **Landwirtschaft:** z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
 # *  **Tabakwaren:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
+# *  **Verpackungen ausser Lebensmittel und Getränke:** Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
@@ -852,7 +850,7 @@ data = fd_frags_foams[["item", unit_label, "quantity", "% of total"]]
 
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt" }, inplace=True)
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.5,len(data)*.8))
+fig, axs = plt.subplots(figsize=(11,len(data)*.8))
 sut.hide_spines_ticks_grids(axs)
 
 the_first_table_data = axs.table(data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
@@ -861,6 +859,7 @@ a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data.values,
 
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
 
+a_summary_table_one.set_fontsize(14)
 plt.show()
 plt.tight_layout()
 plt.close()

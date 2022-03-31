@@ -291,7 +291,7 @@ dt_all = gten_lhun.groupby(['loc_date','location','river_bassin', 'water_name_sl
 
 # *__Unten:__ Erhebungsergebnisse und zusammenfassende Statistiken: Proben grösser als 10m und ohne Objekte kleiner als 2,5cm und Chemikalien, n=372*
 
-# In[6]:
+# In[19]:
 
 
 # palettes and labels
@@ -307,7 +307,7 @@ days = mdates.DayLocator(interval=7)
 
 # sns.set_style('whitegrid')
 
-fig = plt.figure(figsize=(9,5))
+fig = plt.figure(figsize=(10,5))
 
 gs = GridSpec(1,8)
 
@@ -351,8 +351,9 @@ sut.hide_spines_ticks_grids(axtwo)
 the_first_table_data = axtwo.table(combined_summary[1:],  colLabels=["Stat", unit_label], colWidths=[.5,.5], bbox=[0, 0, 1, 1])
 
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,combined_summary[1:],["Stat", unit_label], a_color, s_et_bottom_row=True)
-
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+a_summary_table_one.set_fontsize(14)
+
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
 ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='black', alpha=.1, zorder=0)
@@ -393,8 +394,9 @@ sut.hide_spines_ticks_grids(axtwo)
 the_first_table_data = axtwo.table(these_vals,  colLabels=('ranking', unit_label), colWidths=[.5,.5], bbox=[0, 0, 1, 1])
 
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,these_vals,('ranking', unit_label), a_color, s_et_bottom_row=True)
-
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text("ranking")
+a_summary_table_one.set_fontsize(14)
+
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
 plt.show()
@@ -586,12 +588,12 @@ p_cis['b-method'] = '%'
 p_cis.reset_index(inplace=True)
 
 
-# *__Unten links:__ Konfidenzintervalle, die durch eine 5.000-fache Wiederholungsstichprobe der Umfrageergebnisse für jede Bedingung berechnet wurden. __Unten rechts:__ Die gleichen Intervalle unter Verwendung der verzerrungskorrigierten Methode.*
+# *__Unten Spitze:__ Konfidenzintervalle, die durch eine 5.000-fache Wiederholungsstichprobe der Umfrageergebnisse für jede Bedingung berechnet wurden. __Unten boden:__ Die gleichen Intervalle unter Verwendung der verzerrungskorrigierten Methode.*
 
-# In[9]:
+# In[20]:
 
 
-fig, axs = plt.subplots(1,2, figsize=(11,3))
+fig, axs = plt.subplots(2,1, figsize=(8,8))
 
 axone = axs[0]
 axtwo = axs[1]
@@ -605,17 +607,21 @@ colLabels.append('method')
 table_one = sut.make_a_table(axone, data, colLabels=colLabels, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
 table_two = sut.make_a_table(axtwo, bcas.values, colLabels=colLabels, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
 
-table_one.get_celld()[(0,0)].get_text().set_text(" ")
-table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.set_fontsize(14)
+table_two.set_fontsize(14)    
+                        
+table_one.get_celld()[(0,0)].get_text().set_text("Perzentlie")
+table_two.get_celld()[(0,0)].get_text().set_text("BCa")
 
 plt.tight_layout()
+plt.subplots_adjust(hspace=.3)
 plt.show()
 plt.close()
 
 
 # *__Unten:__ Beispielwert für das Konfidenzintervall: Das Ergebnis der Datenerhebungen in Biel am 31.01.2021 war grösser als der Medianwert für alle Datenerhebungen. Es wurden 123 Objekte (pcs) über 40 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert.* 
 # 
-# $(pcs/m)*100 = (123_{pcs} / 40_m)*100m \approxeq 313p/100m$
+# $(pcs/m)*100 = (123_{pcs} / 40_m)*100 m \approxeq \text{313 p/100 m}$
 
 # In[10]:
 
@@ -654,7 +660,7 @@ sas = pd.DataFrame(the_sas)
 sas['b-method'] = 'bca'
 sas = sas.reset_index()
 
-fig, axs = plt.subplots()
+fig, axs = plt.subplots(figsize=(7,4))
 
 data = sas.values
 sut.hide_spines_ticks_grids(axs)
@@ -664,6 +670,8 @@ the_first_table_data = axs.table(data, colLabels=sas.columns, colWidths=[.25,*[.
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data,sas.columns, a_color, s_et_bottom_row=True)
 
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+
+a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.close()
@@ -775,7 +783,7 @@ md(caption)
 
 # *__Unten:__ Beispiel für bereinigte Extremwerte: St. Gingolph, 12.08.2020 Es wurden 514 Objekte (pcs) über 31 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (pcs/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert:* 
 # 
-# $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1'652p/100m$
+# $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq  \text{1'652 p/100 m}$
 
 # In[14]:
 
@@ -1010,6 +1018,12 @@ sut.display_image_ipython("resources/images/baselines/aare_sa_de_23_0.png", thum
 # Veränderungen in den Ergebnissen von Strand-Abfalluntersuchungen sind Signale, und die Verwendung von Basiswerten hilft, das Ausmass dieser Signale zu erkennen. Ohne Kontext oder zusätzliche Informationen können diese Signale jedoch zufällig erscheinen. 
 # 
 # Zu einem fachkundigen Urteil gehört die Fähigkeit, Erhebungsergebnisse in den Kontext lokaler Ereignisse und der Topographie einzuordnen. Dieses Urteilsvermögen in Bezug auf die Daten und die Umgebung ist entscheidend für die Identifizierung potenzieller Quellen und Prioritäten. 
+
+# In[ ]:
+
+
+
+
 
 # In[ ]:
 

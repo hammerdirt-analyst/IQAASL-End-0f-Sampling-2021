@@ -182,12 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="maggiore_lugano_de.html">
-   10. Maggiore/Lugano
+   10. Maggiore / Lugano
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="thunersee_brienzersee_de.html">
-   11. Thunersee/Brienzersee
+   11. Thunersee / Brienzersee
   </a>
  </li>
  <li class="toctree-l1">
@@ -669,7 +669,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># define the components</span>
 <span class="n">comps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;linth&#39;</span><span class="p">,</span> <span class="s1">&#39;rhone&#39;</span><span class="p">,</span> <span class="s1">&#39;aare&#39;</span><span class="p">,</span> <span class="s1">&#39;ticino&#39;</span><span class="p">]</span>
-<span class="n">comp_labels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;linth&quot;</span><span class="p">:</span><span class="s2">&quot;Linth/Limmat&quot;</span><span class="p">,</span> <span class="s2">&quot;rhone&quot;</span><span class="p">:</span><span class="s2">&quot;Rhône&quot;</span><span class="p">,</span> <span class="s1">&#39;aare&#39;</span><span class="p">:</span><span class="s2">&quot;Aare&quot;</span><span class="p">,</span> <span class="s2">&quot;ticino&quot;</span><span class="p">:</span><span class="s2">&quot;Ticino/Cerisio&quot;</span><span class="p">,</span> <span class="s2">&quot;reuss&quot;</span><span class="p">:</span><span class="s2">&quot;Reuss&quot;</span><span class="p">}</span>
+<span class="n">comp_labels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;linth&quot;</span><span class="p">:</span><span class="s2">&quot;Linth / Limmat&quot;</span><span class="p">,</span> <span class="s2">&quot;rhone&quot;</span><span class="p">:</span><span class="s2">&quot;Rhône&quot;</span><span class="p">,</span> <span class="s1">&#39;aare&#39;</span><span class="p">:</span><span class="s2">&quot;Aare&quot;</span><span class="p">,</span> <span class="s2">&quot;ticino&quot;</span><span class="p">:</span><span class="s2">&quot;Ticino / Cerisio&quot;</span><span class="p">,</span> <span class="s2">&quot;reuss&quot;</span><span class="p">:</span><span class="s2">&quot;Reuss&quot;</span><span class="p">}</span>
 
 
 <span class="c1"># explanatory variables:</span>
@@ -760,12 +760,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="die-herausforderung">
 <h2><span class="section-number">20.1. </span>Die Herausforderung<a class="headerlink" href="#die-herausforderung" title="Permalink to this headline">¶</a></h2>
 <p>Objektive Kriterien erfordern <strong>robuste, transparente und leicht wiederholbare</strong> Methoden. Die Herausforderung besteht darin, verfügbare Informationen aus den weggeworfenen Objekten zu extrahieren, die auf Mengen, Materialeigenschaften und Umweltvariablen in der Nähe des Erhebungsortes basieren.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/images/shared_responsibility/gclosmay2020.jpeg&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/shared_responsibility_de_2_0.png" src="_images/shared_responsibility_de_2_0.png" />
 </div>
@@ -805,43 +800,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Die ländlichen Orte hatte 148 Datenerhebungen, während 152 Datenerhebungen von 34 Standorten der urbanen Orte stammen.</p>
 <p><strong>*Hinweis:</strong> Wattestäbchen sind bei DG enthalten, da sie in der Regel über Wasseraufbereitungsanlagen direkt in ein Gewässer eingebracht werden.</p>
 <p><em><strong>Unten:</strong> Identifizierung von Gegenständen der Gruppe DG. DG ist eine vielfältige Gruppe von Gegenständen aus dem Bauwesen, der verarbeitenden Industrie und der Landwirtschaft. In einigen Fällen, wie z.B. bei zersplitterten Kunststoffen und geschäumten Kunststoffen, sind der ursprüngliche Gegenstand oder der Verwendungszweck unbestimmbar.</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read images</span>
-<span class="n">img_a</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;resources/images/shared_responsibility/fragplass_dense_450_600.jpg&#39;</span><span class="p">)</span>
-<span class="n">img_b</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;resources/images/shared_responsibility/fragfoam_450_600.jpg&#39;</span><span class="p">)</span>
-<span class="n">img_c</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;resources/images/shared_responsibility/infrastructure_450_600.jpg&#39;</span><span class="p">)</span>
-<span class="n">img_d</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;resources/images/shared_responsibility/gpis_450_600.jpg&#39;</span><span class="p">)</span>
-
-<span class="c1"># display images</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-
-<span class="n">axone</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axone</span><span class="p">)</span>
-<span class="n">axone</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_a</span><span class="p">);</span>
-<span class="n">axone</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Kunststoffteile&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
-
-<span class="n">axtwo</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axtwo</span><span class="p">)</span>
-<span class="n">axtwo</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_b</span><span class="p">);</span>
-<span class="n">axtwo</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Schaumstoffstücke&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
-
-<span class="n">axthree</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axthree</span><span class="p">)</span>
-<span class="n">axthree</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_c</span><span class="p">);</span>
-<span class="n">axthree</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Kuntsoffbau&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
-
-<span class="n">axfour</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axfour</span><span class="p">)</span>
-<span class="n">axfour</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_d</span><span class="p">)</span>
-<span class="n">axfour</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Industriepellets (Nurdles)&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
-
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/shared_responsibility_de_6_0.png" src="_images/shared_responsibility_de_6_0.png" />
 </div>
@@ -866,12 +825,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="die-daten">
 <h2><span class="section-number">20.2. </span>Die Daten<a class="headerlink" href="#die-daten" title="Permalink to this headline">¶</a></h2>
 <p><em><strong>Unten:</strong> Für diese Analyse wurden nur Erhebungsorte an Seen berücksichtigt. Das Walenseegebiet wurde mangels ausreichender Landnutzungsdaten ausgeschlossen. Damit reduziert sich der Datensatz auf 300 Erhebungen an 84 städtischen und ländlichen Standorten von März 2020 bis Mai 2021.</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/maps/sharedresponsibility.jpeg&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/shared_responsibility_de_9_0.png" src="_images/shared_responsibility_de_9_0.png" />
 </div>
@@ -1091,8 +1045,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axone</span><span class="p">)</span>
 
 <span class="n">a_table</span> <span class="o">=</span> <span class="n">axone</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">desc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">desc</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.19</span><span class="p">,</span><span class="o">*</span><span class="p">[</span><span class="mf">.1</span><span class="p">]</span><span class="o">*</span><span class="mi">8</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">.95</span><span class="p">])</span>
-<span class="n">the_material_table_data</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span><span class="n">desc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">desc</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
+<span class="n">a_table</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span><span class="n">desc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">desc</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">a_table</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">a_table</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;E = # Erhebungen, D=Durchschnitt, S=Standardfehler&quot;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -1272,12 +1227,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Es kann ein positiver statistisch relevanter Zusammenhang zwischen CG-Objekten und der Landnutzung angenommen werden, der auf Infrastruktur wie Strassen, Erholungsgebiete und Gebäude zurückzuführen ist. Mit 4/12 der häufigsten Objekte wurden etwa 26% aller Objekte identifiziert und können mit Aktivitäten im Umkreis von 1500 m um den Erhebungsort in Verbindung gebracht werden.</p>
 <p>Im Gegensatz dazu hat die Gruppe der DG eine ≊ Verteilung unter den verschiedenen Landnutzungsklassen und keinen Zusammenhang mit dem prozentualen Anteil der Fläche, die Gebäuden zugeordnet ist. Die Gruppe DG besteht aus Baukunststoffen, fragmentierten Schaumstoffen, Kunststoffstücken und Industriepellets und stellt eine vielfältige Gruppe von Objekten mit unterschiedlicher Dichte dar. Da es keine statistischen Beweise für das Gegenteil gibt, kann die Nullhypothese nicht verworfen werden. Daher kann nicht davon ausgegangen werden, dass die primäre Quelle in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt, und es ist wahrscheinlich, dass ein Teil dieser Objekte einen (wirtschaftlich und geografisch) weiter entfernten Ursprung hat.</p>
 <p><em><strong>Unten:</strong> Festlegen objektiver Kriterien. Die Identifizierung und Quantifizierung von Objekten, die bei einer Datenerhebung über Abfälle gesammelt wurden, kann vor Ort erfolgen, wenn das Wetter es zulässt. Die Abmessungsdaten und die erste Bestandsaufnahme werden in einem Notizbuch dokumentiert und dann in die App <a class="reference external" href="https://www.plagespropres.ch">The litter surveyor</a> eingegeben. Objekte von Interesse: Plastikwatte, landwirtschaftliche Zäune und Abstandshalter für Ziegel.</em></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sut</span><span class="o">.</span><span class="n">display_image_ipython</span><span class="p">(</span><span class="s2">&quot;resources/images/baselines/takingnotes.jpg&quot;</span><span class="p">,</span> <span class="n">thumb</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/shared_responsibility_de_27_0.png" src="_images/shared_responsibility_de_27_0.png" />
 </div>
@@ -1486,7 +1436,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">the_cis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">the_bcas</span><span class="p">)</span>
 <span class="n">the_cis</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">the_cis</span><span class="o">.</span><span class="n">values</span>
 <span class="n">collabels</span> <span class="o">=</span> <span class="n">the_cis</span><span class="o">.</span><span class="n">columns</span>
@@ -1497,6 +1447,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">collabels</span><span class="p">,</span> <span class="n">a_color</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1523,7 +1474,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">urb_10</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">urb_10</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">urb_tot</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># make tables</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">most_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,(</span><span class="nb">len</span><span class="p">(</span><span class="n">most_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="c1"># summary table</span>
 <span class="c1"># names for the table columns</span>
@@ -1545,14 +1496,17 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">a_table</span> <span class="o">=</span> <span class="n">axone</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">data_one</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">data_one</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.6</span><span class="p">,</span><span class="o">*</span><span class="p">[</span><span class="mf">.2</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">the_material_table_data</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span><span class="n">data_one</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">data_one</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">the_material_table_data</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot;ländlich&quot;</span><span class="p">)</span>
+<span class="n">the_material_table_data</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="n">a_table</span> <span class="o">=</span> <span class="n">axtwo</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">cellText</span><span class="o">=</span><span class="n">data_two</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">data_one</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.6</span><span class="p">,</span><span class="o">*</span><span class="p">[</span><span class="mf">.2</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">the_material_table_data</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span><span class="n">data_one</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">data_one</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">the_material_table_data</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot;Urban&quot;</span><span class="p">)</span>
+<span class="n">the_material_table_data</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
 
-<span class="n">axone</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;ländlich&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
-<span class="n">axtwo</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;urban&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1644,7 +1598,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">labelsx</span> <span class="o">=</span> <span class="p">[</span><span class="n">months</span><span class="p">[</span><span class="n">new_month</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span>  <span class="n">this_month</span><span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">axisticks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labelsx</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="o">*</span><span class="n">handles</span><span class="p">,</span> <span class="o">*</span><span class="n">handles2</span><span class="p">],</span> <span class="p">[</span><span class="o">*</span><span class="n">labels</span><span class="p">,</span> <span class="o">*</span><span class="n">labels2</span><span class="p">],</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">.1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="o">*</span><span class="n">handles</span><span class="p">,</span> <span class="o">*</span><span class="n">handles2</span><span class="p">],</span> <span class="p">[</span><span class="o">*</span><span class="n">labels</span><span class="p">,</span> <span class="o">*</span><span class="n">labels2</span><span class="p">],</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">.1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1658,8 +1612,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">
 <h2><span class="section-number">20.5. </span>Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung<a class="headerlink" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung" title="Permalink to this headline">¶</a></h2>
-<p>FP = Fragmentierte Kunststoffstücke und Geschäumte Kunststoffe</p>
-<p>FT = Zigaretten und Snack-Verpackungen</p>
+<p><strong>FP</strong> = Fragmentierte Kunststoffstücke und Geschäumte Kunststoffe</p>
+<p><strong>FT</strong> = Zigaretten und Snack-Verpackungen</p>
 <p><strong>Ergebnisse von KS-Test und Mann Whitney U</strong></p>
 <p>Die Erhebungsergebnissefür FP Objekte sind sehr ähnlich bis zu <span class="math notranslate nohighlight">\(\approxeq\)</span>  das 85. Perzentil, wo die Erhebungsergebnisseauf dem Land deutlich höher sind. Das deutet darauf hin, dass extreme Werte für FP in ländlichen Gebieten wahrscheinlicher waren. Nach dem KS-Test (ks=0,78, pvalue=0,69) und dem MWU-Test (U=10624, pvalue=0,40) ist die Verteilung der FP-Objekte unter den beiden Landnutzungsklassen nicht signifikant unterschiedlich und könnte gleich sein.</p>
 <p>Die Erhebungsergebnissefür FT-Objekte behalten die gleichen Merkmale wie die der übergeordneten Verteilung. Die Ergebnisse des KS-Tests (ks=0,29, pWert&lt;.001) und des MWU-Tests (U=7356,5, p&lt;.001) stimmen mit den Ergebnissen der Elterngruppe überein, dass es einen statistisch relevanten Unterschied zwischen den Datenerhebungen Ergebnissen unter verschiedenen Landnutzungsklassen gibt.</p>

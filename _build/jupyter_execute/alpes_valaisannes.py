@@ -341,10 +341,11 @@ table_one = dims_table[["samples", "items",unit_label,"plastic kg","sample total
 table_one.reset_index(inplace=True)
 
 # make table
-fig, ax = plt.subplots(figsize=(12, 13))
+fig, ax = plt.subplots(figsize=(14, 13))
 sut.hide_spines_ticks_grids(ax)
 a_table = sut.make_a_table(ax,table_one.values , colLabels=table_one.columns, colWidths=[.23, *[.11]*7], bbox=[0, 0, 1, 1], bottom_row=True)
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
+a_table.set_fontsize(14)
 plt.show()
 
 
@@ -360,11 +361,12 @@ table_two = dims_table[["total kg", "participants","staff", "time"]].copy()
 table_two.reset_index(inplace=True, )
 
 # make a table
-fig, axs = plt.subplots(figsize=(len(table_two.columns)*2,13))
+fig, axs = plt.subplots(figsize=(10,13))
 sut.hide_spines_ticks_grids(axs)
 
 a_table = sut.make_a_table(axs, table_two.values, colLabels=table_two.columns, colWidths=[.44, *[.14]*4])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
+a_table.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -404,11 +406,12 @@ data = fd.groupby(use_these_cols[:-2], as_index=False).agg(agg_pcs_quantity)
 sns.set_style("whitegrid")
 
 
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(14,3), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
 
-for i, n in enumerate(luse_exp):    
-    
-    ax=axs[i]    
+for i, n in enumerate(luse_exp):
+    r = i%2
+    c = i%3
+    ax=axs[r,c]   
     # get the empirical distribution of the independent variable
     all_surveys = ECDF(datax[n].values)
     les_alpes = ECDF(data[n].values)
@@ -433,16 +436,17 @@ for i, n in enumerate(luse_exp):
     
     # format the % of total on the xaxis:
     if i <= 3:
-        if i == 0:            
+        if c == 0:            
             ax.set_ylabel("Ration of samples", **ck.xlab_k)
         ax.xaxis.set_major_formatter(ticker.PercentFormatter(1.0, 0, "%"))        
     else:
         pass
     ax.set_xlabel(n, **ck.xlab_k)
 
-plt.suptitle("% Landuse within 1500m of the survey location", ha="left", x=0.05, y=.97, fontsize=14)
 plt.tight_layout()
-fig.legend(handles, labels,bbox_to_anchor=(.99, .99), loc="upper right",ncol=3)      
+plt.subplots_adjust(top=.9, hspace=.3)
+plt.suptitle("Land use within 1500m of the survey location", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.5,.94), loc="center", ncol=3)        
 plt.show()
 
 
@@ -455,6 +459,16 @@ plt.show()
 # ## Distribution of survey results
 
 # In[8]:
+
+
+# figure caption
+chart_notes = F"""
+*__Left:__ All samples lakes/rivers and walking trails, {start_date[:7]} through {end_date[:7]}, n=403. __Right:__ Distribution of survey results, outliers removed.*  
+"""
+md(chart_notes )
+
+
+# In[9]:
 
 
 remove = ["veysonnaz", "cabanes-des-diablerets", "san-bernardino"]
@@ -477,17 +491,6 @@ a_dt = a_data.groupby(["loc_date", "date","location"], as_index=False).agg(agg_p
 
 # only the surveys from all other survey areas
 dts_date = a_dt[(~a_dt.location.isin([*nvsn, *remove]))].copy()
-
-# figure caption
-chart_notes = F"""
-*__Left:__ All samples lakes/rivers and walking trails, {start_date[:7]} through {end_date[:7]}, n=403. __Right:__ Distribution of survey results, outliers removed.*  
-"""
-md(chart_notes )
-
-
-# In[9]:
-
-
 # months locator, can be confusing
 # https://matplotlib.org/stable/api/dates_api.html
 months_fmt = mdates.DateFormatter("%b")
@@ -569,7 +572,8 @@ axone = axs[0]
 sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
-# table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
@@ -581,6 +585,7 @@ cols_to_use = {"material":"material","quantity":"total", "% of total":"% of tota
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -618,7 +623,7 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{np.ceil(x)}")
 
 # final table wt_data
 cols_to_use = {"item":"item","quantity":"quantity", "% of total":"% of total", "fail rate":"fail rate", unit_label:unit_label}
-walking_trails = m_common[cols_to_use].values
+walking_trails = m_common[cols_to_use.keys()].values
 
 # figure caption
 rb_string = F"""
@@ -637,6 +642,7 @@ sut.hide_spines_ticks_grids(axs)
 
 table_three = sut.make_a_table(axs, walking_trails,  colLabels=list(cols_to_use.values()), colWidths=[.48, .13,.13,.13, .13],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -946,7 +952,7 @@ plt.show()
 # In[20]:
 
 
-# collect the data before aggregating foams for all locations in the survye area
+## collect the data before aggregating foams for all locations in the survye area
 h=pd.read_csv("resources/checked_alpes_survey_data_be.csv")
 
 # remove prefix
@@ -977,11 +983,12 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]].copy()
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt"}, inplace=True)
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.1,len(data)*.8))
+fig, axs = plt.subplots(figsize=(12,len(data)*.8))
 sut.hide_spines_ticks_grids(axs)
 
 this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
 this_table.get_celld()[(0,0)].get_text().set_text(" ")
+this_table.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -1003,11 +1010,12 @@ lu_prof.loc[:, lu_prof.columns[5:]] = lu_prof.loc[:, lu_prof.columns[5:]].applym
 # put that to a table
 data=lu_prof.copy()
 
-fig, axs = plt.subplots(figsize=(len(table_one.columns)*1.6,len(table_one)*.5))
+fig, axs = plt.subplots(figsize=(13,len(table_one)*.6))
 sut.hide_spines_ticks_grids(axs)
 
-this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.3, *[.13]*6], bbox=[0, 0, 1, 1])
+this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.22, *[.13]*6], bbox=[0, 0, 1, 1])
 this_table.get_celld()[(0,0)].get_text().set_text(" ")
+this_table.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()

@@ -56,15 +56,15 @@ name: mcommonforeword
 
 ```
 
-{numref}`Figure {number}: <mcommonforeword>` _Interpreting the survey results. The aggregated results from all survey areas are on the far-right column, preceded by the aggregated results from Thunersee and Brienzersee. The first six columns are the municipalities from where the samples were taken. This standard is maintained throughout the document. The number represents the median survey value for that object. If that object is not found in at least half of the surveys then the median value will be zero. The median value is a reasonable estimate of the number of objects likely to be found if a litter survey were repeated_. 
+{numref}`Figure {number}: <mcommonforeword>` _Interpreting the survey results. The aggregated results from all survey areas and the Aare survey area are on the two far-right columns, preceded by the aggregated results from Thunersee and Brienzersee. The first six columns are the municipalities from where the samples were taken. This standard is maintained throughout the document. The number represents the median survey value for that object. If that object is not found in at least half of the surveys then the median value will be zero. The median value is a reasonable estimate of the number of objects likely to be found if a litter survey were repeated_. 
 
 The results for plastic construction waste indicate that it was more prevalent in Bönigen (4.5p/100m) and Unterseen (1.5p/100m) versus the other municipalities where the median value is zero. However Industrial sheeting and cigarettes were identified at all municipalities in at least 1/2 the surveys. 
 
 In practical terms there was a better chance of finding plastic construction waste on the beach in Bönigen and Unterseen than the other municipalities. However, the chances of finding industrial sheeting were approximately equal anywhere but the most might be found at Brienz (67p/100m) 
 
-The [key indicators](keyindicators) chapter gives a precise definition of each of the basic statistics that can be derived from the survey results and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups). How samples are collected and the methods for identifying extreme values and calculating baselines for a region can be found in [_Beach litter baselines_](threshhold).
+The [Key statistical indicators](keyindicators) chapter gives a precise definition of each of the basic statistics that can be derived from the survey results and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups). How samples are collected and the methods for identifying extreme values and calculating baselines for a region can be found in [_Beach litter baselines_](threshhold).
 
-The results for each municipality are included with the lake or river to which they belong. A more detailed report can be produced for any municipality in this document. 
+For each lake, the survey results are presented for each municpality where a survey occured.
 
 ### Contributing to this report
 

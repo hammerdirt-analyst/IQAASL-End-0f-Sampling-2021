@@ -150,7 +150,7 @@ sut.display_image_ipython("resources/images/land_use_profile/land_use_dispaly_20
 # * Kilometer Strassen 85
 # * Fluss kreutz: 2
 
-# *Datenerhebungen in einer ländlichen Umgebung. Kallnach, BE 26.02.2021*
+# *__Unten:__ Datenerhebungen in einer ländlichen Umgebung. Kallnach, BE 26.02.2021*
 
 # In[3]:
 
@@ -158,7 +158,7 @@ sut.display_image_ipython("resources/images/land_use_profile/land_use_dispaly_20
 sut.display_image_ipython("resources/images/land_use_profile/tightquarterswholensee.jpg", thumb=(800, 600))
 
 
-# *Datenerhebungen in einer städtischen Umgebung. Vevey, 28.02.2021*
+# *__Unten:__ Datenerhebungen in einer städtischen Umgebung. Vevey, 28.02.2021*
 
 # In[4]:
 
@@ -240,10 +240,12 @@ survey_data['date'] = pd.to_datetime(survey_data.date)
 dfdt = survey_data.groupby(use_these_cols[:-2], as_index=False).agg({unit_label:'sum', 'quantity':'sum'})
 
 sns.set_style("whitegrid")
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(14,4), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,9), sharey="row")
 
 for i, n in enumerate(luse_exp):
-    ax=axs[i]
+    r = i%2
+    c = i%3
+    ax=axs[r,c]  
     
     # the ECDF of the land use variable
     the_data = ECDF(dfdt[n].values)
@@ -271,11 +273,11 @@ for i, n in enumerate(luse_exp):
     # add the median value from all locations to the ax title
     ax.set_title(F"median: {(round(the_median, 2))}",fontsize=12, loc='left')
     ax.set_xlabel(luse_ge[n], **ck.xlab_k)
-plt.suptitle("% Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="left", x=0.05, y=.97, fontsize=14)    
-plt.tight_layout()
-fig.legend(handles, labels,bbox_to_anchor=(.73, .99), loc="upper left",ncol=3)  
 
 plt.tight_layout()
+plt.subplots_adjust(top=.88, hspace=.3)
+plt.suptitle("% Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.5,.94), loc="center", ncol=3)        
 plt.show()
 
 
@@ -413,12 +415,14 @@ plt.show()
 
 
 # correlation  of survey total to land use attributes:
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(14,3), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
 
 for i, n in enumerate(luse_exp):
-    ax=axs[i]
+    r = i%2
+    c = i%3
+    ax=axs[r,c] 
     ax, corr, a_p = sut.make_plot_with_spearmans(dfdt, ax, n, unit_label=unit_label)
-    if i == 0:
+    if c == 0:
         ax.set_ylabel('pcs/m', **ck.xlab_k)
     ax.set_xlabel(luse_ge[n], **ck.xlab_k)
     if a_p <= .001:
@@ -480,13 +484,15 @@ m_common['fail rate'] = m_common['fail rate'].map(lambda x: F"{x}%")
 mcc = m_common[cols_to_use]
 colLabels = ["Artikel", "Gesamt", "fail-rate", "%Gesamt"]
 
-fig, axs = plt.subplots(figsize=(9,len(m_common)*.8))
+fig, axs = plt.subplots(figsize=(11,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
 the_first_table_data = axs.table(mcc.values,  colLabels=colLabels , colWidths=[.48, .16,.16,.16], bbox=[0, 0, 1, 1])
 
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,m_common,cols_to_use, a_color)
+a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -596,6 +602,12 @@ plt.show()
 # Um mehr darüber zu erfahren, wie sich die Erhebungsergebnisse je nach Landnutzung ändern und/oder gleich bleiben, siehe [_Gemeinsame Verantwortung_](transportde).
 # 
 # Um zu verstehen, wie die Abfallobjekte für diesen Bericht berechnet wurden, siehe [_Abfallobjekte am Strand_](threshholdde).
+
+# In[ ]:
+
+
+
+
 
 # In[ ]:
 

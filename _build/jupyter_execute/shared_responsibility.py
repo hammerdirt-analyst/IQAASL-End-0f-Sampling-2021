@@ -202,7 +202,7 @@ code_material_map = dfCodes.material
 sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.jpeg", thumb=(1200, 700))
 
 
-# *__Above: obtaining objective criteria:__. Lac Léman, St. Gingolph 07 May 2020 (15.92pcs/m).*
+# *__Above:__ Lac Léman, St. Gingolph 07 May 2020 (15.92pcs/m).*
 # 
 # The utility of discarded objects as well as land use around litter survey sites are indicators of origin. Land use rates to evaluate pollution sources are useful for some common objects. For example, increased quantities of cigarette filters and snack wrappers were identified near sites with a higher concentration of land attributed to buildings and recreation,[_The land use profile_](luseprofile). Objects associated with the consumption of food, drink and tobacco are approximately 26% of all material identified along Swiss shorelines. 
 # 
@@ -210,7 +210,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.j
 # 
 # Obtaining objective beach litter data is complicated by the hydrologic influences of the approximately 61’000km of rivers and 1500 lakes in Switzerland [con].  The hydrologic conditions of rivers have an effect on the distance and direction that litter introduced into a river will travel. Large, low-density objects will most likely be transported to the next reservoir or area of reduced flow. High density objects will only be transported if the flow velocity and turbulence of the water are sufficient to keep the objects off the bottom. Once high-density items enter a low velocity zone they tend to settle or sink {cite}`Schwarz`.
 
-# ## The origins of the most common objects
+# ### The origins of the most common objects
 # 
 # The most common objects are the __ten most abundant by quantity AND/OR objects identified in at least 50% of all surveys__. To better understand where these objects originate from, the distinction is made between two groups of objects: 
 # 
@@ -588,9 +588,10 @@ a_col = [top_name[0], 'total']
 axone = axs
 sut.hide_spines_ticks_grids(axone)
 
-a_table = axone.table(cellText=desc.values,  colLabels=desc.columns, colWidths=[.19,*[.1]*8], loc='lower center', bbox=[0,0,1,.95])
-the_material_table_data = sut.make_a_summary_table(a_table,desc.values,desc.columns, s_et_bottom_row=False)
-
+a_table = axone.table(cellText=desc.values,  colLabels=desc.columns, colWidths=[.1,*[.11]*8], loc='lower center', bbox=[0,0,1,.95])
+a_table = sut.make_a_summary_table(a_table,desc.values,desc.columns, s_et_bottom_row=False)
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
+a_table.set_fontsize(14)
 
 plt.tight_layout()
 axone.set_xlabel("")
@@ -638,7 +639,7 @@ sns.lineplot(x=co_agecdf.x, y=co_agecdf.y, color='magenta', ax=ax, label="urban:
 sns.lineplot(x=dist_ecdf.x, y=dist_ecdf.y, color='teal', label="rural: DG", ax=ax)
 sns.lineplot(x=di_agecdf.x, y=di_agecdf.y, color='black', label="urban: DG", ax=ax)
 
-ax.set_xlabel("% der of sample total", **ck.xlab_k14)
+ax.set_xlabel("% of sample total", **ck.xlab_k14)
 ax.set_ylabel("% of samples", **ck.xlab_k14)
 plt.legend(loc='lower right', title="% Total")
 
@@ -988,7 +989,7 @@ the_bcas.update(all_cis)
 the_cis = pd.DataFrame(the_bcas)
 the_cis.reset_index(inplace=True)
 
-fig, axs = plt.subplots()
+fig, axs = plt.subplots(figsize=(7,4))
 
 data = the_cis.values
 collabels = the_cis.columns
@@ -999,6 +1000,7 @@ the_first_table_data = axs.table(data, colLabels=collabels, colWidths=[*[.2]*5],
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data,collabels, a_color, s_et_bottom_row=True)
 
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.close()
@@ -1028,7 +1030,7 @@ rur_10["% of total"] = ((rur_10.quantity/rur_tot)*100).round(1)
 urb_10["% of total"] = ((urb_10.quantity/urb_tot)*100).round(1)
 
 # make tables
-fig, axs = plt.subplots(1, 2, figsize=(14,len(most_common)*.5))
+fig, axs = plt.subplots(2,1, figsize=(7,(len(most_common)*.6)*2))
 
 # summary table
 # names for the table columns
@@ -1050,14 +1052,16 @@ for a_df in [data_one, data_two]:
 
 a_table = axone.table(cellText=data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
+the_material_table_data.get_celld()[(0,0)].get_text().set_text("Rural")
+the_material_table_data.set_fontsize(14)
 
 a_table = axtwo.table(cellText=data_two.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
+the_material_table_data.get_celld()[(0,0)].get_text().set_text("Urban")
+the_material_table_data.set_fontsize(14)
 
-axone.set_xlabel("rural", **ck.xlab_k14)
-axtwo.set_xlabel("urban", **ck.xlab_k14)
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.2)
+plt.subplots_adjust(hspace=0.1)
 plt.show()
 
 
@@ -1148,12 +1152,16 @@ axisticks = ax.get_xticks()
 labelsx = [months[new_month(x-1)] for x in  this_month]
 
 plt.xticks(ticks=axisticks, labels=labelsx)
-plt.legend([*handles, *handles2], [*labels, *labels2], bbox_to_anchor=(0,-.1), loc='upper left', fontsize=14)
+plt.legend([*handles, *handles2], [*labels, *labels2], bbox_to_anchor=(0,-.1), loc='upper left', ncol=2, fontsize=14)
 
 plt.show()
 
 
 # ## The survey results of FP and FT with respect to land use
+# 
+# __FP__ = Fractured plastics and foams
+# 
+# __FT__ = Cigarette filters and snack wrappers
 # 
 # 
 # __Results of KS test and Mann Whitney U__
@@ -1226,7 +1234,7 @@ agg_dobj['class'] = 'rural'
 buld_obj['class'] = 'urban'
 
 # merge into one 
-objs_merged = agg_dobj.append(buld_obj)
+objs_merged = pd.concat([agg_dobj, buld_obj])
 
 # store the mean per class
 the_mean = objs_merged.groupby('class')[unit_label].mean()
@@ -1269,7 +1277,7 @@ agg_cont['class'] = 'rural'
 b_cont['class'] = 'urban'
 
 # merge into one 
-objs_merged = agg_cont.append(b_cont)
+objs_merged = pd.concat([agg_cont, b_cont])
 
 # store the mean per class
 the_mean = objs_merged.groupby('class')[unit_label].mean()

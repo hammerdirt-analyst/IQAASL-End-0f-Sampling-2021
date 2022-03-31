@@ -70,9 +70,9 @@ __An diesen Seen werden monatlich Erhebungen erhoben:__
 
 * Aare survey area
   * Thunersee: Spiez, Unterseen  
-  * Bielersee: Biel/Bienne, Vinelz  
+  * Bielersee: Biel / Bienne, Vinelz  
   * Neuenburgersee: Neuchâtel, Cheyres-Châbles, Yverdon-les-Bains 
-* Linth/Limmat survey area 
+* Linth survey area 
   * Zürichsee: Zürich, Küsnacht (ZH), Rapperswil-Jona, Richterswil  
   * Walensee: Walenstadt, Weesen 
 * Rhône survey area 
@@ -97,7 +97,7 @@ Objekte im Zusammenhang mit Lebensmitteln, Getränken und Tabak werden häufiger
 
 ```{figure} resources/images/esummary/lakes_rivers_de_19_01.png
 ---
-width: 500px
+
 name: esummarymcommon_de
 ---
 
@@ -109,9 +109,10 @@ name: esummarymcommon_de
 
 Industriepellets und Schaumstoffe < 5 mm traten beide in beträchtlichen Mengen auf, wurden aber in weniger als 50 % der Datenerhebungen identifiziert (Median von 0), was auf hohe Zählungen an bestimmten Orten hinweist. Obwohl es sich bei beiden um Mikroplastik handelt, unterscheiden sich ihre Verwendung, Herkunft und Häufigkeit des Auftretens je nach Region des Erhebungsgebiets. Industriepellets sind Rohstoffe, die in Spritzgussverfahren verwendet werden, und Schaumstoffperlen sind das Ergebnis der Fragmentierung von expandiertem Polystyrol. Ort, Mengen und Häufigkeit des Auftretens einzelner Objekte siehe [ Seen und Flüsse ](allsurveysde)
 
-```{Figure} resources/images/baselines/lakes_rivers_de_22_0.png
+
+```{Figure} resources/images/esummary/lakes_rivers_de_pcs_m.png
 ---
-width: 500px
+
 name: esummarysurveyareas_de
 ---
 

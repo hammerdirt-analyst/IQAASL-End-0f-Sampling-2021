@@ -473,7 +473,7 @@ def create_summary_table_index(unit_label, lang="EN"):
              "# locations":"# locations",
          }
     elif lang == "DE":
-        new_data = {"count":"# Erhebungen",
+        new_data = {"count":"Anzahl Proben",
                 "mean":f"Durchschnitt {unit_label}",
                 "std":"Standardfehler", 
                 "min":f"min {unit_label}",

@@ -106,7 +106,7 @@ agg_dims = {"total_w":"sum", "mac_plast_w":"sum", "area":"sum", "length":"sum"}
 
 # define the components
 comps = ['linth', 'rhone', 'aare', 'ticino']
-comp_labels = {"linth":"Linth/Limmat", "rhone":"Rhône", 'aare':"Aare", "ticino":"Ticino/Cerisio", "reuss":"Reuss"}
+comp_labels = {"linth":"Linth / Limmat", "rhone":"Rhône", 'aare':"Aare", "ticino":"Ticino / Cerisio", "reuss":"Reuss"}
 
 
 # explanatory variables:
@@ -590,8 +590,9 @@ axone = axs
 sut.hide_spines_ticks_grids(axone)
 
 a_table = axone.table(cellText=desc.values,  colLabels=desc.columns, colWidths=[.19,*[.1]*8], loc='lower center', bbox=[0,0,1,.95])
-the_material_table_data = sut.make_a_summary_table(a_table,desc.values,desc.columns, s_et_bottom_row=False)
-
+a_table = sut.make_a_summary_table(a_table,desc.values,desc.columns, s_et_bottom_row=False)
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
+a_table.set_fontsize(14)
 
 plt.tight_layout()
 axone.set_xlabel("E = # Erhebungen, D=Durchschnitt, S=Standardfehler", labelpad=14, fontsize=14)
@@ -989,7 +990,7 @@ the_bcas.update(all_cis)
 the_cis = pd.DataFrame(the_bcas)
 the_cis.reset_index(inplace=True)
 
-fig, axs = plt.subplots()
+fig, axs = plt.subplots(figsize=(7,4))
 
 data = the_cis.values
 collabels = the_cis.columns
@@ -1000,6 +1001,7 @@ the_first_table_data = axs.table(data, colLabels=collabels, colWidths=[*[.2]*5],
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data,collabels, a_color, s_et_bottom_row=True)
 
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.close()
@@ -1023,7 +1025,7 @@ rur_10["% of total"] = ((rur_10.quantity/rur_tot)*100).round(1)
 urb_10["% of total"] = ((urb_10.quantity/urb_tot)*100).round(1)
 
 # make tables
-fig, axs = plt.subplots(1, 2, figsize=(15,len(most_common)*.6))
+fig, axs = plt.subplots(2,1, figsize=(7,(len(most_common)*.6)*2))
 
 # summary table
 # names for the table columns
@@ -1045,14 +1047,17 @@ for a_df in [data_one, data_two]:
 
 a_table = axone.table(cellText=data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
+the_material_table_data.get_celld()[(0,0)].get_text().set_text("ländlich")
+the_material_table_data.set_fontsize(14)
 
 a_table = axtwo.table(cellText=data_two.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
 the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
+the_material_table_data.get_celld()[(0,0)].get_text().set_text("Urban")
+the_material_table_data.set_fontsize(14)
 
-axone.set_xlabel("ländlich", **ck.xlab_k14)
-axtwo.set_xlabel("urban", **ck.xlab_k14)
+
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.05)
+plt.subplots_adjust(hspace=0.1)
 plt.show()
 
 
@@ -1143,16 +1148,16 @@ axisticks = ax.get_xticks()
 labelsx = [months[new_month(x-1)] for x in  this_month]
 
 plt.xticks(ticks=axisticks, labels=labelsx)
-plt.legend([*handles, *handles2], [*labels, *labels2], bbox_to_anchor=(0,-.1), loc='upper left', fontsize=14)
+plt.legend([*handles, *handles2], [*labels, *labels2], bbox_to_anchor=(0,-.1), loc='upper left', ncol=2, fontsize=14)
 
 plt.show()
 
 
 # ## Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung
 # 
-# FP = Fragmentierte Kunststoffstücke und Geschäumte Kunststoffe
+# __FP__ = Fragmentierte Kunststoffstücke und Geschäumte Kunststoffe
 # 
-# FT = Zigaretten und Snack-Verpackungen
+# __FT__ = Zigaretten und Snack-Verpackungen
 # 
 # __Ergebnisse von KS-Test und Mann Whitney U__
 # 

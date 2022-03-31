@@ -240,10 +240,13 @@ dfdt = survey_data .groupby(use_these_cols[:-2], as_index=False).agg({unit_label
 dfdt.rename(columns = new_col_names, inplace=True)
 
 sns.set_style("whitegrid")
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(14,4), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,9), sharey="row")
+
 
 for i, n in enumerate(luse_labels):
-    ax=axs[i]
+    r = i%2
+    c = i%3
+    ax=axs[r,c]  
     
     # the ECDF of the land use variable
     the_data = ECDF(dfdt[n].values)
@@ -259,8 +262,11 @@ for i, n in enumerate(luse_labels):
     
     #remove the legend from ax   
     ax.get_legend().remove()
+    # save the handels and labels but remove them from the ax    
+    handles, labels = ax.get_legend_handles_labels()
+   
     
-    if i == 0:
+    if c == 0:
         ax.set_ylabel("Percent of samples", **ck.xlab_k)
     else:
         pass
@@ -270,6 +276,9 @@ for i, n in enumerate(luse_labels):
     ax.set_xlabel(n, **ck.xlab_k)
 
 plt.tight_layout()
+plt.subplots_adjust(top=.88, hspace=.3)
+plt.suptitle("Land use within 1500m of the survey location", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.5,.94), loc="center", ncol=3)        
 plt.show()
 
 
@@ -312,7 +321,7 @@ fig, ax = plt.subplots(1,2, figsize=(10,6), sharey=False)
 axone=ax[0]
 axtwo = ax[1]
 
-axone.set_ylabel(unit_label, **ck.xlab_k14)
+axone.set_ylabel("pcs/m", **ck.xlab_k14)
 axone.xaxis.set_minor_locator(days)
 axone.xaxis.set_major_formatter(months_fmt)
 axone.set_xlabel(" ")
@@ -405,12 +414,15 @@ plt.show()
 
 
 # correlation  of survey total to land use attributes:
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(14,3), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
 
 for i, n in enumerate(luse_labels):
-    ax=axs[i]
+    r = i%2
+    c = i%3
+    ax=axs[r,c] 
+    
     ax, corr, a_p = sut.make_plot_with_spearmans(dfdt, ax, n, unit_label=unit_label)
-    if i == 0:
+    if c == 0:
         ax.set_ylabel("pieces per meter", **ck.xlab_k)
     ax.set_xlabel(n, **ck.xlab_k)
     if a_p <= .001:
@@ -474,13 +486,15 @@ m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
 cols_to_use = ["item","quantity", "fail rate", "% of total"]
 all_survey_areas = m_common[cols_to_use].values
 
-fig, axs = plt.subplots(figsize=(9,len(m_common)*.8))
+fig, axs = plt.subplots(figsize=(11,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
 the_first_table_data = axs.table(all_survey_areas,  colLabels=cols_to_use, colWidths=[.48, .13,.13,.13], bbox=[0, 0, 1, 1])
 
 a_summary_table_one = sut.make_a_summary_table(the_first_table_data,m_common,cols_to_use, a_color)
+a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()

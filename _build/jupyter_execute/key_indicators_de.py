@@ -56,7 +56,7 @@ a_fail_rate = 50
 # the city, lake and river bassin we are aggregating to
 # the keys are column names in the survey data
 levels = {"city":"Biel/Bienne","water_name_slug":'bielersee', "river_bassin":'aare'}
-level_names = [levels['city'], "Bielersee","Aare-Erhebungsgebiet"]
+level_names = ["Biel / Bienne", "Bielersee","Erhebungsgebiet Aare"]
 top = "Alle Erhebungsgebiete"
 
 # colors for gradients
@@ -102,11 +102,25 @@ colors_palette = ck.colors_palette
 # 
 # Die Schlüsselindikatoren der häufigsten Objekte werden mit jeder Datenzusammenfassung auf jeder Aggregationsebene angegeben. Wenn die vorherigen Annahmen beibehalten werden, sollte die Anzahl der Proben in der Region von Interesse immer als Mass für die Unsicherheit betrachtet werden. Je mehr Proben innerhalb definierter geografischer und zeitlicher Grenzen liegen, desto grösser ist das Vertrauen in die numerischen Ergebnisse, die aus Ergebnissen innerhalb dieser Grenzen gewonnen werden. 
 # 
-# ## Definition: die häufigsten Objekte
+# ## Definition: Die am häufigsten gefundenen Gegenstände
 # 
 # _Die am häufigsten vorkommenden Objekte sind die Objekte, die eine Ausfallrate von mindestens 50% haben und/oder in einem bestimmten geografischen Gebiet unter den Top-Ten nach Menge oder Stückzahl/m sind._
+# 
+# ## Die wichtigsten Indikatoren
+# 
+# *__Unten:__ Aare-Erhebungsgebiet, Karte der Erhebungsorte.* 
 
 # In[2]:
+
+
+sut.display_image_ipython("resources/maps/survey_areas/aare_scaled.jpeg", thumb=(1200, 700))
+
+
+# Zwischen dem 01.03.2020 und dem 31.05.2021 wurden bei 140 Erhebungen im Aare-Erhebungsgebiet 13'847 Objekte gesammelt. 
+
+# *__Unten:__ Die Erhebungsresultate des Aare-Erhebungsgebietes, mit Ausschnitt Biel / Bienne und Monatsmedian. __Unten links:__ Zusammenfassende Statistik für das Erhebungsgebiet Aare. __Unten rechts:__ Zusammenfassende Statistik Biel / Bienne.*
+
+# In[3]:
 
 
 # get your data:
@@ -137,7 +151,6 @@ codes_to_change = [
     ["G30", "description", "Snack-Verpackungen"],
     ["G124", "description", "Kunststoff-oder Schaumstoffprodukte"],
     ["G87", "description", "Abdeckklebeband/Verpackungsklebeband"],
-    ["G178","description","Flaschenverschlüsse aus Metall"],
     ["G3","description","Einkaufstaschen, Shoppingtaschen"],
     ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
@@ -156,23 +169,12 @@ code_description_map = dfCodes.description
 # make a map to the code descriptions
 code_material_map = dfCodes.material
 
-
-# ## Die wichtigsten Indikatoren
-# 
-# *__Unten:__ Aare-Erhebungsgebiet, Karte der Erhebungsorte.* 
-
-# In[3]:
-
-
 dfSurveys = sut.fo_rmat_and_slice_date(survey_data.copy(), a_format="%Y-%m-%d", start_date=start_date, end_date=end_date)
 dfSurveys['city'] = dfSurveys.location.map(lambda x: city_map.loc[x])
 trb = dfSurveys[dfSurveys.river_bassin == levels['river_bassin']].copy()
 
 # apply local date configuration
 trb["date"] = pd.to_datetime(trb["date"], format=d)
-# trb["date"] = trb["date"].dt.strftime(g)
-# trb["date"] = pd.to_datetime(trb["date"], format=g)
-
 
 # describe the data set:
 num_obs = len(trb)
@@ -191,20 +193,6 @@ biel_loc = biel.location.unique()
 
 # example data summary and keys
 biel_t = biel.quantity.sum()
-
-
-# In[4]:
-
-
-sut.display_image_ipython("resources/maps/survey_areas/aare_scaled.jpeg", thumb=(1200, 700))
-
-
-# Zwischen dem 01.03.2020 und dem 31.05.2021 wurden bei 140 Erhebungen im Aare-Erhebungsgebiet 13'847 Objekte gesammelt. 
-
-# *__Unten:__ Die Erhebungsresultate des Aare-Erhebungsgebietes, mit Ausschnitt Biel/Bienne und Monatsmedian. __Unten links:__ Zusammenfassende Statistik für das Erhebungsgebiet Aare. __Unten rechts:__ Zusammenfassende Statistik Biel/Bienne.*
-
-# In[5]:
-
 
 # the labels for the summary table:
 unit_label= 'pcs_m'
@@ -257,7 +245,7 @@ axtwo = fig.add_subplot(spec[9:,0:4])
 axthree = fig.add_subplot(spec[9:,4:8])
 
 sns.scatterplot(data=dt_all, x='date', y='pcs_m', color='black', alpha=0.4, label="Aare-Erhebungsgebiet", ax=axone)
-sns.scatterplot(data=bt_all, x='date', y='pcs_m', color='red', alpha=0.8, label="Biel/Bienne", ax=axone)
+sns.scatterplot(data=bt_all, x='date', y='pcs_m', color='red', alpha=0.8, label="Biel / Bienne", ax=axone)
 sns.lineplot(data=monthly_plot, x=monthly_plot.index, y=monthly_plot, color='magenta', label=F"{level_names[2]}: monatlicher Medianwert", ax=axone)
 
 the_90th = np.percentile(dt_all.pcs_m, 99)
@@ -278,7 +266,7 @@ table1 = sut.make_a_table(axtwo, table_one,  colLabels=a_col, colWidths=[.5,.25,
 
 axthree.set_xlabel(" ")
 sut.hide_spines_ticks_grids(axthree)
-a_col = ["Biel/Bienne", "total"]
+a_col = ["Biel / Bienne", "total"]
 table2 = sut.make_a_table(axthree, table_two,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 
 plt.show()
@@ -302,7 +290,7 @@ plt.show()
 # 
 # *__Unten:__ Die Durchfallquoten der häufigsten Items aus dem Aare-Erhebungsgebiet bei verschiedenen Aggregationsstufen.*
 
-# In[6]:
+# In[4]:
 
 
 # identify the most common and the most abundant objects in the river bassin
@@ -329,7 +317,7 @@ biel_fail = biel[biel.code.isin(thecommon)].groupby('code', as_index=False).fail
 biel_fail['rate'] = biel_fail.fail/biel.loc_date.nunique()
 m_common = biel_fail.sort_values(by='rate', ascending=False)
 
-m_common['label'] = 'Biel/Bienne'
+m_common['label'] = 'Biel / Bienne'
 
 # pivot that
 mcp = m_common[['code', 'rate', 'label']].pivot(columns='label', index='code')
@@ -348,7 +336,7 @@ mcp[level_names[2]] = get_fail_rate(trb, thecommon=thecommon, level="river_bassi
 mcp[top] = get_fail_rate(dfSurveys, thecommon=thecommon, level="river_bassin", level_name=["aare", "linth", "rhone", "ticino"])
 
 mcp["item"] = mcp.index.map(lambda x: code_description_map[x])
-mcp = mcp.set_index("item").sort_values(by="Biel/Bienne", ascending=False)
+mcp = mcp.set_index("item").sort_values(by="Biel / Bienne", ascending=False)
 
 # chart that
 fig, ax  = plt.subplots(figsize=(len(mcp.columns)*.9,len(mcp)*.9))
@@ -367,33 +355,7 @@ plt.show()
 plt.close()
 
 
-# In[7]:
-
-
-
-group = ["loc_date", "code"]
-
-def make_total_colums(df,name="Alle Erhebungsgebiete", new_col_name="pt", desc="item", agg_col="quantity"):
-    a_s_a = df.groupby('code', as_index=False)[agg_col].sum()
-    a_s_a[new_col_name] = a_s_a.quantity/dfSurveys.quantity.sum()
-    a_s_a[desc] = a_s_a.code.map(lambda x: code_description_map.loc[x])
-    a_s_a.set_index(desc, inplace=True)
-    a_s_a[name] = a_s_a[new_col_name]
-    
-    return a_s_a[name]
-
-def make_median_colums(df,name="Alle Erhebungsgebiete", new_col_name="p", desc="item", agg_col="pcs_m"):
-    b_s_a = df.groupby('code', as_index=False)[agg_col].median()
-    b_s_a[desc] = b_s_a.code.map(lambda x: code_description_map.loc[x])
-    b_s_a.set_index(desc, inplace=True)
-    b_s_a[name] = b_s_a[agg_col]
-    
-    return b_s_a[name]
-
-    return b_s_a[name]
-
-
-# Mit Ausnahme von Industriefolien und Kunststofffragmenten war die Fehlschlagquote in Biel/Bienne höher als in allen anderen Untersuchungsgebieten. Das bedeutet, dass die Wahrscheinlichkeit, diese Objekte zu finden, in Biel pro Untersuchung grösser war als an den meisten anderen Orten. 
+# Mit Ausnahme von Industriefolien und Kunststofffragmenten war die Fehlschlagquote in Biel / Bienne höher als in allen anderen Untersuchungsgebieten. Das bedeutet, dass die Wahrscheinlichkeit, diese Objekte zu finden, in Biel pro Untersuchung grösser war als an den meisten anderen Orten. 
 # 
 # Die Pass-Fail-Rate ist die wahrscheinlichste Schätzung (MLE) der Wahrscheinlichkeit, mindestens ein Objekt zu finden {cite}`mle`. Wenn das Objekt in allen vorherigen Stichproben identifiziert wurde und sich die Abschwächung der Präventionsmassnahmen nicht geändert hat, kann man davon ausgehen, dass auch in den folgenden Stichproben mindestens ein Objekt zu finden sein wird. 
 # 
@@ -411,11 +373,13 @@ def make_median_colums(df,name="Alle Erhebungsgebiete", new_col_name="p", desc="
 # 
 # *__Unten:__ Die Durchfallquoten der häufigsten Items aus dem Aare-Erhebungsgebiet in verschiedenen Aggregationsstufen.*
 
-# In[8]:
+# In[5]:
 
 
 # aggregated survey totals for the most common codes for all the water features
 # a common aggregation
+group = ["loc_date", "code"]
+
 agg_pcs_quantity = {unit_label:'sum', 'quantity':'sum'}
 
 m_common_st = biel[biel.code.isin(thecommon)].copy()
@@ -457,7 +421,7 @@ plt.show()
 plt.close()
 
 
-# Der gemeldete Wert ist der Median der Datenerhebung Ergebnissen für diese Aggregationsebene und dieses Objekt. Ein Medianwert von Null bedeutet, dass das Objekt in weniger als 1/2 Datenerhebungen für diese Aggregationsebene identifiziert wurde. Betrachten Sie zum Beispiel die Ergebnisse für Isoliermaterial: umfasst Sprühschäume. Der Medianwert für das Aare-Erhebungsgebiet ist Null. Wenn jedoch nur die Ergebnisse von Bielersee oder Biel/Bienne betrachtet werden, ist der Medianwert grösser als Null. Das deutet darauf hin, dass am Bielersee und speziell in Biel/Bienne mehr Dämmstoffe gefunden wurden als im übrigen Aaregebiet. 
+# Der gemeldete Wert ist der Median der Datenerhebung Ergebnissen für diese Aggregationsebene und dieses Objekt. Ein Medianwert von Null bedeutet, dass das Objekt in weniger als 1/2 Datenerhebungen für diese Aggregationsebene identifiziert wurde. Betrachten Sie zum Beispiel die Ergebnisse für Isoliermaterial: umfasst Sprühschäume. Der Medianwert für das Aare-Erhebungsgebiet ist Null. Wenn jedoch nur die Ergebnisse von Bielersee oder Biel / Bienne betrachtet werden, ist der Medianwert grösser als Null. Das deutet darauf hin, dass am Bielersee und speziell in Biel / Bienne mehr Dämmstoffe gefunden wurden als im übrigen Aaregebiet. 
 
 # ####  Prozentsatz der Gesamtmenge
 # 
@@ -469,7 +433,9 @@ plt.close()
 # 
 # Ähnlich wie bei den Stücken pro Meter ist ein Objekt mit einer niedrigen Pass-Fail-Rate und einem hohen Prozentsatz an der Gesamtzahl ein Signal dafür, dass Objekte möglicherweise in unregelmässigen Abständen in grossen Mengen deponiert werden: Verklappung oder Unfälle. 
 
-# In[9]:
+# *__Unten:__ Die häufigsten Objekte im Untersuchungsgebiet der Aare sind  rund 66% (2'022) der Gesamtzahl der erfassten Objekte (3.067) an den drei Standorten in Biel / Bienne*
+
+# In[6]:
 
 
 ac = biel[biel.code.isin(thecommon)].groupby('code', as_index=False).quantity.sum()
@@ -484,8 +450,7 @@ bsee.sort_values(by='pt', ascending=False, inplace=True)
 # bsee.set_index('item', inplace=True)
 bsee[level_names[0]] = bsee['pt']
 bsee = bsee[["code", level_names[0]]]
-bsee.set_index("code", inplace=True, drop=True )
-
+bsee.set_index("code", inplace=True, drop=True)
 
 # for the lake
 condition = (trb.code.isin(thecommon))&(trb.water_name_slug == 'bielersee')
@@ -500,13 +465,6 @@ bsee[top] = sut.aggregate_to_group_name(dfSurveys,column="code", unit_label=unit
 
 bsee["item"] = bsee.index.map(lambda x: code_description_map[x])
 bsee.set_index("item", drop=True, inplace=True)
-
-
-# *__Unten:__ Die häufigsten Objekte im Untersuchungsgebiet der Aare sind  rund 66% (2'022) der Gesamtzahl der erfassten Objekte (3.067) an den drei Standorten in Biel/Bienne*
-
-# In[10]:
-
-
 # chart that
 fig, ax  = plt.subplots(figsize=(len(bsee.columns)*.9,len(bsee)*.9))
 axone = ax
@@ -526,7 +484,7 @@ plt.close()
 
 # ### Diskussion
 # 
-# Zwischen April 2020 und Mai 2021 wurden 16 Strand-Abfallaufkommen Datenerhebungen an drei verschiedenen Orten in Biel/Bienne durchgeführt, bei denen 3.067 Objekte identifiziert werden konnten. Die häufigsten Objekte aus dem Aare-Erhebungsgebiet machen 66% aller in Biel identifizierten Objekte aus. Objekte, die in direktem Zusammenhang mit dem Konsum stehen (Lebensmittel, Getränke, Tabak), werden in einer Häufigkeit gefunden, die über dem Median des Erhebungsgebiets liegt, den diese Objekte stellen rund 34% der gesammelten Abfallobjekte in Biel/Bienne dar, im Vergleich zu 25% für alle Untersuchungsgebiete. 
+# Zwischen April 2020 und Mai 2021 wurden 16 Strand-Abfallaufkommen Datenerhebungen an drei verschiedenen Orten in Biel / Bienne durchgeführt, bei denen 3.067 Objekte identifiziert werden konnten. Die häufigsten Objekte aus dem Aare-Erhebungsgebiet machen 66% aller in Biel identifizierten Objekte aus. Objekte, die in direktem Zusammenhang mit dem Konsum stehen (Lebensmittel, Getränke, Tabak), werden in einer Häufigkeit gefunden, die über dem Median des Erhebungsgebiets liegt, den diese Objekte stellen rund 34% der gesammelten Abfallobjekte in Biel / Bienne dar, im Vergleich zu 25% für alle Untersuchungsgebiete. 
 # 
 # Gegenstände, die nicht direkt mit Konsumverhalten in Verbindung stehen, wie zerbrochene Kunststoffe, Industriefolien, expandiertes Polystyrol oder Industriepellets, werden in grösseren Mengen gefunden als im übrigen Aare-Erhebungsgebiet. Expandiertes Polystyrol wird als äussere Isolierhülle für Gebäude (Neubauten und Renovierungen) und zum Schutz von Bauteilen beim Transport verwendet. Biel hat eine starke industrielle Basis und eine aktive Bau- und Produktionsbasis. Zusammengenommen machen diese Objekte 30% der insgesamt gesammelten Objekte aus. 
 # 
@@ -544,7 +502,7 @@ plt.close()
 # 2. Wie gross ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden? 
 # 3. Warum haben Sie sich für diesen Ort oder diese Orte entschieden? Wie sicher sind Sie sich bei Ihrer Wahl? 
 
-# In[11]:
+# In[7]:
 
 
 aggs = {'loc_date':'nunique', 'fail':'sum', 'pcs_m':'mean', "quantity":"sum"}
@@ -558,7 +516,7 @@ biel_g95
 
 # <br></br>
 
-# In[12]:
+# In[8]:
 
 
 sut.display_image_ipython("resources/maps/key_indicators.jpeg", thumb=(1200, 700))

@@ -1,0 +1,48 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: titlepage
+
+parts:
+  - caption: test
+    numbered: False
+    chapters:
+    - file: intro_de
+    - file: esummary_de
+  - caption: Survey results
+    numbered: True
+    chapters:
+    - file: code_groups
+    - file: code_groups_de
+    - file: shared_responsibility
+    - file: shared_responsibility_de
+    - file: baselines
+    - file: baselines_de
+    - file: ticino_sa
+    - file: ticino_sa_de
+    - file: rhone_sa
+    - file: rhone_sa_de
+    - file: linth_sa
+    - file: linth_sa_de
+    - file: land_use_correlation
+    - file: land_use_correlation_de
+    - file: alpes_valaisannes
+    - file: alpes_valaisannes_de
+    - file: aare_sa_de
+    - file: aare_sa
+    - file: lakes_rivers
+    - file: lakes_rivers_de
+    - file: slr_2017
+    - file: slr_2017_de
+    - file: key_indicators
+    - file: key_indicators_de
+    - file: bielersee_de
+    - file: lac_leman_de
+    - file: neuenburgersee_de
+    - file: maggiore_lugano_de
+    - file: thunersee_brienzersee_de
+    - file: walensee_de
+    - file: zurichsee_de
+    - file: references
+  

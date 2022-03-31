@@ -164,17 +164,17 @@ code_group2 = {
 # In[5]:
 
 
-sut.display_image_ipython("resources/images/codegroups/20210221CheyresFoam.jpg", thumb=(600,1000), rotate=360)
+wwcodes = dfCodes[dfCodes.code.isin(["G81", "G82", "G83"])][cols_to_display]
+wwcodes.set_index("code", drop=True)
 
-
-# *Various sizes of white expanded polystyrene and other foamed plastics*
 
 # In[6]:
 
 
-wwcodes = dfCodes[dfCodes.code.isin(["G81", "G82", "G83"])][cols_to_display]
-wwcodes
+sut.display_image_ipython("resources/images/codegroups/20210221CheyresFoam.jpg", thumb=(600,1000), rotate=360)
 
+
+# *Various sizes of white expanded polystyrene and other foamed plastics*
 
 # ### Not applicable or omitted items
 # 

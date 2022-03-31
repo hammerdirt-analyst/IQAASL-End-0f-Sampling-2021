@@ -72,6 +72,9 @@ cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
 
 # set the maps
+bassin_map = "resources/maps/zurichsee_scaled.jpeg"
+
+# set the maps
 bassin_map = "resources/maps/bielersee_scaled.jpeg"
 
 # top level aggregation
@@ -163,7 +166,7 @@ code_material_map = dfCodes.material
 # 
 # <a href="bielersee_de.html"> Deutsch </a>
 
-# *__Below:__ Map of survey locations March 2020 - May 2021*
+# *__Below:__ Map of survey locations March 2020 - May 2021. Marker diameter = the mean survey result in pieces of litter per 100 meters (p/100m).*
 
 # In[2]:
 
@@ -279,11 +282,12 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.5))
+fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 
 sut.hide_spines_ticks_grids(ax)
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -414,6 +418,7 @@ sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
@@ -422,6 +427,7 @@ sut.hide_spines_ticks_grids(axtwo)
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -475,6 +481,7 @@ sut.hide_spines_ticks_grids(axs)
 
 table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
+table_four.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()
@@ -493,7 +500,7 @@ rb_string = F"""
 md(rb_string)
 
 
-# In[24]:
+# In[13]:
 
 
 # aggregated survey totals for the most common codes for all the water features
@@ -512,7 +519,7 @@ m_c_p = m_common_ft[["item", this_level, unit_label]].pivot(columns=this_level, 
 # quash the hierarchal column index
 m_c_p.columns = m_c_p.columns.get_level_values(1)
 
-# the aggregated totals for the feature data
+## the aggregated totals for the feature data
 c = sut.aggregate_to_group_name(fd[fd.code.isin(m_common.index)], column="code", name=this_feature["name"], val="med")
 m_c_p[this_feature["name"]]= sut.change_series_index_labels(c, {x:code_description_map.loc[x] for x in c.index})
 
@@ -645,10 +652,10 @@ new_labels = [code_description_map.loc[x] for x in labels[1:]]
 new_labels = new_labels[::-1]
 
 # insert a label for the monthly average
-new_labels.insert(0,"Monthly survey average")
+new_labels.insert(0,"Monatsdurchschnitt")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)    
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)       
 plt.show()
 
 
@@ -717,7 +724,6 @@ data_table[bassin_label] = sut.aggregate_to_group_name(a_data[a_data.river_bassi
 data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, column="groupname", name=top, val="pt")
 
 data = data_table
-# data.rename(columns={x:wname_wname.loc[x][0] for x in data.columns[:-2]}, inplace=True)
 
 fig, ax = plt.subplots(figsize=(10,10))
 
@@ -815,7 +821,7 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 # table data
 data = fd_frags_foams[["item", unit_label, "quantity", "% of total"]]
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.1,len(data)*.8))
+fig, axs = plt.subplots(figsize=(11,len(data)*.8))
 sut.hide_spines_ticks_grids(axs)
 
 the_first_table_data = axs.table(data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
@@ -824,6 +830,7 @@ a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data.values,
 
 a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
 
+a_summary_table_one.set_fontsize(14)
 plt.show()
 plt.tight_layout()
 plt.close()

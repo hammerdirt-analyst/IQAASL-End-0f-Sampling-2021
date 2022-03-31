@@ -142,7 +142,6 @@ codes_to_change = [
     ["G30", "description", "Snack-Verpackungen"],
     ["G124", "description", "Kunststoff- oder Schaumstoffprodukte"],
     ["G87", "description", "Abdeckklebeband/Verpackungsklebeband"],
-    ["G178","description","Flaschenverschlüsse aus Metall"],
     ["G3","description","Einkaufstaschen, Shoppingtaschen"],
     ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"]
@@ -182,12 +181,6 @@ code_material_map = dfCodes.material
 # 
 # 1. Datenerhebungen für eine bestimmte Entfernung und Breite eines Streckenabschnitts 
 # 2. Datenerhebungen der Anlagen bei der Ankunft/Abfahrt der Liftlinie 
-# 
-# Das Verfahren der Datenerhebungen bleibt unter beiden Bedingungen gleich: 
-# 
-# 1. Ein Abschnitt eines Weges oder eine Fläche wird gemessen  
-# 2. Alle sichtbaren Abfallbestandteile/Abfallgegenstände  werden entfernt, gezählt und klassifiziert 
-# 3. Die Ergebnisse und Abmessungen werden aufgezeichnet  
 # 
 # Der Unterschied zwischen den beiden Methoden liegt in der Art und Weise, wie die Grenzen des Vermessungsgebiets festgelegt werden. Wenn ein Weg benutzt wird, werden die Grenzen des Vermessungsgebiets durch den Weg selbst festgelegt, nicht durch die Person, die die Datenerhebung ausführt. Im Sommer sind die Barrieren und Schilder, die die Bereiche für die Liftlinien markieren, alle entfernt worden, so dass es für die Person, die die Datenerhebung ausführt, schwierig ist, die korrekten Grenzen genau zu bestimmen.   
 # 
@@ -257,7 +250,7 @@ surv_string = locale.format_string('%d', int(t["samples"]), grouping=True)
 pop_string = locale.format_string('%d', int(fd_pop_map.sum()[0]), grouping=True)
 
 date_quantity_context = f"Zwischen {start_date[3:]} und {end_date[3:]}, wurden im Laufe von {surv_string} Datenerhebungen an {t['samples']} "
-geo_context = f"verschiedenen Orten in {t['nmunis']} Gemeinden und einer Gesamtbevölkerung von {pop_string}. Einwohnern insgesamt {t['fdtotalq']} Objekte entfernt und identifiziert."
+geo_context = f"verschiedenen Orten in {t['nmunis']} Gemeinden und einer Gesamtbevölkerung von {pop_string}. Einwohnern insgesamt {locale.format_string('d',t['fdtotalq'])} Objekte entfernt und identifiziert."
 munis_joined = ", ".join(sorted(fd_pop_map.index))
 
 # put that all together:
@@ -365,10 +358,11 @@ commas = ["Erhebungen", "Objekte",  "m²", "Länge", unit_label]
 table_one.loc[:,commas[:-1]] = table_one.loc[:,commas].applymap(lambda x: f"{locale.format_string('%d', x, grouping=True)}")
 
 # make table
-fig, ax = plt.subplots(figsize=(12, 13))
+fig, ax = plt.subplots(figsize=(14, 13))
 sut.hide_spines_ticks_grids(ax)
 a_table = sut.make_a_table(ax,table_one.values , colLabels=table_one.columns, colWidths=[.23, *[.11]*7], bbox=[0, 0, 1, 1], bottom_row=True)
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
+a_table.set_fontsize(14)
 plt.show()
 
 
@@ -385,11 +379,12 @@ table_two["Gesamt kg"] = table_two["Gesamt-e kg"].map(lambda x: f"{locale.format
 table_two = table_two[["location", "Gesamt kg", "Teilnehmer", "Mitarbeiter", "Std"]]
 
 # make a table
-fig, axs = plt.subplots(figsize=(len(table_two.columns)*2,13))
+fig, axs = plt.subplots(figsize=(10,13))
 sut.hide_spines_ticks_grids(axs)
 
 a_table = sut.make_a_table(axs, table_two.values, colLabels=table_two.columns, colWidths=[.44, *[.14]*4])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
+a_table.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -428,11 +423,12 @@ data = fd.groupby(use_these_cols[:-2], as_index=False).agg(agg_pcs_quantity)
 
 sns.set_style("whitegrid")
 
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(14,3), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
 
-for i, n in enumerate(luse_exp):    
-    
-    ax=axs[i]    
+for i, n in enumerate(luse_exp):
+    r = i%2
+    c = i%3
+    ax=axs[r,c]
     # get the empirical distribution of the independent variable
     all_surveys = ECDF(datax[n].values)
     les_alpes = ECDF(data[n].values)
@@ -457,17 +453,18 @@ for i, n in enumerate(luse_exp):
     
     # format the % of total on the xaxis:
     if i <= 3:
-        if i == 0:            
+        if c == 0:            
             ax.set_ylabel("Prozent der Standorte", **ck.xlab_k)
         ax.xaxis.set_major_formatter(ticker.PercentFormatter(1.0, 0, "%"))        
     else:
         pass
     ax.set_xlabel(n, **ck.xlab_k)
 
-plt.suptitle("% Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="left", x=0.05, y=.97, fontsize=14)
 plt.tight_layout()
-fig.legend(handles, labels,bbox_to_anchor=(.99, .99), loc="upper right",ncol=3)      
-plt.show()
+plt.subplots_adjust(top=.9, hspace=.3)
+plt.suptitle("Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.5,.94), loc="center", ncol=3)        
+plt.show() 
 
 
 # *__Oben:__ Die Orte im Erhebungsgebiet der Alpen wiesen einen höheren Prozentsatz an Flächen auf, die der Forst- und Landwirtschaft zugeordnet wurden, und einen geringeren Prozentsatz, der Gebäuden und Freizeiteinrichtungen zugeordnet wurde, als die Orte im IQAASL.* 
@@ -479,6 +476,16 @@ plt.show()
 # ## Verteilung der Erhebungsergebnisse¶
 
 # In[8]:
+
+
+# figure caption
+chart_notes = F"""
+*__Links:__ Die Alpen und der Jura, {start_date[3:]} bis {end_date[3:]}, n={a_data.loc_date.nunique()}. __Rechts:__ Verteilung der Erhebungsergebnisse, Ausreisser entfernt.*  
+"""
+md(chart_notes )
+
+
+# In[9]:
 
 
 remove = ["veysonnaz", "cabanes-des-diablerets", "san-bernardino"]
@@ -499,16 +506,6 @@ a_dt = a_data.groupby(["loc_date", "date","location"], as_index=False).agg(agg_p
 
 # only the surveys from all other survey areas
 dts_date = a_dt[(~a_dt.location.isin([*nvsn, *remove]))].copy()
-
-# figure caption
-chart_notes = F"""
-*__Links:__ Die Alpen und der Jura, {start_date[3:]} bis {end_date[3:]}, n={a_data.loc_date.nunique()}. __Rechts:__ Verteilung der Erhebungsergebnisse, Ausreisser entfernt.*  
-"""
-md(chart_notes )
-
-
-# In[9]:
-
 
 # months locator, can be confusing
 # https://matplotlib.org/stable/api/dates_api.html
@@ -593,7 +590,8 @@ axone = axs[0]
 sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
-# table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
@@ -605,6 +603,7 @@ cols_to_use = {"material":"Material","quantity":"Gesamt", "% of total":"% Gesamt
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -655,12 +654,13 @@ md(rb_string)
 # In[12]:
 
 
-fig, axs = plt.subplots(figsize=(10,len(m_common)*.8))
+fig, axs = plt.subplots(figsize=(12,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_three = sut.make_a_table(axs, walking_trails,  colLabels=list(cols_to_use.values()), colWidths=[.48, .13,.13,.13, .13],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -901,7 +901,7 @@ plt.show()
 # 
 # Es sei daran erinnert, dass diese Erhebungen  entlang der Skiliftlinie oder eines Wanderweges in einem Skigebiet durchgeführt wurden. Auch wenn die Nutzung im Winter erhöht sein mag, sind viele Gebiete auch im Sommer hervorragende Wandergebiete, so dass eine ganzjährige Nutzung dieser Regionen möglich ist. 
 # 
-# #### Die häufigsten Objekte
+# #### Die am häufigsten gefundenen Gegenstände
 # 
 # Die am häufigsten vorkommenden Gegenstände machen 74% der insgesamt gefundenen aus. Die Zigarettenstummel lagen im Erhebungsgebiet Alpes nicht über dem nationalen Median, allerdings wurden in Verbier, Grindelwald und Airolo signifikante Werte festgestellt. Spezifische Gegenstände aus der Gruppe der Infrastruktur sind vertreten, wie z.B.:   
 # 
@@ -992,11 +992,12 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]].copy()
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt"}, inplace=True)
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.3,len(data)*.8))
+fig, axs = plt.subplots(figsize=(12,len(data)*.8))
 sut.hide_spines_ticks_grids(axs)
 
 this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
 this_table.get_celld()[(0,0)].get_text().set_text(" ")
+this_table.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -1018,11 +1019,12 @@ lu_prof.loc[:, lu_prof.columns[5:]] = lu_prof.loc[:, lu_prof.columns[5:]].applym
 # put that to a table
 data=lu_prof.copy()
 
-fig, axs = plt.subplots(figsize=(len(table_one.columns)*1.2,len(table_one)*.4))
+fig, axs = plt.subplots(figsize=(13,len(table_one)*.6))
 sut.hide_spines_ticks_grids(axs)
 
-this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.3, *[.13]*6], bbox=[0, 0, 1, 1])
+this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.22, *[.13]*6], bbox=[0, 0, 1, 1])
 this_table.get_celld()[(0,0)].get_text().set_text(" ")
+this_table.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()

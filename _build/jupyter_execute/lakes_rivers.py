@@ -60,9 +60,9 @@ import resources.sr_ut as sut
 import resources.chart_kwargs as ck
 
 # images and display
-from PIL import Image as PILImage
+# from PIL import Image as PILImage
 from IPython.display import Markdown as md
-from IPython.display import display
+# from IPython.display import display
 
 from myst_nb import glue
 
@@ -89,9 +89,8 @@ this_level = "river_bassin"
 comps = ["linth", "rhone", "aare", "ticino"]
 
 # proper labels for charts and tables
-comp_labels = {"linth":"Linth/Limmat", "rhone":"Rhône", "aare":"Aare", "ticino":"Ticino/Cerisio", "reuss":"Reuss"}
+comp_labels = {"linth":"Linth", "rhone":"Rhône", "aare":"Aare", "ticino":"Ticino", "reuss":"Reuss"}
 top_name = ["All survey areas"]
-# comp_palette = {"Linth/Limmat":"dimgray", "Rhône":"tan", "Aare":"salmon", "Ticino/Cerisio":"steelblue", "Reuss":"purple"}
 
 # common aggregations
 agg_pcs_quantity = {unit_label:"sum", "quantity":"sum"}
@@ -166,12 +165,6 @@ code_material_map = dfCodes.material
 # 
 # Map of survey locations IQAASL March 2020 - May 2021.
 
-# In[2]:
-
-
-# sut.display_image_ipython(bassin_map, thumb=(800, 450))
-
-
 # ```{figure} resources/maps/lakes_rivers_map.jpeg
 # :figwidth: 800px
 # :name: "eosmap"
@@ -187,9 +180,9 @@ code_material_map = dfCodes.material
 # The survey areas are grouped by river catchment systems, this report combines several catchment areas for analysis of regional trends: 
 # 
 # *  Aare : Emme, Aare
-# * Linth/Limmat : Reuss, Linth, Limmat
+# * Linth: Reuss, Linth, Limmat
 # * Rhône: Rhône
-# * Ticino/Cerisio : Ticino, Lago di Lugano, Laggo Maggiore
+# * Ticino: Ticino, Lago di Lugano, Laggo Maggiore
 # 
 # The land use profile is the percent of total area attributed to each land use category within a 1500m radius of each survey location. 
 # 
@@ -206,7 +199,7 @@ code_material_map = dfCodes.material
 
 # __Distribution of land use characteristics__
 
-# In[3]:
+# In[2]:
 
 
 # this is the data before the expanded fragmented plastics and foams are aggregated to Gfrags and Gfoams
@@ -229,12 +222,14 @@ dt_nw = fd.groupby(use_these_cols[:-2], as_index=False).agg({unit_label:"sum"})
 
 sns.set_style("whitegrid")
 
-fig, axs = plt.subplots(1,len(luse_exp), figsize=(17,4), sharey=True)
+fig, axs = plt.subplots(2, 3, figsize=(9,9), sharey="row")
 
 for i, n in enumerate(luse_exp):
     # get the dist for each survey area here
+    r = i%2
+    c = i%3
+    ax=axs[r,c]
     for element in comps:
-        ax=axs[i]
         the_data = ECDF(dt_nw[dt_nw[this_level] == element][n].values)
         sns.lineplot(x=the_data.x, y=the_data.y, ax=ax, label=comp_labels[element], color=bassin_pallette[element])
     
@@ -252,7 +247,7 @@ for i, n in enumerate(luse_exp):
     
     # format the % of total on the xaxis:
     if i <= 3:
-        if i == 0:            
+        if c == 0:            
             ax.set_ylabel("Ratio of samples", **ck.xlab_k)
         ax.xaxis.set_major_formatter(ticker.PercentFormatter(1.0, 0, "%"))        
     else:
@@ -263,8 +258,10 @@ for i, n in enumerate(luse_exp):
     ax.get_legend().remove()
     ax.set_title(F"median: {(round(the_median, 2))}",fontsize=12, loc="left")
 
-plt.legend(handles, labels)       
 plt.tight_layout()
+plt.subplots_adjust(top=.88, hspace=.35)
+plt.suptitle("Land use within 1500m of the survey location", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.53,.94), loc="center", ncol=6)
 
 glue("eosluse", fig, display=False)
 plt.close()
@@ -278,11 +275,11 @@ plt.close()
 # ` `
 # 
 # ```
-# {numref}`Figure {number}: <eos_luse>` The survey locations in the Rhône and Linth/Limmat survey areas had the greatest median amount of land attributed to buildings at 47% and 40% and the least amount attributed to woods at 5% and 8% respectively. The Aare survey area had the lowest median amount of land attributed to buildings at 16% and the greatest amount of land attributed to agriculture at 30%. The land attributed to recreation represents sports fields, public beaches and other public gathering places. 
+# {numref}`Figure {number}: <eos_luse>` The survey locations in the Rhône and Linth survey areas had the greatest median amount of land attributed to buildings at 47% and 40% and the least amount attributed to woods at 5% and 8% respectively. The Aare survey area had the lowest median amount of land attributed to buildings at 16% and the greatest amount of land attributed to agriculture at 30%. The land attributed to recreation represents sports fields, public beaches and other public gathering places. 
 
 # ## Cumulative totals by survey area
 
-# In[4]:
+# In[3]:
 
 
 # aggregate the dimensional data
@@ -323,6 +320,7 @@ sut.hide_spines_ticks_grids(axs)
 
 table_one = sut.make_a_table(axs, data.values, colLabels=data.columns, colWidths=[.22, *[.13]*6],a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.set_fontsize(14)
 
 plt.tight_layout()
 glue("eos_summary_sarea", fig, display=False)
@@ -343,7 +341,7 @@ plt.close()
 # 
 # Distribution of survey results. Values are presented as the number of pieces identified per 100 meters (p/100 m).
 
-# In[5]:
+# In[4]:
 
 
 # the surveys to chart
@@ -403,7 +401,6 @@ axtwo.set_ylabel("Ratio of samples", **ck.xlab_k14)
 plt.tight_layout()
 
 glue("eosscatter", fig, display=False)
-# plt.show()
 plt.close()
 
 
@@ -419,7 +416,7 @@ plt.close()
 
 # __Summary data and material types__
 
-# In[6]:
+# In[5]:
 
 
 # get the basic statistics from pd.describe
@@ -453,6 +450,7 @@ sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
@@ -461,9 +459,9 @@ sut.hide_spines_ticks_grids(axtwo)
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
+table_three.set_fontsize(14)
 
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.2)
 glue("summarymaterial", fig, display=False)
 plt.close()
 
@@ -480,7 +478,7 @@ plt.close()
 # 
 # The most common objects are the __ten most abundant by quantity AND/OR objects identified in at least 50% of all surveys__. 
 
-# In[7]:
+# In[6]:
 
 
 # the top ten by quantity
@@ -506,12 +504,13 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{np.ceil(x)}")
 cols_to_use = {"item":"Item","quantity":"quantity", "% of total":"% of total", "fail rate":"fail rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(10,len(m_common)*.8))
+fig, axs = plt.subplots(figsize=(8,len(m_common)*.6))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
+table_four.set_fontsize(14)
 
 plt.tight_layout()
 glue("mcommoneos", fig, display=False)
@@ -529,7 +528,7 @@ plt.close()
 
 # __Most common objects median p/100m by survey area__
 
-# In[8]:
+# In[7]:
 
 
 # aggregated survey totals for the most common codes for all the survey areas
@@ -582,7 +581,7 @@ plt.close()
 
 # __Most common objects monthly average__
 
-# In[9]:
+# In[8]:
 
 
 # collect the survey results of the most common objects
@@ -681,7 +680,8 @@ new_labels = new_labels[::-1]
 new_labels.insert(0,"Monthly survey average")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)
+ax.set_title("")    
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)      
 glue("monthlyeos", fig, display=False)
 plt.close()
 
@@ -719,7 +719,7 @@ plt.close()
 
 # All survey areas utility of objects found % of total by survey area. Fragmented objects with no clear identification remain classified by size:
 
-# In[10]:
+# In[9]:
 
 
 # code groups aggregated by survey for each survey area
@@ -772,7 +772,7 @@ plt.close()
 # 
 # {numref}`Figure {number}: <utility_eos>` The utility of objects as a % of total for all the survey areas.  
 
-# In[11]:
+# In[10]:
 
 
 cg_medpcm = F"""
@@ -781,7 +781,7 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[12]:
+# In[11]:
 
 
 # median p/50m solve cg_t for unit_label
@@ -827,7 +827,7 @@ plt.close()
 
 # ## Rivers
 
-# In[13]:
+# In[12]:
 
 
 rivers = fd[fd.w_t == "r"].copy()
@@ -871,6 +871,7 @@ sut.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_five.get_celld()[(0,0)].get_text().set_text(" ")
+table_five.set_fontsize(14)
 
 glue("rivers", fig, display=False)
 
@@ -889,7 +890,7 @@ plt.close()
 
 # __Most common objects__
 
-# In[14]:
+# In[13]:
 
 
 # the most common items rivers
@@ -919,12 +920,13 @@ r_mc.rename(columns=cols_to_use, inplace=True)
 
 data=r_mc[["Item","Quantity", "% of total", "fail rate", unit_label]]
 
-fig, axs = plt.subplots(figsize=(11,len(data)*.8))
+fig, axs = plt.subplots(figsize=(11,len(data)*.6))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_six = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_six.get_celld()[(0,0)].get_text().set_text(" ")
+table_six.set_fontsize(14)
 
 
 plt.tight_layout()
@@ -948,7 +950,7 @@ plt.close()
 # 
 # These are the components of Gfoam and Gfrags, objects labled "Expanded foams" are grouped with Gfoam the rest are grouped under Gfrags.
 
-# In[15]:
+# In[14]:
 
 
 frag_foams = F"""
@@ -957,7 +959,7 @@ frag_foams = F"""
 md(frag_foams)
 
 
-# In[16]:
+# In[15]:
 
 
 # collect the data before aggregating foams for all locations in the survye area
@@ -981,11 +983,12 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 # table data
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]]
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.1,len(data)*.8))
+fig, axs = plt.subplots(figsize=(len(data.columns)*2.1,len(data)*.6))
 sut.hide_spines_ticks_grids(axs)
 
 table_seven = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13],a_color=a_color)
 table_seven.get_celld()[(0,0)].get_text().set_text(" ")
+table_seven.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()
@@ -1003,7 +1006,7 @@ plt.show()
 
 # ### Municipalities, lakes and rivers with surveys
 
-# In[17]:
+# In[16]:
 
 
 lakes = dfBeaches.loc[(dfBeaches.index.isin(fd.location.unique()))&(dfBeaches.water == "l")]["water_name"].unique()
@@ -1020,7 +1023,7 @@ muni_string = F"""**The municipalities in this report:**\n\n >{munis_joined}
 md(muni_string)
 
 
-# In[18]:
+# In[17]:
 
 
 lakes_joined = ", ".join(sorted(lakes))
@@ -1030,7 +1033,7 @@ lake_string = F"""**The lakes in this report:**\n\n >{lakes_joined}
 md(lake_string)
 
 
-# In[19]:
+# In[18]:
 
 
 rivers_joined = ", ".join(sorted(rivers))
@@ -1040,7 +1043,7 @@ river_string = F"""**The rivers in this report:**\n\n >{rivers_joined}
 md(river_string)
 
 
-# In[20]:
+# In[19]:
 
 
 # summary statistics:
@@ -1071,7 +1074,7 @@ md(F"{date_quantity_context} {geo_context } {admin_context}")
 
 # __The survey locations__
 
-# In[21]:
+# In[20]:
 
 
 # display the survey locations
@@ -1088,7 +1091,7 @@ disp_beaches
 
 # __The inventory__
 
-# In[22]:
+# In[21]:
 
 
 

@@ -97,11 +97,11 @@ bassin_map ="resources/maps/thunersee_brienzersee_scaled.jpeg"
 top = "Alle Erhebungsgebiete"
 
 # define the feature level and components
-this_feature = {"slug":"bt", "name":"Thunersee/Brienzersee", "level":"water_name_slug"}
+this_feature = {"slug":"bt", "name":"Thunersee / Brienzersee", "level":"water_name_slug"}
 
 this_level = 'city'
 this_bassin ="aare"
-bassin_label = "Aare-Erhebungsgebiet"
+bassin_label = "Erhebungsgebiet Aare"
 
 lakes_of_interest = ["thunersee","brienzersee"]
 # explanatory variables:
@@ -157,11 +157,9 @@ for x in dfCodes.index:
 # there are long code descriptions that may need to be shortened for display
 codes_to_change = [
     ["G704", "description", "Seilbahnbürste"],
-    ["Gfrags", "description", "Fragmentierte Kunststoffstücke"],
     ["G30", "description", "Snack-Verpackungen"],
     ["G124", "description", "Kunststoff-oder Schaumstoffprodukte"],
     ["G87", "description", "Abdeckklebeband/Verpackungsklebeband"],
-    ["G178","description","Flaschenverschlüsse aus Metall"],
     ["G3","description","Einkaufstaschen, Shoppingtaschen"],
     ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
@@ -188,7 +186,7 @@ code_material_map = dfCodes.material
 
 
 # (thunersee_brienzerseede)=
-# # Thunersee/Brienzersee
+# # Thunersee / Brienzersee
 # 
 # <a href="thunersee_brienzersee.html"> English </a>
 
