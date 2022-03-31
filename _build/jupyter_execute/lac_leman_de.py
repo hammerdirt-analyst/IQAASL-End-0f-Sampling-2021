@@ -90,6 +90,9 @@ a_color = "dodgerblue"
 # colors for gradients
 cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
+
+# set the maps
+bassin_map = "resources/maps/leman_scaled.jpeg"
 # top level aggregation
 top = "Alle Erhebungsgebiete"
 
@@ -200,7 +203,7 @@ sut.display_image_ipython(bassin_map, thumb=(800,450))
 
 # ## Erhebungsorte
 
-# In[ ]:
+# In[3]:
 
 
 # this is the data before the expanded foams and fragmented plastics are aggregated to Gfrags and Gfoams
@@ -277,7 +280,7 @@ md(lake_string)
 
 # ### Kumulative Gesamtmengen nach Gemeinden
 
-# In[ ]:
+# In[4]:
 
 
 dims_parameters = dict(this_level=this_level, 
@@ -315,7 +318,7 @@ agg_caption = F"""
 md(agg_caption)
 
 
-# In[ ]:
+# In[5]:
 
 
 # make table
@@ -336,7 +339,7 @@ plt.close()
 
 # ### Verteilung der Erhebungsergebnisse
 
-# In[ ]:
+# In[6]:
 
 
 # the feature surveys to chart
@@ -367,7 +370,7 @@ chart_notes = F"""
 md(chart_notes )
 
 
-# In[ ]:
+# In[7]:
 
 
 # months locator, can be confusing
@@ -418,7 +421,7 @@ plt.show()
 
 # ### Zusammenfassende Daten und Materialtypen
 
-# In[ ]:
+# In[8]:
 
 
 # figure caption
@@ -428,7 +431,7 @@ summary_of_survey_totals = F"""
 md(summary_of_survey_totals)
 
 
-# In[ ]:
+# In[9]:
 
 
 # get the basic statistics from pd.describe
@@ -478,7 +481,7 @@ plt.show()
 # 
 # Die am häufigsten gefundenen Gegenständesind die zehn mengenmässig am meisten vorkommenden Objekte UND/ODER Objekte, die in mindestens 50% aller Datenerhebungen identifiziert wurden (fail-rate). 
 
-# In[ ]:
+# In[10]:
 
 
 # the top ten by quantity
@@ -500,7 +503,7 @@ rb_string = F"""
 md(rb_string)
 
 
-# In[ ]:
+# In[11]:
 
 
 # format values for table
@@ -530,7 +533,7 @@ plt.close()
 
 # ### Die am häufigsten gefundenen Gegenständenach Gemeinden
 
-# In[ ]:
+# In[12]:
 
 
 rb_string = F"""
@@ -539,7 +542,7 @@ rb_string = F"""
 md(rb_string)
 
 
-# In[ ]:
+# In[13]:
 
 
 # aggregated survey totals for the most common codes for all the water features
@@ -585,7 +588,7 @@ plt.close()
 
 # ### Die am häufigsten gefundenen Gegenständeim monatlichen Durchschnitt
 
-# In[ ]:
+# In[14]:
 
 
 # collect the survey results of the most common objects
@@ -611,7 +614,7 @@ monthly_mc = F"""
 md(monthly_mc)
 
 
-# In[ ]:
+# In[15]:
 
 
 # convenience function to lable x axis
@@ -698,7 +701,7 @@ plt.show()
 # 
 # Im Anhang finden Sie die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Der Abschnitt [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
-# In[ ]:
+# In[16]:
 
 
 cg_poft = F"""
@@ -708,7 +711,7 @@ cg_poft = F"""
 md(cg_poft)
 
 
-# In[ ]:
+# In[17]:
 
 
 # code groups resluts aggregated by survey
@@ -763,7 +766,7 @@ plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
 plt.show()
 
 
-# In[ ]:
+# In[18]:
 
 
 cg_medpcm = F"""
@@ -773,7 +776,7 @@ cg_medpcm = F"""
 md(cg_medpcm)
 
 
-# In[ ]:
+# In[19]:
 
 
 # median p/50m of all the water features
@@ -812,7 +815,7 @@ plt.show()
 # 
 # Die folgende Tabelle enthält die Komponenten "Gfoam" und "Gfrags", die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm.  Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert.
 
-# In[ ]:
+# In[20]:
 
 
 frag_foams = F"""
@@ -821,7 +824,7 @@ frag_foams = F"""
 md(frag_foams)
 
 
-# In[ ]:
+# In[21]:
 
 
 # collect the data before aggregating foams for all locations in the survey area
@@ -865,7 +868,7 @@ plt.close()
 
 # ### Die Erhebungsorte
 
-# In[ ]:
+# In[22]:
 
 
 # display the survey locations
@@ -881,7 +884,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[ ]:
+# In[23]:
 
 
 # display inventory
