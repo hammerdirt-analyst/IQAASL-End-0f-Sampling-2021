@@ -62,19 +62,15 @@ import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
-# import base64, io, IPython
-from PIL import Image as PILImage
 from IPython.display import Markdown as md
-from IPython.display import display
 
 # set the locale to the language desired
-# the locale is set back to to original at the the end of the script
 loc = locale.getlocale()
 lang =  'de_CH.utf8'
 locale.setlocale(locale.LC_ALL, lang)
 
 # the date is in iso standard:
-d = "%Y-%m-%d"
+# d = "%Y-%m-%d"
 
 # it gets changed to german format
 g = "%d.%m.%Y"
@@ -85,11 +81,12 @@ end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100 m"
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients
 cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
+
 # set the maps
 bassin_map = "resources/maps/maggiore_lugano_scaled.jpeg"
 
@@ -329,7 +326,6 @@ fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 sut.hide_spines_ticks_grids(ax)
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
-table_one.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -356,7 +352,7 @@ dts_date = sut.group_these_columns(dts_date, **ots_params)
 resample_plot, rate = sut.quarterly_or_monthly_values(fd_dindex , this_feature["name"], vals=unit_label, quarterly=["ticino"])    
 
 # scale the chart as needed to accomodate for extreme values
-y_lim = 97
+y_lim = 96
 y_limit = np.percentile(dts_date[unit_label], y_lim)
 
 # label for the chart that alerts to the scale
@@ -437,7 +433,7 @@ md(summary_of_survey_totals)
 cs = dt_all[unit_label].describe().round(2)
 
 # change the names
-csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="EN"))
+csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="DE"))
 
 combined_summary = sut.fmt_combined_summary(csx, nf=[])
 
@@ -467,9 +463,10 @@ axtwo = axs[1]
 axtwo.set_xlabel(" ")
 sut.hide_spines_ticks_grids(axtwo)
 
+cols_to_use = {"material":"Material","quantity":"Gesamt", "% of total":"% Gesamt"}
+
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
-table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -513,16 +510,15 @@ m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
 m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 
 # final table data
-cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% der Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
+cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(10,len(m_common)*.7))
+fig, axs = plt.subplots(figsize=(12,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
 table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
-table_four.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()
@@ -624,7 +620,7 @@ def new_month(x):
         this_month=x-12    
     return this_month
 
-fig, ax = plt.subplots(figsize=(9,7))
+fig, ax = plt.subplots(figsize=(12,9))
 
 # define a bottom
 bottom = [0]*len(mgr["G27"])
@@ -676,10 +672,11 @@ new_labels = [code_description_map.loc[x] for x in labels[1:]]
 new_labels = new_labels[::-1]
 
 # insert a label for the monthly average
-new_labels.insert(0,"Monatsdurchschnitt")
+new_labels.insert(0,"Quartalsdurchschnitt")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)       
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)
+plt.tight_layout()
 plt.show()
 
 
@@ -850,16 +847,12 @@ data = fd_frags_foams[["item", unit_label, "quantity", "% of total"]]
 
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt" }, inplace=True)
 
-fig, axs = plt.subplots(figsize=(11,len(data)*.8))
+fig, axs = plt.subplots(figsize=(12,len(data)*.7))
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
+a_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13])
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data.values,data.columns, a_color, s_et_bottom_row=True)
-
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-
-a_summary_table_one.set_fontsize(14)
 plt.show()
 plt.tight_layout()
 plt.close()

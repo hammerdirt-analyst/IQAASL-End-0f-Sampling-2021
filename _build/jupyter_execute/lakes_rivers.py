@@ -72,7 +72,7 @@ end_date ="2021-05-31"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100m"
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients and charts
 cmap2 = ck.cmap2
@@ -504,7 +504,7 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{np.ceil(x)}")
 cols_to_use = {"item":"Item","quantity":"quantity", "% of total":"% of total", "fail rate":"fail rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(8,len(m_common)*.6))
+fig, axs = plt.subplots(figsize=(9,len(m_common)*.6))
 
 sut.hide_spines_ticks_grids(axs)
 

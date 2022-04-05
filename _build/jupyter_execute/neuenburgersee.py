@@ -35,6 +35,7 @@
 # Le dépôt est maintenu par la communauté à partir du 1er janvier 2022.
 # Il y a de nombreuses possibilités de contribuer, d'apprendre et d'enseigner.
 # contact dev@hammerdirt.ch
+
 # sys, file and nav packages:
 import datetime as dt
 
@@ -56,16 +57,15 @@ import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
-from PIL import Image as PILImage
 from IPython.display import Markdown as md
-from IPython.display import display
+
 # set some parameters:
 start_date = "2020-03-01"
 end_date ="2021-05-31"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100m"
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients
 cmap2 = ck.cmap2
@@ -282,9 +282,8 @@ colLabels = data.columns
 fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 
 sut.hide_spines_ticks_grids(ax)
-table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
+table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color="saddlebrown")
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
-table_one.set_fontsize(14)
 
 plt.show()
 plt.tight_layout()
@@ -415,7 +414,6 @@ sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
-table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
@@ -424,7 +422,6 @@ sut.hide_spines_ticks_grids(axtwo)
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
-table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -472,18 +469,20 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 cols_to_use = {"item":"Item","quantity":"Quantity", "% of total":"% of total", "fail rate":"Fail rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(len(cols_to_use)*1.8,len(all_survey_areas)*.5))
+colWidths=[.52, .12, .12, .12, .12]
+bbox=[0,0,1,1],
+kwargs = {"loc":"lower center"}
+colLabels=list(cols_to_use.values())
+figsize=(len(colLabels)*2,len(all_survey_areas)*.7)
+
+fig, axs = plt.subplots(figsize=figsize)
 
 sut.hide_spines_ticks_grids(axs)
 
-table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
+table_four = sut.make_a_table(axs, all_survey_areas, colLabels=colLabels, colWidths=colWidths, a_color="saddlebrown")
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
-table_four.set_fontsize(14)
-
 plt.tight_layout()
 plt.show()
-
-plt.close()
 
 
 # ### Most common objects results by municipality
@@ -503,9 +502,6 @@ md(rb_string)
 # aggregated survey totals for the most common codes for all the water features
 m_common_st = fd[fd.code.isin(m_common.index)].groupby([this_level, "loc_date","code"], as_index=False).agg(agg_pcs_quantity)
 m_common_ft = m_common_st.groupby([this_level, "code"], as_index=False)[unit_label].median()
-
-# # proper name of water feature for display
-# m_common_ft["f_name"] = m_common_ft[this_level].map(lambda x: comp_labels[x])
 
 # map the desctiption to the code
 m_common_ft["item"] = m_common_ft.code.map(lambda x: code_description_map.loc[x])
@@ -597,7 +593,7 @@ months={
     11:'Dec'
 }
 
-fig, ax = plt.subplots(figsize=(9,7))
+fig, ax = plt.subplots(figsize=(9,8))
 
 # define a bottom
 bottom = [0]*len(mgr["G27"])
@@ -649,10 +645,11 @@ new_labels = [code_description_map.loc[x] for x in labels[1:]]
 new_labels = new_labels[::-1]
 
 # insert a label for the monthly average
-new_labels.insert(0,"Monatsdurchschnitt")
+new_labels.insert(0,"Period average")
 handles = [handles[0], *handles[1:][::-1]]
     
 plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)       
+plt.tight_layout()
 plt.show()
 
 
@@ -722,7 +719,7 @@ data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, col
 
 data = data_table
 
-fig, ax = plt.subplots(figsize=(10,10))
+fig, ax = plt.subplots(figsize=(11,10))
 
 axone = ax
 sns.heatmap(data , ax=axone, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, cbar=False, fmt=".0%", linewidth=.1, square=True, linecolor="white")
@@ -765,7 +762,7 @@ data_table[top] = sut.aggregate_to_group_name(a_data, unit_label=unit_label, col
 # merge with data_table
 data = data_table
 
-fig, ax = plt.subplots(figsize=(10,10))
+fig, ax = plt.subplots(figsize=(11,10))
 
 axone = ax
 sns.heatmap(data , ax=axone, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt="g", cbar=False, linewidth=.1, square=True, linecolor="white")
@@ -818,16 +815,13 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 # table data
 data = fd_frags_foams[["item", unit_label, "quantity", "% of total"]]
 
-fig, axs = plt.subplots(figsize=(11,len(data)*.8))
+fig, axs = plt.subplots(figsize=(11,len(data)*.7))
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
+a_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13])
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data.values,data.columns, a_color, s_et_bottom_row=True)
 
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-
-a_summary_table_one.set_fontsize(14)
 plt.show()
 plt.tight_layout()
 plt.close()

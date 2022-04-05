@@ -485,7 +485,6 @@ mat_total["quantity"] = mat_total.quantity.map(lambda x: F"{x:,}")
 m_t = mat_total[["survey year","mat", "quantity", "pt"]].pivot(columns="survey year", index="mat", values="pt").reset_index()
 m_t.rename(columns={"mat":"material", "pt":"% of total"}, inplace=True)
 
-# put that in a table
 fig, axs = plt.subplots(1, 2, figsize=(10,6))
 
 axone = axs[0]
@@ -495,17 +494,16 @@ axtwo= axs[1]
 sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
 
+# summary data table
 a_table = sut.make_a_table(axone, c.values,  colLabels=c.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
-a_table.set_fontsize(14)
-
 # material totals
-a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
-the_material_table_data.get_celld()[(0,0)].get_text().set_text(" ")
-the_material_table_data.set_fontsize(14)
+second_table = sut.make_a_table(axtwo, m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
+
+second_table.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.tight_layout()
+
 plt.show()
 
 
@@ -615,17 +613,15 @@ for i, som_data in enumerate([com_2017, com_2021]):
 # the columns needed
 cols_to_use = {"item":"Objekte","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 
-fig, axs = plt.subplots(2,1, figsize=(9,20*.6))
+fig, axs = plt.subplots(2,1, figsize=(9.2,20*.6))
 
 for i,this_table in enumerate(table_data):
-    this_ax = axs[i]
-    
+    this_ax = axs[i]    
     sut.hide_spines_ticks_grids(this_ax)
-    the_first_table_data = this_ax.table(table_data[i][chart_labels[i]][cols_to_use.keys()].values,  colLabels=list(cols_to_use.values()), colWidths=[.48, .13,.13,.13, .13], bbox=[0, 0, 1, 1])
-    a_summary_table_one = sut.make_a_summary_table(the_first_table_data,table_data[i][chart_labels[i]][cols_to_use.keys()].values,list(cols_to_use.values()), this_palette["2021"])
+    
+    a_table = sut.make_a_table(this_ax, table_data[i][chart_labels[i]][cols_to_use.keys()].values,  colLabels=list(cols_to_use.values()), colWidths=[.48, *[.13]*4], bbox=[0, 0, 1, 1])
     this_ax.set_xlabel(" ")
-    a_summary_table_one.set_fontsize(14)
-    a_summary_table_one.get_celld()[(0,0)].get_text().set_text(chart_labels[i])
+    a_table.get_celld()[(0,0)].get_text().set_text(chart_labels[i])
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.05)
@@ -822,25 +818,22 @@ mat_total["quantity"] = mat_total.quantity.map(lambda x: F"{x:,}")
 m_t = mat_total[["survey year","mat", "quantity", "pt"]].pivot(columns="survey year", index="mat", values="pt").reset_index()
 m_t.rename(columns={"mat":"material", "pt":"% of total"}, inplace=True)
 
-# put that in a table
 fig, axs = plt.subplots(1, 2, figsize=(10,6))
 
 axone = axs[0]
 axtwo= axs[1]
 
+# convenience func
 sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
 
 # summary data table
 a_table = sut.make_a_table(axone, c.values,  colLabels=c.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
-a_table.set_fontsize(14)
-
 # material totals
-a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
-the_material_table_data.get_celld()[(0,0)].get_text().set_text(" ")
-the_material_table_data.set_fontsize(14)
+second_table = sut.make_a_table(axtwo, m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
+
+second_table.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.tight_layout()
 

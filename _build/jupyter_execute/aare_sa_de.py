@@ -85,7 +85,7 @@ end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100 m"
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients
 cmap2 = ck.cmap2
@@ -400,7 +400,7 @@ colLabels = data.columns
 fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 sut.hide_spines_ticks_grids(ax)
 
-table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
+table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, colWidths=[.28, *[.12]*6], a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
 table_one.set_fontsize(14)
 
@@ -718,7 +718,7 @@ def new_month(x):
         this_month=x-12    
     return this_month
 
-fig, ax = plt.subplots(figsize=(11,7))
+fig, ax = plt.subplots(figsize=(12,7))
 
 # define a bottom
 bottom = [0]*len(mgr["G27"])
@@ -1027,7 +1027,7 @@ ax.xaxis.set_major_formatter(months_fmt)
 
 a_col = [this_feature["name"], "total"]
 
-axone = fig.add_subplot(aspec[:, 7:])
+axone = fig.add_subplot(aspec[:, 6:])
 sut.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
@@ -1081,7 +1081,7 @@ fig, axs = plt.subplots(figsize=(11,len(data)*.8))
 
 sut.hide_spines_ticks_grids(axs)
 
-table_six = sut.make_a_table(axs, data.values,  colLabels=list(data.columns), colWidths=[.56, .11,.11,.11, .11], **{"loc":"lower center"})
+table_six = sut.make_a_table(axs, data.values,  colLabels=list(data.columns), colWidths=[.52, .12,.13,.12, .12], **{"loc":"lower center"})
 table_six.get_celld()[(0,0)].get_text().set_text(" ")
 table_six.set_fontsize(14)
 
@@ -1132,7 +1132,7 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]]
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt"}, inplace=True)
 
-fig, axs = plt.subplots(figsize=(11,len(data)*.8))
+fig, axs = plt.subplots(figsize=(12,len(data)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 

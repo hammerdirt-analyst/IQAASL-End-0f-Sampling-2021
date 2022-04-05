@@ -242,7 +242,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/gclosmay2020.j
 
 # *__Unten:__ Identifizierung von Gegenständen der Gruppe DG. DG ist eine vielfältige Gruppe von Gegenständen aus dem Bauwesen, der verarbeitenden Industrie und der Landwirtschaft. In einigen Fällen, wie z.B. bei zersplitterten Kunststoffen und geschäumten Kunststoffen, sind der ursprüngliche Gegenstand oder der Verwendungszweck unbestimmbar.*
 
-# In[3]:
+# In[9]:
 
 
 # read images
@@ -272,7 +272,7 @@ axthree.set_title("Kuntsoffbau", **ck.title_k14)
 axfour=ax[1,1]
 sut.hide_spines_ticks_grids(axfour)
 axfour.imshow(img_d)
-axfour.set_title("Industriepellets (Nurdles)", **ck.title_k14)
+axfour.set_title("Industriepellets (Granulat)", **ck.title_k14)
 
 
 plt.tight_layout()
@@ -545,7 +545,7 @@ plt.show()
 plt.close()
 
 
-# In[8]:
+# In[11]:
 
 
 change_names = {"count":"# E",
@@ -589,8 +589,7 @@ a_col = [top_name[0], 'total']
 axone = axs
 sut.hide_spines_ticks_grids(axone)
 
-a_table = axone.table(cellText=desc.values,  colLabels=desc.columns, colWidths=[.19,*[.1]*8], loc='lower center', bbox=[0,0,1,.95])
-a_table = sut.make_a_summary_table(a_table,desc.values,desc.columns, s_et_bottom_row=False)
+a_table = sut.make_a_table(axone, desc.values,  colLabels=desc.columns, colWidths=[.19,*[.1]*8], loc='lower center', bbox=[0,0,1,.95])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
 a_table.set_fontsize(14)
 
@@ -608,7 +607,7 @@ plt.show()
 # 
 # > Ehrebungen aus ländlichen Gegenden wiesen einen grösseren Anteil an fragmentierten Kunststoffen, geschäumten Kunststoffen und Baukunststoffen auf. 
 
-# In[9]:
+# In[12]:
 
 
 dists = cg_dg_dt[(cg_dg_dt.group == DG)][['loc_date', 'location','rural', unit_label]].set_index('loc_date')
@@ -655,7 +654,7 @@ plt.show()
 
 # *__Unten:__ Empirische kumulative Verteilung (eCDF) von DG und CG. __Links:__ Sie erinnern sich, dass zu den DG-Objekten fragmentierte Kunststoffe, Schaumstoffe, Kunststoffe für den Bau und Industriepellets gehören. __Rechts:__ Die Erhebungsergebnissefür Zigarettenfilter und Snack-Verpackungen haben visuell unterschiedliche Verteilungen unter den beiden Landnutzungsbedingungen.* 
 
-# In[10]:
+# In[13]:
 
 
 # the dg group objects evaluated at rural locations
@@ -707,7 +706,7 @@ plt.show()
 
 # *Differenz der Mittelwerte DG Objekte.  $\mu_{rural}$ - $\mu_{urban}$, method=shuffle, permutations=5000.*
 
-# In[11]:
+# In[14]:
 
 
 # for display purposes: the results of the ks and MWU tests for DG objects
@@ -762,7 +761,7 @@ plt.show()
 
 # *__Unten:__ Festlegen objektiver Kriterien. Die Identifizierung und Quantifizierung von Objekten, die bei einer Datenerhebung über Abfälle gesammelt wurden, kann vor Ort erfolgen, wenn das Wetter es zulässt. Die Abmessungsdaten und die erste Bestandsaufnahme werden in einem Notizbuch dokumentiert und dann in die App [The litter surveyor](https://www.plagespropres.ch) eingegeben. Objekte von Interesse: Plastikwatte, landwirtschaftliche Zäune und Abstandshalter für Ziegel.* 
 
-# In[12]:
+# In[15]:
 
 
 sut.display_image_ipython("resources/images/baselines/takingnotes.jpg", thumb=(1200, 700))
@@ -780,7 +779,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg", thumb=(1
 # 
 # *__Unten:__ Der Anstieg des mittleren p/100 m-Wertes, wenn sich die Datenerhebungen der flussaufwärts gelegenen Quelle nähern. GPIs sind klein und schwer zu reinigen, wenn sie einmal verschüttet wurden, so dass die genaue Quelle schwer zu bestimmen ist. Man kann jedoch davon ausgehen, dass die Verarbeiter und Verbraucher von GPIs am besten wissen, wie man den Verlust von Material in die Umwelt verhindert. Die Wahrscheinlichkeit, mindestens einen GPI zu finden, ist an einigen der unten aufgeführten Orte doppelt so hoch wie die regionale Rate.*
 
-# In[13]:
+# In[16]:
 
 
 sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg", thumb=(1200, 700))
@@ -866,7 +865,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/causality.jpeg
 
 # *__Unten:__ Rangfolge der häufigsten Objekte mit Landnutzungsmerkmalen.*
 
-# In[14]:
+# In[17]:
 
 
 sut.display_image_ipython("resources/images/shared_responsibility/land_use_correlation_de_30_0.png", thumb=(1200, 700))
@@ -874,7 +873,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/land_use_corre
 
 # *__Unten:__ 95% Konfidenzintervall des Medianwertes der Datenerhebungen unter den verschiedenen Landnutzungsklassen.* 
 
-# In[15]:
+# In[19]:
 
 
 # this code was modified from this source:
@@ -996,12 +995,9 @@ data = the_cis.values
 collabels = the_cis.columns
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(data, colLabels=collabels, colWidths=[*[.2]*5], bbox=[0, 0, 1, 1])
+the_table = sut.make_a_table(axs, data, colLabels=collabels, colWidths=[*[.2]*5], bbox=[0, 0, 1, 1])
+the_table.get_celld()[(0,0)].get_text().set_text(" ")
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data,collabels, a_color, s_et_bottom_row=True)
-
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.close()
@@ -1009,7 +1005,7 @@ plt.close()
 
 # *__Unten:__ Die Erhebungsergebnisseder am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.*
 
-# In[16]:
+# In[22]:
 
 
 rur_10 = fd[(fd.rural == 'ländlich')&(fd.code.isin(most_common))].groupby('code', as_index=False).quantity.sum().sort_values(by='quantity', ascending=False)
@@ -1025,7 +1021,7 @@ rur_10["% of total"] = ((rur_10.quantity/rur_tot)*100).round(1)
 urb_10["% of total"] = ((urb_10.quantity/urb_tot)*100).round(1)
 
 # make tables
-fig, axs = plt.subplots(2,1, figsize=(7,(len(most_common)*.6)*2))
+fig, axs = plt.subplots(2,1, figsize=(8,(len(most_common)*.6)*2))
 
 # summary table
 # names for the table columns
@@ -1045,16 +1041,12 @@ data_two.rename(columns=new_col_names, inplace=True)
 for a_df in [data_one, data_two]:
     a_df["Gesamt"] = a_df["Gesamt"].map(lambda x: F"{x:,}")
 
-a_table = axone.table(cellText=data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
-the_material_table_data.get_celld()[(0,0)].get_text().set_text("ländlich")
-the_material_table_data.set_fontsize(14)
+first_table = sut.make_a_table(axone, data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
+first_table.get_celld()[(0,0)].get_text().set_text("Ländlich")
 
-a_table = axtwo.table(cellText=data_two.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
-the_material_table_data.get_celld()[(0,0)].get_text().set_text("Urban")
-the_material_table_data.set_fontsize(14)
 
+a_table = sut.make_a_table(axtwo, data_two.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
+a_table.get_celld()[(0,0)].get_text().set_text("Urban")
 
 plt.tight_layout()
 plt.subplots_adjust(hspace=0.1)
@@ -1071,7 +1063,7 @@ plt.show()
 # 
 # *source : https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu*
 
-# In[17]:
+# In[23]:
 
 
 # the survey results to test
@@ -1169,7 +1161,7 @@ plt.show()
 # 
 # *__Rechts:__ Land - Stadt: ECDF der ErhebungsergebnisseZigarettenstummel und Bonbonverpackungen (FT)*
 
-# In[18]:
+# In[24]:
 
 
 agg_dobj = fd[(fd.rural == 'ländlich')&(fd.code.isin(['Gfrags', 'Gfoam']))].groupby(['loc_date'])[unit_label].sum().values
@@ -1214,7 +1206,7 @@ plt.show()
 # 
 # Differenz der Mittelwerte von fragmentierten Schaumstoffen und Kunststoffen unter den beiden verschiedenen Landnutzungsklassen. *$\mu_{ländlich}$*  - $\mu_{urban}$, method=shuffle, permutations=5000*
 
-# In[19]:
+# In[25]:
 
 
 # pemutation test: of difference of means FP objects
@@ -1257,7 +1249,7 @@ plt.show()
 # 
 # *$\mu_{länd;ich}$ - $\mu_{urban}$, method=shuffle, permutations=5000*
 
-# In[20]:
+# In[26]:
 
 
 # pemutation test: of difference of means food objects
@@ -1295,7 +1287,7 @@ plt.show()
 
 # *__Oben:__ Verwerfen Sie die Nullhypothese: die beiden Verteilungen sind höchstwahrscheinlich nicht identisch.*
 
-# In[21]:
+# In[27]:
 
 
 # a set of map points with the median survey value for each of the most 

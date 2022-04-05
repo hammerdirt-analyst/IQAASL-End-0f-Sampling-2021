@@ -16,7 +16,7 @@ __Monitoring trash with the next generation of Solid waste engineers 2016-2021__
 
 In 2008 the first international guide to monitoring beach-litter was published by the United Nations Environment Program (UNEP) and Intergovernmental Oceanographic Commission (IOC) {cite}`unepseas`. This method was reproduced by the OSPAR Commission in 2010 {cite}`ospard10`.  In 2013 the EU released Guidance on Monitoring of Marine Litter in European Seas (The guide) {cite}`mlwguidance`. Switzerland is a member of OSPAR and has over 1,400 samples using the methods described in The guide. 
 
-*A beach-litter survey is the accounting of visible anthropogenic material identified within a delimited area that is bordered on one side by a lake, river or ocean.*
+_A beach-litter survey is the accounting of visible anthropogenic material identified within a delimited area that is bordered on one side by a lake, river or ocean._
 
 * Locations are defined by their GPS points 
 * Length and width are measured for each survey area 
@@ -46,7 +46,7 @@ It is important to understand the difference between the _median_ {cite}`mediand
 As an example, consider the __median__ survey result for the most common objects on Thunersee and Brienzersee.
 
 
-```{figure} resources/images/intro/thunersee_brienzersee_20_0.png
+```{figure} resources/images/intro/thunersee_brienzersee_en.png
 ---
 width: 600px
 name: mcommonforeword
@@ -64,7 +64,7 @@ In practical terms there was a better chance of finding plastic construction was
 
 The [Key statistical indicators](keyindicators) chapter gives a precise definition of each of the basic statistics that can be derived from the survey results and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups). How samples are collected and the methods for identifying extreme values and calculating baselines for a region can be found in [_Beach litter baselines_](threshhold).
 
-For each lake, the survey results are presented for each municpality where a survey occured.
+For each lake, the survey results are presented for each municipality where a survey occured. A more detailed report can be produced for any municipality in this document.
 
 ### Contributing to this report
 

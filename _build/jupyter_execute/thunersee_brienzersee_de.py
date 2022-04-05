@@ -62,19 +62,15 @@ import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
-# import base64, io, IPython
-from PIL import Image as PILImage
 from IPython.display import Markdown as md
-from IPython.display import display
 
 # set the locale to the language desired
-# the locale is set back to to original at the the end of the script
 loc = locale.getlocale()
 lang =  'de_CH.utf8'
 locale.setlocale(locale.LC_ALL, lang)
 
 # the date is in iso standard:
-d = "%Y-%m-%d"
+# d = "%Y-%m-%d"
 
 # it gets changed to german format
 g = "%d.%m.%Y"
@@ -85,11 +81,12 @@ end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100 m"
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients
 cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
+
 # set the maps
 bassin_map ="resources/maps/thunersee_brienzersee_scaled.jpeg"
 
@@ -157,9 +154,11 @@ for x in dfCodes.index:
 # there are long code descriptions that may need to be shortened for display
 codes_to_change = [
     ["G704", "description", "Seilbahnbürste"],
+    ["Gfrags", "description", "Fragmentierte Kunststoffstücke"],
     ["G30", "description", "Snack-Verpackungen"],
     ["G124", "description", "Kunststoff-oder Schaumstoffprodukte"],
     ["G87", "description", "Abdeckklebeband/Verpackungsklebeband"],
+    ["G178","description","Flaschenverschlüsse aus Metall"],
     ["G3","description","Einkaufstaschen, Shoppingtaschen"],
     ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
@@ -322,7 +321,7 @@ md(agg_caption)
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*1.75,len(data)*.7))
+fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 
 sut.hide_spines_ticks_grids(ax)
 table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
@@ -353,7 +352,7 @@ dts_date = sut.group_these_columns(dts_date, **ots_params)
 resample_plot, rate = sut.quarterly_or_monthly_values(fd_dindex , this_feature["name"], vals=unit_label, quarterly=["ticino"])    
 
 # scale the chart as needed to accomodate for extreme values
-y_lim = 99
+y_lim = 96
 y_limit = np.percentile(dts_date[unit_label], y_lim)
 
 # label for the chart that alerts to the scale
@@ -433,9 +432,6 @@ md(summary_of_survey_totals)
 # get the basic statistics from pd.describe
 cs = dt_all[unit_label].describe().round(2)
 
-# add project totals
-cs["total objects"] = dt_all.quantity.sum()
-
 # change the names
 csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="DE"))
 
@@ -449,7 +445,7 @@ cols_to_use = {"material":"Material","quantity":"Quantity", "% of total":"% of t
 fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
 
 # make tables
-fig, axs = plt.subplots(1,2, figsize=(7,5))
+fig, axs = plt.subplots(1,2, figsize=(8,6))
 
 # summary table
 # names for the table columns
@@ -460,13 +456,13 @@ sut.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
+table_two.set_fontsize(14)
 
 # material table
 axtwo = axs[1]
 axtwo.set_xlabel(" ")
 sut.hide_spines_ticks_grids(axtwo)
 
-# column names for display
 cols_to_use = {"material":"Material","quantity":"Gesamt", "% of total":"% Gesamt"}
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
@@ -514,10 +510,10 @@ m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
 m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 
 # final table data
-cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% der Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
+cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(12,len(m_common)*.6))
+fig, axs = plt.subplots(figsize=(12,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
@@ -624,7 +620,7 @@ def new_month(x):
         this_month=x-12    
     return this_month
 
-fig, ax = plt.subplots(figsize=(9,7))
+fig, ax = plt.subplots(figsize=(12,9))
 
 # define a bottom
 bottom = [0]*len(mgr["G27"])
@@ -676,10 +672,11 @@ new_labels = [code_description_map.loc[x] for x in labels[1:]]
 new_labels = new_labels[::-1]
 
 # insert a label for the monthly average
-new_labels.insert(0,"Monatsdurchschnitt")
+new_labels.insert(0,"Quartalsdurchschnitt")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(1, 1), loc="upper left",  fontsize=14)    
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)
+plt.tight_layout()
 plt.show()
 
 
@@ -691,10 +688,10 @@ plt.show()
 # *  **Mikroplastik (< 5 mm):** fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion
 # *  **Infrastruktur:** Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung  
 # *  **Essen und Trinken:** alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen
-# *  **Landwirtschaft:**     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
+# *  **Landwirtschaft:** z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw. 
 # *  **Tabakwaren:** hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien 
 # *  **Freizeit und Erholung:** Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw. 
-# *  **Verpackungen ausser Lebensmittel und Getränke:**     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
+# *  **Verpackungen ausser Lebensmittel und Getränke:** Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist
 # *  **Plastikfragmente:** Plastikteile unbestimmter Herkunft oder Verwendung  
 # *  **Persönliche Gegenstände:** Accessoires, Hygieneartikel und Kleidung 
 # 
@@ -850,14 +847,11 @@ data = fd_frags_foams[["item", unit_label, "quantity", "% of total"]]
 
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt" }, inplace=True)
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.5,len(data)*.8))
+fig, axs = plt.subplots(figsize=(12,len(data)*.7))
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
-
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data.values,data.columns, a_color, s_et_bottom_row=True)
-
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+a_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13])
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.show()
 plt.tight_layout()

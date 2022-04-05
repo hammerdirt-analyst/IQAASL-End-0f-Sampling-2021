@@ -5,7 +5,6 @@
 
 
 # -*- coding: utf-8 -*-
-
 # This is a report using the data from IQAASL.
 # IQAASL was a project funded by the Swiss Confederation
 # It produces a summary of litter survey results for a defined region.
@@ -59,10 +58,7 @@ import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
-# import base64, io, IPython
-from PIL import Image as PILImage
 from IPython.display import Markdown as md
-from IPython.display import display
 
 
 # set some parameters:
@@ -72,7 +68,7 @@ start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100m"
 
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients
 cmap2 = ck.cmap2
@@ -91,7 +87,6 @@ this_bassin = "ticino"
 bassin_label = "Ticino survey area"
 
 lakes_of_interest = ['lago-di-lugano', 'lago-maggiore']
-
 # explanatory variables:
 luse_exp = ["% buildings", "% recreation", "% agg", "% woods", "streets km", "intersects"]
 
@@ -360,23 +355,22 @@ agg_caption = F"""
 md(agg_caption)
 
 
-# In[6]:
+# In[33]:
 
 
 # make table
 data = dims_table.reset_index()
 colLabels = data.columns
 
-fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
+fig, ax = plt.subplots(figsize=(len(colLabels)*1.8,len(data)*.7))
 sut.hide_spines_ticks_grids(ax)
 
-table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
+table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, colWidths=[.28, *[.12]*6], a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
 table_one.set_fontsize(14)
 
-plt.show()
 plt.tight_layout()
-plt.close()
+plt.show()
 
 
 # ### Distribution of survey results
@@ -512,7 +506,6 @@ sut.hide_spines_ticks_grids(axtwo)
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
-table_three.set_fontsize(14)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
@@ -545,7 +538,6 @@ rb_string = F"""
 Note : {unit_label} = median survey value.
 """
 md(rb_string)
-md(rb_string)
 
 
 # In[12]:
@@ -568,10 +560,8 @@ sut.hide_spines_ticks_grids(axs)
 table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use.values()), colWidths=[.52, .12,.12,.12, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
 table_four.set_fontsize(14)
-
-plt.show()
 plt.tight_layout()
-plt.close()
+plt.show()
 
 
 # ### Most common objects by water feature
@@ -627,7 +617,6 @@ axone.tick_params(labelsize=12, which="both", axis="y")
 plt.setp(axone.get_xticklabels(), rotation=90)
 
 plt.show()
-plt.close()
 
 
 # ### Most common objects monthly average
@@ -684,7 +673,7 @@ def new_month(x):
         this_month=x-12    
     return this_month
 
-fig, ax = plt.subplots(figsize=(9,7))
+fig, ax = plt.subplots(figsize=(10,7))
 
 # define a bottom
 bottom = [0]*len(mgr["G27"])
@@ -735,7 +724,7 @@ new_labels = [code_description_map.loc[x] for x in labels[1:]]
 new_labels = new_labels[::-1]
 
 # insert a label for the monthly average
-new_labels.insert(0,"Monthly survey average")
+new_labels.insert(0,"Quartlerly average")
 handles = [handles[0], *handles[1:][::-1]]
     
 plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=14)       
@@ -771,7 +760,7 @@ else:
 association = F"""*__Below:__ {this_feature["name"]} ranked correlation of the most common objects with respect to land use profile.
 For all valid lake samples n={len(corr_data.loc_date.unique())}.*
 
-*{warning}*
+{warning}
 """
 md(association)
 
@@ -999,7 +988,7 @@ sut.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_five.get_celld()[(0,0)].get_text().set_text(" ")
-table_five.set_fontsize(14)
+
 
 plt.show()
 
@@ -1015,7 +1004,7 @@ riv_mcommon = F"""
 md(riv_mcommon)
 
 
-# In[26]:
+# In[31]:
 
 
 # the most common items rivers
@@ -1043,13 +1032,13 @@ r_mc.rename(columns=cols_to_use, inplace=True)
 
 data=r_mc[["Item","Quantity", "% of total", "Fail rate", unit_label]]
 
-fig, axs = plt.subplots(figsize=(11,len(data)*.8))
+fig, axs = plt.subplots(figsize=(13,len(data)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
-table_six = sut.make_a_table(axs, data.values,  colLabels=list(data.columns), colWidths=[.48, .13,.13,.13, .13], **{"loc":"lower center"})
+table_six = sut.make_a_table(axs, data.values,  colLabels=list(data.columns), colWidths=[.52, *[.12]*4], **{"loc":"lower center"})
 table_six.get_celld()[(0,0)].get_text().set_text(" ")
-table_six.set_fontsize(14)
+
 
 plt.show()
 plt.tight_layout()
@@ -1095,7 +1084,7 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 # table data
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]]
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*2.1,len(data)*.8))
+fig, axs = plt.subplots(figsize=(len(data.columns)*2.4,len(data)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 

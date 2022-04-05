@@ -619,10 +619,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
 
 <span class="c1"># images and display</span>
-<span class="c1"># import base64, io, IPython</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 
 
 <span class="c1"># set some parameters:</span>
@@ -632,7 +629,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;p/100m&quot;</span>
 
-<span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;dodgerblue&quot;</span>
+<span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;saddlebrown&quot;</span>
 
 <span class="c1"># colors for gradients</span>
 <span class="n">cmap2</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">cmap2</span>
@@ -948,16 +945,14 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">colLabels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.8</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 
-<span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">a_color</span><span class="o">=</span><span class="n">a_color</span><span class="p">)</span>
+<span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.28</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="mf">.12</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">],</span> <span class="n">a_color</span><span class="o">=</span><span class="n">a_color</span><span class="p">)</span>
 <span class="n">table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="n">table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1102,7 +1097,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">table_three</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axtwo</span><span class="p">,</span> <span class="n">fd_mat_t</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.4</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span><span class="mf">.3</span><span class="p">],</span>  <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
 <span class="n">table_three</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="n">table_three</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
@@ -1167,10 +1161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">table_four</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">all_survey_areas</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.52</span><span class="p">,</span> <span class="mf">.12</span><span class="p">,</span><span class="mf">.12</span><span class="p">,</span><span class="mf">.12</span><span class="p">,</span> <span class="mf">.12</span><span class="p">],</span>  <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
 <span class="n">table_four</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">table_four</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1226,7 +1218,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axone</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1292,7 +1283,7 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="n">this_month</span><span class="o">=</span><span class="n">x</span><span class="o">-</span><span class="mi">12</span>    
     <span class="k">return</span> <span class="n">this_month</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 
 <span class="c1"># define a bottom</span>
 <span class="n">bottom</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">mgr</span><span class="p">[</span><span class="s2">&quot;G27&quot;</span><span class="p">])</span>
@@ -1632,7 +1623,7 @@ For all valid lake samples n=118.</em></p>
 
 <span class="n">table_five</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axone</span><span class="p">,</span> <span class="n">combined_summary</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">a_col</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.25</span><span class="p">,</span><span class="mf">.25</span><span class="p">],</span>  <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
 <span class="n">table_five</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="n">table_five</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1690,7 +1681,7 @@ For all valid lake samples n=118.</em></p>
 
 <span class="n">table_six</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.48</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">,</span> <span class="mf">.13</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
 <span class="n">table_six</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="n">table_six</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>

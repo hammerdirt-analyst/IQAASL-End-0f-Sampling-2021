@@ -36,7 +36,7 @@ end_date ="2021-05-31"
 unit_label = "pcs_m"
 
 # banded color for table
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # get the data:
 survey_data = pd.read_csv("resources/checked_sdata_eos_2020_21.csv")
@@ -409,6 +409,10 @@ plt.show()
 # ### Association of survey totals to land use
 
 # *Results of Spearmans ranked correlation test: survey totals with respect to land use profile*
+# 
+# 1. Red/rose is a positive association
+# 2. Yellow is a negative association
+# 3. White means that p>0.05, there is no statistical basis to assume an association
 
 # In[8]:
 
@@ -490,11 +494,8 @@ fig, axs = plt.subplots(figsize=(11,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(all_survey_areas,  colLabels=cols_to_use, colWidths=[.48, .13,.13,.13], bbox=[0, 0, 1, 1])
-
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,m_common,cols_to_use, a_color)
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-a_summary_table_one.set_fontsize(14)
+table_one = sut.make_a_table(axs, all_survey_areas,  colLabels=cols_to_use, colWidths=[.48, .13,.13,.13], bbox=[0, 0, 1, 1])
+table_one.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.show()
 plt.tight_layout()
@@ -504,6 +505,10 @@ plt.close()
 # #### Results Spearmans $\rho$
 # 
 # From the first figure a positive association can be assumed between the amount of trash found and the percent of land attributed to buildings and recreation. The inverse is true for the percent of land attributed to agriculture and woods, there is no statistical basis to assume a correlation with the length of streets or the number of river intersections and the total survey result.
+# 
+# 1. Red/rose is a positive association
+# 2. Yellow is a negative association
+# 3. White means that p>0.05, there is no statistical basis to assume an association
 # 
 # The result of Spearman"s rho on the most abundant objects gives context to the results in the preceding figure and illustrates how the different objects tend to accumulate under different conditions.
 

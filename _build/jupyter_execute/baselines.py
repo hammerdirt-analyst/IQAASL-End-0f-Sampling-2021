@@ -347,11 +347,11 @@ t_data = list(zip(table_data.index, table_data.values))
 
 sut.hide_spines_ticks_grids(axtwo)
 
-the_first_table_data = axtwo.table(t_data,  colLabels=["Stat", unit_label], colWidths=[.5,.5], bbox=[0, 0, 1, 1])
-
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,t_data,["Stat", unit_label], a_color, s_et_bottom_row=True)
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-a_summary_table_one.set_fontsize(14)
+table_one = sut.make_a_table(axtwo, t_data,  colLabels=["Stat", unit_label], colWidths=[.5,.5], bbox=[0, 0, 1, 1])
+# table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
+# a_summary_table_one = sut.make_a_summary_table(the_first_table_data,t_data,["Stat", unit_label], a_color, s_et_bottom_row=True)
+table_one.get_celld()[(0,0)].get_text().set_text(" ")
+# a_summary_table_one.set_fontsize(14)
 
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
@@ -390,11 +390,11 @@ ax.legend()
 
 sut.hide_spines_ticks_grids(axtwo)
 
-the_first_table_data = axtwo.table(these_vals,  colLabels=('ranking', unit_label), colWidths=[.5,.5], bbox=[0, 0, 1, 1])
+# the_first_table_data = axtwo.table(these_vals,  colLabels=('ranking', unit_label), colWidths=[.5,.5], bbox=[0, 0, 1, 1])
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,these_vals,('ranking', unit_label), a_color, s_et_bottom_row=True)
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text("ranking")
-a_summary_table_one.set_fontsize(14)
+table_two = sut.make_a_table(axtwo, these_vals, colLabels=('ranking', unit_label), colWidths=[.5,.5], bbox=[0, 0, 1, 1])
+table_two.get_celld()[(0,0)].get_text().set_text("ranking")
+table_two.set_fontsize(14)
 
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
@@ -588,7 +588,7 @@ p_cis.reset_index(inplace=True)
 
 # *__Below top:__ Confidence intervals calculated by resampling the survey results 5,000 times for each condition. __Below bottom:__ The same intervals using the bias corrected method.*
 
-# In[9]:
+# In[19]:
 
 
 fig, axs = plt.subplots(2,1, figsize=(8,8))
@@ -611,7 +611,7 @@ table_one.get_celld()[(0,0)].get_text().set_text("Percentile")
 table_two.get_celld()[(0,0)].get_text().set_text("BCa")
 
 plt.tight_layout()
-plt.subplots_adjust(hspace=.3)
+plt.subplots_adjust(hspace=.2)
 plt.show()
 plt.close()
 
@@ -662,13 +662,13 @@ fig, axs = plt.subplots(figsize=(7,4))
 data = sas.values
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(data, colLabels=sas.columns, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
+# the_first_table_data = axs.table(data, colLabels=sas.columns, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data,sas.columns, a_color, s_et_bottom_row=True)
+table_one = sut.make_a_table(axs, data, colLabels=sas.columns, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
 
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+table_one.get_celld()[(0,0)].get_text().set_text(" ")
 
-a_summary_table_one.set_fontsize(14)
+table_one.set_fontsize(14)
 
 plt.show()
 plt.close()
@@ -704,7 +704,7 @@ plt.close()
 # 
 # *__Below__: The limit at which a survey is considered extreme extends to the 98th percentile when the boxplots are adjusted as opposed to the 90th percentile if the constant is left at 1.5.*
 
-# In[12]:
+# In[20]:
 
 
 # implementation of medcouple
@@ -766,7 +766,7 @@ ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='bl
 plt.show()
 
 
-# In[13]:
+# In[21]:
 
 
 caption = F"""
@@ -781,7 +781,7 @@ md(caption)
 # 
 # $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1652p/100m$
 
-# In[14]:
+# In[22]:
 
 
 sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
@@ -817,7 +817,7 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 
 # *__Fitting the data to the underlying NB distribution.__ The observed survey results are compared to the estimated survey results using the method of moments and maximum likelihood estimation. __Left:__ histogram of simulated results compared to observed data. __Right:__ distribution of results compared to observed data with the 90<sup>th</sup> percentile.* 
 
-# In[15]:
+# In[23]:
 
 
 # implementaion of MLE
@@ -943,7 +943,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[16]:
+# In[24]:
 
 
 evx = ev.set_index('model')
@@ -966,7 +966,7 @@ md(pnt)
 
 # *__Below:__ Comparing the baseline values of the most common objects. All survey areas 2020 - 2021. The Ticino/Cerisio survey area has less than 100 surveys. __units= p/100m__*
 
-# In[17]:
+# In[25]:
 
 
 sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", thumb=(800, 1200))
@@ -978,7 +978,7 @@ sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", th
 
 # *__Below:__ Comparing the baseline values of the most common objects. Aare survey area lakes and rivers 2020 - 2021. Locations with more than 30 surveys: Bielersee, Neuenburgersee and Thunersee.*
 
-# In[19]:
+# In[26]:
 
 
 sut.display_image_ipython("resources/images/baselines/example_implementation2.png", thumb=(800, 800))

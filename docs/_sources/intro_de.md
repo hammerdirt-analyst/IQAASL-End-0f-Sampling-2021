@@ -16,7 +16,7 @@ __Überwachung von Müll mit der nächsten Generation von Umweltingenieuren 2016
 
 Im Jahr 2008 wurde der erste internationale Leitfaden zur Überwachung von Abfallobjekten am Strand vom Umweltprogramm der Vereinten Nationen (UNEP) und der Zwischenstaatlichen Ozeanographischen Kommission (IOC) veröffentlicht {cite}`unepseas`. Diese Methode wurde 2010 von der OSPAR-Kommission aufgegriffen {cite}`ospard10`. Im Jahr 2013 veröffentlichte die EU einen Leitfaden zur Überwachung von marinen Abfallobjekten in den europäischen Meeren (The guide) {cite}`mlwguidance`. Die Schweiz ist Mitglied von OSPAR und hat über 1.400 Proben nach den im Leitfaden beschriebenen Methoden genommen. 
 
-*Eine Strand-Abfallaufkommen Untersuchung ist die Erfassung von sichtbarem anthropogenem Material, das in einem abgegrenzten Gebiet identifiziert wurde, das auf einer Seite von einem See, Fluss oder Meer begrenzt wird.*
+_Eine Strand-Abfallaufkommen Untersuchung ist die Erfassung von sichtbarem anthropogenem Material, das in einem abgegrenzten Gebiet identifiziert wurde, das auf einer Seite von einem See, Fluss oder Meer begrenzt wird._
 
 * Standorte werden durch ihre GPS-Punkte definiert 
 * Länge und Breite werden für jeden Erhebungsbereich gemessen 

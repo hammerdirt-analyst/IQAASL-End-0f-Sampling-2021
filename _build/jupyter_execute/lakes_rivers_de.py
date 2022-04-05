@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[22]:
 
 
 # -*- coding: utf-8 -*-
@@ -91,7 +91,7 @@ start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100 m"
 reporting_unit = 100
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients and charts
 cmap2 = ck.cmap2
@@ -168,7 +168,6 @@ codes_to_change = [
     ["G30", "description", "Snack-Verpackungen"],
     ["G124", "description", "Kunststoff-oder Schaumstoffprodukte"],
     ["G87", "description", "Abdeckklebeband / Verpackungsklebeband"],
-    ["G178","description","Flaschenverschlüsse und Deckel aus Metall"],
     ["G3","description","Einkaufstaschen, Shoppingtaschen"],
     ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
@@ -231,7 +230,7 @@ code_material_map = dfCodes.material
 
 # __Verteilung der Landnutzungsmerkmale__
 
-# In[2]:
+# In[23]:
 
 
 # this is the data before the expanded fragmented plastics and foams are aggregated to Gfrags and Gfoams
@@ -301,7 +300,7 @@ plt.subplots_adjust(top=.88, hspace=.35)
 plt.suptitle("Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="center", y=1, fontsize=16)
 fig.legend(handles, labels, bbox_to_anchor=(.53,.94), loc="center", ncol=6)
 glue("eosluse_de", fig, display=False)
-# plt.close() 
+plt.close() 
 
 
 # ```{glue:figure} eosluse_de
@@ -316,7 +315,7 @@ glue("eosluse_de", fig, display=False)
 
 # ### Kumulierte Gesamtergebnisse nach Erhebungsgebiet 
 
-# In[3]:
+# In[25]:
 
 
 # aggregate the dimensional data
@@ -352,7 +351,7 @@ dims_table[["kg Plastik", "Gesamt-kg"]] = dims_table[["kg Plastik", "Gesamt-kg"]
 
 data = dims_table.reset_index()
 
-fig, axs = plt.subplots(figsize=(len(data.columns)*1.5,len(data)*.8))
+fig, axs = plt.subplots(figsize=(len(data.columns)*1.8,len(data)*.8))
 sut.hide_spines_ticks_grids(axs)
 
 table_one = sut.make_a_table(axs, data.values, colLabels=data.columns, colWidths=[.22, *[.13]*6],a_color=a_color)

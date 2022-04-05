@@ -44,8 +44,8 @@
 | <a href="esummary_de.html"> Deutsch </a> | [Italiano](italian) | [Français](francais) |
 
 Identification, quantification and analysis of anthropogenic Swiss litter (IQAASL) is a project commissioned by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All discarded materials were collected and identified using litter survey techniques. The project was expanded to include 20 locations in the Alps and Jura, in total there were 406 samples from 163 locations in 95 municipalities. 
-    
-This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from March 2020 through August 2021. This date range overlaps with the start and end date of the Swiss Litter Report (SLR){cite:p}`slr`, the last national level project to use the standard protocol described in the _Guide to monitoring beach litter_ {cite:p}`mlwguidance` or any other comparable method. 
+
+This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from March 2020 through August 2021. The months of this date range overlap with the start and end date of the Swiss Litter Report (SLR){cite:p}`slr`, which was conducted from April 2017 to March 2018. The SLR was the last national level project to use the standard protocol described in the Guide to monitoring beach litter {cite:p}`mlwguidance` or any other comparable method. 
 
 
 ```{figure} resources/maps/intro_map.jpeg
@@ -69,7 +69,6 @@ Most surveys were along lake shorelines (331 samples) as lakes offer more consis
 In total 316 samples came from seven principal lakes in 3 major river basins. Twenty locations were selected to sample monthly for a twelve-month period with the exception of Lago Maggiore, which was sampled every three months. Surveys were also conducted on Lago di Lugano, Lac des Quatre cantons, Brienzersee and Zugersee. In addition, there were 55 surveys on 16 rivers.  
 
 __Lake locations sampled monthly:__ 
-
 
 * Aare survey area
   * Thunersee: Spiez, Unterseen  
@@ -98,7 +97,7 @@ The most common objects are defined as those objects identified in at least 50% 
 Objects related to food, drink and tobacco are identified at higher rates at survey locations with a greater percentage of land attributed to buildings or fixed infrastructure, the inverse is true of the locations with a higher percentage of land attributed to woods or agriculture. However, infrastructure material and fragmented plastics, are found at similar rates throughout all survey areas indifferent of land use surrounding the survey locations. 
 
 
-```{figure} resources/images/esummary/eos_asa_24_0.png
+```{figure} resources/images/esummary/list_most_common_english.png
 ---
 width: 500px
 name: esummarymcommon
@@ -113,7 +112,7 @@ name: esummarymcommon
 Industrial pellets and expanded foams < 5mm both occurred in significant quantities but identified in less than 50% of the surveys (median of 0), indicating high counts at specific locations. While both are micro plastics, their use, origin and rate of occurrence are different depending on the survey area region. Industrial pellets are raw materials used in injection molding processes whereas foamed plastic beads are the result of fragmentation of expanded polystyrene. For more information on location, quantities and rate of individual object occurrence see [_Lakes and rivers_](allsurveys).
 
 
-```{figure} resources/images/esummary/mostcommoneos.png
+```{figure} resources/images/esummary/mcomon_survey_area_en.png
 ---
 width: 500px
 name: esummarysurveyareas
@@ -129,7 +128,7 @@ name: esummarysurveyareas
 
 Similar lake and river survey data collected in 2017-2018 (SLR) showed no statistical difference when compared to IQAASL results. However, there were variances in object quantities. In the 2020-2021 survey period fewer cigarettes and bottle tops were identified in general, but for many locations there was no change and there was likely an increase in fragmented plastics and foams, see  [_More and less trash since 2017_](slr-iqaasl) for the details.
 
-```{figure} resources/images/esummary/slr_iqaasl_res.png
+```{figure} resources/images/esummary/slr_iqaasl_en.png
 ---
 width: 800px
 name: esummaryslr

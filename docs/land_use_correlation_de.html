@@ -568,7 +568,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">unit_label</span> <span class="o">=</span> <span class="s1">&#39;pcs_m&#39;</span>
 <span class="c1"># banded color for table</span>
-<span class="n">a_color</span> <span class="o">=</span> <span class="s1">&#39;dodgerblue&#39;</span>
+<span class="n">a_color</span> <span class="o">=</span> <span class="s1">&#39;saddlebrown&#39;</span>
 
 <span class="c1"># get your data:</span>
 <span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/checked_sdata_eos_2020_21.csv&#39;</span><span class="p">)</span>
@@ -831,7 +831,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">axtwo</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;pcs/m&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
 
 <span class="c1"># time series plot of the survey results</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfdt</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">a_color</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfdt</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axone</span><span class="p">)</span>
 
 <span class="c1"># ecdf of the survey results</span>
 <span class="n">this_ecdf</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">dfdt</span><span class="o">.</span><span class="n">pcs_m</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -914,6 +914,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="zuordnung-der-erhebungssummen-zur-bodennutzung">
 <h3><span class="section-number">17.2.2. </span>Zuordnung der Erhebungssummen zur Bodennutzung<a class="headerlink" href="#zuordnung-der-erhebungssummen-zur-bodennutzung" title="Permalink to this headline">¶</a></h3>
 <p><em>Ergebnisse des Spearmans-Rangkorrelationstests: Summen der Datenerhebungen in Bezug auf das Landnutzungsprofil</em></p>
+<ol class="simple">
+<li><p>Rot/Rosa ist eine positive Assoziation</p></li>
+<li><p>Gelb ist eine negative Assoziation</p></li>
+<li><p>Weiss ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p&gt;0,05</p></li>
+</ol>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># correlation  of survey total to land use attributes:</span>
@@ -993,11 +998,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
 
-<span class="n">the_first_table_data</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">mcc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span> <span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.48</span><span class="p">,</span> <span class="mf">.16</span><span class="p">,</span><span class="mf">.16</span><span class="p">,</span><span class="mf">.16</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-<span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">m_common</span><span class="p">,</span><span class="n">cols_to_use</span><span class="p">,</span> <span class="n">a_color</span><span class="p">)</span>
-<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">mcc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span> <span class="p">,</span>  <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.48</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -1013,6 +1015,11 @@ const thebe_selector_output = ".output, .cell_output"
 <h4><span class="section-number">17.2.3.1. </span>Ergebnisse Spearmans <span class="math notranslate nohighlight">\(\rho\)</span><a class="headerlink" href="#ergebnisse-spearmans-rho" title="Permalink to this headline">¶</a></h4>
 <p>Aus der ersten Abbildung lässt sich ein positiver Zusammenhang zwischen der Anzahl der identifizierten Objekte und dem prozentualen Anteil der Flächen, die Gebäuden und Erholungsgebieten zugeordnet sind, ableiten. Das Umgekehrte gilt für den prozentualen Anteil von Landwirtschaft und Wald. Es gibt keine statistische Grundlage für die Annahme eines Zusammenhangs zwischen der Länge von Strassen oder der Anzahl von Flusskreuzungen und dem Gesamtergebnis der Erhebung.</p>
 <p>Das Ergebnis von Spearman’s rho für die am häufigsten vorkommenden Objekte steht im Zusammenhang mit den Ergebnissen in der vorangegangenen Abbildung und veranschaulicht, wie sich verschiedene Objekte unter verschiedenen Bedingungen anhäufen.</p>
+<ol class="simple">
+<li><p>Rot/Rosa ist eine positive Assoziation</p></li>
+<li><p>Gelb ist eine negative Assoziation</p></li>
+<li><p>Weiss ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p&gt;0,05</p></li>
+</ol>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">)</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">)</span><span class="o">+</span><span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">)</span>

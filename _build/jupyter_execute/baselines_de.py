@@ -229,7 +229,7 @@ sut.display_image_ipython("resources/images/baselines/takingnotes.jpg")
 # 1. Objekte kleiner als 2,5 cm 
 # 2. Paraffin, Wachs, Öl und andere Chemikalien 
 
-# In[5]:
+# In[7]:
 
 
 # define the final survey data set here:
@@ -291,7 +291,7 @@ dt_all = gten_lhun.groupby(['loc_date','location','river_bassin', 'water_name_sl
 
 # *__Unten:__ Erhebungsergebnisse und zusammenfassende Statistiken: Proben grösser als 10m und ohne Objekte kleiner als 2,5cm und Chemikalien, n=372*
 
-# In[19]:
+# In[9]:
 
 
 # palettes and labels
@@ -348,11 +348,11 @@ combined_summary = sut.fmt_combined_summary(csx, nf=[])
 
 sut.hide_spines_ticks_grids(axtwo)
 
-the_first_table_data = axtwo.table(combined_summary[1:],  colLabels=["Stat", unit_label], colWidths=[.5,.5], bbox=[0, 0, 1, 1])
-
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,combined_summary[1:],["Stat", unit_label], a_color, s_et_bottom_row=True)
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-a_summary_table_one.set_fontsize(14)
+a_table = sut.make_a_table(axtwo, combined_summary[1:],  colLabels=["Stat", unit_label], colWidths=[.6,.4], bbox=[0, 0, 1, 1])
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
+# a_summary_table_one = sut.make_a_summary_table(the_first_table_data,combined_summary[1:],["Stat", unit_label], a_color, s_et_bottom_row=True)
+# a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
+# a_summary_table_one.set_fontsize(14)
 
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
@@ -365,7 +365,7 @@ plt.close()
 
 # *__Unten:__ Verteilung der Datenerhebungen und Perzentilwerte: alle Erhebungen. Beachten Sie, dass der Mittelwert (341p/100m) grösser ist als der Median (180p/100m).*
 
-# In[7]:
+# In[11]:
 
 
 # percentile rankings  1, 5, 10, 15, 20
@@ -391,11 +391,10 @@ ax.legend()
 
 sut.hide_spines_ticks_grids(axtwo)
 
-the_first_table_data = axtwo.table(these_vals,  colLabels=('ranking', unit_label), colWidths=[.5,.5], bbox=[0, 0, 1, 1])
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,these_vals,('ranking', unit_label), a_color, s_et_bottom_row=True)
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text("ranking")
-a_summary_table_one.set_fontsize(14)
+table_two = sut.make_a_table(axtwo, these_vals, colLabels=('ranking', unit_label), colWidths=[.5,.5], bbox=[0, 0, 1, 1])
+table_two.get_celld()[(0,0)].get_text().set_text("ranking")
+table_two.set_fontsize(14)
 
 axtwo.tick_params(which='both', axis='both', labelsize=14)
 ax.tick_params(which='both', axis='both', labelsize=14)
@@ -446,7 +445,7 @@ plt.show()
 # 
 # ### Vergleich der Bootstrap-KIs 
 
-# In[8]:
+# In[13]:
 
 
 # this code was modified from this source:
@@ -590,7 +589,7 @@ p_cis.reset_index(inplace=True)
 
 # *__Unten Spitze:__ Konfidenzintervalle, die durch eine 5.000-fache Wiederholungsstichprobe der Umfrageergebnisse für jede Bedingung berechnet wurden. __Unten boden:__ Die gleichen Intervalle unter Verwendung der verzerrungskorrigierten Methode.*
 
-# In[20]:
+# In[14]:
 
 
 fig, axs = plt.subplots(2,1, figsize=(8,8))
@@ -623,7 +622,7 @@ plt.close()
 # 
 # $(pcs/m)*100 = (123_{pcs} / 40_m)*100 m \approxeq \text{313 p/100 m}$
 
-# In[10]:
+# In[15]:
 
 
 sut.display_image_ipython('resources/images/baselines/mullermatte_bielersee31_01_2021.png', thumb=(1200, 700))
@@ -645,7 +644,7 @@ sut.display_image_ipython('resources/images/baselines/mullermatte_bielersee31_01
 
 # *__Unten:__ Der Median und das 95%-Konfidenzintervall der Erhebungsgebiete Linth, Aare und Rhône. Das Erhebungsgebiet Tessin ist mangels ausreichender Anzahl von Datenerhebungen nicht enthalten.*
 
-# In[11]:
+# In[17]:
 
 
 bassins = ["linth", "aare", "rhone"]
@@ -665,13 +664,9 @@ fig, axs = plt.subplots(figsize=(7,4))
 data = sas.values
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(data, colLabels=sas.columns, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
+table_one = sut.make_a_table(axs, data, colLabels=sas.columns, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
+table_one.get_celld()[(0,0)].get_text().set_text(" ")
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data,sas.columns, a_color, s_et_bottom_row=True)
-
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-
-a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.close()
@@ -708,7 +703,7 @@ plt.close()
 # 
 # *__Unten__: Die Grenze, ab der eine Datenerhebung als extrem gilt, erstreckt sich auf das 98. Perzentil, wenn die Boxplots angepasst werden, im Gegensatz zum 90. Perzentil, wenn die Konstante bei 1,5 belassen wird.*
 
-# In[12]:
+# In[18]:
 
 
 # implementation of medcouple
@@ -770,7 +765,7 @@ ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='bl
 plt.show()
 
 
-# In[13]:
+# In[19]:
 
 
 caption = F"""
@@ -785,7 +780,7 @@ md(caption)
 # 
 # $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq  \text{1'652 p/100 m}$
 
-# In[14]:
+# In[20]:
 
 
 sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
@@ -821,7 +816,7 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 
 # *__Anpassen der Daten an die zugrunde liegende NB-Verteilung.__ Die beobachteten Erhebungsergebnisse werden mit den geschätzten Datenerhebungen unter Verwendung der Methode der Momente und der Maximum-Likelihood-Schätzung verglichen. __Links:__ Histogramm der Ergebnisse im Vergleich zu den beobachteten Daten. __Rechts:__ Verteilung der Ergebnisse im Vergleich zu den beobachteten Daten mit 90. Perzentil.* 
 
-# In[15]:
+# In[21]:
 
 
 # implementaion of MLE
@@ -948,7 +943,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[16]:
+# In[22]:
 
 
 evx = ev.set_index('model')
@@ -971,7 +966,7 @@ md(pnt)
 
 # *__Unten:__ Vergleichen Sie die Ausgangswerte der häufigsten Objekte. Alle Datenerhebungen 2020 - 2021. Das Erhebungsgebiet Ticino/Cerisio hat weniger als 100 Datenerhebungen.*
 
-# In[17]:
+# In[23]:
 
 
 sut.display_image_ipython("resources/images/baselines/lakes_rivers_de_22_0.png", thumb=(800, 1200))
@@ -983,7 +978,7 @@ sut.display_image_ipython("resources/images/baselines/lakes_rivers_de_22_0.png",
 
 # *__Unten:__ Vergleichen Sie die Ausgangswerte der häufigsten Objekte. Aare-Erhebungsgebiet Seen und Flüsse 2020 - 2021. Orte mit mehr als 30 Datenerhebungen: Bielersee, Neuenburgersee und Thunersee.*
 
-# In[18]:
+# In[24]:
 
 
 sut.display_image_ipython("resources/images/baselines/aare_sa_de_23_0.png", thumb=(800, 800))

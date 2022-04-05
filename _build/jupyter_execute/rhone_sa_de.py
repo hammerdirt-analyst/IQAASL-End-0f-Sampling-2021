@@ -85,7 +85,7 @@ end_date ="31.05.2021"
 start_end = [start_date, end_date]
 a_fail_rate = 50
 unit_label = "p/100 m"
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients
 cmap2 = ck.cmap2
@@ -114,7 +114,6 @@ agg_pcs_median = {unit_label:"median", "quantity":"sum"}
 
 # aggregation of dimensional data
 agg_dims = {"total_w":"sum", "mac_plast_w":"sum", "area":"sum", "length":"sum"}
-
 
 # columns needed
 use_these_cols = ["loc_date" ,
@@ -159,11 +158,9 @@ for x in dfCodes.index:
 # there are long code descriptions that may need to be shortened for display
 codes_to_change = [
     ["G704", "description", "Seilbahnbürste"],
-    ["Gfrags", "description", "Fragmentierte Kunststoffstücke"],
     ["G30", "description", "Snack-Verpackungen"],
     ["G124", "description", "Kunststoff-oder Schaumstoffprodukte"],
     ["G87", "description", "Abdeckklebeband/Verpackungsklebeband"],
-    ["G178","description","Flaschenverschlüsse aus Metall"],
     ["G3","description","Einkaufstaschen, Shoppingtaschen"],
     ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
     ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
@@ -346,7 +343,7 @@ plt.subplots_adjust(top=.9, hspace=.3)
 plt.suptitle("Landnutzung im Umkreis von 1500 m um den Erhebungsort", ha="center", y=1, fontsize=16)
 fig.legend(handles, labels, bbox_to_anchor=(.5,.94), loc="center", ncol=3)    
 
-plt.show()
+plt.show()  
 
 
 # ### Kumulative Gesamtmengen nach Gewässer 
@@ -403,7 +400,7 @@ colLabels = data.columns
 fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
 sut.hide_spines_ticks_grids(ax)
 
-table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, a_color=a_color)
+table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, colWidths=[.28, *[.12]*6], a_color=a_color)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
 table_one.set_fontsize(14)
 
@@ -438,8 +435,6 @@ y_limit = np.percentile(dts_date[unit_label], y_lim)
 
 # label for the chart that alerts to the scale
 not_included = F"Werte grösser als {locale.format_string('%d', round(y_limit, 1), grouping=True)} {unit_label} werden nicht gezeigt."
-
-
 
 # figure caption
 chart_notes = F"""
@@ -601,7 +596,7 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: F"{round(x,1)}")
 cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"fail-rate", unit_label:unit_label}
 all_survey_areas = m_common[cols_to_use.keys()].values
 
-fig, axs = plt.subplots(figsize=(12.2,len(m_common)*.7))
+fig, axs = plt.subplots(figsize=(12.8,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
@@ -669,7 +664,7 @@ plt.show()
 plt.close()
 
 
-# ### Die an Fliessgewässern am häufigsten gefundenen Objekte
+# ### Die am häufigsten gefundenen Gegenstände im monatlichen Durchschnitt
 
 # In[15]:
 
@@ -723,7 +718,7 @@ def new_month(x):
         this_month=x-12    
     return this_month
 
-fig, ax = plt.subplots(figsize=(9,7))
+fig, ax = plt.subplots(figsize=(12,7))
 
 # define a bottom
 bottom = [0]*len(mgr["G27"])
@@ -1032,7 +1027,7 @@ ax.xaxis.set_major_formatter(months_fmt)
 
 a_col = [this_feature["name"], "total"]
 
-axone = fig.add_subplot(aspec[:, 7:])
+axone = fig.add_subplot(aspec[:, 6:])
 sut.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
@@ -1042,7 +1037,7 @@ table_five.set_fontsize(14)
 plt.show()
 
 
-# ### Die an Fliessgewässer am häufigsten gefundene Objekte
+# ### Die an Fliessgewässern am häufigsten gefundenen Objekte
 
 # In[25]:
 
@@ -1082,11 +1077,11 @@ r_mc.rename(columns=cols_to_use, inplace=True)
 
 data=r_mc[list(cols_to_use.values())]
 
-fig, axs = plt.subplots(figsize=(11,len(data)*.8))
+fig, axs = plt.subplots(figsize=(14,len(data)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
-table_six = sut.make_a_table(axs, data.values,  colLabels=list(data.columns), colWidths=[.56, .11,.11,.11, .11], **{"loc":"lower center"})
+table_six = sut.make_a_table(axs, data.values,  colLabels=list(data.columns), colWidths=[.52, .12,.13,.12, .12], **{"loc":"lower center"})
 table_six.get_celld()[(0,0)].get_text().set_text(" ")
 table_six.set_fontsize(14)
 
@@ -1137,7 +1132,7 @@ fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]]
 data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt"}, inplace=True)
 
-fig, axs = plt.subplots(figsize=(11,len(data)*.8))
+fig, axs = plt.subplots(figsize=(12,len(data)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 

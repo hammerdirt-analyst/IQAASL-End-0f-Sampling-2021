@@ -71,7 +71,7 @@ a_fail_rate = 50
 reporting_unit = 100
 unit_label = "p/100m"
 
-a_color = "dodgerblue"
+a_color = "saddlebrown"
 
 # colors for gradients
 cmap2 = ck.cmap2

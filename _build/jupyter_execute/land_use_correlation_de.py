@@ -43,7 +43,7 @@ end_date ='2021-05-31'
 
 unit_label = 'pcs_m'
 # banded color for table
-a_color = 'dodgerblue'
+a_color = 'saddlebrown'
 
 # get your data:
 survey_data = pd.read_csv('resources/checked_sdata_eos_2020_21.csv')
@@ -331,7 +331,7 @@ axtwo.set_ylabel("Prozent der Standorte", **ck.xlab_k14)
 axtwo.set_xlabel("pcs/m", **ck.xlab_k)
 
 # time series plot of the survey results
-sns.scatterplot(data=dfdt, x='date', y=unit_label, color=a_color, s=34, ec='white', ax=axone)
+sns.scatterplot(data=dfdt, x='date', y=unit_label, color="dodgerblue", s=34, ec='white', ax=axone)
 
 # ecdf of the survey results
 this_ecdf = ECDF(dfdt.pcs_m.values)
@@ -410,6 +410,10 @@ plt.show()
 # ### Zuordnung der Erhebungssummen zur Bodennutzung
 
 # *Ergebnisse des Spearmans-Rangkorrelationstests: Summen der Datenerhebungen in Bezug auf das Landnutzungsprofil*
+# 
+# 1. Rot/Rosa ist eine positive Assoziation 
+# 2. Gelb ist eine negative Assoziation 
+# 3. Weiss ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p>0,05 
 
 # In[8]:
 
@@ -488,11 +492,8 @@ fig, axs = plt.subplots(figsize=(11,len(m_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(mcc.values,  colLabels=colLabels , colWidths=[.48, .16,.16,.16], bbox=[0, 0, 1, 1])
-
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,m_common,cols_to_use, a_color)
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-a_summary_table_one.set_fontsize(14)
+table_one = sut.make_a_table(axs, mcc.values,  colLabels=colLabels ,  colWidths=[.48, .13,.13,.13], bbox=[0, 0, 1, 1])
+table_one.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.show()
 plt.tight_layout()
@@ -503,7 +504,11 @@ plt.close()
 # 
 # Aus der ersten Abbildung lässt sich ein positiver Zusammenhang zwischen der Anzahl der identifizierten Objekte und dem prozentualen Anteil der Flächen, die Gebäuden und Erholungsgebieten zugeordnet sind, ableiten. Das Umgekehrte gilt für den prozentualen Anteil von Landwirtschaft und Wald. Es gibt keine statistische Grundlage für die Annahme eines Zusammenhangs zwischen der Länge von Strassen oder der Anzahl von Flusskreuzungen und dem Gesamtergebnis der Erhebung. 
 # 
-# Das Ergebnis von Spearman's rho für die am häufigsten vorkommenden Objekte steht im Zusammenhang mit den Ergebnissen in der vorangegangenen Abbildung und veranschaulicht, wie sich verschiedene Objekte unter verschiedenen Bedingungen anhäufen. 
+# Das Ergebnis von Spearman's rho für die am häufigsten vorkommenden Objekte steht im Zusammenhang mit den Ergebnissen in der vorangegangenen Abbildung und veranschaulicht, wie sich verschiedene Objekte unter verschiedenen Bedingungen anhäufen.
+# 
+# 1. Rot/Rosa ist eine positive Assoziation 
+# 2. Gelb ist eine negative Assoziation 
+# 3. Weiss ist keine statistische Grundlage für die Annahme eines Zusammenhangs, p>0,05 
 
 # In[10]:
 

@@ -414,13 +414,12 @@ sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
 
 # summary data table
-a_table = axone.table(cellText=combined_summary.values,  colLabels=combined_summary.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,combined_summary,combined_summary.columns, s_et_bottom_row=True)
-the_material_table_data.set_fontsize(14)
+a_table = sut.make_a_table(axone, combined_summary.values,  colLabels=combined_summary.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
 # material totals
-a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
-the_material_table_data.set_fontsize(14)
+second_table = sut.make_a_table(axtwo, m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
+
+second_table.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.tight_layout()
 
@@ -539,11 +538,9 @@ for i,this_table in enumerate(table_data):
     this_ax = axs[i]    
     sut.hide_spines_ticks_grids(this_ax)
     
-    the_first_table_data = this_ax.table(table_data[i][chart_labels[i]][cols_to_use.keys()].values,  colLabels=list(cols_to_use.values()), colWidths=[.48, .13,.13,.13, .13], bbox=[0, 0, 1, 1])
-    a_summary_table_one = sut.make_a_summary_table(the_first_table_data,table_data[i][chart_labels[i]][cols_to_use.keys()].values,list(cols_to_use.values()), this_palette["2021"])
+    a_table = sut.make_a_table(this_ax, table_data[i][chart_labels[i]][cols_to_use.keys()].values,  colLabels=list(cols_to_use.values()), colWidths=[.48, *[.13]*4], bbox=[0, 0, 1, 1])
     this_ax.set_xlabel(" ")
-    a_summary_table_one.set_fontsize(14)
-    a_summary_table_one.get_celld()[(0,0)].get_text().set_text(chart_labels[i])
+    a_table.get_celld()[(0,0)].get_text().set_text(chart_labels[i])
 
     
 plt.tight_layout()
@@ -733,13 +730,16 @@ sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
 
 # summary data table
-a_table = axone.table(cellText=combined_summary.values,  colLabels=combined_summary.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,combined_summary,combined_summary.columns, s_et_bottom_row=True)
-the_material_table_data.set_fontsize(14)
+a_table = sut.make_a_table(axone, combined_summary.values,  colLabels=combined_summary.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
+a_table.get_celld()[(0,0)].get_text().set_text(" ")
 # material totals
-a_table = axtwo.table(cellText=m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,m_t,m_t.columns, s_et_bottom_row=True)
-the_material_table_data.set_fontsize(14)
+second_table = sut.make_a_table(axtwo, m_t.values,  colLabels=m_t.columns, colWidths=[.5,.25,.25], loc="lower center", bbox=[0,0,1,1])
+
+second_table.get_celld()[(0,0)].get_text().set_text(" ")
+
+plt.tight_layout()
+
+plt.show()
 
 plt.tight_layout()
 
@@ -1134,7 +1134,7 @@ plt.show()
 
 # *Lakes 2018: monthly average survey result most common objects*
 
-# In[24]:
+# In[16]:
 
 
 # plot the monthly medidan results for the most common objects
@@ -1256,7 +1256,7 @@ plt.show()
 
 # 
 
-# In[25]:
+# In[17]:
 
 
 # repeat for 2021

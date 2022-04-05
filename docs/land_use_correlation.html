@@ -567,7 +567,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;pcs_m&quot;</span>
 
 <span class="c1"># banded color for table</span>
-<span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;dodgerblue&quot;</span>
+<span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;saddlebrown&quot;</span>
 
 <span class="c1"># get the data:</span>
 <span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/checked_sdata_eos_2020_21.csv&quot;</span><span class="p">)</span>
@@ -903,6 +903,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="association-of-survey-totals-to-land-use">
 <h3><span class="section-number">17.2.2. </span>Association of survey totals to land use<a class="headerlink" href="#association-of-survey-totals-to-land-use" title="Permalink to this headline">¶</a></h3>
 <p><em>Results of Spearmans ranked correlation test: survey totals with respect to land use profile</em></p>
+<ol class="simple">
+<li><p>Red/rose is a positive association</p></li>
+<li><p>Yellow is a negative association</p></li>
+<li><p>White means that p&gt;0.05, there is no statistical basis to assume an association</p></li>
+</ol>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># correlation  of survey total to land use attributes:</span>
@@ -985,11 +990,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
 
-<span class="n">the_first_table_data</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">all_survey_areas</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">cols_to_use</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.48</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-<span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">m_common</span><span class="p">,</span><span class="n">cols_to_use</span><span class="p">,</span> <span class="n">a_color</span><span class="p">)</span>
-<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">all_survey_areas</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">cols_to_use</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.48</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">,</span><span class="mf">.13</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -1004,6 +1006,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="results-spearmans-rho">
 <h4><span class="section-number">17.2.3.1. </span>Results Spearmans <span class="math notranslate nohighlight">\(\rho\)</span><a class="headerlink" href="#results-spearmans-rho" title="Permalink to this headline">¶</a></h4>
 <p>From the first figure a positive association can be assumed between the amount of trash found and the percent of land attributed to buildings and recreation. The inverse is true for the percent of land attributed to agriculture and woods, there is no statistical basis to assume a correlation with the length of streets or the number of river intersections and the total survey result.</p>
+<ol class="simple">
+<li><p>Red/rose is a positive association</p></li>
+<li><p>Yellow is a negative association</p></li>
+<li><p>White means that p&gt;0.05, there is no statistical basis to assume an association</p></li>
+</ol>
 <p>The result of Spearman”s rho on the most abundant objects gives context to the results in the preceding figure and illustrates how the different objects tend to accumulate under different conditions.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">

@@ -89,7 +89,7 @@ def make_plot_with_spearmans(data, ax, n, unit_label="p/100m"):
     return ax, corr, a_p
 
 
-def make_a_summary_table(ax, data, colLabels, a_color="dodgerblue", font_size=12, s_et_bottom_row=True):
+def make_a_summary_table(ax, data, colLabels, a_color="saddlebrown", font_size=12):
     
     """ Makes a table of values with alternate row cololrs.
 
@@ -109,56 +109,39 @@ def make_a_summary_table(ax, data, colLabels, a_color="dodgerblue", font_size=12
     the_cells = ax.get_celld()
 
     line_color = colors.to_rgba(a_color)
-    banded_color = (*line_color[:-1], 0.1)
+    line_color = (*line_color[:-1], 0.3)
+    banded_color = (*line_color[:-1], 0.08)
 
     # the different areas of formatting
     top_row = [(0, i) for i in np.arange(len(colLabels))]
-    bottom_row = [(len(data), i) for i in np.arange(len(colLabels))]
-    top_columns = top_row[1:]
     data_rows = [x for x in list(the_cells.keys()) if x not in top_row]
     odd_rows = [x for x in data_rows if x[0] % 2 > 0]
     first_column = [x for x in data_rows if x[1] == 0]
 
-    # make the first cell a litte smaller than the others
-    ax[0, 0].set_height(1 / (len(data)))
-    ax[0, 0].set_text_props(**{"va": "top"})
-
     for a_cell in top_row:
-        ax[a_cell].visible_edges = "B"
-        ax[a_cell].set_text_props(**{"fontsize": font_size})
-        ax[a_cell].set_edgecolor("white")
-        ax[a_cell].PAD = .2
-
-    for a_cell in top_columns:
-        ax[a_cell].set_height((1.25 / (len(data))))
-        ax[a_cell].set_text_props(**{"va": "center"})
-
+        ax[a_cell].set_height((1.1 / (len(data))))
+        ax[a_cell].set_text_props(**{"fontsize": 14})
         ax[a_cell].set_edgecolor(line_color)
-        ax[a_cell].visible_edges = "T"
+        ax[a_cell].PAD = .2
 
     for a_cell in odd_rows:
         ax[a_cell].set_facecolor(banded_color)
 
     for a_cell in data_rows:
         ax[a_cell].set_height(.75 / (len(data)))
-        ax[a_cell].visible_edges = "BTLR"
-        ax[a_cell].set_text_props(**{"fontsize": font_size})
-        ax[a_cell].set_edgecolor("white")
+        ax[a_cell].set_text_props(**{"fontsize": 14})
+        ax[a_cell].set_edgecolor(line_color)
         ax[a_cell]._text.set_horizontalalignment("center")
+        ax[a_cell].PAD = .1
 
     for a_cell in first_column:
         ax[a_cell]._text.set_horizontalalignment("right")
-        ax[a_cell].PAD = .02
+        ax[a_cell].PAD = .05
 
-    if s_et_bottom_row is True:
-        
-        for a_cell in bottom_row:
-            ax[a_cell].visible_edges = "B"
-            ax[a_cell].set_edgecolor(line_color)
 
     return ax
 
-def make_a_table(ax, data, colLabels=[], a_color="dodgerblue", colWidths=[.22, *[.13]*6], bbox=[0, 0, 1, 1], bottom_row=True, *args, **kwargs):
+def make_a_table(ax, data, colLabels=[], a_color="saddlebrown", colWidths=[.22, *[.13]*6], bbox=[0, 0, 1, 1],  **kwargs):
     """Makes a table with banded rows from a matplotlib axes object.
     
     :param ax: An axes
@@ -177,9 +160,9 @@ def make_a_table(ax, data, colLabels=[], a_color="dodgerblue", colWidths=[.22, *
     :rtype: matplotlib.axes
     
     """
-    
-    a = ax.table(data,  colLabels=colLabels, colWidths=colWidths, bbox=bbox, **kwargs)
-    b = make_a_summary_table(a,data ,colLabels, a_color, s_et_bottom_row=bottom_row)
+
+    a = ax.table(data,  colLabels=colLabels, colWidths=colWidths, bbox=bbox,  edges="closed")
+    b = make_a_summary_table(a,data ,colLabels, a_color)
     return b
 
 def feature_data(data, feature_level, these_features=[], **kwargs):

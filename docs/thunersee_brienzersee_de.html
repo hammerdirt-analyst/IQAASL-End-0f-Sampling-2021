@@ -577,19 +577,15 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
 
 <span class="c1"># images and display</span>
-<span class="c1"># import base64, io, IPython</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 
 <span class="c1"># set the locale to the language desired</span>
-<span class="c1"># the locale is set back to to original at the the end of the script</span>
 <span class="n">loc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">()</span>
 <span class="n">lang</span> <span class="o">=</span>  <span class="s1">&#39;de_CH.utf8&#39;</span>
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
 
 <span class="c1"># the date is in iso standard:</span>
-<span class="n">d</span> <span class="o">=</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span>
+<span class="c1"># d = &quot;%Y-%m-%d&quot;</span>
 
 <span class="c1"># it gets changed to german format</span>
 <span class="n">g</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span>
@@ -600,11 +596,12 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">start_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">]</span>
 <span class="n">a_fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;p/100 m&quot;</span>
-<span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;dodgerblue&quot;</span>
+<span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;saddlebrown&quot;</span>
 
 <span class="c1"># colors for gradients</span>
 <span class="n">cmap2</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">cmap2</span>
 <span class="n">colors_palette</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">colors_palette</span>
+
 <span class="c1"># set the maps</span>
 <span class="n">bassin_map</span> <span class="o">=</span><span class="s2">&quot;resources/maps/thunersee_brienzersee_scaled.jpeg&quot;</span>
 
@@ -672,9 +669,11 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># there are long code descriptions that may need to be shortened for display</span>
 <span class="n">codes_to_change</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s2">&quot;G704&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Seilbahnbürste&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Gfrags&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Fragmentierte Kunststoffstücke&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;G30&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Snack-Verpackungen&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;G124&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Kunststoff-oder Schaumstoffprodukte&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;G87&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Abdeckklebeband/Verpackungsklebeband&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;G178&quot;</span><span class="p">,</span><span class="s2">&quot;description&quot;</span><span class="p">,</span><span class="s2">&quot;Flaschenverschlüsse aus Metall&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;G3&quot;</span><span class="p">,</span><span class="s2">&quot;description&quot;</span><span class="p">,</span><span class="s2">&quot;Einkaufstaschen, Shoppingtaschen&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;G33&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Einwegartikel; Tassen/Becher &amp; Deckel&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;G31&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;Schleckstengel, Stengel von Lutscher&quot;</span><span class="p">],</span>
@@ -846,7 +845,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">colLabels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.75</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">colLabels</span><span class="o">=</span><span class="n">colLabels</span><span class="p">,</span> <span class="n">a_color</span><span class="o">=</span><span class="n">a_color</span><span class="p">)</span>
@@ -882,7 +881,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">resample_plot</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">quarterly_or_monthly_values</span><span class="p">(</span><span class="n">fd_dindex</span> <span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">vals</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">quarterly</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ticino&quot;</span><span class="p">])</span>    
 
 <span class="c1"># scale the chart as needed to accomodate for extreme values</span>
-<span class="n">y_lim</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="n">y_lim</span> <span class="o">=</span> <span class="mi">96</span>
 <span class="n">y_limit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">dts_date</span><span class="p">[</span><span class="n">unit_label</span><span class="p">],</span> <span class="n">y_lim</span><span class="p">)</span>
 
 <span class="c1"># label for the chart that alerts to the scale</span>
@@ -897,7 +896,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<p><em><strong>Links:</strong> Thunersee / Brienzersee, 03.2020 bis 05.2021, n=36. Werte grösser als 4549.2 p/100 m 99% nicht gezeigt. <strong>Rechts:</strong> Thunersee / Brienzersee  empirische kumulative Verteilung der Erhebungsergebnisse.</em></p>
+<p><em><strong>Links:</strong> Thunersee / Brienzersee, 03.2020 bis 05.2021, n=36. Werte grösser als 1717.4 p/100 m 96% nicht gezeigt. <strong>Rechts:</strong> Thunersee / Brienzersee  empirische kumulative Verteilung der Erhebungsergebnisse.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -966,9 +965,6 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the basic statistics from pd.describe</span>
 <span class="n">cs</span> <span class="o">=</span> <span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># add project totals</span>
-<span class="n">cs</span><span class="p">[</span><span class="s2">&quot;total objects&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dt_all</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
 <span class="c1"># change the names</span>
 <span class="n">csx</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">change_series_index_labels</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">sut</span><span class="o">.</span><span class="n">create_summary_table_index</span><span class="p">(</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;DE&quot;</span><span class="p">))</span>
 
@@ -982,7 +978,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">fd_mat_t</span> <span class="o">=</span> <span class="n">fd_mat_totals</span><span class="p">[</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># make tables</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># summary table</span>
 <span class="c1"># names for the table columns</span>
@@ -993,13 +989,13 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">table_two</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axone</span><span class="p">,</span> <span class="n">combined_summary</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">a_col</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.25</span><span class="p">,</span><span class="mf">.25</span><span class="p">],</span>  <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
 <span class="n">table_two</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">table_two</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="c1"># material table</span>
 <span class="n">axtwo</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axtwo</span><span class="p">)</span>
 
-<span class="c1"># column names for display</span>
 <span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;material&quot;</span><span class="p">:</span><span class="s2">&quot;Material&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% G</span><span class="s2">esamt&quot;</span><span class="p">}</span>
 
 <span class="n">table_three</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axtwo</span><span class="p">,</span> <span class="n">fd_mat_t</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.4</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span><span class="mf">.3</span><span class="p">],</span>  <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
@@ -1056,10 +1052,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># final table data</span>
-<span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekt&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2">er Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;fail-rate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">}</span>
+<span class="n">cols_to_use</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span><span class="s2">&quot;Objekt&quot;</span><span class="p">,</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% G</span><span class="s2">esamt&quot;</span><span class="p">,</span> <span class="s2">&quot;fail rate&quot;</span><span class="p">:</span><span class="s2">&quot;fail-rate&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">}</span>
 <span class="n">all_survey_areas</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
 
@@ -1175,7 +1171,7 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="n">this_month</span><span class="o">=</span><span class="n">x</span><span class="o">-</span><span class="mi">12</span>    
     <span class="k">return</span> <span class="n">this_month</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
 
 <span class="c1"># define a bottom</span>
 <span class="n">bottom</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">mgr</span><span class="p">[</span><span class="s2">&quot;G27&quot;</span><span class="p">])</span>
@@ -1227,10 +1223,11 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">new_labels</span> <span class="o">=</span> <span class="n">new_labels</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># insert a label for the monthly average</span>
-<span class="n">new_labels</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Monatsdurchschnitt&quot;</span><span class="p">)</span>
+<span class="n">new_labels</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Quartalsdurchschnitt&quot;</span><span class="p">)</span>
 <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">handles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">handles</span><span class="p">[</span><span class="mi">1</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
     
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">new_labels</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span>  <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">new_labels</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">.05</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper center&quot;</span><span class="p">,</span>  <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1249,10 +1246,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong>Mikroplastik (&lt; 5 mm):</strong> fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion</p></li>
 <li><p><strong>Infrastruktur:</strong> Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung</p></li>
 <li><p><strong>Essen und Trinken:</strong> alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen</p></li>
-<li><p><strong>Landwirtschaft:</strong>     z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
+<li><p><strong>Landwirtschaft:</strong> z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.</p></li>
 <li><p><strong>Tabakwaren:</strong> hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien</p></li>
 <li><p><strong>Freizeit und Erholung:</strong> Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.</p></li>
-<li><p><strong>Verpackungen ausser Lebensmittel und Getränke:</strong>     Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
+<li><p><strong>Verpackungen ausser Lebensmittel und Getränke:</strong> Verpackungsmaterial, das nicht lebensmittel-, getränke- oder tabakbezogen ist</p></li>
 <li><p><strong>Plastikfragmente:</strong> Plastikteile unbestimmter Herkunft oder Verwendung</p></li>
 <li><p><strong>Persönliche Gegenstände:</strong> Accessoires, Hygieneartikel und Kleidung</p></li>
 </ul>
@@ -1411,14 +1408,11 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gesamt&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% G</span><span class="s2">esamt&quot;</span> <span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">2.5</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
 
-<span class="n">the_first_table_data</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span> <span class="mf">.13</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-<span class="n">a_summary_table_one</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_summary_table</span><span class="p">(</span><span class="n">the_first_table_data</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">a_color</span><span class="p">,</span> <span class="n">s_et_bottom_row</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="n">a_summary_table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">a_table</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span> <span class="mf">.13</span><span class="p">,</span> <span class="mf">.13</span><span class="p">])</span>
+<span class="n">a_table</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -1603,7 +1597,7 @@ const thebe_selector_output = ".output, .cell_output"
     </tr>
     <tr>
       <th>Gfrags</th>
-      <td>Fragmentierte Kunststoffe</td>
+      <td>Fragmentierte Kunststoffstücke</td>
       <td>Plastikfragmente</td>
       <td>515</td>
       <td>13.68</td>
@@ -1907,7 +1901,7 @@ const thebe_selector_output = ".output, .cell_output"
     </tr>
     <tr>
       <th>G178</th>
-      <td>Flaschenverschlüsse und Deckel aus Metall</td>
+      <td>Flaschenverschlüsse aus Metall</td>
       <td>Essen und Trinken</td>
       <td>14</td>
       <td>0.37</td>

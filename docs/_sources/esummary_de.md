@@ -56,7 +56,7 @@ name: esummarymap_de
 
 ```
 
-{numref}`Abbildung {number}: <esummarymap_de>` *Karte der Datenerhebungen März 2020 - August 2021. Die rot markierten Standorte sind Datenerhebungen an Flüssen oder Seen und die violetten Standorte in den Alpen und im Jura.*
+{numref}`Abbildung {number}: <esummarymap_de>` _Karte der Datenerhebungen März 2020 - August 2021. Die rot markierten Standorte sind Datenerhebungen an Flüssen oder Seen und die violetten Standorte in den Alpen und im Jura._
 
 ##  Seen und Flüsse 
 
@@ -105,7 +105,7 @@ name: esummarymcommon_de
 
 ```
 
-{numref}`Abbildung {number}: <esummarymcommon_de>` _Gesamtzahl der Datenerhebungen über alle Seen und Flüsse: die am häufigsten identifizierten Objekte von März 2020 bis Mai 2021. Die Fail-Pass Rate ist das Verhältnis zwischen der Anzahl der Fälle, in denen ein Objekt mindestens einmal identifiziert wurde, und der Anzahl der Datenerhebungen. Die Menge ist die Gesamtzahl der gesammelten identifizierten Objekte und der Median der Abfallobjekte pro 100 Meter (p/100m). So wurden beispielsweise bei 87 % der Erhebungen insgesamt 8.485 Zigarettenfilter identifiziert, was 15 % der insgesamt gesammelten Gegenstände entspricht und einen Durchschnittswert von 20 Zigarettenfiltern pro 100 m Uferlinie ergab._ 
+{numref}`Abbildung {number}: <esummarymcommon_de>` *Gesamtzahl der Datenerhebungen über alle Seen und Flüsse: die am häufigsten identifizierten Objekte von März 2020 bis Mai 2021. Die Fail-Pass Rate ist das Verhältnis zwischen der Anzahl der Fälle, in denen ein Objekt mindestens einmal identifiziert wurde, und der Anzahl der Datenerhebungen. Die Menge ist die Gesamtzahl der gesammelten identifizierten Objekte und der Median der Abfallobjekte pro 100 Meter (p/100m). So wurden beispielsweise bei 87 % der Erhebungen insgesamt 8.485 Zigarettenfilter identifiziert, was 15 % der insgesamt gesammelten Gegenstände entspricht und einen Durchschnittswert von 20 Zigarettenfiltern pro 100 m Uferlinie ergab.* 
 
 Industriepellets und Schaumstoffe < 5 mm traten beide in beträchtlichen Mengen auf, wurden aber in weniger als 50 % der Datenerhebungen identifiziert (Median von 0), was auf hohe Zählungen an bestimmten Orten hinweist. Obwohl es sich bei beiden um Mikroplastik handelt, unterscheiden sich ihre Verwendung, Herkunft und Häufigkeit des Auftretens je nach Region des Erhebungsgebiets. Industriepellets sind Rohstoffe, die in Spritzgussverfahren verwendet werden, und Schaumstoffperlen sind das Ergebnis der Fragmentierung von expandiertem Polystyrol. Ort, Mengen und Häufigkeit des Auftretens einzelner Objekte siehe [ Seen und Flüsse ](allsurveysde)
 
@@ -126,7 +126,7 @@ name: esummarysurveyareas_de
 
 Ähnliche See- und Flusserhebungsdaten, die 2017-2018 erhoben wurden (SLR), zeigten keinen statistischen Unterschied im Vergleich zu den IQAASL-Ergebnissen. Allerdings gab es Abweichungen bei den Objektmengen. Im Erhebungszeitraum 2020-2021 wurden im Allgemeinen weniger Zigaretten und Flaschendeckel gefunden, aber an vielen Orten gab es keine Veränderung und es gab wahrscheinlich eine Zunahme von zerbrochenen Kunststoffen und Schaumstoffen, [_Meher und weniger seit 2018_](slr-iqaaslde).
 
-```{figure} resources/images/esummary/slr_2017_de_12_0.png
+```{figure} resources/images/esummary/slr_iqaasl_de.png
 ---
 width: 800px
 name: esummaryslr_de

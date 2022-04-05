@@ -89,7 +89,7 @@ a_fail_rate = 50
 unit_label = "p/100m"
 
 sns.set_style('whitegrid')
-a_color = 'dodgerblue'
+a_color = 'saddlebrown'
 
 # set the maps
 bassin_map = PILImage.open("resources/maps/survey_locations_all.jpeg")
@@ -579,7 +579,7 @@ desc = desc.applymap(lambda x: F"{x:,}")
 desc.reset_index(inplace=True)
 
 # make tables
-fig, axs = plt.subplots(figsize=(7,3.4))
+fig, axs = plt.subplots(figsize=(8,3.4))
 
 # summary table
 # names for the table columns
@@ -588,14 +588,14 @@ a_col = [top_name[0], 'total']
 axone = axs
 sut.hide_spines_ticks_grids(axone)
 
-a_table = axone.table(cellText=desc.values,  colLabels=desc.columns, colWidths=[.1,*[.11]*8], loc='lower center', bbox=[0,0,1,.95])
-a_table = sut.make_a_summary_table(a_table,desc.values,desc.columns, s_et_bottom_row=False)
+
+a_table = sut.make_a_table(axone, desc.values,  colLabels=desc.columns, colWidths=[.1,*[.11]*8], loc='lower center', bbox=[0,0,1,.95])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
 a_table.set_fontsize(14)
 
 plt.tight_layout()
 axone.set_xlabel("")
-plt.subplots_adjust(wspace=0.2)
+
 plt.show()
 
 
@@ -995,12 +995,9 @@ data = the_cis.values
 collabels = the_cis.columns
 sut.hide_spines_ticks_grids(axs)
 
-the_first_table_data = axs.table(data, colLabels=collabels, colWidths=[*[.2]*5], bbox=[0, 0, 1, 1])
+the_table = sut.make_a_table(axs, data, colLabels=collabels, colWidths=[*[.2]*5], bbox=[0, 0, 1, 1])
+the_table.get_celld()[(0,0)].get_text().set_text(" ")
 
-a_summary_table_one = sut.make_a_summary_table(the_first_table_data,data,collabels, a_color, s_et_bottom_row=True)
-
-a_summary_table_one.get_celld()[(0,0)].get_text().set_text(" ")
-a_summary_table_one.set_fontsize(14)
 
 plt.show()
 plt.close()
@@ -1041,24 +1038,21 @@ axtwo = axs[1]
 
 sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
-new_col_names = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt"}
+
 data_one = rur_10[['item', 'quantity', "% of total"]].copy()
-data_one.rename(columns=new_col_names, inplace=True)
+
 data_two = urb_10[['item', 'quantity', "% of total"]].copy()
-data_two.rename(columns=new_col_names, inplace=True)
+
 
 for a_df in [data_one, data_two]:
-    a_df["Gesamt"] = a_df["Gesamt"].map(lambda x: F"{x:,}")
+    a_df["quantity"] = a_df["quantity"].map(lambda x: F"{x:,}")
 
-a_table = axone.table(cellText=data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
-the_material_table_data.get_celld()[(0,0)].get_text().set_text("Rural")
-the_material_table_data.set_fontsize(14)
+first_table = sut.make_a_table(axone, data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
+first_table.get_celld()[(0,0)].get_text().set_text("Rural")
 
-a_table = axtwo.table(cellText=data_two.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
-the_material_table_data = sut.make_a_summary_table(a_table,data_one.values,data_one.columns, s_et_bottom_row=True)
-the_material_table_data.get_celld()[(0,0)].get_text().set_text("Urban")
-the_material_table_data.set_fontsize(14)
+
+a_table = sut.make_a_table(axtwo, data_two.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
+a_table.get_celld()[(0,0)].get_text().set_text("Urban")
 
 plt.tight_layout()
 plt.subplots_adjust(hspace=0.1)
