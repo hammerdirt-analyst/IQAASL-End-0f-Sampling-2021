@@ -1,6 +1,6 @@
 # Foreword
 
-| <a href="intro_de.html" > Deutsch </a> | [Italiano](italiano_intro) | [Francais](francais_intro) |
+| [Italiano](italiano_intro) | [Francais](francais_intro) |
 
 The aim of this project was to collect data and develop the necessary infrastructure to accurately assess the composition and abundance of anthropogenic material along selected Swiss rivers and lakes and present those findings in a consolidated web-based report.
 
@@ -8,7 +8,7 @@ There are at least three manuscripts being prepared that use data or explore tec
 
 __Detecting accumulation and leakage with Spearman's Rho__, *collaboration with Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
 
-__The probability of finding an object__, *collaboration with Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
+__The probability of finding an object__, *collaboration with Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Manuscript](https://hammerdirt-analyst.github.io/finding-one-object/titlepage.html)
 
 __Monitoring trash with the next generation of Solid waste engineers 2016-2021__, *collaboration with Bhavish Patel, [_Paul Scherer Institute_](https://www.psi.ch/en), Christian Ludwig, [_Paul Scherrer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/).* [Repository](https://github.com/hammerdirt-analyst/swe)
 

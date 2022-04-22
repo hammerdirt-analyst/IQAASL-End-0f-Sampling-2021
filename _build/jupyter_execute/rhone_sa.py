@@ -158,8 +158,6 @@ code_material_map = dfCodes.material
 
 # (rhonesa)=
 # # Rhône
-# 
-# <a href="rhone_sa_de.html"> Deutsch </a>
 
 # *__Below:__ Map of survey locations March 2020 - May 2021. Marker diameter = the mean survey result in pieces of litter per 100 meters (p/100m).*
 
@@ -369,6 +367,7 @@ table_one.get_celld()[(0,0)].get_text().set_text(" ")
 
 plt.tight_layout()
 plt.show()
+
 
 
 # ### Distribution of survey results

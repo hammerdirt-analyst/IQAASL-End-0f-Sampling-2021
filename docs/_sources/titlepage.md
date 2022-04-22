@@ -2,7 +2,6 @@
 
 **Edition 1** ver=1
 
-<a href="titlepage_de.html" > Deutsch </a>
 
 *Map of survey locations March 2020 - August 2021*
 :::{image} resources/maps/intro_map.jpeg

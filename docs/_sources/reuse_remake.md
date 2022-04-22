@@ -1,7 +1,5 @@
 # Recycle and remake
 
-<a href="reuse_remake_de.html"> Deutsch </a>
-
 Precious Plastic Léman [PPL](https://preciousplasticleman.ch/) is an association that actively promotes the reuse and reduction of plastic waste in the Lake Geneva region. Members create new products by transforming the plastic waste from their workshop in Lausanne. 
 
 As designers and fabricators PPL members spend more time in the workshop than outside collecting plastic litter. PPL primarily receives used plastics from donations dropped off at the workspace. With respect to beach-litter samples the members of PPL had two questions they wanted to answer: 

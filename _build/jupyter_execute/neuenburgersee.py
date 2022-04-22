@@ -160,8 +160,6 @@ code_material_map = dfCodes.material
 
 # (neuenburgersee)=
 # # Neuenburgersee
-# 
-# <a href="neuenburgersee_de.html"> Deutsch </a>
 
 # *__Below:__ Map of survey locations March 2020 - May 2021. Marker diameter = the mean survey result in pieces of litter per 100 meters (p/100m).*
 

@@ -124,8 +124,6 @@ code_material_map = dfCodes.material
 # (threshhold)=
 # # Beach litter baselines
 # 
-# <a href="baselines_de.html"> Deutsch </a>
-# 
 # Baseline values (BVs), sometimes referred to as benchmarks, are the quantities or values that are used to define a situation statistically. The BVs refer to a set of data that has both temporal and geographical limits, also known as a reference point or baseline period. BVs are the quantities against which progress is measured. In this regard, BVs are intimately linked to the data and the methods used to collect it. 
 # 
 # ## Counting beach litter: an overview
@@ -588,7 +586,7 @@ p_cis.reset_index(inplace=True)
 
 # *__Below top:__ Confidence intervals calculated by resampling the survey results 5,000 times for each condition. __Below bottom:__ The same intervals using the bias corrected method.*
 
-# In[19]:
+# In[9]:
 
 
 fig, axs = plt.subplots(2,1, figsize=(8,8))
@@ -704,7 +702,7 @@ plt.close()
 # 
 # *__Below__: The limit at which a survey is considered extreme extends to the 98th percentile when the boxplots are adjusted as opposed to the 90th percentile if the constant is left at 1.5.*
 
-# In[20]:
+# In[12]:
 
 
 # implementation of medcouple
@@ -766,7 +764,7 @@ ax.grid(visible=True, which='major', axis='y', linestyle='-', linewidth=1, c='bl
 plt.show()
 
 
-# In[21]:
+# In[13]:
 
 
 caption = F"""
@@ -781,7 +779,7 @@ md(caption)
 # 
 # $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq 1652p/100m$
 
-# In[22]:
+# In[14]:
 
 
 sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
@@ -817,7 +815,7 @@ sut.display_image_ipython('resources/images/baselines/onethous60053pcs100m.jpg')
 
 # *__Fitting the data to the underlying NB distribution.__ The observed survey results are compared to the estimated survey results using the method of moments and maximum likelihood estimation. __Left:__ histogram of simulated results compared to observed data. __Right:__ distribution of results compared to observed data with the 90<sup>th</sup> percentile.* 
 
-# In[23]:
+# In[15]:
 
 
 # implementaion of MLE
@@ -943,7 +941,7 @@ plt.tight_layout()
 plt.show()
 
 
-# In[24]:
+# In[16]:
 
 
 evx = ev.set_index('model')
@@ -966,7 +964,7 @@ md(pnt)
 
 # *__Below:__ Comparing the baseline values of the most common objects. All survey areas 2020 - 2021. The Ticino/Cerisio survey area has less than 100 surveys. __units= p/100m__*
 
-# In[25]:
+# In[17]:
 
 
 sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", thumb=(800, 1200))
@@ -978,7 +976,7 @@ sut.display_image_ipython("resources/images/baselines/lakes_rivers_29_1.png", th
 
 # *__Below:__ Comparing the baseline values of the most common objects. Aare survey area lakes and rivers 2020 - 2021. Locations with more than 30 surveys: Bielersee, Neuenburgersee and Thunersee.*
 
-# In[26]:
+# In[18]:
 
 
 sut.display_image_ipython("resources/images/baselines/example_implementation2.png", thumb=(800, 800))

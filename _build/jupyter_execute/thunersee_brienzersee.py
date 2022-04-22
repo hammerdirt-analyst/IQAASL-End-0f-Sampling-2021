@@ -160,8 +160,6 @@ code_material_map = dfCodes.material
 
 # (thunersee)=
 # # Thunersee / Brienzersee
-# 
-# <a href="thunersee_brienzersee_de.html"> Deutsch </a>
 
 # *__Below:__ Map of survey locations March 2020 - May 2021. Marker diameter = the mean survey result in pieces of litter per 100 meters (p/100m).*
 
@@ -272,7 +270,7 @@ agg_caption = F"""
 md(agg_caption)
 
 
-# In[24]:
+# In[5]:
 
 
 # make table

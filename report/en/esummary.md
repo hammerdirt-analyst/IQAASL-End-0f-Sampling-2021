@@ -41,7 +41,7 @@
 
 # Executive summary
 
-| <a href="esummary_de.html"> Deutsch </a> | [Italiano](italian) | [Français](francais) |
+| [Italiano](italian) | [Français](francais) |
 
 Identification, quantification and analysis of anthropogenic Swiss litter (IQAASL) is a project commissioned by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All discarded materials were collected and identified using litter survey techniques. The project was expanded to include 20 locations in the Alps and Jura, in total there were 406 samples from 163 locations in 95 municipalities. 
 

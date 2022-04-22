@@ -159,8 +159,6 @@ code_material_map = dfCodes.material
 
 # (ticinosa)=
 # # Ticino
-# 
-# <a href="ticino_sa_de.html"> Deutsch </a>
 
 # *__Below:__ Map of survey locations March 2020 - May 2021. Marker diameter = the mean survey result in pieces of litter per 100 meters (p/100m).*
 
@@ -355,7 +353,7 @@ agg_caption = F"""
 md(agg_caption)
 
 
-# In[33]:
+# In[6]:
 
 
 # make table
@@ -371,6 +369,7 @@ table_one.set_fontsize(14)
 
 plt.tight_layout()
 plt.show()
+
 
 
 # ### Distribution of survey results
@@ -1004,7 +1003,7 @@ riv_mcommon = F"""
 md(riv_mcommon)
 
 
-# In[31]:
+# In[26]:
 
 
 # the most common items rivers
