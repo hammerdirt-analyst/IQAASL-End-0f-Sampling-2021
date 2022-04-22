@@ -2,19 +2,19 @@
 
 | [Italiano](italiano_intro) | [Francais](francais_intro) |
 
-The aim of this project was to collect data and develop the necessary infrastructure to accurately assess the composition and abundance of anthropogenic material along selected Swiss rivers and lakes and present those findings in a consolidated web-based report.
+The aim of the project IQAASL (Identification, quantification and analysis of anthropogenic Swiss litter) was to collect data and develop the necessary infrastructure to accurately assess the composition and abundance of anthropogenic material along selected Swiss rivers and lakes and present those findings in a consolidated web-based report.
 
 There are at least three manuscripts being prepared that use data or explore techniques in this report:
 
 __Detecting accumulation and leakage with Spearman's Rho__, *collaboration with Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
 
-__The probability of finding an object__, *collaboration with Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Manuscript](https://hammerdirt-analyst.github.io/finding-one-object/titlepage.html)
+__The probability of finding an object__, *collaboration with Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Manuscript available](https://hammerdirt-analyst.github.io/finding-one-object/titlepage.html)
 
 __Monitoring trash with the next generation of Solid waste engineers 2016-2021__, *collaboration with Bhavish Patel, [_Paul Scherer Institute_](https://www.psi.ch/en), Christian Ludwig, [_Paul Scherrer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/).* [Repository](https://github.com/hammerdirt-analyst/swe)
 
 ## Assessment method
 
-In 2008 the first international guide to monitoring beach-litter was published by the United Nations Environment Program (UNEP) and Intergovernmental Oceanographic Commission (IOC) {cite}`unepseas`. This method was reproduced by the OSPAR Commission in 2010 {cite}`ospard10`.  In 2013 the EU released Guidance on Monitoring of Marine Litter in European Seas (The guide) {cite}`mlwguidance`. Switzerland is a member of OSPAR and has over 1,400 samples using the methods described in The guide. 
+In 2008 the first international guide to monitoring beach-litter was published by the United Nations Environment Program (UNEP) and Intergovernmental Oceanographic Commission (IOC) {cite}`unepseas`. This method was reproduced by the OSPAR Commission in 2010 {cite}`ospard10`.  In 2013 the EU released Guidance on Monitoring of Marine Litter in European Seas (The guide) {cite}`mlwguidance`. Switzerland is a member of OSPAR. Including IQAASL and all the previous projects, over 1,400 samples have been collected in Switzerland that have used the adapted version of the The guide {cite}`mlwguidance`. 
 
 _A beach-litter survey is the accounting of visible anthropogenic material identified within a delimited area that is bordered on one side by a lake, river or ocean._
 
@@ -35,9 +35,7 @@ Limiting surveys to 100 meters of exposed shoreline would have dramatically redu
 
 ### Collecting data
 
-A beach litter survey can be conducted by anybody at anytime. If the survey is conducted according to the method described in The Guide {cite}`mlwguidance` or [Beach litter baselines](threshhold) the result can be compared directly to the charts in this report. There is no need to enter the data into the system to compare results. 
-
-__Collecting data__ for the report (or the next report) requires some on the job training and an evaluation. It usually takes 3-5 surveys to acclimate an individual to the task. Most of the time is spent identifying objects and the importance of maintaining a field notebook. The advantage to contributing data is that the reporting procedure is automated and there is always access to the results. 
+A beach litter survey can be conducted by anybody at anytime. If the survey is conducted according to the method described in The Guide {cite}`mlwguidance` or [Beach litter baselines](threshhold) the result can be compared directly to the charts in this report.
 
 ## Using this report
 
@@ -63,8 +61,6 @@ The results for plastic construction waste indicate that it was more prevalent i
 In practical terms there was a better chance of finding plastic construction waste on the beach in Bönigen and Unterseen than the other municipalities. However, the chances of finding industrial sheeting were approximately equal anywhere but the most might be found at Brienz (67p/100m) 
 
 The [Key statistical indicators](keyindicators) chapter gives a precise definition of each of the basic statistics that can be derived from the survey results and how they are used for identifying zones of accumulation and significant events. The methods used to calculate the different environmental variables are explained in [_The land use profile_](luseprofile). The codes and descriptions used to identify the items as well as the different economic groupings are covered in detail in [_Code groups_](codegroups). How samples are collected and the methods for identifying extreme values and calculating baselines for a region can be found in [_Beach litter baselines_](threshhold).
-
-For each lake, the survey results are presented for each municipality where a survey occured. A more detailed report can be produced for any municipality in this document.
 
 ### Contributing to this report
 

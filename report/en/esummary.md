@@ -45,7 +45,7 @@
 
 Identification, quantification and analysis of anthropogenic Swiss litter (IQAASL) is a project commissioned by the Swiss Federal Office for the Environment to collect data concerning visible pollutants along Swiss lakes and rivers. All discarded materials were collected and identified using litter survey techniques. The project was expanded to include 20 locations in the Alps and Jura, in total there were 406 samples from 163 locations in 95 municipalities. 
 
-This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from March 2020 through August 2021. The months of this date range overlap with the start and end date of the Swiss Litter Report (SLR){cite:p}`slr`, which was conducted from April 2017 to March 2018. The SLR was the last national level project to use the standard protocol described in the Guide to monitoring beach litter {cite:p}`mlwguidance` or any other comparable method. 
+This report is a summary and analysis of the litter surveys conducted and the methods employed in Switzerland from March 2020 through August 2021. TThis sampling phase overlaps with the Swiss Litter Report (SLR){cite}`slr` survey period, which ran from April 2017 to March 2018. The SLR was the first project on a national level to use the standard protocol described in the Guide to monitoring beach litter {cite}`mlwguidance` or any other comparable method. This overlap allows the results of the present study to be compared with those of the SLR.
 
 
 ```{figure} resources/maps/intro_map.jpeg
@@ -154,12 +154,12 @@ For communicating pollution quantities, converting results into a simple metric 
 
 ## Conclusions
 
-On a national scale, the survey results were stable with respect to 2017. However, there was a general decrease in the quantity of food, drink and tobacco objects. Infrastructure objects and fragmented plastics and foams did not decline and some locations may have experienced sharp increases. Pandemic restrictions limiting large outdoor gatherings may have had a beneficial effect on the reduction of food, drink and tobacco items. The greatest increases in infrastructure related objects were in Valais, Vaud and Brienz, which are locations near the Rhône and Aare rivers discharge points.  
+At the national level, the IQAASL results are stable compared to the surveys that were carried out in 2017 as part of the SLR study. However, there was a general decrease in the quantity of food, drink and tobacco objects. Infrastructure objects and fragmented plastics and foams did not decline and some locations may have experienced sharp increases. Pandemic restrictions limiting large outdoor gatherings may have had a beneficial effect on the reduction of food, drink and tobacco items. The greatest increases in infrastructure related objects were in Valais, Vaud and Brienz, which are locations near the Rhône and Aare rivers discharge points.  
 
 The land use around a survey location has a measurable effect on the deposition of certain objects. The more buildings and fixed infrastructure there are the more tobacco and food products are found. Objects like fragmented plastics and industrial sheeting do not have the same association and are identified at approximately equal rates indifferent of the land use with increases near river/canal discharge points.    
 Count methods are preferred for assessing litter composition and density in marine environments although, a methodology has not been standardized for freshwater systems. Currently three of the four survey areas in the IQAASL are actively monitored by research and governmental agencies downstream of Switzerland using similar methods presented in this report. Additionally, regional associations in Switzerland are actively pursuing a standardization of reporting and protocols with partner organizations in the EU.
 
-There is broad-based support for this type of reporting method. The IQAASL is a citizen-science project that only uses open-source tools and shares data on GNU public license, enabling collaboration with stakeholders. At the end of the mandate, December 31, 2021, Hammerdirt will assume the responsibility of maintaining the code and data repository which is hosted publicly on Github.
+The IQAASL is a citizen-science project that only uses open-source tools and shares data on GNU public license, enabling collaboration with stakeholders. At the end of the mandate, December 31, 2021, Hammerdirt will assume the responsibility of maintaining the code and data repository which is hosted publicly on Github.
 
 The associations that participated in the IQAASL are actively seeking ways to incorporate the data collection process and/or the results into their own business model. However, there is a shortage of data scientists within many regional associations which may lengthen the process of integration and stifle the rate of innovation at the level where it is needed most. 
 
@@ -167,7 +167,7 @@ The associations that participated in the IQAASL are actively seeking ways to in
 
 ### Monitoring and reporting
 
-Efficiencies in data exchange and reporting would be realized immediately by defining a standard reporting format. This in turn would make it easier for regional administrations to communicate priorities to other stakeholders. Which would facilitate monitoring strategies and help define reduction targets.  
+Efficiencies in data exchange and reporting would be realized immediately by defining a standard reporting format. This in turn would make it easier for regional administrations to communicate priorities to other stakeholders. Which would facilitate monitoring strategies and help define reduction targets. The following measures could be put in place to achieve this:  
 
 > Develop a network of associations that are responsible for sampling and reporting of the results. 
 
