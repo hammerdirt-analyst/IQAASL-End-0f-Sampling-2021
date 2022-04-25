@@ -2,7 +2,7 @@
 
 **Edition 1** ver=1
 
-_Karte der Erhebungsorte März 2020 - August 2021_
+*Karte der Erhebungsorte März 2020 - August 2021*
 :::{image} resources/maps/map_esummary_de.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
@@ -18,26 +18,26 @@ _Karte der Erhebungsorte März 2020 - August 2021_
 **Commissioned by the Federal Office for the Environment (FOEN)**
 <br/>
 
-## Impressum 
+## Impressum
 
-__Auftraggeber:__ Bundesamt für Umwelt (BAFU), Abt. Abfall und Rohstoffe, CH-3003 Bern Das BAFU ist ein Amt des Eidg. Departements für Umwelt, Verkehr, Energie und Kommunikation (UVEK).  
+**Auftraggeber:** Bundesamt für Umwelt (BAFU), Abt. Abfall und Rohstoffe, CH-3003 Bern Das BAFU ist ein Amt des Eidg. Departements für Umwelt, Verkehr, Energie und Kommunikation (UVEK).
 
-__Auftragnehmer:__ Hammerdirt  Brüggstrasse 39 2503 Biel/Bienne Switzerland +41 76 699 06 16 info@hammerdirt.ch  
+**Auftragnehmer:** Hammerdirt Brüggstrasse 39 2503 Biel/Bienne Switzerland +41 76 699 06 16 <info@hammerdirt.ch>
 
-__Die Autoren:__ Roger Erismann, Shannon Erismann 
+**Die Autoren:** Roger Erismann, Shannon Erismann
 
-__Begleitung BAFU:__ Rita Barros, Amanda Finger, Samuel Anrig
+**Begleitung BAFU:** Rita Barros, Amanda Finger, Samuel Anrig
 
-__Hinweis:__ Diese Bericht wurde im Auftrag des Bundesamtes für Umwelt (BAFU) verfasst. Für den Inhalt ist allein der Auftragnehmer verantwortlich. 
+**Hinweis:** Diese Bericht wurde im Auftrag des Bundesamtes für Umwelt (BAFU) verfasst. Für den Inhalt ist allein der Auftragnehmer verantwortlich.
 
-__Projektteam__ 
+**Projektteam**
 
-__Projektverantwortliche:__ Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, Rachel Aronoff, Thor Erismann, Bettina Siegenthaler, Théo Gürsoy, Adrien Bonny, Gaetan Buser, Louise Schreyers, Andreas Gauer, Shannon Erismann, Roger Erismann, EPFL _Studierende der Fachrichtung Abfallwirtschaft_
+**Projektverantwortliche:** Helen Kurukulasuriya, Martin Brenvasser, Débora Camaro, Rachel Aronoff, Thor Erismann, Bettina Siegenthaler, Théo Gürsoy, Adrien Bonny, Gaetan Buser, Louise Schreyers, Andreas Gauer, Shannon Erismann, Roger Erismann, EPFL *Studierende der Fachrichtung Abfallwirtschaft*
 
-__Teilnehmende Organisationen:__ Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, Students of Solid Waste Engineering: EPFL, Stiftung Summit, Hackuarium, hammerdirt
+**Teilnehmende Organisationen:** Association pour la Sauvegarde du Léman, Precious Plastic Léman, Geneva International School, Students of Solid Waste Engineering: EPFL, Stiftung Summit, Hackuarium, hammerdirt
 
-__Unterstützungsgruppe:__ Christian Ludwig (EPFL/PSI), Montserrat Filella (UNIGE), Romain Tramoy (LEESU), Gary Hare (HDCA), Taoufik Nouri (FHNW)
+**Unterstützungsgruppe:** Christian Ludwig (EPFL/PSI), Montserrat Filella (UNIGE), Romain Tramoy (LEESU), Gary Hare (HDCA), Taoufik Nouri (FHNW)
 
-__Übersetzung:__ Helen Kurukulasuriya
+**Übersetzung:** Helen Kurukulasuriya
 
-__Besonderer Dank:__ Hubert Heldner, Kurt Chanton, Marcel Regamey, Bhavish Patel, Olivier Kressmann, Laurent Thurnheer, Jean Baptiste-Dussaussois
+**Besonderer Dank:** Hubert Heldner, Kurt Chanton, Marcel Regamey, Bhavish Patel, Olivier Kressmann, Laurent Thurnheer, Jean Baptiste-Dussaussois

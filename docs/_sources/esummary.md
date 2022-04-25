@@ -93,7 +93,7 @@ Als die am häufigsten gefundenen Gegenstände gelten Objekte, die in mindestens
 Gegenstände im Zusammenhang mit Lebensmitteln, Getränken und Tabakwaren werden häufiger an Erhebungsstandorten gefunden, an denen ein grösserer Landanteil von Gebäuden oder festen Infrastrukturen beansprucht wird, ganz im Gegensatz zu Standorten mit einem grösseren Anteil an Wäldern oder landwirtschaftlichen Flächen. Infrastrukturmaterial und fragmentierte Kunststoffe werden allerdings in allen Erhebungsgebieten unabhängig von der Landnutzung rund um die Erhebungsstandorte ähnlich häufig gefunden. 
 
 $$ \text{Abbildung 2} $$
-```{image} resources/images/esummary/lakes_rivers_de_19_01.png
+```{image} resources/images/esummary/most_common_de.jpg
 ---
 width: 100%
 ---
