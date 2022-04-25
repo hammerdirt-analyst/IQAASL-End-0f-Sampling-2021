@@ -578,9 +578,16 @@ def aggregate_to_group_name(data, unit_label="p/100m", column="groupname", name=
     return data
 
 def aggregate_to_code(data, code_description_map, column="code", name="afeaturename", unit_label="p/100m"):
-    
+
+
+
     f_s_a = data.groupby(column, as_index=False)[unit_label].median()
-    f_s_a["item"] = f_s_a.code.map(lambda x: code_description_map.loc[x])
+
+    try:
+        f_s_a["item"] = f_s_a.code.map(lambda x: code_description_map.loc[x])
+    except:
+        f_s_a["item"] = f_s_a.code.map(lambda x: code_description_map[x])
+
     f_s_a.set_index("item", inplace=True)
     f_s_a[name] = f_s_a[unit_label]
     

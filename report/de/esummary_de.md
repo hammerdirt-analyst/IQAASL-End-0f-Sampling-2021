@@ -38,15 +38,16 @@
 % C'è un'ampia opportunità di contribuire, imparare e insegnare
 % contattare dev@hammerdirt.ch
 
-# Kurzfassung
+# Executive Summary
+
 | <a href="esummary.html"> English </a> | [Italiano](italiande)| [Français](francaisde) |
 
-Identifikation, Quantifizierung und Analyse von anthropogenem Abfall in der Schweiz (IQAASL) ist ein vom Bundesamt für Umwelt (BAFU) in Auftrag gegebenes Projekt zur Erhebung von Daten über sichtbare Schadstoffe an Schweizer Seen und Flüssen. Mit Hilfe von Datenerhebungen wurden Abfallobjekte gesammelt und identifiziert, alle weggeworfenen Materialien wurden eingesammelt. Das Projekt wurde auf 20 Standorte in den Alpen und im Jura ausgeweitet, insgesamt wurden 406 Erhebungen von 163 Standorten in 95 Gemeinden genommen. 
-    
-Dieser Bericht ist eine Zusammenfassung und Analyse der Datenerhebungen über Abfallobjekte und der angewandten Methoden in der Schweiz von März 2020 bis August 2021. Diese Zeitspanne überschneidet sich mit dem Start- und Enddatum des Schweizer Abfallberichts (SLR) {cite}`slr`, dem letzten nationalen Projekt, das das im Leitfaden zur Überwachung von Abfallobjekten am Strand {cite}`mlwguidance` beschriebene Standardprotokoll oder eine andere vergleichbare Methode verwendet.  
+Beim Projekt «Identification, quantification and analysis of anthropogenic Swiss litter» (Identifizierung, Quantifizierung und Analyse von anthropogenem Abfall in der Schweiz, IQAASL) handelt es sich um ein vom Bundesamt für Umwelt (BAFU) in Auftrag gegebenes Projekt zur Erhebung von Daten zu sichtbaren Schadstoffen an Schweizer Seen und Fliessgewässern. Unter Verwendung von Abfallerhebungstechniken wurden sämtliche Abfallobjekte eingesammelt und identifiziert. Das Projekt wurde auf 20 Standorte in den Alpen und im Jura ausgedehnt. Insgesamt wurden 406 Proben an 163 Standorten in 95 Gemeinden entnommen.
+
+In diesem Bericht werden die vom März 2020 bis August 2021 durchgeführten Abfallerhebungen sowie die in der Schweiz angewandten Methoden zusammengefasst und analysiert. Diese Erhebungsphase überschneidet sich mit dem Erhebungszeitraum des Swiss Litter Reports (SLR) [Bla18], dessen Erhebungen von April 2017 bis März 2018 durchgeführt worden sind. Der SLR war das erste nationale Projekt, bei dem das Standardprotokoll gemäss dem Leitfaden zur Überwachung von Strandabfällen [Han13] oder eine andere vergleichbare Methode angewandt wurde. Diese Überschneidung der Erhebungsphasen ermöglicht es, die Ergebnisse der vorliegenden Studie mit denen des SLR zu vergleichen.   
 
 
-```{figure} resources/maps/intro_map.jpeg
+```{figure} resources/maps/map_esummary_de.jpeg
 ---
 width: 1200px
 name: esummarymap_de
@@ -56,43 +57,43 @@ name: esummarymap_de
 
 ```
 
-{numref}`Abbildung {number}: <esummarymap_de>` _Karte der Datenerhebungen März 2020 - August 2021. Die rot markierten Standorte sind Datenerhebungen an Flüssen oder Seen und die violetten Standorte in den Alpen und im Jura._
+{numref}`Abbildung {number}: <esummarymap_de>` _Karte der Erhebungsstandorte März 2020–August 2021. Die rot dargestellten Standorte betreffen Erhebungen an Fliessgewässern oder Seen, die violetten Punkte sind die Standorte in den Alpen und im Jura._
 
-##  Seen und Flüsse 
+## Seen und Flüsse
 
-An den Seen und Flüssen wurden von 2020-03 bis 2021-05 Datenerhebungen ausgeführt, insgesamt wurden in 386 Datenerhebungen 54'744 Objekte entnommen und klassifiziert. Die Datenerhebungen wurden für die regionale Analyse in Erhebungsgebiete eingeteilt und durch die Flüsse Aare, Rhône, Tessin und Linth/Limmat definiert. Die Datenerhebungen wurden an 143 verschiedenen Orten durchgeführt, die 77 Gemeinden repräsentieren. Die gesamte erhobene lineare Distanz betrug 20 km mit einer Fläche von 9 Hektar und einer Gesamtbevölkerung von 1,7 Millionen Einwohnern. 
+Die Proben an Seen und Fliessgewässern wurden vom März 2020 bis Mai 2021 entnommen. Im Rahmen von 386 Erhebungen wurden insgesamt 54’744 Gegenstände eingesammelt und klassifiziert. Die Erhebungsstandorte wurden für die regionale Analyse zu Erhebungsgebieten zusammengefasst und durch die Flüsse Aare, Rhone, Ticino und Linth/Limmat definiert. Die Erhebungen fanden an 143 verschiedenen Standorten in 77 Gemeinden statt. Insgesamt wurde eine lineare Strecke von 20 km mit einer Fläche von 9 Hektaren und einer Gesamtbevölkerung von 1,7 Millionen Personen untersucht.
 
-Die meisten Datenerhebungen fanden an den Ufern von Seen statt (331 Erhebungen), da Seen im Vergleich zu Flüssen ganzjährig einen beständigeren und sichereren Zugang bieten. Außerdem handelt es sich bei Seen um große Gebiete mit reduziertem Abfluss, die von mehreren Flüssen, Bächen und Entwässerungssystemen gespeist werden und somit ideale Standorte für die Bewertung der Vielfalt von Objekten in und um die Gewässer darstellen.  
+Die meisten Erhebungen wurden an Seeufern durchgeführt (331 Proben), da Seen im Vergleich zu Fliessgewässern einen beständigeren und sichereren ganzjährigen Zugang bieten. Des Weiteren besitzen Seen grosse Flächen mit verringerter Fliessgeschwindigkeit, die von verschiedenen Flüssen, Bächen und Entwässerungssystemen gespeist werden. Damit sind sie ideale Standorte, um die Vielfalt der Gegenstände in und rund um die Gewässer zu beurteilen.
+Die insgesamt 316 Proben stammten aus sieben grossen Seen in drei grossen Einzugsgebieten. Zwanzig Standorte wurden für eine monatliche Probenahme während zwölf Monaten ausgewählt, mit Ausnahme des Lago Maggiore, der alle drei Monate beprobt wurde. Auch am Luganersee, am Vierwaldstättersee, am Brienzersee und am Zugersee wurden Erhebungen durchgeführt. Darüber hinaus fanden 55 Erhebungen an 16 Fliessgewässern statt.
 
-Insgesamt wurden 316 Erhebungen aus sieben großen Seen in drei großen Flusseinzugsgebieten entnommen. Zwanzig Standorte wurden für eine monatliche Beprobung über einen Zeitraum von zwölf Monaten ausgewählt, mit Ausnahme des Lago Maggiore, der alle drei Monate beprobt wurde. Datenerhebungen wurden auch am Lago di Lugano, Vierwaldstättersee, Brienzersee und Zugersee durchgeführt. Darüber hinaus wurden 55 Datenerhebungen an 16 Flüssen durchgeführt. 
+__Seestandorte mit monatlichen Probenahmen:__
 
-__An diesen Seen werden monatlich Erhebungen erhoben:__ 
 
-* Aare survey area
-  * Thunersee: Spiez, Unterseen  
-  * Bielersee: Biel / Bienne, Vinelz  
-  * Neuenburgersee: Neuchâtel, Cheyres-Châbles, Yverdon-les-Bains 
-* Linth survey area 
-  * Zürichsee: Zürich, Küsnacht (ZH), Rapperswil-Jona, Richterswil  
-  * Walensee: Walenstadt, Weesen 
-* Rhône survey area 
-  * Lac Léman: Vevey, Saint-Gingolph, Genève, Préverenges, La Tour-de-Peilz 
-* Ticino survey area
-  * Lago Maggiore: Ascona, Gambarogno (tri-monthly) 
+* Erhebungsgebiet Aare
+  * Thunersee: Spiez, Unterseen
+  * Bielersee: Biel/Bienne, Vinelz
+  * Neuenburgersee: Neuenburg, Cheyres-Châbles, Yverdon-les-Bains
+* Erhebungsgebiet Linth/Limmat
+  * Zürichsee: Zürich, Küsnacht (ZH), Rapperswil-Jona, Richterswil
+  * Walensee: Walenstadt, Weesen
+* Erhebungsgebiet Rhone
+  * Genfersee: Vevey, Saint-Gingolph, Genf, Préverenges, La Tour-de-Peilz
+* Erhebungsgebiet Ticino
+  * Lago Maggiore: Ascona, Gambarogno (dreimonatlich) 
 
-### Median der Datenerhebungen insgesamt 
+### Medianwert der Erhebungen
 
-Die Ergebnisse sind in Einheiten von Abfallobjekten pro 100 Meter (p/100m) angegeben. Der Median aller Datenerhebungen lag bei 189 p/100m. Der Höchstwert lag bei 6.617 p/100m (Erhebungsgebiet Rhône) und der Mindestwert bei 2 p/100m (Erhebungsgebiet Aare). Das Erhebungsgebiet Rhône wies mit 442 p/100 m den höchsten Medianwert auf, was sich zum Teil durch die im Vergleich zu den anderen Erhebungsgebieten hohe Anzahl städtischer Erhebungsstandorte und die Ablagerung von zerkleinerten Kunststoffen und Schaumstoffen am Rhôneausfluss im oberen Seegebiet erklären lässt.  
+Die Ergebnisse werden in der Einheit Abfallobjekte (pieces) pro 100 Meter (p/100 m) angegeben. Der Median der Erhebungsergebnisse aller Daten lag bei rund 189 p/100 m. Der höchste verzeichnete Wert betrug 6617 p/100 m (Erhebungsgebiet Rhone) und der tiefste Wert 2 p/100 m (Erhebungsgebiet Aare). Das Erhebungsgebiet Rhone wies von allen Erhebungen mit 442 p/100 m den höchsten Medianwert auf. Dies kann zum Teil durch die im Vergleich zu den anderen Erhebungsgebieten hohe Anzahl städtischer Erhebungsstandorte sowie durch die Ablagerung von fragmentierten Kunststoffen und Schaumstoffen am Ausfluss der Rhone im oberen Seebereich erklärt werden.
 
-Es wurde ein Referenzwert berechnet, bei dem die Ergebnisse von Erhebungen mit einer Länge von weniger als 10 m und Objekten von weniger als 2,5 cm ausgeschlossen wurden. Diese in EU Marine Beach Abfallobjekte Baselines {cite}`eubaselines` beschriebene Methode wurde zur Berechnung der Referenz- und Schwellenwerte für alle europäischen Strände in den Jahren 2015 und 2016 verwendet und führte zu einem Medianwert von 131 p/100m. Die Ergebnisse des europäischen Basiswerts liegen außerhalb des 95 %-Konfidenzintervalls (CI) von 147 - 213 p/100 m, das anhand der Daten des IQAASL ermittelt wurde.
+Weiter wurde ein Referenzwert berechnet, bei dem die Ergebnisse von Proben von Uferabschnitten mit einer Länge von weniger als 10 m und Gegenständen kleiner als 2,5 cm ausgeschlossen wurden. Diese in den Marine Beach Litter Baselines der EU [HG19] beschriebene Methode wurde verwendet, um die Referenz- und Schwellenwerte für alle europäischen Strände für die Jahre 2015 und 2016 zu berechnen. In Anwendung dieser Methode resultierte ein Medianwert von 131 p/100 m. Die Ergebnisse des europäischen Basiswerts liegen ausserhalb des Konfidenzintervalls (KI) von 95 % von 147–213 p/100 m, das anhand der IQAASL-Daten ermittelt wurde.
 
-Die Datenerhebungen in der Schweiz waren im Durchschnitt von geringerem Umfang als in der Meeresumwelt und an Orten, die unter den meisten Umständen als städtisch angesehen werden würden. Bislang ist die Überwachung von Seen und Flüssen flussaufwärts von Küstenregionen auf dem europäischen Kontinent noch nicht allgemein verbreitet. Eine Gruppe von Verbänden in der Schweiz und in Frankreich bemüht sich jedoch um die Erstellung eines gemeinsamen Überwachungs- und Datenaustauschprotokolls für das Rhône-Einzugsgebiet. Darüber hinaus hat die Wageningen University & Research damit begonnen, die im Meusse-Rhein-Delta gesammelten Daten anhand von Protokollen zu analysieren, die denen des IQAASL entsprechen {cite}`meuserhine`.
+Die Erhebungen in der Schweiz waren im Durchschnitt kleinräumiger als in Meeresgebieten sowie an Standorten, die unter den meisten Umständen als städtisch eingestuft würden. Bisher werden See und Fliessgewässer flussaufwärts von Küstenregionen auf dem europäischen Kontinent noch nicht flächendeckend überwacht. Allerdings gibt es gemeinsame Bestrebungen einer Gruppe von Organisationen in der Schweiz und in Frankreich, um ein gemeinsames Überwachungs- und Datenaustauschprotokoll für das Rhonebecken einzuführen. Ausserdem setzt die Universität Wageningen für die Analyse von im Maas-Rhein-Delta erhobenen Daten seit Kurzem ähnliche Protokolle wie bei IQAASL ein [vE].
 
-### Die häufigsten Objekte 
+### Die am häufigsten gefundenen Gegenstände
 
-Die häufigsten Objekte sind definiert als die Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden und/oder zu den zehn mengenmäßig häufigsten Objekten gehören. Als Gruppe stellen die häufigsten Objekte 68 % aller im Erhebungszeitraum ermittelten Objekte dar. Von den am häufigsten vorkommenden Gegenständen beziehen sich 27 % auf Nahrungsmittel, Getränke und Tabak und 24 % auf Infrastruktur und Landwirtschaft.   
+Als die am häufigsten gefundenen Gegenstände gelten Objekte, die in mindestens der Hälfte aller Erhebungen festgestellt wurden und/oder die zu den zehn mengenmässig am häufigsten vorkommenden Gegenständen gehören. Diese häufigsten Gegenstände stellen als Gruppe 68 Prozent aller im Probezeitraum identifizierten Objekte dar. Von den häufigsten Gegenständen fallen 27 Prozent in die Bereiche Lebensmittel, Getränke und Tabakwaren und 24 Prozent stehen im Zusammenhang mit Infrastruktur und Landwirtschaft.
 
-Objekte im Zusammenhang mit Lebensmitteln, Getränken und Tabak werden häufiger an Erhebungsorten mit einem höheren Anteil an Gebäuden oder festen Infrastrukturen an der Fläche identifiziert, umgekehrt an Orten mit einem höheren Anteil an Wald oder Landwirtschaft an der Fläche. Infrastrukturelles Material und zerbrochene Kunststoffe werden jedoch in allen Erhebungsgebieten in ähnlichem Umfang gefunden, unabhängig von der Bodennutzung in der Umgebung der Erhebungsorte. 
+Gegenstände im Zusammenhang mit Lebensmitteln, Getränken und Tabakwaren werden häufiger an Erhebungsstandorten gefunden, an denen ein grösserer Landanteil von Gebäuden oder festen Infrastrukturen beansprucht wird, ganz im Gegensatz zu Standorten mit einem grösseren Anteil an Wäldern oder landwirtschaftlichen Flächen. Infrastrukturmaterial und fragmentierte Kunststoffe werden allerdings in allen Erhebungsgebieten unabhängig von der Landnutzung rund um die Erhebungsstandorte ähnlich häufig gefunden. 
 
 
 ```{figure} resources/images/esummary/lakes_rivers_de_19_01.png
@@ -105,9 +106,9 @@ name: esummarymcommon_de
 
 ```
 
-{numref}`Abbildung {number}: <esummarymcommon_de>` *Gesamtzahl der Datenerhebungen über alle Seen und Flüsse: die am häufigsten identifizierten Objekte von März 2020 bis Mai 2021. Die Fail-Pass Rate ist das Verhältnis zwischen der Anzahl der Fälle, in denen ein Objekt mindestens einmal identifiziert wurde, und der Anzahl der Datenerhebungen. Die Menge ist die Gesamtzahl der gesammelten identifizierten Objekte und der Median der Abfallobjekte pro 100 Meter (p/100m). So wurden beispielsweise bei 87 % der Erhebungen insgesamt 8.485 Zigarettenfilter identifiziert, was 15 % der insgesamt gesammelten Gegenstände entspricht und einen Durchschnittswert von 20 Zigarettenfiltern pro 100 m Uferlinie ergab.* 
+{numref}`Abbildung {number}: <esummarymcommon_de>` *Gesamtergebnisse der Erhebung für alle Seen und Fliessgewässer: die am häufigsten gefundenen Gegenstände von März 2020 bis Mai 2021. Die Häufigkeitsrate (wird in diesem Bericht als “Ausfallrate” bezeichnet) entspricht dem Verhältnis der Anzahl Ereignisse, bei denen ein Gegenstand mindestens einmal gefunden wurde, zur Anzahl der total durchgeführten Erhebungen. Die Menge gibt an, wie häufig ein Objekt gefunden wurde, sowie der Medianwert der Abfallobjekte pro 100 Meter (p/100 m). So wurden beispielsweise in 87 Prozent der Erhebungen insgesamt 8’485 Zigarettenfilter gefunden, was 15 Prozent aller gesammelten Gegenstände entspricht und einen Medianwert von 20 Zigarettenfiltern pro 100 m Uferlinie ergibt.* 
 
-Industriepellets und Schaumstoffe < 5 mm traten beide in beträchtlichen Mengen auf, wurden aber in weniger als 50 % der Datenerhebungen identifiziert (Median von 0), was auf hohe Zählungen an bestimmten Orten hinweist. Obwohl es sich bei beiden um Mikroplastik handelt, unterscheiden sich ihre Verwendung, Herkunft und Häufigkeit des Auftretens je nach Region des Erhebungsgebiets. Industriepellets sind Rohstoffe, die in Spritzgussverfahren verwendet werden, und Schaumstoffperlen sind das Ergebnis der Fragmentierung von expandiertem Polystyrol. Ort, Mengen und Häufigkeit des Auftretens einzelner Objekte siehe [ Seen und Flüsse ](allsurveysde)
+Industriepellets und Schaumstoffe < 5 mm kamen beide in signifikanten Mengen vor, wurden jedoch in weniger als 50 Prozent der Erhebungen festgestellt (Median = 0). Dies deutet darauf hin, dass sie an spezifischen Standorten in hoher Dichte vorkommen. Zwar handelt es sich bei beiden Gegenständen um Mikroplastik, doch unterscheiden sich ihre Verwendung, ihre Herkunft und ihre Häufigkeit je nach Region des Erhebungsgebiets. Industriepellets sind Rohstoffe, die in Spritzgussverfahren verwendet werden, während Schaumstoffkügelchen entstehen, wenn Styropor zerkleinert wird. Weitere Angaben zu Standort, Mengen und Häufigkeit einzelner Gegenstände finden sich im Kapitel. [ Seen und Fliessgewässer](allsurveysde).
 
 
 ```{Figure} resources/images/esummary/lakes_rivers_de_pcs_m.png
@@ -120,11 +121,11 @@ name: esummarysurveyareas_de
 
 ```
 
-{numref}`Abbildung {number}: <esummarysurveyareas_de>` *Alle Seen und Flüsse nach Region: Der Medianwert der am häufigsten gefundenen Objekte; die Werte variieren je nach Region des Erhebungsgebiets. So ist der Medianwert für fragmentierte Kunststoffe in den Erhebungsgebieten Aare (18,5 P/100 m) und Rhône (48 P/100 m) am höchsten.* 
+{numref}`Abbildung {number}: <esummarysurveyareas_de>` *Alle Seen und Fliessgewässer nach Erhebungsgebiet: Der Medianwert der am häufigsten gefundenen Gegenstände; die Häufigkeiten variieren je nach Region des Erhebungsgebiets. So wiesen fragmentierte Kunststoffe in den Erhebungsgebieten Aare (18,5 p/100 m) und Rhone (48 p/100 m) die höchsten Medianwerte auf.* 
 
-## Trends von 2017-2018 
+## Trends 2017–2018
 
-Ähnliche See- und Flusserhebungsdaten, die 2017-2018 erhoben wurden (SLR), zeigten keinen statistischen Unterschied im Vergleich zu den IQAASL-Ergebnissen. Allerdings gab es Abweichungen bei den Objektmengen. Im Erhebungszeitraum 2020-2021 wurden im Allgemeinen weniger Zigaretten und Flaschendeckel gefunden, aber an vielen Orten gab es keine Veränderung und es gab wahrscheinlich eine Zunahme von zerbrochenen Kunststoffen und Schaumstoffen, [_Meher und weniger seit 2018_](slr-iqaaslde).
+Ein Vergleich der IQAASL-Ergebnisse mit ähnlichen Daten für Seen und Fliessgewässer, die 2017/2018 (SLR) erhoben wurden, zeigen keine statistischen Unterschiede. Allerdings gab es Abweichungen bei der Häufigkeit der Gegenstände. So wurden in der Erhebungsperiode 2020–2021 im Allgemeinen weniger Zigaretten und Flaschendeckel gefunden. An vielen Standorten wurden jedoch keine Veränderungen beobachtet und die Menge an fragmentierten Kunst- und Schaumstoffen dürfte zugenommen haben \( Details siehe [ _Vergleich der Datenerhebungen seit 2018_ ](slr-iqaaslde) \).
 
 ```{figure} resources/images/esummary/slr_iqaasl_de.png
 ---
@@ -136,81 +137,82 @@ name: esummaryslr_de
 
 ```
 
-{numref}`Abbildung {number}: <esummaryslr_de>` *Vergleich der Datenerhebungen Ergebnisse zwischen SLR (2018) und IQAASL (2021). __Oben links:__ Gesamtsummen der Datenerhebungen nach Datum. __Oben rechts:__ Median der monatlichen Erhebungssumme. __Unten links:__ Anzahl der Sticherhebungen in Bezug auf die Erhebungssumme. Unten rechts: empirische kumulative Verteilung der Erhebungssummen.*
+{numref}`Abbildung {number}: <esummaryslr_de>` *Vergleich der Erhebungsergebnisse von SLR (2018) und IQAASL (2021). Oben links: Gesamtergebnisse der Erhebung nach Datum. Oben rechts: Median der Gesamtergebnisse der monatlichen Erhebungen. Unten links: Anzahl Proben im Verhältnis zum Gesamtergebnis der Erhebung. Unten rechts: empirische kumulative Verteilung der Gesamtergebnisse der Erhebung.*
 
  --- 
 
-## Die Alpen und der Jura 
+## Die Alpen und der Jura
 
-Von den zwanzig Datenerhebungen im Erhebungsgebiet Alpen erfüllten 17 die Kriterien für Länge und Breite von mehr als 10 m. Der Medianwert der Datenerhebungen lag bei 110 p/100m und damit unter dem Medianwert aller anderen Erhebungsgebiete (189 p/100m). Gegenstände, die mit dem Verzehr von Nahrungsmitteln und Getränken oder Tabak in Verbindung stehen, machten einen geringeren Prozentsatz der Gesamtzahl aus und wiesen eine niedrigere p/100m-Rate auf als die Ergebnisse aus den Küstengebieten. Dieser Unterschied könnte zum Teil auf den geringen Verstädterungsgrad zurückzuführen sein, der das Erhebungsgebiet in den Alpen im Vergleich zu allen anderen Erhebungsgebieten kennzeichnet, sowie auf die Tendenz des Materials, flussabwärts zu fließen. Zur Methodik und den Ergebnissen der Datenerhebungen in den Alpen siehe [Les Alpes](lesalpesde).
+Von den 20 Erhebungen im Erhebungsgebiet Alpen wiesen 17 eine Länge und eine Breite von über 10 m auf. Der Medianwert der Erhebungen betrug 110 p/100 m und lag damit unter dem Medianwert der anderen Erhebungsgebiete (189 p/100 m). Gegenstände aus dem Konsumbereich wie Lebensmittel und Getränke oder Tabakwaren machten einen geringeren Anteil an der Gesamtzahl aus und wiesen eine tiefere p/100 m-Rate auf im Vergleich zu den Ergebnissen von Standorten an Uferlinien. Dieser Unterschied könnte teilweise auf den geringen Verstädterungsgrad des Erhebungsgebiets Alpen im Vergleich zu allen anderen Erhebungsgebieten zurückzuführen sein sowie darauf, dass Material sich tendenziell flussabwärts bewegt. Für die Ergebungsmethodik und die Ergebnisse der Erhebung in den Alpen siehe[Die Alpen und der Jura](lesalpesde).
 
 ## Kommunikation der Ergebnisse 
 
-Für die Mitteilung von Verschmutzungsmengen ist die Umwandlung der Ergebnisse in eine einfache Metrik von durchschnittlichen Stücken pro 100 m nützlich, da der Durchschnitt im Allgemeinen größer ist und selten 0 beträgt. Der Durchschnitt kann jedoch doppelt so hoch sein wie der Median, wenn Extremwerte berücksichtigt werden, `was zu Verwirrung hinsichtlich des Unterschieds zwischen beobachteten und gemeldeten Ergebnissen führt`. Die Angabe des Bereichs der wahrscheinlichen Werte oder der Wahrscheinlichkeit, ein Objekt zu finden, ist informativer und wiederholbar, wenn ähnliche Protokolle befolgt werden. Zum Beispiel bei der Interpretation der Mengen von Industriepellets, die am Lac Léman gefunden wurden:  
+Für die Kommunikation von Verschmutzungsmengen ist es naheliegend, die Ergebnisse in eine einfache Einheit mit der durchschnittlichen Anzahl pro 100 m umzuwandeln, da der Durchschnitt meist höher ist und nur selten null beträgt. Allerdings kann der Durchschnitt bei Extremwerten doppelt so hoch ausfallen wie der Median, was Verwirrung in Bezug auf den Unterschied zwischen den beobachteten und den gemeldeten Ergebnissen stiften kann. Deshalb ist es informativer und reproduzierbarer, die Bandbreite wahrscheinlicher Werte oder die Wahrscheinlichkeit, einen Gegenstand zu finden, anzugeben, wenn ähnliche Protokolle befolgt werden. So etwa bei der Interpretation der Mengen an Industriepellets, die am Genfersee gefunden wurden:  
 
-> Am Lac Léman wurden 1'387 GPI oder 5% aller Objekte identifiziert. Die Anzahl der Pellets pro 100 m schwankt je nach Region zwischen 0 und 1033. Für den Lac Léman im Allgemeinen besteht eine etwa 40%ige Chance, bei einer Untersuchung mindestens ein Pellet zu finden. An einigen Orten wie Genève (60%ige Chance) oder Préverenges (80%ige Chance) sind Produktionspellets an diesen Stränden regelmäßig zu finden, Mengen zwischen 3p/100m und 56p/100m sind üblich.
+> 1’387 Produktionspellets aus Kunststoff wurden festgestellt, was 5 Prozent aller am Genfersee identifizierten Gegenstände entspricht. Die Anzahl Pellets pro 100 m schwankt je nach Region zwischen 0 und 1’033. Beim See besteht im Allgemeinen eine Wahrscheinlichkeit von 40 Prozent, in einer Erhebung irgendwo mindestens auf ein Pellet zu stossen. An einigen Standorten, wie Genf (Wahrscheinlichkeit von 60 %) oder Préverenges (Wahrscheinlichkeit von 80 %), werden Produktionspellets regelmässig an den Ufern gefunden. Werte zwischen 3 p/100 m und 56 p/100 m sind üblich.
 
-## Schlussfolgerungen 
+## Schlussfolgerungen
 
-Auf nationaler Ebene waren die Umfrageergebnisse im Vergleich zu 2017 stabil. Allerdings gab es einen allgemeinen Rückgang der Menge an Lebensmitteln, Getränken und Tabakwaren Objekte. Infrastrukturobjekte und zerbrochene Kunststoffe und Schaumstoffe waren nicht rückläufig, und an einigen Orten war möglicherweise ein starker Anstieg zu verzeichnen. Pandemiebedingte Beschränkungen, die große Versammlungen im Freien einschränken, könnten sich positiv auf den Rückgang von Lebensmitteln, Getränken und Tabakwaren ausgewirkt haben. Die grössten Zunahmen bei den infrastrukturbezogenen Gegenständen gab es im Wallis, in der Waadt und in Brienz, also in der Nähe der Einleitungsstellen der Flüsse Rhône und Aare. 
+Auf nationaler Ebene waren die Erhebungsergebnisse des IQAASL-Projekts im Vergleich zu den Erhebungen, die 2017 im Rahmen der SLR-Studie durchgeführt wurden, stabil. Allerdings war ein allgemeiner Rückgang der Menge an Gegenständen im Zusammenhang mit Lebensmitteln, Getränken und Tabakwaren feststellbar. Die Anzahl der identifizierten Infrastrukturobjekte sowie fragmentierten Kunststoffe und Schaumstoffe ging hingegen nicht zurück, an einigen Standorten könnten gar starke Zunahmen verzeichnet worden sein. Die pandemiebedingten Einschränkungen, die grosse Menschenansammlungen im Freien begrenzten, könnten sich positiv ausgewirkt und zu einem Rückgang von Objekten aus den Bereichen Lebensmittel, Getränke und Tabakwaren geführt haben. Die grössten Zunahmen bei infrastrukturbezogenen Gegenständen waren im Wallis, in der Waadt und in Brienz zu beobachten, also an Standorten in der Nähe von Flusseinträgen von Rhone und Aare.
 
-Die Landnutzung in der Umgebung eines Erhebungsortes hat einen messbaren Einfluss auf die Ablagerung bestimmter Objekte. Je mehr Gebäude und feste Infrastrukturen es gibt, desto mehr Tabak und Lebensmittel werden gefunden. Objekte wie zerbrochene Kunststoffe und Industriefolien haben nicht den gleichen Zusammenhang und werden unabhängig von der Flächennutzung in etwa gleichem Maße gefunden, wobei sie in der Nähe von Einleitungsstellen von Flüssen/Kanälen zunehmen.   
+Die Landnutzung rund um einen Erhebungsstandort hat einen messbaren Effekt auf das Vorkommen bestimmter Gegenstände: Je höher die Anzahl Gebäude und fester Infrastrukturen ist, desto mehr Tabakwaren und Lebensmittelprodukte werden gefunden. Diese Korrelation gilt nicht für Gegenstände wie fragmentierte Kunststoffe und Industriefolien – sie werden unabhängig von der Landnutzung zu fast gleichen Teilen festgestellt, wobei sie bei Eintragsstellen von Flüssen und Kanälen häufiger anzutreffen sind.
 
-Zählmethoden werden bevorzugt, um die Zusammensetzung und Dichte von Abfallobjekten in Meeresumgebungen zu bewerten, obwohl es für Süßwassersysteme noch keine standardisierte Methodik gibt. Derzeit werden drei der vier Erhebungsgebiete des IQAASL von Forschungs- und Regierungsstellen flussabwärts der Schweiz aktiv überwacht, wobei ähnliche, in diesem Bericht vorgestellte Methoden verwendet werden. Darüber hinaus bemühen sich die regionalen Verbände in der Schweiz aktiv um eine Standardisierung der Berichte und Protokolle mit Partnerorganisationen in der EU.
+Derzeit werden drei der vier IQAASL-Erhebungsgebiete von Forschungs- und Regierungsstellen flussabwärts der Schweiz aktiv überwacht. Diese verwenden ähnliche Methoden wie die in diesem Bericht vorgestellten. Zudem streben regionale Organisationen in der Schweiz mit Partnerorganisationen in der EU eine Standardisierung von Berichterstattung und Protokollen an.
 
-Es gibt eine breite Unterstützung für diese Art der Berichterstattung. Das IQAASL ist ein bürgerwissenschaftliches Projekt, das ausschließlich Open-Source-Tools verwendet und Daten unter der öffentlichen GNU-Lizenz weitergibt, was die Zusammenarbeit mit Interessengruppen ermöglicht. Am Ende des Mandats, d. h. am 31. Dezember 2021, wird Hammerdirt die Verantwortung für die Pflege des Code- und Datenspeichers übernehmen, der öffentlich auf Github gehostet wird. 
+IQAASL ist ein Bürgerwissenschaftsprojekt, das ausschliesslich Open-Source-Tools nutzt und Daten mit einer GNU Public License teilt. So ist eine Zusammenarbeit mit Stakeholdern möglich. Am Ende des Mandats per 31. Dezember 2021 übernimmt Hammerdirt die Verantwortung für die Pflege des Code- und Daten-Repositorys, das öffentlich auf Github gehostet wird.
 
-Die Verbände, die am IQAASL teilgenommen haben, suchen aktiv nach Möglichkeiten, den Datenerhebungsprozess und/oder die Ergebnisse in ihr eigenes Geschäftsmodell einzubinden. Allerdings mangelt es in vielen Regionalverbänden an Datenwissenschaftlern, was den Integrationsprozess in die Länge ziehen und das Innovationstempo auf der Ebene, auf der es am dringendsten benötigt wird, drosseln könnte.  
+Die Organisationen, die sich an IQAASL beteiligt haben, suchen aktiv nach Möglichkeiten, den Datenerhebungsprozess und/oder die Ergebnisse in ihr eigenes Geschäftsmodell zu integrieren. Allerdings gibt es in vielen regionalen Organisationen zu wenige Datenwissenschaftlerinnen und Datenwissenschaftler, was den Integrationsprozess verlängern und die Innovationsrate auf der Ebene, auf der sie am nötigsten wäre, drosseln könnte.  
 
 ## Empfehlungen
 
 ### Überwachung und Berichterstattung 
 
-Die Festlegung eines Standardberichtsformats würde den Datenaustausch und die Berichterstattung sofort effizienter gestalten. Dies wiederum würde es den regionalen Verwaltungen erleichtern, anderen Interessengruppen ihre Prioritäten mitzuteilen. Dies würde die Überwachungsstrategien erleichtern und zur Festlegung von Reduktionszielen beitragen. 
+Effizienzgewinne bei Datenaustausch und Berichterstattung könnten durch die Festlegung eines Standardberichtsformats umgehend erzielt werden. Dies würde es für regionale Verwaltungen einfacher machen, andere Stakeholder über die Prioritäten zu informieren, was wiederum Überwachungsstrategien erleichtern und die Definition von Reduktionszielen unterstützen würde. Hierzu könnten folgende Massnahmen umgesetzt werden: 
 
-> Aufbau eines Netzes von Verbänden, die für die Erhebungnahme und die Berichterstattung über die Ergebnisse zuständig sind.
+> Ein Netz von Organisationen aufbauen, die für die Erhebung und die Berichterstattung über die Ergebnisse zuständig sind.
 
-> Erstellung eines Standardberichtsformats, um die Kommunikation zwischen Gemeinde-, Kantons- und Regional-/Bezirksverwaltungen zu erleichtern und die Koordinierung regionaler und lokaler Reduktionsstrategien zu verbessern. 
+> Ein Standardberichtsformat schaffen, um die Kommunikation zwischen Verwaltungen auf Ebene Gemeinde, Kanton und Region/Bezirk zu erleichtern und die Koordination regionaler und lokaler Reduktionsstrategien zu verbessern.
 
-> Legen Sie den nächsten Erhebungnahmezeitraum oder das Intervall der Erhebungnahme fest.
+> Die nächste Probenahmeperiode oder das nächste Probenahmeintervall festlegen.
 
-Formelle Einbeziehung der Wissenschaft in die Planung, Erhebungnahme und Analyse. Dieses Projekt wurde durch die Zusammenarbeit mit Universitätsprofessoren der ETH, UNIGE, EPFL, PSI und FHNW beeinflusst. Hochschulpartner wären ideal, um die Analysemethoden weiterzuentwickeln. Das Citizen Science Center (ETH) und das Citizen Cyberlab (UNIGE) verfügen über die Erfahrung und die Infrastruktur, um bürgerwissenschaftliche Überwachungsprojekte mit Forschungsarbeiten zu verbinden. So kann ein sehr anpassungsfähiger und effizienter Überwachungsplan erstellt werden.  
+Akademische Kreise formell in Planung, Probenahme und Analyse einbeziehen. Dieses Projekt wurde durch die Zusammenarbeit von Professorinnen und Professoren von ETH, UNIGE, EPFL, PSI und FHNW geprägt. Universitäre Partner wären ideal, um die Analysemethoden weiterzuentwickeln. Das Citizen Science Center (ETH) und das Citizen Cyberlab (UNIGE) verfügen über die Erfahrung und die Infrastruktur, um bürgerwissenschaftliche Überwachungsprojekte mit Forschungstätigkeiten zu verknüpfen. Auf diese Weise kann ein äusserst anpassungsfähiger und effizienter Überwachungsplan erarbeitet werden.  
 
-### Beseitigung und Reduzierung 
+### Beseitigung und Reduktion
 
-Strategien zur Beseitigung oder Verringerung von Abfallobjekten sollten zunächst die Quelle berücksichtigen. 
+Bei Strategien zur Beseitigung oder Reduktion von Abfällen im Wasser sollte zunächst deren Quelle berücksichtigt werden. 
 
-__Objekte in Verbindung mit Landnutzungsmerkmalen__
+__Gegenstände im Zusammenhang mit Landnutzungsmerkmalen__
 
-Die Ergebnisse zeigen einen positiven Zusammenhang zwischen der Anzahl der Gebäude und der Menge an Lebensmitteln, Getränken und Tabakwaren. Dies deutet darauf hin, dass Strategien zur Verringerung dieser Gegenstände in Gebieten mit einer hohen Konzentration von Infrastrukturen in Küstennähe beginnen sollten. Die Datenerhebungen im Rhône-Gebiet legen nahe, dass lokale Sensibilisierungskampagnen einen positiven Effekt haben können (siehe Abbildung 1.9  [_Seen und Flüsse_](allsurveysde).Die Beseitigung aller Gegenstände, die mit Lebensmitteln, Getränken und Tabak in Verbindung stehen und auf die Initiativen zur Sensibilisierung für Abfallobjekte üblicherweise abzielen, würde zwar die Gesamtmenge erheblich verringern, __doch würden 64 % des weggeworfenen Materials verbleiben__. 
+Die Ergebnisse weisen auf einen positiven Zusammenhang zwischen der Anzahl Gebäude und der Menge an Gegenständen aus den Bereichen Lebensmittel, Getränke und Tabakwaren hin. Dies legt nahe, dass Strategien zur Verringerung dieser Gegenstände in Gebieten ansetzen sollten, die eine hohe Konzentration an Infrastrukturen in Ufernähe aufweisen. Die Ergebnisse aus dem Erhebungsgebiet Rhone lassen vermuten, dass sich lokale Sensibilisierungskampagnen positiv auswirken könnten ( siehe Abbildung 1.9 [_Seen und Fliessgewässer_](allsurveys) ). Auch wenn alle Gegenstände im Zusammenhang mit Lebensmitteln, Getränken und Tabakwaren, auf die Sensibilisierungskampagnen für Abfall in der Regel abzielen, beseitigt würden, würde dies die Gesamtmengen zwar signifikant reduzieren, __doch würden immer noch 64 Prozent des Materials liegen bleiben__. 
 
-* Andere gängige Strategien zur Verringerung sind: 
-  * Ausreichendes Angebot an witterungs- und tierbeständigen Abfallbehältern  
-  * Verstärkte Müllabfuhr und Kehrpläne 
-  * Reduzierung von Einwegplastik  
+* Weitere gängige Reduktionsstrategien sind u. a. die folgenden:
+  * Angemessene Bereitstellung von wetter- und tierbeständigen Abfallbehältern
+  * Enger getakteter Zeitplan für Abfallentsorgung und Reinigung
+  * Reduktion von Einwegprodukten aus Kunststoff  
 
-Viele Länder haben damit begonnen, bestimmte Artikel einzuschränken. So dürfen zum Beispiel Einwegplastikteller, -besteck, -strohhalme, Luftballonstäbchen und Wattestäbchen ab dem 3. Juli 2021 nicht mehr auf den Märkten der EU-Mitgliedstaaten in Verkehr gebracht werden.  In Frankreich werden bereits erfolgreich Netze eingesetzt, um Abfallobjekte aus dem Regenwasser zu filtern, bevor sie in Seen und Flüsse gelangen. 
+Viele Länder haben bereits begonnen, Einschränkungen für bestimmte Gegenstände einzuführen. So dürfen beispielsweise Einwegteller und -besteck aus Plastik, Strohhalme, Ballonstäbe und Wattestäbchen aus Kunststoff seit dem 3. Juli 2021 in den EU-Mitgliedstaaten nicht mehr verkauft werden. In Frankreich werden in Regenwasserkanalisationen erfolgreich Rückhaltenetze eingesetzt, damit Abfälle nicht mehr in Seen und Fliessgewässer gelangen, was jedoch Investitionen in Infrastruktur, Ausrüstung und Arbeitskräfte bedingt. 
 
-__Objekte in Verbindung mit Landnutzungsmerkmalen__
+__Nicht mit der Landnutzung verbundene Gegenstände__
 
-Objekte, die keinen positiven Zusammenhang mit der Landnutzung aufweisen, erfordern ein koordiniertes Vorgehen zumindest auf der Ebene des Sees oder Flusses sowie an allen Orten flussaufwärts von den geplanten Erhebungsorten. Zu den am häufigsten vorkommenden Objekten gehören: 
+Zur Verringerung der Anzahl Gegenstände, die keine Korrelation mit der Landnutzung aufweisen, ist zumindest auf Ebene des Sees oder des Fliessgewässers sowie bei allen Standorten, die oberhalb der geplanten Erhebungsorte liegen, ein koordiniertes Vorgehen notwendig. Zu den häufigsten Gegenständen zählen die folgenden:
 
-* Fragmentierte Kunststoffe 
-* Fragmentierte Schäume 
-* Kunststoffe im Bauwesen 
-* Industriepellets 
-* Wattestäbchen 
-* Industrielle Abdeckungen 
+* Fragmentierte Kunststoffe
+* Fragmentierte Schaumstoffe
+* Baukunststoffe
+* Industriepellets
+* Wattestäbchen
+* Industriefolien
 
-Diese Gegenstände machen 40 % des gesamten identifizierten Materials aus. Viele werden in der Industrie und für die Körperpflege verwendet, was normalerweise nicht mit Strandaktivitäten in Verbindung gebracht wird. Eine Ausweitung von Sensibilisierungskampagnen, die auf die interne Vermeidung von Materialverlusten in bestimmten Sektoren abzielen, könnte Objekte wie Industriegranulat für den Kunststoffspritzguss reduzieren. Einige Gegenstände wie Wattestäbchen aus Kunststoff und andere mit der Toilette ausgespülte Kunststoffe gelangen über Wasseraufbereitungsanlagen in Seen und Flüsse   
+Diese Gegenstände machen 40 Prozent des gesamten identifizierten Materials aus. Viele Gegenstände werden in der Industrie oder für die Körperpflege verwendet und haben normalerweise nichts mit Tätigkeiten am Ufer zu tun. Eine Ausweitung der Sensibilisierungskampagnen, die auf eine Vermeidung von Materialverlusten an der Quelle aus bestimmten Sektoren abzielen, könnte dafür sorgen, dass weniger Gegenstände wie Industriepellets, die für Spritzgussverfahren verwendet werden, gefunden werden. Einige Gegenstände wie Wattestäbchen aus Kunststoff und andere Gegenstände aus Plastik, die über Toilettenspülungen entsorgt werden, gelangen über Abwasserreinigungsanlagen in Seen und Fliessgewässer  
 
-Zu den Strategien zur Verringerung können gehören: 
+Reduktionsstrategien könnten Folgendes umfassen: 
 
-* Modernisierung von Abwasserbehandlungsanlagen zur Verringerung von Materialverlusten  
-* Sensibilisierungskampagnen für bestimmte Objekte oder Produkte 
-* Sensibilisierungskampagnen für bestimmte Branchen  
+* Aufrüstung von Abwasserreinigungsanlagen zur Verringerung von Materialverlusten
+* Sensibilisierungskampagnen für spezifische Gegenstände oder Produkte
+* Sensibilisierungskampagnen für spezifische Branchen 
 
-Eine Verringerung der Abhängigkeit von Einwegkunststoffen, geschäumten Kunststoffen, Kunststoffen für das Baugewerbe und Industriefolien würde die in die natürliche Umwelt entweichenden Mengen wahrscheinlich stark reduzieren. Die niedrigen Kosten und der Wegwerfcharakter dieser Materialien haben dazu geführt, dass sie in allen Sektoren in immer größerem Umfang und in immer stärkerem Maße verwendet werden. Das geringe Gewicht und die Abbaubarkeit dieser Materialien begünstigen die Fragmentierung und das Entweichen in die natürlichen Systeme, insbesondere bei längerer Anwendung im Freien. Kunststoffverunreinigungen sind ein globales Problem, und immer mehr Länder reduzieren ihre Abhängigkeit von Einwegkunststoffen und geschäumten Kunststoffen wie Polystyrol.  
+Beseitigungs- oder Reduktionsstrategien erfordern regionale Massnahmen, um auch die Gemeinden oberhalb der Erhebungsstandorte miteinzubeziehen.
+Wahrscheinlich würde eine weniger starke Abhängigkeit von Einwegkunststoffen, Schaumstoffen, Baukunststoffen und Industriefolien dazu führen, dass kleinere Mengen dieser Materialien in die Umwelt gelangen. Da diese Materialien günstige Wegwerfwaren sind, wurden sie in allen Sektoren immer häufiger eingesetzt, wodurch eine immer grössere Abhängigkeit entstand. Das geringe Gewicht und ihre Abbaueigenschaften erleichtern die Fragmentierung dieser Materialien sowie ein Entweichen in die Umwelt, insbesondere, wenn sie länger im Freien verbleiben. Kunststoffschadstoffe sind ein weltweites Problem und immer mehr Länder ergreifen Massnahmen, um weniger von Einwegkunststoffen und -schaumstoffen wie Styropor abhängig zu sein.  
 
 <br />
 
