@@ -56,7 +56,7 @@ width: 100%
 
 __Abbildung 1:__ _Karte der Erhebungsstandorte März 2020–August 2021. Die rot dargestellten Standorte betreffen Erhebungen an Fliessgewässern oder Seen, die violetten Punkte sind die Standorte in den Alpen und im Jura._
 
-## Seen und Flüsse
+## Seen und Fliessgewässer
 
 Die Proben an Seen und Fliessgewässern wurden vom März 2020 bis Mai 2021 entnommen. Im Rahmen von 386 Erhebungen wurden insgesamt 54’744 Gegenstände eingesammelt und klassifiziert. Die Erhebungsstandorte wurden für die regionale Analyse zu Erhebungsgebieten zusammengefasst und durch die Flüsse Aare, Rhone, Ticino und Linth/Limmat definiert. Die Erhebungen fanden an 143 verschiedenen Standorten in 77 Gemeinden statt. Insgesamt wurde eine lineare Strecke von 20 km mit einer Fläche von 9 Hektaren und einer Gesamtbevölkerung von 1,7 Millionen Personen untersucht.
 
