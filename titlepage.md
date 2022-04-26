@@ -22,7 +22,7 @@
 
 **Auftraggeber:** Bundesamt für Umwelt (BAFU), Abt. Abfall und Rohstoffe, CH-3003 Bern Das BAFU ist ein Amt des Eidg. Departements für Umwelt, Verkehr, Energie und Kommunikation (UVEK).
 
-**Auftragnehmer:** Hammerdirt Brüggstrasse 39 2503 Biel/Bienne Switzerland +41 76 699 06 16 <info@hammerdirt.ch>
+**Auftragnehmer:** Hammerdirt Brüggstrasse 39 2503 Biel/Bienne Switzerland +41 76 699 06 16 info@hammerdirt.ch
 
 **Die Autoren:** Roger Erismann, Shannon Erismann
 

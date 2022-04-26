@@ -104,7 +104,7 @@ __Abbildung 2:__ *Gesamtergebnisse der Erhebung für alle Seen und Fliessgewäss
 Industriepellets und Schaumstoffe < 5 mm kamen beide in signifikanten Mengen vor, wurden jedoch in weniger als 50 Prozent der Erhebungen festgestellt (Median = 0). Dies deutet darauf hin, dass sie an spezifischen Standorten in hoher Dichte vorkommen. Zwar handelt es sich bei beiden Gegenständen um Mikroplastik, doch unterscheiden sich ihre Verwendung, ihre Herkunft und ihre Häufigkeit je nach Region des Erhebungsgebiets. Industriepellets sind Rohstoffe, die in Spritzgussverfahren verwendet werden, während Schaumstoffkügelchen entstehen, wenn Styropor zerkleinert wird. Weitere Angaben zu Standort, Mengen und Häufigkeit einzelner Gegenstände finden sich im Kapitel. [ Seen und Fliessgewässer](allsurveys).
 
 $$ \text{Abbildung 3} $$
-```{image} resources/images/esummary/lakes_rivers_de_pcs_m.png
+```{image} resources/images/esummary/lakes_rivers_de_pcs_m.jpg
 ---
 width: 80%
 align: center
@@ -637,8 +637,9 @@ For communicating pollution quantities, converting results into a simple metric 
 
 At the national level, the IQAASL results are stable compared to the surveys that were carried out in 2017 as part of the SLR study. However, there was a general decrease in the quantity of food, drink and tobacco objects. Infrastructure objects and fragmented plastics and foams did not decline and some locations may have experienced sharp increases. Pandemic restrictions limiting large outdoor gatherings may have had a beneficial effect on the reduction of food, drink and tobacco items. The greatest increases in infrastructure related objects were in Valais, Vaud and Brienz, which are locations near the Rhône and Aare rivers discharge points.  
 
-The land use around a survey location has a measurable effect on the deposition of certain objects. The more buildings and fixed infrastructure there are the more tobacco and food products are found. Objects like fragmented plastics and industrial sheeting do not have the same association and are identified at approximately equal rates indifferent of the land use with increases near river/canal discharge points.    
-Count methods are preferred for assessing litter composition and density in marine environments although, a methodology has not been standardized for freshwater systems. Currently three of the four survey areas in the IQAASL are actively monitored by research and governmental agencies downstream of Switzerland using similar methods presented in this report. Additionally, regional associations in Switzerland are actively pursuing a standardization of reporting and protocols with partner organizations in the EU.
+The land use around a survey location has a measurable effect on the deposition of certain objects. The more buildings and fixed infrastructure there are the more tobacco and food products are found. Objects like fragmented plastics and industrial sheeting do not have the same association and are identified at approximately equal rates indifferent of the land use with increases near river/canal discharge points.
+
+Currently three of the four survey areas in the IQAASL are actively monitored by research and governmental agencies downstream of Switzerland using similar methods presented in this report. Additionally, regional associations in Switzerland are actively pursuing a standardization of reporting and protocols with partner organizations in the EU.
 
 The IQAASL is a citizen-science project that only uses open-source tools and shares data on GNU public license, enabling collaboration with stakeholders. At the end of the mandate, December 31, 2021, Hammerdirt will assume the responsibility of maintaining the code and data repository which is hosted publicly on Github.
 
