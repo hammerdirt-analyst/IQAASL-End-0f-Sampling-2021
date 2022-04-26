@@ -257,7 +257,7 @@ Gli oggetti più comuni sono definiti come quegli elementi censiti in almeno il 
 Gli oggetti correlati al consumo di prodotti alimentari, bevande e tabacco vengono censiti con percentuali più elevate nelle zone d’indagine con una quota maggiore di edifici o infrastrutture fisse. Una tendenza inversa si riscontra nelle ubicazioni con una percentuale maggiore di terreni ricoperti da boschi o dedicati ad attività agricole. Materiali per infrastrutture e plastiche frammentate sono invece reperiti con una frequenza analoga in tutte le aree d’indagine, indipendentemente dalla destinazione d’uso dei terreni circostanti.
 
 $$ \text{Figura 2} $$
-```{image} resources/images/esummary/esummary_it_mcommon_table.jpg
+```{image} resources/images/esummary/it_mcommon_table.jpg
 ---
 width: 100%
 ---
