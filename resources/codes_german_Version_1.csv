@@ -1,3 +1,276 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d519411a6d2823513538962ac5b72321022e336e8cff6a482fa84d4c08a947f4
-size 17868
+,code,description,german
+0,G708,Batons de ski,Skistöcke
+1,G212,Oil nodules or coal fragments -- not from a BBQ,Ölknollen oder Kohlefragmente - nicht von einem BBQ
+2,G213,Paraffin wax,Paraffinwachs 
+3,G214,Oil/tar,Öl/Teer
+4,G135,"Clothes, footware, headware, gloves","Kleidung, Fussbekleidung, Kopfbedeckung, Handschuhe"
+5,G136,Shoes,Schuhe
+6,G137,"Clothing, towels & rags","Kleidung, Handtücher und Lappen"
+7,G138,Shoes and sandals,Schuhe und Sandalen
+8,G139,Backpacks,Rucksäcke
+9,G140,"Bags, burlap, hessian, jute or hemp","Sack oder Beutel (Tragetasche), Jute oder Hanf"
+10,G141,Carpet,Teppiche
+11,G142,"Rope , string or nets","Seil, Schnur oder Netze"
+12,G143,Sails and canvas,Segel und Segeltuch
+13,G144,Tampons,Tampons
+14,G145,Other textiles,Andere Textilien
+15,G712,Gants de ski,Skihandschuhe
+16,G902,"Mask medical, cloth","Medizinische Masken, Stoff"
+17,G200,"Glass drink bottles, pieces","Getränke Glasflasche, Stücke"
+18,G201,"Jars, includes pieces","Gläser, einschliesslich Stücke"
+19,G202,Light bulbs,Glühbirnen
+20,G203,"Tableware ceramic or glass, cups, plates, pieces","Geschirr aus Keramik oder Glas, Tassen, Teller, Stücke"
+21,G204,"Construction material; bricks, pipes, cement","Baumaterial;  Ziegel, Rohre, Zement"
+22,G205,Fluorescent light tubes,Leuchtstoffröhren
+23,G206,Glass buoys,Glasboje
+24,G207,Octopus pots,Tonkrüge zum Fangen von Kraken
+25,G208,Glass or ceramic fragments > 2.5 cm,Glas oder Keramikfragmente >2.5 cm
+26,G209,Large glass objects,Grosse Gegenstände aus Glas
+27,G210,Other glass/ceramic,Sonstiges Glas/Keramik Materialien
+28,G917,Terracotta balls,Blähton
+29,G921,Ceramic tile and pieces,Keramikfliesen und Bruchstücke
+30,G174,Aerosol spray cans,Aerosolspraydosen
+31,G175,"Cans, beverage","Getränkedosen (Dosen, Getränke)"
+32,G176,"Cans, food",Konservendosen (Lebensmitteldosen)
+33,G177,"Foil wrappers, aluminum foil",Verpackungen aus Aluminiumfolie
+34,G178,"Metal bottle caps, lids & pull tabs from cans","Kronkorken, Lasche von Dose/Aufreisslaschen von Dosen, Stay-On-Tab-Verschluss , Pull-Tab, (Metallflaschenverschlüsse, Deckel und Aufreisslaschen von Dosen"
+35,G179,Disposable BBQs,Einweg Grill
+36,G180,Appliances,Haushaltsgeräte
+37,G181,"Tableware metal;  cups, cutlery etc.","Geschirr aus Metall, Tassen, Besteck usw."
+38,G182,"Fishing; hooks, weights, lures, sinkers etc.","Angeln; Haken, Gewichte, Köder, Senkblei, usw."
+39,G183,Fish hook remains,Teile von Angelhaken
+40,G184,Lobster pots,Hummerfangkörbe
+41,G185,Middle size containers,Behälter mittlerer Grösse
+42,G186,Industrial scrap,Industrieschrott
+43,G187,Drums,Fässer
+44,G188,Other cans < 4 L,Andere Kanister/Behälter < 4 L
+45,G189,"Gas bottles, drums and buckets > 4 L","Gasflaschen, Fässer und Eimer > 4 L"
+46,G190,Paint cans,"Farbtöpfe, Farbbüchsen,  ( Farbeimer)"
+47,G191,Wire and mesh,Draht und Gitter
+48,G192,Barrels,Fässer
+49,G193,car parts and batteries,Teile von Autos und Autobatterien
+50,G194,"Cables, metal wire(s) often inside rubber or plastic tubes","Kabel, Metalldraht oft in Gummi- oder Kunststoffschläuchen"
+51,G195,Batteries - household,Batterien (Haushalt)
+52,G196,Large metallic objects,Grosse metallische Gegenstände
+53,G197,Other metal,sonstiges Metall
+54,G198,Other metal pieces < 50cm,Andere Metallteile < 50 cm
+55,G199,Other metal pieces > 50cm,Andere Metallteile > 50 cm
+56,G705,Screws and bolts,Schrauben und Bolzen
+57,G906,coffee capsules aluminum,Kaffeekapseln Aluminium
+58,G918,"Safety pins, paper clips, small metal utility items","Sicherheitsnadeln, Büroklammern, kleine Gebrauchsgegenstände aus Metall"
+59,G919,"Nails, screws, bolts etc.","Nägel, Schrauben, Bolzen usw. "
+60,G929,"Electronics and pieces; sensors, headsets etc.","Elektronik und Teile; Sensoren, Headsets usw. "
+61,G945,Razor blades,Rasierklingen
+62,G146,"Paper, cardboard","Papier, Karton"
+63,G147,Paper bags,"Papiertragetaschen, (Papiertüten)"
+64,G148,Cardboard (boxes and fragments),Kartonkisten und Stücke
+65,G149,Paper packaging,Papierverpackungen
+66,G150,"Milk cartons, tetrapack","Milchkartons, Tetrapack"
+67,G151,"Cartons, Tetrapacks","Tetrapack, Kartons"
+68,G152,"Cigarette boxes, tobacco related paper/cardboard","Papier &Karton;Zigarettenschachteln, Papier/Karton Verpackung für Tabakwaren"
+69,G153,"Cups, food containers, wrappers (paper)","Papierbecher, Lebensmittelverpackungen aus Papier/ Karton"
+70,G154,Newspapers or magazines,Zeitungen oder Zeitschriften
+71,G155,Fireworks paper tubes and fragments,Feuerwerkspapierhülsen und -fragmente
+72,G156,Paper fragments,Papierfragmente
+73,G157,Paper,Papier
+74,G158,Other paper items,Sonstige Gegenstände aus Papier
+75,G923,"Tissue, toilet paper, napkins, paper towels","Taschentücher, Toilettenpapier, Servietten, Papierhandtücher"
+76,G1,Six pack rings,Sixpack-Ringe
+77,G10,Food containers single use foamed or plastic,Lebensmittelbehälter zum einmaligen Gebrauch aus Schaumstoff oder Kunststoff
+78,G100,Medical; containers/tubes/ packaging,Medizin; Behälter/Röhrchen/Verpackungen
+79,G101,Dog feces bag,"Robidog Hundekot-Säcklein, andere Hundekotsäcklein"
+80,G102,Flip-flops,Flip-Flops
+81,G103,Plastic fragments rounded <5mm,Kunststofffragmente rund <5mm
+82,G104,Plastic fragments subrounded <5mm,"Kunststofffragmente abgerundet / rundlich  <5mm (jedoch noch nicht ""schön"" rund)"
+83,G105,Plastic fragments subangular <5mm,Kunststofffragmente subangulär <5mm
+84,G106,Plastic fragments angular <5mm,Kunststofffragmente eckig <5mm
+85,G107,Cylindrical pellets < 5mm,Zylindrische Pellets <5mm
+86,G108,disk pellets  <5mm,Scheibenförmige Pellets <5mm
+87,G109,Flat pellets  <5mm,Flache Pellets <5mm
+88,G11,"Cosmetics for the beach, e.g. sunblock","Kosmetika für den Strand, z.B. Sonnencreme"
+89,G110,Ovoid pellets < 5mm,Eiförmige Pellets < 5mm
+90,G111,Spheruloid pellets < 5mm,Kugelförmige Pellets < 5mm
+91,G112,Industrial pellets (nurdles),Industriepellets (Nurdles)
+92,G113,Filaments  <5mm,Fäden <5mm
+93,G114,Films  <5mm,Folien <5mm
+94,G115,Foamed  plastic <5mm,Schaumstoff <5mm
+95,G116,Granules <5mm,Granulat <5mm
+96,G117,Styrofoam < 5mm,Styropor < 5mm
+97,G118,Small industrial spheres <5mm,Kleine Industrielle Kügelchen <5mm
+98,G119,Sheetlike user plastic (>1mm),Folienartiger Kunststoff (>1mm)
+99,G12,"Cosmetics, non-beach use personal care containers","Kosmetika, Behälter für Körperpflegeprodukte, die nicht am Strand verwendet werden"
+100,G120,Threadlike user plastic ( >1mm),Fadenförmiger Kunststoff ( >1mm)
+101,G121,Foamed user plastic ( >1mm),Geschäumter Kunststoff ( >1mm)
+102,G122,Plastic fragments ( >1mm),Kunststofffragmente (>1mm)
+103,G123,Polyurethane granules < 5mm,Polyurethan-Granulat < 5mm
+104,G124,Other plastic or foam products,Andere Kunststoff- oder Schaumstoffprodukte
+105,G13,"Bottles, containers, drums to transport, store material","Flaschen, Behälter, Fässer zum Transportieren und Lagern von Material"
+106,G14,Engine oil bottles,Flaschen für Motoröl (Motorölflaschen)
+107,G15,Engine oil bottles > 50cm,"Flaschen für Motoröl, Motorölflaschen > 50cm"
+108,G16,Jerry cans,Kanister
+109,G17,Injection gun cartridge,Kartuschen von Kartuschen-spritzpistolen
+110,G18,Crates/baskets,Kisten/Körbe
+111,G19,Car parts,Autoteile
+112,G2,Bags,"Säcke, Taschen"
+113,G20,Caps and lids,Laschen und Deckel
+114,G21,Drink lids,"Getränke-Deckel, Getränkeverschluss"
+115,G211,"Other medical (swabs, bandaging, adhesive plaster)","Sonstiges medizinisches Material (Tupfer, Verbandsmaterial, Pflaster)"
+116,G22,"Lids for chemicals, detergents (non-food)","Deckel für Chemikalien, Reinigungsmittel (Ohne Lebensmittel)"
+117,G23,Lids unidentified,unidentifizierte Deckel
+118,G24,Lid/cap rings from plastic bottles/containers,Ringe von Plastikflaschen/Behältern
+119,G25,"Tobacco; plastic packaging, containers","Tabak; Kunststoffverpackungen, Behälter"
+120,G26,Cigarette lighters,Feuerzeug
+121,G27,Cigarette filters,Zigarettenfilter
+122,G28,"Pens, lids, mechanical pencils etc.","Stifte, Deckel, Druckbleistifte usw."
+123,G29,"Combs, brushes and sunglasses","Kämme, Bürsten und Sonnenbrillen"
+124,G3,Bags; plastic shopping/carrier/grocery and pieces,"Taschen; Einkaufstaschen, Shoppingtaschen, Lebensmitteltaschen aus Kunststoff und Stücke"
+125,G30,"Food wrappers; candy, snacks","Lebensmittelverpackungen; Süssigkeiten, Snacks"
+126,G31,Lollypop sticks,"Schleckstengel, Stengel von Lutscher, Lollypop Stengel"
+127,G32,Toys and party favors,Spielzeug und Partyartikel
+128,G33,"Cups, lids, single use foamed and hard plastic","Einwegartikel; Tassen/Becher & Deckel, Schaumstoff- und Hartplastik"
+129,G34,"Cutlery, plates and trays","Besteck, Teller und Tabletts"
+130,G35,Straws and stirrers,Strohhalme und Rührstäbchen
+131,G36,"Bags/sacks heavy duty plastic for 25 Kg or more; animal feed, fertilizers, garden trash etc.","Säcke aus strapazierfähigem Kunststoff für 25 kg oder mehr; Tierfutter, Dünger, Gartenabfälle usw."
+132,G37,Mesh bags,"Netzbeutel, Netztasche, Netzsäcke"
+133,G38,"Coverings; plastic packaging, sheeting for protecting large cargo items","Abdeckungen; Kunststoffverpackungen, Folien zum Schutz grosser Ladungen"
+134,G39,Gloves,Handschuhe
+135,G4,"Small plastic bags; freezer, zip-lock etc.","Kleine Plastikbeutel; Gefrierbeutel, Zippsäckchen, (Zip-Lock-Beutel) usw."
+136,G40,Gloves household/gardening,Handschuhe Haushalt/Garten
+137,G41,Glove industrial/professional,Handschuhe Industriell/Professionell
+138,G42,Crab lobster pots,Krabben- und Hummerkörbe
+139,G43,"Tags fishing or industry (security tags, seals)","Sicherheitsetiketten, Siegel für Fischerei oder Industrie "
+140,G44,Octopus pots,Kunststoffgefäss zum Fangen von Kraken
+141,G45,Mussel nets,Muschelnetze
+142,G46,Oyster trays,Austernschalen
+143,G47,Sheeting from mussel culture,Folien aus der Muschelzucht
+144,G48,"Rope, synthetic","Seile, synthetische"
+145,G49,Rope > 1cm,Seile > 1cm
+146,G5,Generic plastic bags,Plastiksäcke/ Plastiktüten
+147,G50,String < 1cm,Schnur < 1cm
+148,G51,Fishing net,Fischernetz
+149,G52,Nets and pieces,Netze und Teilstücke
+150,G53,Nets and pieces < 50cm,Netze und Teilstücke < 50cm
+151,G54,Nets and pieces > 50cm,Netze und Teilstücke > 50cm
+152,G55,Fishing line (entangled),Angelschnur (verwickelt)
+153,G56,Tangled nets,Verhedderte Netze
+154,G57,Fish boxes,Fischkisten
+155,G58,Foam fish box,Schaumstoff-Fischkiste
+156,G59,Fishing line monofilament (angling),Monofile Angelschnur (Angeln)
+157,G6,"Bottles and containers, plastic non food/drink","Flaschen und Behälter aus Kunststoff, nicht für Lebensmittel/Getränke"
+158,G60,Light sticks,"Lichtstab, Knicklicht, Glow-sticks"
+159,G61,Other fishing related,Sonstiges Angelzubehör
+160,G62,Floats for nets,Schwimmer für Netze
+161,G63,Buoys,Bojen
+162,G64,Fenders,Kotflügel
+163,G65,Buckets,Eimer
+164,G66,"Straps/bands;  hard, plastic package fastener",Umreifungsbänder; Hartplastik für Verpackung für Pakete
+165,G67,Industrial sheeting,Industriefolie (Kunststoff)
+166,G68,Fiberglass fragments,Fiberglas-Fragmente
+167,G69,Helmets or hardhats,Helme oder Schutzhelme
+168,G7,Drink bottles < = 0.5L,"Getränkeflaschen < = 0,5 l"
+169,G70,Shotgun cartridges,Schrotflintenpatronen
+170,G700,The results from a clean up event,Die Ergebnisse einer Aufräumaktion
+171,G703,piquet de ballisage,Pistenmarkierungspfosten (Plastik)
+172,G704,Brosse de télesiége,Seilbahnbürste (um Schnee zu entfernen)
+173,G706,Abonnement de ski,Skiabonnement
+174,G707,étiquette d’équipement de ski,Skiausrüstungsetikett
+175,G709,"Batons de ski parties (rondelles, attaches)",Teller von Skistock (runder Teil aus Plastik unten am Skistock)
+176,G71,Shoes sandals,Schuhe Sandalen
+177,G710,"Ski / Snowboards (ski, fixations et autres piÃ¨ces)","Ski / Snowboards (Ski, Befestigungen und andere Teile)"
+178,G711,Chaufferette,Handwärmer 
+179,G713,Carpet from ski lift,Skiförderband
+180,G72,Traffic cones,Verkehrskegel
+181,G73,Foamed items & pieces (non packaging/insulation) foamed sponge material,Gegenstände aus Schaumstoff & Teilstücke (nicht Verpackung/Isolierung) schwammartige Gegenstände
+182,G74,Foam packaging/insulation/polyurethane,Schaumstoffverpackungen/Isolierung/Polyurethan
+183,G75,Plastic/polystyrene pcs 0.5 - 2.5 cm,"Kunststoff-/Polystyrolteile 0,5 - 2,5 cm"
+184,G76,Plastic/foamed polystyrene 2.5 > < 50,"Kunststoff/Polystyrolschaumstoff 2,5 > < 50"
+185,G77,Plastic or polystyrene  > 50cm,Kunststoff oder Styropor > 50cm
+186,G78,Plastic pieces 0.5cm - 2.5cm,"Kunststoffstücke 0,5cm - 2,5cm"
+187,G79,Plastic pieces 2.5cm - 50cm,"Kunststoffstücke 2,5 cm - 50 cm"
+188,G8,Drink bottles  > 0.5L,"Getränkeflaschen > 0,5L"
+189,G80,Plastic pieces > 50cm,Kunststoffteile > 50cm
+190,G81,Foamed polystyrene pieces 0.5cm - 2.5cm,"Schaumstoffstücke aus Polystyrol 0,5 cm - 2,5 cm"
+191,G82,Foam polystyrene  2.5 - 50cm,"Schaumstoffstücke aus Polystyrol 2,5 - 50cm"
+192,G83,Polystyrene pieces > 50cm,Styroporstücke > 50cm
+193,G84,CD or CD box,CD oder CD-Hülle
+194,G85,Salt packaging,"Salzsäcke (gross, zum Salzstreuen) "
+195,G86,Fin trees,Scuba material
+196,G87,"Tape, masking/duct/packing","Klebeband, Abdeckklebeband/Verpackungsklebeband"
+197,G88,Telephone incl. parts,Telefon inkl. Teile
+198,G89,Plastic construction waste,Kunststoff-Bauabfälle
+199,G9,"Cleaner, chemical bottles & containers",Flaschen und Behälter für Reinigungsmittel und Chemikalien
+200,G90,Plastic flower pots,Blumentöpfe aus Plastik
+201,G901,"Mask medical, synthetic","Medizinische Masken, synthetische"
+202,G903,Hand sanitizer containers & packets,Behälter und Packungen für Handdesinfektionsmittel
+203,G904,"Fireworks; rocket caps, exploded parts & packaging","Feuerwerkskörper; Raketenkappen, explodierte Teile und Verpackungen"
+204,G905,"Hair clip,  hair ties, personal accessories plastic","Haarspangen, Haargummis, persönliche Accessoires aus Kunststoff"
+205,G907,coffee capsules plastic,Kaffeekapseln aus Kunststoff
+206,G908,"Tape; electrical, insulating","Klebeband; elektrisch, isolierend"
+207,G909,"Foamed plastic insulation, spray and foam board pieces 0.5- 2.5cm","Schaumstoffisolierung, Spray und Schaumstoffplattenstücke 0,5 - 2,5 cm"
+208,G91,Biomass holder,Bio-Filtermaterial  / Trägermaterial aus Kunststoff für Abwasserbehandlung  im Bewegtbett-Biofilmreaktor  Verfahren (MBBR)
+209,G910,"Foamed plastic insulation, spray and foam board pieces  2.5cm - 50cm","Schaumstoffisolierung, Sprüh- und Schaumstoffplattenstücke 2,5cm - 50cm"
+210,G911,Foam expanded polystyrene pieces 0.5 - 2.5 cm,"Schaumstoffstücke aus expandiertem Polystyrol 0,5 - 2,5 cm"
+211,G912,Foam expanded polystyrene pieces 2.5 - 50cm,"Schaumstoffstücke aus expandiertem Polystyrol 2,5 - 50 cm"
+212,G913,Pacifier,Schnuller
+213,G914,"Paperclips, clothespins, plastic utility items","Büroklammern, Wäscheklammern, Gebrauchsgegenstände aus Kunststoff"
+214,G915,"Reflectors, plastic mobility items","Reflektoren, Mobilitätsartikel aus Kunststoff"
+215,G92,Bait containers,Köderbehälter
+216,G922,"Labels, bar codes","Etiketten, Strichcodes"
+217,G925,"Packets: desiccant/ moisture absorbers, plastic case filled with silica","Pakete: Trockenmittel/Feuchtigkeitsabsorber, mit Silicagel (Kieselgel) gefüllte Kunststoffbehälter"
+218,G926,"Chewing gum, often contains plastics","Kaugummi, enthält oft Kunststoffe"
+219,G927,"String trimmer line, used to cut grass, weeds, and shrubbery","Plastikschnur von Rasentrimmern, die zum Schneiden von Gras, Unkraut und Sträuchern verwendet werden"
+220,G928,Ribbons and bows,Bänder und Schleifen
+221,G93,"Cable ties; steggel, zip, zap straps",Kabelbinder
+222,G930,Foam earplugs,Schaumstoff-Ohrstöpsel
+223,G931,"Tape-caution for barrier, police, construction etc.","(Absperr)band für Absperrungen, Polizei, Baustellen usw."
+224,G932,"Bio-beads, micro plastic for wastewater treatment, irregular shape, ridged sides < 5mm","Bio-Beads, Mikroplastik für die Abwasserbehandlung, unregelmässige Form, geriffelte Seiten < 5mm"
+225,G933,"Bags, cases for accessories; glasses, electronics, incl. straps, pieces, plstc. nylon etc.","Taschen, Etuis für Zubehör, Brillen, Elektronik, inkl. Gurte, Stücke, Nylon etc."
+226,G934,"Sandbag, plastic for flood, erosion control etc..","Sandsäcke, Kunststoff für Hochwasser- und Erosionsschutz etc."
+227,G935,"Walking stick pads and pieces, often elastomeric material","Gummi-Puffer für Geh- und Wanderstöcke und Teile, oft aus Elastomermaterial"
+228,G936,Sheeting ag. greenhouse film,Folien für Gewächshäuser
+229,G937,Pheromone baits for vineyards,Pheromonköder für Weinberge
+230,G938,"Toothpicks, dental floss plastic","Zahnstocher, Zahnseide Kunststoff"
+231,G939,"Flowers, plants plastic","Kunststoffblumen, Kunststoffpflanzen"
+232,G94,Table cloth,Tischtuch
+233,G940,Foamed EVA (flexible plastic) for crafts & watersports,Schaumstoff EVA (flexibler Kunststoff) für Handwerk und Wassersport
+234,G941,Packaging films nonfood or unknown,"Verpackungsfolien, nicht für Lebensmittel oder unbekannt"
+235,G942,"Plastic shavings from lathes, CNC machining","Kunststoffspäne von Drehbänken, CNC-Bearbeitung"
+236,G943,"Fencing agriculture, plastic","Zäune Landwirtschaft, Kunststoff"
+237,G944,Pellet mass from injection molding,Pelletmasse aus dem Spritzgussverfahren
+238,G95,Cotton bud/swab sticks,Wattestäbchen / Tupfer
+239,G96,Sanitary pads /panty liners/tampons and applicators,Hygienebinden/Höscheneinlagen/Tampons und Applikatoren
+240,G97,Toilet fresheners,Behälter von Toilettenerfrischer 
+241,G98,Diapers - wipes,Windeln - Tücher
+242,G99,Syringes - needles,Spritzen - Nadeln
+243,G125,Balloons and balloon sticks,Luftballons und Luftballonstäbchen
+244,G126,Balls,Bälle
+245,G127,Rubber boots,Gummistiefel
+246,G128,Tires and belts,Reifen und Antriebsriemen
+247,G129,Inner tubes and rubber sheets,Schläuche und Gummiplatten
+248,G130,Wheels,Räder
+249,G131,Rubber bands,Gummibänder
+250,G132,Bobbers (fishing),Schwimmer (Angeln)
+251,G133,Condoms incl. packaging,Kondome einschließlich Verpackungen
+252,G134,Other rubber,Sonstiges Gummi
+253,G900,Gloves latex  personal protective equipment,"Handschuhe Latex, persönliche Schutzausrüstung"
+254,G998,No exposed shoreline,Keine freiliegende Uferlinie
+255,G999,No objects found on this survey,Keine Gegenstände bei dieser Erhebung/Studie gefunden
+256,G159,Corks,Kork
+257,G160,Pallets,Paletten
+258,G161,Processed timber,Verarbeitetes Holz
+259,G162,Crates,Kisten
+260,G163,Crab lobster pots,Krabben- und Hummerkörbe
+261,G164,Fish boxes,Fischkisten
+262,G165,"Ice cream sticks, toothpicks, chopsticks","Glacestengel (Eisstiele), Zahnstocher, Essstäbchen"
+263,G166,Paint brushes,Farbpinsel
+264,G167,Matches or fireworks,Streichhölzer oder Feuerwerke
+265,G168,Wood boards,Holzbretter
+266,G169,"Beams, dunnage","Balken, Stauholz"
+267,G170,Wood (processed),Holz (verarbeitet)
+268,G171,Other wood < 50cm,Sonstiges Holz < 50cm
+269,G172,Other wood > 50cm,Sonstiges Holz > 50 cm
+270,G173,Other,Sonstiges
+271,G702,piquet de ballisage,Pistenmarkierungspfosten (Holz)
+272,G916,Pencils and pieces,Bleistifte und Bruchstücke
+273,Gfrags,Fragmented plastics,Fragmentierte Kunststoffstücke /Bruchstücke aus Kunststoff
+274,Gfoam,Expanded polystyrene,Expandiertes Polystyrol
