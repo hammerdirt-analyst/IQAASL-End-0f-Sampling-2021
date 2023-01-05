@@ -304,17 +304,15 @@ def gather_dimensional_data(dimsData, this_level="city", locations=[], start_end
     if len(city_map):
         try:
             a[this_level] = a.location.map(lambda x: city_map.loc[x])
-        except:
+        except ValueError:
             print("the cities could not be mapped to the dims data")
-            pass
+            raise
     if agg_dims:
         try:
             a = a.groupby([this_level]).agg(agg_dims)
-        except:
+        except ValueError:
             print("the dimensional data could not be aggregated")
-            pass
-            
-        
+            raise
     
     return a
 
