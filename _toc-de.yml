@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: titlepage_de
+
+parts:
+  - caption: Zusammenfassung
+    numbered: False
+    chapters:
+    - file: lakes_rivers_de
+    - file: aare_sa_rev_de
+    - file: bielersee_rev
+ 
