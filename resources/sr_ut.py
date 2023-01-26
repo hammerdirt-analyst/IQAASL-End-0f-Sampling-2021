@@ -197,21 +197,13 @@ def the_aggregated_object_values(data, description_map={}, material_map={}, agg=
     and material totals for all the objects in data.
     
     :param data: The data frame that has the survey data
-    :type data: object: pandas.core.frame.DataFrame
     :param obj: The column of interest, the highest aggregation element
-    :type obj: string, column name, default=code
     :param agg_level: The next level of aggregateion, column of interest
-    :type agg_level: string, column name, default=groupname
     :param agg: A dictionary of columns and aggregation functions
-    :type agg: dictionary, example: {"columName":"an aggrgate function"}
     :param material_totals: Wether to include a material column or not
-    :type material_totals: string, the name of the column, default=material
     :param description_map: A mapping of code value to the plain text description of the object
-    :type description_map: dictionary or function that accpets code as an argument and returns a description
     :param material_map: A mapping of code value to the material composition of the object
-    :type material_map: dictionary or function that accpets code as an argument and returns a material
     :return: A pandas data frame of the cumulative results for each object in obj
-    :rtype: pandas.core.frame.DataFrame
     """
     
     code_totals = data.groupby([obj, agg_level], as_index=False).agg(agg)
@@ -236,15 +228,10 @@ def the_ratio_object_to_total(data, obj="material", measure="quantity", metric="
     """Makes a ratio column of one column to another. The instance quantity is divided by the total quantity.
     
     :param data: The data frame that has the comlumns
-    :type data: pandas.core.frame.DataFrame
     :param obj: The object or column for which the ratio is required
-    :type obj: str, the column name of the object of interest
     :param measure: The number or value of which the ratio is comprised
-    :type measure: str, the name of the column that has the numerical values
     :param metric: The name of the new column
-    :type metric: str,
     :return: A sorted data frame
-    :rtype: pandas.core.frame.DataFrame    
     """
     
     # group the code_totals df by material and get the quantity
@@ -421,7 +408,7 @@ def change_series_index_labels(x, change_names):
         values = new x.index label
     :type change_names: dict
     :return: The series with the new labels
-    :rtype: pandas.series    
+    :rtype: pandas.series
     """
     
     new_dict = {}
@@ -431,14 +418,11 @@ def change_series_index_labels(x, change_names):
 
 def create_summary_table_index(unit_label, lang="EN"):
     """Assigns the current units to the keys and creates
-    custom key values for tables of summary statistics.
+    custom key values based on language selection.
     
     :param unit_label: The current value of unit label
-    :type unti_label: string
     :param lang: the two letter abbreviation for the current language
-    :type lang: string DE, EN
-    :return: A dictionary that for the summary tables
-    :rtype: dict   
+    :return: the pd.describe dict with custom labels
     """
     
     if lang == "EN":
