@@ -120,16 +120,16 @@ def make_a_summary_table(ax, data, colLabels, a_color="saddlebrown", font_size=1
 
     for a_cell in top_row:
         ax[a_cell].set_height((1.1 / (len(data))))
-        ax[a_cell].set_text_props(**{"fontsize": 14})
+        ax[a_cell].set_text_props(**{"fontsize": 12})
         ax[a_cell].set_edgecolor(line_color)
-        ax[a_cell].PAD = .2
+        ax[a_cell].PAD = .1
 
     for a_cell in odd_rows:
         ax[a_cell].set_facecolor(banded_color)
 
     for a_cell in data_rows:
         ax[a_cell].set_height(.75 / (len(data)))
-        ax[a_cell].set_text_props(**{"fontsize": 14})
+        ax[a_cell].set_text_props(**{"fontsize": 12})
         ax[a_cell].set_edgecolor(line_color)
         ax[a_cell]._text.set_horizontalalignment("center")
         ax[a_cell].PAD = .1
