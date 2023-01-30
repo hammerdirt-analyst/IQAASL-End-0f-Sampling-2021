@@ -377,16 +377,10 @@ def quarterly_or_monthly_values(data, feature, vals="p/100m", quarterly=["ticino
     of survey results depending on the value of quaterly.
     
     :param data: The data frame of interest
-    :type data: pandas.core.frame.DataFrame 
     :param feature: The current feature of interest
-    :type feature: string, name of the feature
     :param vals: The column to resample
-    :type vals: string
     :param quarterly: The names of the features that have quaterly samples
-    :type quarterly: array
     :return: A data frame with eihther monthly or quarterly resamples and the designation
-    :rtype: pandas.core.frame.DataFrame 
-    
     """
     if feature in quarterly:
         plot = data[vals].resample("Q").median()

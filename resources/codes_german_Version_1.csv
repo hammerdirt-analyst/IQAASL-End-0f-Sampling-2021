@@ -132,7 +132,7 @@
 90,G111,Spheruloid pellets < 5mm,Kugelförmige Pellets < 5mm
 185,G77,Plastic or polystyrene  > 50cm,Kunststoff oder Styropor > 50cm
 198,G89,Plastic construction waste,Kunststoff-Bauabfälle
-184,G76,Plastic/foamed polystyrene 2.5 > < 50,"Kunststoff/Polystyrolschaumstoff 2,5 > < 50"
+184,G76,Plastic/foamed polystyrene 2.5 > < 50,"Objekte aus Kunststoff/Polystyrol 2,5 - 50 cm"
 231,G939,"Flowers, plants plastic","Kunststoffblumen, Kunststoffpflanzen"
 102,G122,Plastic fragments ( >1mm),Kunststofffragmente (>1mm)
 82,G104,Plastic fragments subrounded <5mm,"Kunststofffragmente abgerundet / rundlich  <5mm (jedoch noch nicht ""schön"" rund)"
@@ -266,7 +266,7 @@
 153,G56,Tangled nets,Verhedderte Netze
 180,G72,Traffic cones,Verkehrskegel
 33,G177,"Foil wrappers, aluminum foil",Verpackungen aus Aluminiumfolie
-234,G941,Packaging films nonfood or unknown,"Verpackungsfolien, nicht für Lebensmittel oder unbekannt"
+234,G941,Packaging films nonfood or unknown,Verpackungen ohne Lebensmittel/Tabak
 238,G95,Cotton bud/swab sticks,Wattestäbchen/Tupfer
 241,G98,Diapers - wipes,Windeln – Feuchttücher
 230,G938,"Toothpicks, dental floss plastic","Zahnstocher, Zahnseide Kunststoff"

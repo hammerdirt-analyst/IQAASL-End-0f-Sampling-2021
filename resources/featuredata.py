@@ -5,10 +5,6 @@ from babel.dates import get_month_names
 from typing import Any
 
 
-
-
-
-# the date is in iso standard:
 date_format = "%Y-%m-%d"
 
 group_names_de = {"waste water": "Abwasser",
@@ -24,8 +20,6 @@ group_names_de = {"waste water": "Abwasser",
                   "unclassified": "nicht klassifiziert",
     
                   }
-
-
 codes_to_change_de = [
     ["G704", "description", "Seilbahnbürsten"],
     ["Gfrags", "description", "Fragmentierte Kunststoffe"],
@@ -43,15 +37,117 @@ codes_to_change_de = [
     ["G941", "description", "Verpackungsfolien, nicht für Lebensmittel"]
 ]
 
-default_land_use_columns = ["% buildings", "% recreation", "% agg", "% woods", "streets km", "intersects"]
+luse_de = {
+    
+    "% to buildings": "Gebäude",
+    "% to recreation": "Aktivitäten im Freien",
+    "% to agg": "Landwirtschaft",
+    "% to woods": "Wald",
+    "streets km": "Strassen km",
+    "intersects": "Flussmündungen (Anzahl)",
+    "% buildings": "Gebäude",
+    "% recreation": "Aktivitäten im Freien",
+    "% agg": "Landwirtschaft",
+    "% woods": "Wald",
+}
 
-luse_ge = {"% to buildings": "% zu Gebäuden",
-           "% to recreation": "% zu Erholung",
-           "% to agg": "% zu LWS",
-           "% to woods": "% zu Wald",
-           "streets km": "Strassen km",
-           "intersects": "Flussmündung"
-           }
+river_basin_de = {
+    "aare": "Aare",
+    "linth": "Linth",
+    "rhone": "Rhone",
+    "ticino": "Ticino"
+}
+
+dims_table_columns_de = {
+    "samples":"Erhebungen",
+    "quantity":"Objekte",
+    "total_w":"Gesamtgewicht (kg)",
+    "mac_plast_w":"kg Plastik",
+    "area":"Fläche (m2)",
+    "length":"Länge (m)"
+}
+
+sample_summary_table_de = {
+    "material": "Material",
+    "quantity": "Objekte (St.)",
+    "% of total": "Anteil"
+}
+
+most_common_objects_table_de = {
+    "item": "Objekt",
+    "quantity": "Objekte (St.)",
+    "% of total": "Anteil",
+    "fail rate": "Häufigkeitsrate"
+}
+
+inventory_table_de = {
+    "item": "Objekte",
+    "groupname": "Gruppenname",
+    "quantity": "Objekte (St.)",
+    "% of total": "Anteil",
+    "fail rate": "Häufigkeitsrate",
+    "material": "Material"
+}
+
+default_land_use_columns = [
+    "% buildings",
+    "% recreation",
+    "% agg",
+    "% woods",
+    "streets km",
+    "intersects"
+]
+
+
+def thousandsSeparator(aninteger, lang: str = "de"):
+    
+    astring = "{:,}".format(aninteger)
+    if lang == "de":
+        astring = astring.replace(",", " ")
+    
+    return astring
+
+
+def replaceDecimal(afloat, lang: str = "de"):
+    astring = str(afloat)
+    if lang == "de":
+        astring = astring.replace(".", ",")
+    
+    return astring
+
+
+def fmtPctOfTotal(data, label="% of total", fmt=True, multiple=100, around=1):
+    """Multiplies the value of the objects with label=label by multiple.
+
+    :param data: A pandas data frame of survey results
+    :param label: The column name to treat
+    :param fmt: Wehther or not the values should be foramtted to string
+    :param multiple: The number to multiply by
+    :param round: The number of decimal places to round too
+    :return: The data frame
+    """
+    
+    data[label] = (data[label] * multiple)
+    
+    if around == 0:
+        data[label] = data[label].map(lambda x: f"{int(x)}%")
+    else:
+        data[label] = data[label].map(lambda x: f"{round(x, 2)}%")
+        
+    
+    return data
+
+
+def updatePlaceNames(x: str = None, column: str = 'water_name', a_map: Any = None):
+    
+    if isinstance(a_map, pd.DataFrame):
+        if x in a_map.index:
+            x = a_map.loc[x, column]
+    if isinstance(a_map, dict):
+        if x in a_map.keys():
+            x = a_map[x]
+    
+    return x
 
 
 def thereIsData(data: Any = None, atype: () = None):
@@ -81,7 +177,6 @@ def changeColumnNames(data, columns: {} = None):
     columns = thereIsData(data=columns, atype=(dict,))
     
     try:
-        print("renaming columns")
         data = data.rename(columns=columns)
     except ValueError:
         print("The columns did not go with the data")
@@ -100,7 +195,8 @@ def makeEventIdColumn(data, feature_level, these_features: str = " ", date_range
     these_features = thereIsData(data=these_features, atype=(str, ))
     
     if feature_level == "all":
-        data["data"] = pd.to_datetime(data["date"], format=date_format).dt.tz_localize('UTC')
+        data[index_name] = list(zip(data[index_prefix].values, data[index_suffix].values))
+        data["date"] = pd.to_datetime(data["date"], format=date_format)
         temporal_mask = (data["date"] >= date_range[0]) & (data["date"] <= date_range[1])
         data = data[temporal_mask].copy()
         
@@ -127,7 +223,6 @@ def featureData(filename, feature_level, language: str=None,
     data = loadData(filename)
     
     if isinstance(columns, dict):
-        print("There are columns")
         data = changeColumnNames(data, columns=columns)
     if language == "de":
         data["groupname"] = data["groupname"].map(lambda x: group_names_de[x])
@@ -193,6 +288,25 @@ def thousandsSeparator(aninteger, lang):
     
     return astring
 
+
+def quarterlyOrMonthlyValues(data, feature, vals="p/100m", quarterly=["ticino"]):
+    """Determines and then draws either quaterly or monthly resample
+    of survey results depending on the value of quaterly.
+
+    :param data: The data frame of interest
+    :param feature: The current feature of interest
+    :param vals: The column to resample
+    :param quarterly: The names of the features that have quaterly samples
+    :return: A data frame with eihther monthly or quarterly resamples and the designation
+    """
+    if feature in quarterly:
+        plot = data[vals].resample("Q").median()
+        rate = "quarterly"
+    else:
+        plot = data[vals].resample("M").median()
+        rate = "monthly"
+    
+    return plot, rate
 
 def createSummaryTableIndex(unit_label, language="en"):
     """Assigns the current units to the keys and creates
@@ -280,19 +394,14 @@ def empiricalCDF(anarray):
     return x, y
 
 
-def ecdfOfaColumn(data, column=""):
+def ecdfOfAColumn(data, column=""):
     data = thereIsData(data, (pd.DataFrame,))
-    col = thereIsData(column, (list, np.ndarray))
+    col = thereIsData(column, str)
     
     anarray = data[col].values
-    
     x, y = empiricalCDF(anarray)
     
     return {"column": col, "x": x, "y": y}
-
-
-# def columnOperation(column_operations: list = None):
-#     return {x[0]: x[1] for x in column_operations}
 
 
 def columnsAndOperations(column_operations: list = None, columns: list = None, unit_label: str = None):
@@ -312,7 +421,7 @@ def codeGroupTotals(data: pd.DataFrame = None, unit_label: str = None, column_op
     codegroup_totals = codegroup_totals.groupby('groupname', as_index=False).agg(column_operation)
     
     # percent of totalk[k
-    codegroup_totals["% pf total"] = ((codegroup_totals.quantity / codegroup_totals.quantity.sum()) * 100).round(2)
+    codegroup_totals["% of total"] = (codegroup_totals.quantity / codegroup_totals.quantity.sum()).round(2)
     
     # the code data comes from the feature data (survey results)
     # Add the description of the code and the material
@@ -341,7 +450,11 @@ class LandUseProfile:
     
     def featureOfInterest(self):
         d_indexed = self.byIndexColumn()
-        d = d_indexed[d_indexed[self.feature_level] == self.these_features]
+        if self.these_features == "all":
+            all_features = d_indexed[self.feature_level].unique()
+            d = [d_indexed[d_indexed[self.feature_level] == feature] for feature in all_features]
+        else:
+            d = [d_indexed[d_indexed[self.feature_level] == self.these_features]]
         return d
 
 
@@ -362,7 +475,6 @@ class Codes:
                     }
     
     def __init__(self, code_data: pd.DataFrame = None, language: 'str' = 'en'):
-        print("Codes init called")
         self.code_data = code_data
         self.language = language
         self.dfCodes = False
@@ -371,14 +483,11 @@ class Codes:
     
     def adjustForLanguage(self):
         if isinstance(self.dfCodes, pd.DataFrame):
-            print("The code data was previously established. Use Codes.dfCodes to for the dataframe")
             return self.dfCodes
 
         new_code_data = self.code_data.copy()
         
         if self.language == 'de':
-            print('this is german')
-            
             dmap = self.de_code_description[['code', 'german']].set_index('code')
             
             for code in new_code_data.index:
@@ -387,8 +496,6 @@ class Codes:
                 new_code_data.loc[code_def[0], code_def[1]] = code_def[2]
             
             new_code_data["material"] = new_code_data.material.map(lambda x: self.materials_ge[x])
-        
-        print('making material and description map')
         
         self.dfCodes = new_code_data
         self.mMap = new_code_data.material
@@ -411,19 +518,15 @@ class PeriodResults:
     
     def makeMask(self, parent: bool = True):
         if parent:
-            print("mask is for parent level")
             return self.period_data[self.parent_level] == self.feature_parent
         else:
-            print("make no mask")
             return False
     
     def parentSampleTotals(self, parent: bool = True):
         
-        print("making sample totals from period data")
         mask = self.makeMask(parent=parent)
         
         if isinstance(mask, tuple):
-            print("applying mask")
             data = self.period_data[mask].copy()
             data = data.groupby(["loc_date", "date"], as_index=False)[self.unit_label].sum()
         
@@ -434,23 +537,18 @@ class PeriodResults:
     
     def parentMostCommon(self, parent: bool = True, percent: bool = False):
         
-        print("getting the most common results from period data")
         mask = self.makeMask(parent=parent)
         
         if isinstance(mask, pd.Series):
-            print("applying mask")
             data = self.period_data[mask].copy()
             data = data[data.code.isin(self.most_common)]
             use_name = self.feature_parent
         else:
-            
             data = self.period_data.copy()
             data = data[data.code.isin(self.most_common)]
             use_name = self.period_name
         
         if percent:
-            print("getting most common % of total from period data")
-            
             data = data.groupby('code', as_index=False).quantity.sum()
             data.set_index('code', inplace=True)
             data[use_name] = (data.quantity / data.quantity.sum()).round(2)
@@ -458,7 +556,6 @@ class PeriodResults:
             return data[use_name]
         
         else:
-            print("getting most common pcs/m from period data")
             data = data.groupby(["loc_date", 'code'], as_index=False)[self.unit_label].sum()
             data = data.groupby('code', as_index=False)[self.unit_label].median()
             data.set_index('code', inplace=True)
@@ -468,11 +565,9 @@ class PeriodResults:
     
     def parentGroupTotals(self, parent: bool = True, percent: bool = False):
         
-        print("getting the codegroup results from period data")
         mask = self.makeMask(parent=parent)
         
         if isinstance(mask, pd.Series):
-            print("applying mask")
             data = self.period_data[mask].copy()
             use_name = self.feature_parent
         else:
@@ -480,17 +575,13 @@ class PeriodResults:
             use_name = self.period_name
         
         if percent:
-            print("getting the codegroup % of total from period data")
-            
             data = data.groupby('groupname', as_index=False).quantity.sum()
             data.set_index('groupname', inplace=True)
-            data[use_name] = (data.quantity / data.quantity.sum()).round(2) * 100
+            data[use_name] = (data.quantity / data.quantity.sum()).round(2)
             
             return data[use_name]
         
         else:
-            print("getting the codegroup pcs/m from period data")
-            
             data = data.groupby(["loc_date", 'groupname'], as_index=False)[self.unit_label].sum()
             data = data.groupby('groupname', as_index=False)[self.unit_label].median()
             data.set_index('groupname', inplace=True)
@@ -532,10 +623,7 @@ class FeatureData(Codes):
     def makeFeatureData(self):
         
         if isinstance(self.feature_data, pd.DataFrame):
-            print("The feature data has already been generated, it can be accessed through FeatureData.feature_data")
             return self.feature_data
-        
-        print('making feature data')
         
         fd_kwargs = {
             "these_features": self.these_features,
@@ -556,11 +644,8 @@ class FeatureData(Codes):
     def locationSampleTotals(self, column_operations: list = None, columns: list = None):
         
         if isinstance(self.sample_totals, pd.DataFrame):
-            print("the sample totals have already been generated, access through FeatureData.sample_totals")
             return self.sample_totals
         
-        print('sample totals')
-
         cols_ops_kwargs = {
             "column_operations": [(self.unit_label, "sum"), ("quantity", "sum")],
             "columns": ["loc_date", "location", self.feature_component, "date"],
@@ -577,7 +662,6 @@ class FeatureData(Codes):
     def codeSummary(self, column_operations=None):
         
         if isinstance(self.code_summary, pd.DataFrame):
-            print("code summary has already been generated, it can be accessed through FeatureData.code_summary")
             return self.code_summary
         
         cols_ops_kwargs = {
@@ -605,14 +689,14 @@ class FeatureData(Codes):
         code_totals["item"] = code_totals.index.map(lambda x: self.dMap[x])
         code_totals["material"] = code_totals.index.map(lambda x: self.mMap[x])
         
+        code_totals = code_totals[["item", "quantity", "% of total", self.unit_label, "fail rate", "material"]]
+        
         self.code_summary = code_totals
         
     def codeGroupSummary(self, column_operations=None):
         if isinstance(self.codegroup_summary, pd.DataFrame):
-            print("codegroup summary has already been generated, it can be accessed through FeatureData.code_summary")
             return self.codegroup_summary
         
-        print("making feature codegroup summary")
         cols_ops_kwargs = {
             "column_operations": None,
             "columns": None,
@@ -628,22 +712,18 @@ class FeatureData(Codes):
             "columns": columns
         }
 
-        codegroup_totals = codeGroupTotals(code_group_kwargs)
+        codegroup_totals = codeGroupTotals(**code_group_kwargs)
     
         self.codegroup_summary = codegroup_totals
     
     def materialSummary(self):
         
         if isinstance(self.material_summary, pd.DataFrame):
-            print('the material summary has already been generated, it can be accessed through '
-                  'FeatureData.material_summary')
             return self.material_summary
         
         if not isinstance(self.code_summary, pd.DataFrame):
-            print("making the code summary first")
             self.codeSummary()
         
-        print("making material summary")
         a = self.code_summary.groupby("material", as_index=False).quantity.sum()
         a["% of total"] = a['quantity'] / a['quantity'].sum()
         b = a.sort_values(by="quantity", ascending=False)
@@ -653,19 +733,13 @@ class FeatureData(Codes):
     def mostCommon(self, fail_rate: int = None, limit: int = 10):
         
         if isinstance(self.most_common, pd.DataFrame):
-            print(
-                "the most common codes table has already been genrated, it can be accessed through FeatureData.most_common")
             return self.most_common
         
         if not isinstance(self.code_summary, pd.DataFrame):
-            print("making a code summary first")
             self.codeSummary()
         if fail_rate is None:
-            print("getting the fail rate")
             fail_rate = self.fail_rate
-        
-        print('making most common codes table')
-        
+            
         # the top ten by quantity
         most_abundant = self.code_summary.sort_values(by="quantity", ascending=False)[:limit]
         
@@ -681,16 +755,14 @@ class FeatureData(Codes):
     def makeDailyTotalSummary(self):
         
         if isinstance(self.sample_summary, pd.Series):
-            print("the summary has already been generated, access through FeatureData.sample_summary")
             return self.sample_summary
         
-        print("making daily total summary")
         if not isinstance(self.sample_totals, pd.DataFrame):
-            print("generating the sample totals first")
             self.locationSampleTotals()
         
         # the summary of the dependent variable
         a = self.sample_totals[self.unit_label].describe().round(2)
+        a["total objects"] = self.feature_data.quantity.sum()
         
         # assign appropriate language to index names
         # retrieve the appropriate index names based on language
@@ -760,12 +832,10 @@ class Components(FeatureData, Codes):
 
         if isinstance(self.component_type, str):
             try:
-                print("attempting type mask")
                 type_mask = self.feature_data[self.type_column] == self.component_type
             except ValueError:
                 print("Type mask could not be executed using the type_column and component_type variables")
                 raise
-            print("type mask successful")
             data = data[type_mask]
         
         results = data.groupby([self.feature_component, *columns], as_index=False).agg(column_operation)
@@ -777,7 +847,7 @@ class Components(FeatureData, Codes):
         agg_this = {self.unit_label: "median", "quantity": "sum"}
         results = results.groupby([self.feature_component, "groupname"], as_index=False).agg(agg_this)
         results["f_total"] = results[self.feature_component].map(lambda x: cg_tq.loc[x])
-        results["% of total"] = (results.quantity / results.f_total).round(2) * 100
+        results["% of total"] = (results.quantity / results.f_total).round(2)
         
         return results
 
@@ -789,14 +859,14 @@ class Beaches:
         self.df_beaches = dfBeaches
         self.proper_feature_name = None
         
-    def makeFeautureNameMap(self):
+    def makeFeatureNameMap(self):
         a_map = self.df_beaches[["water_name_slug", "water_name"]].set_index("water_name_slug", drop=True)
         return a_map.drop_duplicates()
     
-    def makeLocationFeautureMap(self):
+    def makeLocationFeatureMap(self):
         return self.df_beaches["water_name_slug"].copy()
     
-    def makeCityFeautureMap(self):
+    def makeCityFeatureMap(self):
         a_map = self.df_beaches[["city", "water_name_slug"]].set_index("city", drop=True)
         return a_map.drop_duplicates()
     
@@ -815,9 +885,11 @@ class AdministrativeSummary(Beaches):
         self.dims_data = dims_data
         self.feature_component = feature_component
         self.date_range = date_range
+        self.component_labels = data[feature_component].unique()
         self.locations_of_interest = None
         self.lakes_of_interest = None
         self.rivers_of_interest = None
+        
     
     def locationsOfInterest(self, **kwargs):
         data = thereIsData(self.feature_data, pd.DataFrame)
@@ -845,8 +917,9 @@ class AdministrativeSummary(Beaches):
         
         try:
             popmap = self.df_beaches.loc[locs][self.col_population].drop_duplicates()
-        except TypeError as e:
+        except TypeError:
             print("that did not work")
+            raise
         
         return popmap
     
@@ -939,10 +1012,6 @@ class AdministrativeSummary(Beaches):
                 self.feature_data[self.feature_component] == name].loc_date.nunique()
             dims_table.loc[name, "quantity"] = q_map[name]
             
-        feature_names = self.makeFeautureNameMap()
-        dims_table["feature"] = dims_table.index.map(lambda x: feature_names.loc[x, "water_name"])
-        dims_table.set_index('feature', drop=True, inplace=True)
-        
         # get the sum of all the features
         dims_table.loc[self.label] = dims_table.sum(numeric_only=True, axis=0)
         
