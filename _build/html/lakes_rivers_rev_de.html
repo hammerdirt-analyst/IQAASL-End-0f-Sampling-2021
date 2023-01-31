@@ -570,7 +570,8 @@ title="Print to PDF"
 <span class="c1"># colors for gradients</span>
 <span class="n">cmap2</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">cmap2</span>
 <span class="n">colors_palette</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">colors_palette</span>
-<span class="n">bassin_pallette</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;rhone&quot;</span><span class="p">:</span><span class="s2">&quot;dimgray&quot;</span><span class="p">,</span> <span class="s2">&quot;aare&quot;</span><span class="p">:</span><span class="s2">&quot;salmon&quot;</span><span class="p">,</span> <span class="s2">&quot;linth&quot;</span><span class="p">:</span><span class="s2">&quot;tan&quot;</span><span class="p">,</span> <span class="s2">&quot;ticino&quot;</span><span class="p">:</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="s2">&quot;reuss&quot;</span><span class="p">:</span><span class="s2">&quot;purple&quot;</span><span class="p">}</span>
+<span class="n">bassin_pallette</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">bassin_pallette</span>
+
 
 <span class="c1"># border and row shading fro tables</span>
 <span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;saddlebrown&quot;</span>
@@ -770,7 +771,7 @@ title="Print to PDF"
 <p>Im Zeitraum von März 2020  bis Mai 2021 wurden im Rahmen von 386 Datenerhebungen insgesamt 54 744 Objekte entfernt und identifiziert. Die Ergebnisse des Alle Erhebungsgebiete umfassen 143 Orte, 77 Gemeinden und eine Gesamtbevölkerung von etwa 1 735 991 Einwohnenden.</p>
 <p><em>Seen:</em></p>
 <blockquote>
-<div><p>Bielersee, Brienzersee, Lac Léman, Lago Maggiore, Lago di Lugano, Neuenburgersee, Quatre Cantons, Thunersee, Walensee, Zugersee, Zurichsee</p>
+<div><p>Bielersee, Brienzersee, Lac Léman, Lago Maggiore, Lago di Lugano, Neuenburgersee, Thunersee, Vierwaldstättersee, Walensee, Zugersee, Zürichsee</p>
 </div></blockquote>
 <p><em>Fliessgewässer:</em></p>
 <blockquote>
@@ -805,41 +806,55 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 <p><strong>Verteilung der Landnutzungsmerkmale</strong></p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_use_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this gets all the data for the project</span>
+<span class="n">land_use_kwargs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">period_data</span><span class="o">.</span><span class="n">period_data</span><span class="p">,</span>
     <span class="s2">&quot;index_column&quot;</span><span class="p">:</span><span class="s2">&quot;loc_date&quot;</span><span class="p">,</span>
     <span class="s2">&quot;these_features&quot;</span><span class="p">:</span> <span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">],</span>
     <span class="s2">&quot;feature_level&quot;</span><span class="p">:</span><span class="n">this_level</span>   
 <span class="p">}</span>
+
+<span class="c1"># the landuse profile of the project</span>
 <span class="n">project_profile</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">LandUseProfile</span><span class="p">(</span><span class="o">**</span><span class="n">land_use_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">byIndexColumn</span><span class="p">()</span>
 
+<span class="c1"># update the kwargs for the feature data</span>
 <span class="n">land_use_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span><span class="n">fdx</span><span class="o">.</span><span class="n">feature_data</span><span class="p">})</span>
+
+<span class="c1"># build the landuse profile of the feature</span>
 <span class="n">feature_profile</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">LandUseProfile</span><span class="p">(</span><span class="o">**</span><span class="n">land_use_kwargs</span><span class="p">)</span>
+
+<span class="c1"># this is the component features of the report</span>
 <span class="n">feature_landuse</span> <span class="o">=</span> <span class="n">feature_profile</span><span class="o">.</span><span class="n">featureOfInterest</span><span class="p">()</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MultipleLocator</span>
+
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">featuredata</span><span class="o">.</span><span class="n">default_land_use_columns</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">i</span><span class="o">%</span><span class="k">3</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">]</span>
     
+    <span class="c1"># the value of land use feature n</span>
+    <span class="c1"># for each element of the feature</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">feature_landuse</span><span class="p">:</span>
+        <span class="c1"># the land use data for a feature</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="c1"># the name of the element</span>
         <span class="n">element_name</span> <span class="o">=</span> <span class="n">element</span><span class="p">[</span><span class="n">feature_profile</span><span class="o">.</span><span class="n">feature_level</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+        <span class="c1"># proper name for chart</span>
         <span class="n">label</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">river_basin_de</span><span class="p">[</span><span class="n">element_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-        
-        <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">empiricalCDF</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> 
+        <span class="c1"># cumulative distribution        </span>
+        <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">empiricalCDF</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="c1"># the plot of landuse n for this element</span>
         <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ys</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">bassin_pallette</span><span class="p">[</span><span class="n">element_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
     
-    <span class="c1"># the value of the land use feature n for all the data</span>
+    <span class="c1"># the value of the land use feature n for the project</span>
     <span class="n">testx</span><span class="p">,</span> <span class="n">testy</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">empiricalCDF</span><span class="p">(</span><span class="n">project_profile</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">testx</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">testy</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">)</span>
     
-    <span class="c1"># get the median from the data</span>
+    <span class="c1"># get the median landuse for the feature</span>
     <span class="n">the_median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     
-    <span class="c1"># plot the median and drop horzontal and vertical lines</span>
+    <span class="c1"># plot the median and drop horizontal and vertical lines</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="n">the_median</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Median&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">the_median</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="n">the_median</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -879,27 +894,37 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 <h3><span class="section-number">1.1.1. </span>Gesamtergebnisse nach Erhebungsgebiet<a class="headerlink" href="#gesamtergebnisse-nach-erhebungsgebiet" title="Link zu dieser Überschrift">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dims_table</span> <span class="o">=</span> <span class="n">admin_details</span><span class="o">.</span><span class="n">dimensionalSummary</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the dimensional data</span>
+<span class="n">dims_table</span> <span class="o">=</span> <span class="n">admin_details</span><span class="o">.</span><span class="n">dimensionalSummary</span><span class="p">()</span>
+
 <span class="c1"># a method to update the place names from slug to proper name</span>
 <span class="n">name_map</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">river_basin_de</span>
 
-<span class="c1"># for display</span>
+<span class="c1"># the order in which they are charted</span>
+<span class="n">name_order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">name_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># sort by quantity</span>
 <span class="n">dims_table</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="c1"># translating column names</span>
 <span class="n">dims_table</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">featuredata</span><span class="o">.</span><span class="n">dims_table_columns_de</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># the values in these columns need formating to swiss spec</span>
 <span class="n">thousands_separated</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fläche (m2)&quot;</span><span class="p">,</span> <span class="s2">&quot;Länge (m)&quot;</span><span class="p">,</span> <span class="s2">&quot;Erhebungen&quot;</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">]</span>
 <span class="n">replace_decimal</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">,</span> <span class="s2">&quot;Gesamtgewicht (kg)&quot;</span><span class="p">]</span>
-
 <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="s2">&quot;kg Plastik&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">dims_table</span><span class="p">[</span><span class="n">thousands_separated</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="n">thousands_separated</span><span class="p">]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s2">&quot;de&quot;</span><span class="p">))</span>
-<span class="n">dims_table</span><span class="p">[</span><span class="n">replace_decimal</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="n">replace_decimal</span><span class="p">]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">replaceDecimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">))))</span>
 
+<span class="c1"># apply numerical formatting</span>
+<span class="n">dims_table</span><span class="p">[</span><span class="n">thousands_separated</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="n">thousands_separated</span><span class="p">]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s2">&quot;de&quot;</span><span class="p">))</span>
+<span class="n">dims_table</span><span class="p">[</span><span class="n">replace_decimal</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="n">replace_decimal</span><span class="p">]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">replaceDecimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">))))</span>
+
+<span class="c1"># reset index and replace with proper names</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
 <span class="c1"># replace the data slugs with the appropriate name</span>
 <span class="n">data</span><span class="p">[</span><span class="s2">&quot;river_bassin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">river_bassin</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">updatePlaceNames</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">a_map</span><span class="o">=</span><span class="n">name_map</span><span class="p">))</span>
 
+<span class="c1"># the column names are the header row in the table</span>
 <span class="n">colLabels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colLabels</span><span class="p">)</span><span class="o">*</span><span class="mf">1.7</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
@@ -934,58 +959,77 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 <p>Verteilung der Erhebungsergebnisse. Die Werte werden als Anzahl der identifizierten Abfallobjekte pro 100 Meter (p/100 m) dargestellt.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="n">period_data</span><span class="o">.</span><span class="n">parentSampleTotals</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">months</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">months_fmt</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;%b&quot;</span><span class="p">)</span>
-<span class="n">days</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the sample totals of the parent feautre</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">period_data</span><span class="o">.</span><span class="n">parentSampleTotals</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># get the monthly or quarterly results for the feature</span>
 <span class="n">rsmp</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">sample_totals</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
 <span class="n">resample_plot</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">quarterlyOrMonthlyValues</span><span class="p">(</span><span class="n">rsmp</span><span class="p">,</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">vals</span><span class="o">=</span><span class="n">unit_label</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
+<span class="c1"># axis notations</span>
+<span class="n">months</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">months_fmt</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;%b&quot;</span><span class="p">)</span>
+<span class="n">days</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
 <span class="c1"># feature surveys</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>  <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="c1"># all other surveys</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fdx</span><span class="o">.</span><span class="n">sample_totals</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fdx</span><span class="o">.</span><span class="n">sample_totals</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;river_bassin&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="n">name_order</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">bassin_pallette</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
 <span class="c1"># monthly or quaterly plot</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">resample_plot</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">resample_plot</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">resample_plot</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: monatlicher Medianwert&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
-<span class="n">y_lim</span> <span class="o">=</span> <span class="mi">95</span>
-<span class="n">y_limit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">dx</span><span class="p">[</span><span class="n">unit_label</span><span class="p">],</span> <span class="n">y_lim</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">unit_label</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
+<span class="c1"># label the yaxis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">unit_label</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;labelpad&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;fontsize&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">})</span>
 
+<span class="c1"># label the xaxis</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="c1"># format ticks and locations</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">days</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">months_fmt</span><span class="p">)</span>
-<span class="c1"># ax.margins(x=.05, y=.05)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># the legend labels need to be changed to proper names</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">new_labels</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="p">[</span><span class="n">name_map</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+
+<span class="c1"># apply new labels and legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">new_labels</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.98</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">.6</span><span class="p">)</span>
 
 <span class="c1"># the cumlative distributions:</span>
 <span class="n">axtwo</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="c1"># the feature of interest</span>
-<span class="n">feature_ecd</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">ecdfOfAColumn</span><span class="p">(</span><span class="n">fdx</span><span class="o">.</span><span class="n">sample_totals</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">)</span>    
-<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">feature_ecd</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">feature_ecd</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axtwo</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+<span class="c1"># for each survey area:</span>
+<span class="k">for</span> <span class="n">basin</span> <span class="ow">in</span> <span class="n">name_map</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="c1"># filter the data for the element</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">sample_totals</span><span class="o">.</span><span class="n">river_bassin</span> <span class="o">==</span> <span class="n">basin</span>
+    <span class="n">ecdf_data</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">sample_totals</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="c1"># make the ECDF and make the plot</span>
+    <span class="n">feature_ecd</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">ecdfOfAColumn</span><span class="p">(</span><span class="n">ecdf_data</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">)</span>    
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">feature_ecd</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">feature_ecd</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">bassin_pallette</span><span class="p">[</span><span class="n">basin</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axtwo</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name_map</span><span class="p">[</span><span class="n">basin</span><span class="p">])</span>
 
-<span class="c1"># the other features</span>
+<span class="c1"># the ecdf of the parent element</span>
 <span class="n">other_features</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">ecdfOfAColumn</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">other_features</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">other_features</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">top</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axtwo</span><span class="p">)</span>
 
+<span class="c1"># the axist labels</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">unit_label</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Verhältnis der Erhebungen&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
+
+<span class="c1"># set the limit of the xaxis, other wise it can go on forever</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
-<span class="n">axtwo</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">.4</span><span class="p">,</span><span class="mf">.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+
+<span class="c1"># set and locate the ticks on the x and y axis</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">.1</span><span class="p">))</span>
+
+<span class="c1"># format the minor gridlines</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axtwo</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">.4</span><span class="p">,</span><span class="mf">.5</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
@@ -1010,11 +1054,11 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 <p><strong>Abfall nach Materialarten im Überblick</strong></p>
 <div class="cell tag_hide-input tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">csx</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">sample_summary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the summary of the sample totals</span>
+<span class="n">csx</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">sample_summary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-
+<span class="c1"># format for the current language</span>
 <span class="n">combined_summary</span> <span class="o">=</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">csx</span><span class="p">[</span><span class="n">x</span><span class="p">]),</span> <span class="n">language</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">csx</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-
 
 <span class="c1"># the materials table</span>
 <span class="n">fd_mat_totals</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">material_summary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1026,16 +1070,15 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 <span class="n">fd_mat_t</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">language</span><span class="p">),</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fd_mat_t</span><span class="p">]</span>
 
 <span class="c1"># make tables</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">combined_summary</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># summary table</span>
 <span class="c1"># names for the table columns</span>
 <span class="n">a_col</span> <span class="o">=</span> <span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="s2">&quot;Total&quot;</span><span class="p">]</span>
 
 <span class="n">axone</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axone</span><span class="p">)</span>
 
-<span class="n">table_two</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axone</span><span class="p">,</span> <span class="n">combined_summary</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">a_col</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.25</span><span class="p">,</span><span class="mf">.25</span><span class="p">],</span>  <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
+<span class="n">table_two</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axone</span><span class="p">,</span> <span class="n">combined_summary</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">a_col</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.75</span><span class="p">,</span><span class="mf">.25</span><span class="p">],</span>  <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
 <span class="n">table_two</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">table_two</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 
@@ -1048,7 +1091,7 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 <span class="n">table_three</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">table_three</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;eos_sample_material_tables&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1070,8 +1113,10 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 <p>Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate).</p>
 <div class="cell tag_remove-output tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># format values for table</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the most common objects from the feature data</span>
 <span class="n">m_common</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">most_common</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># format the data for printing</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">fdx</span><span class="o">.</span><span class="n">dMap</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
 <span class="n">m_common</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_common</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">language</span><span class="p">))</span>
@@ -1080,7 +1125,11 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 
 <span class="c1"># format the table headers</span>
 <span class="n">cols_to_use</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">most_common_objects_table_de</span>
+
+<span class="c1"># add the current units to the table header</span>
 <span class="n">cols_to_use</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">unit_label</span><span class="p">:</span><span class="n">unit_label</span><span class="p">})</span>
+
+<span class="c1"># convert data frame to array</span>
 <span class="n">all_survey_areas</span> <span class="o">=</span> <span class="n">m_common</span><span class="p">[</span><span class="n">cols_to_use</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">9.2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">m_common</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">))</span>
@@ -1205,7 +1254,7 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
         <span class="n">this_month</span><span class="o">=</span><span class="n">x</span><span class="o">-</span><span class="mi">12</span>    
     <span class="k">return</span> <span class="n">this_month</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 
 <span class="c1"># define a bottom</span>
 <span class="n">bottom</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">mgr</span><span class="p">[</span><span class="s2">&quot;G27&quot;</span><span class="p">])</span>
@@ -1398,7 +1447,7 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 <span class="n">combined_summary</span> <span class="o">=</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">csx</span><span class="p">[</span><span class="n">x</span><span class="p">]),</span> <span class="n">language</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">csx</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
 
 <span class="c1"># make the charts</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="n">aspec</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -1419,11 +1468,12 @@ Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutz
 
 <span class="n">a_col</span> <span class="o">=</span> <span class="p">[</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="s2">&quot;total&quot;</span><span class="p">]</span>
 
-<span class="n">axone</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">aspec</span><span class="p">[:,</span> <span class="mi">7</span><span class="p">:])</span>
+<span class="n">axone</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">aspec</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:])</span>
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axone</span><span class="p">)</span>
 
 <span class="n">table_five</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axone</span><span class="p">,</span> <span class="n">combined_summary</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="n">a_col</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.75</span><span class="p">,</span><span class="mf">.25</span><span class="p">],</span>  <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span><span class="s2">&quot;lower center&quot;</span><span class="p">})</span>
 <span class="n">table_five</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">table_five</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;eos_rivers&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>

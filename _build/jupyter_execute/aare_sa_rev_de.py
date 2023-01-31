@@ -71,6 +71,7 @@ sns.set_style("whitegrid")
 # colors for gradients
 cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
+bassin_pallette = featuredata.bassin_pallette
 
 # border and row shading fro tables
 a_color = "saddlebrown"
@@ -300,6 +301,7 @@ md(lake_string)
 # In[4]:
 
 
+# this gets all the data for the project
 land_use_kwargs = {
     "data": period_data.period_data,
     "index_column":"loc_date",
@@ -307,34 +309,47 @@ land_use_kwargs = {
     "feature_level":this_feature['level']   
 }
 
+# the landuse profile of the project
 project_profile = featuredata.LandUseProfile(**land_use_kwargs).byIndexColumn()
+
+# update the kwargs for the feature data
 land_use_kwargs.update({"data":fdx.feature_data})
+
+# build the landuse profile of the feature
 feature_profile = featuredata.LandUseProfile(**land_use_kwargs)
+
+# this is the component features of the report
 feature_landuse = feature_profile.featureOfInterest()
 
 fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
-from matplotlib.ticker import MultipleLocator
+
 for i, n in enumerate(featuredata.default_land_use_columns):
     r = i%2
     c = i%3
     ax=axs[r,c]
     
+    # the value of land use feature n
+    # for each element of the feature
     for element in feature_landuse:
+        # the land use data for a feature
         data = element[n].values
+        # the name of the element
         element_name = element[feature_profile.feature_level].unique()
+        # proper name for chart
         label = featuredata.river_basin_de[element_name[0]]
-        
-        xs, ys = featuredata.empiricalCDF(data) 
-        sns.lineplot(x=xs, y=ys, ax=ax, label=label)
+        # cumulative distribution        
+        xs, ys = featuredata.empiricalCDF(data)
+        # the plot of landuse n for this element
+        sns.lineplot(x=xs, y=ys, ax=ax, label=label, color=bassin_pallette[element_name[0]])
     
-    # the value of the land use feature n for all the data
+    # the value of the land use feature n for the project
     testx, testy = featuredata.empiricalCDF(project_profile[n].values)
     sns.lineplot(x=testx, y=testy, ax=ax, label=top, color="magenta")
     
-    # get the median from the data
+    # get the median landuse for the feature
     the_median = np.median(data)
     
-    # plot the median and drop horzontal and vertical lines
+    # plot the median and drop horizontal and vertical lines
     ax.scatter([the_median], 0.5, color="red",s=40, linewidth=1, zorder=100, label="Median")
     ax.vlines(x=the_median, ymin=0, ymax=0.5, color="red", linewidth=1)
     ax.hlines(xmax=the_median, xmin=0, y=0.5, color="red", linewidth=1)
@@ -355,6 +370,7 @@ plt.subplots_adjust(top=.91, hspace=.4)
 plt.suptitle("Landnutzung im Umkries von 1 500 m um den Erhebungsort", ha="center", y=1, fontsize=16)
 fig.legend(handles, labels, bbox_to_anchor=(.5,.5), loc="upper center", ncol=3) 
 
+# capture the output
 glue("aare_survey_area_landuse", fig, display=False)
 
 plt.close()
@@ -375,26 +391,32 @@ plt.close()
 
 # the dimensional data
 dims_table = admin_details.dimensionalSummary()
+
 # a method to update the place names from slug to proper name
 name_map = admin_details.makeFeatureNameMap()
 
-# for display
+# sort by quantity
 dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
+
 # translating column names
 dims_table.rename(columns=featuredata.dims_table_columns_de, inplace=True)
 
 # the values in these columns need formating to swiss spec
 thousands_separated = ["Fläche (m2)", "Länge (m)", "Erhebungen", "Objekte"]
 replace_decimal = ["kg Plastik", "Gesamtgewicht (kg)"]
-
 dims_table["kg Plastik"] = dims_table["kg Plastik"]/1000
-dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
-dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,3))))
 
+# apply numerical formatting
+dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
+dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,2))))
+
+# reset index and replace with proper names
 data = dims_table.reset_index()
+
 # replace the data slugs with the appropriate name
 data["water_name_slug"] = data.water_name_slug.map(lambda x: featuredata.updatePlaceNames(x=x, a_map=name_map))
 
+# the column names are the header row in the table
 colLabels = data.columns
 
 fig, ax = plt.subplots(figsize=(len(colLabels)*1.7,len(data)*.7))
@@ -490,7 +512,7 @@ plt.close()
 
 # ### Zusammengefasste Daten und Materialarten
 
-# In[28]:
+# In[7]:
 
 
 csx = fdx.sample_summary.copy()
@@ -509,7 +531,7 @@ fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
 fd_mat_t = [(x[0], featuredata.thousandsSeparator(int(x[1]), language), x[2]) for x in fd_mat_t]
 
 # make tables
-fig, axs = plt.subplots(1,2, figsize=(8,len(combined_summary)*.7))
+fig, axs = plt.subplots(1,2)
 
 # summary table
 # names for the table columns
@@ -518,7 +540,7 @@ a_col = [this_feature["name"], "Total"]
 axone = axs[0]
 sut.hide_spines_ticks_grids(axone)
 
-table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
+table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.75,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
 table_two.set_fontsize(12)
 
@@ -1035,13 +1057,14 @@ ax.xaxis.set_major_formatter(months_fmt)
 # ax.margins(x=.05, y=.05)
 ax.set_ylim(-50, 2000)
 
-a_col = [this_feature["name"], "total"]
+a_col = [this_feature["name"], "Total"]
 
-axone = fig.add_subplot(aspec[:, 7:])
+axone = fig.add_subplot(aspec[:, 6:])
 sut.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.75,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_five.get_celld()[(0,0)].get_text().set_text(" ")
+table_five.set_fontsize(12)
 
 glue('aare_survey_area_rivers_summary', fig, display=False)
 plt.close()
@@ -1118,7 +1141,7 @@ frag_foams = F"""
 # md(frag_foams)
 
 
-# In[27]:
+# In[24]:
 
 
 # collect the data before aggregating foams for all locations in the survye area

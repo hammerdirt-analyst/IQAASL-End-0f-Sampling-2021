@@ -274,7 +274,7 @@ dt_all = a_data.groupby(["loc_date","location","river_bassin", "date"], as_index
 t = {"samples":fd.loc_date.nunique(),
      "locations":fd.location.unique(),
      "nlocations":fd.location.nunique(),
-     "fdtotalq": fd.quantity.sum()
+     "fdtotalq": fd.quantity.sum()f
     }
 
 # gather the municpalities and the population:

@@ -71,7 +71,8 @@ sns.set_style("whitegrid")
 # colors for gradients
 cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
-bassin_pallette = {"rhone":"dimgray", "aare":"salmon", "linth":"tan", "ticino":"steelblue", "reuss":"purple"}
+bassin_pallette = featuredata.bassin_pallette
+
 
 # border and row shading fro tables
 a_color = "saddlebrown"
@@ -295,41 +296,55 @@ md(lake_string)
 # In[3]:
 
 
+# this gets all the data for the project
 land_use_kwargs = {
     "data": period_data.period_data,
     "index_column":"loc_date",
     "these_features": this_feature['slug'],
     "feature_level":this_level   
 }
+
+# the landuse profile of the project
 project_profile = featuredata.LandUseProfile(**land_use_kwargs).byIndexColumn()
 
+# update the kwargs for the feature data
 land_use_kwargs.update({"data":fdx.feature_data})
+
+# build the landuse profile of the feature
 feature_profile = featuredata.LandUseProfile(**land_use_kwargs)
+
+# this is the component features of the report
 feature_landuse = feature_profile.featureOfInterest()
 
 fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
-from matplotlib.ticker import MultipleLocator
+
 for i, n in enumerate(featuredata.default_land_use_columns):
     r = i%2
     c = i%3
     ax=axs[r,c]
     
+    # the value of land use feature n
+    # for each element of the feature
     for element in feature_landuse:
+        # the land use data for a feature
         data = element[n].values
+        # the name of the element
         element_name = element[feature_profile.feature_level].unique()
+        # proper name for chart
         label = featuredata.river_basin_de[element_name[0]]
-        
-        xs, ys = featuredata.empiricalCDF(data) 
+        # cumulative distribution        
+        xs, ys = featuredata.empiricalCDF(data)
+        # the plot of landuse n for this element
         sns.lineplot(x=xs, y=ys, ax=ax, label=label, color=bassin_pallette[element_name[0]])
     
-    # the value of the land use feature n for all the data
+    # the value of the land use feature n for the project
     testx, testy = featuredata.empiricalCDF(project_profile[n].values)
     sns.lineplot(x=testx, y=testy, ax=ax, label=top, color="magenta")
     
-    # get the median from the data
+    # get the median landuse for the feature
     the_median = np.median(data)
     
-    # plot the median and drop horzontal and vertical lines
+    # plot the median and drop horizontal and vertical lines
     ax.scatter([the_median], 0.5, color="red",s=40, linewidth=1, zorder=100, label="Median")
     ax.vlines(x=the_median, ymin=0, ymax=0.5, color="red", linewidth=1)
     ax.hlines(xmax=the_median, xmin=0, y=0.5, color="red", linewidth=1)
@@ -366,30 +381,40 @@ plt.close()
 
 # ### Gesamtergebnisse nach Erhebungsgebiet
 
-# In[19]:
+# In[4]:
 
 
+# the dimensional data
 dims_table = admin_details.dimensionalSummary()
+
 # a method to update the place names from slug to proper name
 name_map = featuredata.river_basin_de
 
-# for display
+# the order in which they are charted
+name_order = list(name_map.keys())
+
+# sort by quantity
 dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
+
 # translating column names
 dims_table.rename(columns=featuredata.dims_table_columns_de, inplace=True)
 
 # the values in these columns need formating to swiss spec
 thousands_separated = ["Fläche (m2)", "Länge (m)", "Erhebungen", "Objekte"]
 replace_decimal = ["kg Plastik", "Gesamtgewicht (kg)"]
-
 dims_table["kg Plastik"] = dims_table["kg Plastik"]/1000
-dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
-dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,3))))
 
+# apply numerical formatting
+dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
+dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,2))))
+
+# reset index and replace with proper names
 data = dims_table.reset_index()
+
 # replace the data slugs with the appropriate name
 data["river_bassin"] = data.river_bassin.map(lambda x: featuredata.updatePlaceNames(x=x, a_map=name_map))
 
+# the column names are the header row in the table
 colLabels = data.columns
 
 fig, ax = plt.subplots(figsize=(len(colLabels)*1.7,len(data)*.7))
@@ -421,58 +446,77 @@ plt.close()
 # In[5]:
 
 
+# the sample totals of the parent feautre
 dx = period_data.parentSampleTotals(parent=False)
-
-months = mdates.MonthLocator(interval=1)
-months_fmt = mdates.DateFormatter("%b")
-days = mdates.DayLocator(interval=7)
 
 # get the monthly or quarterly results for the feature
 rsmp = fdx.sample_totals.set_index("date")
 resample_plot, rate = featuredata.quarterlyOrMonthlyValues(rsmp, this_feature["name"], vals=unit_label)
 
-fig, axs = plt.subplots(1,2, figsize=(10,5))
+fig, axs = plt.subplots(1,2, figsize=(11,5))
 
 ax = axs[0]
 
+# axis notations
+months = mdates.MonthLocator(interval=1)
+months_fmt = mdates.DateFormatter("%b")
+days = mdates.DayLocator(interval=7)
+
 # feature surveys
-sns.scatterplot(data=dx, x="date", y=unit_label, label=top, color="black", alpha=0.4,  ax=ax)
-# all other surveys
-sns.scatterplot(data=fdx.sample_totals, x="date", y=unit_label, label=this_feature["name"], color="red", s=34, ec="white", ax=ax)
+sns.scatterplot(data=fdx.sample_totals, x="date", y=unit_label, hue='river_bassin', hue_order=name_order, palette=bassin_pallette, s=34, ec="white", ax=ax)
+
 # monthly or quaterly plot
 sns.lineplot(data=resample_plot, x=resample_plot.index, y=resample_plot, label=F"{this_feature['name']}: monatlicher Medianwert", color="magenta", ax=ax)
 
-y_lim = 95
-y_limit = np.percentile(dx[unit_label], y_lim)
-ax.set_ylabel(unit_label, **ck.xlab_k14)
+# label the yaxis
+ax.set_ylabel(unit_label, **{'labelpad':10, 'fontsize':12})
 
+# label the xaxis
 ax.set_xlabel("")
+
+# format ticks and locations
 ax.xaxis.set_minor_locator(days)
 ax.xaxis.set_major_formatter(months_fmt)
-# ax.margins(x=.05, y=.05)
-ax.set_ylim(-50, 2000)
+ax.set_ylim(-50, 1500)
 
-ax.legend()
+# the legend labels need to be changed to proper names
+h, l = ax.get_legend_handles_labels()
+new_labels = [*[name_map[x] for x in l[:-1]], l[-1]]
+
+# apply new labels and legend
+ax.legend(h, new_labels, bbox_to_anchor=(0, .98), loc="upper left", ncol=1, framealpha=.6)
 
 # the cumlative distributions:
 axtwo = axs[1]
 
-# the feature of interest
-feature_ecd = featuredata.ecdfOfAColumn(fdx.sample_totals, unit_label)    
-sns.lineplot(x=feature_ecd["x"], y=feature_ecd["y"], color="darkblue", ax=axtwo, label=this_feature["name"])
+# for each survey area:
+for basin in name_map.keys():
+    # filter the data for the element
+    mask = fdx.sample_totals.river_bassin == basin
+    ecdf_data = fdx.sample_totals[mask]
+    # make the ECDF and make the plot
+    feature_ecd = featuredata.ecdfOfAColumn(ecdf_data, unit_label)    
+    sns.lineplot(x=feature_ecd["x"], y=feature_ecd["y"], color=bassin_pallette[basin], ax=axtwo, label=name_map[basin])
 
-# the other features
+# the ecdf of the parent element
 other_features = featuredata.ecdfOfAColumn(dx, unit_label)
 sns.lineplot(x=other_features["x"], y=other_features["y"], color="magenta", label=top, linewidth=1, ax=axtwo)
 
+# the axist labels
 axtwo.set_xlabel(unit_label, **ck.xlab_k14)
 axtwo.set_ylabel("Verhältnis der Erhebungen", **ck.xlab_k14)
+
+# set the limit of the xaxis, other wise it can go on forever
 axtwo.set_xlim(0, 3000)
-axtwo.legend(bbox_to_anchor=(.4,.5), loc="upper left")
+
+# set and locate the ticks on the x and y axis
 axtwo.xaxis.set_major_locator(MultipleLocator(500))
 axtwo.xaxis.set_minor_locator(MultipleLocator(100))
 axtwo.yaxis.set_major_locator(MultipleLocator(.1))
+
+# format the minor gridlines
 axtwo.grid(which="minor", visible=True, axis="x", linestyle="--", linewidth=1)
+axtwo.legend(bbox_to_anchor=(.4,.5), loc="upper left")
 
 plt.tight_layout()
 
@@ -496,11 +540,11 @@ plt.close()
 # In[6]:
 
 
+# the summary of the sample totals
 csx = fdx.sample_summary.copy()
 
-
+# format for the current language
 combined_summary =[(x, featuredata.thousandsSeparator(int(csx[x]), language)) for x in csx.index]
-
 
 # the materials table
 fd_mat_totals = fdx.material_summary.copy()
@@ -512,16 +556,15 @@ fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
 fd_mat_t = [(x[0], featuredata.thousandsSeparator(int(x[1]), language), x[2]) for x in fd_mat_t]
 
 # make tables
-fig, axs = plt.subplots(1,2, figsize=(8,len(combined_summary)*.7))
+fig, axs = plt.subplots(1,2)
 
-# summary table
 # names for the table columns
 a_col = [this_feature["name"], "Total"]
 
 axone = axs[0]
 sut.hide_spines_ticks_grids(axone)
 
-table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
+table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.75,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
 table_two.set_fontsize(12)
 
@@ -534,7 +577,7 @@ table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.valu
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
 table_three.set_fontsize(12)
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.2)
+plt.subplots_adjust(wspace=0.05)
 glue("eos_sample_material_tables", fig, display=False)
 plt.close()
 
@@ -554,8 +597,10 @@ plt.close()
 # In[7]:
 
 
-# format values for table
+# the most common objects from the feature data
 m_common = fdx.most_common.copy()
+
+# format the data for printing
 m_common["item"] = m_common.index.map(lambda x: fdx.dMap.loc[x])
 m_common["% of total"] = m_common["% of total"].map(lambda x: F"{int(x)}%")
 m_common["quantity"] = m_common.quantity.map(lambda x:featuredata.thousandsSeparator(x, language))
@@ -564,7 +609,11 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: featuredata.replaceDec
 
 # format the table headers
 cols_to_use = featuredata.most_common_objects_table_de
+
+# add the current units to the table header
 cols_to_use.update({unit_label:unit_label})
+
+# convert data frame to array
 all_survey_areas = m_common[cols_to_use.keys()].values
 
 fig, axs = plt.subplots(figsize=(9.2,len(m_common)*.7))
@@ -687,7 +736,7 @@ def new_month(x):
         this_month=x-12    
     return this_month
 
-fig, ax = plt.subplots(figsize=(9,9))
+fig, ax = plt.subplots(figsize=(9,7))
 
 # define a bottom
 bottom = [0]*len(mgr["G27"])
@@ -885,7 +934,7 @@ csx = fdr.sample_summary.copy()
 combined_summary =[(x, featuredata.thousandsSeparator(int(csx[x]), language)) for x in csx.index]
 
 # make the charts
-fig = plt.figure(figsize=(11,6))
+fig = plt.figure(figsize=(10,6))
 
 aspec = fig.add_gridspec(ncols=11, nrows=3)
 
@@ -906,11 +955,12 @@ ax.set_ylim(-50, 2000)
 
 a_col = [this_feature["name"], "total"]
 
-axone = fig.add_subplot(aspec[:, 7:])
+axone = fig.add_subplot(aspec[:, 6:])
 sut.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.75,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_five.get_celld()[(0,0)].get_text().set_text(" ")
+table_five.set_fontsize(12)
 glue("eos_rivers", fig, display=False)
 
 plt.close()
@@ -925,7 +975,7 @@ plt.close()
 
 # __Die an Fliessgewässern am häufigsten gefundenen Objekte__
 
-# In[20]:
+# In[14]:
 
 
 # format values for table

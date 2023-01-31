@@ -98,6 +98,8 @@ default_land_use_columns = [
     "intersects"
 ]
 
+bassin_pallette = {"rhone":"dimgray", "aare":"salmon", "linth":"tan", "ticino":"steelblue", "reuss":"purple"}
+
 
 def thousandsSeparator(aninteger, lang: str = "de"):
     

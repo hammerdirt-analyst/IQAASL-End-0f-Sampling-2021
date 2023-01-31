@@ -309,7 +309,7 @@ replace_decimal = ["kg Plastik", "Gesamtgewicht (kg)"]
 
 dims_table["kg Plastik"] = dims_table["kg Plastik"]/1000
 dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
-dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,3))))
+dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,2))))
 
 # figure caption
 # agg_caption = F"""
@@ -454,7 +454,7 @@ fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
 fd_mat_t = [(x[0], featuredata.thousandsSeparator(int(x[1]), language), x[2]) for x in fd_mat_t]
 
 # make tables
-fig, axs = plt.subplots(1,2, figsize=(8,len(combined_summary)*.7))
+fig, axs = plt.subplots(1,2)
 
 # summary table
 # names for the table columns
@@ -463,7 +463,7 @@ a_col = [this_feature["name"], "Total"]
 axone = axs[0]
 sut.hide_spines_ticks_grids(axone)
 
-table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
+table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.75,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
 table_two.set_fontsize(12)
 
@@ -656,7 +656,7 @@ def new_month(x):
         this_month=x-12    
     return this_month
 
-fig, ax = plt.subplots(figsize=(10,12))
+fig, ax = plt.subplots(figsize=(10,9))
 
 # define a bottom
 bottom = [0]*len(mgr["G27"])
@@ -697,7 +697,6 @@ ax.xaxis.set_major_locator(ticker.FixedLocator([i for i in np.arange(len(this_x)
 ax.set_ylabel(unit_label, **ck.xlab_k14)
 
 # label the xticks by month
-#label the xticks by month
 axisticks = ax.get_xticks()
 labelsx = [sut.months_de[new_month(x-1)] for x in  this_month]
 plt.xticks(ticks=axisticks, labels=labelsx)
