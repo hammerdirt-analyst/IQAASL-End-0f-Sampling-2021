@@ -4,7 +4,7 @@
 # In[1]:
 
 
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 # This is a report using the data from IQAASL.
 # IQAASL was a project funded by the Swiss Confederation
 # It produces a summary of litter survey results for a defined region.
@@ -45,69 +45,78 @@ import locale
 import pandas as pd
 import numpy as np
 from scipy import stats
-from statsmodels.distributions.empirical_distribution import ECDF
+from math import pi
 
 # charting:
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import ticker
-from matplotlib import colors
-from matplotlib.colors import LinearSegmentedColormap
-from matplotlib.gridspec import GridSpec
+from matplotlib.ticker import MultipleLocator
 import seaborn as sns
+
+# the module that has all the methods for handling the data
+import resources.featuredata as featuredata
 
 # home brew utitilties
 import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
-from PIL import Image as PILImage
 from IPython.display import Markdown as md
 from myst_nb import glue
-# from IPython.display import display
 
+# chart style
+sns.set_style("whitegrid")
 
-
-# set the locale to the language desired
-date_lang =  'de_DE.utf8'
-language = "DE"
-locale.setlocale(locale.LC_ALL, date_lang)
-
-# the date is in iso standard:
-date_format = "%Y-%m-%d"
-
-# it gets changed to german format
-german_date_format = "%d.%m.%Y"
-
-
-# set some parameters:
-start_date = "2020-03-01"
-end_date ="2021-09-30"
-start_end = [start_date, end_date]
-a_fail_rate = 50
-reporting_unit = 100
-unit_label = "p/100 m"
-
-# colors for gradients, tables and charts
+# colors for gradients
 cmap2 = ck.cmap2
 colors_palette = ck.colors_palette
-a_color = "dodgerblue"
+bassin_pallette = featuredata.bassin_pallette
 
-# the search term for the survey area
-bassin_name = "les-alpes"
+# border and row shading for tables
+table_row = "saddlebrown"
 
-# the names for the survey area and the cumulative data
-level_names = ["Die Alpen", "Alle Erhebungsgebiete"]
+## !! Begin Note book variables !!
+# There are two language variants: german and english
+# change both: date_lang and language
+date_lang =  'de_DE.utf8'
+locale.setlocale(locale.LC_ALL, date_lang)
+
+# the date format of the survey data is defined in the module
+date_format = featuredata.date_format
+
+# the language setting use lower case: en or de
+# changing the language may require changing the unit label
+language = "de"
+unit_label = "p/100 m"
+
+# the standard date format is "%Y-%m-%d" if your date column is
+# not in this format it will not work.
+# these dates cover the duration of the IQAASL project
+start_date = "2020-03-01"
+end_date ="2021-10-31"
+start_end = [start_date, end_date]
+
+# the fail rate used to calculate the most common codes is
+# 50% it can be changed:
+fail_rate = 50
 
 # common aggregations
 agg_pcs_quantity = {unit_label:"sum", "quantity":"sum"}
 agg_pcs_median = {unit_label:"median", "quantity":"sum"}
 
-# alpes data:
-aldata = pd.read_csv("resources/checked_alpes_survey_data.csv")
+# the label for the aggregation of all data in the region
+# this is the chart label
+top = "Alle Erhebungsgebiete"
 
-# survey data lakes and rives
-sdata = pd.read_csv("resources/checked_sdata_eos_2020_21.csv")
+# define the feature level and components
+# the label for charting is called 'name'
+this_feature = {'slug':'les-alpes', 'name':"Alpen und Jura", 'level':'river_bassin'}
+
+# these are the smallest aggregated components
+# choices are water_name_slug=lake or river, city or location at the scale of a river bassin 
+# water body or lake maybe the most appropriate
+this_level = 'location'
 
 # location and object data
 dfBeaches = pd.read_csv("resources/beaches_with_land_use_rates.csv")
@@ -116,84 +125,90 @@ dfCodes = pd.read_csv("resources/codes_with_group_names_2015.csv")
 # the dimensional data from each survey
 dfDims = pd.read_csv("resources/alpes_dims.csv")
 
-# remove the prefix from the beach names
-alpb = dfBeaches[dfBeaches.river_bassin == "les-alpes"].copy()
-
-# removing the prefix from the location names in the location data
-alpb["slug"] = alpb.slug.apply(lambda x: x.replace("clean-up-tour-", ""))
-
-# put that back together
-dfBeaches = pd.concat([alpb, dfBeaches[dfBeaches.river_bassin != "les-alpes"]])
-
+# beach data
 dfBeaches.set_index("slug", inplace=True)
 
 # index the code data
 dfCodes.set_index("code", inplace=True)
 
-# language specific
-# importing german code descriptions
-de_codes = pd.read_csv("resources/codes_german_Version_1.csv")
-de_codes.set_index("code", inplace=True)
+columns={"% to agg":"% agg", "% to recreation": "% recreation", "% to woods":"% woods", "% to buildings":"% buildings", "p/100m":"p/100 m"}
 
-# apply the new language to the codes and materials:
-for x in dfCodes.index:
-    dfCodes.loc[x, "description"] = de_codes.loc[x, "german"]
+# key word arguments to construct feature data
+# !Note the water type allows the selection of river or lakes
+# if None then the data is aggregated together. This selection
+# is only valid for survey-area reports or other aggregated data
+# that may have survey results from both lakes and rivers.
+fd_kwargs ={
+    "filename": "resources/combined_alps_iqaasl.csv",
+    "feature_name": this_feature['slug'], 
+    "feature_level": this_feature['level'], 
+    "these_features": this_feature['slug'], 
+    "component": this_level, 
+    "columns": columns, 
+    "language": language, 
+    "unit_label": unit_label, 
+    "fail_rate": fail_rate,
+    "code_data":dfCodes,
+    "date_range": start_end,
+    "water_type": None,    
+}
 
-# there are long code descriptions that may need to be shortened
-codes_to_change = [
-    ["G704", "description", "Seilbahnbürste"],
-    ["Gfrags", "description", "Fragmentierte Kunststoffstücke"],
-    ["G30", "description", "Snack-Verpackungen"],
-    ["G124", "description", "Kunststoff-oder Schaumstoffprodukte"],
-    ["G87", "description", "Abdeckklebeband / Verpackungsklebeband"],
-    ["G3","description","Einkaufstaschen, Shoppingtaschen"],
-    ["G33", "description", "Einwegartikel; Tassen/Becher & Deckel"],
-    ["G31", "description", "Schleckstengel, Stengel von Lutscher"],
-    ["G211", "description", "Sonstiges medizinisches Material"],
-    ["G904", "description", "Feuerwerkskörper; Raketenkappen"],
-    ["G940", "description", "Schaumstoff EVA (flexibler Kunststoff)"],
-    ["G178", "description", "Kronkorken, Lasche von Dose/Ausfreisslachen"],
-    ["G74", "description", "Schaumstoffverpackungen/Isolierung"],
-    ["G941", "description", "Verpackungsfolien, nicht für Lebensmittel"]
-]
-for x in codes_to_change:
-    dfCodes = sut.shorten_the_value(x, dfCodes)
+fdx = featuredata.Components(**fd_kwargs)
 
-def thereIsData(data=False, atype=(pd.DataFrame, )):
-    # checkes that the provided data is a certain type
-    if isinstance(data, atype):
-        return data
-    else:
-        raise TypeError(f"There is no data or it is not the right type: is_instance({data}, {atype}).")
-    
-def dateToYearAndMonth(python_date_object, fmat='wide', lang=""):
-    a_date = thereIsData(data=python_date_object, atype=(datetime, ))
-    amonth = a_date.month
-    a_year = a_date.year
-    amonth_foreign = get_month_names(fmat, locale=lang)[amonth]
-    
-    return f'{amonth_foreign} {a_year}'
-    
-def thousandsSeparator(aninteger, lang):
-    
-    astring = "{:,}".format(aninteger)
-    
-    if lang == "DE":
-        astring = astring.replace(",", " ")        
-        
-    return astring
+# call the reports and languages
+fdx.adjustForLanguage()
+fdx.makeFeatureData()
+fdx.locationSampleTotals()
+fdx.makeDailyTotalSummary()
+fdx.materialSummary()
+fdx.mostCommon()
+# !this is the feature data!
+fd = fdx.feature_data
+
+# this maps the slug-value to the proper name
+proper_names = dfBeaches[dfBeaches.river_bassin == 'les-alpes']["location"]
+
+# a method to map proper name to slug when the proper name is the index
+# value of a dataframe.
+reverse_name_look_up = dfBeaches[dfBeaches.river_bassin == 'les-alpes']["location"].reset_index()
+reverse_name_look_up = reverse_name_look_up.set_index("location")
+
+# the sample totals are calculated by calling locationSampleTotals
+# this sets the index to location and allows acces to the sample totals by
+# location name instead of date. This is only valid because there is one 
+# sample per location.
+unit_label_map = fdx.sample_totals[["location", unit_label]].set_index("location")
 
 
-# the material was mislabled by the surveyor
-dfCodes.loc["G708", "material"] = "Metal"
+# the period data is the data from the Iqaasl project
+# not collected in the alpes.
+mask = fdx.period_data.river_bassin != this_feature["slug"]
 
-dfCodes["material"] = dfCodes.material.map(lambda x: sut.mat_ge[x]) 
+period_kwargs = {
+    "period_data": fdx.period_data[mask].copy(),
+    "these_features": this_feature['slug'],
+    "feature_level":this_feature['level'],
+    "feature_parent":this_feature['slug'],
+    "parent_level": this_feature['level'],
+    "period_name": top,
+    "unit_label": unit_label,
+    "most_common": fdx.most_common.index
+}
+period_data = featuredata.PeriodResults(**period_kwargs)
 
-# make a map to the code descriptions
-code_description_map = dfCodes.description
-
-# make a map to the code materials
-code_material_map = dfCodes.material
+# collects the summarized values for the feature data
+# use this to generate the summary data for the survey area
+# and the section for the rivers
+admin_kwargs = {
+    "data":fd,
+    "dims_data":dfDims,
+    "label": this_feature["name"],
+    "feature_component": this_level,
+    "date_range":start_end,
+    "dfBeaches":dfBeaches,
+}
+admin_details = featuredata.AdministrativeSummary(**admin_kwargs)
+admin_summary = admin_details.summaryObject()
 
 
 # (lesalpesde)=
@@ -236,45 +251,11 @@ code_material_map = dfCodes.material
 # In[2]:
 
 
-# define the final survey data set here:
-# combined the alps and the lakes and rivers data
-predata = pd.concat([aldata, sdata])
-
-# remove the prefix from the location names
-predata["location"] = predata["location"].map(lambda x: sut.get_rid_of_ix(x, prefix="clean-up-tour-"))
-
-# language specific
-predata.rename(columns=sut.luse_ge, inplace=True)
-predata["groupname"] = predata.groupname.map(lambda x: sut.group_names_de[x])
-
-# assign loc_date and make date stamp
-predata["loc_date"] = list(zip(predata.location, predata["date"]))
-predata["date"] = pd.to_datetime(predata["date"])
-predata["date"] = predata["date"].dt.strftime(date_format)
-predata["date"] = pd.to_datetime(predata["date"], format=date_format)
-predata.rename(columns={"p/100m": unit_label}, inplace=True)
- 
-# remove prefixes from the alps location names in the surveys
-fd = predata[predata.river_bassin == "les-alpes"].copy()
-sd = predata[predata.river_bassin != "les-alpes"]
-
-# merge it back in with the rest
-a_data = pd.concat([fd, sd])
-
-# scale the streets to kilometers
-a_data["streets"] = a_data.streets.astype("int")
-
-# the totals for each survey and the locations in the feature data
-fd_dt=fd.groupby(["loc_date", "date","month", "location"], as_index=False).agg(agg_pcs_quantity)
-
-# survey totals
-dt_all = a_data.groupby(["loc_date","location","river_bassin", "date"], as_index=False).agg(agg_pcs_quantity)
-
 # the unique locations and samples
 t = {"samples":fd.loc_date.nunique(),
      "locations":fd.location.unique(),
      "nlocations":fd.location.nunique(),
-     "fdtotalq": fd.quantity.sum()f
+     "fdtotalq": fd.quantity.sum()
     }
 
 # gather the municpalities and the population:
@@ -284,121 +265,83 @@ fd_pop_map.set_index("city", drop=True, inplace=True)
 
 t.update({"nmunis":len(fd_pop_map.index)})
 
-obj_string = thousandsSeparator( int(t["fdtotalq"]), language)
+obj_string = featuredata.thousandsSeparator( int(t["fdtotalq"]), language)
 surv_string = locale.format_string('%d', int(t["samples"]), grouping=True)
-pop_string = thousandsSeparator( int(fd_pop_map.sum()[0]), language)
+pop_string = featuredata.thousandsSeparator( int(fd_pop_map.sum()[0]), language)
 
-date_quantity_context = f"Zwischen {dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)}  bis {dateToYearAndMonth(datetime.strptime(end_date, date_format), lang= date_lang)} wurden im Rahmen von {surv_string} Erhebungen in {t['samples']} "
+date_quantity_context = f"Zwischen {featuredata.dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)}  bis {featuredata.dateToYearAndMonth(datetime.strptime(end_date, date_format), lang= date_lang)} wurden im Rahmen von {surv_string} Erhebungen in {t['samples']} "
 geo_context = f"verschiedenen Orten in {t['nmunis']} Gemeinden und einer Gesamtbevölkerung von {pop_string}. Einwohnern insgesamt {locale.format_string('d',t['fdtotalq'])} Objekte entfernt und identifiziert."
 munis_joined = ", ".join(sorted(fd_pop_map.index))
 
 # put that all together:
-lake_string = F"""
+alpes_string = F"""
 Zwischen März 2020 und September 2021 wurden im Rahmen von 20 Erhebungen in 18 Gemeinden mit einer Gesamtbevölkerung von 70 606 Personen insgesamt 7 776 Objekte entfernt und identifiziert.
 
 \n\n >{munis_joined}"""
-
-
-# In[3]:
-
-
-md(lake_string)
+md(alpes_string)
 
 
 # ### Gesamtzahlen der Erhebungen
 # 
 
-# In[4]:
+# In[3]:
 
 
-# gather the dimensional data for the time frame from dfDims
-# match records to survey data
-# the dimensional data, remove prefix and reassemble
-fd_dims = dfDims[(dfDims.river_bassin == "les-alpes")&(dfDims.date >= start_date)&(dfDims.date <= end_date)].copy()
-fd_dims["location"] = fd_dims.location.apply(lambda x: x.replace("clean-up-tour-", ""))
-fd_dims["loc_date"] = list(zip(fd_dims.location, fd_dims.date))
+# the dimensional sumaries for each trash count
+dims_table = admin_details.dimensionalSummary()
 
-# map the daily totals to the survey dimensions
-q_map = fd_dt[["loc_date", "quantity"]].set_index("loc_date").quantity
-fd_dims["quantity"] = fd_dims.loc_date.map(lambda x: q_map.loc[[x]].values[0])
+# for this report columns need to be added to standard dimensions
+# adding the pcs per unit column, add the region total first
+dims_table.loc["Alpen und Jura", unit_label] = fdx.sample_totals[unit_label].median()
 
-# get the pieces per meter
-fd_dims[unit_label] = ((fd_dims.quantity/fd_dims["length"])*reporting_unit).round(2)
+for location in admin_details.locations_of_interest:
+    index_name = proper_names[location]
+    value = unit_label_map.loc[location, unit_label]
+    dims_table.loc[index_name, unit_label] = value
 
-# make a loc_date column 
-fd_dims["loc_date"] = list(zip(fd_dims.location, fd_dims.date))
+# !surprise! the surveyors used the micro plastics weight in  field to log the sample total weights in grams
+# the total weight field was used to log the event total (in kilos), map these to the dims table
+# which means the total weight column needs to be dropped from this view
+new_columns = list(dims_table.columns)
+new_columns.remove("total_w")
+dims_table = dims_table[new_columns]
 
-# get the cumlaitve values for each location:
-agg_for_table = {
-    "quantity":"sum",
-    unit_label:"mean",
-    "total_w":"sum",
-    "mac_plast_w":"sum",
-    "mic_plas_w":"sum",
-    "area":"sum",
-    "length":"sum",
-    "num_parts_other":"sum",
-    "num_parts_staff":"sum",
-    "time_minutes":"sum"
-    
-}
+# map the mic_plas_w column back to the dims table
+weights_map = admin_details.dims_data[["location", "mic_plas_w"]].set_index("location")
 
-# the table of cumulative values
-dims_table = fd_dims.groupby(["location"]).agg(agg_for_table )
+# add the cumulative total
+dims_table.loc["Alpen und Jura", "Gewicht (kg)"] = round(weights_map.mic_plas_w.sum()/1000, 2)
 
-# collect the number of samples from the survey total data:
-for name in dims_table.index:
-    dims_table.loc[name, "samples"] = fd_dt[fd_dt.location == name].loc_date.nunique()
+for location in admin_details.locations_of_interest:
+    index_name = proper_names[location]
+    value = weights_map.loc[location, "mic_plas_w"]
+    dims_table.loc[index_name, "Gewicht (kg)"] = round(value/1000, 2)
 
-# get the sum of all the samples
-dims_table.loc[level_names[0]]= dims_table.sum(numeric_only=True, axis=0)
+# format the table for display
+# convert the plastic totals from grams to kilos
+dims_table.mac_plast_w = (dims_table.mac_plast_w/1000).round(2)
+dims_table = dims_table.sort_values(by="Gewicht (kg)", ascending=False)
 
-# take the median pcs_m of all the samples
-dims_table.loc[level_names[0], unit_label] = fd_dt.groupby(["location"])[unit_label].sum().median()
+# convert samples, area, length and unit_label to integers
+# the thousands are separated by a space not a comma or decimal
+as_type_int = ["samples", "quantity", unit_label, "area", "length"]
+dims_table[as_type_int] = dims_table[as_type_int].astype(int)
 
-# for display
-dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
+# add a space to separate the thousands columns
+dims_table[as_type_int] = dims_table[as_type_int].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
 
-# german column names for the dimensional data table
-new_col_names={    
-    "samples":"Erhebungen",
-    "quantity":"Objekte",
-    "total_w":"Gesamt-e kg",
-    "mac_plast_w":"kg Plastik", 
-    "mic_plas_w":"Gesamt-s kg",
-    "area": "m²",
-    "length":"Länge", 
-    "num_parts_other": "Teilnehmer", 
-    "num_parts_staff": "Mitarbeiter",
-    "time_minutes":"Std"
-}
+# the decimal is replaced by a comma
+replace_decimal = ["mac_plast_w", "Gewicht (kg)"]
+dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(x)))
 
-# order the columns
-dims_table.rename(columns=new_col_names, inplace=True)
-
-# kilos, these weights are recorded in grams
-kilos = ["kg Plastik", "Gesamt-s kg"]
-dims_table[kilos] = (dims_table[kilos]/1000).round(2)
-
-# numerical type and rounding
-tints = ["Erhebungen","Gesamt-e kg", "m²", "Länge", "Objekte", "Mitarbeiter", "Teilnehmer"]
-twodec = [unit_label]
-
-# apply formatting
-dims_table[tints] = dims_table[tints].astype("int")
-dims_table[twodec] = dims_table[twodec].round(2)
-dims_table["Std"] = (dims_table["Std"]/60).round(1)
-
-# apply string formatting
-dims_table.reset_index(inplace=True)
-table_one = dims_table[["location","Erhebungen", "Objekte", unit_label,"kg Plastik", "Gesamt-s kg", "m²", "Länge"]].copy()
-commas = ["Erhebungen", "Objekte",  "m²", "Länge", unit_label]
-table_one.loc[:,commas[:-1]] = table_one.loc[:,commas].applymap(lambda x:thousandsSeparator(int(x), language))
+# rename the columns to german and reset the index
+dims_table = dims_table.rename(columns=featuredata.dims_table_columns_de)
+dims_table.reset_index(inplace=True, drop=False)
 
 # make table
 fig, ax = plt.subplots(figsize=(14, 13))
 sut.hide_spines_ticks_grids(ax)
-a_table = sut.make_a_table(ax,table_one.values , colLabels=table_one.columns, colWidths=[.23, *[.11]*7], bbox=[0, 0, 1, 1], bottom_row=True)
+a_table = sut.make_a_table(ax,dims_table.values , colLabels=dims_table.columns, colWidths=[.23, *[.11]*7], a_color=table_row)
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
 a_table.set_fontsize(12)
 glue('alpes_survey_area_dimensional_summary', fig, display=False)
@@ -413,25 +356,49 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <alpes_survey_area_dimensional_summary>` Die aggregierten Ergebnisse der Abfallerhebungen. Ein Teil der Daten befindet sich aus Platzgründen in einer zweiten Tabelle darunter.
 
-# ### Gesamtzahlen in Bezug auf die Clean-upsGesamtzahlen in Bezug auf die Clean-ups
-# 
+# ### Gesamtzahlen in Bezug auf die Clean-ups
 
-# In[5]:
+# In[4]:
 
 
-# table two event totals
-table_two = dims_table[["location","Gesamt-e kg", "Teilnehmer", "Mitarbeiter","Std"]].copy()
-table_two["Gesamt kg"] = table_two["Gesamt-e kg"].map(lambda x:thousandsSeparator(int(x), language))
-table_two = table_two[["location", "Gesamt kg", "Teilnehmer", "Mitarbeiter", "Std"]]
+# the event totals include the amount collected but not counted
+# the number of participants, the number of staff and the time to complete
+# the event.
+event_totals = admin_details.dims_data[["location", "total_w", "num_parts_other", "num_parts_staff", "time_minutes"]].copy()
+
+# the names are changed to proper names and set as the index
+event_totals["location"] = event_totals.location.map(lambda x: proper_names.loc[x])
+event_totals.set_index("location", inplace=True)
+
+# sum all the events to give the total for the feauture
+event_totals.loc[this_feature["name"]] = event_totals.sum(numeric_only=True, axis=0)
+
+# convert minutes to hours
+event_totals.time_minutes = (event_totals.time_minutes/60).round(1)
+event_totals = event_totals.sort_values(by="total_w", ascending=False)
+
+# formatting for display
+thousands = ["total_w", "num_parts_other"]
+event_totals[thousands] = event_totals[thousands].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
+event_totals["time_minutes"] = event_totals.time_minutes.map(lambda x: featuredata.replaceDecimal(str(x)))
+
+new_column_names = {
+    "total_w":  "Gewicht (kg)",
+    "num_parts_other": "Teilnehmende", 
+    "num_parts_staff": "Mitarbeitende",
+    "time_minutes": "Std."
+}    
+
+table_two = event_totals.rename(columns=new_column_names)
+table_two.reset_index(inplace=True)
 
 # make a table
-fig, axs = plt.subplots(figsize=(10,13))
+fig, axs = plt.subplots(figsize=(8,len(table_two)*.6))
 sut.hide_spines_ticks_grids(axs)
 
-a_table = sut.make_a_table(axs, table_two.values, colLabels=table_two.columns, colWidths=[.44, *[.14]*4])
+a_table = sut.make_a_table(axs, table_two.values, colLabels=table_two.columns, colWidths=[.36, *[.17]*3, .13])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
 a_table.set_fontsize(12)
-
 
 plt.tight_layout()
 glue('alpes_survey_area_event_summaries', fig, display=False)
@@ -464,65 +431,80 @@ plt.close()
 # 
 # Für weitere Informationen siehe *[17 Landnutzungsprofil](luseprofile)*
 
-# In[6]:
+# In[5]:
 
 
-# explanatory variables:
-luse_exp = list(sut.luse_ge.values())
+# this gets all the data for the project
+land_use_kwargs = {
+    "data": period_data.period_data,
+    "index_column":"loc_date",
+    "these_features": this_feature['slug'],
+    "feature_level":this_feature['level']   
+}
 
-# columns needed
-use_these_cols = ["loc_date" ,*luse_exp,  "groupname","code"]
+# the landuse profile of the project
+project_profile = featuredata.LandUseProfile(**land_use_kwargs).byIndexColumn()
 
-# the land use data from all other locations
-datax = sd.groupby(use_these_cols[:-2], as_index=False).agg(agg_pcs_quantity)
+# update the kwargs for the feature data
+land_use_kwargs.update({"data":fdx.feature_data})
 
-# work off the copy
-data = fd.groupby(use_these_cols[:-2], as_index=False).agg(agg_pcs_quantity)
+# build the landuse profile of the feature
+feature_profile = featuredata.LandUseProfile(**land_use_kwargs)
 
-sns.set_style("whitegrid")
+# this is the component features of the report
+feature_landuse = feature_profile.featureOfInterest()
 
 fig, axs = plt.subplots(2, 3, figsize=(9,8), sharey="row")
 
-for i, n in enumerate(luse_exp):
+for i, n in enumerate(featuredata.default_land_use_columns):
     r = i%2
     c = i%3
-    ax=axs[r,c]
-    # get the empirical distribution of the independent variable
-    all_surveys = ECDF(datax[n].values)
-    les_alpes = ECDF(data[n].values)
-        
-    # plot that
-    sns.lineplot(x=all_surveys.x, y=all_surveys.y, ax=ax, color=a_color, label=level_names[1])
-    # plot that
-    sns.lineplot(x=les_alpes.x, y=les_alpes.y, ax=ax, color="magenta", label=level_names[0])
-    the_median = data[n].median()
+    ax=axs[r,c]    
+    # the value of land use feature n
+    # for each element of the feature
+    for element in feature_landuse:
+        # the land use data for a feature
+        data = element[n].values
+        # the name of the element
+        element_name = element[feature_profile.feature_level].unique()
+        # proper name for chart
+        label = featuredata.river_basin_de[element_name[0]]
+        # cumulative distribution        
+        xs, ys = featuredata.empiricalCDF(data)
+        # the plot of landuse n for this element
+        sns.lineplot(x=xs, y=ys, ax=ax, label=label, color=bassin_pallette[element_name[0]])
     
-    # get its position reference the surrounding survey area
-    a = (stats.percentileofscore(les_alpes.x, the_median))/100
+    # the value of the land use feature n for the project
+    testx, testy = featuredata.empiricalCDF(project_profile[n].values)
+    sns.lineplot(x=testx, y=testy, ax=ax, label=top, color="magenta")
     
-    # plot the median and drop horzontal and vertical lines
-    ax.scatter([the_median], a, color="red",s=50, linewidth=2, zorder=100, label="Alps Valaisannes")
-    ax.vlines(x=the_median, ymin=0, ymax=a, color="red", linewidth=2)
-    ax.hlines(xmax=the_median, xmin=0, y=a, color="red", linewidth=2)
+    # get the median landuse for the feature
+    the_median = np.median(data)
     
-    # save the handels and labels but remove them from the ax    
-    handles, labels = ax.get_legend_handles_labels()
-    ax.get_legend().remove()
+    # plot the median and drop horizontal and vertical lines
+    ax.scatter([the_median], 0.5, color="red",s=40, linewidth=1, zorder=100, label="Median")
+    ax.vlines(x=the_median, ymin=0, ymax=0.5, color="red", linewidth=1)
+    ax.hlines(xmax=the_median, xmin=0, y=0.5, color="red", linewidth=1)
     
-    # format the % of total on the xaxis:
     if i <= 3:
         if c == 0:            
-            ax.set_ylabel("Prozent der Standorte", **ck.xlab_k)
+            ax.yaxis.set_major_locator(MultipleLocator(.1))
         ax.xaxis.set_major_formatter(ticker.PercentFormatter(1.0, 0, "%"))        
     else:
-        pass
-    ax.set_xlabel(n, **ck.xlab_k)
-
+        pass      
+    
+    handles, labels = ax.get_legend_handles_labels()
+    ax.get_legend().remove()    
+    ax.set_title(featuredata.luse_de[n], loc='left')
+    
 plt.tight_layout()
-plt.subplots_adjust(top=.9, hspace=.3)
-plt.suptitle("Landnutzung im Umkreis von 1 500 m um den Erhebungsort", ha="center", y=1, fontsize=16)
-fig.legend(handles, labels, bbox_to_anchor=(.5,.94), loc="center", ncol=3)
-glue('alpes_survey_area_landuse', fig, display=False)
+plt.subplots_adjust(top=.91, hspace=.4)
+plt.suptitle("Landnutzung im Umkries von 1 500 m um den Erhebungsort", ha="center", y=1, fontsize=16)
+fig.legend(handles, labels, bbox_to_anchor=(.5,.5), loc="upper center", ncol=3) 
+
+# capture the output
+glue("alpes_survey_area_landuse", fig, display=False)
+
 plt.close()
 
 
@@ -541,45 +523,42 @@ plt.close()
 
 # ## Verteilung der Erhebungsergebnisse¶
 
-# In[7]:
+# In[6]:
 
 
-remove = ["veysonnaz", "cabanes-des-diablerets", "san-bernardino"]
+dx = period_data.parentSampleTotals(parent=False)
 
-# the feature data without the three locations
-wt_data = fd[~fd.location.isin(remove)].copy()
+not_trail_samples = ["veysonnaz", "cabanes-des-diablerets", "san-bernardino"]
 
-# all the data without the three locations
-a_data = a_data[~a_data.location.isin(remove)]
+fdt = fd[~fd.location.isin(not_trail_samples)].copy()
+fdt_samples = fdx.sample_totals[~fdx.sample_totals.location.isin(not_trail_samples)].copy()
 
-wt_dt =fd_dt[~fd_dt.location.isin(remove)].copy()
-
-nvsn = wt_dt.location.unique()
-
-# make a df of survey totals with date as index
-# the daily survey totals of all the data for the survey period
-a_dt = a_data.groupby(["loc_date", "date","location"], as_index=False).agg(agg_pcs_quantity)
-
-# only the surveys from all other survey areas
-dts_date = a_dt[(~a_dt.location.isin([*nvsn, *remove]))].copy()
-
-# months locator, can be confusing
-# https://matplotlib.org/stable/api/dates_api.html
-months_fmt = mdates.DateFormatter("%b")
+material_map = fdx.mMap
+description_map = fdx.dMap
 
 fig, axs = plt.subplots(1,2, figsize=(10,5))
 
+months = mdates.MonthLocator(interval=1)
+months_fmt = mdates.DateFormatter("%b")
+days = mdates.DayLocator(interval=7)
+
 ax = axs[0]
+ax.set_ylim(-50, 2000)
 
-# there is a big value in here, that should be seen.
-sns.scatterplot(data=dts_date, x="date", y=unit_label, color="black", alpha=0.4, label=level_names[1], ax=ax)
-sns.scatterplot(data=wt_dt, x="date", y=unit_label, color="red", s=34, ec="white",label=level_names[0], ax=ax)
+# the cumlative distributions:
+axtwo = axs[1]
 
-ax.set_xlabel("")
+# feature surveys
+sns.scatterplot(data=dx, x="date", y=unit_label, label=top, color="black", alpha=0.3,  ax=ax)
+# all other surveys
+sns.scatterplot(data=fdt_samples, x="date", y=unit_label, label=this_feature["name"], color=bassin_pallette[this_feature["slug"]], edgecolor="white", ax=ax)
+
 ax.set_ylabel(unit_label, **ck.xlab_k14)
 
-# ax.tick_params(axis="x", which="both", bottom=False )
+ax.set_xlabel("")
+ax.xaxis.set_minor_locator(days)
 ax.xaxis.set_major_formatter(months_fmt)
+ax.set_ylim(-50, 2000)
 
 axtwo = axs[1]
 
@@ -589,16 +568,18 @@ box_props = {
     "whiskerprops":{"color":"magenta"},
     "capprops":{"color":"magenta"}
 }
-sns.boxplot(data=dts_date, y=unit_label, color="black",  ax=axtwo, showfliers=False, **box_props, zorder=1)
-sns.stripplot(data=dts_date[dts_date[unit_label] <= 1000], s=10, y=unit_label, color="black", ax=axtwo, alpha=0.5, jitter=0.3, zorder=0)
-sns.stripplot(data=wt_dt, y=unit_label, color="red", s=10, ec="white",linewidth=1, ax=axtwo, jitter=0.3, zorder=2)
+sns.boxplot(data=dx, y=unit_label, color="black",  ax=axtwo, showfliers=False, **box_props, zorder=1)
+sns.stripplot(data=dx[dx[unit_label] <= 1000], s=10, y=unit_label, color="black", ax=axtwo, alpha=0.5, jitter=0.3, zorder=0)
+sns.stripplot(data=fdt_samples[fdt_samples[unit_label] <= 1000], y=unit_label, color=bassin_pallette[this_feature["slug"]], s=10, edgecolor="white",linewidth=1, ax=axtwo, jitter=0.3, zorder=2)
 
 axtwo.set_xlabel("")
 axtwo.set_ylabel(unit_label, **ck.xlab_k14)
 
 axtwo.tick_params(which="both", axis="x", bottom=False)
+ax.legend()
 
 plt.tight_layout()
+
 glue('alpes_survey_area_sample_totals', fig, display=False)
 plt.close()
 
@@ -614,45 +595,185 @@ plt.close()
 
 # ### Zusammenfassende Daten und Materialtypen
 
-# In[8]:
+# In[7]:
 
 
-# get the basic statistics from pd.describe
-cs = wt_dt[unit_label].describe().round(2)
+def columnsAndOperations(column_operations: list = None, columns: list = None, unit_label: str = None):
+    if column_operations is None:
+        column_operation = {unit_label: "median", "quantity": "sum"}
+    else:
+        column_operation = {x[0]: x[1] for x in column_operations}
+    if columns is None:
+        columns = ["loc_date", "groupname"]
+    
+    return columns, column_operation
 
-# add project totals
-cs["total objects"] = fd[~fd.location.isin(remove)].quantity.sum()
+def changeSeriesIndexLabels(a_series: pd.Series = None, change_names: {} = None):
+    """A convenience function to change the index labels of a series x.
+    Change_names is keyed to the series index.
 
-# change the names
-csx = sut.change_series_index_labels(cs, sut.create_summary_table_index(unit_label, lang="DE"))
+    :param a_series: A pandas series
+    :param change_names: A dictionary that has keys = x.index and values = new x.index label
+    :return: The series with the new labels
+    """
+    
+    new_dict = {}
+    for param in a_series.index:
+        new_dict.update({change_names[param]: a_series[param]})
+    return pd.Series(new_dict)
 
-# format the text
-combined_summary = sut.fmt_combined_summary(csx, nf=[])
+def createSummaryTableIndex(unit_label, language="en"):
+    """Assigns the current units to the keys and creates
+    custom key values based on language selection.
 
-# the material totals
-code_totals = sut.the_aggregated_object_values(wt_data, agg=agg_pcs_median, description_map=code_description_map, material_map=code_material_map)    
-code_totals.sort_values(by="quantity", ascending=False)
+    :param unit_label: The current value of unit label
+    :param language: the two letter abbreviation for the current language
+    :return: the pd.describe dict with custom labels
+    """
+    
+    if language == "en":
+        new_data = {"count": "# samples",
+                    "mean": f"average {unit_label}",
+                    "std": "standard deviation",
+                    "min": f"min {unit_label}",
+                    "max": f"max {unit_label}",
+                    "25%": "25%",
+                    "50%": "50%",
+                    "75%": "75%",
+                    "total objects": "total objects",
+                    "# locations": "# locations",
+                    }
+    elif language == "de":
+        new_data = {"count": "Erhebungen",
+                    "mean": f"Durchschnitt {unit_label}",
+                    "std": "Standardabweichung",
+                    "min": f"min {unit_label}",
+                    "max": f"max {unit_label}",
+                    "25%": "25%",
+                    "50%": "50%",
+                    "75%": "75%",
+                    "total objects": "Abfallobjekte",
+                    "# locations": "Anzahl der Standorte",
+                    }
+    else:
+        print(f"ERROR {language} is not an option")
+        new_data = {}
+    
+    return new_data
 
-fd_mat_totals = sut.the_ratio_object_to_total(code_totals)
+def makeDailyTotalSummary(
+    sample_totals: pd.DataFrame = None, unit_label: str = None, language: str = None):
 
-fd_mat_totals = sut.fmt_pct_of_total(fd_mat_totals)
-fd_mat_totals = sut.make_string_format(fd_mat_totals)
+    # the summary of the dependent variable
+    a = sample_totals[unit_label].describe().round(2)
+    a["total objects"] = sample_totals.quantity.sum()
+
+    # assign appropriate language to index names
+    # retrieve the appropriate index names based on language
+    table_index = createSummaryTableIndex(unit_label, language=language)
+
+    # assign the new index
+    summary_table = changeSeriesIndexLabels(a, table_index)
+
+    return summary_table
+
+def codeSummary(
+    feature_data: pd.DataFrame = None, unit_label: str = None, column_operations=None,
+    material_map: pd.DataFrame = None, description_map: pd.DataFrame = None):
+
+        
+    if column_operations is None:
+        column_operations = {
+            "column_operations": [(unit_label, "median"), ("quantity", "sum")],
+            "columns": ["code"],
+            "unit_label": unit_label
+        }
+
+    columns, column_operation = columnsAndOperations(**column_operations)
+
+    # apply the column operations
+    code_totals = feature_data.groupby(columns, as_index=False).agg(column_operation)
+    # percent of total
+    code_totals["% of total"] = ((code_totals.quantity / code_totals.quantity.sum()) * 100).round(2)
+    # fail and fail-rate
+    code_totals["fail"] = code_totals.code.map(lambda x: feature_data[
+        (feature_data.code == x) & (feature_data.quantity > 0)].loc_date.nunique())
+    
+    code_totals["fail rate"] = ((code_totals.fail / feature_data.loc_date.nunique()) * 100).astype("int")
+
+    # the code data comes from the feature data (survey results)
+    # Add the description of the code and the material
+    code_totals.set_index(columns, inplace=True)
+    code_totals["item"] = code_totals.index.map(lambda x: description_map[x])
+    code_totals["material"] = code_totals.index.map(lambda x: material_map[x])
+
+    code_totals = code_totals[["item", "quantity", "% of total", unit_label, "fail rate", "material"]]
+
+    return code_totals
+
+def materialSummary(code_summary: pd.DataFrame = None):  
+      
+
+    a = code_summary.groupby("material", as_index=False).quantity.sum()
+    a["% of total"] = a['quantity'] / a['quantity'].sum()
+    b = a.sort_values(by="quantity", ascending=False)
+    
+    return b
+
+def mostCommon(code_summary: pd.DataFrame = None, fail_rate: int = None, limit: int = 10):
+
+    # the top ten by quantity
+    most_abundant = code_summary.sort_values(by="quantity", ascending=False)[:limit]
+    # the most common
+    most_common = code_summary[code_summary["fail rate"] >= fail_rate].sort_values(by="quantity", ascending=False)
+    # merge with most_common and drop duplicates
+    # it is possible (likely) that a code will be abundant and common
+    m_common = pd.concat([most_abundant, most_common]).drop_duplicates()
+
+    return m_common
+        
+
+
+s_table_kwargs = {
+    "sample_totals": fdt_samples,
+    "unit_label": unit_label,
+    "language": language
+}
+
+code_summary_kwargs = {
+    "feature_data": fdt,
+    "unit_label": unit_label,
+    "column_operations": None,
+    "description_map": description_map,
+    "material_map": material_map
+}
+
+
+code_summary = codeSummary(**code_summary_kwargs)
+cs = makeDailyTotalSummary(**s_table_kwargs)
+
+combined_summary =[(x, featuredata.thousandsSeparator(int(cs[x]), language)) for x in cs.index]
+
+
+# the materials table
+fd_mat_totals = materialSummary(code_summary=code_summary)
+fd_mat_totals = featuredata.fmtPctOfTotal(fd_mat_totals, around=0)
 
 # applly new column names for printing
-cols_to_use = {"material":"Material","quantity":"Quantity", "% of total":"% of total"}
+cols_to_use = {"material":"Material","quantity":"Objekte (St.)", "% of total":"Anteil"}
 fd_mat_t = fd_mat_totals[cols_to_use.keys()].values
+fd_mat_t = [(x[0], featuredata.thousandsSeparator(int(x[1]), language), x[2]) for x in fd_mat_t]
 
 # make tables
-fig, axs = plt.subplots(1,2, figsize=(8,6))
+fig, axs = plt.subplots(1,2)
 
-# summary table
 # names for the table columns
-a_col = [level_names[0], "total"]
+a_col = [this_feature["name"], "Total"]
 
 axone = axs[0]
 sut.hide_spines_ticks_grids(axone)
 
-table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.5,.25,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
+table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.75,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
 table_two.set_fontsize(12)
 
@@ -661,15 +782,11 @@ axtwo = axs[1]
 axtwo.set_xlabel(" ")
 sut.hide_spines_ticks_grids(axtwo)
 
-# column names for display
-cols_to_use = {"material":"Material","quantity":"Gesamt", "% of total":"% Gesamt"}
-
-table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .3,.3],  bbox=[0,0,1,1], **{"loc":"lower center"})
+table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .4,.2],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
 table_three.set_fontsize(12)
-
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.2)
+plt.subplots_adjust(wspace=0.1)
 glue('alpes_survey_area_sample_material_tables', fig, display=False)
 plt.close()
 
@@ -687,49 +804,33 @@ plt.close()
 # 
 # Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Erhebungen identifiziert wurden (Häufigkeitsrate).
 
-# In[9]:
+# In[8]:
 
 
-# code totals for les Alps not including veysonnaz
-code_totals.rename(columns={"groupname":"utility"}, inplace=True)
+mcc = mostCommon(code_summary=code_summary, fail_rate=fail_rate)
+mcc["item"] = mcc.index.map(lambda x: description_map.loc[x])
 
-# objects with a fail rate of > 50% in the survey area
-most_common = code_totals[code_totals["fail rate"] >= 50].sort_values(by="quantity", ascending=False)
-
-# the top ten by quantity
-most_abundant = code_totals.sort_values(by="quantity", ascending=False)[:10]
-
-# merge with most_common and drop duplicates
-m_common = pd.concat([most_abundant, most_common]).drop_duplicates()
-
-# get percent of total
-m_common_percent_of_total = m_common.quantity.sum()/code_totals.quantity.sum()
+# make a copy for string formatting
+most_common = mcc.copy()
 
 # format values for table
-m_common["item"] = m_common.index.map(lambda x: code_description_map.loc[x])
-m_common["% of total"] = m_common["% of total"].map(lambda x: F"{x}%")
-m_common["quantity"] = m_common.quantity.map(lambda x: "{:,}".format(x))
-m_common["fail rate"] = m_common["fail rate"].map(lambda x: F"{x}%")
-m_common[unit_label] = m_common[unit_label].map(lambda x: F"{np.ceil(x)}")
+most_common["% of total"] = most_common["% of total"].map(lambda x: F"{int(x)}%")
+most_common["quantity"] = most_common.quantity.map(lambda x:featuredata.thousandsSeparator(x, language))
+most_common["fail rate"] = most_common["fail rate"].map(lambda x: F"{x}%")
+most_common[unit_label] = most_common[unit_label].map(lambda x: featuredata.replaceDecimal(round(x,1)))
 
-# final table wt_data
-cols_to_use = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt", "fail rate":"Ausfallsrate", unit_label:unit_label}
-walking_trails = m_common[cols_to_use.keys()].values
+# format the table headers
+cols_to_use = featuredata.most_common_objects_table_de
+cols_to_use.update({unit_label:unit_label})
+table_data = most_common[cols_to_use.keys()].values
 
-# figure caption
-rb_string = F"""
-*__Unten:__ Häufigste Objekte auf Wanderwegen: Fail-Pass Rate >/= 50% und/oder Top Ten nach Anzahl. Zusammengenommen stellen die zehn häufigsten 
-Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte der, {unit_label}: Medianwert der Erhebung.*
-"""
-fig, axs = plt.subplots(figsize=(12,len(m_common)*.7))
+fig, axs = plt.subplots(figsize=(9,len(most_common)*.7))
 
 sut.hide_spines_ticks_grids(axs)
 
-table_three = sut.make_a_table(axs, walking_trails,  colLabels=list(cols_to_use.values()), colWidths=[.48, .13,.13,.13, .13],  bbox=[0,0,1,1], **{"loc":"lower center"})
-table_three.get_celld()[(0,0)].get_text().set_text(" ")
-table_three.set_fontsize(12)
-
-
+table_four = sut.make_a_table(axs, table_data,  colLabels=list(cols_to_use.values()), colWidths=[.49, .13,.11,.15, .12],  bbox=[0,0,1,1], **{"loc":"lower center"})
+table_four.get_celld()[(0,0)].get_text().set_text(" ")
+table_four.set_fontsize(12)
 plt.tight_layout()
 glue('alpes_survey_area_most_common_tables', fig, display=False)
 plt.close()
@@ -746,40 +847,112 @@ plt.close()
 
 # ### Die am häufigsten gefundenen Gegenstände nach Erhebungsort   
 
-# In[10]:
+# In[9]:
 
 
-# aggregated survey totals for the most common codes for all the water features 
-m_common_st = wt_data[wt_data.code.isin(m_common.index)].groupby(["location", "loc_date","code"], as_index=False).agg(agg_pcs_quantity)
-m_common_ft = m_common_st.groupby(["location", "code"], as_index=False)[unit_label].median()
+def componentMostCommonPcsM(
+    feature_data: pd.DataFrame = None, most_common: pd.DataFrame = None, columns: list = None, unit_label: str = None,
+    feature_component: str = None, column_operations: list = None, description_map: pd.DataFrame = None):
 
-# map the desctiption to the code
-m_common_ft["item"] = m_common_ft.code.map(lambda x: code_description_map.loc[x])
+    codes = most_common.index
+    
+    if column_operations is None:        
+        column_operations = {
+            "column_operations":  [(unit_label, "sum"), ("quantity", "sum")],
+            "columns":  [feature_component, "loc_date", "code"],
+            "unit_label": unit_label
+        }
 
-# pivot that
-m_c_p = m_common_ft[["item", unit_label, "location"]].pivot(columns="location", index="item")
+    columns, column_operation = columnsAndOperations(**column_operations)
 
-# quash the hierarchal column index
-m_c_p.columns = m_c_p.columns.get_level_values(1)
+    mask = feature_data.code.isin(codes)    
 
-# the aggregated totals for the locations
-m_c_p[level_names[0]]= sut.aggregate_to_code(wt_data[wt_data.code.isin(m_common.index)], code_description_map,name=level_names[0], unit_label=unit_label)
+    a = feature_data[mask].groupby(columns, as_index=False).agg(column_operation)
+    a = a.groupby([feature_component, "code"], as_index=False)[unit_label].median()
 
-m_c_p[level_names[1]] = sut.aggregate_to_code(a_data[a_data.code.isin(m_common.index)], code_description_map,name=level_names[1], unit_label=unit_label)
+    # map the description to the code
+    a["item"] = a.code.map(lambda x: description_map.loc[x])
+
+    return a
+
+       
+def parentMostCommon(parent_data: pd.DataFrame = None, most_common: list = None, unit_label: str = None, 
+                     percent: bool = False, name: str = None):
+    
+    data = parent_data[parent_data.code.isin(most_common)]   
+
+    if percent:
+        data = data.groupby('code', as_index=False).quantity.sum()
+        data.set_index('code', inplace=True)
+        data[name] = (data.quantity / data.quantity.sum()).round(2)
+
+        return data[name]
+
+    else:
+        data = data.groupby(["loc_date", 'code'], as_index=False)[unit_label].sum()
+        data = data.groupby('code', as_index=False)[unit_label].median()
+        data.set_index('code', inplace=True)
+        data[name] = data[unit_label]
+
+        return data[name]
+    
+aggregate_kwargs = {
+    "parent_data": period_data.period_data,
+    "most_common": mcc.index,
+    "unit_label": unit_label,
+    "percent": False,
+    "name":"IQAASL",
+}        
+
+    
+component_kwargs = {
+    "feature_data": fdt,
+    "most_common": most_common,
+    "feature_component": fdx.feature_component,
+    "unit_label": unit_label,
+    "description_map": description_map,
+}
+
+    
+# the columns needed to build the heat map
+heat_map_columns = ["item", "location", unit_label]
+
+# the results for the most common codes at the component level
+components = componentMostCommonPcsM(**component_kwargs)
+
+# pivot that to make a heat map layouy
+mc_comp = components[heat_map_columns].pivot(columns='location', index='item')
+
+# drop any indexing above the component name
+mc_comp.columns = mc_comp.columns.get_level_values(1)
+mc_comp.rename(columns={x:proper_names[x] for x in mc_comp.columns}, inplace=True)
+
+# switch the index to the item description
+mc_feature = mcc[["item", unit_label]].set_index("item")
+
+# add a column for the results of all the feature data
+mc_comp[this_feature["name"]] = mc_feature
+
+# get the resluts of the feature most common from IQAASL results
+iqaasl_results = parentMostCommon(**aggregate_kwargs)
+
+# replace the code with a description
+new_labels = {x : description_map[x] for x in iqaasl_results.index}
+mc_iqaasl = featuredata.changeSeriesIndexLabels(a_series=iqaasl_results, change_names=new_labels)
+
+# add a column for the results of all the IQAASL data
+mc_comp["IQAASL"] = mc_iqaasl
 
 # chart that
-fig, ax  = plt.subplots(figsize=(len(m_c_p.columns)*.8,len(m_c_p)*.9))
+fig, ax  = plt.subplots(figsize=(len(mc_comp.columns)*.7,len(mc_comp)*.8))
 
-axone = ax
-sns.heatmap(m_c_p, ax=axone,  annot=True,vmax=300, annot_kws={"fontsize":12}, cmap=cmap2, fmt=".1f", square=True, cbar=False, linewidth=.1, linecolor="white")
+sns.heatmap(mc_comp, ax=ax, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0f", cbar=False, linewidth=.1, linecolor="white")
+ax.set_xlabel("")
+ax.set_ylabel("")
+ax.tick_params(labelsize=12, which="both", axis="both")
 
-axone.set_xlabel("")
-axone.set_ylabel("")
+plt.setp(ax.get_xticklabels(), rotation=90)
 
-axone.tick_params(labelsize=12, which="both", axis="both", labeltop=True, labelbottom=False)
-plt.setp(axone.get_xticklabels(), rotation=90)
-
-plt.tight_layout()
 glue('alpes_survey_area_most_common_heat_map', fig, display=False)
 plt.close()
 
@@ -822,46 +995,71 @@ plt.close()
 
 # *__Unten:__ Wanderwege Nutzen der gefundenen Objekte: % der Gesamtzahl nach Wassermerkmal. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Grösse klassifiziert.*  
 
-# In[11]:
+# In[10]:
 
 
-# the median survey total and % of total for codegroups
-cg_t = wt_data.groupby(["loc_date", "location","groupname"], as_index=False).agg(agg_pcs_quantity)
+def parentGroupTotals(data: pd.DataFrame = None, most_common: list = None, unit_label: str = None, 
+                     percent: bool = False, name: str = None):
+    
+    if percent:
+        data = data.groupby('groupname', as_index=False).quantity.sum()
+        data.set_index('groupname', inplace=True)
+        data[name] = (data.quantity / data.quantity.sum()).round(2)
 
-# aggregate all that for each water feature
-cg_t = cg_t.groupby(["location", "groupname"], as_index=False).agg({unit_label:"median", "quantity":"sum"})
+        return data[name]
 
-# quantity per water feature
-cg_tq = cg_t.groupby("location").quantity.sum()
+    else:
+        data = data.groupby(["loc_date", 'groupname'], as_index=False)[unit_label].sum()
+        data = data.groupby('groupname', as_index=False)[unit_label].median()
+        data.set_index('groupname', inplace=True)
+        data[name] = data[unit_label]
 
-# assign the water feature total to each record
-for a_feature in cg_tq.index:
-    cg_t.loc[cg_t.location == a_feature, "f_total"] = cg_tq.loc[a_feature]
+        return data[name]
+    
+aggregate_kwargs = {
+    "data": period_data.period_data,
+    "unit_label": unit_label,
+    "percent": True,
+    "name":"IQAASL",
+}        
 
-# get the percent of total for each group for each water feature
-cg_t["pt"] = (cg_t.quantity/cg_t.f_total).round(2)
+    
+component_kwargs = {
+    "data":fdt,    
+    "unit_label": unit_label,
+    "name": this_feature["name"],
+    "percent": True
+    
+}
+ 
 
+
+
+d = fdx.componentCodeGroupResults()
 # pivot that
-data_table = cg_t.pivot(columns="location", index="groupname", values="pt")
+pt_comp = d[~d.location.isin(not_trail_samples)][["location", "groupname", '% of total' ]].pivot(columns="location", index="groupname")
 
-# make a column for the survey area and all data
-data_table[level_names[0]]= sut.aggregate_to_group_name(wt_data,name=level_names[0])
-data_table[level_names[1]]= sut.aggregate_to_group_name(sd, name=level_names[1])
+# quash the hierarchal column index
+pt_comp.columns = pt_comp.columns.get_level_values(1)
+pt_comp.rename(columns = {x:proper_names[x] for x in pt_comp.columns}, inplace=True)
+pt_comp[this_feature["name"]] = parentGroupTotals(**component_kwargs)
+pt_comp["IQAASL"] = parentGroupTotals(**aggregate_kwargs) 
 
-# chart that
-fig, ax = plt.subplots(figsize=(len(data_table.columns)*.8,len(data_table)*.9))
 
-axone = ax
-sns.heatmap(data_table , ax=axone, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, cbar=False, fmt=".0%", linewidth=.1, square=True, linecolor="white")
+# make figure
+fig, ax = plt.subplots(figsize=(len(pt_comp.columns)*.7,len(pt_comp)*.8))
 
-axone.set_ylabel("")
-axone.tick_params(labelsize=14, which="both", axis="both", labeltop=True, labelbottom=False)
-axone.set_xlabel("")
-plt.setp(axone.get_xticklabels(), rotation=90, fontsize=14)
-plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
+sns.heatmap(pt_comp , ax=ax, cmap=cmap2, annot=True,  annot_kws={"fontsize":12}, fmt=".0%", cbar=False, linewidth=.1, linecolor="white")
 
-plt.tight_layout()
+ax.set_xlabel("")
+ax.set_ylabel("")
+ax.tick_params(labelsize=12, which="both", axis="both", labeltop=False, labelbottom=True)
+
+plt.setp(ax.get_xticklabels(), rotation=90)
+plt.setp(ax.get_yticklabels(), rotation=0)
+
 glue('alpes_survey_area_codegroup_percent', fig, display=False)
+
 plt.close()
 
 
@@ -873,37 +1071,51 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <alpes_survey_area_codegroup_percent>` Verwendungszweck der gefundenen Objekte an Wanderwegen: prozentualer Anteil an der Gesamtzahl nach Verwendungszweck. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Grösse klassifiziert.
 
-# In[12]:
-
-
-# median p/50m solve cg_t for unit_label
-data_table = cg_t.pivot(columns="location", index="groupname", values=unit_label)
-
-# survey area median
-data_table[level_names[0]] = sut.aggregate_to_group_name(fd, name=level_names[0], val="med", unit_label=unit_label)
-
-# all survey area median
-data_table[level_names[1]] = sut.aggregate_to_group_name(sd, unit_label=unit_label, name=level_names[1], val="med" )
-
-
 # {numref}`Abbildung %s: <alpes_survey_area_codegroup_pcsm>` *__Unten:__ Verwendungszweck der gefundenen Objekte an Wanderwegen: Median p/100 m.*
 
-# In[13]:
+# In[11]:
 
 
-fig, ax = plt.subplots(figsize=(len(data_table.columns)*.8,len(data_table)*.9))
+aggregate_kwargs = {
+    "data": period_data.period_data,
+    "unit_label": unit_label,
+    "percent": False,
+    "name":"IQAASL",
+}        
 
-axone = ax
-sns.heatmap(data_table , ax=axone, cmap=cmap2, vmax=300, annot=True, annot_kws={"fontsize":12}, fmt="g", cbar=False, linewidth=.1, square=True, linecolor="white")
+    
+component_kwargs = {
+    "data":fdt,    
+    "unit_label": unit_label,
+    "name": this_feature["name"],
+    "percent": False
+    
+}
 
-axone.set_ylabel("")
-axone.tick_params(labelsize=14, which="both", axis="both", labeltop=True, labelbottom=False)
 
-axone.set_xlabel("")
-plt.setp(axone.get_xticklabels(), rotation=90, fontsize=14)
-plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
+pt_comp =  d[~d.location.isin(not_trail_samples)][["location", "groupname", unit_label]].pivot(columns="location", index="groupname")
 
-glue('alpes_survey_area_codegroup_pcsm', fig, display=False)
+# quash the hierarchal column index
+pt_comp.columns = pt_comp.columns.get_level_values(1)
+pt_comp.rename(columns = {x:proper_names[x] for x in pt_comp.columns}, inplace=True)
+pt_comp[this_feature["name"]] = parentGroupTotals(**component_kwargs)
+pt_comp["IQAASL"] = parentGroupTotals(**aggregate_kwargs) 
+
+# make figure
+fig, ax = plt.subplots(figsize=(len(pt_comp.columns)*.7,len(pt_comp)*.8))
+
+sns.heatmap(pt_comp, ax=ax, cmap=cmap2, annot=True, annot_kws={"fontsize":12}, fmt=".0f", cbar=False, linewidth=.1, linecolor="white")
+
+ax.set_ylabel("")
+ax.set_xlabel("")
+ax.tick_params(labelsize=12, which="both", axis="both", labeltop=False, labelbottom=True)
+
+plt.setp(ax.get_xticklabels(), rotation=90)
+plt.setp(ax.get_yticklabels(), rotation=0)
+plt.tight_layout()
+
+glue("alpes_survey_area_codegroup_pcsm", fig, display=False)
+
 plt.close()
 
 
@@ -916,16 +1128,18 @@ plt.close()
 
 # ### Perzentil-Rangfolge der Erhebungsergebnisse in Bezug auf die Landnutzung
 
-# In[14]:
+# In[12]:
 
 
-# get the percentile ranking under each condition:
-# define land use ranges based on the sample data
-l_f = ["% zu LWS", "% zu Wald", "population"]
+nvsn = fdt.location.unique()
 
-this_range = (fd[l_f[0]].min(), fd[l_f[0]].max())
-this_range_w = (fd[l_f[1]].min(), fd[l_f[1]].max())
-this_range_p = (fd[l_f[2]].min(), fd[l_f[2]].max())
+l_f = ["% agg", "% woods", "population"]
+
+this_range = (fdt[l_f[0]].min(), fdt[l_f[0]].max())
+this_range_w = (fdt[l_f[1]].min(), fdt[l_f[1]].max())
+this_range_p = (fdt[l_f[2]].min(), fdt[l_f[2]].max())
+
+a_data = period_data.period_data.copy()
 
 # apply them to all the data
 # one test for agg -- a dominant land use feature of the sample data
@@ -952,7 +1166,7 @@ data_p = some_data_p.groupby(["loc_date","location",*l_f[1:]], as_index=False)[u
 # get the percentile ranking for each location under each condtion:
 table_data = {}
 for i,x in enumerate(nvsn):
-    this_num = wt_dt.loc[wt_dt.location == x, unit_label].values[0]
+    this_num = fdt_samples.loc[fdt_samples.location == x, unit_label].values[0]
     a = (stats.percentileofscore(data[unit_label].to_numpy(), this_num))
     b = (stats.percentileofscore(data_p[unit_label].to_numpy(), this_num))
     c = (stats.percentileofscore(data_w[unit_label].to_numpy(), this_num))
@@ -964,6 +1178,7 @@ t_data = t_data.astype("int")
 t_data.reset_index(inplace=True)
 t_data.rename(columns={"index":"variable"}, inplace=True)
 t_data.set_index("variable", inplace=True, drop=True)
+t_data.rename(columns={x:proper_names.loc[x] for x in t_data.columns}, inplace=True)
 
 fig, ax = plt.subplots(figsize=(len(nvsn)*.8,5))
 
@@ -1056,7 +1271,7 @@ plt.close()
 # 
 # Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
-# In[15]:
+# In[13]:
 
 
 # collect the data before aggregating foams for all locations in the survye area
@@ -1066,7 +1281,7 @@ h=pd.read_csv("resources/checked_alpes_survey_data_be.csv")
 h["location"] = h["location"].map(lambda x: sut.get_rid_of_ix(x, prefix="clean-up-tour-"))
 
 # remove prefixes from survey data
-lAlps = h[h.river_bassin == bassin_name][["loc_date","code","location","river_bassin","groupname", "quantity", "pcs_m"]].copy()
+lAlps = h[h.river_bassin == this_feature["slug"]][["loc_date","code","location","river_bassin","groupname", "quantity", "pcs_m"]].copy()
 
 # convert to reporting unit
 lAlps[unit_label]= (lAlps.pcs_m*100).round(2)
@@ -1076,24 +1291,24 @@ some_foams = ["G81", "G82", "G83", "G74"]
 some_frag_plas = list(lAlps[lAlps.groupname == "plastic pieces"].code.unique())
 
 # get just the foams and plastics and aggregate to code
-conditions = ((lAlps.code.isin([*some_frag_plas, *some_foams]))&(~lAlps.location.isin(remove)))
+conditions = ((lAlps.code.isin([*some_frag_plas, *some_foams]))&(~lAlps.location.isin(not_trail_samples)))
 fd_frags_foams = lAlps[conditions].groupby(["loc_date","code"], as_index=False).agg(agg_pcs_quantity)
 fd_frags_foams = fd_frags_foams.groupby("code", as_index=False).agg(agg_pcs_median)
 
 # add code description and format for printing
-fd_frags_foams["item"] = fd_frags_foams.code.map(lambda x: code_description_map.loc[x])
+fd_frags_foams["item"] = fd_frags_foams.code.map(lambda x: description_map.loc[x])
 fd_frags_foams["% of total"] = (fd_frags_foams.quantity/fd.quantity.sum()*100).round(2)
 fd_frags_foams["% of total"] = fd_frags_foams["% of total"].map(lambda x: F"{x}%")
 fd_frags_foams["quantity"] = fd_frags_foams["quantity"].map(lambda x: F"{x:,}")
 
 # table data
 data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]].copy()
-data.rename(columns={"quantity":"Gesamt", "% of total":"% Gesamt"}, inplace=True)
+data.rename(columns={"item": "Objekte", "quantity": "Objekte (St.)", "% of total":"Anteil"}, inplace=True)
 
-fig, axs = plt.subplots(figsize=(12,len(data)*.8))
+fig, axs = plt.subplots(figsize=(len(data.columns)*2.1,len(data)*.6))
 sut.hide_spines_ticks_grids(axs)
 
-this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .13, .13, .13], bbox=[0, 0, 1, 1])
+this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.6, .12, .15, .12], bbox=[0, 0, 1, 1])
 this_table.get_celld()[(0,0)].get_text().set_text(" ")
 this_table.set_fontsize(12)
 
@@ -1112,20 +1327,25 @@ plt.close()
 
 # ### Landnutzungsprofil der Erhebungsorte
 
-# In[16]:
+# In[14]:
 
 
 # get the land use profile of AV
-lu_prof = fd[["location","% zu Gebäuden", "% zu Erholung", "% zu Wald", "% zu LWS", "population"]].drop_duplicates()
+# lu_prof = fd[["location","% buildings", "% recreation", "% agg", "% woods", "population", "streets"]].drop_duplicates()
+lu_prof = fd[["location","% buildings", "% recreation", "% agg", "% woods", "population", "streets"]].drop_duplicates()
+percents = ["% buildings", "% recreation", "% agg", "% woods"]
+thousands = ["population", "streets"]
 
 # format for printing
-lu_prof.loc[:,lu_prof.columns[1:-1]] = lu_prof.loc[:,lu_prof.columns[1:-1]].applymap(lambda x: F"{int((x*100))}%")
-lu_prof.loc[:, lu_prof.columns[5:]] = lu_prof.loc[:, lu_prof.columns[5:]].applymap(lambda x: F"{int(x):,}")
+lu_prof[percents] = lu_prof[percents].applymap(lambda x: f"{int((x*100))}%")
+lu_prof[thousands] = lu_prof[thousands].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
+lu_prof.rename(columns=featuredata.luse_de, inplace=True)
+lu_prof.rename(columns={"Aktivitäten im Freien":"Aktivitäten\n im Freien"}, inplace=True)
 
 # put that to a table
 data=lu_prof.copy()
 
-fig, axs = plt.subplots(figsize=(13,len(table_one)*.6))
+fig, axs = plt.subplots(figsize=(11,len(data)*.6))
 sut.hide_spines_ticks_grids(axs)
 
 this_table = sut.make_a_table(axs, data.values,  colLabels=data.columns, colWidths=[.22, *[.13]*6], bbox=[0, 0, 1, 1])
@@ -1153,7 +1373,7 @@ plt.close()
 # * \% zu Wald: 0 to 83\%
 # * population: 199 to 10,668
 
-# In[17]:
+# In[15]:
 
 
 # define land use ranges based on the sample data
@@ -1220,7 +1440,7 @@ landusemap = pd.concat([mat_agg, mat_w, mat_p], axis=0)
 
 # *__Oben links:__ Gesamtsumme der Erhebung in Bezug auf den %-Anteil an Agg, Bereich=(0%, 66%). __Oben rechts:__ Gesamtzahl der Erhebungen in Bezug auf den Waldanteil, Bereich=(0%, 65%). __Unten links:__ Gesamtzahl der Erhebungen in Bezug auf die Bevölkerung, Bereich=(199, 10.668)*
 
-# In[18]:
+# In[16]:
 
 
 fig, axs = plt.subplots(2,2, figsize=(10,8), sharey=True)
@@ -1241,14 +1461,14 @@ rankings = {}
 for x in regional.location.unique():
     this_y = regional[regional.location == x][unit_label]
     this_x = regional[regional.location == x][l_f[0]]
-    axone.scatter(this_x, this_y, color="red", s=60, zorder=2)
+    axone.scatter(this_x, this_y, color=bassin_pallette[this_feature["slug"]], s=60, zorder=2)
 
 # handle extreme values
 axone.set_ylim(0, max(data[unit_label].to_numpy()))
 
 # set labels
 axone.set_ylabel(unit_label, **ck.xlab_k14)
-axone.set_xlabel(l_f[0], **ck.xlab_k14)
+axone.set_xlabel(featuredata.luse_de[l_f[0]], **ck.xlab_k14)
 
 # gather up legend handles
 axone.get_legend().remove()
@@ -1262,26 +1482,26 @@ for x in regional.location.unique():
     this_y = regional[regional.location == x][unit_label]
     this_x = regional[regional.location == x][l_f[1]]
     rankings.update({x:(this_x, this_y)})
-    axtwo.scatter(this_x, this_y, color="red", s=60, zorder=2)
+    axtwo.scatter(this_x, this_y, color=bassin_pallette[this_feature["slug"]], s=60, zorder=2)
 
 # handle extreme values
 axtwo.set_ylim(0, max(data[unit_label].to_numpy()))
 
 # set labels
 axtwo.set_ylabel(unit_label, **ck.xlab_k14)
-axtwo.set_xlabel(l_f[1], **ck.xlab_k14)
+axtwo.set_xlabel(featuredata.luse_de[l_f[1]], **ck.xlab_k14)
 axtwo.get_legend().remove()
 
 # start axthree
 # plot the samples from all the data that meet the x criteria
-sns.scatterplot(data=data_p, x=l_f[2], y=unit_label, color="black", alpha=1, linewidth=1, label=level_names[1], ax=axthree, zorder=1)
+sns.scatterplot(data=data_p, x=l_f[2], y=unit_label, color="black", alpha=1, linewidth=1, label=top, ax=axthree, zorder=1)
 
 # plot the values from AV
 for x in regional.location.unique():
     this_y = regional[regional.location == x][unit_label]
     this_x = regional[regional.location == x][l_f[2]]
     rankings.update({x:(this_x, this_y)})
-    axthree.scatter(this_x, this_y, color="red", s=60, label=level_names[0], zorder=2)
+    axthree.scatter(this_x, this_y, color=bassin_pallette[this_feature["slug"]], s=60, label=this_feature["name"], zorder=2)
 
 # handle extreme values
 axthree.set_ylim(-100, max(data[unit_label].to_numpy()))
@@ -1311,12 +1531,6 @@ plt.close()
 # ```
 # 
 
-# In[ ]:
-
-
-
-
-
 # ### Organisation und Durchführung
 # 
 # Summit foundation: Téo Gürsoy
@@ -1325,7 +1539,7 @@ plt.close()
 
 # ### Die Erhebungsorte
 
-# In[19]:
+# In[17]:
 
 
 # display the survey locations
@@ -1343,16 +1557,16 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[20]:
+# In[18]:
 
 
 pd.set_option("display.max_rows", None)
-complete_inventory = code_totals[code_totals.quantity>0][["item", "utility", "quantity", "% of total","fail rate"]]
-
-new_names = {"item":"Objekte", "groupname":"Gruppenname", "quantity":"Menge", "fail rate":"Fail-Pass", "% of total":"% Gesamt", }
-
-complete_inventory.rename(columns=new_names, inplace=True)
-complete_inventory.sort_values(by="Menge", ascending=False)
+complete_inventory = fdx.code_summary.copy()
+complete_inventory["quantity"] = complete_inventory["quantity"].map(lambda x: featuredata.thousandsSeparator(x, language))
+complete_inventory["% of total"] = complete_inventory["% of total"].astype(int)
+complete_inventory[unit_label] = complete_inventory[unit_label].astype(int)
+complete_inventory.rename(columns=featuredata.inventory_table_de, inplace=True)
+complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
 
 
 # In[ ]:

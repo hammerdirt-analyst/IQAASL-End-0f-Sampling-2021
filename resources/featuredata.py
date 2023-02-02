@@ -49,20 +49,23 @@ luse_de = {
     "% recreation": "Aktivitäten im Freien",
     "% agg": "Landwirtschaft",
     "% woods": "Wald",
+    "streets": "Strassen km",
+    "population": "Bevölkerung"
 }
 
 river_basin_de = {
     "aare": "Aare",
     "linth": "Linth",
     "rhone": "Rhone",
-    "ticino": "Ticino"
+    "ticino": "Ticino",
+    "les-alpes": "Alpen und Jura"
 }
 
 dims_table_columns_de = {
     "samples":"Erhebungen",
     "quantity":"Objekte",
     "total_w":"Gesamtgewicht (kg)",
-    "mac_plast_w":"kg Plastik",
+    "mac_plast_w":"Plastik (Kg)",
     "area":"Fläche (m2)",
     "length":"Länge (m)"
 }
@@ -98,7 +101,14 @@ default_land_use_columns = [
     "intersects"
 ]
 
-bassin_pallette = {"rhone":"dimgray", "aare":"salmon", "linth":"tan", "ticino":"steelblue", "reuss":"purple"}
+bassin_pallette = {
+    "rhone": "dimgray",
+    "aare": "salmon",
+    "linth": "tan",
+    "ticino": "steelblue",
+    "reuss": "purple",
+    "les-alpes": "darkcyan"
+}
 
 
 def thousandsSeparator(aninteger, lang: str = "de"):
@@ -221,19 +231,18 @@ def makeEventIdColumn(data, feature_level, these_features: str = " ", date_range
 def featureData(filename, feature_level, language: str=None,
                 date_range: () = None, these_features: str = None,
                 columns: {} = None, unit_label: str = None):
-    # makes the feature data to be explored
-    data = loadData(filename)
     
+    f_data = loadData(filename)
     if isinstance(columns, dict):
-        data = changeColumnNames(data, columns=columns)
+        f_data = changeColumnNames(f_data, columns=columns)
     if language == "de":
-        data["groupname"] = data["groupname"].map(lambda x: group_names_de[x])
-        data.rename(columns={'p/100m': unit_label}, inplace=True)
+        f_data["groupname"] = f_data["groupname"].map(lambda x: group_names_de[x])
+        f_data.rename(columns={'p/100m': unit_label}, inplace=True)
         
-    feature_data = makeEventIdColumn(data, feature_level, date_range=date_range, these_features=these_features)
-    data["date"] = pd.to_datetime(data["date"], format=date_format).dt.tz_localize('UTC')
-    temporal_mask = (data["date"] >= date_range[0]) & (data["date"] <= date_range[1])
-    period_data = data[temporal_mask].copy()
+    feature_data = makeEventIdColumn(f_data, feature_level, date_range=date_range, these_features=these_features)
+    f_data["date"] = pd.to_datetime(f_data["date"], format=date_format).dt.tz_localize('UTC')
+    temporal_mask = (f_data["date"] >= date_range[0]) & (f_data["date"] <= date_range[1])
+    period_data = f_data[temporal_mask].copy()
     
     return feature_data, period_data
 
@@ -600,7 +609,7 @@ class FeatureData(Codes):
     def __init__(self, filename: str = "", feature_name: str = "", feature_level: str = "",
                  these_features: list = [], component: str = "", date_range: list = None, fail_rate: int = 0,
                  columns: list = False, language: str = "en", unit_label: str = "pcs/100m",
-                 code_data: pd.DataFrame = None, water_type: str = None):
+                 code_data: pd.DataFrame = None, water_type: str = None, **kwargs):
         super().__init__(code_data, language)
         self.filename = filename
         self.feature = feature_name
@@ -650,7 +659,7 @@ class FeatureData(Codes):
         
         cols_ops_kwargs = {
             "column_operations": [(self.unit_label, "sum"), ("quantity", "sum")],
-            "columns": ["loc_date", "location", self.feature_component, "date"],
+            "columns": list(set(["loc_date", "location", self.feature_component, "date"])),
             "unit_label": self.unit_label
         }
 
@@ -661,18 +670,19 @@ class FeatureData(Codes):
         
         self.sample_totals = self.feature_data.groupby(columns, as_index=False).agg(column_operation)
     
-    def codeSummary(self, column_operations=None):
+    def codeSummary(self, column_operations: list = None):
         
         if isinstance(self.code_summary, pd.DataFrame):
             return self.code_summary
         
-        cols_ops_kwargs = {
-            "column_operations": [(self.unit_label, "median"), ("quantity", "sum")],
-            "columns": ["code"],
-            "unit_label": self.unit_label
-        }
+        if column_operations is None:
+            column_operations = {
+                "column_operations": [(self.unit_label, "median"), ("quantity", "sum")],
+                "columns": ["code"],
+                "unit_label": self.unit_label
+            }
 
-        columns, column_operation = columnsAndOperations(**cols_ops_kwargs)
+        columns, column_operation = columnsAndOperations(**column_operations)
         
         # apply the column operations
         code_totals = self.feature_data.groupby(columns, as_index=False).agg(column_operation)
@@ -685,8 +695,8 @@ class FeatureData(Codes):
             (self.feature_data.code == x) & (self.feature_data.quantity > 0)].loc_date.nunique())
         code_totals["fail rate"] = ((code_totals.fail / self.feature_data.loc_date.nunique()) * 100).astype("int")
         
-        # the code data comes from the feature data (survey results)
-        # Add the description of the code and the material
+        # the code name comes from the feature data (survey results)
+        # Add the description of the code and the material type
         code_totals.set_index(columns, inplace=True)
         code_totals["item"] = code_totals.index.map(lambda x: self.dMap[x])
         code_totals["material"] = code_totals.index.map(lambda x: self.mMap[x])
@@ -764,7 +774,7 @@ class FeatureData(Codes):
         
         # the summary of the dependent variable
         a = self.sample_totals[self.unit_label].describe().round(2)
-        a["total objects"] = self.feature_data.quantity.sum()
+        a["total objects"] = self.sample_totals.quantity.sum()
         
         # assign appropriate language to index names
         # retrieve the appropriate index names based on language
@@ -790,14 +800,15 @@ class Components(FeatureData, Codes):
     def componentMostCommonPcsM(self, columns: list = None, column_operations: list = None):
         
         codes = self.most_common.index
-       
-        cols_ops_kwargs = {
-            "column_operations":  [(self.unit_label, "sum"), ("quantity", "sum")],
-            "columns":  [self.feature_component, "loc_date", "code"],
-            "unit_label": self.unit_label
-        }
         
-        columns, column_operation = columnsAndOperations(**cols_ops_kwargs)
+        if column_operations is None:
+            column_operations = {
+                "column_operations":  [(self.unit_label, "sum"), ("quantity", "sum")],
+                "columns":  [self.feature_component, "loc_date", "code"],
+                "unit_label": self.unit_label
+            }
+        
+        columns, column_operation = columnsAndOperations(**column_operations)
         
         mask = self.feature_data.code.isin(codes)
         
@@ -1010,9 +1021,15 @@ class AdministrativeSummary(Beaches):
         
         # collect the number of samples from the survey total data:
         for name in dims_table.index:
-            dims_table.loc[name, "samples"] = self.feature_data[
-                self.feature_data[self.feature_component] == name].loc_date.nunique()
-            dims_table.loc[name, "quantity"] = q_map[name]
+            if self.feature_component == "location":
+                new_name = component_map[component_map == name].index[0]
+                mask = self.feature_data[self.feature_component] == new_name
+                dims_table.loc[name, "samples"] = self.feature_data[mask].loc_date.nunique()
+                dims_table.loc[name, "quantity"] = q_map[new_name]
+            else:
+                mask = self.feature_data[self.feature_component] == name
+                dims_table.loc[name, "samples"] = self.feature_data[mask].loc_date.nunique()
+                dims_table.loc[name, "quantity"] = q_map[name]
             
         # get the sum of all the features
         dims_table.loc[self.label] = dims_table.sum(numeric_only=True, axis=0)

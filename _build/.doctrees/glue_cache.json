@@ -1,49 +1,49 @@
 {
   "aare_sa_rev_de": {
-    "aare_survey_area_codegroup_percent": {
+    "aare_survey_area_most_common_tables": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 770x880 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 900x770 with 1 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "aare_survey_area_codegroup_percent"
+          "name": "aare_survey_area_most_common_tables"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_38_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_21_0.png"
         }
       },
       "output_type": "display_data"
     },
-    "aare_survey_area_sample_material_tables": {
+    "aare_survey_area_monthly_results": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 640x480 with 2 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 1000x900 with 1 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "aare_survey_area_sample_material_tables"
+          "name": "aare_survey_area_monthly_results"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_16_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_30_0.png"
         }
       },
       "output_type": "display_data"
     },
-    "aare_survey_area_dimensional_summary": {
+    "aare_survey_area_sample_totals": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1190x700 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 1000x500 with 2 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "aare_survey_area_dimensional_summary"
+          "name": "aare_survey_area_sample_totals"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_10_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_13_0.png"
         }
       },
       "output_type": "display_data"
@@ -64,7 +64,7 @@
       },
       "output_type": "display_data"
     },
-    "aare_survey_area_codegroup_pcsm": {
+    "aare_survey_area_codegroup_percent": {
       "data": {
         "application/papermill.record/image/png": null,
         "application/papermill.record/text/plain": "<Figure size 770x880 with 1 Axes>"
@@ -72,10 +72,10 @@
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "aare_survey_area_codegroup_pcsm"
+          "name": "aare_survey_area_codegroup_percent"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_41_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_38_0.png"
         }
       },
       "output_type": "display_data"
@@ -92,22 +92,6 @@
         },
         "filenames": {
           "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_7_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "aare_survey_area_rivers_summary": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1100x600 with 2 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "aare_survey_area_rivers_summary"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_45_0.png"
         }
       },
       "output_type": "display_data"
@@ -160,283 +144,39 @@
       },
       "output_type": "display_data"
     },
-    "aare_survey_area_most_common_tables": {
+    "aare_survey_area_rivers_summary": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 900x770 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 1100x600 with 2 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "aare_survey_area_most_common_tables"
+          "name": "aare_survey_area_rivers_summary"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_21_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_45_0.png"
         }
       },
       "output_type": "display_data"
     },
-    "aare_survey_area_monthly_results": {
+    "aare_survey_area_dimensional_summary": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1000x900 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 1190x700 with 1 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "aare_survey_area_monthly_results"
+          "name": "aare_survey_area_dimensional_summary"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_30_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_10_0.png"
         }
       },
       "output_type": "display_data"
     },
-    "aare_survey_area_sample_totals": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1000x500 with 2 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "aare_survey_area_sample_totals"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_13_0.png"
-        }
-      },
-      "output_type": "display_data"
-    }
-  },
-  "alpes_valaisannes_rev_de": {
-    "alpes_survey_area_most_common_tables": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1200x700 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_most_common_tables"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_22_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_pranking_luse": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1360x500 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_pranking_luse"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_38_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_compare_luse": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1000x800 with 4 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_compare_luse"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_50_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_fragmented_plastics": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1200x720 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_fragmented_plastics"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_42_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_dimensional_summary": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1400x1300 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_dimensional_summary"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_6_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_codegroup_percent": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1520x990 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_codegroup_percent"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_31_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_sample_totals": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1000x500 with 2 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_sample_totals"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_16_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_landuse": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 900x800 with 6 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_landuse"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_12_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_codegroup_pcsm": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1520x990 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_codegroup_pcsm"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_35_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_luse_commune": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1300x1260 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_luse_commune"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_45_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_sample_material_tables": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 800x600 with 2 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_sample_material_tables"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_19_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_most_common_heat_map": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1520x900 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_most_common_heat_map"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_25_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "alpes_survey_area_event_summaries": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1000x1300 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "alpes_survey_area_event_summaries"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_9_0.png"
-        }
-      },
-      "output_type": "display_data"
-    }
-  },
-  "bielersee_rev_de": {
-    "bielersee_most_common_tables": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1000x1120 with 1 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "bielersee_most_common_tables"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/bielersee_rev_de_20_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "bielersee_codegroup_percent": {
+    "aare_survey_area_codegroup_pcsm": {
       "data": {
         "application/papermill.record/image/png": null,
         "application/papermill.record/text/plain": "<Figure size 770x880 with 1 Axes>"
@@ -444,14 +184,32 @@
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "bielersee_codegroup_percent"
+          "name": "aare_survey_area_codegroup_pcsm"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/bielersee_rev_de_33_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_41_0.png"
         }
       },
       "output_type": "display_data"
     },
+    "aare_survey_area_sample_material_tables": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 640x480 with 2 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "aare_survey_area_sample_material_tables"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/aare_sa_rev_de_16_0.png"
+        }
+      },
+      "output_type": "display_data"
+    }
+  },
+  "bielersee_rev_de": {
     "bielersee_sample_totals": {
       "data": {
         "application/papermill.record/image/png": null,
@@ -500,18 +258,18 @@
       },
       "output_type": "display_data"
     },
-    "bielersee_sample_material_tables": {
+    "bielersee_fragmented_plastics": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 640x480 with 2 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 840x630 with 1 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "bielersee_sample_material_tables"
+          "name": "bielersee_fragmented_plastics"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/bielersee_rev_de_15_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/bielersee_rev_de_38_0.png"
         }
       },
       "output_type": "display_data"
@@ -532,6 +290,38 @@
       },
       "output_type": "display_data"
     },
+    "bielersee_sample_material_tables": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 640x480 with 2 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "bielersee_sample_material_tables"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/bielersee_rev_de_15_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "bielersee_codegroup_percent": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 770x880 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "bielersee_codegroup_percent"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/bielersee_rev_de_33_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
     "bielersee_monthly_results": {
       "data": {
         "application/papermill.record/image/png": null,
@@ -548,41 +338,201 @@
       },
       "output_type": "display_data"
     },
-    "bielersee_fragmented_plastics": {
+    "bielersee_most_common_tables": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 840x630 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 1000x1120 with 1 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "bielersee_fragmented_plastics"
+          "name": "bielersee_most_common_tables"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/bielersee_rev_de_38_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/bielersee_rev_de_20_0.png"
         }
       },
       "output_type": "display_data"
     }
   },
-  "lakes_rivers_rev_de": {
-    "eos_codegroup_percent": {
+  "alpes_valaisannes_rev_de": {
+    "alpes_survey_area_landuse": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 350x880 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 900x800 with 6 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "eos_codegroup_percent"
+          "name": "alpes_survey_area_landuse"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_29_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_11_0.png"
         }
       },
       "output_type": "display_data"
     },
-    "eos_sample_material_tables": {
+    "alpes_survey_area_most_common_tables": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 900x700 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_most_common_tables"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_21_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_pranking_luse": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1360x500 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_pranking_luse"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_36_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_compare_luse": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1000x800 with 4 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_compare_luse"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_48_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_codegroup_pcsm": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1330x880 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_codegroup_pcsm"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_33_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_most_common_heat_map": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1330x800 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_most_common_heat_map"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_24_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_event_summaries": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 800x1260 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_event_summaries"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_8_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_luse_commune": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1100x1200 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_luse_commune"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_43_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_dimensional_summary": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1400x1300 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_dimensional_summary"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_5_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_codegroup_percent": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1330x880 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_codegroup_percent"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_30_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_sample_totals": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1000x500 with 2 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_sample_totals"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_15_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_sample_material_tables": {
       "data": {
         "application/papermill.record/image/png": null,
         "application/papermill.record/text/plain": "<Figure size 640x480 with 2 Axes>"
@@ -590,10 +540,44 @@
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "eos_sample_material_tables"
+          "name": "alpes_survey_area_sample_material_tables"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_15_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_18_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "alpes_survey_area_fragmented_plastics": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 840x540 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "alpes_survey_area_fragmented_plastics"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/alpes_valaisannes_rev_de_40_0.png"
+        }
+      },
+      "output_type": "display_data"
+    }
+  },
+  "lakes_rivers_rev_de": {
+    "eos_codegroup_pcs": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 350x880 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "eos_codegroup_pcs"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_32_0.png"
         }
       },
       "output_type": "display_data"
@@ -614,34 +598,18 @@
       },
       "output_type": "display_data"
     },
-    "eos_most_common_tables": {
+    "eos_sample_material_tables": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 920x840 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 640x480 with 2 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "eos_most_common_tables"
+          "name": "eos_sample_material_tables"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_18_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "eosscatter_de": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1100x500 with 2 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "eosscatter_de"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_12_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_15_0.png"
         }
       },
       "output_type": "display_data"
@@ -694,34 +662,18 @@
       },
       "output_type": "display_data"
     },
-    "eos_codegroup_pcs": {
+    "eos_rivers_most_common": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 350x880 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 1000x700 with 1 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "eos_codegroup_pcs"
+          "name": "eos_rivers_most_common"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_32_0.png"
-        }
-      },
-      "output_type": "display_data"
-    },
-    "eos_rivers": {
-      "data": {
-        "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1000x600 with 2 Axes>"
-      },
-      "metadata": {
-        "scrapbook": {
-          "mime_prefix": "application/papermill.record/",
-          "name": "eos_rivers"
-        },
-        "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_35_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_38_0.png"
         }
       },
       "output_type": "display_data"
@@ -742,18 +694,66 @@
       },
       "output_type": "display_data"
     },
-    "eos_rivers_most_common": {
+    "eos_codegroup_percent": {
       "data": {
         "application/papermill.record/image/png": null,
-        "application/papermill.record/text/plain": "<Figure size 1000x700 with 1 Axes>"
+        "application/papermill.record/text/plain": "<Figure size 350x880 with 1 Axes>"
       },
       "metadata": {
         "scrapbook": {
           "mime_prefix": "application/papermill.record/",
-          "name": "eos_rivers_most_common"
+          "name": "eos_codegroup_percent"
         },
         "filenames": {
-          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_38_0.png"
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_29_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "eos_rivers": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1000x600 with 2 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "eos_rivers"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_35_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "eosscatter_de": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 1100x500 with 2 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "eosscatter_de"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_12_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "eos_most_common_tables": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 920x840 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "eos_most_common_tables"
+        },
+        "filenames": {
+          "image/png": "/home/roger/dev/iqaasl/_build/jupyter_execute/lakes_rivers_rev_de_18_0.png"
         }
       },
       "output_type": "display_data"

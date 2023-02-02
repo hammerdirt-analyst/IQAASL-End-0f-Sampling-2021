@@ -74,7 +74,6 @@ colors_palette = ck.colors_palette
 bassin_pallette = featuredata.bassin_pallette
 
 # border and row shading fro tables
-a_color = "saddlebrown"
 table_row = "saddlebrown"
 
 ## !! Begin Note book variables !!
@@ -422,7 +421,7 @@ colLabels = data.columns
 fig, ax = plt.subplots(figsize=(len(colLabels)*1.7,len(data)*.7))
 
 sut.hide_spines_ticks_grids(ax)
-table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, colWidths=[.18, .17, *[.13]*5], a_color=a_color)
+table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, colWidths=[.18, .17, *[.13]*5], a_color=table_row)
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
 table_one.set_fontsize(12)
 
@@ -465,8 +464,6 @@ sns.scatterplot(data=fdx.sample_totals, x="date", y=unit_label, label=this_featu
 # monthly or quaterly plot
 sns.lineplot(data=resample_plot, x=resample_plot.index, y=resample_plot, label=F"{this_feature['name']}: monatlicher Medianwert", color="magenta", ax=ax)
 
-y_lim = 95
-y_limit = np.percentile(dx[unit_label], y_lim)
 ax.set_ylabel(unit_label, **ck.xlab_k14)
 
 ax.set_xlabel("")

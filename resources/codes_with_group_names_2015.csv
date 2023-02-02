@@ -1,5 +1,5 @@
 code,material,description,source,source_two,source_three,parent_code,direct,single_use,micro,ospar_code,groupname
-G708,Alu,Batons de ski,Usagers,Where does it come from,Where does it come from,G199,True,False,False,Ospar...,recreation
+G708,Metal,Batons de ski,Usagers,Where does it come from,Where does it come from,G199,True,False,False,Ospar...,recreation
 G212,Chemicals,Oil nodules or coal fragments -- not from a BBQ,Undefined,Where does it come from,none,Parent code,False,False,False,none,unclassified
 G213,Chemicals,Paraffin wax,Undefined,Where does it come from,none,Parent code,True,False,False,181,recreation
 G214,Chemicals,Oil/tar,Construction,Where does it come from,none,Parent code,False,False,False,111,infrastructure

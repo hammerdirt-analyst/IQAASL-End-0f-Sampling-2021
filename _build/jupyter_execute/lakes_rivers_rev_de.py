@@ -546,6 +546,7 @@ csx = fdx.sample_summary.copy()
 # format for the current language
 combined_summary =[(x, featuredata.thousandsSeparator(int(csx[x]), language)) for x in csx.index]
 
+
 # the materials table
 fd_mat_totals = fdx.material_summary.copy()
 fd_mat_totals = featuredata.fmtPctOfTotal(fd_mat_totals, around=0)
@@ -1009,7 +1010,7 @@ plt.close()
 # ```
 # {numref}`Abbildung {number}: <eos_rivers_most_common>` Die häufigsten Objekte aus Erhebungen an Fliessgewässern. Windeln, Feuchttücher und Taschen/Tüten aus Kunststoff resp. Fragmente davon gehören nur entlang von Fliessgewässern zu den häufigsten Objekten, nicht jedoch an Ufern von Seen.
 
-# ## Annex
+# ## Anhang
 # 
 # ### Schaumstoffe und Kunststoffe nach Grösse 
 # 
