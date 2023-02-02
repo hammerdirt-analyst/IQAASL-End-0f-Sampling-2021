@@ -310,17 +310,18 @@ dims_table = dims_table[new_columns]
 weights_map = admin_details.dims_data[["location", "mic_plas_w"]].set_index("location")
 
 # add the cumulative total
-dims_table.loc["Alpen und Jura", "Gewicht (kg)"] = round(weights_map.mic_plas_w.sum()/1000, 2)
+dims_table.loc["Alpen und Jura", "Gesamtgewicht (Kg)"] = round(weights_map.mic_plas_w.sum()/1000, 2)
+
 
 for location in admin_details.locations_of_interest:
     index_name = proper_names[location]
     value = weights_map.loc[location, "mic_plas_w"]
-    dims_table.loc[index_name, "Gewicht (kg)"] = round(value/1000, 2)
+    dims_table.loc[index_name, "Gesamtgewicht (Kg)"] = round(value/1000, 2)
 
 # format the table for display
 # convert the plastic totals from grams to kilos
 dims_table.mac_plast_w = (dims_table.mac_plast_w/1000).round(2)
-dims_table = dims_table.sort_values(by="Gewicht (kg)", ascending=False)
+dims_table = dims_table.sort_values(by="Gesamtgewicht (Kg)", ascending=False)
 
 # convert samples, area, length and unit_label to integers
 # the thousands are separated by a space not a comma or decimal
@@ -331,7 +332,7 @@ dims_table[as_type_int] = dims_table[as_type_int].astype(int)
 dims_table[as_type_int] = dims_table[as_type_int].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
 
 # the decimal is replaced by a comma
-replace_decimal = ["mac_plast_w", "Gewicht (kg)"]
+replace_decimal = ["mac_plast_w", "Gesamtgewicht (Kg)"]
 dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(x)))
 
 # rename the columns to german and reset the index
@@ -339,9 +340,9 @@ dims_table = dims_table.rename(columns=featuredata.dims_table_columns_de)
 dims_table.reset_index(inplace=True, drop=False)
 
 # make table
-fig, ax = plt.subplots(figsize=(14, 13))
+fig, ax = plt.subplots(figsize=(14.2, 13))
 sut.hide_spines_ticks_grids(ax)
-a_table = sut.make_a_table(ax,dims_table.values , colLabels=dims_table.columns, colWidths=[.23, *[.11]*7], a_color=table_row)
+a_table = sut.make_a_table(ax,dims_table.values , colLabels=dims_table.columns, colWidths=[.23, *[.10]*6, .17], a_color=table_row)
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
 a_table.set_fontsize(12)
 glue('alpes_survey_area_dimensional_summary', fig, display=False)
@@ -358,7 +359,7 @@ plt.close()
 
 # ### Gesamtzahlen in Bezug auf die Clean-ups
 
-# In[4]:
+# In[21]:
 
 
 # the event totals include the amount collected but not counted
@@ -383,7 +384,7 @@ event_totals[thousands] = event_totals[thousands].applymap(lambda x: featuredata
 event_totals["time_minutes"] = event_totals.time_minutes.map(lambda x: featuredata.replaceDecimal(str(x)))
 
 new_column_names = {
-    "total_w":  "Gewicht (kg)",
+    "total_w":  "Gesamtgewicht (Kg)",
     "num_parts_other": "Teilnehmende", 
     "num_parts_staff": "Mitarbeitende",
     "time_minutes": "Std."
@@ -396,7 +397,7 @@ table_two.reset_index(inplace=True)
 fig, axs = plt.subplots(figsize=(8,len(table_two)*.6))
 sut.hide_spines_ticks_grids(axs)
 
-a_table = sut.make_a_table(axs, table_two.values, colLabels=table_two.columns, colWidths=[.36, *[.17]*3, .13])
+a_table = sut.make_a_table(axs, table_two.values, colLabels=table_two.columns, colWidths=[.33, .23, *[.16]*2, .11])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
 a_table.set_fontsize(12)
 
@@ -974,7 +975,7 @@ plt.close()
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <alpes_survey_area_teleski_brush>` Seilbahnbürsten, die verwendet werden, um Eis und Schnee von Skiliften zu entfernen, können sich von der Anlage lösen und Tausende von schweren Kunststofffäden erzeugen.*.
+# {numref}`Abbildung %s: <alpes_survey_area_teleski_brush>` Seilbahnbürsten, die verwendet werden, um Eis und Schnee von Skiliften zu entfernen, können sich von der Anlage lösen und Tausende von schweren Kunststofffäden erzeugen.
 
 # ## Verwendungszweck der gefundenen Objekte
 # 
@@ -1253,7 +1254,7 @@ plt.close()
 # 
 # Objekte aus dem Bereich Essen und Trinken machen nur 11 % der insgesamt gefundenen Objekte aus, verglichen mit 36 % in den anderen Untersuchungsgebieten. Der Anteil an Abfallobjekten aus dem Bereich Infrastruktur beträgt in den Alpen und im Jura jedoch 75 % gegenüber 18 % in allen anderen Untersuchungsgebieten. Dies ist zum Teil auf den Unterschied in der menschlichen Präsenz im Vergleich zu Orten in niedrigeren Höhenlagen zurückzuführen, wo die menschliche Präsenz das ganze Jahr über konstant ist, so dass der Druck durch Nahrungs- und Genussmittel im Gegensatz zur Infrastruktur grösser ist.  
 # 
-# Dieses erste Projekt hat auch gezeigt, dass es möglich ist, die Überwachung mit Clean-ups zu kombinieren. In Vorbereitung auf die Überwachung tauschten die Mitglieder beider Teams Ideen aus und sortierten gemeinsam Proben. Dies ermöglichte es beiden Organisationen, sich gegenseitig besser zu verstehen und Basisleistungen zu bestimmen, die bei der Datenerfassung für einen nationalen Bericht erbracht werden konnten:  
+# Dieses erste Projekt hat auch gezeigt, dass es möglich ist, die Erhebung mit Clean-ups zu kombinieren. In Vorbereitung auf die Erhebung tauschten die Mitglieder beider Teams Ideen aus und sortierten gemeinsam Proben. Dies ermöglichte es beiden Organisationen, sich gegenseitig besser zu verstehen und Basisleistungen zu bestimmen, die bei der Datenerfassung für einen nationalen Bericht erbracht werden konnten:  
 # 
 # 1. Unterstützung bei der Erfassung und Identifizierung von Abfallobjekten
 # 2. Unterstützung bei der Dateneingabe
@@ -1327,14 +1328,16 @@ plt.close()
 
 # ### Landnutzungsprofil der Erhebungsorte
 
-# In[14]:
+# In[28]:
 
 
 # get the land use profile of AV
 # lu_prof = fd[["location","% buildings", "% recreation", "% agg", "% woods", "population", "streets"]].drop_duplicates()
 lu_prof = fd[["location","% buildings", "% recreation", "% agg", "% woods", "population", "streets"]].drop_duplicates()
 percents = ["% buildings", "% recreation", "% agg", "% woods"]
-thousands = ["population", "streets"]
+thousands = ["population"]
+
+lu_prof["streets"] = (lu_prof["streets"]/1000).astype(int)
 
 # format for printing
 lu_prof[percents] = lu_prof[percents].applymap(lambda x: f"{int((x*100))}%")
@@ -1367,11 +1370,11 @@ plt.close()
 
 # ### Alpen und Jura in Bezug auf die Landnutzung
 # 
-# Die Ergebnisse aus den Alpen und dem Jura werden mit den anderen Erhebungsergebnissen verglichen, die entweder % bis Wald oder % bis Landwirtschaft (LWS) innerhalb der gleichen Spanne wie AV liegen. Die Bereiche für AV sind:
+# Die Ergebnisse aus den Alpen und dem Jura werden mit den anderen Erhebungsergebnissen verglichen, die entweder % bis Wald oder % bis Landwirtschaft (LWS) innerhalb der gleichen Spanne wie AV liegen. Die Bereiche für Alpen und Jura sind:
 # 
-# * \% zu LWS: 0 to 66\%
-# * \% zu Wald: 0 to 83\%
-# * population: 199 to 10,668
+# * Landwirtschaft: 0 to 66\%
+# * Wald: 0 to 83\%
+# * Bevölkerung: 199 to 10,668
 
 # In[15]:
 

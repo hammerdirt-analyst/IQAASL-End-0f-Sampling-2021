@@ -63,8 +63,8 @@ river_basin_de = {
 
 dims_table_columns_de = {
     "samples":"Erhebungen",
-    "quantity":"Objekte",
-    "total_w":"Gesamtgewicht (kg)",
+    "quantity":"Objekte (St.)",
+    "total_w":"Gesamtgewicht (Kg)",
     "mac_plast_w":"Plastik (Kg)",
     "area":"Fläche (m2)",
     "length":"Länge (m)"

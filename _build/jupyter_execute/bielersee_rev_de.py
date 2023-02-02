@@ -304,10 +304,10 @@ dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
 dims_table.rename(columns=featuredata.dims_table_columns_de, inplace=True)
 
 # needs formatting
-thousands_separated = ["Fläche (m2)", "Länge (m)", "Erhebungen", "Objekte"]
-replace_decimal = ["kg Plastik", "Gesamtgewicht (kg)"]
+thousands_separated = ["Fläche (m2)", "Länge (m)", "Erhebungen", "Objekte (St.)"]
+replace_decimal = ["Plastik (Kg)", "Gesamtgewicht (Kg)"]
 
-dims_table["kg Plastik"] = dims_table["kg Plastik"]/1000
+dims_table["Plastik (Kg)"] = dims_table["Plastik (Kg)"]/1000
 dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
 dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,2))))
 

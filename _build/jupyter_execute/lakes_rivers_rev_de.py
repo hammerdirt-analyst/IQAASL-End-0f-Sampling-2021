@@ -249,7 +249,7 @@ pop_string = featuredata.thousandsSeparator(int(admin_summary["population"]), la
 
 # make strings
 date_quantity_context = F"Im Zeitraum von {featuredata.dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)}  bis {featuredata.dateToYearAndMonth(datetime.strptime(end_date, date_format), lang= date_lang)} wurden im Rahmen von {surv_string} Datenerhebungen insgesamt {obj_string } Objekte entfernt und identifiziert."
-geo_context = F"Die Ergebnisse des {this_feature['name']} umfassen {admin_summary['location']} Orte, {admin_summary['city']} Gemeinden und eine Gesamtbevölkerung von etwa {pop_string} Einwohnenden."
+geo_context = F"Die Ergebnisse Erhebungsgebiete umfassen {admin_summary['location']} Orte, {admin_summary['city']} Gemeinden und eine Gesamtbevölkerung von etwa {pop_string} Einwohnenden."
 
 # lists of landmarks of interest
 munis_joined = ", ".join(sorted(admin_details.populationKeys()["city"]))
@@ -400,9 +400,9 @@ dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
 dims_table.rename(columns=featuredata.dims_table_columns_de, inplace=True)
 
 # the values in these columns need formating to swiss spec
-thousands_separated = ["Fläche (m2)", "Länge (m)", "Erhebungen", "Objekte"]
-replace_decimal = ["kg Plastik", "Gesamtgewicht (kg)"]
-dims_table["kg Plastik"] = dims_table["kg Plastik"]/1000
+thousands_separated = ["Fläche (m2)", "Länge (m)", "Erhebungen", "Objekte (St.)"]
+replace_decimal = ["Plastik (Kg)", "Gesamtgewicht (Kg)"]
+dims_table["Plastik (Kg)"] = dims_table["Plastik (Kg)"]/1000
 
 # apply numerical formatting
 dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
