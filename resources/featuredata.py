@@ -1035,3 +1035,5 @@ class AdministrativeSummary(Beaches):
         dims_table.loc[self.label] = dims_table.sum(numeric_only=True, axis=0)
         
         return dims_table
+
+

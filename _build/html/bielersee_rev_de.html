@@ -100,17 +100,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="titlepage_de.html">
-                    Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Zusammenfassung
@@ -145,7 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -188,35 +180,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/main?urlpath=tree/docs/bielersee_rev_de.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -269,52 +232,6 @@ title="Open an issue"
   </span>
 <span class="headerbtn__text-container">open issue</span>
 </a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/bielersee_rev_de.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
 
       </li>
       
@@ -555,6 +472,16 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MultipleLocator</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
+<span class="c1"># build report</span>
+<span class="kn">from</span> <span class="nn">reportlab.platypus</span> <span class="kn">import</span> <span class="n">SimpleDocTemplate</span><span class="p">,</span> <span class="n">Paragraph</span><span class="p">,</span> <span class="n">Spacer</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">PageBreak</span><span class="p">,</span> <span class="n">ListFlowable</span><span class="p">,</span> <span class="n">ListItem</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib.pagesizes</span> <span class="kn">import</span> <span class="n">letter</span><span class="p">,</span> <span class="n">A4</span>
+<span class="kn">from</span> <span class="nn">reportlab.rl_config</span> <span class="kn">import</span> <span class="n">defaultPageSize</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib.units</span> <span class="kn">import</span> <span class="n">inch</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib.styles</span> <span class="kn">import</span> <span class="n">getSampleStyleSheet</span><span class="p">,</span> <span class="n">ParagraphStyle</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib.colors</span> <span class="kn">import</span> <span class="n">HexColor</span>
+<span class="kn">from</span> <span class="nn">reportlab.platypus</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Paragraph</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib</span> <span class="kn">import</span> <span class="n">colors</span>
+
 <span class="c1"># the module that has all the methods for handling the data</span>
 <span class="kn">import</span> <span class="nn">resources.featuredata</span> <span class="k">as</span> <span class="nn">featuredata</span>
 
@@ -724,12 +651,52 @@ title="Print to PDF"
 <span class="n">admin_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span><span class="n">fdr</span><span class="o">.</span><span class="n">feature_data</span><span class="p">})</span>
 <span class="n">admin_r_details</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">AdministrativeSummary</span><span class="p">(</span><span class="o">**</span><span class="n">admin_kwargs</span><span class="p">)</span>
 <span class="n">admin_r_summary</span> <span class="o">=</span> <span class="n">admin_r_details</span><span class="o">.</span><span class="n">summaryObject</span><span class="p">()</span>
+
+
+<span class="c1"># pdf download is an option </span>
+<span class="c1"># reportlab is used to produce the document</span>
+<span class="c1"># the arguments for the document are captured at run time</span>
+<span class="c1"># capture for pdf content</span>
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">addToDoc</span><span class="p">(</span><span class="n">flowables</span><span class="p">,</span> <span class="n">alist</span><span class="p">):</span>
+    <span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">alist</span><span class="p">,</span> <span class="o">*</span><span class="n">flowables</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">new_list</span>
+
+<span class="c1"># style definitions for pdf report</span>
+<span class="n">title_style</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;title_style&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Helvetica&quot;</span><span class="p">})</span>
+<span class="n">section_title</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;section_title&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Helvetica&quot;</span><span class="p">})</span>
+<span class="n">caption_style</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;caption_style&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Times-Italic&quot;</span><span class="p">})</span>
+<span class="n">subsection_title</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;sub_section_title&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Helvetica&quot;</span><span class="p">})</span>
+<span class="n">p_style</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Times-Roman&quot;</span><span class="p">})</span>
+<span class="n">bold_block</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;bold_block&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Times-Bold&quot;</span><span class="p">})</span>
+<span class="n">larger_space</span> <span class="o">=</span> <span class="n">Spacer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">.5</span><span class="o">*</span><span class="n">inch</span><span class="p">)</span>
+<span class="n">large_space</span> <span class="o">=</span> <span class="n">Spacer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">.25</span><span class="o">*</span><span class="n">inch</span><span class="p">)</span>
+<span class="n">small_space</span> <span class="o">=</span> <span class="n">Spacer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">.2</span><span class="o">*</span><span class="n">inch</span><span class="p">)</span>
+<span class="n">smaller_space</span> <span class="o">=</span> <span class="n">Spacer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">.15</span><span class="o">*</span><span class="n">inch</span><span class="p">)</span>
+<span class="n">smallest_space</span> <span class="o">=</span> <span class="n">Spacer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">.12</span><span class="o">*</span><span class="n">inch</span><span class="p">)</span>
+<span class="n">indented</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;indented&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Times-Roman&quot;</span><span class="p">,</span> <span class="s2">&quot;leftIndent&quot;</span><span class="p">:</span><span class="mi">36</span><span class="p">})</span>
+<span class="n">table_header</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;table_header&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Helvetica&quot;</span><span class="p">})</span>
+<span class="n">table_style</span> <span class="o">=</span> <span class="n">ParagraphStyle</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;table_style&quot;</span><span class="p">,</span> <span class="s2">&quot;fontSize&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;fontName&quot;</span><span class="p">:</span> <span class="s2">&quot;Helvetica&quot;</span><span class="p">})</span>
+
+
+
+<span class="c1"># pdf title and map</span>
+<span class="n">pdf_title</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">title_style</span><span class="p">)</span>
+<span class="n">map_image</span> <span class="o">=</span>  <span class="n">Image</span><span class="p">(</span><span class="n">bassin_map</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mf">5.8</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mf">4.8</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportional&quot;</span><span class="p">,</span> <span class="n">hAlign</span><span class="o">=</span> <span class="s2">&quot;LEFT&quot;</span><span class="p">)</span>
+
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span>
+    <span class="n">pdf_title</span><span class="p">,</span>    
+    <span class="n">small_space</span><span class="p">,</span>
+    <span class="n">map_image</span>
+<span class="p">],</span> <span class="n">pdfcomponents</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="bielersee">
 <span id="bielersee-de"></span><h1><span class="section-number">4. </span>Bielersee<a class="headerlink" href="#bielersee" title="Link zu dieser Überschrift">#</a></h1>
+<p><a class="reference download internal" download="" href="_downloads/394c2b738bb0224b66f658453d8c57c6/bielersee.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a></p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <figure class="align-default" id="bielersee-map">
@@ -743,7 +710,10 @@ title="Print to PDF"
 <h2><span class="section-number">4.1. </span>Erhebungsorte<a class="headerlink" href="#erhebungsorte" title="Link zu dieser Überschrift">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># string objects for display</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add section to pdf file</span>
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span><span class="n">large_space</span><span class="p">,</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Erhebungsort&quot;</span><span class="p">,</span> <span class="n">section_title</span><span class="p">)],</span> <span class="n">alist</span><span class="o">=</span><span class="n">pdfcomponents</span><span class="p">)</span>
+
+
 <span class="n">obj_string</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="n">admin_summary</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">],</span> <span class="n">language</span><span class="p">)</span>
 <span class="n">surv_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">admin_summary</span><span class="p">[</span><span class="s2">&quot;loc_date&quot;</span><span class="p">])</span>
 <span class="n">pop_string</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">admin_summary</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]),</span> <span class="n">language</span><span class="p">)</span>
@@ -754,6 +724,25 @@ title="Print to PDF"
 
 <span class="c1"># lists of landmarks of interest</span>
 <span class="n">munis_joined</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">admin_details</span><span class="o">.</span><span class="n">populationKeys</span><span class="p">()[</span><span class="s2">&quot;city&quot;</span><span class="p">]))</span>
+
+<span class="n">admin_summary_section</span> <span class="o">=</span> <span class="n">Caption</span><span class="p">()</span>
+<span class="n">admin_summary_section</span><span class="o">.</span><span class="n">paragraph</span> <span class="o">=</span> <span class="p">[</span><span class="n">date_quantity_context</span><span class="p">,</span> <span class="n">geo_context</span><span class="p">]</span>
+<span class="n">admin_summary_lists</span> <span class="o">=</span> <span class="n">admin_details</span><span class="o">.</span><span class="n">populationKeys</span><span class="p">()[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span>
+
+
+<span class="n">cities_bold_block</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Gemeinden:&quot;</span><span class="p">,</span> <span class="n">bold_block</span><span class="p">),</span>
+<span class="n">cities</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">munis_joined</span><span class="p">,</span> <span class="n">indented</span><span class="p">)</span>
+
+<span class="c1"># add the admin summary to the pdf</span>
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span>
+    <span class="n">small_space</span><span class="p">,</span>
+    <span class="n">Paragraph</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">date_quantity_context</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">geo_context</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">p_style</span><span class="p">),</span>
+    <span class="n">large_space</span><span class="p">,</span>
+   
+    
+<span class="p">],</span> <span class="n">pdfcomponents</span><span class="p">)</span>
+
+
 
 <span class="c1"># put that all together:</span>
 <span class="n">lake_string</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
@@ -777,7 +766,24 @@ title="Print to PDF"
 <h3><span class="section-number">4.1.1. </span>Kumulative Gesamtmengen nach Gemeinden<a class="headerlink" href="#kumulative-gesamtmengen-nach-gemeinden" title="Link zu dieser Überschrift">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make table</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add section to pdf</span>
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span><span class="n">large_space</span><span class="p">,</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Kumulative Gesamtmengen nach Gemeinden&quot;</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">)],</span> <span class="n">pdfcomponents</span><span class="p">)</span>
+
+<span class="n">save_fig_prefix</span> <span class="o">=</span> <span class="s2">&quot;resources/output/&quot;</span>
+<span class="n">dims_table_figure_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;fname&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">&quot;dpi&quot;</span><span class="p">:</span> <span class="mf">300.0</span><span class="p">,</span>
+    <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;jpeg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bbox_inches&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">&quot;pad_inches&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;bbox_inches&quot;</span><span class="p">:</span> <span class="s1">&#39;tight&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;facecolor&quot;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;edgecolor&quot;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="c1"># make table</span>
 <span class="n">dims_table</span> <span class="o">=</span> <span class="n">admin_details</span><span class="o">.</span><span class="n">dimensionalSummary</span><span class="p">()</span>
 
 <span class="c1"># for display</span>
@@ -793,10 +799,8 @@ title="Print to PDF"
 <span class="n">dims_table</span><span class="p">[</span><span class="n">replace_decimal</span><span class="p">]</span> <span class="o">=</span> <span class="n">dims_table</span><span class="p">[</span><span class="n">replace_decimal</span><span class="p">]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">replaceDecimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">))))</span>
 
 <span class="c1"># figure caption</span>
-<span class="c1"># agg_caption = F&quot;&quot;&quot;</span>
-<span class="c1"># *__Unten:__ {this_feature[&quot;name&quot;]}: kumulierten Gewichte und Masse für die Gemeinden*</span>
-<span class="c1"># &quot;&quot;&quot;</span>
-<span class="c1"># md(agg_caption)</span>
+<span class="n">dims_table_caption</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">: kumulierten Gewichte und Masse für die Gemeinden&#39;</span>
+
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">dims_table</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">colLabels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
@@ -808,8 +812,13 @@ title="Print to PDF"
 <span class="n">table_one</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">table_one</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_dimensional_summary&quot;</span>
+<span class="n">dims_table_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">dims_table_file_name</span><span class="p">})</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;bielersee_dimensional_summary&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="n">figure_name</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -833,10 +842,7 @@ title="Print to PDF"
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># months locator, can be confusing</span>
-<span class="c1"># https://matplotlib.org/stable/api/dates_api.html</span>
-
-<span class="n">dx</span> <span class="o">=</span> <span class="n">period_data</span><span class="o">.</span><span class="n">parentSampleTotals</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="n">period_data</span><span class="o">.</span><span class="n">parentSampleTotals</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">months</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">months_fmt</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;%b&quot;</span><span class="p">)</span>
@@ -891,7 +897,12 @@ title="Print to PDF"
 <span class="n">axtwo</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">.1</span><span class="p">))</span>
 <span class="n">axtwo</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_sample_totals&quot;</span>
+<span class="n">sample_totals_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">sample_totals_file_name</span><span class="p">})</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;bielersee_sample_totals&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -916,7 +927,12 @@ title="Print to PDF"
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">csx</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">sample_summary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add to pdf</span>
+<span class="n">s_totals</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">sample_totals_file_name</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mf">4.8</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportional&quot;</span><span class="p">,</span> <span class="n">hAlign</span><span class="o">=</span> <span class="s2">&quot;LEFT&quot;</span><span class="p">)</span>
+<span class="n">s_totals_caption</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">sample_total_notes</span><span class="p">,</span> <span class="n">caption_style</span><span class="p">)</span>
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span><span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Verteilung der Erhebungsergebnisse&quot;</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">),</span> <span class="n">small_space</span><span class="p">,</span> <span class="n">s_totals</span><span class="p">,</span> <span class="n">s_totals_caption</span><span class="p">],</span> <span class="n">pdfcomponents</span><span class="p">)</span>
+
+<span class="n">csx</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">sample_summary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">combined_summary</span> <span class="o">=</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">csx</span><span class="p">[</span><span class="n">x</span><span class="p">]),</span> <span class="n">language</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">csx</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
 
@@ -953,6 +969,14 @@ title="Print to PDF"
 <span class="n">table_three</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_sample_summaries&quot;</span>
+<span class="n">sample_summaries_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">sample_summaries_file_name</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
+
+
 <span class="n">glue</span><span class="p">(</span><span class="s1">&#39;bielersee_sample_material_tables&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -961,7 +985,6 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 </div>
 </div>
-<p><a class="reference internal" href="#bielersee-sample-material-tables"><span class="std std-numref">Abbildung 4.4:</span></a>Links: Zusammenfassung der Daten aller Erhebungen am Bielersee. Rechts: Gefundene Materialarten am Bielersee in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).</p>
 <figure class="align-default" id="bielersee-sample-material-tables">
 <div class="cell_output docutils container">
 <img alt="_images/bielersee_rev_de_15_0.png" src="_images/bielersee_rev_de_15_0.png" />
@@ -970,15 +993,13 @@ title="Print to PDF"
 <p><span class="caption-number">Abb. 4.4 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#bielersee-sample-material-tables" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+<p><a class="reference internal" href="#bielersee-sample-material-tables"><span class="std std-numref">Abbildung 4.4:</span></a>Links: Zusammenfassung der Daten aller Erhebungen am Bielersee. Rechts: Gefundene Materialarten am Bielersee in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).</p>
 </section>
 </section>
 <section id="die-am-haufigsten-gefundenen-objekte">
 <h2><span class="section-number">4.2. </span>Die am häufigsten gefundenen Objekte<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte" title="Link zu dieser Überschrift">#</a></h2>
 <p>Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)</p>
 <div class="cell tag_hide-input tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<p><em><strong>Unten</strong>: Häufigste Objekte im Bielersee: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 73% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.</em></p>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1003,6 +1024,12 @@ title="Print to PDF"
 <span class="n">table_four</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">table_four</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_most_common_table&quot;</span>
+<span class="n">bielersee_most_common_table_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">bielersee_most_common_table_file_name</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s1">&#39;bielersee_most_common_tables&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1019,6 +1046,7 @@ title="Print to PDF"
 <p><span class="caption-number">Abb. 4.5 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#bielersee-most-common-tables" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+<p><a class="reference internal" href="#bielersee-most-common-tables"><span class="std std-numref">Abbildung 4.5:</span></a> Häufigste Objekte im Bielersee: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 73% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.</p>
 <section id="die-am-haufigsten-gefundenen-objekte-nach-gemeinden">
 <h3><span class="section-number">4.2.1. </span>Die am häufigsten gefundenen Objekte nach Gemeinden<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-nach-gemeinden" title="Link zu dieser Überschrift">#</a></h3>
 <div class="cell tag_remove-input docutils container">
@@ -1060,6 +1088,14 @@ title="Print to PDF"
 <span class="n">axone</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axone</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_most_common_heat_map&quot;</span>
+<span class="n">bielersee_most_common_heat_map_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">bielersee_most_common_heat_map_name</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s1">&#39;bielersee_most_common_heat_map&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1069,21 +1105,27 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 </div>
 </div>
-<p><a class="reference internal" href="#bielersee-most-common-heat-map"><span class="std std-numref">Abbildung 4.6:</span></a> Median (p/100 m) der häufigsten Objekte am Bielersee.</p>
 <figure class="align-default" id="bielersee-most-common-heat-map">
 <div class="cell_output docutils container">
-<img alt="_images/bielersee_rev_de_24_0.png" src="_images/bielersee_rev_de_24_0.png" />
+<img alt="_images/bielersee_rev_de_25_0.png" src="_images/bielersee_rev_de_25_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 4.6 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#bielersee-most-common-heat-map" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+<p><a class="reference internal" href="#bielersee-most-common-heat-map"><span class="std std-numref">Abbildung 4.6:</span></a> Median (p/100 m) der häufigsten Objekte am Bielersee.</p>
 </section>
 <section id="die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
 <h3><span class="section-number">4.2.2. </span>Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt" title="Link zu dieser Überschrift">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># collect the survey results of the most common objects</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add to pdf</span>
+<span class="n">mc_heat_map</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">bielersee_most_common_heat_map_name</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportional&quot;</span><span class="p">,</span> <span class="n">hAlign</span><span class="o">=</span> <span class="s2">&quot;LEFT&quot;</span><span class="p">)</span>
+<span class="n">mc_heat_map_caption</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">rb_string</span><span class="p">,</span> <span class="n">caption_style</span><span class="p">)</span>
+<span class="n">mc_monthly_title</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt&quot;</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">)</span>
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span><span class="n">small_space</span><span class="p">,</span><span class="n">mc_heat_map</span><span class="p">,</span> <span class="n">smallest_space</span><span class="p">,</span> <span class="n">mc_heat_map_caption</span><span class="p">,</span> <span class="n">PageBreak</span><span class="p">(),</span> <span class="n">mc_monthly_title</span><span class="p">,</span> <span class="n">small_space</span><span class="p">],</span> <span class="n">pdfcomponents</span><span class="p">)</span>
+
+<span class="c1"># collect the survey results of the most common objects</span>
 <span class="n">agg_pcs_quantity</span> <span class="o">=</span> <span class="p">{</span><span class="n">unit_label</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">}</span>
 <span class="n">agg_pcs_median</span> <span class="o">=</span> <span class="p">{</span><span class="n">unit_label</span><span class="p">:</span><span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">}</span>
 
@@ -1185,8 +1227,16 @@ title="Print to PDF"
 <span class="n">new_labels</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Monatsdurschnitt&quot;</span><span class="p">)</span>
 <span class="n">handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">handles</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">handles</span><span class="p">[</span><span class="mi">1</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
     
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">new_labels</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">.05</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper center&quot;</span><span class="p">,</span>  <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">new_labels</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">.05</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper center&quot;</span><span class="p">,</span>  <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_most_common_monthly&quot;</span>
+<span class="n">bielersee_most_common_monthly_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span><span class="n">bielersee_most_common_monthly_name</span> <span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
+
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;bielersee_monthly_results&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1195,15 +1245,15 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 </div>
 </div>
-<p><a class="reference internal" href="#bielersee-monthly-results"><span class="std std-numref">Abbildung 4.7:</span></a> Bielersee, monatliche Durchschnittsergebnisse p/100 m.</p>
 <figure class="align-default" id="bielersee-monthly-results">
 <div class="cell_output docutils container">
-<img alt="_images/bielersee_rev_de_28_0.png" src="_images/bielersee_rev_de_28_0.png" />
+<img alt="_images/bielersee_rev_de_29_0.png" src="_images/bielersee_rev_de_29_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 4.7 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#bielersee-monthly-results" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+<p><a class="reference internal" href="#bielersee-monthly-results"><span class="std std-numref">Abbildung 4.7:</span></a> Bielersee, monatliche Durchschnittsergebnisse p/100 m.</p>
 </section>
 </section>
 <section id="verwendungszweck-der-gefundenen-objekte">
@@ -1223,9 +1273,6 @@ title="Print to PDF"
 </ul>
 <p>Im Anhang (Kapitel 3.6.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel <span class="xref myst">16 Codegruppen</span> beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<p><strong>Unten:</strong> Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden im Erhebungsgebiet Bielersee. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</p>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1250,7 +1297,7 @@ title="Print to PDF"
 <span class="n">pt_comp</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_period</span>
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_comp</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">.7</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_comp</span><span class="p">)</span><span class="o">*</span><span class="mf">.8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_comp</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">*</span><span class="mf">.9</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_comp</span><span class="p">)</span><span class="o">*</span><span class="mf">.8</span><span class="p">))</span>
 
 <span class="n">axone</span> <span class="o">=</span> <span class="n">ax</span>
 
@@ -1262,6 +1309,14 @@ title="Print to PDF"
 
 <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axone</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axone</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_code_group_percent&quot;</span>
+<span class="n">bielersee_code_group_percent</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span> <span class="n">bielersee_code_group_percent</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s1">&#39;bielersee_codegroup_percent&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1272,7 +1327,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="bielersee-codegroup-percent">
 <div class="cell_output docutils container">
-<img alt="_images/bielersee_rev_de_33_0.png" src="_images/bielersee_rev_de_33_0.png" />
+<img alt="_images/bielersee_rev_de_34_0.png" src="_images/bielersee_rev_de_34_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 4.8 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#bielersee-codegroup-percent" title="Link zu diesem Bild">#</a></p>
@@ -1281,11 +1336,15 @@ title="Print to PDF"
 <p><a class="reference internal" href="#bielersee-codegroup-percent"><span class="std std-numref">Abbildung 4.8:</span></a> Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden im Erhebungsgebiet Bielersee. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cg_medpcm = F&quot;&quot;&quot;</span>
-<span class="c1"># &lt;br&gt;&lt;/br&gt;</span>
-<span class="c1"># *__Unten:__ Verwendungszweck der gefundenen Objekte Median p/100 m am {this_feature[&quot;name&quot;]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*</span>
-<span class="c1"># &quot;&quot;&quot;</span>
-<span class="c1"># md(cg_medpcm)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cg_percent</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">bielersee_code_group_percent</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportional&quot;</span><span class="p">,</span> <span class="n">hAlign</span><span class="o">=</span> <span class="s2">&quot;LEFT&quot;</span><span class="p">)</span>
+<span class="n">cg_caption</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">cg_poft</span><span class="p">,</span> <span class="n">caption_style</span><span class="p">)</span>
+
+
+
+<span class="n">cg_medpcm</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Verwendungszweck der gefundenen Objekte Median p/100 m am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">md</span><span class="p">(</span><span class="n">cg_medpcm</span><span class="p">)</span>
 
 <span class="c1"># pivot that</span>
 <span class="n">grouppcs_comp</span> <span class="o">=</span> <span class="n">components</span><span class="p">[[</span><span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="s2">&quot;groupname&quot;</span><span class="p">,</span> <span class="n">unit_label</span> <span class="p">]]</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;groupname&quot;</span><span class="p">)</span>
@@ -1313,6 +1372,14 @@ title="Print to PDF"
 <span class="n">axone</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">axone</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">labeltop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_code_group_pcsm&quot;</span>
+<span class="n">bielersee_code_group_pcsm</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span> <span class="n">bielersee_code_group_pcsm</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;bielersee_codegroup_pcsm&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1323,7 +1390,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="bielersee-codegroup-pcsm">
 <div class="cell_output docutils container">
-<img alt="_images/bielersee_rev_de_35_0.png" src="_images/bielersee_rev_de_35_0.png" />
+<img alt="_images/bielersee_rev_de_36_0.png" src="_images/bielersee_rev_de_36_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 4.9 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#bielersee-codegroup-pcsm" title="Link zu diesem Bild">#</a></p>
@@ -1338,10 +1405,45 @@ title="Print to PDF"
 <p>Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrag», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe &gt; 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien &gt; 0,5 cm werden für die Analyse als Gfrags gruppiert.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># frag_foams = F&quot;&quot;&quot;</span>
-<span class="c1"># *__Below:__ Fragmentierte und geschäumte Kunststoffe nach Grösse am {this_feature[&quot;name&quot;]},  Median p/100 m, Anzahl der gefundenen Objekte und Prozent der Gesamtmenge.*</span>
-<span class="c1"># &quot;&quot;&quot;</span>
-<span class="c1"># md(frag_foams)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cg_pcsm</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">bielersee_code_group_pcsm</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportional&quot;</span><span class="p">,</span> <span class="n">hAlign</span><span class="o">=</span> <span class="s2">&quot;LEFT&quot;</span><span class="p">)</span>
+<span class="n">cgpcs_caption</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">cg_medpcm</span><span class="p">,</span> <span class="n">caption_style</span><span class="p">)</span>
+<span class="n">annex_title</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Anhang&quot;</span><span class="p">,</span> <span class="n">section_title</span><span class="p">)</span>
+<span class="n">frag_sub_title</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Schaumstoffe und Kunststoffe nach Grösse&quot;</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">)</span>
+
+<span class="n">frag_paras</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrag», die für die Analyse gruppiert wurden. &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Polystyrol-Kunststoffe &gt; 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff - und Schaumstoffmaterialien &gt; 0,5 &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cm werden für die Analyse als Gfrags gruppiert.&quot;</span>
+<span class="p">]</span>
+
+<span class="n">frag_p</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">frag_paras</span><span class="p">)</span>
+<span class="n">frag</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">frag_p</span><span class="p">,</span> <span class="n">p_style</span><span class="p">)</span>
+
+<span class="n">new_components</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">larger_space</span><span class="p">,</span>
+    <span class="n">cg_percent</span><span class="p">,</span>
+    <span class="n">smallest_space</span><span class="p">,</span>
+    <span class="n">cg_caption</span><span class="p">,</span>
+    <span class="n">larger_space</span><span class="p">,</span>
+    <span class="n">cg_pcsm</span><span class="p">,</span>
+    <span class="n">smallest_space</span><span class="p">,</span>
+    <span class="n">cgpcs_caption</span><span class="p">,</span>
+    <span class="n">PageBreak</span><span class="p">(),</span>
+    <span class="n">annex_title</span><span class="p">,</span>
+    <span class="n">small_space</span><span class="p">,</span>
+    <span class="n">frag_sub_title</span><span class="p">,</span>
+    <span class="n">smaller_space</span><span class="p">,</span>
+    <span class="n">frag</span><span class="p">,</span>
+    <span class="n">small_space</span>
+<span class="p">]</span>
+
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">(</span><span class="n">new_components</span><span class="p">,</span> <span class="n">pdfcomponents</span><span class="p">)</span>
+
+<span class="n">frag_foams</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Fragmentierte und geschäumte Kunststoffe nach Grösse am </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s2">,  Median p/100 m, Anzahl der gefundenen Objekte und Prozent der Gesamtmenge.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
 <span class="c1"># collect the data before aggregating foams for all locations in the survye area</span>
 <span class="c1"># group by loc_date and code</span>
 <span class="c1"># Combine the different sizes of fragmented plastics and styrofoam</span>
@@ -1374,6 +1476,12 @@ title="Print to PDF"
 <span class="n">table_seven</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;bielersee_frags&quot;</span>
+<span class="n">bielersee_frags</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
+<span class="n">dims_table_figure_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;fname&quot;</span><span class="p">:</span> <span class="n">bielersee_frags</span><span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="o">**</span><span class="n">dims_table_figure_kwargs</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s1">&#39;bielersee_fragmented_plastics&#39;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1384,7 +1492,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="bielersee-fragmented-plastics">
 <div class="cell_output docutils container">
-<img alt="_images/bielersee_rev_de_38_0.png" src="_images/bielersee_rev_de_38_0.png" />
+<img alt="_images/bielersee_rev_de_39_0.png" src="_images/bielersee_rev_de_39_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 4.10 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#bielersee-fragmented-plastics" title="Link zu diesem Bild">#</a></p>
@@ -1396,11 +1504,36 @@ title="Print to PDF"
 <h3><span class="section-number">4.4.2. </span>Die Erhebungsorte<a class="headerlink" href="#die-erhebungsorte" title="Link zu dieser Überschrift">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display the survey locations</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag_table</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">bielersee_frags</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">inch</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;proportional&quot;</span><span class="p">,</span> <span class="n">hAlign</span><span class="o">=</span> <span class="s2">&quot;LEFT&quot;</span><span class="p">)</span>
+<span class="n">frag_caption</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">frag_foams</span><span class="p">,</span> <span class="n">p_style</span><span class="p">)</span>
+
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span><span class="n">frag_table</span><span class="p">,</span> <span class="n">smallest_space</span><span class="p">,</span> <span class="n">frag_caption</span><span class="p">],</span> <span class="n">pdfcomponents</span><span class="p">)</span>
+
+<span class="c1"># display the survey locations</span>
 <span class="n">disp_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">]</span>
 <span class="n">disp_beaches</span> <span class="o">=</span> <span class="n">admin_details</span><span class="o">.</span><span class="n">df_beaches</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">admin_summary</span><span class="p">[</span><span class="s2">&quot;locations_of_interest&quot;</span><span class="p">]][</span><span class="n">disp_columns</span><span class="p">]</span>
 <span class="n">disp_beaches</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">disp_beaches</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;city&quot;</span><span class="p">:</span><span class="s2">&quot;stat&quot;</span><span class="p">,</span> <span class="s2">&quot;slug&quot;</span><span class="p">:</span><span class="s2">&quot;standort&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># make this into a pdf table</span>
+<span class="n">location_subsection</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Die Erhebungsorte&quot;</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">dfToTable</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="n">a_table</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Paragraph</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">table_header</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]]</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;FONTNAME&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;Helvetica&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;LINEBELOW&#39;</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">.</span><span class="n">saddlebrown</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;INNERGRID&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">colors</span><span class="o">.</span><span class="n">saddlebrown</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;BOX&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">.5</span><span class="p">,</span> <span class="n">HexColor</span><span class="p">(</span><span class="s2">&quot;#8b451320&quot;</span><span class="p">,</span> <span class="n">hasAlpha</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;ROWBACKGROUNDS&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="n">HexColor</span><span class="p">(</span><span class="s2">&quot;#8b451320&quot;</span><span class="p">,</span> <span class="n">hasAlpha</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">colors</span><span class="o">.</span><span class="n">white</span><span class="p">])</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">a_table</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">hAlign</span> <span class="o">=</span> <span class="s1">&#39;LEFT&#39;</span><span class="p">)</span>
+
+<span class="n">pdf_table</span> <span class="o">=</span> <span class="n">dfToTable</span><span class="p">(</span><span class="n">disp_beaches</span><span class="p">)</span>
+
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span><span class="n">small_space</span><span class="p">,</span> <span class="n">location_subsection</span><span class="p">,</span> <span class="n">small_space</span><span class="p">,</span> <span class="n">pdf_table</span><span class="p">,</span> <span class="n">PageBreak</span><span class="p">()],</span> <span class="n">pdfcomponents</span><span class="p">)</span>
+
 <span class="n">disp_beaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;standort&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">disp_beaches</span>
@@ -1513,6 +1646,40 @@ title="Print to PDF"
 <span class="n">complete_inventory</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">complete_inventory</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">complete_inventory</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">complete_inventory</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">complete_inventory</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">featuredata</span><span class="o">.</span><span class="n">inventory_table_de</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">complete_inventory</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">dfToTableExtended</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="n">a_table</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Paragraph</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">table_header</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]]</span>
+    
+    <span class="n">new_rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">a_row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
+        
+        
+            
+        <span class="n">new_row</span> <span class="o">=</span> <span class="p">[</span><span class="n">Paragraph</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">table_style</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a_row</span><span class="p">]</span>
+        <span class="n">new_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_row</span><span class="p">)</span>
+    
+    <span class="n">new_rows</span> <span class="o">=</span> <span class="n">a_table</span> <span class="o">+</span> <span class="n">new_rows</span> 
+    
+    <span class="n">style</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;FONTNAME&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;Helvetica-Bold&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;LINEBELOW&#39;</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">.</span><span class="n">saddlebrown</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;INNERGRID&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">colors</span><span class="o">.</span><span class="n">saddlebrown</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;BOX&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mf">.5</span><span class="p">,</span> <span class="n">HexColor</span><span class="p">(</span><span class="s2">&quot;#8b451320&quot;</span><span class="p">,</span> <span class="n">hasAlpha</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;ROWBACKGROUNDS&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="n">HexColor</span><span class="p">(</span><span class="s2">&quot;#8b451320&quot;</span><span class="p">,</span> <span class="n">hasAlpha</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">colors</span><span class="o">.</span><span class="n">white</span><span class="p">])</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">new_rows</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">hAlign</span> <span class="o">=</span> <span class="s1">&#39;LEFT&#39;</span><span class="p">)</span>
+
+<span class="n">inventory_subsection</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="s2">&quot;Inventar der Objekte&quot;</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">)</span>
+<span class="n">inventory_table</span> <span class="o">=</span> <span class="n">dfToTableExtended</span><span class="p">(</span><span class="n">complete_inventory</span><span class="p">)</span>
+
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="n">addToDoc</span><span class="p">([</span><span class="n">small_space</span><span class="p">,</span> <span class="n">inventory_subsection</span><span class="p">,</span> <span class="n">small_space</span><span class="p">,</span> <span class="n">inventory_table</span><span class="p">],</span> <span class="n">pdfcomponents</span><span class="p">)</span>
+
+<span class="n">complete_inventory</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="n">complete_inventory</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Objekte (St.)&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3627,6 +3794,8 @@ title="Print to PDF"
   </tbody>
 </table>
 </div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 </section>
 </section>

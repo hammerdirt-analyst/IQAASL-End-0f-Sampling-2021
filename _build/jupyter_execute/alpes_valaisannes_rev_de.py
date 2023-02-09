@@ -359,7 +359,7 @@ plt.close()
 
 # ### Gesamtzahlen in Bezug auf die Clean-ups
 
-# In[21]:
+# In[4]:
 
 
 # the event totals include the amount collected but not counted
@@ -1072,8 +1072,6 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <alpes_survey_area_codegroup_percent>` Verwendungszweck der gefundenen Objekte an Wanderwegen: prozentualer Anteil an der Gesamtzahl nach Verwendungszweck. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, bleiben nach Grösse klassifiziert.
 
-# {numref}`Abbildung %s: <alpes_survey_area_codegroup_pcsm>` *__Unten:__ Verwendungszweck der gefundenen Objekte an Wanderwegen: Median p/100 m.*
-
 # In[11]:
 
 
@@ -1126,6 +1124,8 @@ plt.close()
 # ---
 # ` `
 # ```
+
+# {numref}`Abbildung %s: <alpes_survey_area_codegroup_pcsm>` *__Unten:__ Verwendungszweck der gefundenen Objekte an Wanderwegen: Median p/100 m.*
 
 # ### Perzentil-Rangfolge der Erhebungsergebnisse in Bezug auf die Landnutzung
 
@@ -1328,7 +1328,7 @@ plt.close()
 
 # ### Landnutzungsprofil der Erhebungsorte
 
-# In[28]:
+# In[14]:
 
 
 # get the land use profile of AV
@@ -1374,7 +1374,7 @@ plt.close()
 # 
 # * Landwirtschaft: 0 to 66\%
 # * Wald: 0 to 83\%
-# * Bevölkerung: 199 to 10,668
+# * Bevölkerung: 199 to 10 668
 
 # In[15]:
 
@@ -1440,8 +1440,6 @@ mat_p["match"]="pop"
 landusemap = pd.concat([mat_agg, mat_w, mat_p], axis=0)
 # landusemap.to_csv("output/Alps-valaisannes/lu_comparison.csv", index=False)
 
-
-# *__Oben links:__ Gesamtsumme der Erhebung in Bezug auf den %-Anteil an Agg, Bereich=(0%, 66%). __Oben rechts:__ Gesamtzahl der Erhebungen in Bezug auf den Waldanteil, Bereich=(0%, 65%). __Unten links:__ Gesamtzahl der Erhebungen in Bezug auf die Bevölkerung, Bereich=(199, 10.668)*
 
 # In[16]:
 
@@ -1524,8 +1522,6 @@ glue('alpes_survey_area_compare_luse', fig, display=False)
 plt.close()
 
 
-# {numref}`Abbildung %s: <alpes_survey_area_compare_luse>` __Oben links:__ Gesamtsumme der Erhebung in Bezug auf den prozentualen Anteil an landwirtschaftlich genutzter Fläche, Bereich = (0 %, 66 %). __Oben rechts:__ Gesamtzahl der Erhebungen in Bezug auf den Waldanteil, Bereich = (0 %, 65 %). __Unten links:__ Gesamtzahl der Erhebungen in Bezug auf die Bevölkerung, Bereich = (199, 10 668)
-
 # ```{glue:figure} alpes_survey_area_compare_luse
 # ---
 # name: 'alpes_survey_area_compare_luse'
@@ -1533,6 +1529,8 @@ plt.close()
 # ` `
 # ```
 # 
+
+# {numref}`Abbildung %s: <alpes_survey_area_compare_luse>` __Oben links:__ Gesamtsumme der Erhebung in Bezug auf den prozentualen Anteil an landwirtschaftlich genutzter Fläche, Bereich = (0 %, 66 %). __Oben rechts:__ Gesamtzahl der Erhebungen in Bezug auf den Waldanteil, Bereich = (0 %, 65 %). __Unten links:__ Gesamtzahl der Erhebungen in Bezug auf die Bevölkerung, Bereich = (199, 10 668)
 
 # ### Organisation und Durchführung
 # 

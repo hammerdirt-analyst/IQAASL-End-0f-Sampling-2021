@@ -101,17 +101,9 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="titlepage_de.html">
-                    Identification, quantification and analysis of observable anthropogenic litter along Swiss lake systems
-                </a>
-            </li>
-        </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Zusammenfassung
@@ -146,7 +138,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
             </div>
             
         </div>
@@ -189,35 +181,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/main?urlpath=tree/docs/aare_sa_rev_de.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -270,52 +233,6 @@ title="Open an issue"
   </span>
 <span class="headerbtn__text-container">open issue</span>
 </a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/aare_sa_rev_de.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
 
       </li>
       
@@ -1124,7 +1041,6 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 </div>
 </div>
-<p><a class="reference internal" href="#aare-survey-area-sample-material-tables"><span class="std std-numref">Abbildung 3.5:</span></a> <strong>Links</strong>: Zusammenfassung der Daten aller Erhebungen Erhebungsgebiet Aare. <strong>Rechts:</strong> Gefundene Materialarten im Erhebungsgebiet Aare in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).</p>
 <figure class="align-default" id="aare-survey-area-sample-material-tables">
 <div class="cell_output docutils container">
 <img alt="_images/aare_sa_rev_de_16_0.png" src="_images/aare_sa_rev_de_16_0.png" />
@@ -1133,6 +1049,7 @@ title="Print to PDF"
 <p><span class="caption-number">Abb. 3.5 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-sample-material-tables" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+<p><a class="reference internal" href="#aare-survey-area-sample-material-tables"><span class="std std-numref">Abbildung 3.5:</span></a> <strong>Links</strong>: Zusammenfassung der Daten aller Erhebungen Erhebungsgebiet Aare. <strong>Rechts:</strong> Gefundene Materialarten im Erhebungsgebiet Aare in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).</p>
 </section>
 </section>
 <section id="die-am-haufigsten-gefundenen-objekte">
@@ -1146,12 +1063,9 @@ title="Print to PDF"
 <span class="n">rb_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">*__Unten__: Häufigste Objekte im </span><span class="si">{</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">m_common_percent_of_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.*</span>
 <span class="s2">&quot;&quot;&quot;</span>
-<span class="n">md</span><span class="p">(</span><span class="n">rb_string</span><span class="p">)</span>
+<span class="c1"># md(rb_string)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<p><em><strong>Unten</strong>: Häufigste Objekte im Erhebungsgebiet Aare: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.</em></p>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1193,6 +1107,7 @@ title="Print to PDF"
 <p><span class="caption-number">Abb. 3.6 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-most-common-tables" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+<p><a class="reference internal" href="#aare-survey-area-most-common-tables"><span class="std std-numref">Abbildung 3.6:</span></a> Häufigste Objekte im Erhebungsgebiet Aare: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.</p>
 <section id="die-am-haufigsten-gefundenen-objekte-nach-gewasser">
 <h3><span class="section-number">3.2.1. </span>Die am häufigsten gefundenen Objekte nach Gewässer<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-nach-gewasser" title="Link zu dieser Überschrift">#</a></h3>
 <div class="cell tag_remove-input docutils container">
@@ -1242,15 +1157,15 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 </div>
 </div>
-<p><a class="reference internal" href="#aare-survey-area-most-common-heat-map"><span class="std std-numref">Abbildung 3.7:</span></a> Median (p/100 m) der häufigsten Objekte im Erhebungsgebiet Aare.</p>
 <figure class="align-default" id="aare-survey-area-most-common-heat-map">
 <div class="cell_output docutils container">
-<img alt="_images/aare_sa_rev_de_25_0.png" src="_images/aare_sa_rev_de_25_0.png" />
+<img alt="_images/aare_sa_rev_de_26_0.png" src="_images/aare_sa_rev_de_26_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 3.7 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-most-common-heat-map" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+<p><a class="reference internal" href="#aare-survey-area-most-common-heat-map"><span class="std std-numref">Abbildung 3.7:</span></a> Median (p/100 m) der häufigsten Objekte im Erhebungsgebiet Aare.</p>
 </section>
 <section id="die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt">
 <h3><span class="section-number">3.2.2. </span>Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt<a class="headerlink" href="#die-am-haufigsten-gefundenen-objekte-im-monatlichen-durchschnitt" title="Link zu dieser Überschrift">#</a></h3>
@@ -1366,15 +1281,15 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 </div>
 </div>
-<p><a class="reference internal" href="#aare-survey-area-monthly-results"><span class="std std-numref">Abbildung 3.8:</span></a> Erhebungsgebiet Aare, monatliche Durchschnittsergebnisse p/100 m.</p>
 <figure class="align-default" id="aare-survey-area-monthly-results">
 <div class="cell_output docutils container">
-<img alt="_images/aare_sa_rev_de_30_0.png" src="_images/aare_sa_rev_de_30_0.png" />
+<img alt="_images/aare_sa_rev_de_31_0.png" src="_images/aare_sa_rev_de_31_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 3.8 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-monthly-results" title="Link zu diesem Bild">#</a></p>
 </figcaption>
 </figure>
+<p><a class="reference internal" href="#aare-survey-area-monthly-results"><span class="std std-numref">Abbildung 3.8:</span></a> Erhebungsgebiet Aare, monatliche Durchschnittsergebnisse p/100 m.</p>
 </section>
 </section>
 <section id="erhebungsergebnisse-und-landnutzung">
@@ -1451,7 +1366,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="aare-survey-area-spearmans">
 <div class="cell_output docutils container">
-<img alt="_images/aare_sa_rev_de_34_0.png" src="_images/aare_sa_rev_de_34_0.png" />
+<img alt="_images/aare_sa_rev_de_35_0.png" src="_images/aare_sa_rev_de_35_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 3.9 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-spearmans" title="Link zu diesem Bild">#</a></p>
@@ -1519,7 +1434,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="aare-survey-area-codegroup-percent">
 <div class="cell_output docutils container">
-<img alt="_images/aare_sa_rev_de_38_0.png" src="_images/aare_sa_rev_de_38_0.png" />
+<img alt="_images/aare_sa_rev_de_39_0.png" src="_images/aare_sa_rev_de_39_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 3.10 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-codegroup-percent" title="Link zu diesem Bild">#</a></p>
@@ -1574,7 +1489,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="aare-survey-area-codegroup-pcsm">
 <div class="cell_output docutils container">
-<img alt="_images/aare_sa_rev_de_41_0.png" src="_images/aare_sa_rev_de_41_0.png" />
+<img alt="_images/aare_sa_rev_de_42_0.png" src="_images/aare_sa_rev_de_42_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 3.11 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-codegroup-pcsm" title="Link zu diesem Bild">#</a></p>
@@ -1631,7 +1546,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="aare-survey-area-rivers-summary">
 <div class="cell_output docutils container">
-<img alt="_images/aare_sa_rev_de_45_0.png" src="_images/aare_sa_rev_de_45_0.png" />
+<img alt="_images/aare_sa_rev_de_46_0.png" src="_images/aare_sa_rev_de_46_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 3.12 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-rivers-summary" title="Link zu diesem Bild">#</a></p>
@@ -1675,7 +1590,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="aare-survey-area-rivers-most-common">
 <div class="cell_output docutils container">
-<img alt="_images/aare_sa_rev_de_49_0.png" src="_images/aare_sa_rev_de_49_0.png" />
+<img alt="_images/aare_sa_rev_de_50_0.png" src="_images/aare_sa_rev_de_50_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 3.13 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-rivers-most-common" title="Link zu diesem Bild">#</a></p>
@@ -1739,7 +1654,7 @@ title="Print to PDF"
 </div>
 <figure class="align-default" id="aare-survey-area-fragmented-plastics">
 <div class="cell_output docutils container">
-<img alt="_images/aare_sa_rev_de_53_0.png" src="_images/aare_sa_rev_de_53_0.png" />
+<img alt="_images/aare_sa_rev_de_54_0.png" src="_images/aare_sa_rev_de_54_0.png" />
 </div>
 <figcaption>
 <p><span class="caption-number">Abb. 3.14 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#aare-survey-area-fragmented-plastics" title="Link zu diesem Bild">#</a></p>

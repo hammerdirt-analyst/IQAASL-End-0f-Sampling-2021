@@ -555,14 +555,14 @@ glue('aare_survey_area_sample_material_tables', fig, display=False)
 plt.close()
 
 
-# {numref}`Abbildung %s: <aare_survey_area_sample_material_tables>` __Links__: Zusammenfassung der Daten aller Erhebungen Erhebungsgebiet Aare. __Rechts:__ Gefundene Materialarten im Erhebungsgebiet Aare in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).
-
 # ```{glue:figure} aare_survey_area_sample_material_tables
 # ---
 # name: 'aare_survey_area_sample_material_tables'
 # ---
 # ` `
 # ```
+
+# {numref}`Abbildung %s: <aare_survey_area_sample_material_tables>` __Links__: Zusammenfassung der Daten aller Erhebungen Erhebungsgebiet Aare. __Rechts:__ Gefundene Materialarten im Erhebungsgebiet Aare in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).
 
 # ## Die am häufigsten gefundenen Objekte
 # 
@@ -577,7 +577,7 @@ m_common_percent_of_total = fdx.most_common["quantity"].sum()/fdx.code_summary["
 rb_string = f"""
 *__Unten__: Häufigste Objekte im {this_feature['name']}: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.*
 """
-md(rb_string)
+# md(rb_string)
 
 
 # In[9]:
@@ -614,6 +614,8 @@ plt.close()
 # ---
 # ` `
 # ```
+
+# {numref}`Abbildung %s: <aare_survey_area_most_common_tables>` Häufigste Objekte im Erhebungsgebiet Aare: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 67% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.
 
 # ### Die am häufigsten gefundenen Objekte nach Gewässer
 
@@ -668,14 +670,14 @@ glue('aare_survey_area_most_common_heat_map', fig, display=False)
 plt.close()
 
 
-# {numref}`Abbildung %s: <aare_survey_area_most_common_heat_map>` Median (p/100 m) der häufigsten Objekte im Erhebungsgebiet Aare.
-
 # ```{glue:figure} aare_survey_area_most_common_heat_map
 # ---
 # name: 'aare_survey_area_most_common_heat_map'
 # ---
 # ` `
 # ```
+
+# {numref}`Abbildung %s: <aare_survey_area_most_common_heat_map>` Median (p/100 m) der häufigsten Objekte im Erhebungsgebiet Aare.
 
 # ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
 
@@ -795,14 +797,14 @@ glue("aare_survey_area_monthly_results", fig, display=False)
 plt.close()
 
 
-# {numref}`Abbildung %s: <aare_survey_area_monthly_results>` Erhebungsgebiet Aare, monatliche Durchschnittsergebnisse p/100 m.
-
 # ```{glue:figure} aare_survey_area_monthly_results
 # ---
 # name: 'aare_survey_area_monthly_results'
 # ---
 # ` `
 # ```
+
+# {numref}`Abbildung %s: <aare_survey_area_monthly_results>` Erhebungsgebiet Aare, monatliche Durchschnittsergebnisse p/100 m.
 
 # ## Erhebungsergebnisse und Landnutzung
 # 

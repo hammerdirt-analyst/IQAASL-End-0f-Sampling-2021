@@ -28,13 +28,19 @@ repository:
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-html:
-  use_issues_button: true
-  use_repository_button: true
-  extra_footer: |
-    <p>
-       Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
-    </p>
+
+#
+#
+#
+#
+#html:
+#  use_issues_button: true
+#  use_repository_button: true
+#
+#  extra_footer: |
+#    <p>
+#       Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
+#    </p>
 
 
 sphinx:
@@ -42,6 +48,17 @@ sphinx:
     bibtex_reference_style: label
     html_show_copyright: false
     language: de
+    html_theme_options:
+      use_download_button: false
+      repository_url: https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021
+      use_issues_button: true
+      use_repository_button: true
+      extra_footer: |
+        <p>
+           Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
+        </p>
+
+
 
 
 

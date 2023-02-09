@@ -53,6 +53,16 @@ from matplotlib import ticker
 from matplotlib.ticker import MultipleLocator
 import seaborn as sns
 
+# build report
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, ListFlowable, ListItem
+from reportlab.lib.pagesizes import letter, A4
+from reportlab.rl_config import defaultPageSize
+from reportlab.lib.units import inch
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.colors import HexColor
+from reportlab.platypus import Table, Paragraph
+from reportlab.lib import colors
+
 # the module that has all the methods for handling the data
 import resources.featuredata as featuredata
 
@@ -224,8 +234,50 @@ admin_r_details = featuredata.AdministrativeSummary(**admin_kwargs)
 admin_r_summary = admin_r_details.summaryObject()
 
 
+# pdf download is an option 
+# reportlab is used to produce the document
+# the arguments for the document are captured at run time
+# capture for pdf content
+pdfcomponents = []
+
+def addToDoc(flowables, alist):
+    new_list = [*alist, *flowables]
+    return new_list
+
+# style definitions for pdf report
+title_style = ParagraphStyle(**{"name": "title_style", "fontSize": 18, "fontName": "Helvetica"})
+section_title = ParagraphStyle(**{"name": "section_title", "fontSize": 16, "fontName": "Helvetica"})
+caption_style = ParagraphStyle(**{"name": "caption_style", "fontSize": 9, "fontName": "Times-Italic"})
+subsection_title = ParagraphStyle(**{"name": "sub_section_title", "fontSize": 12, "fontName": "Helvetica"})
+p_style = ParagraphStyle(**{"name": "content", "fontSize": 10, "fontName": "Times-Roman"})
+bold_block = ParagraphStyle(**{"name": "bold_block", "fontSize": 10, "fontName": "Times-Bold"})
+larger_space = Spacer(1, .5*inch)
+large_space = Spacer(1, .25*inch)
+small_space = Spacer(1, .2*inch)
+smaller_space = Spacer(1, .15*inch)
+smallest_space = Spacer(1, .12*inch)
+indented = ParagraphStyle(**{"name": "indented", "fontSize": 10, "fontName": "Times-Roman", "leftIndent":36})
+table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica"})
+table_style = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica"})
+
+
+
+# pdf title and map
+pdf_title = Paragraph(this_feature["name"], title_style)
+map_image =  Image(bassin_map, width=inch*5.8, height=inch*4.8, kind="proportional", hAlign= "LEFT")
+
+pdfcomponents = addToDoc([
+    pdf_title,    
+    small_space,
+    map_image
+], pdfcomponents)
+
+
 # (bielersee_de)=
 # # Bielersee
+# 
+# 
+# {download}`Download </resources/pdfs/bielersee.pdf>`
 
 # In[2]:
 
@@ -237,6 +289,7 @@ class Caption:
     captions=[]
     start_caption = ""
     end_caption = '*'
+    paragraphs = []
     
     def buildCaption(self):
         start_caption = f'*__{self.position}:__'
@@ -246,6 +299,14 @@ class Caption:
         end_caption = self.end_caption
         
         return f'{start_caption} {new_string}{end_caption}'
+    
+    def buildParagraph(self):
+        new_string=''
+        for line in self.paragraphs:
+            new_string += line
+        
+        return new_string
+        
             
 map_caption = Caption()
 map_caption.position = "Unten"
@@ -254,7 +315,13 @@ map_caption.captions = [
     "Der Durchmesser der Punktsymbole entspricht dem Median der",
     "Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort."
 ]
-# md(map_caption.buildCaption())
+
+# pdf output
+map_caption.paragraphs = map_caption.captions
+a_paragraph = map_caption.buildParagraph()
+
+# add those sections
+pdfcomponents = addToDoc([Paragraph(a_paragraph, caption_style)], pdfcomponents)
 
 
 # ```{figure} resources/maps/bielersee_scaled.jpeg
@@ -270,7 +337,10 @@ map_caption.captions = [
 # In[3]:
 
 
-# string objects for display
+# add section to pdf file
+pdfcomponents = addToDoc([large_space, Paragraph("Erhebungsort", section_title)], alist=pdfcomponents)
+
+
 obj_string = featuredata.thousandsSeparator(admin_summary["quantity"], language)
 surv_string = "{:,}".format(admin_summary["loc_date"])
 pop_string = featuredata.thousandsSeparator(int(admin_summary["population"]), language)
@@ -281,6 +351,25 @@ geo_context = F"Die Ergebnisse des {this_feature['name']} umfassen {admin_summar
 
 # lists of landmarks of interest
 munis_joined = ", ".join(sorted(admin_details.populationKeys()["city"]))
+
+admin_summary_section = Caption()
+admin_summary_section.paragraph = [date_quantity_context, geo_context]
+admin_summary_lists = admin_details.populationKeys()["city"]
+
+
+cities_bold_block = Paragraph("Gemeinden:", bold_block),
+cities = Paragraph(munis_joined, indented)
+
+# add the admin summary to the pdf
+pdfcomponents = addToDoc([
+    small_space,
+    Paragraph(f'{date_quantity_context} {geo_context}', p_style),
+    large_space,
+   
+    
+], pdfcomponents)
+
+
 
 # put that all together:
 lake_string = F"""
@@ -294,6 +383,23 @@ md(lake_string)
 # ### Kumulative Gesamtmengen nach Gemeinden
 
 # In[4]:
+
+
+# add section to pdf
+pdfcomponents = addToDoc([large_space, Paragraph("Kumulative Gesamtmengen nach Gemeinden", subsection_title)], pdfcomponents)
+
+save_fig_prefix = "resources/output/"
+dims_table_figure_kwargs = {
+    "fname": None,
+    "dpi": 300.0,
+    "format": "jpeg",
+    "bbox_inches": None,
+    "pad_inches": 0,
+    "bbox_inches": 'tight',
+    "facecolor": 'auto',
+    "edgecolor": 'auto',
+    "backend": None,
+}
 
 
 # make table
@@ -312,10 +418,8 @@ dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambd
 dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,2))))
 
 # figure caption
-# agg_caption = F"""
-# *__Unten:__ {this_feature["name"]}: kumulierten Gewichte und Masse für die Gemeinden*
-# """
-# md(agg_caption)
+dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte und Masse für die Gemeinden'
+
 
 data = dims_table.reset_index()
 colLabels = data.columns
@@ -327,8 +431,13 @@ table_one = sut.make_a_table(ax, data.values, colLabels=colLabels, colWidths=[.1
 table_one.get_celld()[(0,0)].get_text().set_text(" ")
 table_one.set_fontsize(12)
 
+figure_name = "bielersee_dimensional_summary"
+dims_table_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname":dims_table_file_name})
+
 plt.tight_layout()
-glue("bielersee_dimensional_summary", fig, display=False)
+plt.savefig(**dims_table_figure_kwargs)
+glue(figure_name, fig, display=False)
 plt.close()
 
 
@@ -345,17 +454,16 @@ plt.close()
 # In[5]:
 
 
-chart_notes = f"""
-*__Links:__ {this_feature["name"]}, {featuredata.dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)} bis {featuredata.dateToYearAndMonth(datetime.strptime(end_date, date_format), lang=date_lang)}, n = {admin_summary["loc_date"]}. __Rechts:__ empirische Verteilungsfunktion der Erhebungsergebnisse {this_feature["name"]}.*
-"""
-# md(chart_notes )
+sample_total_notes = f'Links: {this_feature["name"]}, {featuredata.dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)} bis {featuredata.dateToYearAndMonth(datetime.strptime(end_date, date_format), lang=date_lang)}, n = {admin_summary["loc_date"]}. Rechts: empirische Verteilungsfunktion der Erhebungsergebnisse {this_feature["name"]}.'
+
+# add the dims table to the pdf
+d_chart = Image(dims_table_file_name, width=inch*6, height=inch*4.8, kind="proportional", hAlign= "LEFT")
+d_capt = Paragraph(dims_table_caption, caption_style)
+pdfcomponents = addToDoc([small_space, d_chart, d_capt, PageBreak()], pdfcomponents)
 
 
 # In[6]:
 
-
-# months locator, can be confusing
-# https://matplotlib.org/stable/api/dates_api.html
 
 dx = period_data.parentSampleTotals(parent=False)
 
@@ -412,7 +520,12 @@ axtwo.xaxis.set_minor_locator(MultipleLocator(100))
 axtwo.yaxis.set_major_locator(MultipleLocator(.1))
 axtwo.grid(which="minor", visible=True, axis="x", linestyle="--", linewidth=1)
 
+figure_name = "bielersee_sample_totals"
+sample_totals_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname":sample_totals_file_name})
+
 plt.tight_layout()
+plt.savefig(**dims_table_figure_kwargs)
 glue("bielersee_sample_totals", fig, display=False)
 plt.close()
 
@@ -432,13 +545,18 @@ plt.close()
 
 # figure caption
 summary_of_survey_totals = f"""
-*__Links:__ Zusammenfassung der Daten aller Erhebungen am {this_feature["name"]}. __Rechts:__ Gefundene Materialarten am {this_feature["name"]} in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).*
+Zusammenfassung der Daten aller Erhebungen am {this_feature["name"]}. Gefundene Materialarten am {this_feature["name"]} in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).
 """
 # md(summary_of_survey_totals)
 
 
 # In[8]:
 
+
+# add to pdf
+s_totals = Image(sample_totals_file_name, width=inch*6, height=inch*4.8, kind="proportional", hAlign= "LEFT")
+s_totals_caption = Paragraph(sample_total_notes, caption_style)
+pdfcomponents = addToDoc([Paragraph("Verteilung der Erhebungsergebnisse", subsection_title), small_space, s_totals, s_totals_caption], pdfcomponents)
 
 csx = fdx.sample_summary.copy()
 
@@ -477,11 +595,17 @@ table_three.get_celld()[(0,0)].get_text().set_text(" ")
 table_three.set_fontsize(12)
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.2)
+plt.margins(0, 0)
+figure_name = "bielersee_sample_summaries"
+sample_summaries_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname":sample_summaries_file_name})
+
+plt.savefig(**dims_table_figure_kwargs)
+
+
 glue('bielersee_sample_material_tables', fig, display=False)
 plt.close()
 
-
-# {numref}`Abbildung %s: <bielersee_sample_material_tables>`Links: Zusammenfassung der Daten aller Erhebungen am Bielersee. Rechts: Gefundene Materialarten am Bielersee in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).
 
 # ```{glue:figure} bielersee_sample_material_tables
 # ---
@@ -490,6 +614,8 @@ plt.close()
 # ` `
 # ```
 
+# {numref}`Abbildung %s: <bielersee_sample_material_tables>`Links: Zusammenfassung der Daten aller Erhebungen am Bielersee. Rechts: Gefundene Materialarten am Bielersee in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).
+
 # ## Die am häufigsten gefundenen Objekte
 # 
 # Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)
@@ -497,12 +623,19 @@ plt.close()
 # In[9]:
 
 
+# add summary tables to pdf
+samp_mat_subsection = Paragraph("Zusammengefasste Daten und Materialarten", subsection_title)
+samp_material_table = Image(sample_summaries_file_name , width=inch*6, height=inch*4.8, kind="proportional", hAlign= "LEFT")
+samp_material_caption = Paragraph(summary_of_survey_totals, caption_style)
+pdfcomponents = addToDoc([large_space, samp_mat_subsection, small_space, samp_material_table, samp_material_caption, PageBreak()], pdfcomponents)
+
+
+
 # get percent of total
 m_common_percent_of_total = fdx.most_common["quantity"].sum()/fdx.code_summary["quantity"].sum()
 rb_string = f"""
-*__Unten__: Häufigste Objekte im {this_feature['name']}: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.*
+Häufigste Objekte im {this_feature['name']}: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte {int(m_common_percent_of_total*100)}% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.
 """
-md(rb_string)
 
 
 # In[10]:
@@ -529,6 +662,12 @@ table_four = sut.make_a_table(axs, all_survey_areas,  colLabels=list(cols_to_use
 table_four.get_celld()[(0,0)].get_text().set_text(" ")
 table_four.set_fontsize(12)
 plt.tight_layout()
+
+figure_name = "bielersee_most_common_table"
+bielersee_most_common_table_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname":bielersee_most_common_table_file_name})
+
+plt.savefig(**dims_table_figure_kwargs)
 glue('bielersee_most_common_tables', fig, display=False)
 plt.close()
 
@@ -540,13 +679,37 @@ plt.close()
 # ` `
 # ```
 
+# {numref}`Abbildung %s: <bielersee_most_common_tables>` Häufigste Objekte im Bielersee: d. h. Objekte mit einer Häufigkeitsrate von mindestens 50 % und/oder Top Ten nach Anzahl. Zusammengenommen machen die häufigsten Objekte 73% aller gefundenen Objekte aus. Anmerkung: p/100 m = Medianwert der Erhebung.
+
 # ### Die am häufigsten gefundenen Objekte nach Gemeinden
 
 # In[11]:
 
 
+# add new section pdf
+mc_section_title = Paragraph("Die am häufigsten gefundenen Objekte", section_title)
+para_g = "Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)"
+mc_section_para = Paragraph(para_g, p_style)
+mc_table = Image(bielersee_most_common_table_file_name, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
+mc_table_cap = Paragraph(rb_string, caption_style)
+mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gemeinden", subsection_title)
+
+
+new_components = [
+    mc_section_title,
+    small_space,
+    mc_section_para,
+    large_space,
+    mc_table,
+    mc_table_cap,
+    PageBreak(),
+    mc_heatmap_title,
+    large_space
+]
+pdfcomponents = addToDoc(new_components, pdfcomponents)
+
 rb_string = F"""
-*__Unten:__ Median (p/100 m) der häufigsten Objekte am {this_feature["name"]}.*
+Median (p/100 m) der häufigsten Objekte am {this_feature["name"]}.
 """
 # md(rb_string)
 
@@ -589,12 +752,18 @@ axone.set_ylabel("")
 axone.tick_params(labelsize=12, which="both", axis="y")
 
 plt.setp(axone.get_xticklabels(), rotation=90)
+plt.tight_layout()
+plt.margins(0,0)
+
+figure_name = "bielersee_most_common_heat_map"
+bielersee_most_common_heat_map_name = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname":bielersee_most_common_heat_map_name})
+
+plt.savefig(**dims_table_figure_kwargs)
 
 glue('bielersee_most_common_heat_map', fig, display=False)
 plt.close()
 
-
-# {numref}`Abbildung %s: <bielersee_most_common_heat_map>` Median (p/100 m) der häufigsten Objekte am Bielersee.
 
 # ```{glue:figure} bielersee_most_common_heat_map
 # ---
@@ -603,10 +772,18 @@ plt.close()
 # ` `
 # ```
 
+# {numref}`Abbildung %s: <bielersee_most_common_heat_map>` Median (p/100 m) der häufigsten Objekte am Bielersee.
+
 # ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
 
 # In[13]:
 
+
+# add to pdf
+mc_heat_map = Image(bielersee_most_common_heat_map_name, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
+mc_heat_map_caption = Paragraph(rb_string, caption_style)
+mc_monthly_title = Paragraph("Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt", subsection_title)
+pdfcomponents = addToDoc([small_space,mc_heat_map, smallest_space, mc_heat_map_caption, PageBreak(), mc_monthly_title, small_space], pdfcomponents)
 
 # collect the survey results of the most common objects
 agg_pcs_quantity = {unit_label:"sum", "quantity":"sum"}
@@ -710,13 +887,19 @@ new_labels = new_labels[::-1]
 new_labels.insert(0,"Monatsdurschnitt")
 handles = [handles[0], *handles[1:][::-1]]
     
-plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=12)
+
 plt.tight_layout()
+plt.legend(handles=handles, labels=new_labels, bbox_to_anchor=(.5, -.05), loc="upper center",  ncol=2, fontsize=12)
+
+figure_name = "bielersee_most_common_monthly"
+bielersee_most_common_monthly_name = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname":bielersee_most_common_monthly_name })
+
+plt.savefig(**dims_table_figure_kwargs)
+
 glue("bielersee_monthly_results", fig, display=False)
 plt.close()
 
-
-# {numref}`Abbildung %s: <bielersee_monthly_results>` Bielersee, monatliche Durchschnittsergebnisse p/100 m.
 
 # ```{glue:figure} bielersee_monthly_results
 # ---
@@ -724,6 +907,8 @@ plt.close()
 # ---
 # ` `
 # ```
+
+# {numref}`Abbildung %s: <bielersee_monthly_results>` Bielersee, monatliche Durchschnittsergebnisse p/100 m.
 
 # ## Verwendungszweck der gefundenen Objekte
 # 
@@ -745,10 +930,53 @@ plt.close()
 # In[14]:
 
 
+monthly_results = Image(bielersee_most_common_monthly_name, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
+cone_group_subtitle = Paragraph("Verwendungszweck der gefundenen Objekte", section_title)
+
+paragraph_one = [
+    "Der Verwendungszweck basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, ",
+    "oder auf der Artikelbeschreibung, wenn die ursprüngliche Verwendung unbestimmt ist. ",
+    "Identifizierte Objekte werden einer der 260 vordefinierten Kategorien zugeordnet. ",
+    "Die Kategorien werden je nach Verwendung oder Artikelbeschreibung gruppiert."
+]
+
+group_names_list = [
+    "Abwasser: Objekte, die aus Kläranlagen freigesetzt werden, sprich Objekte, die wahrscheinlich über die Toilette entsorgt werden",
+    "Mikroplastik (< 5 mm): fragmentierte Kunststoffe und Kunststoffharze aus der Vorproduktion",
+    "Infrastruktur: Artikel im Zusammenhang mit dem Bau und der Instandhaltung von Gebäuden, Strassen und der Wasser-/Stromversorgung",
+    "Essen und Trinken: alle Materialien, die mit dem Konsum von Essen und Trinken in Zusammenhang stehen",
+    "Landwirtschaft: Materialien z. B. für Mulch und Reihenabdeckungen, Gewächshäuser, Bodenbegasung, Ballenverpackungen. Einschliesslich Hartkunststoffe für landwirtschaftliche Zäune, Blumentöpfe usw.",
+    "Tabakwaren: hauptsächlich Zigarettenfilter, einschliesslich aller mit dem Rauchen verbundenen Materialien",
+    "Freizeit und Erholung: Objekte, die mit Sport und Freizeit zu tun haben, z. B. Angeln, Jagen, Wandern usw.",
+    "Verpackungen ausser Lebensmittel und Tabak: Verpackungsmaterial, das nicht lebensmittel- oder tabakbezogen ist",
+    "Plastikfragmente: Plastikteile unbestimmter Herkunft oder Verwendung",
+    "Persönliche Gegenstände: Accessoires, Hygieneartikel und Kleidung"
+]
+
+paragraph_three = [
+    "Im Anhang (Kapitel 3.6.3) befindet sich die vollständige Liste der identifizierten Objekte, ",
+    "einschliesslich Beschreibungen und Gruppenklassifizierung. ",
+    "Das Kapitel [16 Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine ",
+    "umfassende Liste aller Objekte in einer Gruppe."
+]
+
+
+code_group_para_one = ' '.join(paragraph_one)
+
+name_list = [ListItem(Paragraph(x, p_style), bulletColor=HexColor("#000000")) for x in group_names_list]
+
+cgroup_pone = Paragraph(code_group_para_one, p_style)
+code_group_para_three = ''.join(paragraph_three)
+cgroup_pthree = Paragraph(code_group_para_three, p_style)
+a_list_groups = ListFlowable(name_list, bulletType='bullet', start="square", bulletFontSize=6)
+
+
+pdfcomponents = addToDoc([monthly_results, PageBreak(), cone_group_subtitle, small_space, cgroup_pone, small_space, a_list_groups, small_space, cgroup_pthree], pdfcomponents)
+
 cg_poft = F"""
-__Unten:__ Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden im Erhebungsgebiet {this_feature["name"]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.
+Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden im Erhebungsgebiet {this_feature["name"]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.
 """
-md(cg_poft)
+# md(cg_poft)
 
 
 # In[15]:
@@ -775,7 +1003,7 @@ pt_period = period_data.parentGroupTotals(parent=False, percent=True)
 pt_comp[top] = pt_period
 
 
-fig, ax = plt.subplots(figsize=(len(pt_comp.columns)*.7,len(pt_comp)*.8))
+fig, ax = plt.subplots(figsize=(len(pt_comp.columns)*.9,len(pt_comp)*.8))
 
 axone = ax
 
@@ -787,6 +1015,14 @@ axone.tick_params(labelsize=12, which="both", axis="both", labeltop=False, label
 
 plt.setp(axone.get_xticklabels(), rotation=90, fontsize=14)
 plt.setp(axone.get_yticklabels(), rotation=0, fontsize=14)
+
+plt.tight_layout()
+plt.margins(0,0)
+figure_name = "bielersee_code_group_percent"
+bielersee_code_group_percent = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname": bielersee_code_group_percent})
+
+plt.savefig(**dims_table_figure_kwargs)
 glue('bielersee_codegroup_percent', fig, display=False)
 plt.close()
 
@@ -802,11 +1038,15 @@ plt.close()
 # In[16]:
 
 
-# cg_medpcm = F"""
-# <br></br>
-# *__Unten:__ Verwendungszweck der gefundenen Objekte Median p/100 m am {this_feature["name"]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.*
-# """
-# md(cg_medpcm)
+cg_percent = Image(bielersee_code_group_percent, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
+cg_caption = Paragraph(cg_poft, caption_style)
+
+
+
+cg_medpcm = F"""
+Verwendungszweck der gefundenen Objekte Median p/100 m am {this_feature["name"]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.
+"""
+md(cg_medpcm)
 
 # pivot that
 grouppcs_comp = components[["city", "groupname", unit_label ]].pivot(columns="city", index="groupname")
@@ -834,6 +1074,14 @@ sns.heatmap(grouppcs_comp , ax=axone, cmap=cmap2, annot=True, annot_kws={"fontsi
 axone.set_xlabel("")
 axone.set_ylabel("")
 axone.tick_params(labelsize=12, which="both", axis="both", labeltop=False, labelbottom=True)
+plt.tight_layout()
+
+plt.margins(0,0)
+figure_name = "bielersee_code_group_pcsm"
+bielersee_code_group_pcsm = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname": bielersee_code_group_pcsm})
+
+plt.savefig(**dims_table_figure_kwargs)
 glue("bielersee_codegroup_pcsm", fig, display=False)
 plt.close()
 
@@ -855,10 +1103,45 @@ plt.close()
 # In[17]:
 
 
-# frag_foams = F"""
-# *__Below:__ Fragmentierte und geschäumte Kunststoffe nach Grösse am {this_feature["name"]},  Median p/100 m, Anzahl der gefundenen Objekte und Prozent der Gesamtmenge.*
-# """
-# md(frag_foams)
+cg_pcsm = Image(bielersee_code_group_pcsm, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
+cgpcs_caption = Paragraph(cg_medpcm, caption_style)
+annex_title = Paragraph("Anhang", section_title)
+frag_sub_title = Paragraph("Schaumstoffe und Kunststoffe nach Grösse", subsection_title)
+
+frag_paras = [
+    "Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrag», die für die Analyse gruppiert wurden. ",
+    "Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten ",
+    "Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff - und Schaumstoffmaterialien > 0,5 ",
+    "cm werden für die Analyse als Gfrags gruppiert."
+]
+
+frag_p = "".join(frag_paras)
+frag = Paragraph(frag_p, p_style)
+
+new_components = [
+    larger_space,
+    cg_percent,
+    smallest_space,
+    cg_caption,
+    larger_space,
+    cg_pcsm,
+    smallest_space,
+    cgpcs_caption,
+    PageBreak(),
+    annex_title,
+    small_space,
+    frag_sub_title,
+    smaller_space,
+    frag,
+    small_space
+]
+
+pdfcomponents = addToDoc(new_components, pdfcomponents)
+
+frag_foams = f"""
+Fragmentierte und geschäumte Kunststoffe nach Grösse am {this_feature["name"]},  Median p/100 m, Anzahl der gefundenen Objekte und Prozent der Gesamtmenge.
+"""
+
 # collect the data before aggregating foams for all locations in the survye area
 # group by loc_date and code
 # Combine the different sizes of fragmented plastics and styrofoam
@@ -891,6 +1174,12 @@ table_seven.get_celld()[(0,0)].get_text().set_text(" ")
 table_seven.set_fontsize(12)
 
 plt.tight_layout()
+
+figure_name = "bielersee_frags"
+bielersee_frags = f'{save_fig_prefix}{figure_name}.jpeg'
+dims_table_figure_kwargs.update({"fname": bielersee_frags})
+
+plt.savefig(**dims_table_figure_kwargs)
 glue('bielersee_fragmented_plastics', fig, display=False)
 plt.close()
 
@@ -908,11 +1197,36 @@ plt.close()
 # In[18]:
 
 
+frag_table = Image(bielersee_frags, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
+frag_caption = Paragraph(frag_foams, p_style)
+
+pdfcomponents = addToDoc([frag_table, smallest_space, frag_caption], pdfcomponents)
+
 # display the survey locations
 disp_columns = ["latitude", "longitude", "city"]
 disp_beaches = admin_details.df_beaches.loc[admin_summary["locations_of_interest"]][disp_columns]
 disp_beaches.reset_index(inplace=True)
 disp_beaches.rename(columns={"city":"stat", "slug":"standort"}, inplace=True)
+
+# make this into a pdf table
+location_subsection = Paragraph("Die Erhebungsorte", subsection_title)
+
+def dfToTable(df):
+    
+    a_table = [[Paragraph(col, table_header) for col in df.columns]] + df.values.tolist()
+    style=[
+        ('FONTNAME', (0,0), (-1,0), 'Helvetica'),
+        ('LINEBELOW',(0,0), (-1,0), 1, colors.saddlebrown),
+        ('INNERGRID', (0,0), (-1,-1), 0.25, colors.saddlebrown),
+        ('BOX', (0,0), (-1,-1), .5, HexColor("#8b451320", hasAlpha=True)),
+        ('ROWBACKGROUNDS', (0,0), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white])
+    ]
+    return Table(a_table, style=style, hAlign = 'LEFT')
+
+pdf_table = dfToTable(disp_beaches)
+
+pdfcomponents = addToDoc([small_space, location_subsection, small_space, pdf_table, PageBreak()], pdfcomponents)
+
 disp_beaches.set_index("standort", inplace=True, drop=True)
 
 disp_beaches
@@ -929,7 +1243,58 @@ complete_inventory["quantity"] = complete_inventory["quantity"].map(lambda x: fe
 complete_inventory["% of total"] = complete_inventory["% of total"].astype(int)
 complete_inventory[unit_label] = complete_inventory[unit_label].astype(int)
 complete_inventory.rename(columns=featuredata.inventory_table_de, inplace=True)
+
+complete_inventory.reset_index(inplace=True)
+
+
+def dfToTableExtended(df):
+    
+    a_table = [[Paragraph(col, table_header) for col in df.columns]]
+    
+    new_rows = []
+    for a_row in df.values.tolist():
+        
+        
+            
+        new_row = [Paragraph(str(x), table_style) for x in a_row]
+        new_rows.append(new_row)
+    
+    new_rows = a_table + new_rows 
+    
+    style=[
+        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+        ('LINEBELOW',(0,0), (-1,0), 1, colors.saddlebrown),
+        ('INNERGRID', (0,0), (-1,-1), 0.25, colors.saddlebrown),
+        ('BOX', (0,0), (-1,-1), .5, HexColor("#8b451320", hasAlpha=True)),
+        ('ROWBACKGROUNDS', (0,0), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white])
+    ]
+    return Table(new_rows, style=style, hAlign = 'LEFT')
+
+inventory_subsection = Paragraph("Inventar der Objekte", subsection_title)
+inventory_table = dfToTableExtended(complete_inventory)
+
+pdfcomponents = addToDoc([small_space, inventory_subsection, small_space, inventory_table], pdfcomponents)
+
+complete_inventory.set_index("code", inplace=True, drop=True)
+
 complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
+
+
+# In[20]:
+
+
+# pdfcomponents = addToDoc([large_space, pdf_table], pdfcomponents)
+
+doc = SimpleDocTemplate("bielersee.pdf", pagesize=A4, leftMargin=.5*inch, rightMargin=.5*inch, topMargin=.5*inch, bottomMargin=.5*inch)
+pageinfo= f"IQAASL: {this_feature['name']} {start_date} bis {end_date}"
+
+def myLaterPages(canvas, doc):
+    canvas.saveState()
+    canvas.setFont('Times-Italic',9)
+    canvas.drawString(.5*inch, 0.25* inch, "S.%d %s" % (doc.page, pageinfo))
+    canvas.restoreState()
+    
+doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
 
 
 # In[ ]:
