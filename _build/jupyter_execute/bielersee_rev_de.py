@@ -241,8 +241,9 @@ admin_r_summary = admin_r_details.summaryObject()
 pdfcomponents = []
 
 def addToDoc(flowables, alist):
-    new_list = [*alist, *flowables]
-    return new_list
+    
+    doc_components = [*alist, *flowables]
+    return doc_components
 
 # style definitions for pdf report
 title_style = ParagraphStyle(**{"name": "title_style", "fontSize": 18, "fontName": "Helvetica"})
@@ -259,6 +260,39 @@ smallest_space = Spacer(1, .12*inch)
 indented = ParagraphStyle(**{"name": "indented", "fontSize": 10, "fontName": "Times-Roman", "leftIndent":36})
 table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica"})
 table_style = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica"})
+
+def dfToTable(df: pd.DataFrame = None, table_header: ParagraphStyle=table_header, cell_style: ParagraphStyle= None, ):
+    
+    
+    style=[
+        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+        ('LINEBELOW',(0,0), (-1,0), 1, HexColor("#8b451330", hasAlpha=True)),
+        ('INNERGRID', (0,0), (-1,-1), 0.25, HexColor("#8b451330", hasAlpha=True)),
+        ('BOX', (0,0), (-1,-1), .5, HexColor("#8b451320", hasAlpha=True)),
+        ('ROWBACKGROUNDS', (0,0), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white])
+    ]
+    
+    
+    if isinstance(cell_style, ParagraphStyle):
+        
+        header = [[Paragraph(col, table_header) for col in df.columns]]
+        new_rows = []
+        for a_row in df.values.tolist():
+
+
+
+            new_row = [Paragraph(str(x), cell_style) for x in a_row]
+            new_rows.append(new_row)
+
+        new_rows = header + new_rows
+        
+        return Table(new_rows, style=style, hAlign = 'LEFT')
+    
+    else:    
+    
+        a_table = [[Paragraph(col, table_header) for col in df.columns]] + df.values.tolist()
+      
+        return Table(a_table, style=style, hAlign = 'LEFT')
 
 
 
@@ -363,9 +397,7 @@ cities = Paragraph(munis_joined, indented)
 # add the admin summary to the pdf
 pdfcomponents = addToDoc([
     small_space,
-    Paragraph(f'{date_quantity_context} {geo_context}', p_style),
-    large_space,
-   
+    Paragraph(f'{date_quantity_context} {geo_context}', p_style),   
     
 ], pdfcomponents)
 
@@ -382,13 +414,16 @@ md(lake_string)
 
 # ### Kumulative Gesamtmengen nach Gemeinden
 
-# In[4]:
+# In[28]:
 
 
 # add section to pdf
 pdfcomponents = addToDoc([large_space, Paragraph("Kumulative Gesamtmengen nach Gemeinden", subsection_title)], pdfcomponents)
 
+# save image of table to this directory
 save_fig_prefix = "resources/output/"
+
+# the arguments for formatting the image
 dims_table_figure_kwargs = {
     "fname": None,
     "dpi": 300.0,
@@ -402,26 +437,32 @@ dims_table_figure_kwargs = {
 }
 
 
-# make table
+# make table sort and rename the columns
 dims_table = admin_details.dimensionalSummary()
-
-# for display
 dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
 dims_table.rename(columns=featuredata.dims_table_columns_de, inplace=True)
 
-# needs formatting
+# put the weights to Kg
+dims_table["Plastik (Kg)"] = dims_table["Plastik (Kg)"]/1000
+
+# these columns need formatting for locale
 thousands_separated = ["Fläche (m2)", "Länge (m)", "Erhebungen", "Objekte (St.)"]
 replace_decimal = ["Plastik (Kg)", "Gesamtgewicht (Kg)"]
-
-dims_table["Plastik (Kg)"] = dims_table["Plastik (Kg)"]/1000
 dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
 dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,2))))
 
 # figure caption
-dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte und Masse für die Gemeinden'
+dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte  und Masse für die Gemeinden'
+dtcap = dims_table_caption
+glue("dims_table_caption",dtcap, display=False)
 
 
 data = dims_table.reset_index()
+
+d_chart = dfToTable(df=data, table_header=table_header, cell_style=table_style)
+d_capt = Paragraph(dims_table_caption, caption_style)
+pdfcomponents = addToDoc([small_space, d_chart, d_capt, PageBreak()], pdfcomponents)
+
 colLabels = data.columns
 
 fig, ax = plt.subplots(figsize=(len(colLabels)*2,len(data)*.7))
@@ -447,7 +488,7 @@ plt.close()
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <bielersee_dimensional_summary>` Bielersee: kumulierten Gewichte und Masse für die Gemeinden.
+# {numref}`Abbildung %s: <bielersee_dimensional_summary>` {glue:text}`dims_table_caption`
 
 # ### Verteilung der Erhebungsergebnisse
 
@@ -455,14 +496,6 @@ plt.close()
 
 
 sample_total_notes = f'Links: {this_feature["name"]}, {featuredata.dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)} bis {featuredata.dateToYearAndMonth(datetime.strptime(end_date, date_format), lang=date_lang)}, n = {admin_summary["loc_date"]}. Rechts: empirische Verteilungsfunktion der Erhebungsergebnisse {this_feature["name"]}.'
-
-# add the dims table to the pdf
-d_chart = Image(dims_table_file_name, width=inch*6, height=inch*4.8, kind="proportional", hAlign= "LEFT")
-d_capt = Paragraph(dims_table_caption, caption_style)
-pdfcomponents = addToDoc([small_space, d_chart, d_capt, PageBreak()], pdfcomponents)
-
-
-# In[6]:
 
 
 dx = period_data.parentSampleTotals(parent=False)
@@ -540,7 +573,7 @@ plt.close()
 
 # ### Zusammengefasste Daten und Materialarten
 
-# In[7]:
+# In[6]:
 
 
 # figure caption
@@ -550,7 +583,7 @@ Zusammenfassung der Daten aller Erhebungen am {this_feature["name"]}. Gefundene 
 # md(summary_of_survey_totals)
 
 
-# In[8]:
+# In[7]:
 
 
 # add to pdf
@@ -620,7 +653,7 @@ plt.close()
 # 
 # Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)
 
-# In[9]:
+# In[8]:
 
 
 # add summary tables to pdf
@@ -638,7 +671,7 @@ Häufigste Objekte im {this_feature['name']}: d. h. Objekte mit einer Häufigke
 """
 
 
-# In[10]:
+# In[9]:
 
 
 # format values for table
@@ -653,6 +686,8 @@ m_common[unit_label] = m_common[unit_label].map(lambda x: featuredata.replaceDec
 cols_to_use = featuredata.most_common_objects_table_de
 cols_to_use.update({unit_label:unit_label})
 all_survey_areas = m_common[cols_to_use.keys()].values
+
+pdf_mc_table = dfToTable(df=m_common[cols_to_use.keys()].copy(), table_header=table_header, cell_style=table_style)
 
 fig, axs = plt.subplots(figsize=(10,len(m_common)*.7))
 
@@ -670,6 +705,12 @@ dims_table_figure_kwargs.update({"fname":bielersee_most_common_table_file_name})
 plt.savefig(**dims_table_figure_kwargs)
 glue('bielersee_most_common_tables', fig, display=False)
 plt.close()
+
+
+# In[10]:
+
+
+m_common[cols_to_use.keys()]
 
 
 # ```{glue:figure} bielersee_most_common_tables
@@ -690,7 +731,7 @@ plt.close()
 mc_section_title = Paragraph("Die am häufigsten gefundenen Objekte", section_title)
 para_g = "Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)"
 mc_section_para = Paragraph(para_g, p_style)
-mc_table = Image(bielersee_most_common_table_file_name, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
+# mc_table = Image(bielersee_most_common_table_file_name, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
 mc_table_cap = Paragraph(rb_string, caption_style)
 mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gemeinden", subsection_title)
 
@@ -700,7 +741,7 @@ new_components = [
     small_space,
     mc_section_para,
     large_space,
-    mc_table,
+    pdf_mc_table,
     mc_table_cap,
     PageBreak(),
     mc_heatmap_title,
@@ -1041,8 +1082,6 @@ plt.close()
 cg_percent = Image(bielersee_code_group_percent, width=inch*6, height=inch*8, kind="proportional", hAlign= "LEFT")
 cg_caption = Paragraph(cg_poft, caption_style)
 
-
-
 cg_medpcm = F"""
 Verwendungszweck der gefundenen Objekte Median p/100 m am {this_feature["name"]}. Fragmentierte Objekte, die nicht eindeutig identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.
 """
@@ -1211,19 +1250,7 @@ disp_beaches.rename(columns={"city":"stat", "slug":"standort"}, inplace=True)
 # make this into a pdf table
 location_subsection = Paragraph("Die Erhebungsorte", subsection_title)
 
-def dfToTable(df):
-    
-    a_table = [[Paragraph(col, table_header) for col in df.columns]] + df.values.tolist()
-    style=[
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica'),
-        ('LINEBELOW',(0,0), (-1,0), 1, colors.saddlebrown),
-        ('INNERGRID', (0,0), (-1,-1), 0.25, colors.saddlebrown),
-        ('BOX', (0,0), (-1,-1), .5, HexColor("#8b451320", hasAlpha=True)),
-        ('ROWBACKGROUNDS', (0,0), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white])
-    ]
-    return Table(a_table, style=style, hAlign = 'LEFT')
-
-pdf_table = dfToTable(disp_beaches)
+pdf_table = dfToTable(df=disp_beaches, table_header=table_header)
 
 pdfcomponents = addToDoc([small_space, location_subsection, small_space, pdf_table, PageBreak()], pdfcomponents)
 
@@ -1246,32 +1273,8 @@ complete_inventory.rename(columns=featuredata.inventory_table_de, inplace=True)
 
 complete_inventory.reset_index(inplace=True)
 
-
-def dfToTableExtended(df):
-    
-    a_table = [[Paragraph(col, table_header) for col in df.columns]]
-    
-    new_rows = []
-    for a_row in df.values.tolist():
-        
-        
-            
-        new_row = [Paragraph(str(x), table_style) for x in a_row]
-        new_rows.append(new_row)
-    
-    new_rows = a_table + new_rows 
-    
-    style=[
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-        ('LINEBELOW',(0,0), (-1,0), 1, colors.saddlebrown),
-        ('INNERGRID', (0,0), (-1,-1), 0.25, colors.saddlebrown),
-        ('BOX', (0,0), (-1,-1), .5, HexColor("#8b451320", hasAlpha=True)),
-        ('ROWBACKGROUNDS', (0,0), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white])
-    ]
-    return Table(new_rows, style=style, hAlign = 'LEFT')
-
 inventory_subsection = Paragraph("Inventar der Objekte", subsection_title)
-inventory_table = dfToTableExtended(complete_inventory)
+inventory_table = dfToTable(df=complete_inventory, table_header=table_header, cell_style=table_style)
 
 pdfcomponents = addToDoc([small_space, inventory_subsection, small_space, inventory_table], pdfcomponents)
 
