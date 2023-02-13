@@ -1,3 +1,10 @@
 span.pasted-text {
   font-weight: normal;
 }
+
+
+figure {
+     overflow-y: scroll;
+}
+
+    

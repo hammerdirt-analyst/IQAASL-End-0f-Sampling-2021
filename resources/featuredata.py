@@ -4,6 +4,18 @@ from datetime import datetime
 from babel.dates import get_month_names
 from typing import Any
 
+from reportlab.platypus.flowables import Flowable
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, ListFlowable, ListItem
+from reportlab.lib.pagesizes import A4
+from reportlab.rl_config import defaultPageSize
+from reportlab.lib.units import inch
+from reportlab.lib.colors import HexColor
+from reportlab.lib import colors
+from reportlab.platypus import Table, TableStyle
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 date_format = "%Y-%m-%d"
 
@@ -1036,4 +1048,239 @@ class AdministrativeSummary(Beaches):
         
         return dims_table
 
+    
+# style definitions for pdf report
+# section and paragraph formatting
+title_style = ParagraphStyle(**{"name": "title_style", "fontSize": 18, "fontName": "Helvetica"})
+section_title = ParagraphStyle(**{"name": "section_title", "fontSize": 16, "fontName": "Helvetica"})
+caption_style = ParagraphStyle(**{"name": "caption_style", "fontSize": 9, "fontName": "Times-Italic"})
+subsection_title = ParagraphStyle(**{"name": "sub_section_title", "fontSize": 12, "fontName": "Helvetica"})
+p_style = ParagraphStyle(**{"name": "content", "fontSize": 10, "fontName": "Times-Roman"})
+bold_block = ParagraphStyle(**{"name": "bold_block", "fontSize": 10, "fontName": "Times-Bold"})
+indented = ParagraphStyle(**{"name": "indented", "fontSize": 10, "fontName": "Times-Roman", "leftIndent":36})
 
+# spacers 
+larger_space = Spacer(1, .5*inch)
+large_space = Spacer(1, .25*inch)
+small_space = Spacer(1, .2*inch)
+smaller_space = Spacer(1, .15*inch)
+smallest_space = Spacer(1, .12*inch)
+
+# table definitions:
+table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
+table_style = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica"})
+styled_table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
+table_style_centered = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
+table_style_right = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica", "alignment":2})
+
+def addToDoc(flowables, alist):
+    
+    doc_components = [*alist, *flowables]
+    return doc_components
+
+
+def adminFormatNumericInteger(func=thousandsSeparator, an_int: str=None, language: str=None):
+    # uses the method defined by func to apply numeric formatting according to the language variable
+    try:
+        data = func(an_int, language)
+    except OSError as err:
+        print("The function provided did not work", err)
+        raise
+    else:
+        return data
+
+
+def stringStartEndDate(func=dateToYearAndMonth, date_format: str="%Y-%m-%d", lang: str = "de",  a_date: str=None,):
+    # uses the method defined by func to apply date formatting according to the language variable
+    
+    try:
+        data = func(datetime.strptime(a_date, date_format), lang=lang)
+    except (TypeError, OSError) as err:
+        print("Is the date formatted the same as the date_format? Are you sure of the method provided?", err)
+    
+    else:
+        return data
+
+
+def makeAdminSummaryStateMent(start, end, feature_name, language: str="de", admin_summary: dict=None):
+    # the admin summary can be called from the admin class. It has a specific construction. 
+    # use the data in the admin summary class to assemble string representation
+    
+    start_date = stringStartEndDate(a_date=start)
+    end_date = stringStartEndDate(a_date=end)
+    n_samples = adminFormatNumericInteger(an_int=admin_summary["loc_date"])
+    total = adminFormatNumericInteger(an_int=admin_summary["quantity"])
+    population = adminFormatNumericInteger(an_int=admin_summary["population"])
+    
+    if language != None:
+        phrase_one = f"Im Zeitraum von {start_date}  bis {end_date} wurden im Rahmen von {n_samples} Datenerhebungen insgesamt {total} Objekte entfernt und identifiziert."
+        phrase_two = f"Die Ergebnisse des {feature_name} umfassen {admin_summary['location']} Orte, {admin_summary['city']} Gemeinden und eine Gesamtbevölkerung von etwa {population} Einwohnenden."
+        
+        return f'{phrase_one} {phrase_two}'
+    else:
+        return 'Check the language variable'
+    
+def collectComponentLandMarks(admin_details, language="de"):
+    # the column headers are dependent on the language.
+    # using the admin_details class identify the component
+    # features of interest and have a language appropriate
+    # label.
+    
+    component_list = []
+    
+    if len(admin_details.lakesOfInterest()) > 0:
+        
+        if language == "de":
+            header = "Seen"
+        
+        if language == "fr":
+            header = "Lacs"
+        
+        else:
+            header = "Lakes"
+        
+        components = (header,  ", ".join(admin_details.lakes_of_interest))
+        
+        component_list.append(components)
+        
+    
+    if len(admin_details.riversOfInterest()) > 0:
+        if language == "de":
+            header = "Fliessgewässer"
+        
+        if language == "fr":
+            header = "Cours d'eaux"
+        
+        else:
+            header = "Rivers"
+        
+        components = (header,  ", ".join(admin_details.lakes_of_interest))
+        
+        component_list.append(components)
+        
+    if language == "de":
+            city_header = "Gemeinden"
+        
+    if language == "fr":
+        city_header = "Communes"
+        
+    else:
+        city_header = "Municipalities"
+        
+    munis = (city_header, ", ".join(sorted(admin_details.populationKeys()["city"])))
+       
+    
+    component_list.append(munis)
+    
+    return component_list
+    
+class verticalText(Flowable):
+
+    '''Rotates a text in a table cell.'''
+
+    def __init__(self, text):
+        Flowable.__init__(self)
+        self.text = text
+
+    def draw(self):
+        canvas = self.canv
+        canvas.rotate(90)
+        fs = canvas._fontsize
+        canvas.translate(1, -fs/1.2)  # canvas._leading?
+        canvas.drawString(0, 0, self.text)
+
+    def wrap(self, aW, aH):
+        canv = self.canv
+        fn, fs = canv._fontname, canv._fontsize
+        return canv._leading, 1 + canv.stringWidth(self.text, fn, fs)
+    
+def aStyledTable(data, header_style: Paragraph=styled_table_header, vertical_header: bool = False, data_style: Paragraph=table_style_centered, colWidths: []=None, style: []= None):
+    
+    if vertical_header:
+        headers = [verticalText(x) for x in data.columns[1:]]
+        headers = [verticalText(" "), *headers]
+    else:
+        headers = [Paragraph(str(x), header_style)  for x in data.columns[1:]]
+        headers = [Paragraph(" ", table_style_centered) , *headers]
+    
+    if style is None:
+        style=[
+        ('FONTNAME', (0,0), (-1,0), 'Helvetica'),
+        ('LINEBELOW',(0,0), (-1,0), 1, HexColor("#000")),
+        ('INNERGRID', (1,1), (-1,-1), 0.25, HexColor("#8b451330", hasAlpha=True)),
+        ('ROWBACKGROUNDS', (1,1), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white])
+        ]
+    
+    new_rows = []
+    for a_row in data.values.tolist():
+        
+        row_index = Paragraph(a_row[0], table_style_right)
+        row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+        new_row = [row_index, *row_data]
+        new_rows.append(new_row)
+        
+    new_table = [headers, *new_rows]
+    
+    return Table(new_table, style=style, colWidths=colWidths, repeatRows=1)
+
+
+def aStyledTableExtended(data, header_style: Paragraph=styled_table_header, vertical_header: bool = False, data_style: Paragraph=table_style_centered, colWidths: []=None, style: []= None):
+    ncols = len(data.columns)
+    
+    if ncols > 12:
+        
+        data_fields = ncols-1
+        tone = int(data_fields/2)
+        tone_cols = [data.columns[0], *data.columns[1:tone]]
+        print(data.columns)
+        print(data.columns[:3])
+        t_one = list(data.columns)[:tone]
+        t2 = data.columns[tone:]
+        
+        table_one = aStyledTable(data[t_one], vertical_header=vertical_header, colWidths=colWidths)
+        table_two = aStyledTable(data[t2], vertical_header=vertical_header, colWidths=colWidths)
+        
+        return [table_one, table_two]
+    else:
+        return [aStyledTable(data, vertical_header=vertical_header, colWidths=colWidths)]
+    
+    
+
+def colorGradient(x, cmap: str="YlOrBr", amin: int=0, amax: int=1):
+    a_cmap = plt.cm.get_cmap(cmap)
+    norm = mpl.colors.Normalize(vmin=amin, vmax=amax)
+    color = a_cmap(norm(x))
+    hex_color = mpl.colors.rgb2hex(color, keep_alpha=False)
+    
+    return hex_color
+
+def stringifyValue(x):
+    if isinstance(x, str):
+        return x
+    else:
+        return str(x)
+    
+def colorGradientTable(data, color_gradient: callable=colorGradient, column: int=None):
+    
+    gradient_cells = TableStyle()
+    
+    if column is None:
+        a_min = data.min().min()
+        a_max = data.max().max()
+        for i, row in enumerate(data.values):
+            for j, element in enumerate(row):
+                hex_color = colorGradient(element, amin=a_min, amax=a_max)
+                gradient_cells.add('BACKGROUND', (j+1, i+1), (j+1, i+1), hex_color)
+    
+    elif isinstance(column, int) and column < len(data.values[0]):
+        for i, row in enumerate(data.values):
+            hex_color = colorGradient(row[column])
+            gradient_cells.add('BACKGROUND', (column+1,i+1), (column+1,i+1), hex_color)
+    else:
+        print("ouch")
+    
+    return gradient_cells
+
+def rotateText(x):
+    return 'writing-mode: vertical-lr; transform: rotate(-180deg);  padding:10px; margins:0; vertical-align: baseline;'
+    

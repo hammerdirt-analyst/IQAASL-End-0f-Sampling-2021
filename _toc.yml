@@ -11,7 +11,7 @@ parts:
     - file: lakes_rivers_rev_de
     - file: alpes_valaisannes_rev_de
     - file: aare_sa_rev_de
-    - file: bielersee_rev_de
+    - file: bielersee
     
    
  
