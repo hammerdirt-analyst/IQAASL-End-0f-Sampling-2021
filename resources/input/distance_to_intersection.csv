@@ -1,0 +1,259 @@
+river_bass,location,quantity,p/100 m,lat,lon,city,samples,NAMN,LAUFNR,OBJVAL,NAMN_2,LAUFNR_2,BREITE,KLASSE,LINST,OBJVAL_2,distance
+aare,plage-de-serriere,"194",194.000000000000000,46.984850000000002,6.913450000000000,Neuchâtel,"1",Lac de Neuchâtel,0,Seeufer,Le Seyon,"999","8","8",CH,Seeachse,840.652594000517411
+aare,plage-de-serriere,"194",194.000000000000000,46.984850000000002,6.913450000000000,Neuchâtel,"1",Lac de Neuchâtel,0,Seeufer,Le Seyon,"0","8","8",CH,Fluss,840.652594000517411
+aare,plage-de-serriere,"194",194.000000000000000,46.984850000000002,6.913450000000000,Neuchâtel,"1",Lac de Neuchâtel,0,Seeufer,Le Seyon,"999","8","8",CH,Seeachse,840.652594000517411
+aare,plage-de-serriere,"194",194.000000000000000,46.984850000000002,6.913450000000000,Neuchâtel,"1",Lac de Neuchâtel,0,Seeufer,Le Seyon,"0","8","8",CH,Fluss,840.652594000517411
+aare,pointe-dareuse,"32",33.000000000000000,46.946190000000001,6.870970000000000,Boudry,"1",Lac de Neuchâtel,0,Seeufer,L'Areuse,"0","7","7",CH,Fluss,53.021367649802627
+aare,pointe-dareuse,"32",33.000000000000000,46.946190000000001,6.870970000000000,Boudry,"1",Lac de Neuchâtel,0,Seeufer,Le Vivier,"999","9","7",CH,Seeachse,633.497671736334610
+aare,pointe-dareuse,"32",33.000000000000000,46.946190000000001,6.870970000000000,Boudry,"1",Lac de Neuchâtel,0,Seeufer,Le Vivier,"0","9","7",CH,Fluss,633.497671736334610
+aare,pointe-dareuse,"32",33.000000000000000,46.946190000000001,6.870970000000000,Boudry,"1",Lac de Neuchâtel,0,Seeufer,Le Vivier,"999","9","7",CH,Seeachse,633.497671736334610
+aare,pointe-dareuse,"32",33.000000000000000,46.946190000000001,6.870970000000000,Boudry,"1",Lac de Neuchâtel,0,Seeufer,L'Areuse,"999","7","7",CH,Seeachse,53.021367649802627
+aare,pointe-dareuse,"32",33.000000000000000,46.946190000000001,6.870970000000000,Boudry,"1",Lac de Neuchâtel,0,Seeufer,Le Vivier,"0","9","7",CH,Fluss,633.497671736334610
+aare,pointe-dareuse,"32",33.000000000000000,46.946190000000001,6.870970000000000,Boudry,"1",Lac de Neuchâtel,0,Seeufer,L'Areuse,"0","7","7",CH,Fluss,53.021367649802627
+aare,pointe-dareuse,"32",33.000000000000000,46.946190000000001,6.870970000000000,Boudry,"1",Lac de Neuchâtel,0,Seeufer,L'Areuse,"999","7","7",CH,Seeachse,53.021367649802627
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Le Buron,"999","8","8",CH,Seeachse,289.368782156675763
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"0","18","8",CH,Fluss,96.444445583968587
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,453.791137787712728
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Le Buron,"0","8","8",CH,Fluss,289.368782156675763
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","5",CH,Seeachse,453.791137787712728
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"999","8","8",CH,Seeachse,96.444445583968587
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Le Buron,"999","8","8",CH,Seeachse,289.368782156675763
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"0","18","8",CH,Fluss,96.444445583968587
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,453.791137787712728
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","5",CH,Seeachse,453.791137787712728
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Le Buron,"0","8","8",CH,Fluss,289.368782156675763
+aare,signalpain,"226",478.000000000000000,46.786200000000001,6.647360000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"999","8","8",CH,Seeachse,96.444445583968587
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,La Thielle,"0","6","7",CH,Seeachse,283.487161076093116
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,La Suze,"999","7","7",CH,Seeachse,137.111625054140376
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,Aare,"0","14","4",CH,Fluss,1015.833501656766771
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,Aare,"0","4","4",CH,Seeachse,1015.833501656766771
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,La Suze,"0","7","7",CH,Fluss,137.111625054140376
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,283.487161076093116
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,La Suze,"999","7","7",CH,Seeachse,137.111625054140376
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,La Thielle,"0","6","7",CH,Seeachse,283.487161076093116
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,La Suze,"0","7","7",CH,Fluss,137.111625054140376
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,Aare,"0","14","4",CH,Fluss,1015.833501656766771
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,283.487161076093116
+aare,strandboden-biel,"247",347.000000000000000,47.132510000000003,7.233142000000000,Biel/Bienne,"2",Bielersee,0,Seeufer,Aare,"0","4","4",CH,Seeachse,1015.833501656766771
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,Chrutbach,"0","10","10",CH,Fluss,1445.500976574552169
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,N_P,"0","9","9",CH,Fluss,43.259400763724315
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,Fitzligraben,"999","10","10",CH,Seeachse,164.515858238773632
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,Sundgraben,"999","9","9",CH,Seeachse,43.259400763724315
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,N_P,"0","10","10",CH,Fluss,164.515858238773632
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,N_P,"0","9","9",CH,Fluss,43.259400763724315
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,Fitzligraben,"999","10","10",CH,Seeachse,164.515858238773632
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,N_P,"0","10","10",CH,Fluss,164.515858238773632
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,Sundgraben,"999","9","9",CH,Seeachse,43.259400763724315
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,Chrutbach,"999","10","10",CH,Seeachse,1445.500976574552169
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,Chrutbach,"0","10","10",CH,Fluss,1445.500976574552169
+aare,sundbach-strand,"104",242.500000000000000,46.684386000000003,7.794768000000000,Beatenberg,"2",Thunersee,0,Seeufer,Chrutbach,"999","10","10",CH,Seeachse,1445.500976574552169
+aare,camp-des-peches,"53",145.000000000000000,47.052812000000003,7.074053000000000,Le Landeron,"1",Bielersee,0,Seeufer,La Thielle,"999","5","5",CH,Seeachse,290.618153642674827
+aare,camp-des-peches,"53",145.000000000000000,47.052812000000003,7.074053000000000,Le Landeron,"1",Bielersee,0,Seeufer,Canal de la Thielle,"0","15","5",CH,Fluss,290.618153642674827
+aare,camp-des-peches,"53",145.000000000000000,47.052812000000003,7.074053000000000,Le Landeron,"1",Bielersee,0,Seeufer,La Thielle,"999","5","5",CH,Seeachse,290.618153642674827
+aare,camp-des-peches,"53",145.000000000000000,47.052812000000003,7.074053000000000,Le Landeron,"1",Bielersee,0,Seeufer,Canal de la Thielle,"0","15","5",CH,Fluss,290.618153642674827
+aare,camp-des-peches,"53",145.000000000000000,47.052812000000003,7.074053000000000,Le Landeron,"1",Bielersee,0,Seeufer,Ruisseau de Vaux,"999","9","9",CH,Seeachse,1289.116668223709667
+aare,camp-des-peches,"53",145.000000000000000,47.052812000000003,7.074053000000000,Le Landeron,"1",Bielersee,0,Seeufer,Ruisseau de Vaux,"0","9","9",CH,Fluss,1289.116668223709667
+aare,camp-des-peches,"53",145.000000000000000,47.052812000000003,7.074053000000000,Le Landeron,"1",Bielersee,0,Seeufer,Ruisseau de Vaux,"999","9","9",CH,Seeachse,1289.116668223709667
+aare,camp-des-peches,"53",145.000000000000000,47.052812000000003,7.074053000000000,Le Landeron,"1",Bielersee,0,Seeufer,Ruisseau de Vaux,"0","9","9",CH,Fluss,1289.116668223709667
+aare,camping-gwatt-strand,"43",172.000000000000000,46.727139999999999,7.629620000000000,Thun,"1",Thunersee,0,Seeufer,Kander,"0","5","5",CH,Fluss,1315.714442739953483
+aare,camping-gwatt-strand,"43",172.000000000000000,46.727139999999999,7.629620000000000,Thun,"1",Thunersee,0,Seeufer,Kander,"999","5","5",CH,Seeachse,1315.714442739953483
+aare,camping-gwatt-strand,"43",172.000000000000000,46.727139999999999,7.629620000000000,Thun,"1",Thunersee,0,Seeufer,Kander,"0","5","5",CH,Fluss,1315.714442739953483
+aare,camping-gwatt-strand,"43",172.000000000000000,46.727139999999999,7.629620000000000,Thun,"1",Thunersee,0,Seeufer,Kander,"999","5","5",CH,Seeachse,1315.714442739953483
+aare,delta-park,"69",200.000000000000000,46.720078000000001,7.635304000000000,Spiez,"1",Thunersee,0,Seeufer,Kander,"0","5","5",CH,Fluss,433.310831594846320
+aare,delta-park,"69",200.000000000000000,46.720078000000001,7.635304000000000,Spiez,"1",Thunersee,0,Seeufer,Kander,"999","5","5",CH,Seeachse,433.310831594846320
+aare,delta-park,"69",200.000000000000000,46.720078000000001,7.635304000000000,Spiez,"1",Thunersee,0,Seeufer,Kander,"0","5","5",CH,Fluss,433.310831594846320
+aare,delta-park,"69",200.000000000000000,46.720078000000001,7.635304000000000,Spiez,"1",Thunersee,0,Seeufer,Kander,"999","5","5",CH,Seeachse,433.310831594846320
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Mülibach,"0","10","10",CH,Fluss,777.031216638042224
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Mülibach,"999","10","10",CH,Seeachse,777.031216638042224
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,La Thielle,"999","5","5",CH,Seeachse,1640.489432369507540
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Canal de la Thielle,"0","15","5",CH,Fluss,1640.489432369507540
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,La Thielle,"999","5","5",CH,Seeachse,1640.489432369507540
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Ruisseau de Vaux,"999","9","9",CH,Seeachse,1484.318448070495378
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Canal de la Thielle,"0","15","5",CH,Fluss,1640.489432369507540
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Ruisseau de Vaux,"0","9","9",CH,Fluss,1484.318448070495378
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Ruisseau de Vaux,"999","9","9",CH,Seeachse,1484.318448070495378
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Ruisseau de Vaux,"0","9","9",CH,Fluss,1484.318448070495378
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Mülibach,"0","10","10",CH,Fluss,777.031216638042224
+aare,erlach-camping-strand,"101",183.000000000000000,47.047159000000001,7.097854000000000,Erlach,"1",Bielersee,0,Seeufer,Mülibach,"999","10","10",CH,Seeachse,777.031216638042224
+aare,evole-plage,"1974",267.500000000000000,46.989477000000001,6.923920000000000,Neuchâtel,"12",Lac de Neuchâtel,0,Seeufer,Le Seyon,"999","8","8",CH,Seeachse,240.354630796183301
+aare,evole-plage,"1974",267.500000000000000,46.989477000000001,6.923920000000000,Neuchâtel,"12",Lac de Neuchâtel,0,Seeufer,Le Seyon,"0","8","8",CH,Fluss,240.354630796183301
+aare,evole-plage,"1974",267.500000000000000,46.989477000000001,6.923920000000000,Neuchâtel,"12",Lac de Neuchâtel,0,Seeufer,Le Seyon,"999","8","8",CH,Seeachse,240.354630796183301
+aare,evole-plage,"1974",267.500000000000000,46.989477000000001,6.923920000000000,Neuchâtel,"12",Lac de Neuchâtel,0,Seeufer,Le Seyon,"0","8","8",CH,Fluss,240.354630796183301
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Mülibach,"0","10","10",CH,Fluss,1528.856495308151352
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Mülibach,"999","10","10",CH,Seeachse,1528.856495308151352
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,La Thielle,"999","5","5",CH,Seeachse,815.609846529863603
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Canal de la Thielle,"0","15","5",CH,Fluss,815.609846529863603
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,La Thielle,"999","5","5",CH,Seeachse,815.609846529863603
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Canal de la Thielle,"0","15","5",CH,Fluss,815.609846529863603
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Ruisseau de Vaux,"999","9","9",CH,Seeachse,1427.074837079904455
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Ruisseau de Vaux,"0","9","9",CH,Fluss,1427.074837079904455
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Ruisseau de Vaux,"999","9","9",CH,Seeachse,1427.074837079904455
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Ruisseau de Vaux,"0","9","9",CH,Fluss,1427.074837079904455
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Mülibach,"0","10","10",CH,Fluss,1528.856495308151352
+aare,gals-reserve,"48",128.000000000000000,47.046271900000001,7.085007500000000,Gals,"2",Bielersee,0,Seeufer,Mülibach,"999","10","10",CH,Seeachse,1528.856495308151352
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Fluss,1752.427942085101222
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Seeachse,1752.427942085101222
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Fluss,1752.427942085101222
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Seeachse,1752.427942085101222
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,N_P,"0","10","10",CH,Fluss_U,757.220885872579288
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,N_P,"999","10","10",CH,Seeachse,757.220885872579288
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Fluss,642.549049589979404
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Seeachse,642.549049589979404
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",N_P,0,Seeufer,Rewag Bach,"0","5","4",CH,Fluss,1422.193193402556744
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",N_P,0,Seeufer,Rewag Bach,"0","5","4",CH,Fluss,1422.193193402556744
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Fluss,642.549049589979404
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,N_P,"0","10","10",CH,Fluss_U,757.220885872579288
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Seeachse,642.549049589979404
+aare,gummligrabbe,"13",107.000000000000000,46.989289999999997,7.250730000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,N_P,"999","10","10",CH,Seeachse,757.220885872579288
+aare,hafeli,"277",317.500000000000000,46.690283399999998,7.898592200000000,Bönigen,"2",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Seeachse,1156.422138682970854
+aare,hafeli,"277",317.500000000000000,46.690283399999998,7.898592200000000,Bönigen,"2",Brienzersee,0,Seeufer,Aare,"0","5","4",CH,Fluss,1156.422138682970854
+aare,hafeli,"277",317.500000000000000,46.690283399999998,7.898592200000000,Bönigen,"2",Brienzersee,0,Seeufer,Lütschine,"0","6","6",CH,Fluss,111.503088898707318
+aare,hafeli,"277",317.500000000000000,46.690283399999998,7.898592200000000,Bönigen,"2",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Seeachse,1156.422138682970854
+aare,hafeli,"277",317.500000000000000,46.690283399999998,7.898592200000000,Bönigen,"2",Brienzersee,0,Seeufer,Lütschine,"999","6","6",CH,Seeachse,111.503088898707318
+aare,hafeli,"277",317.500000000000000,46.690283399999998,7.898592200000000,Bönigen,"2",Brienzersee,0,Seeufer,Aare,"0","5","4",CH,Fluss,1156.422138682970854
+aare,hafeli,"277",317.500000000000000,46.690283399999998,7.898592200000000,Bönigen,"2",Brienzersee,0,Seeufer,Lütschine,"0","6","6",CH,Fluss,111.503088898707318
+aare,hafeli,"277",317.500000000000000,46.690283399999998,7.898592200000000,Bönigen,"2",Brienzersee,0,Seeufer,Lütschine,"999","6","6",CH,Seeachse,111.503088898707318
+aare,impromptu_cudrefin,"27",223.000000000000000,46.964495999999997,7.027936000000000,Cudrefin,"1",Lac de Neuchâtel,0,Seeufer,Ruisseau de la Molliette,"999","9","9",CH,Seeachse,1024.100993869835065
+aare,impromptu_cudrefin,"27",223.000000000000000,46.964495999999997,7.027936000000000,Cudrefin,"1",Lac de Neuchâtel,0,Seeufer,Canal de la Broye,"0","15","5",CH,Fluss,1940.130714255937391
+aare,impromptu_cudrefin,"27",223.000000000000000,46.964495999999997,7.027936000000000,Cudrefin,"1",Lac de Neuchâtel,0,Seeufer,Canal de la Broye,"999","5","5",CH,Seeachse,1940.130714255937391
+aare,impromptu_cudrefin,"27",223.000000000000000,46.964495999999997,7.027936000000000,Cudrefin,"1",Lac de Neuchâtel,0,Seeufer,Canal de la Broye,"0","15","5",CH,Fluss,1940.130714255937391
+aare,impromptu_cudrefin,"27",223.000000000000000,46.964495999999997,7.027936000000000,Cudrefin,"1",Lac de Neuchâtel,0,Seeufer,Ruisseau de la Molliette,"0","9","9",CH,Fluss,1024.100993869835065
+aare,impromptu_cudrefin,"27",223.000000000000000,46.964495999999997,7.027936000000000,Cudrefin,"1",Lac de Neuchâtel,0,Seeufer,Ruisseau de la Molliette,"999","9","9",CH,Seeachse,1024.100993869835065
+aare,impromptu_cudrefin,"27",223.000000000000000,46.964495999999997,7.027936000000000,Cudrefin,"1",Lac de Neuchâtel,0,Seeufer,Ruisseau de la Molliette,"0","9","9",CH,Fluss,1024.100993869835065
+aare,impromptu_cudrefin,"27",223.000000000000000,46.964495999999997,7.027936000000000,Cudrefin,"1",Lac de Neuchâtel,0,Seeufer,Canal de la Broye,"999","5","5",CH,Seeachse,1940.130714255937391
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,Le Buron,"999","8","8",CH,Seeachse,448.546229218676274
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"0","18","8",CH,Fluss,662.929157288947863
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,1064.676921295266993
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,Le Buron,"0","8","8",CH,Fluss,448.546229218676274
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","5",CH,Seeachse,1064.676921295266993
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,Le Buron,"999","8","8",CH,Seeachse,448.546229218676274
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"999","8","8",CH,Seeachse,662.929157288947863
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"0","18","8",CH,Fluss,662.929157288947863
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,1064.676921295266993
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","5",CH,Seeachse,1064.676921295266993
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,Le Buron,"0","8","8",CH,Fluss,448.546229218676274
+aare,la-petite-plage,"1211",91.000000000000000,46.785054000000002,6.656877000000000,Yverdon-les-Bains,"12",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"999","8","8",CH,Seeachse,662.929157288947863
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Le Buron,"999","8","8",CH,Seeachse,1932.526617662921126
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"0","18","8",CH,Fluss,1744.825977457946692
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,1937.771936282118077
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Le Buron,"0","8","8",CH,Fluss,1932.526617662921126
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","5",CH,Seeachse,1937.771936282118077
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"999","8","8",CH,Seeachse,1744.825977457946692
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Le Buron,"999","8","8",CH,Seeachse,1932.526617662921126
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"0","18","8",CH,Fluss,1744.825977457946692
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,1937.771936282118077
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","5",CH,Seeachse,1937.771936282118077
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Le Buron,"0","8","8",CH,Fluss,1932.526617662921126
+aare,la-thiele_le-mujon_confluence,"9",46.000000000000000,46.775340000000000,6.630900000000000,Yverdon-les-Bains,"1",Lac de Neuchâtel,0,Seeufer,Canal Oriental,"999","8","8",CH,Seeachse,1744.825977457946692
+aare,ligerz-strand,"143",910.000000000000000,47.083978999999999,7.135894000000000,Ligerz,"2",Bielersee,0,Seeufer,La Douanne,"0","9","9",CH,Fluss_U,1766.171789124482302
+aare,ligerz-strand,"143",910.000000000000000,47.083978999999999,7.135894000000000,Ligerz,"2",Bielersee,0,Seeufer,La Douanne,"999","9","9",CH,Seeachse,1766.171789124482302
+aare,ligerz-strand,"143",910.000000000000000,47.083978999999999,7.135894000000000,Ligerz,"2",Bielersee,0,Seeufer,La Douanne,"0","9","9",CH,Fluss_U,1766.171789124482302
+aare,ligerz-strand,"143",910.000000000000000,47.083978999999999,7.135894000000000,Ligerz,"2",Bielersee,0,Seeufer,La Douanne,"999","9","9",CH,Seeachse,1766.171789124482302
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Fluss,759.346972989062010
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Seeachse,759.346972989062010
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Haslibach,"999","10","10",CH,Seeachse,723.967574875558398
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Haslibach,"0","10","10",CH,Fluss,723.967574875558398
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Fluss,759.346972989062010
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Aare,"0","4","4",CH,Seeachse,759.346972989062010
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,N_P,"0","10","10",CH,Fluss_U,613.753468823936714
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,N_P,"999","10","10",CH,Seeachse,613.753468823936714
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Haslibach,"999","10","10",CH,Seeachse,723.967574875558398
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,Haslibach,"0","10","10",CH,Fluss,723.967574875558398
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,N_P,"0","10","10",CH,Fluss_U,613.753468823936714
+aare,mannewil,"69",156.000000000000000,46.996381999999997,7.239024000000000,Kallnach,"1",Stausee Niederried,0,Seeufer,N_P,"999","10","10",CH,Seeachse,613.753468823936714
+aare,bielersee_vinelz_fankhausers,"898",429.500000000000000,47.038398399999998,7.108311400000000,Vinelz,"12",Bielersee,0,Seeufer,Mülibach,"0","10","10",CH,Fluss,482.942383179995431
+aare,bielersee_vinelz_fankhausers,"898",429.500000000000000,47.038398399999998,7.108311400000000,Vinelz,"12",Bielersee,0,Seeufer,Mülibach,"999","10","10",CH,Seeachse,482.942383179995431
+aare,bielersee_vinelz_fankhausers,"898",429.500000000000000,47.038398399999998,7.108311400000000,Vinelz,"12",Bielersee,0,Seeufer,Mülibach,"0","10","10",CH,Fluss,482.942383179995431
+aare,bielersee_vinelz_fankhausers,"898",429.500000000000000,47.038398399999998,7.108311400000000,Vinelz,"12",Bielersee,0,Seeufer,Mülibach,"999","10","10",CH,Seeachse,482.942383179995431
+aare,thun-strandbad,"233",124.000000000000000,46.739939000000000,7.633520000000000,Thun,"2",Thunersee,0,Seeufer,Seegartenbach,"999","9","9",CH,Seeachse,1021.574121708313783
+aare,thun-strandbad,"233",124.000000000000000,46.739939000000000,7.633520000000000,Thun,"2",Thunersee,0,Seeufer,Hünibach,"0","9","9",CH,Fluss,1021.574121708313783
+aare,thun-strandbad,"233",124.000000000000000,46.739939000000000,7.633520000000000,Thun,"2",Thunersee,0,Seeufer,Aare,"0","5","4",CH,Fluss,847.271349502896214
+aare,thun-strandbad,"233",124.000000000000000,46.739939000000000,7.633520000000000,Thun,"2",Thunersee,0,Seeufer,Aare,"0","5","4",CH,Fluss,847.271349502896214
+aare,thun-strandbad,"233",124.000000000000000,46.739939000000000,7.633520000000000,Thun,"2",Thunersee,0,Seeufer,Aare,"0","5","4",CH,Seeachse,847.271349502896214
+aare,thun-strandbad,"233",124.000000000000000,46.739939000000000,7.633520000000000,Thun,"2",Thunersee,0,Seeufer,Aare,"0","5","4",CH,Seeachse,847.271349502896214
+aare,thun-strandbad,"233",124.000000000000000,46.739939000000000,7.633520000000000,Thun,"2",Thunersee,0,Seeufer,Seegartenbach,"999","9","9",CH,Seeachse,1021.574121708313783
+aare,thun-strandbad,"233",124.000000000000000,46.739939000000000,7.633520000000000,Thun,"2",Thunersee,0,Seeufer,Hünibach,"0","9","9",CH,Fluss,1021.574121708313783
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Aare,"0","5","4",CH,Seeachse,1253.020680784742581
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Aare,"0","5","4",CH,Fluss,1253.020680784742581
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Lombach,"0","7","7",CH,Fluss,510.011919238785993
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Lombach,"999","7","7",CH,Seeachse,510.011919238785993
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Schifffahrtskanal,"0","20","10",CH,Fluss,1410.296348196640793
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Schifffahrtskanal,"999","10","10",CH,Seeachse,1410.296348196640793
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Lombach,"0","7","7",CH,Fluss,510.011919238785993
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Lombach,"999","7","7",CH,Seeachse,510.011919238785993
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Schifffahrtskanal,"0","20","10",CH,Fluss,1410.296348196640793
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Schifffahrtskanal,"999","10","10",CH,Seeachse,1410.296348196640793
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Aare,"0","5","4",CH,Seeachse,1253.020680784742581
+aare,weissenau-neuhaus,"1879",180.000000000000000,46.676583000000001,7.817528000000000,Unterseen,"12",Thunersee,0,Seeufer,Aare,"0","5","4",CH,Fluss,1253.020680784742581
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Fluss,260.543574184324427
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Seeachse,260.543574184324427
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Fluss,260.543574184324427
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Seeachse,260.543574184324427
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Fulbach,"999","9","9",CH,Seeachse,843.928444430079026
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Fulbach,"0","9","9",CH,Fluss,843.928444430079026
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Fulbach,"999","9","9",CH,Seeachse,843.928444430079026
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Fulbach,"0","9","9",CH,Fluss,843.928444430079026
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Kanal Aarboden,"0","18","8",CH,Fluss,86.384857686801269
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Kanal Aarboden,"999","8","8",CH,Seeachse,86.384857686801269
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Kanal Aarboden,"0","18","8",CH,Fluss,86.384857686801269
+aare,wycheley,"378",422.000000000000000,46.740369999999999,8.048640000000002,Brienz (BE),"2",Brienzersee,0,Seeufer,Kanal Aarboden,"999","8","8",CH,Seeachse,86.384857686801269
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,La Thielle,"0","6","7",CH,Seeachse,639.150478427575536
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,La Suze,"999","7","7",CH,Seeachse,544.595699935254402
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,Aare,"0","14","4",CH,Fluss,1048.743000197941683
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,Aare,"0","4","4",CH,Seeachse,1048.743000197941683
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,La Suze,"0","7","7",CH,Fluss,544.595699935254402
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,639.150478427575536
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,La Suze,"999","7","7",CH,Seeachse,544.595699935254402
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,La Thielle,"0","6","7",CH,Seeachse,639.150478427575536
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,La Suze,"0","7","7",CH,Fluss,544.595699935254402
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,Aare,"0","14","4",CH,Fluss,1048.743000197941683
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,639.150478427575536
+aare,mullermatte,"2722",524.000000000000000,47.133338999999999,7.227907000000000,Biel/Bienne,"12",Bielersee,0,Seeufer,Aare,"0","4","4",CH,Seeachse,1048.743000197941683
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,La Thielle,"0","6","7",CH,Seeachse,396.142256242308235
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,La Suze,"999","7","7",CH,Seeachse,576.768376532087018
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,Aare,"0","14","4",CH,Fluss,475.482193702449081
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,Aare,"0","4","4",CH,Seeachse,475.482193702449081
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,La Suze,"0","7","7",CH,Fluss,576.768376532087018
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,396.142256242308235
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,La Suze,"999","7","7",CH,Seeachse,576.768376532087018
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,La Thielle,"0","6","7",CH,Seeachse,396.142256242308235
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,La Suze,"0","7","7",CH,Fluss,576.768376532087018
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,Aare,"0","14","4",CH,Fluss,475.482193702449081
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,396.142256242308235
+aare,nidau-strand,"63",252.000000000000000,47.127195999999998,7.232613000000000,Nidau,"1",Bielersee,0,Seeufer,Aare,"0","4","4",CH,Seeachse,475.482193702449081
+aare,nouvelle-plage,"28",45.000000000000000,46.856646400000002,6.848428000000000,Estavayer,"1",Lac de Neuchâtel,0,Seeufer,Ruisseau de Crêt Moron,"0","10","10",CH,Fluss,1281.363287245406354
+aare,nouvelle-plage,"28",45.000000000000000,46.856646400000002,6.848428000000000,Estavayer,"1",Lac de Neuchâtel,0,Seeufer,Ruisseau de Crêt Moron,"999","10","10",CH,Seeachse,1281.363287245406354
+aare,nouvelle-plage,"28",45.000000000000000,46.856646400000002,6.848428000000000,Estavayer,"1",Lac de Neuchâtel,0,Seeufer,Ruisseau de Crêt Moron,"0","10","10",CH,Fluss,1281.363287245406354
+aare,nouvelle-plage,"28",45.000000000000000,46.856646400000002,6.848428000000000,Estavayer,"1",Lac de Neuchâtel,0,Seeufer,Ruisseau de Crêt Moron,"999","10","10",CH,Seeachse,1281.363287245406354
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Fluss,292.857564184477042
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Seeachse,292.857564184477042
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Fluss,292.857564184477042
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Aare,"0","6","4",CH,Seeachse,292.857564184477042
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Fulbach,"999","9","9",CH,Seeachse,470.992682370588454
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Fulbach,"0","9","9",CH,Fluss,470.992682370588454
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Fulbach,"999","9","9",CH,Seeachse,470.992682370588454
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Fulbach,"0","9","9",CH,Fluss,470.992682370588454
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Kanal Aarboden,"0","18","8",CH,Fluss,480.609116252088711
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Kanal Aarboden,"999","8","8",CH,Seeachse,480.609116252088711
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Kanal Aarboden,"0","18","8",CH,Fluss,480.609116252088711
+aare,oben-am-see,"319",504.000000000000000,46.744451069999997,8.049921100000002,Brienz (BE),"1",Brienzersee,0,Seeufer,Kanal Aarboden,"999","8","8",CH,Seeachse,480.609116252088711
+aare,oberi-chlihochstetten,"57",320.000000000000000,46.896025000000002,7.532114000000000,Rubigen,"1",N_P,0,Seeufer,Giesse,"0","10","10",CH,Fluss,371.257327853054619
+aare,oberi-chlihochstetten,"57",320.000000000000000,46.896025000000002,7.532114000000000,Rubigen,"1",N_P,0,Seeufer,Giesse,"0","10","10",CH,Fluss,1080.855178282554334
+aare,oberi-chlihochstetten,"57",320.000000000000000,46.896025000000002,7.532114000000000,Rubigen,"1",N_P,0,Seeufer,Giesse,"0","10","10",CH,Seeachse,1080.855178282554334
+aare,oberi-chlihochstetten,"57",320.000000000000000,46.896025000000002,7.532114000000000,Rubigen,"1",N_P,0,Seeufer,Giesse,"0","10","10",CH,Seeachse,371.257327853054619
+aare,oberi-chlihochstetten,"57",320.000000000000000,46.896025000000002,7.532114000000000,Rubigen,"1",N_P,0,Seeufer,Giesse,"0","10","10",CH,Fluss,371.257327853054619
+aare,oberi-chlihochstetten,"57",320.000000000000000,46.896025000000002,7.532114000000000,Rubigen,"1",N_P,0,Seeufer,Giesse,"0","10","10",CH,Fluss,1080.855178282554334
+aare,oberi-chlihochstetten,"57",320.000000000000000,46.896025000000002,7.532114000000000,Rubigen,"1",N_P,0,Seeufer,Giesse,"0","10","10",CH,Seeachse,371.257327853054619
+aare,oberi-chlihochstetten,"57",320.000000000000000,46.896025000000002,7.532114000000000,Rubigen,"1",N_P,0,Seeufer,Giesse,"0","10","10",CH,Seeachse,1080.855178282554334
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,Le Bey,"0","9","9",CH,Fluss,931.034877851966030
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,1645.607557717417876
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","5",CH,Seeachse,1645.607557717417876
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,La Brine,"0","9","9",CH,Fluss,798.084530648106238
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,La Brine,"999","9","9",CH,Seeachse,798.084530648106238
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,Le Bey,"999","9","9",CH,Seeachse,931.034877851966030
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,Le Bey,"0","9","9",CH,Fluss,931.034877851966030
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","6",CH,Fluss,1645.607557717417876
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,La Brine,"0","9","9",CH,Fluss,798.084530648106238
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,La Thielle,"0","6","5",CH,Seeachse,1645.607557717417876
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,La Brine,"999","9","9",CH,Seeachse,798.084530648106238
+aare,pecos-plage,"104",141.000000000000000,46.803590000000000,6.636650000000000,Grandson,"1",Lac de Neuchâtel,0,Seeufer,Le Bey,"999","9","9",CH,Seeachse,931.034877851966030

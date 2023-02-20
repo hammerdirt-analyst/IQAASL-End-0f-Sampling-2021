@@ -68,7 +68,7 @@
 101,G121,Foamed user plastic ( >1mm),Geschäumter Kunststoff ( >1mm)
 20,G203,"Tableware ceramic or glass, cups, plates, pieces","Geschirr aus Keramik oder Glas, Tassen, Teller, Stücke"
 37,G181,"Tableware metal;  cups, cutlery etc.","Geschirr aus Metall, Tassen, Besteck usw."
-17,G200,"Glass drink bottles, pieces","Getränke Glasflasche, Stücke"
+17,G200,"Glass drink bottles, pieces"," Getränkeflaschen aus Glas, Glasfragmente"
 114,G21,Drink lids,"Getränke-Deckel, Getränkeverschluss"
 31,G175,"Cans, beverage","Getränkedosen (Dosen, Getränke)"
 168,G7,Drink bottles < = 0.5L,"Getränkeflaschen < = 0,5 l"

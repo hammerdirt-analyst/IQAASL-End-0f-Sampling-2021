@@ -57,10 +57,10 @@ from matplotlib import colors as mplcolors
 
 # build report
 from reportlab.platypus.flowables import Flowable
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, ListFlowable, ListItem
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, ListFlowable, ListItem, KeepTogether
 from reportlab.lib.pagesizes import A4
 from reportlab.rl_config import defaultPageSize
-from reportlab.lib.units import inch
+from reportlab.lib.units import inch, cm
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.colors import HexColor
 from reportlab.platypus import Table, TableStyle
@@ -133,7 +133,7 @@ fail_rate = 50
 
 # Changing these variables produces different reports
 # Call the map image for the area of interest
-bassin_map = "resources/maps/bielersee_scaled.jpeg"
+bassin_map = "resources/maps/bielersee_city_labels.jpeg"
 
 # the label for the aggregation of all data in the region
 top = "Alle Erhebungsgebiete"
@@ -257,7 +257,7 @@ admin_r_summary = admin_r_details.summaryObject()
 header_row = {'selector': 'th:nth-child(1)', 'props': f'background-color: #FFF;'}
 even_rows = {"selector": 'tr:nth-child(even)', 'props': f'background-color: rgba(139, 69, 19, 0.08);'}
 odd_rows = {'selector': 'tr:nth-child(odd)', 'props': 'background: #FFF;'}
-table_font = {'selector': 'tr', 'props': 'font-size: 14px;'}
+table_font = {'selector': 'tr', 'props': 'font-size: 12px;'}
 table_css_styles = [even_rows, odd_rows, table_font, header_row]
 
 
@@ -265,226 +265,12 @@ table_css_styles = [even_rows, odd_rows, table_font, header_row]
 # reportlab is used to produce the document
 # the arguments for the document are captured at run time
 # capture for pdf content
-pdf_link = f'/resources/pdfs/{this_feature["slug"]}.pdf'
+pdf_link = f'resources/pdfs/{this_feature["slug"]}_de.pdf'
 pdfcomponents = []
-
-
-# style definitions for pdf report
-# section and paragraph formatting
-# featuredata.title_style = ParagraphStyle(**{"name": "featuredata.title_style", "fontSize": 18, "fontName": "Helvetica"})
-# featuredata.section_title = ParagraphStyle(**{"name": "featuredata.section_title", "fontSize": 16, "fontName": "Helvetica"})
-# featuredata.caption_style = ParagraphStyle(**{"name": "featuredata.caption_style", "fontSize": 9, "fontName": "Times-Italic"})
-# subfeaturedata.section_title = ParagraphStyle(**{"name": "sub_featuredata.section_title", "fontSize": 12, "fontName": "Helvetica"})
-# featuredata.p_style = ParagraphStyle(**{"name": "content", "fontSize": 10, "fontName": "Times-Roman"})
-# bold_block = ParagraphStyle(**{"name": "bold_block", "fontSize": 10, "fontName": "Times-Bold"})
-# indented = ParagraphStyle(**{"name": "indented", "fontSize": 10, "fontName": "Times-Roman", "leftIndent":36})
-
-# spacers 
-# featuredata.larger_space = Spacer(1, .5*inch)
-# featuredata.large_space = Spacer(1, .25*inch)
-# featuredata.small_space = Spacer(1, .2*inch)
-# smaller_space = Spacer(1, .15*inch)
-# featuredata.smallest_space = Spacer(1, .12*inch)
-
-# table definitions:
-# table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
-# table_style = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica"})
-# styled_table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
-# table_style_centered = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
-# table_style_right = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica", "alignment":2})
-
-# def featuredata.addToDoc(flowables, alist):
-    
-#     doc_components = [*alist, *flowables]
-#     return doc_components
-
-
-# def adminFormatNumericInteger(func=featuredata.thousandsSeparator, an_int: str=None, language: str=None):
-#     # uses the method defined by func to apply numeric formatting according to the language variable
-#     try:
-#         data = func(an_int, language)
-#     except OSError as err:
-#         print("The function provided did not work", err)
-#         raise
-#     else:
-#         return data
-
-
-# def stringStartEndDate(func=featuredata.dateToYearAndMonth, date_format: str="%Y-%m-%d", lang: str = "de",  a_date: str=None,):
-#     # uses the method defined by func to apply date formatting according to the language variable
-    
-#     try:
-#         data = func(datetime.strptime(a_date, date_format), lang=lang)
-#     except (TypeError, OSError) as err:
-#         print("Is the date formatted the same as the date_format? Are you sure of the method provided?", err)
-    
-#     else:
-#         return data
-
-
-# def makeAdminSummaryStateMent(start, end, feature_name, language: str="de", admin_summary: dict=None):
-#     # the admin summary can be called from the admin class. It has a specific construction. 
-#     # use the data in the admin summary class to assemble string representation
-    
-#     start_date = stringStartEndDate(a_date=start)
-#     end_date = stringStartEndDate(a_date=end)
-#     n_samples = adminFormatNumericInteger(an_int=admin_summary["loc_date"])
-#     total = adminFormatNumericInteger(an_int=admin_summary["quantity"])
-#     population = adminFormatNumericInteger(an_int=admin_summary["population"])
-    
-#     if language != None:
-#         phrase_one = f"Im Zeitraum von {start_date}  bis {end_date} wurden im Rahmen von {n_samples} Datenerhebungen insgesamt {total} Objekte entfernt und identifiziert."
-#         phrase_two = f"Die Ergebnisse des {feature_name} umfassen {admin_summary['location']} Orte, {admin_summary['city']} Gemeinden und eine Gesamtbevölkerung von etwa {population} Einwohnenden."
-        
-#         return f'{phrase_one} {phrase_two}'
-#     else:
-#         return 'Check the language variable'
-    
-# def collectComponentLandMarks(admin_details, language="de"):
-#     # the column headers are dependent on the language.
-#     # using the admin_details class identify the component
-#     # features of interest and have a language appropriate
-#     # label.
-    
-#     component_list = []
-    
-#     if len(admin_details.lakesOfInterest()) > 0:
-        
-#         if language == "de":
-#             header = "Seen"
-        
-#         if language == "fr":
-#             header = "Lacs"
-        
-#         else:
-#             header = "Lakes"
-        
-#         components = (header,  ", ".join(admin_details.lakes_of_interest))
-        
-#         component_list.append(components)
-        
-    
-#     if len(admin_details.riversOfInterest()) > 0:
-#         if language == "de":
-#             header = "Fliessgewässer"
-        
-#         if language == "fr":
-#             header = "Cours d'eaux"
-        
-#         else:
-#             header = "Rivers"
-        
-#         components = (header,  ", ".join(admin_details.lakes_of_interest))
-        
-#         component_list.append(components)
-        
-#     if language == "de":
-#             city_header = "Gemeinden"
-        
-#     if language == "fr":
-#         city_header = "Communes"
-        
-#     else:
-#         city_header = "Municipalities"
-        
-#     munis = (city_header, ", ".join(sorted(admin_details.populationKeys()["city"])))
-       
-    
-#     component_list.append(munis)
-    
-#     return component_list
-    
-# class verticalText(Flowable):
-
-#     '''Rotates a text in a table cell.'''
-
-#     def __init__(self, text):
-#         Flowable.__init__(self)
-#         self.text = text
-
-#     def draw(self):
-#         canvas = self.canv
-#         canvas.rotate(90)
-#         fs = canvas._fontsize
-#         canvas.translate(1, -fs/1.2)  # canvas._leading?
-#         canvas.drawString(0, 0, self.text)
-
-#     def wrap(self, aW, aH):
-#         canv = self.canv
-#         fn, fs = canv._fontname, canv._fontsize
-#         return canv._leading, 1 + canv.stringWidth(self.text, fn, fs)
-    
-# def aStyledTable(data, header_style: Paragraph=styled_table_header, vertical_header: bool = False, data_style: Paragraph=table_style_centered, colWidths: []=None, style: []= None):
-    
-#     if vertical_header:
-#         headers = [verticalText(x) for x in data.columns[1:]]
-#         headers = [verticalText(" "), *headers]
-#     else:
-#         headers = [Paragraph(str(x), header_style)  for x in data.columns[1:]]
-#         headers = [Paragraph(" ", table_style_centered) , *headers]
-    
-#     if style is None:
-#         style=[
-#         ('FONTNAME', (0,0), (-1,0), 'Helvetica'),
-#         ('LINEBELOW',(0,0), (-1,0), 1, HexColor("#000")),
-#         ('INNERGRID', (1,1), (-1,-1), 0.25, HexColor("#8b451330", hasAlpha=True)),
-#         ('ROWBACKGROUNDS', (1,1), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white])
-#         ]
-    
-#     new_rows = []
-#     for a_row in data.values.tolist():
-        
-#         row_index = Paragraph(a_row[0], table_style_right)
-#         row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
-#         new_row = [row_index, *row_data]
-#         new_rows.append(new_row)
-        
-#     new_table = [headers, *new_rows]
-    
-#     return Table(new_table, style=style, colWidths=colWidths, repeatRows=1)
-
-# def colorGradient(x, cmap: str="YlOrBr", amin: int=0, amax: int=1):
-#     a_cmap = plt.cm.get_cmap(cmap)
-#     norm = mpl.colors.Normalize(vmin=amin, vmax=amax)
-#     color = a_cmap(norm(x))
-#     hex_color = mpl.colors.rgb2hex(color, keep_alpha=False)
-    
-#     return hex_color
-
-# def stringifyValue(x):
-#     if isinstance(x, str):
-#         return x
-#     else:
-#         return str(x)
-    
-# def colorGradientTable(data, color_gradient: callable=colorGradient, column: int=None):
-    
-#     gradient_cells = TableStyle()
-    
-#     if column is None:
-#         a_min = data.min().min()
-#         a_max = data.max().max()
-#         for i, row in enumerate(data.values):
-#             for j, element in enumerate(row):
-#                 hex_color = colorGradient(element, amin=a_min, amax=a_max)
-#                 gradient_cells.add('BACKGROUND', (j+1, i+1), (j+1, i+1), hex_color)
-    
-#     elif isinstance(column, int) and column < len(data.values[0]):
-#         for i, row in enumerate(data.values):
-#             hex_color = colorGradient(row[column])
-#             gradient_cells.add('BACKGROUND', (column+1,i+1), (column+1,i+1), hex_color)
-#     else:
-#         print("ouch")
-    
-#     return gradient_cells
-
-# def featuredata.rotateText(x):
-#     return 'writing-mode: vertical-lr; transform: rotate(-180deg);  padding:10px; margins:0; vertical-align: baseline;'
-    
 
 # pdf title and map
 pdf_title = Paragraph(this_feature["name"], featuredata.title_style)
-map_image =  Image(bassin_map, width=inch*7, height=inch*5, kind="proportional", hAlign= "LEFT")
+map_image =  Image(bassin_map, width=cm*19, height=20*cm, kind="proportional", hAlign= "CENTER")
 
 pdfcomponents = featuredata.addToDoc([
     pdf_title,    
@@ -492,62 +278,32 @@ pdfcomponents = featuredata.addToDoc([
     map_image
 ], pdfcomponents)
 
-glue("feauture_name", this_feature["name"], display=False)
-glue("pdf_link", pdf_link, display=False)
+glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
 
 
 # (bielersee_de)=
 # # Bielersee
 # 
 # 
-# {Download}`Download </resources/pdfs/bielersee.pdf>`
+# {Download}`Download </resources/pdfs/bielersee_de.pdf>`
 
 # In[2]:
 
 
-class Caption:
-    
-    position=''
-    figure_number=0
-    captions=[]
-    start_caption = ""
-    end_caption = '*'
-    paragraphs = []
-    
-    def buildCaption(self):
-        start_caption = f'*__{self.position}:__'
-        new_string=''
-        for line in self.captions:
-            new_string += line
-        end_caption = self.end_caption
-        
-        return f'{start_caption} {new_string}{end_caption}'
-    
-    def buildParagraph(self):
-        new_string=''
-        for line in self.paragraphs:
-            new_string += line
-        
-        return new_string
-        
-            
-map_caption = Caption()
-map_caption.position = "Unten"
-map_caption.captions = [
+map_caption = [
     "Karte des Erhebungsgebiets März 2020 bis Mai 2021. ",
-    "Der Durchmesser der Punktsymbole entspricht dem Median der",
+    "Der Durchmesser der Punktsymbole entspricht dem Median der ",
     "Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort."
 ]
 
 # pdf output
-map_caption.paragraphs = map_caption.captions
-a_paragraph = map_caption.buildParagraph()
+map_caption = ''.join(map_caption)
 
 # add those sections
-pdfcomponents = featuredata.addToDoc([Paragraph(a_paragraph, featuredata.caption_style)], pdfcomponents)
+pdfcomponents = featuredata.addToDoc([Paragraph(map_caption, featuredata.caption_style)], pdfcomponents)
 
 
-# ```{figure} resources/maps/bielersee_scaled.jpeg
+# ```{figure} resources/maps/bielersee_city_labels.jpeg
 # ---
 # name: bielersee_map
 # ---
@@ -570,12 +326,10 @@ components_markdown = [f'*{x[0]}*\n\n>{x[1]}\n\n' for x in feature_components]
 
 # add the admin summary to the pdf
 pdfcomponents = featuredata.addToDoc([
-    featuredata.large_space,
+    featuredata.smallest_space,
     Paragraph("Erhebungsorte", featuredata.section_title), 
-    featuredata.small_space,
-    Paragraph(an_admin_summary , featuredata.p_style),
-    
-    
+    featuredata.smallest_space,
+    Paragraph(an_admin_summary , featuredata.p_style)    
 ], pdfcomponents)
 
 # put that all together:
@@ -591,9 +345,6 @@ md(lake_string)
 
 # In[4]:
 
-
-# add section to pdf
-pdfcomponents = featuredata.addToDoc([featuredata.large_space, Paragraph("Kumulative Gesamtmengen nach Gemeinden", featuredata.section_title)], pdfcomponents)
 
 # the .pdf output is generated in parallel
 # this is the same as if it were on the backend where we would
@@ -619,15 +370,19 @@ replace_decimal = ["Plastik (Kg)", "Gesamtgewicht (Kg)"]
 # format the dimensional summary for .pdf and add to components
 dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
 dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,2))))
-dims_table.reset_index(inplace=True)
 
 # a caption for the figure
 dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte  und Masse für die Gemeinden'
 
 # pdf components                 
-d_chart = featuredata.aStyledTable(dims_table, colWidths=[1.2*inch] + [1.2*inch] + [None]*len(dims_table.columns))
-d_capt = Paragraph(dims_table_caption, featuredata.caption_style)
-pdfcomponents = featuredata.addToDoc([featuredata.small_space, d_chart, featuredata.smallest_space, d_capt, PageBreak()], pdfcomponents)
+d_chart = featuredata.aStyledTable(dims_table, caption=dims_table_caption, colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)])
+# d_capt = Paragraph(dims_table_caption, featuredata.caption_style)
+
+new_components = [
+    featuredata.smallest_space,
+    d_chart
+]
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # this formats the table through the data frame
 dims_df["Plastik (Kg)"] = dims_df["Plastik (Kg)"].round(2)
@@ -656,7 +411,7 @@ glue("bielersee_dims_table_caption",dims_table_caption, display=False)
 q = dims_df.style.format(formatter=dims_table_formatter).set_table_styles(table_css_styles)
 
 # capture the figure before display and give it a reference number and caption
-figure_name='bielersee_dims_table'
+figure_name=f'{this_feature["slug"]}_dims_table'
 glue(figure_name, q, display=False)
 
 
@@ -675,7 +430,7 @@ glue(figure_name, q, display=False)
 
 # figure caption
 sample_total_notes = f'Links: {this_feature["name"]}, {featuredata.dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)} bis {featuredata.dateToYearAndMonth(datetime.strptime(end_date, date_format), lang=date_lang)}, n = {admin_summary["loc_date"]}. Rechts: empirische Verteilungsfunktion der Erhebungsergebnisse {this_feature["name"]}.'
-glue("sample_total_notes", sample_total_notes, display=False)
+glue(f'{this_feature["slug"]}_sample_total_notes', sample_total_notes, display=False)
 
 dx = period_data.parentSampleTotals(parent=False)
 
@@ -733,7 +488,7 @@ save_figure_kwargs.update({"fname":sample_totals_file_name})
 
 plt.tight_layout()
 plt.savefig(**save_figure_kwargs)
-glue("bielersee_sample_totals", fig, display=False)
+glue(f'{this_feature["slug"]}_sample_totals', fig, display=False)
 plt.close()
 
 
@@ -743,7 +498,7 @@ plt.close()
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <bielersee_sample_totals>` {glue:text}`sample_total_notes`
+# {numref}`Abbildung %s: <bielersee_sample_totals>` {glue:text}`bielersee_sample_total_notes`
 
 # ### Zusammengefasste Daten und Materialarten
 
@@ -753,15 +508,7 @@ plt.close()
 # figure caption
 summary_of_survey_totals = f'Zusammenfassung der Daten aller Erhebungen am {this_feature["name"]}. Gefundene Materialarten am {this_feature["name"]} in Stückzahlen und als prozentuale Anteile (stückzahlbezogen).'
 
-
-# In[7]:
-
-
 # add to pdf
-s_totals = Image(sample_totals_file_name, width=inch*6, height=inch*4.8, kind="proportional", hAlign= "LEFT")
-s_totals_caption = Paragraph(sample_total_notes, featuredata.caption_style)
-pdfcomponents = featuredata.addToDoc([Paragraph("Verteilung der Erhebungsergebnisse", featuredata.subsection_title), featuredata.small_space, s_totals, s_totals_caption], pdfcomponents)
-
 csx = fdx.sample_summary.copy()
 
 combined_summary =[(x, featuredata.thousandsSeparator(int(csx[x]), language)) for x in csx.index]
@@ -800,16 +547,13 @@ table_three.set_fontsize(10)
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.1)
 plt.margins(0, 0)
-figure_name = "bielersee_sample_summaries"
+figure_name = f'{this_feature["slug"]}_sample_summaries'
 sample_summaries_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
 save_figure_kwargs.update({"fname":sample_summaries_file_name})
 
 plt.savefig(**save_figure_kwargs)
 
-
-glue('summary_of_survey_totals', summary_of_survey_totals, display=False)
-
-
+glue(f'{this_feature["slug"]}_sample_summaries_caption', summary_of_survey_totals, display=False)
 glue(figure_name, fig, display=False)
 plt.close()
 
@@ -820,30 +564,40 @@ plt.close()
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <bielersee_sample_summaries>` {glue:text}`summary_of_survey_totals`
+# {numref}`Abbildung %s: <bielersee_sample_summaries>` {glue:text}`bielersee_sample_summaries_caption` 
 
 # ## Die am häufigsten gefundenen Objekte
 # 
 # Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)
 
-# In[8]:
+# In[7]:
 
 
 # add summary tables to pdf
+sample_summary_subsection = Paragraph("Verteilung der Erhebungsergebnisse", featuredata.subsection_title)
+s_totals = Image(sample_totals_file_name, width=16*cm, height=10*cm, kind="proportional", hAlign= "CENTER")
+s_totals_caption = Paragraph(sample_total_notes, featuredata.caption_style)
 samp_mat_subsection = Paragraph("Zusammengefasste Daten und Materialarten", featuredata.subsection_title)
-samp_material_table = Image(sample_summaries_file_name , width=inch*6, height=inch*4.8, kind="proportional", hAlign= "LEFT")
+samp_material_table = Image(sample_summaries_file_name , width=12*cm, height=10*cm, kind="proportional", hAlign= "CENTER")
 samp_material_caption = Paragraph(summary_of_survey_totals, featuredata.caption_style)
 
-new_components = [
-    featuredata.large_space,
+new_components = [KeepTogether([
+    featuredata.small_space,
+    sample_summary_subsection,
+    featuredata.small_space,
+    s_totals,
+    featuredata.smallest_space,
+    s_totals_caption,
+    featuredata.small_space,
     samp_mat_subsection,
     featuredata.small_space,
     samp_material_table,
+    featuredata.smallest_space,
     samp_material_caption,
-    PageBreak() 
-]
+    
+]), PageBreak()]
 
-pdfcomponents = featuredata.addToDoc([featuredata.large_space, samp_mat_subsection, featuredata.small_space, samp_material_table, samp_material_caption, PageBreak() ], pdfcomponents)
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # the most common results
 most_common_display = fdx.most_common
@@ -861,11 +615,10 @@ most_common_display = most_common_display.set_index("Objekt", drop=True)
 data = most_common_display.copy()
 data["Anteil"] = data["Anteil"].map(lambda x: f"{int(x)}%")
 data['Objekte (St.)'] = data['Objekte (St.)'].map(lambda x:featuredata.thousandsSeparator(x, language))
-data["fail rate"] = data['Häufigkeitsrate'].map(lambda x: f"{x}%")
+data['Häufigkeitsrate'] = data['Häufigkeitsrate'].map(lambda x: f"{x}%")
 data[unit_label] = data[unit_label].map(lambda x: featuredata.replaceDecimal(round(x,1)))
 
-pdf_mc_table  = featuredata.aStyledTable(data.reset_index(), colWidths=[2.3*inch] + [None]*len(data.columns))
-
+# make caption
 # get percent of total to make the caption string
 m_common_percent_of_total = fdx.most_common['Objekte (St.)'].sum()/fdx.code_summary['quantity'].sum()
 
@@ -877,6 +630,8 @@ mc_caption_string = [
 ]
 
 mc_caption_string = "".join(mc_caption_string)
+
+pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
 
 most_common_display.index.name = None
 most_common_display.columns.name = None
@@ -902,11 +657,9 @@ glue('bielersee_most_common_tables', mcd, display=False)
 # ```
 # {numref}`Abbildung %s: <bielersee_most_common_tables>` {glue:text}`bielersee_most_common_caption`
 
-# 
-
 # ### Die am häufigsten gefundenen Objekte nach Gemeinden
 
-# In[9]:
+# In[8]:
 
 
 # add new section to pdf
@@ -914,20 +667,17 @@ mc_section_title = Paragraph("Die am häufigsten gefundenen Objekte", featuredat
 para_g = "Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)"
 mc_section_para = Paragraph(para_g, featuredata.p_style)
 mc_table_cap = Paragraph(mc_caption_string, featuredata.caption_style)
-mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gemeinden", featuredata.subsection_title)
+
 
 
 new_components = [
-    mc_section_title,
-    featuredata.small_space,
-    mc_section_para,
-    featuredata.large_space,
-    pdf_mc_table,
-    featuredata.smallest_space,
-    mc_table_cap,
-    featuredata.small_space,    
-    mc_heatmap_title,
-    featuredata.large_space
+    KeepTogether([
+        mc_section_title,
+        featuredata.small_space,
+        mc_section_para,
+        featuredata.large_space,
+        pdf_mc_table,
+        ])
 ]
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
@@ -959,20 +709,38 @@ mc_comp[bassin_label] = mc_parent
 mc_comp[top] = mc_period
 
 # pdf out put
-heat_map_caption = Paragraph(mc_heat_map_caption, featuredata.caption_style)
-heat_map_gradient = featuredata.colorGradientTable(mc_comp)
+def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,  
+                    this_feature: str = None, vertical_header: bool = False, colWidths=[4*cm, *[None]*len(data.columns)]):
+    # print(len(data.columns))
+    
+    if len(data.columns) > 13:
+        tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
+    else:
+        tables = featuredata.aStyledTable(data, caption=caption, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)
+            # featuredata.smallest_space, 
+            # Paragraph(caption, featuredata.caption_style)
+        
+    
+    return tables
 
-mc_heat_map  = featuredata.aStyledTable(mc_comp.reset_index(), vertical_header=True, colWidths=[2.3*inch] + [None]*len(mc_comp.columns))
-heat_map_gradient = featuredata.colorGradientTable(mc_comp)
-mc_heat_map.setStyle(heat_map_gradient)
-# pdfcomponents = featuredata.addToDoc(mc_heat_map, pdfcomponents)
-# mc_heat_map.setStyle(heat_map_gradient)
+caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
+col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
+mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gemeinden", featuredata.subsection_title)
+tables = splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
+                    this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
+
+# identify the tables variable as either a list or a Flowable:
+
+if isinstance(tables, (list, np.ndarray)):
+    grouped_pdf_components = [mc_heatmap_title, featuredata.large_space, *tables]
+else:
+    grouped_pdf_components = [mc_heatmap_title, featuredata.large_space, tables]
+    
+
 new_components = [
-    mc_heat_map,
-    featuredata.smallest_space,
-    heat_map_caption,
-    featuredata.large_space,
+    KeepTogether(grouped_pdf_components)
 ]
+
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
@@ -991,7 +759,7 @@ mcd.columns.name = None
 mcd = mcd.applymap_index(featuredata.rotateText, axis=1)
 
 # display markdown html
-glue('mc_heat_map_caption', mc_heat_map_caption, display=False)
+glue(f'{this_feature["slug"]}_mc_heat_map_caption', mc_heat_map_caption, display=False)
 
 glue('bielersee_most_common_heat_map', mcd, display=False)
 
@@ -1003,77 +771,85 @@ glue('bielersee_most_common_heat_map', mcd, display=False)
 # ` `
 # ```
 
-# {numref}`Abbildung %s: <bielersee_most_common_heat_map>` {glue:text}`mc_heat_map_caption`
+# {numref}`Abbildung %s: <bielersee_most_common_heat_map>` {glue:text}`bielersee_mc_heat_map_caption`
 
 # ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
 
-# In[10]:
+# In[9]:
 
 
 # collect the survey results of the most common objects
+# and aggregate code with groupname for each sample
 agg_pcs_quantity = {unit_label:"sum", "quantity":"sum"}
-agg_pcs_median = {unit_label:"median", "quantity":"sum"}
+groups = ["loc_date","date","code", "groupname"]
 
-# collect the code data for the most common codes
-m_common_m = fd[(fd.code.isin(fdx.most_common.index))].groupby(["loc_date","date","code", "groupname"], as_index=False).agg(agg_pcs_quantity)
+# use the index from the most common codes to select from the feature data
+m_common_m = fd[(fd.code.isin(fdx.most_common.index))].groupby(groups, as_index=False).agg(agg_pcs_quantity)
+start_date = "2020-04-01"
+end_date = "2021-03-31"
 
-# get the total per code and set the order of the
-# index by quantity
+# set the index to the date column
 m_common_m.set_index("date", inplace=True)
 
-# set the order of the chart, group the codes by groupname columns
+m_common_m = m_common_m.sort_index().loc[start_date:end_date]
+
+# set the order of the chart, group the codes by groupname columns and collect the respective object codes
 an_order = m_common_m.groupby(["code","groupname"], as_index=False).quantity.sum().sort_values(by="groupname")["code"].values
 
-# collect the monthly results for each code
-# into a dict, key = description
+# use the order array and resample each code for the monthly value
+# store in a dict
 mgr = {}
-for a_group in an_order:
+for a_code in an_order:
     # resample by month
-    a_cell = m_common_m[(m_common_m.code==a_group)][unit_label].resample("M").mean().fillna(0)
-    this_group = {a_group:a_cell}
+    a_cell = m_common_m[(m_common_m.code==a_code)][unit_label].resample("M").mean().fillna(0)
+    a_cell = round(a_cell, 1)
+    this_group = {a_code:a_cell}
     mgr.update(this_group)
 
-# make df and collect the abbreviated month name
-# set that to index
+# make df form dict and collect the abbreviated month name set that to index
 by_month = pd.DataFrame.from_dict(mgr)
 by_month["month"] = by_month.index.map(lambda x: get_month_names('abbreviated', locale=date_lang)[x.month])
 by_month.set_index('month', drop=True, inplace=True)
 
-# transpose to get months on the columns
-mcdm = by_month.T
-mcdm = mcdm.astype("int")
-mcdm["Objekt"] = mcdm.index.map(lambda x: fdx.dMap.loc[x])
-mcdm.set_index("Objekt", drop=True, inplace=True)
-mcdm.index.name = None
-mcdm.columns.name = None
-mcdm = mcdm.round(1)
-
-monthly_data_caption = f'{this_feature["name"]}, monatliche Durchschnittsergebnisse p/100 m'
+# transpose to get months on the columns and set index to the object description
+by_month = by_month.T
+by_month["Objekt"] = by_month.index.map(lambda x: fdx.dMap.loc[x])
+by_month.set_index("Objekt", drop=True, inplace=True)
 
 # pdf components
-mc_monthly_title = Paragraph("Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt", featuredata.subsection_title)
-monthly_results = featuredata.aStyledTable(mcdm.reset_index(), vertical_header=True, colWidths=[2.3*inch] + [.38*inch]*len(mcdm.columns[1:]))
-monthly_heat_map_gradient = featuredata.colorGradientTable(mcdm)
-monthly_results.setStyle(monthly_heat_map_gradient)
-monthly_caption = Paragraph(monthly_data_caption, featuredata.caption_style)
+# gradient background for .pdf table
+monthly_heat_map_gradient = featuredata.colorGradientTable(by_month)
 
+# subsection title and figure caption
+mc_monthly_title = Paragraph("Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt", featuredata.subsection_title)
+monthly_data_caption = f'{this_feature["name"]}, monatliche Durchschnittsergebnisse p/100 m'
+
+# apply formatting to df for pdf figure/*
+df_to_pdf = by_month.applymap(featuredata.replaceDecimal)
+
+# make pdf table
+col_widths = [4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
+monthly_results = featuredata.aStyledTable(by_month, caption=monthly_data_caption,
+                                           vertical_header=False, gradient=True,
+                                           colWidths=col_widths)
 new_components = [
-    mc_monthly_title, 
-    featuredata.small_space,
-    monthly_results,
-    featuredata.smallest_space,
-    monthly_caption,
-    PageBreak()
+    KeepTogether([
+        mc_monthly_title,
+        featuredata.large_space,
+        monthly_results,
+        PageBreak()
+    ])
 ]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
-mcdm.index.name = None
-mcdm.columns.name = None
+# remove the index names for .html display
+by_month.index.name = None
+by_month.columns.name = None
 
-aformatter = {x: '{:.1f}' for x in mcdm.columns}
+aformatter = {x: featuredata.replaceDecimal for x in by_month.columns}
 
-mcdm = mcdm.style.format(aformatter).set_table_styles(table_css_styles).background_gradient(axis=None, vmin=mcdm.min().min(), vmax=mcdm.max().max(), cmap="YlOrBr")
+mcdm = by_month.style.format(aformatter).set_table_styles(table_css_styles).background_gradient(axis=None, cmap="YlOrBr", vmin=by_month.min().min(), vmax=by_month.max().max())
 
 glue("bielersee_monthly_results", mcdm, display=False)
 
@@ -1084,7 +860,7 @@ glue("bielersee_monthly_results", mcdm, display=False)
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <bielersee_monthly_results>` Bielersee, monatliche Durchschnittsergebnisse p/100 m.
+# {numref}`Abbildung %s: <bielersee_monthly_results>` bielersee, monatliche Durchschnittsergebnisse p/100 m.
 
 # ## Verwendungszweck der gefundenen Objekte
 # 
@@ -1103,7 +879,7 @@ glue("bielersee_monthly_results", mcdm, display=False)
 # 
 # Im Anhang (Kapitel 3.6.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel [16 Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.
 
-# In[11]:
+# In[10]:
 
 
 # make pdf out put
@@ -1149,19 +925,21 @@ cgroup_pthree = Paragraph(code_group_para_three, featuredata.p_style)
 a_list_groups = ListFlowable(name_list, bulletType='bullet', start="square", bulletFontSize=6)
 
 new_components = [
-    cone_group_subtitle,
-    featuredata.small_space,
-    cgroup_pone,
-    featuredata.small_space,
-    a_list_groups,
-    featuredata.small_space,
-    cgroup_pthree
+    KeepTogether([        
+        cone_group_subtitle,
+        featuredata.small_space,
+        cgroup_pone,
+        featuredata.small_space,
+        a_list_groups,
+        featuredata.small_space,
+        cgroup_pthree
+    ])
 ]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[12]:
+# In[11]:
 
 
 # the results are a callable for the components
@@ -1200,13 +978,13 @@ aformatter = {x: '{:.0%}' for x in pt_comp.columns}
 ptd = pt_comp.style.format(aformatter).set_table_styles(table_css_styles).background_gradient(axis=None, vmin=pt_comp.min().min(), vmax=pt_comp.max().max(), cmap="YlOrBr")
 ptd = ptd.applymap_index(featuredata.rotateText, axis=1)
 
-# pdf and display output
-code_group_percent_gradient = featuredata.colorGradientTable(pt_comp.apply(lambda x: x*100).astype(int))
-pt_comp = pt_comp.applymap(lambda x: '{:.0%}'.format(x))
+caption_prefix =  'Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden: '
 
-code_group_percent = featuredata.aStyledTable(pt_comp.reset_index(),vertical_header=True,colWidths=[2.3*inch] + [None]*len(pt_comp.columns))
-code_group_percent.setStyle(code_group_percent_gradient)
-cgpercent_caption = Paragraph(code_group_percent_caption, featuredata.caption_style)
+
+col_widths = [4.5*cm, *[1.2*cm]*(len(pt_comp.columns)-1)]
+cgpercent_tables = splitTableWidth(pt_comp, gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
+                    this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths) 
+
 
 glue("bielersee_codegroup_percent_caption", code_group_percent_caption, display=False)
 glue("bielersee_codegroup_percent", ptd, display=False)
@@ -1220,7 +998,7 @@ glue("bielersee_codegroup_percent", ptd, display=False)
 # ```
 # {numref}`Abbildung %s: <bielersee_codegroup_percent>`  {glue:text}`bielersee_codegroup_percent_caption` 
 
-# In[13]:
+# In[12]:
 
 
 # pivot that
@@ -1243,8 +1021,6 @@ grouppcs_comp[top] = pt_period
 
 # color gradient of restults
 code_group_pcsm_gradient = featuredata.colorGradientTable(grouppcs_comp)
-
-aformatter = {x: '{:.1f}' for x in grouppcs_comp.columns}
 grouppcs_comp.index.name = None
 grouppcs_comp.columns.name = None
 
@@ -1255,17 +1031,36 @@ code_group_pcsm_caption = [
     'identifiziert werden können, werden weiterhin nach ihrer Grösse klassifiziert.'
 ]
 code_group_pcsm_caption = ''.join(code_group_pcsm_caption)
-cgpcs_caption = Paragraph(code_group_pcsm_caption, featuredata.caption_style)
 
-code_group_pcsm = featuredata.aStyledTable(grouppcs_comp.reset_index(),vertical_header=True, colWidths=[2.3*inch] + [None]*len(grouppcs_comp.columns[1:]))
-code_group_pcsm.setStyle(code_group_pcsm_gradient)
+caption_prefix =  f'Verwendungszweck der gefundenen Objekte Median {unit_label} am '
+col_widths = [4.5*cm, *[1.2*cm]*(len(grouppcs_comp.columns)-1)]
+cgpcsm_tables = splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, 
+                                caption=code_group_pcsm_caption, this_feature=this_feature["name"], 
+                                vertical_header=True, colWidths=col_widths)
 
+if isinstance(cgpcsm_tables, (list, np.ndarray)):
+    new_components = [
+        *cgpercent_tables,    
+        featuredata.larger_space,
+        *cgpcsm_tables,
+        featuredata.larger_space
+    ]
+else:
+    new_components = [
+    cgpercent_tables,    
+    featuredata.larger_space,
+    cgpcsm_tables,
+    featuredata.larger_space
+    ]
+    
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
+aformatter = {x: featuredata.replaceDecimal for x in grouppcs_comp.columns}
 cgp = grouppcs_comp.style.format(aformatter).set_table_styles(table_css_styles).background_gradient(axis=None, vmin=grouppcs_comp.min().min(), vmax=grouppcs_comp.max().max(), cmap="YlOrBr")
 cgp= cgp.applymap_index(featuredata.rotateText, axis=1)
 
 
 glue("bielersee_codegroup_pcsm_caption", code_group_pcsm_caption, display=False)
-
 glue("bielersee_codegroup_pcsm", cgp, display=False)
 
 
@@ -1283,7 +1078,7 @@ glue("bielersee_codegroup_pcsm", cgp, display=False)
 # 
 # Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrag», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert.
 
-# In[14]:
+# In[13]:
 
 
 annex_title = Paragraph("Anhang", featuredata.section_title)
@@ -1316,6 +1111,7 @@ before_agg.rename(columns={"p/100m":unit_label}, inplace=True)
 # the codes for the fragmented plastics
 some_frag_plas = list(before_agg[before_agg.groupname == "plastic pieces"].code.unique())
 mask = ((before_agg.code.isin([*some_frag_plas, *some_foams]))&(before_agg.location.isin(admin_summary["locations_of_interest"])))
+agg_pcs_median = {unit_label:"median", "quantity":"sum"}
 
 fd_frags_foams = before_agg[mask].groupby(["loc_date","code"], as_index=False).agg(agg_pcs_quantity)
 fd_frags_foams = fd_frags_foams.groupby("code").agg(agg_pcs_median)
@@ -1327,37 +1123,6 @@ data = fd_frags_foams[["item",unit_label, "quantity", "% of total"]]
 data.rename(columns={"item":"Objekt", "quantity":"Objekte (St.)", "% of total":"Anteil"}, inplace=True)
 data.set_index("Objekt", inplace=True, drop=True)
 data.index.name = None
-
-data.reset_index(inplace=True)
-
-frag_table = featuredata.aStyledTable(data, colWidths=[2.6*inch] + [None]*len(dims_table.columns))
-frag_table_caption = Paragraph(frag_captions, featuredata.caption_style)
-
-
-new_components = [
-    featuredata.larger_space,
-    code_group_percent,
-    featuredata.smallest_space,
-    cgpercent_caption,
-    featuredata.larger_space,
-    code_group_pcsm,
-    featuredata.smallest_space,
-    cgpcs_caption,
-    featuredata.larger_space,
-    annex_title,
-    featuredata.small_space,
-    frag_sub_title,
-    featuredata.smaller_space,
-    frag,
-    featuredata.small_space,
-    frag_table,
-    featuredata.smallest_space,
-    frag_table_caption
-]
-
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
-
-
 aformatter = {
     f"{unit_label}": lambda x: featuredata.replaceDecimal(x, "de"),
     "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), "de"),
@@ -1367,9 +1132,27 @@ aformatter = {
 
 frags_table = data.style.format(aformatter).set_table_styles(table_css_styles)
 
-
 glue("bielersee_frag_table_caption", frag_captions, display=False)
 glue("bielersee_frags_table", frags_table, display=False)
+
+frag_table = featuredata.aStyledTable(data, caption=frag_captions, colWidths=[7*cm, *[2*cm]*(len(dims_table.columns)-1)])
+
+
+
+new_components = [
+    KeepTogether([
+        annex_title,
+        featuredata.small_space,
+        frag_sub_title,
+        featuredata.smaller_space,
+        frag,
+        featuredata.small_space
+    ]),
+    frag_table,
+    
+    ]
+
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
 # ```{glue:figure} bielersee_frags_table
@@ -1382,7 +1165,15 @@ glue("bielersee_frags_table", frags_table, display=False)
 
 # ### Die Erhebungsorte
 
-# In[15]:
+# ```{figure} resources/maps/bielersee_new.jpeg
+# ---
+# name: bielersee_new_map
+# ---
+# ` `
+# ```
+# {numref}`Abbildung %s: <bielersee_new_map>` Karte des Erhebungsgebiets 2020 bis 2021.  Der Durchmesser der Punktsymbole entspricht dem Median der Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort.
+
+# In[14]:
 
 
 # display the survey locations
@@ -1390,22 +1181,57 @@ disp_columns = ["latitude", "longitude", "city"]
 disp_beaches = admin_details.df_beaches.loc[admin_summary["locations_of_interest"]][disp_columns]
 disp_beaches.reset_index(inplace=True)
 disp_beaches.rename(columns={"city":"stat", "slug":"standort"}, inplace=True)
+disp_beaches.set_index("standort", inplace=True, drop=True)
+
+def aStyledTableWithTitleRow(data, header_style: Paragraph = featuredata.styled_table_header, title: str = None,
+                 data_style: Paragraph = featuredata.table_style_centered, colWidths: list = None, style: list = None):
+    table_data = data.reset_index()
+   
+    headers = [Paragraph(str(x), header_style)  for x in data.columns]
+    headers = [Paragraph(" ", data_style) , *headers]
+    
+    if style is None:
+        style = featuredata.default_table_style
+
+    new_rows = []
+    for a_row in table_data.values.tolist():
+        
+        if isinstance(a_row[0], str):
+            row_index = Paragraph(a_row[0], featuredata.table_style_right)
+            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            new_row = [row_index, *row_data]
+            new_rows.append(new_row)
+        else:
+            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            new_rows.append(row_data)
+            
+    table_title_style = [
+            ('FONTNAME', (0,0), (-1,-1), 'Helvetica'),
+            ('FONTSIZE', (0, 0), (-1, -1), 12),
+            ('ROWBACKGROUND', (0,0), (-1,-1), [colors.white]),
+            ('TOPPADDING', (0, 0), (-1, -1), 3),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 3)
+    
+        ]
+        
+    table_title = Table([[title]], style=table_title_style, colWidths=sum(colWidths))
+    new_table = [[table_title], headers, *new_rows]
+    table = Table(new_table, style=style, colWidths=colWidths, repeatRows=2)
+    
+    return table
 
 # make this into a pdf table
-location_subsection = Paragraph("Die Erhebungsorte", featuredata.subsection_title)
+location_subsection = Paragraph("Die Erhebungsorte und Inventar der Objekte", featuredata.subsection_title)
+col_widths = [6*cm, 2.2*cm, 2.2*cm, 3*cm]
 
-pdf_table = featuredata.aStyledTable(disp_beaches)
-
-pdfcomponents = featuredata.addToDoc([featuredata.large_space, location_subsection, featuredata.small_space, pdf_table, ], pdfcomponents)
-
-disp_beaches.set_index("standort", inplace=True, drop=True)
+pdf_table = aStyledTableWithTitleRow(disp_beaches, title="Die Erhebungsorte", colWidths=col_widths)
 
 disp_beaches
 
 
 # ### Inventar der Objekte
 
-# In[16]:
+# In[15]:
 
 
 pd.set_option("display.max_rows", None)
@@ -1414,31 +1240,40 @@ complete_inventory["quantity"] = complete_inventory["quantity"].map(lambda x: fe
 complete_inventory["% of total"] = complete_inventory["% of total"].astype(int)
 complete_inventory[unit_label] = complete_inventory[unit_label].astype(int)
 complete_inventory.rename(columns=featuredata.inventory_table_de, inplace=True)
+    
+# inventory_subsection = Paragraph("Inventar der Objekte", featuredata.subsection_title)
+col_widths=[1.2*cm, 4.5*cm, 2.2*cm, 1.5*cm, 1.5*cm, 2.4*cm, 1.5*cm]
+inventory_table = aStyledTableWithTitleRow(complete_inventory, title="Inventar der Objekte", colWidths=col_widths)
+new_map_image =  Image('resources/maps/bielersee_new.jpeg', width=cm*14, height=11*cm, kind="proportional", hAlign= "CENTER")
+new_components = [
+    KeepTogether([
+        featuredata.large_space,
+        location_subsection,
+        featuredata.small_space,
+        new_map_image,
+        pdf_table,
+        
+    ]),
+    featuredata.large_space,
+    inventory_table
+]
+    
 
-complete_inventory.reset_index(inplace=True)
-
-inventory_subsection = Paragraph("Inventar der Objekte", featuredata.subsection_title)
-inventory_table = featuredata.aStyledTable(complete_inventory, colWidths=[1*inch]+[2.2*inch]+[None]*len(complete_inventory.columns))
-
-pdfcomponents = featuredata.addToDoc([featuredata.small_space, inventory_subsection, featuredata.small_space, inventory_table], pdfcomponents)
-
-complete_inventory.set_index("code", inplace=True, drop=True)
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
 
 
-# In[17]:
+# In[16]:
 
 
-# pdfcomponents = featuredata.addToDoc([featuredata.large_space, pdf_table], pdfcomponents)
-
-doc = SimpleDocTemplate("bielersee.pdf", pagesize=A4, leftMargin=.5*inch, rightMargin=.5*inch, topMargin=.5*inch, bottomMargin=.5*inch)
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
 pageinfo= f"IQAASL: {this_feature['name']} {start_date} bis {end_date}"
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
     canvas.setFont('Times-Italic',9)
-    canvas.drawString(.5*inch, 0.25* inch, "S.%d %s" % (doc.page, pageinfo))
+    canvas.drawString(.5*cm, 0.5*cm, "S.%d %s" % (doc.page, pageinfo))
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

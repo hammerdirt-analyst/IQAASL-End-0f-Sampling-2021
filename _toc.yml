@@ -12,6 +12,7 @@ parts:
     - file: alpes_valaisannes_rev_de
     - file: aare_sa_rev_de
     - file: bielersee
+    - file: lac-leman
     
    
  

@@ -5,11 +5,11 @@ from babel.dates import get_month_names
 from typing import Any
 
 from reportlab.platypus.flowables import Flowable
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, ListFlowable, ListItem
+from reportlab.lib.styles import ParagraphStyle
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, ListFlowable, ListItem, KeepTogether
 from reportlab.lib.pagesizes import A4
 from reportlab.rl_config import defaultPageSize
-from reportlab.lib.units import inch
+from reportlab.lib.units import inch, cm
 from reportlab.lib.colors import HexColor
 from reportlab.lib import colors
 from reportlab.platypus import Table, TableStyle
@@ -229,6 +229,7 @@ def makeEventIdColumn(data, feature_level, these_features: str = " ", date_range
             sliced_data = data[data[feature_level] == these_features].copy()
             sliced_data[index_name] = list(zip(sliced_data[index_prefix].values, sliced_data[index_suffix].values))
             sliced_data["date"] = pd.to_datetime(sliced_data["date"], format=date_format).dt.tz_localize('UTC')
+        
         except RuntimeError:
             print("The pandas implementation did not function")
             raise
@@ -302,16 +303,6 @@ def dateToYearAndMonth(python_date_object, fmat='wide', lang=""):
     
     return f'{amonth_foreign} {a_year}'
 
-
-def thousandsSeparator(aninteger, lang):
-    astring = "{:,}".format(aninteger)
-    
-    if lang == "de":
-        astring = astring.replace(",", " ")
-    
-    return astring
-
-
 def quarterlyOrMonthlyValues(data, feature, vals="p/100m", quarterly=["ticino"]):
     """Determines and then draws either quaterly or monthly resample
     of survey results depending on the value of quaterly.
@@ -365,7 +356,7 @@ def createSummaryTableIndex(unit_label, language="en"):
                     "# locations": "Anzahl der Standorte",
                     }
     else:
-        print(f"ERROR {language} is not an option")
+        print(f"ERROR {language} is not an option. Returning empty dictionary")
         new_data = {}
     
     return new_data
@@ -411,8 +402,8 @@ def make_table_values(data, col_nunique=["location", "loc_date", "city"], col_su
 
 def empiricalCDF(anarray):
     data = thereIsData(anarray, (list, np.ndarray))
-    y = np.arange(1, len(data) + 1) / float(len(data))
     x = sorted(data)
+    y = np.arange(1, len(data) + 1) / float(len(data))    
     
     return x, y
 
@@ -443,7 +434,7 @@ def codeGroupTotals(data: pd.DataFrame = None, unit_label: str = None, column_op
     codegroup_totals = data.groupby(columns, as_index=False).agg({unit_label: 'sum', 'quantity': 'sum'})
     codegroup_totals = codegroup_totals.groupby('groupname', as_index=False).agg(column_operation)
     
-    # percent of totalk[k
+    # percent of total
     codegroup_totals["% of total"] = (codegroup_totals.quantity / codegroup_totals.quantity.sum()).round(2)
     
     # the code data comes from the feature data (survey results)
@@ -671,7 +662,7 @@ class FeatureData(Codes):
         
         cols_ops_kwargs = {
             "column_operations": [(self.unit_label, "sum"), ("quantity", "sum")],
-            "columns": list(set(["loc_date", "location", self.feature_component, "date"])),
+            "columns": ["loc_date", "location", self.feature_component, "date"],
             "unit_label": self.unit_label
         }
 
@@ -1051,8 +1042,8 @@ class AdministrativeSummary(Beaches):
     
 # style definitions for pdf report
 # section and paragraph formatting
-title_style = ParagraphStyle(**{"name": "title_style", "fontSize": 18, "fontName": "Helvetica"})
-section_title = ParagraphStyle(**{"name": "section_title", "fontSize": 16, "fontName": "Helvetica"})
+title_style = ParagraphStyle(**{"name": "title_style", "fontSize": 16, "fontName": "Helvetica"})
+section_title = ParagraphStyle(**{"name": "section_title", "fontSize": 14, "fontName": "Helvetica"})
 caption_style = ParagraphStyle(**{"name": "caption_style", "fontSize": 9, "fontName": "Times-Italic"})
 subsection_title = ParagraphStyle(**{"name": "sub_section_title", "fontSize": 12, "fontName": "Helvetica"})
 p_style = ParagraphStyle(**{"name": "content", "fontSize": 10, "fontName": "Times-Roman"})
@@ -1060,12 +1051,11 @@ bold_block = ParagraphStyle(**{"name": "bold_block", "fontSize": 10, "fontName":
 indented = ParagraphStyle(**{"name": "indented", "fontSize": 10, "fontName": "Times-Roman", "leftIndent":36})
 
 # spacers 
-larger_space = Spacer(1, .5*inch)
-large_space = Spacer(1, .25*inch)
-small_space = Spacer(1, .2*inch)
-smaller_space = Spacer(1, .15*inch)
-smallest_space = Spacer(1, .12*inch)
-
+larger_space = Spacer(1, 1.5*cm)
+large_space = Spacer(1, 1*cm)
+small_space = Spacer(1, .5*cm)
+smaller_space = Spacer(1, .25*inch)
+smallest_space = Spacer(1, .2*cm)
 # table definitions:
 table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
 table_style = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica"})
@@ -1119,6 +1109,7 @@ def makeAdminSummaryStateMent(start, end, feature_name, language: str="de", admi
         return f'{phrase_one} {phrase_two}'
     else:
         return 'Check the language variable'
+
     
 def collectComponentLandMarks(admin_details, language="de"):
     # the column headers are dependent on the language.
@@ -1142,7 +1133,6 @@ def collectComponentLandMarks(admin_details, language="de"):
         components = (header,  ", ".join(admin_details.lakes_of_interest))
         
         component_list.append(components)
-        
     
     if len(admin_details.riversOfInterest()) > 0:
         if language == "de":
@@ -1159,7 +1149,7 @@ def collectComponentLandMarks(admin_details, language="de"):
         component_list.append(components)
         
     if language == "de":
-            city_header = "Gemeinden"
+        city_header = "Gemeinden"
         
     if language == "fr":
         city_header = "Communes"
@@ -1168,11 +1158,11 @@ def collectComponentLandMarks(admin_details, language="de"):
         city_header = "Municipalities"
         
     munis = (city_header, ", ".join(sorted(admin_details.populationKeys()["city"])))
-       
     
     component_list.append(munis)
     
     return component_list
+ 
     
 class verticalText(Flowable):
 
@@ -1185,65 +1175,125 @@ class verticalText(Flowable):
     def draw(self):
         canvas = self.canv
         canvas.rotate(90)
-        fs = canvas._fontsize
-        canvas.translate(1, -fs/1.2)  # canvas._leading?
+        fs = 8
+        canvas.translate(1, -fs/1)  # canvas._leading?
         canvas.drawString(0, 0, self.text)
 
     def wrap(self, aW, aH):
         canv = self.canv
-        fn, fs = canv._fontname, canv._fontsize
+        fn, fs = canv._fontname, 8
         return canv._leading, 1 + canv.stringWidth(self.text, fn, fs)
+
+  
+default_table_style = [
+            ('FONTNAME', (0,0), (-1,-1), 'Helvetica'),
+            ('FONTSIZE', (0, 0), (-1, -1), 8),
+            ('LINEBELOW',(0,0), (-1,0), 1, HexColor("#000")),
+            ('INNERGRID', (1,1), (-1,-1), 0.25, HexColor("#8b451330", hasAlpha=True)),
+            ('ROWBACKGROUNDS', (1,1), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white]),
+            ('TOPPADDING', (0, 0), (-1, -1), 1),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 1)
     
-def aStyledTable(data, header_style: Paragraph=styled_table_header, vertical_header: bool = False, data_style: Paragraph=table_style_centered, colWidths: []=None, style: []= None):
-    
+        ]
+
+
+def aStyledTable(data, header_style: Paragraph = styled_table_header, vertical_header: bool = False,
+                 data_style: Paragraph = table_style_centered, colWidths: list = None, style: list = None,
+                 gradient: bool = False, caption: str = None, caption_location: str = "BOTTOM", caption_style: () = caption_style):
+    table_data = data.reset_index()
+    # print(data.columns)
+    # print(data.head())
+    # print(table_data.columns)
+    # print(table_data.head())
     if vertical_header:
-        headers = [verticalText(x) for x in data.columns[1:]]
+        headers = [verticalText(x) for x in data.columns]
         headers = [verticalText(" "), *headers]
     else:
-        headers = [Paragraph(str(x), header_style)  for x in data.columns[1:]]
+        headers = [Paragraph(str(x), header_style)  for x in data.columns]
         headers = [Paragraph(" ", table_style_centered) , *headers]
     
     if style is None:
-        style=[
-        ('FONTNAME', (0,0), (-1,0), 'Helvetica'),
-        ('LINEBELOW',(0,0), (-1,0), 1, HexColor("#000")),
-        ('INNERGRID', (1,1), (-1,-1), 0.25, HexColor("#8b451330", hasAlpha=True)),
-        ('ROWBACKGROUNDS', (1,1), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white])
-        ]
-    
+        style = default_table_style
+
     new_rows = []
-    for a_row in data.values.tolist():
+    for a_row in table_data.values.tolist():
         
-        row_index = Paragraph(a_row[0], table_style_right)
-        row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
-        new_row = [row_index, *row_data]
-        new_rows.append(new_row)
+        if isinstance(a_row[0], str):
+            row_index = Paragraph(a_row[0], table_style_right)
+            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            new_row = [row_index, *row_data]
+            new_rows.append(new_row)
+        else:
+            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            new_rows.append(row_data)
         
     new_table = [headers, *new_rows]
+    table = Table(new_table, style=style, colWidths=colWidths, repeatRows=1)
+    table_caption = Paragraph(caption, caption_style)
     
-    return Table(new_table, style=style, colWidths=colWidths, repeatRows=1)
-
-
-def aStyledTableExtended(data, header_style: Paragraph=styled_table_header, vertical_header: bool = False, data_style: Paragraph=table_style_centered, colWidths: []=None, style: []= None):
-    ncols = len(data.columns)
-    
-    if ncols > 12:
+    if gradient:
+        table_color_gradient = colorGradientTable(data)
+        table.setStyle(table_color_gradient)
         
-        data_fields = ncols-1
-        tone = int(data_fields/2)
-        tone_cols = [data.columns[0], *data.columns[1:tone]]
-        print(data.columns)
-        print(data.columns[:3])
-        t_one = list(data.columns)[:tone]
-        t2 = data.columns[tone:]
+    if caption_location == "BOTTOM":
         
-        table_one = aStyledTable(data[t_one], vertical_header=vertical_header, colWidths=colWidths)
-        table_two = aStyledTable(data[t2], vertical_header=vertical_header, colWidths=colWidths)
-        
-        return [table_one, table_two]
+        return KeepTogether([table, smallest_space, table_caption])
     else:
-        return [aStyledTable(data, vertical_header=vertical_header, colWidths=colWidths)]
+        return KeepTogether([table_caption, smallest_space, table])
+
+
+def aStyledTableExtended(data, row_header: int=0, row_ends: int=-3, caption_prefix: str = None,
+                         header_style: Paragraph = styled_table_header, vertical_header: bool = False,
+                         data_style: Paragraph = table_style_centered, gradient: bool = False, colWidths: list = None,
+                         style: list = None, caption_location: str = "BOTTOM"):
     
+    table_data = data.reset_index()
+    cols = table_data.columns
+
+    first_col = cols[row_header]
+    # print(first_col)
+    last_cols = cols[row_ends:]
+    start_data_cols = row_header+1
+    # print(cols[start_data_cols])
+    data_cols = cols[start_data_cols: row_ends]
+    # print(data_cols)
+    
+    if len(data_cols)%2 == 0:
+        first_table_stop = int(len(data_cols)/2)
+        first_table_cols = cols[start_data_cols: first_table_stop]
+        second_table_cols = cols[first_table_stop: -3]
+        
+    if len(data_cols)%2 == 1:
+        first_table_stop = int((len(data_cols)+1)/2)+1
+        first_table_cols = cols[start_data_cols: first_table_stop]
+        second_table_cols = cols[first_table_stop:-3]
+        # print(second_table_cols)
+        
+    first_table_data = table_data[[first_col, *first_table_cols, *last_cols]].set_index(first_col)
+    second_table_data = table_data[[first_col, *second_table_cols, *last_cols]].set_index(first_col)
+    # print(first_table_data.head())
+
+    if style is None:
+        style = default_table_style
+    
+    table_kwargs = {
+        "header_style": header_style,
+        "vertical_header": vertical_header,
+        "data_style": data_style,
+        "style": style,
+        "caption_location": caption_location
+    }
+    
+    table_kwargs.update({"colWidths": colWidths})
+    
+    table_one_caption = f'{caption_prefix}, {", ".join(first_table_cols)}'
+    table_one = aStyledTable(first_table_data, caption=table_one_caption, gradient=gradient, **table_kwargs)
+
+    table_two_caption = f'{caption_prefix}, {", ".join(second_table_cols)}'
+    table_two = aStyledTable(second_table_data, caption=table_two_caption, gradient=gradient, **table_kwargs)
+    
+    return [table_one, small_space, table_two]
+            
     
 
 def colorGradient(x, cmap: str="YlOrBr", amin: int=0, amax: int=1):
@@ -1283,4 +1333,3 @@ def colorGradientTable(data, color_gradient: callable=colorGradient, column: int
 
 def rotateText(x):
     return 'writing-mode: vertical-lr; transform: rotate(-180deg);  padding:10px; margins:0; vertical-align: baseline;'
-    
