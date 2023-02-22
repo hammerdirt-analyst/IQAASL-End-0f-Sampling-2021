@@ -133,7 +133,7 @@ fail_rate = 50
 
 # Changing these variables produces different reports
 # Call the map image for the area of interest
-bassin_map = "resources/maps/leman_city_labels.jpeg"
+bassin_map = "resources/maps/lac-leman_city_labels.jpeg"
 
 # the label for the aggregation of all data in the region
 top = "Alle Erhebungsgebiete"
@@ -262,10 +262,15 @@ table_css_styles = [even_rows, odd_rows, table_font, header_row]
 
 
 # pdf download is an option 
+# the .pdf output is generated in parallel
+# this is the same as if it were on the backend where we would
+# have a specific api endpoint for .pdf requests. 
 # reportlab is used to produce the document
-# the arguments for the document are captured at run time
-# capture for pdf content
+# the components of the document are captured at run time
+# the pdf link gives the name and location of the future doc
 pdf_link = f'resources/pdfs/{this_feature["slug"]}_de.pdf'
+
+# the components are stored in an array and collected as the script runs
 pdfcomponents = []
 
 # pdf title and map
@@ -290,47 +295,51 @@ glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
 # In[2]:
 
 
-map_caption = [
-    "Karte des Erhebungsgebiets März 2020 bis Mai 2021. ",
-    "Der Durchmesser der Punktsymbole entspricht dem Median der ",
-    "Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort."
+map_caption = featuredata.defaultMapCaption(language="de")
+glue("lac-leman_city_map_caption", map_caption, display=False)
+
+new_components = [
+    Paragraph(map_caption, featuredata.caption_style)
 ]
-
-# pdf output
-map_caption = ''.join(map_caption)
-
 # add those sections
-pdfcomponents = featuredata.addToDoc([Paragraph(map_caption, featuredata.caption_style)], pdfcomponents)
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# ```{figure} resources/maps/leman_city_labels.jpeg
+# ```{figure} resources/maps/lac-leman_city_labels.jpeg
 # ---
-# name: lac-leman_map
+# name: lac-leman-city_map
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <lac-leman_map>` Karte des Erhebungsgebiets März 2020 bis Mai 2021.  Der Durchmesser der Punktsymbole entspricht dem Median der Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort.
+# {numref}`Abbildung %s: <lac-leman-city_map>` {glue:text}`lac-leman_city_map_caption`
 
 # ## Erhebungsorte
 
 # In[3]:
 
 
+# the admin summary can be converted into a standard text
 an_admin_summary = featuredata.makeAdminSummaryStateMent(start_date, end_date, this_feature["name"], admin_summary=admin_summary)
                       
 # collect component features and land marks
+# this collects the components of the feature of interest (city, lake, river)
+# a comma separated string of all the componenets and a heading for each component
+# type is produced
 feature_components = featuredata.collectComponentLandMarks(admin_details, language="de")
 
 # markdown output
-components_markdown = [f'*{x[0]}*\n\n>{x[1]}\n\n' for x in feature_components]
+components_markdown = "".join([f'*{x[0]}*\n\n>{x[1]}\n\n' for x in feature_components])
 
 # add the admin summary to the pdf
-pdfcomponents = featuredata.addToDoc([
+
+new_components = [
     featuredata.smallest_space,
     Paragraph("Erhebungsorte", featuredata.section_title), 
     featuredata.smallest_space,
     Paragraph(an_admin_summary , featuredata.p_style)    
-], pdfcomponents)
+]
+    
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # put that all together:
 lake_string = F"""
@@ -346,20 +355,18 @@ md(lake_string)
 # In[4]:
 
 
-# the .pdf output is generated in parallel
-# this is the same as if it were on the backend where we would
-# have a specific api endpoint for .pdf requests. 
+# the basic summary of dimensional data is available in the AdministrativeSummary class
 dims_table = admin_details.dimensionalSummary()
 dims_table.sort_values(by=["quantity"], ascending=False, inplace=True)
 
-# apply language
+# apply language settings
 dims_table.rename(columns=featuredata.dims_table_columns_de, inplace=True)
 
 # convert to kilos
 dims_table["Plastik (Kg)"] = dims_table["Plastik (Kg)"]/1000
 
 # save a copyt of the dims_table for working
-# formattinr to pdf will turn the numerics to strings
+# formatting to pdf will turn the numerics to strings
 # which eliminates any further calclations
 dims_df =  dims_table.copy()
 
@@ -374,9 +381,8 @@ dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: fea
 # a caption for the figure
 dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte  und Masse für die Gemeinden'
 
-# pdf components                 
+# pdf table                 
 d_chart = featuredata.aStyledTable(dims_table, caption=dims_table_caption, colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)])
-# d_capt = Paragraph(dims_table_caption, featuredata.caption_style)
 
 new_components = [
     featuredata.smallest_space,
@@ -668,8 +674,6 @@ para_g = "Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am m
 mc_section_para = Paragraph(para_g, featuredata.p_style)
 mc_table_cap = Paragraph(mc_caption_string, featuredata.caption_style)
 
-
-
 new_components = [
     KeepTogether([
         mc_section_title,
@@ -716,10 +720,7 @@ def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradi
     if len(data.columns) > 13:
         tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
     else:
-        tables = featuredata.aStyledTable(data, caption=caption, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)
-            # featuredata.smallest_space, 
-            # Paragraph(caption, featuredata.caption_style)
-        
+        tables = featuredata.aStyledTable(data, caption=caption, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)        
     
     return tables
 
@@ -778,16 +779,17 @@ glue('lac-leman_most_common_heat_map', mcd, display=False)
 
 # collect the survey results of the most common objects
 # and aggregate code with groupname for each sample
+# use the index from the most common codes to select from the feature data
+# the aggregation method and the columns to keep
 agg_pcs_quantity = {unit_label:"sum", "quantity":"sum"}
 groups = ["loc_date","date","code", "groupname"]
-
-# use the index from the most common codes to select from the feature data
-m_common_m = fd[(fd.code.isin(fdx.most_common.index))].groupby(groups, as_index=False).agg(agg_pcs_quantity)
+# make the range for one calendar year
 start_date = "2020-04-01"
 end_date = "2021-03-31"
-# set the index to the date column
+# aggregate
+m_common_m = fd[(fd.code.isin(fdx.most_common.index))].groupby(groups, as_index=False).agg(agg_pcs_quantity)
+# set the index to the date column and sort values within the date rage
 m_common_m.set_index("date", inplace=True)
-
 m_common_m = m_common_m.sort_index().loc[start_date:end_date]
 
 # set the order of the chart, group the codes by groupname columns and collect the respective object codes
@@ -975,16 +977,8 @@ aformatter = {x: '{:.0%}' for x in pt_comp.columns}
 ptd = pt_comp.style.format(aformatter).set_table_styles(table_css_styles).background_gradient(axis=None, vmin=pt_comp.min().min(), vmax=pt_comp.max().max(), cmap="YlOrBr")
 ptd = ptd.applymap_index(featuredata.rotateText, axis=1)
 
-# pdf and display output
-# code_group_percent_gradient = featuredata.colorGradientTable(pt_comp.apply(lambda x: x*100).astype(int))
-# pt_comp = pt_comp.applymap(lambda x: '{:.0%}'.format(x))
-
-# code_group_percent = featuredata.aStyledTable(pt_comp.reset_index(),vertical_header=True,colWidths=[4*cm] + [None]*len(pt_comp.columns))
-# code_group_percent.setStyle(code_group_percent_gradient)
-# cgpercent_caption = Paragraph(code_group_percent_caption, featuredata.caption_style)
-
+# the caption prefix is used in the case where the table needs to be split horzontally
 caption_prefix =  'Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden: '
-
 
 col_widths = [4.5*cm, *[1.2*cm]*(len(pt_comp.columns)-1)]
 cgpercent_tables = splitTableWidth(pt_comp, gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
@@ -1167,13 +1161,13 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # ### Die Erhebungsorte
 
-# ```{figure} resources/maps/leman_new.jpeg
+# ```{figure} resources/maps/lac-leman_location_labels.jpeg
 # ---
-# name: lac-leman_new_map
+# name: lac-leman_location_map
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <lac-leman_new__map>` Karte des Erhebungsgebiets März 2020 bis Mai 2021.  Der Durchmesser der Punktsymbole entspricht dem Median der Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort.
+# {numref}`Abbildung %s: <lac-leman_location__map>` {glue:text}`lac-leman_city_map_caption`
 
 # In[14]:
 
@@ -1247,7 +1241,7 @@ inventory_subsection = Paragraph("Inventar der Objekte", featuredata.subsection_
 col_widths=[1.2*cm, 4.5*cm, 2.2*cm, 1.5*cm, 1.5*cm, 2.4*cm, 1.5*cm]
 inventory_table = aStyledTableWithTitleRow(complete_inventory, title="Inventar der Objekte", colWidths=col_widths)
 
-new_map_image =  Image('resources/maps/leman_new.jpeg', width=cm*16, height=12*cm, kind="proportional", hAlign= "CENTER")
+new_map_image =  Image('resources/maps/lac-leman_location_labels.jpeg', width=cm*16, height=12*cm, kind="proportional", hAlign= "CENTER")
 new_components = [
     KeepTogether([
         featuredata.large_space,

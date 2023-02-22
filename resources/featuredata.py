@@ -122,6 +122,22 @@ bassin_pallette = {
     "les-alpes": "darkcyan"
 }
 
+def defaultMapCaption(language: str = "de"):
+    
+    if language == "de":
+        caption = [
+            "Karte des Erhebungsgebiets März 2020 bis Mai 2021. ",
+            "Der Durchmesser der Punktsymbole entspricht dem Median der ",
+            "Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort."
+            ]
+    else:
+        caption = [
+            "Map of survey locations March 2020 - Mai 2021. ",
+            "The language you requested is not available."
+        ]
+    return ''.join(caption)
+    
+
 
 def thousandsSeparator(aninteger, lang: str = "de"):
     
@@ -1033,8 +1049,15 @@ class AdministrativeSummary(Beaches):
                 mask = self.feature_data[self.feature_component] == name
                 dims_table.loc[name, "samples"] = self.feature_data[mask].loc_date.nunique()
                 dims_table.loc[name, "quantity"] = q_map[name]
+                
+        if self.feature_component == "water_name_slug":
+            
+            proper_names = self.makeFeatureNameMap()
+            dims_table["water_name"] = dims_table.index.map(lambda x: proper_names.loc[x, "water_name"])
+            dims_table.set_index("water_name", inplace=True, drop=True)
             
         # get the sum of all the features
+        # print(dims_table)
         dims_table.loc[self.label] = dims_table.sum(numeric_only=True, axis=0)
         
         return dims_table
@@ -1144,7 +1167,7 @@ def collectComponentLandMarks(admin_details, language="de"):
         else:
             header = "Rivers"
         
-        components = (header,  ", ".join(admin_details.lakes_of_interest))
+        components = (header,  ", ".join(admin_details.rivers_of_interest))
         
         component_list.append(components)
         
@@ -1188,7 +1211,7 @@ class verticalText(Flowable):
 default_table_style = [
             ('FONTNAME', (0,0), (-1,-1), 'Helvetica'),
             ('FONTSIZE', (0, 0), (-1, -1), 8),
-            ('LINEBELOW',(0,0), (-1,0), 1, HexColor("#000")),
+            # ('LINEBELOW',(0,0), (-1,0), 1, HexColor("#000")),
             ('INNERGRID', (1,1), (-1,-1), 0.25, HexColor("#8b451330", hasAlpha=True)),
             ('ROWBACKGROUNDS', (1,1), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white]),
             ('TOPPADDING', (0, 0), (-1, -1), 1),
@@ -1229,13 +1252,26 @@ def aStyledTable(data, header_style: Paragraph = styled_table_header, vertical_h
         
     new_table = [headers, *new_rows]
     table = Table(new_table, style=style, colWidths=colWidths, repeatRows=1)
-    table_caption = Paragraph(caption, caption_style)
+    # the width of the caption should match the width of the table
+    table_width = sum(colWidths)/cm
+    left_indent = round((21 - table_width)/2, 2)
+    
+    caption_kwargs = {
+        "name": "caption_style",
+        "fontSize": 9,
+        "fontName": "Times-Italic",
+        "leftIndent": left_indent*cm,
+        "rightIndent": left_indent*cm/2
+    }
+    new_caption_style = ParagraphStyle(**caption_kwargs)
+    table_caption = Paragraph(caption, new_caption_style)
     
     if gradient:
         table_color_gradient = colorGradientTable(data)
         table.setStyle(table_color_gradient)
         
     if caption_location == "BOTTOM":
+        table.hAlign = 'CENTER'
         
         return KeepTogether([table, smallest_space, table_caption])
     else:

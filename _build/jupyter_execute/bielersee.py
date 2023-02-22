@@ -146,7 +146,7 @@ this_feature = {'slug':'bielersee', 'name':"Bielersee", 'level':'water_name_slug
 # the lake is in this survey area
 this_bassin = "aare"
 # label for survey area
-bassin_label = "Aare-Erhebungsgebiet"
+bassin_label = "Erhebungsgebiet Aare"
 
 # these are the smallest aggregated components
 # choices are water_name_slug=lake or river, city or location at the scale of a river bassin 
@@ -290,17 +290,14 @@ glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
 # In[2]:
 
 
-map_caption = [
-    "Karte des Erhebungsgebiets März 2020 bis Mai 2021. ",
-    "Der Durchmesser der Punktsymbole entspricht dem Median der ",
-    "Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort."
+map_caption = featuredata.defaultMapCaption(language="de")
+glue("city_map_caption", map_caption, display=False)
+
+new_components = [
+    Paragraph(map_caption, featuredata.caption_style)
 ]
-
-# pdf output
-map_caption = ''.join(map_caption)
-
 # add those sections
-pdfcomponents = featuredata.addToDoc([Paragraph(map_caption, featuredata.caption_style)], pdfcomponents)
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
 # ```{figure} resources/maps/bielersee_city_labels.jpeg
@@ -309,7 +306,7 @@ pdfcomponents = featuredata.addToDoc([Paragraph(map_caption, featuredata.caption
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <bielersee_map>` Karte des Erhebungsgebiets März 2020 bis Mai 2021.  Der Durchmesser der Punktsymbole entspricht dem Median der Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort.
+# {numref}`Abbildung %s: <bielersee_map>` {glue:text}`city_map_caption`
 
 # ## Erhebungsorte
 
@@ -1165,13 +1162,13 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # ### Die Erhebungsorte
 
-# ```{figure} resources/maps/bielersee_new.jpeg
+# ```{figure} resources/maps/bielersee_location_labels.jpeg
 # ---
-# name: bielersee_new_map
+# name: bielersee_location_map
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <bielersee_new_map>` Karte des Erhebungsgebiets 2020 bis 2021.  Der Durchmesser der Punktsymbole entspricht dem Median der Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort.
+# {numref}`Abbildung %s: <bielersee_location_map>` Karte des Erhebungsgebiets 2020 bis 2021.  Der Durchmesser der Punktsymbole entspricht dem Median der Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort.
 
 # In[14]:
 
@@ -1244,7 +1241,7 @@ complete_inventory.rename(columns=featuredata.inventory_table_de, inplace=True)
 # inventory_subsection = Paragraph("Inventar der Objekte", featuredata.subsection_title)
 col_widths=[1.2*cm, 4.5*cm, 2.2*cm, 1.5*cm, 1.5*cm, 2.4*cm, 1.5*cm]
 inventory_table = aStyledTableWithTitleRow(complete_inventory, title="Inventar der Objekte", colWidths=col_widths)
-new_map_image =  Image('resources/maps/bielersee_new.jpeg', width=cm*14, height=11*cm, kind="proportional", hAlign= "CENTER")
+new_map_image =  Image('resources/maps/bielersee_location_labels.jpeg', width=cm*14, height=11*cm, kind="proportional", hAlign= "CENTER")
 new_components = [
     KeepTogether([
         featuredata.large_space,

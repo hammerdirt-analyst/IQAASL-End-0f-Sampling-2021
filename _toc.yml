@@ -10,7 +10,7 @@ parts:
     chapters:
     - file: lakes_rivers_rev_de
     - file: alpes_valaisannes_rev_de
-    - file: aare_sa_rev_de
+    - file: aare_sa_de
     - file: bielersee
     - file: lac-leman
     
