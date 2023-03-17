@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[11]:
 
 
 # -*- coding: utf-8 -*-
@@ -332,7 +332,7 @@ pdfcomponents = []
 # 
 # ## Die wichtigsten Indikatoren
 
-# In[2]:
+# In[12]:
 
 
 # pdf title and map
@@ -469,9 +469,8 @@ rmcp = [
     '<a name="RMCP+15" />RMCP+15: <i>Sabine Rech, Vivian Macaya-Caquilpán, Jose Pantoja, Marcelo Rivadeneira, C Campodónico, and Martin Thiel.</i> Sampling of riverine litter with citizen scientists—findings and recommendations. Environmental monitoring and assessment, 187:4473, 06 2015. doi:10.1007/s10661-015-4473-y.'
 ]
 
-
 cp17 = [
-    '<a name="CP17" />CP17: <i>StackExcahnge.</i> What does independent observations mean? URL: https://stats.stackexchange.com/questions/116355/what-does-independent-observations-mean.'
+    '<a name="CP17" />CP17: <i>Mehran Sahami Chris Piech</i> Parameter estimation. 2017. URL: https://web.stanford.edu/class/archive/cs/cs109/cs109.1192/reader/11%20Parameter%20Estimation.pdf'
 ]
 
 references = [Paragraph("Bibliographie", style=section_title)]
@@ -533,7 +532,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <key_indicators_data>` Die Resultate des Erhebungsgebiets Aare, mit Ausschnitt Biel/Bienne und Monatsmedian. links: Zusammenfassende Statistik für das Erhebungsgebiet Aare. Rechts: Zusammenfassende Statistik Biel/Bienne.
 
-# In[3]:
+# In[13]:
 
 
 o_w, o_h = convertPixelToCm("resources/output/key_indicators_data.jpeg")
@@ -586,7 +585,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <fail_rate_key_i>` Die Häufigkeitsraten der am meisten gefundenen Objekte aus dem Erhebungsgebiet Aare bei verschiedenen Aggregationsstufen.
 
-# In[4]:
+# In[14]:
 
 
 subsection_4 = Paragraph("Die Anzahl der Proben", style=subsection_title)
@@ -696,7 +695,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <pcs_m_key_i>` Der Median (p/m) der häufigsten Objekte im Erhebungsgebiet Aare.
 
-# In[5]:
+# In[15]:
 
 
 p14 = [
@@ -792,7 +791,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <percent_total_i>` Die häufigsten Objekte im Erhebungsgebiet Aare machen rund 66 % (2022) der Gesamtzahl der erfassten Objekte (3067) an den drei Erhebungsorten in Biel/Bienne aus.
 
-# In[6]:
+# In[16]:
 
 
 p21 = [
@@ -882,7 +881,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # * Wie gross ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden?
 # * Warum haben Sie sich für diesen Ort oder diese Orte entschieden? Wie sicher sind Sie sich bei Ihrer Wahl?
 
-# In[7]:
+# In[17]:
 
 
 section_3 = Paragraph("Diskussion", style=section_title)
@@ -958,7 +957,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[8]:
+# In[18]:
 
 
 aggs = {'loc_date':'nunique', 'fail':'sum', 'pcs_m':'mean', "quantity":"sum"}
@@ -1005,7 +1004,7 @@ mcc
 # ```
 # {numref}`Abbildung %s: <practical_excercise>` Die häufigsten Objekte im Erhebungsgebiet Aare machen rund 66 % (2022) der Gesamtzahl der erfassten Objekte (3067) an den drei Erhebungsorten in Biel/Bienne aus.
 
-# In[9]:
+# In[19]:
 
 
 o_w, o_h = convertPixelToCm("resources/maps/practical_excercise.jpeg")
@@ -1032,7 +1031,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[10]:
+# In[20]:
 
 
 doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=1.5*cm, topMargin=3*cm, bottomMargin=1.5*cm)
@@ -1046,6 +1045,18 @@ def myLaterPages(canvas, doc):
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
