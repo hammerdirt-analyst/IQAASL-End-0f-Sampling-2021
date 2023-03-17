@@ -1,0 +1,90 @@
+city,river_bassin,feature,type,quantity,p/100 m,lat,lon,samples
+Aarau,aare,aare,r,7,35.0,47.4056692,8.066018,1
+Allaman,rhone,lac-leman,l,631,716.0,46.4639187,6.3857321,3
+Ascona,ticino,lago-maggiore,l,433,172.0,46.153882,8.76848,5
+Beatenberg,aare,thunersee,l,104,242.5,46.684386,7.794768,2
+Bellinzona,ticino,ticino,r,187,121.0,46.2006245,9.015853,4
+Bern,aare,aare,r,147,14.0,46.9893631,7.4520977,4
+Biel/Bienne,aare,bielersee,l,2969,524.0,47.133339,7.227907,14
+Biel/Bienne,aare,schuss,r,98,103.5,47.133339,7.227907,2
+Boudry,aare,neuenburgersee,l,32,33.0,46.94619,6.87097,1
+Bourg-en-Lavaux,rhone,lac-leman,l,121,501.5,46.4888866,6.7413961,2
+Brienz (BE),aare,brienzersee,l,697,504.0,46.74445107,8.0499211,3
+Brissago,ticino,lago-maggiore,l,203,362.0,46.13276,8.73503,1
+Brugg,aare,aare,r,23,60.0,47.4948553,8.2365581,1
+Brügg,aare,aarenidau-buren-kanal,r,36,102.0,47.12222,7.28141,1
+Burgdorf,aare,emme,r,41,87.0,47.057666,7.634001,1
+Bönigen,aare,brienzersee,l,277,317.5,46.6902834,7.8985922,2
+Cheyres-Châbles,aare,neuenburgersee,l,903,60.0,46.818689,6.782256,13
+Cudrefin,aare,neuenburgersee,l,27,223.0,46.964496,7.027936,1
+Dietikon,linth,limmat,r,18,36.0,47.4079891,8.4095398,1
+Erlach,aare,bielersee,l,101,183.0,47.047159,7.097854,1
+Estavayer,aare,neuenburgersee,l,28,45.0,46.8566464,6.848428,1
+Freienbach,linth,zurichsee,l,104,123.0,47.206766,8.774182,1
+Gals,aare,bielersee,l,48,128.0,47.0462719,7.0850075,2
+Gambarogno,ticino,lago-maggiore,l,711,85.0,46.123366,8.785786,10
+Gebenstorf,aare,aare,r,70,60.0,47.50106,8.237371,1
+Genève,rhone,lac-leman,l,4060,169.5,46.208558,6.162923,16
+Genève,rhone,rhone,r,320,1600.0,46.208558,6.162923,1
+Gland,rhone,lac-leman,l,134,143.0,46.4028106,6.2819586,2
+Glarus Nord,linth,escherkanal,r,10,90.0,47.13137,9.094768,1
+Glarus Nord,linth,linthkanal,r,7,70.0,47.13137,9.094768,1
+Glarus Nord,linth,walensee,l,67,78.5,47.13137,9.094768,2
+Grandson,aare,neuenburgersee,l,104,141.0,46.80359,6.63665,1
+Hauterive (NE),aare,neuenburgersee,l,126,296.0,47.010797,6.980304,1
+Hünenberg,linth,reuss,r,2,12.0,47.2329755,8.4010121,1
+Kallnach,aare,aare,r,82,131.5,46.98929,7.25073,2
+Köniz,aare,aare,r,12,16.0,46.9345885,7.4581703,1
+Küsnacht (ZH),linth,dorfbach,r,12,11.0,47.31777,8.588258,1
+Küsnacht (ZH),linth,zurichsee,l,1117,288.5,47.31777,8.588258,12
+La Tour-de-Peilz,rhone,lac-leman,l,2941,234.0,46.447216,6.859612,15
+Lausanne,rhone,lac-leman,l,1000,1158.0,46.516221,6.596279,7
+Lavey-Morcles,rhone,rhone,r,594,417.0,46.200804,7.021866,3
+Le Landeron,aare,bielersee,l,53,145.0,47.052812,7.074053,1
+Leuk,rhone,rhone,r,15,30.0,46.3147545,7.6225205,1
+Ligerz,aare,bielersee,l,143,910.0,47.083979,7.135894,2
+Locarno,ticino,maggia,r,55,91.0,46.162521,8.7825791,1
+Lugano,ticino,cassarate,r,54,75.0,45.9879627,8.9862407,1
+Lugano,ticino,lago-di-lugano,l,925,1039.5,45.9879627,8.9862407,4
+Luterbach,aare,aare,r,39,36.5,47.223749,7.576711,2
+Lüscherz,aare,bielersee,l,202,64.0,47.0479551,7.151242,5
+Merenschwand,linth,reuss,r,1,5.0,47.2783545,8.3942242,1
+Minusio,ticino,lago-maggiore,l,463,374.0,46.172079,8.813255,2
+Montreux,rhone,lac-leman,l,739,326.0,46.430834,6.908778,7
+Neuchâtel,aare,neuenburgersee,l,2168,257.0,46.989477,6.92392,13
+Nidau,aare,bielersee,l,63,252.0,47.127196,7.232613,1
+Port,aare,aarenidau-buren-kanal,r,119,139.0,47.11617,7.26955,2
+Préverenges,rhone,lac-leman,l,3744,346.0,46.51269,6.527657,13
+Quarten,linth,walensee,l,113,84.0,47.1143432,9.2881737,3
+Rapperswil-Jona,linth,jona,r,21,18.0,47.2161,8.84443,3
+Rapperswil-Jona,linth,zurichsee,l,695,190.0,47.2161,8.84443,13
+Richterswil,linth,zurichsee,l,738,140.0,47.2176458,8.6987133,13
+Riddes,rhone,rhone,r,3,9.0,46.176736,7.228925,1
+Rubigen,aare,aare,r,57,320.0,46.896025,7.532114,1
+Saint-Gingolph,rhone,lac-leman,l,7565,1771.0,46.387746,6.843686,11
+Saint-Sulpice (VD),rhone,lac-leman,l,2507,1064.0,46.515215,6.575531,5
+Salgesch,rhone,rhone,r,51,102.0,46.304399,7.580262,1
+Schmerikon,linth,zurichsee,l,90,165.0,47.220989,8.940365,2
+Sion,rhone,rhone,r,9,18.0,46.2220487,7.361664,1
+Solothurn,aare,aare,r,27,244.0,47.196949,7.521643,1
+Spiez,aare,thunersee,l,531,71.0,46.68664,7.68976,14
+Stäfa,linth,zurichsee,l,67,608.0,47.2346431,8.7698814,1
+Thun,aare,thunersee,l,276,139.0,46.72714,7.62962,3
+Tolochenaz,rhone,lac-leman,l,274,355.5,46.4910297,6.4801618,2
+Unterengstringen,linth,limmat,r,33,165.0,47.4094003,8.4469334,1
+Unterseen,aare,thunersee,l,1879,180.0,46.676583,7.817528,12
+Versoix,rhone,lac-leman,l,583,291.0,46.289194,6.1705693,3
+Vevey,rhone,lac-leman,l,3163,590.0,46.460156,6.836718,12
+Vinelz,aare,bielersee,l,898,429.5,47.0383984,7.1083114,12
+Walenstadt,linth,seez,r,42,60.5,47.12864,9.2951,2
+Walenstadt,linth,walensee,l,2558,308.0,47.12864,9.2951,13
+Walperswil,aare,aare,r,14,22.0,47.048495,7.200528,1
+Weesen,linth,linthkanal,r,77,78.0,47.133742,9.105461,1
+Weesen,linth,walensee,l,956,93.0,47.133742,9.105461,13
+Weggis,linth,vierwaldstattersee,l,58,85.0,47.0445321,8.4185689,3
+Yverdon-les-Bains,aare,la-thiele,r,9,46.0,46.785054,6.656877,1
+Yverdon-les-Bains,aare,neuenburgersee,l,1437,107.0,46.785054,6.656877,13
+Zug,linth,zugersee,l,62,45.0,47.1782157,8.4800128,3
+Zürich,linth,limmat,r,168,94.5,47.3945393,8.5134435,4
+Zürich,linth,sihl,r,15,27.0,47.3945393,8.5134435,2
+Zürich,linth,zurichsee,l,2381,237.5,47.3945393,8.5134435,14

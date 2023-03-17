@@ -432,14 +432,14 @@ def create_summary_table_index(unit_label, lang="EN"):
     elif lang == "DE":
         new_data = {"count":"Anzahl Proben",
                 "mean":f"Durchschnitt {unit_label}",
-                "std":"Standardfehler", 
-                "min":f"min {unit_label}",
-                "max": f"max {unit_label}",
+                "std":"Standardabweichung",
+                "min":f"Min {unit_label}",
+                "max": f"Max {unit_label}",
                 "25%":"25%",
                 "50%":"50%", 
                 "75%":"75%",
-                "total objects":"Abfallobjekte total",
-                "# locations":"Anzahl der Standorte",
+                "total objects":"Abfallobjekte",
+                "# locations":"Erhebungsorte",
                }
     else:
         print(f"ERROR {lang} is not an option")

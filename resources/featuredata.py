@@ -4,6 +4,7 @@ from datetime import datetime
 from babel.dates import get_month_names
 from typing import Any
 
+import reportlab
 from reportlab.platypus.flowables import Flowable
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, ListFlowable, ListItem, KeepTogether
@@ -89,7 +90,7 @@ sample_summary_table_de = {
 }
 
 most_common_objects_table_de = {
-    "item": "Objekt",
+    "item": "Objekte",
     "quantity": "Objekte (St.)",
     "% of total": "Anteil",
     "fail rate": "Häufigkeitsrate"
@@ -122,13 +123,15 @@ bassin_pallette = {
     "les-alpes": "darkcyan"
 }
 
+do_not_change = ["Alle Erhebungsgebiete", "All Survey areas"]
+
 def defaultMapCaption(language: str = "de"):
     
     if language == "de":
         caption = [
-            "Karte des Erhebungsgebiets März 2020 bis Mai 2021. ",
-            "Der Durchmesser der Punktsymbole entspricht dem Median der ",
-            "Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort."
+            "Die Erhebungsorte sind für die Analyse nach Erhebungsgebiet ",
+            "gruppiert. Die Grösse der Markierung gibt einen Hinweis auf die ",
+            "Anzahl Abfallobjekte, die gefunden wurden."
             ]
     else:
         caption = [
@@ -139,8 +142,8 @@ def defaultMapCaption(language: str = "de"):
     
 
 
-def thousandsSeparator(aninteger, lang: str = "de"):
-    
+def thousandsSeparator(aninteger: int, lang: str = "de"):
+    # Replaces the comma with a space in integers >= 1000
     astring = "{:,}".format(aninteger)
     if lang == "de":
         astring = astring.replace(",", " ")
@@ -148,7 +151,8 @@ def thousandsSeparator(aninteger, lang: str = "de"):
     return astring
 
 
-def replaceDecimal(afloat, lang: str = "de"):
+def replaceDecimal(afloat: float, lang: str = "de"):
+    # replaces the decimal with a comma for floats
     astring = str(afloat)
     if lang == "de":
         astring = astring.replace(".", ",")
@@ -156,38 +160,48 @@ def replaceDecimal(afloat, lang: str = "de"):
     return astring
 
 
-def fmtPctOfTotal(data, label="% of total", fmt=True, multiple=100, around=1):
-    """Multiplies the value of the objects with label=label by multiple.
-
-    :param data: A pandas data frame of survey results
-    :param label: The column name to treat
-    :param fmt: Wehther or not the values should be foramtted to string
-    :param multiple: The number to multiply by
-    :param round: The number of decimal places to round too
-    :return: The data frame
-    """
+def fmtPctOfTotal(data: pd.DataFrame, label: str = "% of total", multiple: int = 100, around: int = 1):
+    # Formats a float column to string with trailing % sign.
+    # returns the dataframe with a new column using the label provided
     
-    data[label] = (data[label] * multiple)
-    
-    if around == 0:
-        data[label] = data[label].map(lambda x: f"{int(x)}%")
+    try:
+        data[label] = (data[label] * multiple)
+    except ValueError:
+        print(f"Could not make {label} column")
+        raise
     else:
-        data[label] = data[label].map(lambda x: f"{round(x, 2)}%")
-        
-    
+        if around == 0:
+            data[label] = data[label].map(lambda x: f"{int(x)}%")
+        else:
+            data[label] = data[label].map(lambda x: f"{round(x, around)}%")
+            
     return data
 
 
-def updatePlaceNames(x: str = None, column: str = 'water_name', a_map: Any = None):
+def updatePlaceNames(x: str = None, column: str = 'water_name', a_map: Any = None, do_not_change: list = do_not_change):
+    # If x is in tne index or is a key for a_map then the value of a_map for that key
+    # is returned. Else value error is raised.
+    
+    if x in do_not_change:
+        return x
     
     if isinstance(a_map, pd.DataFrame):
-        if x in a_map.index:
+        try:
             x = a_map.loc[x, column]
+        except ValueError:
+            print(f'{x} is not a key for this index')
+            raise
+        else:
+            return x
+            
     if isinstance(a_map, dict):
-        if x in a_map.keys():
+        try:
             x = a_map[x]
-    
-    return x
+        except ValueError:
+            print(f'{x} x is not a key for this index')
+            raise
+        else:
+            return x
 
 
 def thereIsData(data: Any = None, atype: () = None):
@@ -200,7 +214,7 @@ def thereIsData(data: Any = None, atype: () = None):
     
 
 def loadData(filename):
-    # loads data from a .csv
+    # loads data from a .csv into a pandas dataframe
     filename = thereIsData(data=filename, atype=(str,))
     
     try:
@@ -228,7 +242,7 @@ def makeEventIdColumn(data, feature_level, these_features: str = " ", date_range
                       index_name: str = "loc_date", index_prefix="location",
                       index_suffix="date", **kwargs):
     # Combines the location and date column into one str: "slug-date"
-    # makes it possible ot group records by event
+    # makes it possible to group records by event
     # converts string dates to timestamps and localizes to UTC
     data = thereIsData(data=data, atype=(pd.DataFrame,))
     feature_level = thereIsData(data=feature_level, atype=(str,))
@@ -249,23 +263,22 @@ def makeEventIdColumn(data, feature_level, these_features: str = " ", date_range
         except RuntimeError:
             print("The pandas implementation did not function")
             raise
-    
-        temporal_mask = (sliced_data["date"] >= date_range[0]) & (sliced_data["date"] <= date_range[1])
-    
-        data = sliced_data[temporal_mask].copy()
+        
+        else:
+            temporal_mask = (sliced_data["date"] >= date_range[0]) & (sliced_data["date"] <= date_range[1])
+            data = sliced_data[temporal_mask].copy()
     
     return data
 
 
-def featureData(filename, feature_level, language: str=None,
-                date_range: () = None, these_features: str = None,
-                columns: {} = None, unit_label: str = None):
+def featureData(filename: str = None, feature_level: str = None, language: str = None, date_range: () = None, these_features: str = None,
+                columns: {} = None, unit_label: str = None, groupname: str = 'groupname'):
     
     f_data = loadData(filename)
     if isinstance(columns, dict):
         f_data = changeColumnNames(f_data, columns=columns)
     if language == "de":
-        f_data["groupname"] = f_data["groupname"].map(lambda x: group_names_de[x])
+        f_data[groupname] = f_data[groupname].map(lambda x: group_names_de[x])
         f_data.rename(columns={'p/100m': unit_label}, inplace=True)
         
     feature_data = makeEventIdColumn(f_data, feature_level, date_range=date_range, these_features=these_features)
@@ -472,6 +485,7 @@ class LandUseProfile:
         super().__init__()
     
     def byIndexColumn(self):
+       
         data = thereIsData(data=self.data, atype=(pd.DataFrame,))
         columns = [self.index_column, self.feature_level, *self.land_use_columns]
         d = data[columns].drop_duplicates()
@@ -676,9 +690,12 @@ class FeatureData(Codes):
         if isinstance(self.sample_totals, pd.DataFrame):
             return self.sample_totals
         
+        if columns is None:
+            columns = ["loc_date", "location", self.feature_component, "date"]
+        
         cols_ops_kwargs = {
             "column_operations": [(self.unit_label, "sum"), ("quantity", "sum")],
-            "columns": ["loc_date", "location", self.feature_component, "date"],
+            "columns": columns ,
             "unit_label": self.unit_label
         }
 
@@ -686,7 +703,7 @@ class FeatureData(Codes):
         
         if not isinstance(self.feature_data, pd.DataFrame):
             self.makeFeatureData()
-        
+            
         self.sample_totals = self.feature_data.groupby(columns, as_index=False).agg(column_operation)
     
     def codeSummary(self, column_operations: list = None):
@@ -902,6 +919,11 @@ class Beaches:
         a_map = self.df_beaches[["city", "water_name_slug"]].set_index("city", drop=True)
         return a_map.drop_duplicates()
     
+    def makeLocationCityMap(self):
+        a_map = self.df_beaches[["location", "city"]].set_index('city', drop=True)
+        return a_map.drop_duplicates()
+    
+    
 class AdministrativeSummary(Beaches):
     col_nunique_qty = ["location", "loc_date", "city"]
     col_sum_qty = ["quantity"]
@@ -921,7 +943,6 @@ class AdministrativeSummary(Beaches):
         self.locations_of_interest = None
         self.lakes_of_interest = None
         self.rivers_of_interest = None
-        
     
     def locationsOfInterest(self, **kwargs):
         data = thereIsData(self.feature_data, pd.DataFrame)
@@ -1064,6 +1085,9 @@ class AdministrativeSummary(Beaches):
 
     
 # style definitions for pdf report
+# types
+a_flowable_paragraph = reportlab.platypus.paragraph
+a_flowable_image = reportlab.platypus.flowables.Image
 # section and paragraph formatting
 title_style = ParagraphStyle(**{"name": "title_style", "fontSize": 16, "fontName": "Helvetica"})
 section_title = ParagraphStyle(**{"name": "section_title", "fontSize": 14, "fontName": "Helvetica"})
@@ -1072,24 +1096,101 @@ subsection_title = ParagraphStyle(**{"name": "sub_section_title", "fontSize": 12
 p_style = ParagraphStyle(**{"name": "content", "fontSize": 10, "fontName": "Times-Roman"})
 bold_block = ParagraphStyle(**{"name": "bold_block", "fontSize": 10, "fontName": "Times-Bold"})
 indented = ParagraphStyle(**{"name": "indented", "fontSize": 10, "fontName": "Times-Roman", "leftIndent":36})
+block_quote_style = ParagraphStyle(**{"name": "list_item_style", "fontSize": 10, "fontName": "Times-Italic", "leading":15, "leftIndent":20})
 
-# spacers 
+# spacers
 larger_space = Spacer(1, 1.5*cm)
 large_space = Spacer(1, 1*cm)
 small_space = Spacer(1, .5*cm)
 smaller_space = Spacer(1, .25*inch)
 smallest_space = Spacer(1, .2*cm)
-# table definitions:
+
+# table cell definitions:
 table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
 table_style = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica"})
 styled_table_header = ParagraphStyle(**{"name": "table_header", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
 table_style_centered = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica", "alignment":1})
 table_style_right = ParagraphStyle(**{"name": "table_style", "fontSize": 8, "fontName": "Helvetica", "alignment":2})
+# lists
+list_item_style = ParagraphStyle(
+    **{"name": "list_item_style", "fontSize": 10, "fontName": "Times-Roman", "leftIndent": 5, "leading": 13,
+       "bulletFont": "Times-Roman", "bulletFontSize": 6})
+
+
+def makeAList(alistofstrings):
+    group_list_items = [ListItem(Paragraph(x, list_item_style), leftIndent=25, bulletOffsetY=-3.2) for x in
+                        alistofstrings]
+    group_list = ListFlowable(group_list_items, bulletType='bullet', start="circle", bulletFontSize=6, leftIndent=5)
+    
+    return group_list
+
+# table definitions
+default_table_style = TableStyle([
+    ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),
+    ('FONTSIZE', (0, 0), (-1, -1), 9),
+    ('INNERGRID', (1, 1), (-1, -1), 0.25, HexColor("#8b451330", hasAlpha=True)),
+    ('ROWBACKGROUNDS', (1, 1), (-1, -1), [HexColor("#8b451320", hasAlpha=True), colors.white]),
+    ('TOPPADDING', (0, 0), (-1, -1), 1),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 1)
+
+])
+figure_table_style = TableStyle([
+    ('BOX', (0, 0), (-1, -1), .5, HexColor("#ffffff")),
+    ('ALIGN', (0, 0), (0, 0), 'CENTER'),
+    ('TOPPADDING', (0, 0), (0, 0), 8),
+    ('BOTTOMPADDING', (0, 0), (0, 0), 8),
+    ('LEFTPADDING', (1, 0), (1, 0), 8),
+    ('RIGHTPADDING', (1, 0), (1, 0), 0),
+
+])
+
+side_by_side_style_figure_left = TableStyle([
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 0),
+    ('TOPPADDING', (0, 0), (0, 0), 0),
+    ('TOPPADDING', (0, 1), (0, 1), 0),
+    ('VALIGN', (0, 0), (-1, -1), "TOP"),
+    ('VALIGN', (0, 0), (0, 0), "BOTTOM"),
+    ('ALIGN', (0,0), (-1,-1), 'LEFT'),
+    ('LEFTPADDING', (0,0), (0, 0), 0),
+    ('LEFTPADDING', (0,1), (0, 1), 8),
+])
+
+side_by_side_style_figure_right = TableStyle([
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 0),
+    ('TOPPADDING', (0, 0), (0, 0), 0),
+    ('TOPPADDING', (0, 1), (0, 1), 0),
+    ('VALIGN', (0, 0), (-1, -1), "TOP"),
+    ('VALIGN', (0, 0), (0, 0), "TOP"),
+    ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+    ('LEFTPADDING', (0, 0), (0, 0), 0),
+    ('LEFTPADDING', (0, 1), (0, 1), 8),
+])
+
 
 def addToDoc(flowables, alist):
     
     doc_components = [*alist, *flowables]
     return doc_components
+
+def combineString(a_list):
+    return ''.join(a_list)
+def makeAParagraph(alist_of_strings, style=p_style):
+    p_text = combineString(alist_of_strings)
+    return Paragraph(p_text, style)
+
+
+def makeBibEntry(name: str = None, team: str = None, pub: str = None):
+    anchor = f'<a name="{name}"/>{name}: <i>{team}</i> {pub}'
+    return anchor
+
+
+def sectionParagraphs(a_list_of_lists, smallspace=small_space):
+    section = []
+    for para in a_list_of_lists:
+        p = makeAParagraph(para)
+        section.append(p)
+        section.append(KeepTogether(smallspace))
+    return section
 
 
 def adminFormatNumericInteger(func=thousandsSeparator, an_int: str=None, language: str=None):
@@ -1115,7 +1216,8 @@ def stringStartEndDate(func=dateToYearAndMonth, date_format: str="%Y-%m-%d", lan
         return data
 
 
-def makeAdminSummaryStateMent(start, end, feature_name, language: str="de", admin_summary: dict=None):
+def makeAdminSummaryStateMent(start, end, feature_name, language: str="de", admin_summary: dict=None,
+                              all_lakes_and_rivers: bool=False):
     # the admin summary can be called from the admin class. It has a specific construction. 
     # use the data in the admin summary class to assemble string representation
     
@@ -1126,8 +1228,11 @@ def makeAdminSummaryStateMent(start, end, feature_name, language: str="de", admi
     population = adminFormatNumericInteger(an_int=admin_summary["population"])
     
     if language != None:
-        phrase_one = f"Im Zeitraum von {start_date}  bis {end_date} wurden im Rahmen von {n_samples} Datenerhebungen insgesamt {total} Objekte entfernt und identifiziert."
-        phrase_two = f"Die Ergebnisse des {feature_name} umfassen {admin_summary['location']} Orte, {admin_summary['city']} Gemeinden und eine Gesamtbevölkerung von etwa {population} Einwohnenden."
+        phrase_one = f"Im Zeitraum von {start_date}  bis {end_date} wurden im Rahmen von {n_samples} Datenerhebungen insgesamt {total} Objekte entfernt und identifiziert. "
+        if all_lakes_and_rivers:
+            phrase_two = f"Die Ergebnisse aller Erhebungsgebiete umfassen {admin_summary['location']} Orte, {admin_summary['city']} Gemeinden und eine Gesamtbevölkerung von etwa {population} Einwohnenden."
+        else:
+            phrase_two = f"Die Ergebnisse des {feature_name} umfassen {admin_summary['location']} Orte, {admin_summary['city']} Gemeinden und eine Gesamtbevölkerung von etwa {population} Einwohnenden."
         
         return f'{phrase_one} {phrase_two}'
     else:
@@ -1153,7 +1258,7 @@ def collectComponentLandMarks(admin_details, language="de"):
         else:
             header = "Lakes"
         
-        components = (header,  ", ".join(admin_details.lakes_of_interest))
+        components = ("Seen",  ", ".join(admin_details.lakes_of_interest))
         
         component_list.append(components)
     
@@ -1167,7 +1272,7 @@ def collectComponentLandMarks(admin_details, language="de"):
         else:
             header = "Rivers"
         
-        components = (header,  ", ".join(admin_details.rivers_of_interest))
+        components = ("Fliessgewässer",  ", ".join(admin_details.rivers_of_interest))
         
         component_list.append(components)
         
@@ -1180,7 +1285,7 @@ def collectComponentLandMarks(admin_details, language="de"):
     else:
         city_header = "Municipalities"
         
-    munis = (city_header, ", ".join(sorted(admin_details.populationKeys()["city"])))
+    munis = ("Gemeinden", ", ".join(sorted(admin_details.populationKeys()["city"])))
     
     component_list.append(munis)
     
@@ -1208,18 +1313,6 @@ class verticalText(Flowable):
         return canv._leading, 1 + canv.stringWidth(self.text, fn, fs)
 
   
-default_table_style = [
-            ('FONTNAME', (0,0), (-1,-1), 'Helvetica'),
-            ('FONTSIZE', (0, 0), (-1, -1), 8),
-            # ('LINEBELOW',(0,0), (-1,0), 1, HexColor("#000")),
-            ('INNERGRID', (1,1), (-1,-1), 0.25, HexColor("#8b451330", hasAlpha=True)),
-            ('ROWBACKGROUNDS', (1,1), (-1,-1), [HexColor("#8b451320", hasAlpha=True), colors.white]),
-            ('TOPPADDING', (0, 0), (-1, -1), 1),
-            ('BOTTOMPADDING', (0, 0), (-1, -1), 1)
-    
-        ]
-
-
 def aStyledTable(data, header_style: Paragraph = styled_table_header, vertical_header: bool = False,
                  data_style: Paragraph = table_style_centered, colWidths: list = None, style: list = None,
                  gradient: bool = False, caption: str = None, caption_location: str = "BOTTOM", caption_style: () = caption_style):
@@ -1254,14 +1347,13 @@ def aStyledTable(data, header_style: Paragraph = styled_table_header, vertical_h
     table = Table(new_table, style=style, colWidths=colWidths, repeatRows=1)
     # the width of the caption should match the width of the table
     table_width = sum(colWidths)/cm
-    left_indent = round((21 - table_width)/2, 2)
+    left_indent = round((21 - table_width)/2, 1)
     
     caption_kwargs = {
         "name": "caption_style",
         "fontSize": 9,
         "fontName": "Times-Italic",
-        "leftIndent": left_indent*cm,
-        "rightIndent": left_indent*cm/2
+       
     }
     new_caption_style = ParagraphStyle(**caption_kwargs)
     table_caption = Paragraph(caption, new_caption_style)
@@ -1269,15 +1361,74 @@ def aStyledTable(data, header_style: Paragraph = styled_table_header, vertical_h
     if gradient:
         table_color_gradient = colorGradientTable(data)
         table.setStyle(table_color_gradient)
+    table.hAlign = 'CENTER'
         
     if caption_location == "BOTTOM":
-        table.hAlign = 'CENTER'
         
         return KeepTogether([table, smallest_space, table_caption])
     else:
         return KeepTogether([table_caption, smallest_space, table])
 
 
+def aSingleStyledTable(data, header_style: Paragraph = styled_table_header, vertical_header: bool = False,
+                       data_style: Paragraph = table_style_centered, colWidths: list = None, style: list = None,
+                       gradient: bool = False):
+    table_data = data.reset_index()
+    
+    if vertical_header:
+        headers = [verticalText(x) for x in data.columns]
+        headers = [verticalText(" "), *headers]
+    else:
+        headers = [Paragraph(str(x), header_style) for x in data.columns]
+        headers = [Paragraph(" ", table_style_centered), *headers]
+    
+    if style is None:
+        style = TableStyle([
+            ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),
+            ('FONTSIZE', (0, 0), (-1, -1), 8),
+            ('INNERGRID', (1, 1), (-1, -1), 0.25, HexColor("#8b451330", hasAlpha=True)),
+            ('ROWBACKGROUNDS', (1, 1), (-1, -1), [HexColor("#8b451320", hasAlpha=True), colors.white]),
+            ('TOPPADDING', (0, 0), (-1, -1), 1),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 1),
+            ('VALIGN', (1, 0), (-1, -1), "MIDDLE")
+        ])
+    
+    new_rows = []
+    for a_row in table_data.values.tolist():
+        
+        if isinstance(a_row[0], str):
+            row_index = Paragraph(a_row[0], table_style_right)
+            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            new_row = [row_index, *row_data]
+            new_rows.append(new_row)
+        else:
+            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            new_rows.append(row_data)
+    
+    if gradient:
+        # print("This is a gradient")
+        table_color_gradient = colorGradientTable(data)
+        elements = [x for x in table_color_gradient.getCommands()]
+        for element in elements:
+            style.add(*element)
+    
+    new_table = [headers, *new_rows]
+    # print(len(style.getCommands()))
+    table = Table(new_table, style=style, colWidths=colWidths, hAlign="CENTER", repeatRows=1)
+    
+    return table
+
+
+def tableAndCaption(table, caption, col_widths):
+    table_and_caption_data = [[table], [caption]]
+    
+    colWidths = [sum(col_widths) + .25 * cm]
+    # print("\n colWidths table and captions \n")
+    # print(colWidths)
+    
+    table_and_caption = Table(table_and_caption_data, colWidths=colWidths, style=figure_table_style)
+    
+    return table_and_caption
 def aStyledTableExtended(data, row_header: int=0, row_ends: int=-3, caption_prefix: str = None,
                          header_style: Paragraph = styled_table_header, vertical_header: bool = False,
                          data_style: Paragraph = table_style_centered, gradient: bool = False, colWidths: list = None,
@@ -1297,12 +1448,12 @@ def aStyledTableExtended(data, row_header: int=0, row_ends: int=-3, caption_pref
     if len(data_cols)%2 == 0:
         first_table_stop = int(len(data_cols)/2)
         first_table_cols = cols[start_data_cols: first_table_stop]
-        second_table_cols = cols[first_table_stop: -3]
+        second_table_cols = cols[first_table_stop: row_ends]
         
     if len(data_cols)%2 == 1:
         first_table_stop = int((len(data_cols)+1)/2)+1
         first_table_cols = cols[start_data_cols: first_table_stop]
-        second_table_cols = cols[first_table_stop:-3]
+        second_table_cols = cols[first_table_stop:row_ends]
         # print(second_table_cols)
         
     first_table_data = table_data[[first_col, *first_table_cols, *last_cols]].set_index(first_col)
@@ -1323,12 +1474,18 @@ def aStyledTableExtended(data, row_header: int=0, row_ends: int=-3, caption_pref
     table_kwargs.update({"colWidths": colWidths})
     
     table_one_caption = f'{caption_prefix}, {", ".join(first_table_cols)}'
-    table_one = aStyledTable(first_table_data, caption=table_one_caption, gradient=gradient, **table_kwargs)
+    table_one_caption = Paragraph(table_one_caption, caption_style)
+    col_widths = [4.5 * cm, *[1.2 * cm] * (len(first_table_data.columns) - 1)]
+    table_one = aSingleStyledTable(first_table_data, colWidths=col_widths, gradient=True, vertical_header=vertical_header)
+    table_one_and_caption = tableAndCaption(table_one, table_one_caption, col_widths)
 
     table_two_caption = f'{caption_prefix}, {", ".join(second_table_cols)}'
-    table_two = aStyledTable(second_table_data, caption=table_two_caption, gradient=gradient, **table_kwargs)
+    table_two_caption = Paragraph(table_two_caption, caption_style)
+    col_widths = [4.5 * cm, *[1.2 * cm] * (len(second_table_data.columns) - 1)]
+    table_two = aSingleStyledTable(second_table_data, colWidths=col_widths, gradient=True, vertical_header=vertical_header)
+    table_two_and_caption = tableAndCaption(table_two, table_two_caption, col_widths)
     
-    return [table_one, small_space, table_two]
+    return [table_one_and_caption, small_space, table_two_and_caption]
             
     
 
@@ -1349,19 +1506,25 @@ def stringifyValue(x):
 def colorGradientTable(data, color_gradient: callable=colorGradient, column: int=None):
     
     gradient_cells = TableStyle()
+    a_min = data.min().min()
+    a_max = data.max().max()
+    change_font_color = a_max * .7
     
     if column is None:
-        a_min = data.min().min()
-        a_max = data.max().max()
         for i, row in enumerate(data.values):
             for j, element in enumerate(row):
                 hex_color = colorGradient(element, amin=a_min, amax=a_max)
                 gradient_cells.add('BACKGROUND', (j+1, i+1), (j+1, i+1), hex_color)
+                if element > change_font_color:
+                    gradient_cells.add('TEXTCOLOR', (j + 1, i + 1), (j + 1, i + 1), colors.white)
     
     elif isinstance(column, int) and column < len(data.values[0]):
         for i, row in enumerate(data.values):
             hex_color = colorGradient(row[column])
             gradient_cells.add('BACKGROUND', (column+1,i+1), (column+1,i+1), hex_color)
+            if row[column] > change_font_color:
+                gradient_cells.add('TEXTCOLOR', (column+1,i+1), (column+1,i+1), colors.white)
+            
     else:
         print("ouch")
     
@@ -1369,3 +1532,80 @@ def colorGradientTable(data, color_gradient: callable=colorGradient, column: int
 
 def rotateText(x):
     return 'writing-mode: vertical-lr; transform: rotate(-180deg);  padding:10px; margins:0; vertical-align: baseline;'
+
+
+def figureAndCaptionTable(image_file: str = None, caption: a_flowable_paragraph = None, desired_width: float = None,
+                          caption_height: float = None, original_width: float = None, original_height: float = None,
+                          style: list = figure_table_style,  hAlign: str = "CENTER"):
+    if desired_width == original_width:
+        height = (original_height + 0.5) * cm
+    else:
+        height = (desired_width * original_height / original_width + 0.5) * cm
+    
+    figure = Image(image_file, width=desired_width * cm, height=height, kind="proportional", hAlign=hAlign)
+    
+    if caption is None:
+        return figure
+        
+    figure_and_caption_data = [[figure], [caption]]
+    
+    colWidths = [(desired_width + .05) * cm]
+    rowHeights = [height, caption_height * cm]
+    
+    figure_and_caption = Table(figure_and_caption_data, colWidths=colWidths, rowHeights=rowHeights,
+                               style=figure_table_style, hAlign=hAlign)
+    
+    return figure_and_caption
+
+
+def aStyledTableWithTitleRow(data, header_style: Paragraph = styled_table_header, title: str = None,
+                             data_style: Paragraph = table_style_centered, colWidths: list = None, style: list = None):
+    table_data = data.reset_index()
+    
+    headers = [Paragraph(str(x), header_style) for x in data.columns]
+    headers = [Paragraph(" ", data_style), *headers]
+    
+    if style is None:
+        style = default_table_style
+    
+    new_rows = []
+    for a_row in table_data.values.tolist():
+        
+        if isinstance(a_row[0], str):
+            row_index = Paragraph(a_row[0], table_style_right)
+            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            new_row = [row_index, *row_data]
+            new_rows.append(new_row)
+        else:
+            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            new_rows.append(row_data)
+    
+    table_title_style = [
+        ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),
+        ('FONTSIZE', (0, 0), (-1, -1), 12),
+        ('ROWBACKGROUND', (0, 0), (-1, -1), [colors.white]),
+        ('TOPPADDING', (0, 0), (-1, -1), 3),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 3)
+    
+    ]
+    
+    table_title = Table([[title]], style=table_title_style, colWidths=sum(colWidths))
+    new_table = [[table_title], headers, *new_rows]
+    table = Table(new_table, style=style, colWidths=colWidths, repeatRows=2)
+    
+    return table
+
+
+def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False, row_ends=-3,
+                    this_feature: str = None, vertical_header: bool = False, colWidths: list = None):
+    if len(data.columns) > 13:
+        tables = aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix,
+                                                  row_ends=row_ends, vertical_header=vertical_header,
+                                                  colWidths=colWidths)
+    else:
+        tables = aStyledTable(data, caption=caption, vertical_header=vertical_header, gradient=gradient,
+                                          colWidths=colWidths)
+    
+    return tables
+
+

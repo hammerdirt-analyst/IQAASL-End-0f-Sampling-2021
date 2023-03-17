@@ -1,0 +1,21 @@
+location,feature,city,quantity,p/100 m,loc_date,lat,lon,samples
+airolo,Alpes Lépontines,Airolo,224,595.0,1,46.514257,8.607884,1
+andermatt,Alpes Uranaises,Andermatt,24,24.0,1,46.618327,8.598803,1
+cabanes-des-diablerets,Alpes Vaudoises,Ormont-Dessus,165,1375.0,1,46.338604,7.215525,1
+charmey,Préalpes Fribourgeoises,Val-de-Charmey,174,580.0,1,46.622641,7.189341,1
+crans-montana,Alpes Valaisannes,Lens,47,106.0,1,46.334214,7.479386,1
+grindelwald,Alpes Bernoises,Grindelwald,169,281.0,1,46.658523,8.065323,1
+la-berra,Préalpes Fribourgeoises,La Roche,34,58.0,1,46.677399,7.178738,1
+la-robella,Massif du Jura,Val-de-Travers,47,59.0,1,46.875905,6.548577,1
+la-tzoumaz,Alpes Valaisannes,Riddes,88,110.0,1,46.144287,7.232897,1
+les-crosets,Alpes Valaisannes,Val-d'Illiez,518,549.0,1,46.183591,6.832916,1
+les-diablerets,Alpes Vaudoises,Ormont-Dessus,31,28.0,1,46.346141,7.151228,1
+les-paccots,Préalpes Fribourgeoises,Châtel-Saint-Denis,118,243.0,1,46.512592,6.949421,1
+monte-generoso,Alpes Lépontines,Rovio,32,42.0,1,45.929625,9.019921,1
+morgins,Alpes Valaisannes,Troistorrents,123,163.0,1,46.236681,6.858132,1
+nendaz,Alpes Valaisannes,Nendaz,182,287.0,1,46.162099,7.283486,1
+san-bernardino,Alpes Lépontines,Mesocco,431,8620.0,1,46.445947,9.191344,1
+val-calanca,Alpes Lépontines,Calanca,78,96.0,1,46.330718,9.120103,1
+verbier,Alpes Valaisannes,Val de Bagnes,205,410.0,1,46.103981,7.22476,1
+veysonnaz,Alpes Valaisannes,Nendaz,4981,41505.0,1,46.180334,7.366005,1
+villars,Alpes Vaudoises,Ollon,105,99.0,1,46.321937,7.073841,1
