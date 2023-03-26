@@ -1,19 +1,20 @@
-# Recyceln und neu gestalten
+# Recyceln und neugestalten
 
 <a href="reuse_remake.html"> English </a>
 
-Precious Plastic Léman [PPL](https://preciousplasticleman.ch/) ist ein Verein, der sich aktiv für die Wiederverwendung und Reduzierung von Kunststoffabfällen in der Genferseeregion einsetzt. Die Mitglieder stellen neue Produkte her, indem sie die Kunststoffabfälle aus ihrer Werkstatt in Lausanne umwandeln. 
+Precious Plastic Léman [PPL](https://preciousplasticleman.ch/) st ein Verein, der sich aktiv für die 
+Wiederverwendung und  Reduzierung von Kunststoffabfällen in der Genferseeregion einsetzt. Die Mitglieder stellen neue Produkte her, indem sie die Kunststoffabfälle aus ihrer Werkstatt in Lausanne umwandeln. 
 
-Als Designer und Verarbeiter verbringen die Mitglieder von PPL mehr Zeit in der Werkstatt als draussen mit dem Sammeln von Abfallobjekten aus Plastik. PPL erhält in erster Linie gebrauchte Kunststoffe aus Spenden, die am Arbeitsplatz abgegeben werden. In Bezug auf die Abfallobjekte am Strand hatten die Mitglieder von PPL zwei Fragen, die sie beantworten wollten: 
+Als Designer und Verarbeiter verbringen die Mitglieder von PPL mehr Zeit in der Werkstatt als draussen mit dem Sammeln von Abfallobjekten aus Plastik. PPL erhält in erster Linie gebrauchte Kunststoffe aus Spenden, die am Arbeitsplatz abgegeben werden. In Bezug auf die Abfallobjekte an Gewässern hatten die Mitglieder von PPL zwei Fragen, die sie beantworten wollten:
 
-1. Wie viel des gesammelten Plastikmülls könnte für den Betrieb von PPL verwendet werden? 
-2. Was genau wäre erforderlich, um die an der Küste gesammelten Kunststoffe zu recyceln?
+1. Wie viel des gesammelten Plastikmülls könnte für den Betrieb von PPL verwendet werden?
+2. Was genau wäre erforderlich, um die am Ufer gesammelten Kunststoffe zu recyceln?
 
-Die Mitglieder von PPL waren für drei Untersuchungsstandorte am Lac Léman verantwortlich und sammelten von April 2020 - Mai 2021 Proben. Die Umwandlung von gebrauchten Kunststoffen in neue Produkte ist ein mehrstufiger Prozess. Sobald die Gegenstände gesammelt wurden, müssen sie sortiert, gereinigt, zu Granulat verarbeitet und dann spritzgegossen werden. Beachten Sie, dass die Gesamtmengen und Prozentsätze der identifizierten Gegenstände, die im Folgenden erörtert werden, alle aufgezeichneten Daten aus dem IQAALS-Projekt sind, mit Ausnahme der Alpen und des Jura. 
+Die Mitglieder von PPL waren für drei Erhebungsorte am Genfersee verantwortlich und sammelten von April 2020 bis Mai 2021 Proben. Die Umwandlung von gebrauchten Kunststoffen in neue Produkte ist ein mehrstufiger Prozess. Sobald die Objekte gesammelt sind, müssen sie sortiert, gereinigt, zu Granulat verarbeitet und dann spritzgegossen werden. Es ist zu beachten, dass die Gesamtmengen und Prozentsätze der identifizierten Objekte, die im Folgenden erörtert werden, aufgezeichnete Daten aus dem Seen-und-Fliessgewässer-Teil des IQAALS-Projekts sind.
 
 ## Sortieren 
 
-Verschiedene Arten von Kunststoffen haben unterschiedliche Eigenschaften. PPL achtet darauf, dass bei der Verarbeitung und Herstellung von Produkten keine Kunststoffarten vermischt werden. Bei Gegenständen, bei denen die Art des Kunststoffs nicht eindeutig angegeben ist, verwendet PPL die FTIR-Technologie zur Unterscheidung der Kunststoffarten.
+Verschiedene Arten von Kunststoffen haben unterschiedliche Eigenschaften. PPL achtet darauf, dass bei der Verarbeitung und Herstellung von Produkten keine Kunststoffarten vermischt werden. Bei Objekten, bei denen die Art des Kunststoffs nicht eindeutig angegeben ist, verwendet PPL die FTIR-Technologie zur Unterscheidung der Kunststoffarten.
 
 *__Unten:__ Identifizierung von Kunststoffen aus Strand-Abfallaufkommen Untersuchungen*
 :::{image} resources/images/reuse_recycle/machine.jpeg

@@ -1184,10 +1184,10 @@ def makeBibEntry(name: str = None, team: str = None, pub: str = None):
     return anchor
 
 
-def sectionParagraphs(a_list_of_lists, smallspace=small_space):
+def sectionParagraphs(a_list_of_lists, smallspace=small_space, style=p_style):
     section = []
     for para in a_list_of_lists:
-        p = makeAParagraph(para)
+        p = makeAParagraph(para, style=style)
         section.append(p)
         section.append(KeepTogether(smallspace))
     return section

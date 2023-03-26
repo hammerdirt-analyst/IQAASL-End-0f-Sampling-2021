@@ -45,6 +45,8 @@ from PIL import Image as PILImage
 from IPython.display import Markdown as md
 from myst_nb import glue
 import locale
+
+
 loc = locale.getlocale()
 lang =  "de_CH.utf8"
 locale.setlocale(locale.LC_ALL, lang)

@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="next" title="8. Codegruppen" href="code_groups_de.html" />
-    <link rel="prev" title="6. Basiswerte für Abfallobjekte an Gewässern" href="baselines_de.html" />
+    <link rel="next" title="8. Codegruppen" href="code_groups.html" />
+    <link rel="prev" title="6. Basiswerte für Abfallobjekte an Gewässern" href="baselines.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -115,17 +115,17 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="lakes_rivers_de.html">
+  <a class="reference internal" href="lakes_rivers.html">
    1. Seen und Fliessgewässer
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="alpes_valaisannes_rev_de.html">
+  <a class="reference internal" href="alpes_valaisannes.html">
    2. Alpen und der Jura
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="aare_sa_de.html">
+  <a class="reference internal" href="aare_sa.html">
    3. Aare
   </a>
  </li>
@@ -140,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="baselines_de.html">
+  <a class="reference internal" href="baselines.html">
    6. Basiswerte für Abfallobjekte an Gewässern
   </a>
  </li>
@@ -150,13 +150,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="code_groups_de.html">
+  <a class="reference internal" href="code_groups.html">
    8. Codegruppen
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="key_indicators_rev.html">
+  <a class="reference internal" href="key_indicators.html">
    9. Statistische Schlüsselindikatoren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reuse_remake.html">
+   10. Recyceln und neugestalten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="shared_responsibility.html">
+   11. Geteilte Verantwortung
   </a>
  </li>
 </ul>
@@ -510,6 +520,8 @@ title="Open an issue"
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="kn">import</span> <span class="nn">locale</span>
+
+
 <span class="n">loc</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="n">getlocale</span><span class="p">()</span>
 <span class="n">lang</span> <span class="o">=</span>  <span class="s2">&quot;de_CH.utf8&quot;</span>
 <span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
@@ -1350,7 +1362,7 @@ title="Open an issue"
 <li><p>Industriepellets</p></li>
 <li><p>expandierte Schaumstoffe &lt; 5 mm</p></li>
 </ul>
-<p>Diese Objekte werden in grossen Mengen sporadisch an bestimmten Orten gefunden. Sie wurden in allen Untersuchungsgebieten und in allen Seen identifiziert. Industriepellets haben einen sehr spezifischen Verwendungszweck und Kundenstamm, so dass es möglich ist, auf der Grundlage der Dichte und des Erhebungsorts der identifizierten Pellets und des Standorts des nächstgelegenen Verbrauchers oder Herstellers von Pellets, siehe <span class="xref myst">Geteilte Verantwortung</span>¶, die Quelle zu bestimmen und die Auswirkungen zu verringern.</p>
+<p>Diese Objekte werden in grossen Mengen sporadisch an bestimmten Orten gefunden. Sie wurden in allen Untersuchungsgebieten und in allen Seen identifiziert. Industriepellets haben einen sehr spezifischen Verwendungszweck und Kundenstamm, so dass es möglich ist, auf der Grundlage der Dichte und des Erhebungsorts der identifizierten Pellets und des Standorts des nächstgelegenen Verbrauchers oder Herstellers von Pellets, siehe <a class="reference internal" href="shared_responsibility.html#transport"><span class="std std-ref">Geteilte Verantwortung</span></a>¶, die Quelle zu bestimmen und die Auswirkungen zu verringern.</p>
 <section id="anwendung">
 <h3><span class="section-number">7.3.1. </span>Anwendung<a class="headerlink" href="#anwendung" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die Anzahl der Stichproben, die verwendet werden, um eine Assoziation mit Spearman zu bestimmen, muss vorsichtig gewählt sein.</p>
@@ -1360,8 +1372,8 @@ title="Open an issue"
 <p><strong>Warum 1500 Meter?</strong> Für diese Studie haben wir uns mit Objekten befasst, die hohe Werte für Rho bei kleineren Radien aufwiesen, die dem Massstab der bereitgestellten Daten angemessen waren. Es wurden auch andere Entfernungen in Betracht gezogen (2 km, 2,5 km, 5 km und 10 km). Generell gilt, dass mit zunehmendem Radius die den Gebäuden zugewiesene Fläche abnimmt und damit auch der Wert von Rho. Dieses Thema wurde in einem Artikel, der derzeit für das Peer-Review-Verfahren vorbereitet wird, ausführlicher behandelt.</p>
 <p>Die Überprüfung einer Assoziation erfolgt durch die Berücksichtigung aller anderen Schlüsselindikatoren und das Urteil von Experten. Das kommunale Reinigungs- und Unterhaltspersonal ist mit den Bedingungen vor Ort vertraut und ist eine der besten Informationsquellen. Die Wiederholung von Stichproben an einem bestimmten Ort für einen bestimmten Zeitraum und der Vergleich der Ergebnisse mit den Ausgangswerten für das Erhebungsgebiet ist ebenfalls eine zuverlässige Methode, um die Leistung in Bezug auf das Erhebungsgebiet zu bestimmen.</p>
 <p>Der Rangkorrelationskoeffizient ist eine effiziente und zuverlässige Methode, mit der sich Landnutzungsklassifizierungen identifizieren lassen, die mit erhöhten oder verringerten Mengen an bestimmten Abfallobjekten verbunden sind. Das Ausmass der Beziehung in Bezug auf die Anzahl der Objekte auf dem Boden bleibt jedoch undefiniert.</p>
-<p>Um mehr darüber zu erfahren, wie sich die Erhebungsergebnisse je nach Landnutzung ändern und/oder gleichbleiben, siehe <span class="xref myst">Geteilte Verantwortung</span>.</p>
-<p>Um zu verstehen, wie die Abfallobjekte für diesen Bericht berechnet wurden, siehe <a class="reference internal" href="baselines_de.html#threshhold"><span class="std std-ref">Basiswerte für Abfallobjekte an Gewässern</span></a>.</p>
+<p>Um mehr darüber zu erfahren, wie sich die Erhebungsergebnisse je nach Landnutzung ändern und/oder gleichbleiben, siehe <a class="reference internal" href="shared_responsibility.html#transport"><span class="std std-ref">Geteilte Verantwortung</span></a>.</p>
+<p>Um zu verstehen, wie die Abfallobjekte für diesen Bericht berechnet wurden, siehe <a class="reference internal" href="baselines.html#threshhold"><span class="std std-ref">Basiswerte für Abfallobjekte an Gewässern</span></a>.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -1397,14 +1409,14 @@ title="Open an issue"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="baselines_de.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="baselines.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
             <p class="prev-next-title"><span class="section-number">6. </span>Basiswerte für Abfallobjekte an Gewässern</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="code_groups_de.html" title="weiter Seite">
+    <a class='right-next' id="next-link" href="code_groups.html" title="weiter Seite">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title"><span class="section-number">8. </span>Codegruppen</p>

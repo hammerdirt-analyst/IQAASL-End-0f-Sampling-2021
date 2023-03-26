@@ -8,15 +8,17 @@ parts:
   - caption: Zusammenfassung
     numbered: True
     chapters:
-    - file: lakes_rivers_de
-    - file: alpes_valaisannes_rev_de
-    - file: aare_sa_de
+    - file: lakes_rivers
+    - file: alpes_valaisannes
+    - file: aare_sa
     - file: bielersee
     - file: lac-leman
-    - file: baselines_de
+    - file: baselines
     - file: land_use_correlation
-    - file: code_groups_de
-    - file: key_indicators_rev
+    - file: code_groups
+    - file: key_indicators
+    - file: reuse_remake
+    - file: shared_responsibility
     
    
  
