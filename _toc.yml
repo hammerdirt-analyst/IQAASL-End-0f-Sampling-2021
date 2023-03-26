@@ -12,6 +12,7 @@ parts:
     - file: alpes_valaisannes
     - file: aare_sa
     - file: bielersee
+    - file: neuenburgersee
     - file: lac-leman
     - file: baselines
     - file: land_use_correlation

@@ -17,6 +17,7 @@ from reportlab.platypus import Table, TableStyle
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
 
 date_format = "%Y-%m-%d"
 
@@ -124,6 +125,13 @@ bassin_pallette = {
 }
 
 do_not_change = ["Alle Erhebungsgebiete", "All Survey areas"]
+
+# colors for gradients
+colorsx = ["beige", "navajowhite", "sandybrown", "salmon", "sienna"]
+nodes = [0.0, 0.2, 0.6, 0.8, 1.0]
+cmap2 = LinearSegmentedColormap.from_list("mycmap", list(zip(nodes, colorsx)))
+
+xlab_k14 = {'labelpad':10, 'fontsize':14}
 
 def defaultMapCaption(language: str = "de"):
     
