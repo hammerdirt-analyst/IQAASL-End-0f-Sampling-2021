@@ -1,0 +1,1113 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>10. Statistische Schlüsselindikatoren</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="11. Recyceln und neugestalten" href="reuse_remake.html" />
+    <link rel="prev" title="9. Codegruppen" href="code_groups.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="de">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/iqaaslogo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Zusammenfassung
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lakes_rivers.html">
+   1. Seen und Fliessgewässer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="alpes_valaisannes.html">
+   2. Alpen und der Jura
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="aare_sa.html">
+   3. Aare
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bielersee.html">
+   4. Bielersee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="neuenburgersee.html">
+   5. Neuenburgersee
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lac-leman.html">
+   6. Lac Léman
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="baselines.html">
+   7. Basiswerte für Abfallobjekte an Gewässern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="land_use_correlation.html">
+   8. Landnutzungsprofil
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="code_groups.html">
+   9. Codegruppen
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   10. Statistische Schlüsselindikatoren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reuse_remake.html">
+   11. Recyceln und neugestalten
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="shared_responsibility.html">
+   12. Geteilte Verantwortung
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/issues/new?title=Issue%20on%20page%20%2Fkey_indicators.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indikatoren-fur-die-am-haufigsten-gestellten-fragen">
+   10.1. Indikatoren für die am häufigsten gestellten Fragen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annahmen-zu-den-schlusselindikatoren">
+     10.1.1. Annahmen zu den Schlüsselindikatoren
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verwendung-der-schlusselindikatoren">
+     10.1.2. Verwendung der Schlüsselindikatoren
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-die-am-haufigsten-gefundenen-objekte">
+   10.2. Definition: Die am häufigsten gefundenen Objekte
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-wichtigsten-indikatoren">
+   10.3. Die wichtigsten Indikatoren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-anzahl-der-proben">
+     10.3.1. Die Anzahl der Proben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-haufikeitsrate">
+     10.3.2. Die Häufikeitsrate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objekte-pro-meter">
+     10.3.3. Objekte pro Meter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prozentsatz-der-gesamtmenge">
+     10.3.4. Prozentsatz der Gesamtmenge
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diskussion">
+   10.4. Diskussion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anwendung">
+     10.4.1. Anwendung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#praktische-ubung">
+     10.4.2. Praktische Übung
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Statistische Schlüsselindikatoren</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indikatoren-fur-die-am-haufigsten-gestellten-fragen">
+   10.1. Indikatoren für die am häufigsten gestellten Fragen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annahmen-zu-den-schlusselindikatoren">
+     10.1.1. Annahmen zu den Schlüsselindikatoren
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verwendung-der-schlusselindikatoren">
+     10.1.2. Verwendung der Schlüsselindikatoren
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-die-am-haufigsten-gefundenen-objekte">
+   10.2. Definition: Die am häufigsten gefundenen Objekte
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-wichtigsten-indikatoren">
+   10.3. Die wichtigsten Indikatoren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-anzahl-der-proben">
+     10.3.1. Die Anzahl der Proben
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-haufikeitsrate">
+     10.3.2. Die Häufikeitsrate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objekte-pro-meter">
+     10.3.3. Objekte pro Meter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prozentsatz-der-gesamtmenge">
+     10.3.4. Prozentsatz der Gesamtmenge
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diskussion">
+   10.4. Diskussion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anwendung">
+     10.4.1. Anwendung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#praktische-ubung">
+     10.4.2. Praktische Übung
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># This is a report using the data from IQAASL.</span>
+<span class="c1"># IQAASL was a project funded by the Swiss Confederation</span>
+<span class="c1"># It produces a summary of litter survey results for a defined region.</span>
+<span class="c1"># These charts serve as the models for the development of plagespropres.ch</span>
+<span class="c1"># The data is gathered by volunteers.</span>
+<span class="c1"># Please remember all copyrights apply, please give credit when applicable</span>
+<span class="c1"># The repo is maintained by the community effective January 01, 2022</span>
+<span class="c1"># There is ample opportunity to contribute, learn and teach</span>
+<span class="c1"># contact dev@hammerdirt.ch</span>
+
+<span class="c1"># Dies ist ein Bericht, der die Daten von IQAASL verwendet.</span>
+<span class="c1"># IQAASL war ein von der Schweizerischen Eidgenossenschaft finanziertes Projekt.</span>
+<span class="c1"># Es erstellt eine Zusammenfassung der Ergebnisse der Littering-Umfrage für eine bestimmte Region.</span>
+<span class="c1"># Diese Grafiken dienten als Vorlage für die Entwicklung von plagespropres.ch.</span>
+<span class="c1"># Die Daten werden von Freiwilligen gesammelt.</span>
+<span class="c1"># Bitte denken Sie daran, dass alle Copyrights gelten, bitte geben Sie den Namen an, wenn zutreffend.</span>
+<span class="c1"># Das Repo wird ab dem 01. Januar 2022 von der Community gepflegt.</span>
+<span class="c1"># Es gibt reichlich Gelegenheit, etwas beizutragen, zu lernen und zu lehren.</span>
+<span class="c1"># Kontakt dev@hammerdirt.ch</span>
+
+<span class="c1"># Il s&#39;agit d&#39;un rapport utilisant les données de IQAASL.</span>
+<span class="c1"># IQAASL était un projet financé par la Confédération suisse.</span>
+<span class="c1"># Il produit un résumé des résultats de l&#39;enquête sur les déchets sauvages pour une région définie.</span>
+<span class="c1"># Ces tableaux ont servi de modèles pour le développement de plagespropres.ch</span>
+<span class="c1"># Les données sont recueillies par des bénévoles.</span>
+<span class="c1"># N&#39;oubliez pas que tous les droits d&#39;auteur s&#39;appliquent, veuillez indiquer le crédit lorsque cela est possible.</span>
+<span class="c1"># Le dépôt est maintenu par la communauté à partir du 1er janvier 2022.</span>
+<span class="c1"># Il y a de nombreuses possibilités de contribuer, d&#39;apprendre et d&#39;enseigner.</span>
+<span class="c1"># contact dev@hammerdirt.ch</span>
+
+<span class="c1"># sys, file and nav packages:</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">time</span>
+<span class="kn">from</span> <span class="nn">babel.dates</span> <span class="kn">import</span> <span class="n">format_date</span><span class="p">,</span> <span class="n">format_datetime</span><span class="p">,</span> <span class="n">format_time</span><span class="p">,</span> <span class="n">get_month_names</span>
+<span class="kn">import</span> <span class="nn">locale</span>
+
+<span class="c1"># math packages:</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="c1"># charting:</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">ticker</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MultipleLocator</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span> <span class="k">as</span> <span class="n">mplcolors</span>
+
+<span class="c1"># build report</span>
+<span class="kn">import</span> <span class="nn">reportlab</span>
+<span class="kn">from</span> <span class="nn">reportlab.platypus.flowables</span> <span class="kn">import</span> <span class="n">Flowable</span>
+<span class="kn">from</span> <span class="nn">reportlab.platypus</span> <span class="kn">import</span> <span class="n">SimpleDocTemplate</span><span class="p">,</span> <span class="n">Paragraph</span><span class="p">,</span> <span class="n">Spacer</span><span class="p">,</span> <span class="n">PageBreak</span><span class="p">,</span> <span class="n">KeepTogether</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib.pagesizes</span> <span class="kn">import</span> <span class="n">A4</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib.units</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">reportlab.platypus</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">TableStyle</span>
+
+<span class="c1"># the module that has all the methods for handling the data</span>
+<span class="kn">import</span> <span class="nn">resources.featuredata</span> <span class="k">as</span> <span class="nn">featuredata</span>
+<span class="kn">from</span> <span class="nn">resources.featuredata</span> <span class="kn">import</span> <span class="n">makeAList</span><span class="p">,</span> <span class="n">small_space</span><span class="p">,</span> <span class="n">large_space</span><span class="p">,</span> <span class="n">aSingleStyledTable</span><span class="p">,</span> <span class="n">smallest_space</span>
+<span class="kn">from</span> <span class="nn">resources.featuredata</span> <span class="kn">import</span> <span class="n">caption_style</span><span class="p">,</span> <span class="n">subsection_title</span><span class="p">,</span> <span class="n">title_style</span><span class="p">,</span> <span class="n">block_quote_style</span>
+<span class="kn">from</span> <span class="nn">resources.featuredata</span> <span class="kn">import</span> <span class="n">figureAndCaptionTable</span><span class="p">,</span> <span class="n">tableAndCaption</span><span class="p">,</span> <span class="n">aStyledTableWithTitleRow</span>
+<span class="kn">from</span> <span class="nn">resources.featuredata</span> <span class="kn">import</span> <span class="n">sectionParagraphs</span><span class="p">,</span> <span class="n">section_title</span><span class="p">,</span> <span class="n">addToDoc</span><span class="p">,</span> <span class="n">makeAParagraph</span><span class="p">,</span> <span class="n">bold_block</span>
+
+<span class="c1"># the module that has all the methods for handling the data</span>
+<span class="kn">import</span> <span class="nn">resources.featuredata</span> <span class="k">as</span> <span class="nn">featuredata</span>
+<span class="kn">from</span> <span class="nn">resources.featuredata</span> <span class="kn">import</span> <span class="n">makeAList</span>
+
+<span class="c1"># home brew utitilties</span>
+<span class="kn">import</span> <span class="nn">resources.chart_kwargs</span> <span class="k">as</span> <span class="nn">ck</span>
+<span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
+
+<span class="c1"># images and display</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+
+<span class="c1"># chart style</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+<span class="c1"># colors for gradients</span>
+<span class="n">cmap2</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">cmap2</span>
+<span class="n">colors_palette</span> <span class="o">=</span> <span class="n">ck</span><span class="o">.</span><span class="n">colors_palette</span>
+
+<span class="c1"># border and row shading for tables</span>
+<span class="n">a_color</span> <span class="o">=</span> <span class="s2">&quot;saddlebrown&quot;</span>
+<span class="n">table_row</span> <span class="o">=</span> <span class="s2">&quot;saddlebrown&quot;</span>
+
+<span class="c1"># a place to save figures and a </span>
+<span class="c1"># method to choose formats</span>
+<span class="n">save_fig_prefix</span> <span class="o">=</span> <span class="s2">&quot;resources/output/&quot;</span>
+
+<span class="c1"># the arguments for formatting the image</span>
+<span class="n">save_figure_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;fname&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">&quot;dpi&quot;</span><span class="p">:</span> <span class="mf">300.0</span><span class="p">,</span>
+    <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;jpeg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bbox_inches&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">&quot;pad_inches&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;bbox_inches&quot;</span><span class="p">:</span> <span class="s1">&#39;tight&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;facecolor&quot;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;edgecolor&quot;</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">## !! Begin Note book variables !!</span>
+
+<span class="c1"># There are two language variants: german and english</span>
+<span class="c1"># change both: date_lang and language</span>
+<span class="n">date_lang</span> <span class="o">=</span>  <span class="s1">&#39;de_DE.utf8&#39;</span>
+<span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="n">date_lang</span><span class="p">)</span>
+
+<span class="c1"># the date format of the survey data is defined in the module</span>
+<span class="n">date_format</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">date_format</span>
+
+<span class="c1"># the language setting use lower case: en or de</span>
+<span class="c1"># changing the language may require changing the unit label</span>
+<span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;de&quot;</span>
+<span class="n">unit_label</span> <span class="o">=</span> <span class="s2">&quot;p/100 m&quot;</span>
+
+<span class="c1"># the standard date format is &quot;%Y-%m-%d&quot; if your date column is</span>
+<span class="c1"># not in this format it will not work.</span>
+<span class="c1"># these dates cover the duration of the IQAASL project</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2020-03-01&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span><span class="s2">&quot;2021-05-31&quot;</span>
+<span class="n">start_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">]</span>
+
+<span class="c1"># the fail rate used to calculate the most common codes is</span>
+<span class="c1"># 50% it can be changed:</span>
+<span class="n">fail_rate</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Changing these variables produces different reports</span>
+<span class="c1"># Call the map image for the area of interest</span>
+<span class="n">bassin_map</span> <span class="o">=</span> <span class="s2">&quot;resources/maps/bielersee_city_labels.jpeg&quot;</span>
+
+<span class="c1"># the label for the aggregation of all data in the region</span>
+<span class="n">top</span> <span class="o">=</span> <span class="s2">&quot;Alle Erhebungsgebiete&quot;</span>
+
+<span class="c1"># define the feature level and components</span>
+<span class="c1"># the feature of interest is the Aare (aare) at the river basin (river_bassin) level.</span>
+<span class="c1"># the label for charting is called &#39;name&#39;</span>
+<span class="n">this_feature</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;slug&#39;</span><span class="p">:</span><span class="s1">&#39;bielersee&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s2">&quot;Bielersee&quot;</span><span class="p">,</span> <span class="s1">&#39;level&#39;</span><span class="p">:</span><span class="s1">&#39;water_name_slug&#39;</span><span class="p">}</span>
+
+<span class="c1"># the lake is in this survey area</span>
+<span class="n">this_bassin</span> <span class="o">=</span> <span class="s2">&quot;aare&quot;</span>
+<span class="c1"># label for survey area</span>
+<span class="n">bassin_label</span> <span class="o">=</span> <span class="s2">&quot;Erhebungsgebiet Aare&quot;</span>
+
+<span class="c1"># these are the smallest aggregated components</span>
+<span class="c1"># choices are water_name_slug=lake or river, city or location at the scale of a river bassin </span>
+<span class="c1"># water body or lake maybe the most appropriate</span>
+<span class="n">this_level</span> <span class="o">=</span> <span class="s1">&#39;city&#39;</span>
+
+<span class="c1"># the doctitle is the unique name for the url of this document</span>
+<span class="n">doc_title</span> <span class="o">=</span> <span class="s2">&quot;bielersee_de&quot;</span>
+
+<span class="c1"># identify the lakes of interest for the survey area</span>
+<span class="n">lakes_of_interest</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bielersee&quot;</span><span class="p">]</span>    
+
+
+<span class="c1"># !! End note book variables !!</span>
+<span class="c1">## data</span>
+<span class="c1"># Survey location details (GPS, city, land use)</span>
+<span class="n">dfBeaches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/beaches_with_land_use_rates.csv&quot;</span><span class="p">)</span>
+<span class="c1"># set the index of the beach data to location slug</span>
+<span class="n">dfBeaches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;slug&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Survey dimensions and weights</span>
+<span class="n">dfDims</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/corrected_dims.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># code definitions</span>
+<span class="n">dxCodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/codes_with_group_names&quot;</span><span class="p">)</span>
+<span class="n">dxCodes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># columns that need to be renamed. Setting the language will automatically</span>
+<span class="c1"># change column names, code descriptions and chart annotations</span>
+<span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;% to agg&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% a</span><span class="s2">gg&quot;</span><span class="p">,</span> <span class="s2">&quot;% to recreation&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">% r</span><span class="s2">ecreation&quot;</span><span class="p">,</span> <span class="s2">&quot;% to woods&quot;</span><span class="p">:</span><span class="s2">&quot;% woods&quot;</span><span class="p">,</span> <span class="s2">&quot;% to buildings&quot;</span><span class="p">:</span><span class="s2">&quot;% buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;p/100m&quot;</span><span class="p">:</span><span class="s2">&quot;p/100 m&quot;</span><span class="p">}</span>
+
+<span class="c1"># !key word arguments to construct feature data</span>
+<span class="c1"># !Note the water type allows the selection of river or lakes</span>
+<span class="c1"># if None then the data is aggregated together. This selection</span>
+<span class="c1"># is only valid for survey-area reports or other aggregated data</span>
+<span class="c1"># that may have survey results from both lakes and rivers.</span>
+<span class="n">fd_kwargs</span> <span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;resources/checked_sdata_eos_2020_21.csv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;feature_name&quot;</span><span class="p">:</span> <span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">],</span> 
+    <span class="s2">&quot;feature_level&quot;</span><span class="p">:</span> <span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> 
+    <span class="s2">&quot;these_features&quot;</span><span class="p">:</span> <span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">],</span> 
+    <span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="n">this_level</span><span class="p">,</span> 
+    <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="n">columns</span><span class="p">,</span> 
+    <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s1">&#39;de&#39;</span><span class="p">,</span> 
+    <span class="s2">&quot;unit_label&quot;</span><span class="p">:</span> <span class="n">unit_label</span><span class="p">,</span> 
+    <span class="s2">&quot;fail_rate&quot;</span><span class="p">:</span> <span class="n">fail_rate</span><span class="p">,</span>
+    <span class="s2">&quot;code_data&quot;</span><span class="p">:</span><span class="n">dxCodes</span><span class="p">,</span>
+    <span class="s2">&quot;date_range&quot;</span><span class="p">:</span> <span class="n">start_end</span><span class="p">,</span>
+    <span class="s2">&quot;water_type&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>    
+<span class="p">}</span>
+
+<span class="n">fdx</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">Components</span><span class="p">(</span><span class="o">**</span><span class="n">fd_kwargs</span><span class="p">)</span>
+
+<span class="c1"># call the reports and languages</span>
+<span class="n">fdx</span><span class="o">.</span><span class="n">adjustForLanguage</span><span class="p">()</span>
+<span class="n">fdx</span><span class="o">.</span><span class="n">makeFeatureData</span><span class="p">()</span>
+<span class="n">fdx</span><span class="o">.</span><span class="n">locationSampleTotals</span><span class="p">()</span>
+<span class="n">fdx</span><span class="o">.</span><span class="n">makeDailyTotalSummary</span><span class="p">()</span>
+<span class="n">fdx</span><span class="o">.</span><span class="n">materialSummary</span><span class="p">()</span>
+<span class="n">fdx</span><span class="o">.</span><span class="n">mostCommon</span><span class="p">()</span>
+<span class="n">fdx</span><span class="o">.</span><span class="n">codeGroupSummary</span><span class="p">()</span>
+
+<span class="c1"># !this is the feature data!</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="n">fdx</span><span class="o">.</span><span class="n">feature_data</span>
+
+<span class="c1"># !keyword args to build period data</span>
+<span class="c1"># the period data is all the data that was collected</span>
+<span class="c1"># during the same period from all the other locations</span>
+<span class="c1"># not included in the feature data. For a survey area</span>
+<span class="c1"># or river bassin these_features = feature_parent and </span>
+<span class="c1"># feature_level = parent_level</span>
+<span class="n">period_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;period_data&quot;</span><span class="p">:</span> <span class="n">fdx</span><span class="o">.</span><span class="n">period_data</span><span class="p">,</span>
+    <span class="s2">&quot;these_features&quot;</span><span class="p">:</span> <span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;slug&#39;</span><span class="p">],</span>
+    <span class="s2">&quot;feature_level&quot;</span><span class="p">:</span><span class="n">this_feature</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span>
+    <span class="s2">&quot;feature_parent&quot;</span><span class="p">:</span><span class="n">this_bassin</span><span class="p">,</span>
+    <span class="s2">&quot;parent_level&quot;</span><span class="p">:</span> <span class="s2">&quot;river_bassin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period_name&quot;</span><span class="p">:</span> <span class="n">bassin_label</span><span class="p">,</span>
+    <span class="s2">&quot;unit_label&quot;</span><span class="p">:</span> <span class="n">unit_label</span><span class="p">,</span>
+    <span class="s2">&quot;most_common&quot;</span><span class="p">:</span> <span class="n">fdx</span><span class="o">.</span><span class="n">most_common</span><span class="o">.</span><span class="n">index</span>
+<span class="p">}</span>
+<span class="n">period_data</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">PeriodResults</span><span class="p">(</span><span class="o">**</span><span class="n">period_kwargs</span><span class="p">)</span>
+
+<span class="c1"># the rivers are considered separately</span>
+<span class="c1"># select only the results from rivers</span>
+<span class="c1"># this can be done by updating the fd_kwargs</span>
+<span class="n">fd_rivers</span> <span class="o">=</span> <span class="n">fd_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;water_type&quot;</span><span class="p">:</span><span class="s2">&quot;r&quot;</span><span class="p">})</span>
+<span class="n">fdr</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">Components</span><span class="p">(</span><span class="o">**</span><span class="n">fd_kwargs</span><span class="p">)</span>
+<span class="n">fdr</span><span class="o">.</span><span class="n">makeFeatureData</span><span class="p">()</span>
+
+<span class="c1"># collects the summarized values for the feature data</span>
+<span class="c1"># use this to generate the summary data for the survey area</span>
+<span class="c1"># and the section for the rivers</span>
+<span class="n">admin_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span><span class="n">fd</span><span class="p">,</span>
+    <span class="s2">&quot;dims_data&quot;</span><span class="p">:</span><span class="n">dfDims</span><span class="p">,</span>
+    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">this_feature</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;feature_component&quot;</span><span class="p">:</span> <span class="n">this_level</span><span class="p">,</span>
+    <span class="s2">&quot;date_range&quot;</span><span class="p">:</span><span class="n">start_end</span><span class="p">,</span>
+    <span class="o">**</span><span class="p">{</span><span class="s2">&quot;dfBeaches&quot;</span><span class="p">:</span><span class="n">dfBeaches</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">admin_details</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">AdministrativeSummary</span><span class="p">(</span><span class="o">**</span><span class="n">admin_kwargs</span><span class="p">)</span>
+<span class="n">admin_summary</span> <span class="o">=</span> <span class="n">admin_details</span><span class="o">.</span><span class="n">summaryObject</span><span class="p">()</span>
+
+<span class="c1"># update the admin kwargs with river data to make the river summary</span>
+<span class="n">admin_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span><span class="n">fdr</span><span class="o">.</span><span class="n">feature_data</span><span class="p">})</span>
+<span class="n">admin_r_details</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">AdministrativeSummary</span><span class="p">(</span><span class="o">**</span><span class="n">admin_kwargs</span><span class="p">)</span>
+<span class="n">admin_r_summary</span> <span class="o">=</span> <span class="n">admin_r_details</span><span class="o">.</span><span class="n">summaryObject</span><span class="p">()</span>
+
+<span class="c1"># this defines the css rules for the note-book table displays</span>
+<span class="n">header_row</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;th:nth-child(1)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: #FFF;&#39;</span><span class="p">}</span>
+<span class="n">even_rows</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(even)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: rgba(139, 69, 19, 0.08);&#39;</span><span class="p">}</span>
+<span class="n">odd_rows</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(odd)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="s1">&#39;background: #FFF;&#39;</span><span class="p">}</span>
+<span class="n">table_font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;tr&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="s1">&#39;font-size: 12px;&#39;</span><span class="p">}</span>
+<span class="n">table_css_styles</span> <span class="o">=</span> <span class="p">[</span><span class="n">even_rows</span><span class="p">,</span> <span class="n">odd_rows</span><span class="p">,</span> <span class="n">table_font</span><span class="p">,</span> <span class="n">header_row</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">convertPixelToCm</span><span class="p">(</span><span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">PILImage</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">dpi</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dpi&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">72</span><span class="p">,</span> <span class="mi">72</span><span class="p">))</span>
+    <span class="n">width_cm</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="n">dpi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">2.54</span>
+    <span class="n">height_cm</span> <span class="o">=</span> <span class="n">height</span> <span class="o">/</span> <span class="n">dpi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">2.54</span>
+    
+    <span class="k">return</span> <span class="n">width_cm</span><span class="p">,</span> <span class="n">height_cm</span>
+
+
+<span class="c1"># pdf download is an option </span>
+<span class="c1"># reportlab is used to produce the document</span>
+<span class="c1"># the arguments for the document are captured at run time</span>
+<span class="c1"># capture for pdf content</span>
+<span class="n">pdf_link</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;resources/pdfs/key_indicators_de.pdf&#39;</span>
+<span class="n">pdfcomponents</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="statistische-schlusselindikatoren">
+<span id="keyindicators"></span><h1><span class="section-number">10. </span>Statistische Schlüsselindikatoren<a class="headerlink" href="#statistische-schlusselindikatoren" title="Link zu dieser Überschrift">#</a></h1>
+<p><a class="reference download internal" download="" href="_downloads/d9d13beb3f1a1d4147f5b392a6a00def/key_indicators_de.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a></p>
+<p>Die Schlüsselindikatoren sind einfach zu berechnen und werden direkt aus den Erhebungsergebnissen entnommen. Sie sind für die Identifizierung von Akkumulationszonen im Wassereinzugsgebiet unerlässlich. Wenn sie im Rahmen eines Abfallüberwachungsprogramms verwendet und mit spezifischen Kenntnissen über die Umgebung kombiniert werden, helfen die Schlüsselindikatoren, potenzielle Abfallquellen zu identifizieren. <span id="id1">[]</span></p>
+<p>Auswertungen von Untersuchungen des Strand-Abfallaufkommens beschreiben den Ort, die Häufigkeit und die Zusammensetzung der gefundenen Objekte <span id="id2">[]</span>. Die Schlüsselindikatoren beantworten die folgenden Fragen:</p>
+<ul class="simple">
+<li><p>Welche Objekte werden gefunden?</p></li>
+<li><p>Wie viel wird gefunden? (Gesamtgewichte und Anzahl der Artikel)</p></li>
+<li><p>Wie oft werden diese Objekte gefunden?</p></li>
+<li><p>Wo sind diese Objekte in den grössten Konzentrationen zu finden?</p></li>
+</ul>
+<p>Ähnlich wie bei der Zählung von Vögeln oder Wildblumen muss eine Person die Erhebung durchführen, um die Zielobjekte zu finden und dann zu identifizieren. Dieser Prozess ist gut dokumentiert und wurde unter vielen Bedingungen getestet.<span id="id3">[]</span> <span id="id4">[]</span></p>
+<section id="indikatoren-fur-die-am-haufigsten-gestellten-fragen">
+<h2><span class="section-number">10.1. </span>Indikatoren für die am häufigsten gestellten Fragen<a class="headerlink" href="#indikatoren-fur-die-am-haufigsten-gestellten-fragen" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die Schlüsselindikatoren geben Antworten auf die am häufigsten gestellten Fragen zum Zustand der Abfälle in der natürlichen Umwelt. Die Schlüsselindikatoren sind:</p>
+<ul class="simple">
+<li><p>Anzahl der Erhebungen</p></li>
+<li><p>Bestehens- und Misserfolgsquote (Häufigkeitsrate)</p></li>
+<li><p>Anzahl der Objekte pro Meter (p/m oder p/m²)</p></li>
+<li><p>Zusammensetzung (prozentualer Anteil an der Gesamtmenge)</p></li>
+</ul>
+<section id="annahmen-zu-den-schlusselindikatoren">
+<h3><span class="section-number">10.1.1. </span>Annahmen zu den Schlüsselindikatoren<a class="headerlink" href="#annahmen-zu-den-schlusselindikatoren" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die Zuverlässigkeit dieser Indikatoren beruht auf den folgenden Annahmen:</p>
+<ul class="simple">
+<li><p>Je mehr Abfallobjekte auf dem Boden liegen, desto grösser ist die Wahrscheinlichkeit, dass eine Person sie findet.</p></li>
+<li><p>Die gefundenen Objekte stellen die Mindestmenge an Abfallobjekten an diesem Erhebungsort dar.</p></li>
+<li><p>Die Erhebenden befolgen das Protokoll und zeichnen die Ergebnisse genau auf.</p></li>
+<li><p>Für jede Datenerhebung: Das Auffinden eines Artikels hat keinen Einfluss auf die Wahrscheinlichkeit, einen anderen zu finden.<span id="id5">[]</span></p></li>
+</ul>
+</section>
+<section id="verwendung-der-schlusselindikatoren">
+<h3><span class="section-number">10.1.2. </span>Verwendung der Schlüsselindikatoren<a class="headerlink" href="#verwendung-der-schlusselindikatoren" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die Schlüsselindikatoren der häufigsten Objekte werden mit jeder Datenzusammenfassung auf jeder Aggregationsebene angegeben. Wenn die vorherigen Annahmen beibehalten werden, sollte die Anzahl der Proben in der Region von Interesse immer als Mass für die Unsicherheit betrachtet werden. Je mehr Proben innerhalb definierter geografischer und zeitlicher Grenzen liegen, desto grösser ist das Vertrauen in die numerischen Ergebnisse, die aus Ergebnissen innerhalb dieser Grenzen gewonnen werden.</p>
+</section>
+</section>
+<section id="definition-die-am-haufigsten-gefundenen-objekte">
+<h2><span class="section-number">10.2. </span>Definition: Die am häufigsten gefundenen Objekte<a class="headerlink" href="#definition-die-am-haufigsten-gefundenen-objekte" title="Link zu dieser Überschrift">#</a></h2>
+<p>Die am häufigsten vorkommenden Objekte haben eine Häufigkeitsrate von mindestens 50% und/oder befinden sich in einem bestimmten geografischen Gebiet unter den Top Ten nach Menge oder Stückzahl/m.</p>
+</section>
+<section id="die-wichtigsten-indikatoren">
+<h2><span class="section-number">10.3. </span>Die wichtigsten Indikatoren<a class="headerlink" href="#die-wichtigsten-indikatoren" title="Link zu dieser Überschrift">#</a></h2>
+<div class="cell tag_remove-input docutils container">
+</div>
+<figure class="align-default" id="key-indicator-map">
+<img alt="_images/aare_city_labels.jpeg" src="_images/aare_city_labels.jpeg" />
+<figcaption>
+<p><span class="caption-number">Abb. 10.1 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#key-indicator-map" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#key-indicator-map"><span class="std std-numref">Abbildung 10.1:</span></a> Im Zeitraum von März 2020 und bis Mai 2021 wurden bei 140 Erhebungen im Aare-Erhebungsgebiet 13 847 Objekte gesammelt.</p>
+<figure class="align-default" id="key-indicators-data">
+<img alt="_images/key_indicators_data.jpeg" src="_images/key_indicators_data.jpeg" />
+<figcaption>
+<p><span class="caption-number">Abb. 10.2 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#key-indicators-data" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#key-indicators-data"><span class="std std-numref">Abbildung 10.2:</span></a> Die Resultate des Erhebungsgebiets Aare, mit Ausschnitt Biel/Bienne und Monatsmedian. links: Zusammenfassende Statistik für das Erhebungsgebiet Aare. Rechts: Zusammenfassende Statistik Biel/Bienne.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<section id="die-anzahl-der-proben">
+<h3><span class="section-number">10.3.1. </span>Die Anzahl der Proben<a class="headerlink" href="#die-anzahl-der-proben" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die Anzahl der Proben bezieht sich auf die Anzahl der Proben innerhalb eines geografischen und zeitlichen Bereichs. Wie bereits erwähnt, kann den Ergebnissen der Analyse umso mehr Vertrauen geschenkt werden, je mehr Proben innerhalb eines bestimmten Gebiets und Zeitraums vorhanden sind.</p>
+</section>
+<section id="die-haufikeitsrate">
+<h3><span class="section-number">10.3.2. </span>Die Häufikeitsrate<a class="headerlink" href="#die-haufikeitsrate" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die Häufigkeitsrate ist die Anzahl der Fälle, in denen ein Objekt mindestens einmal gefunden wurde, geteilt durch die Anzahl der Datenerhebungen.</p>
+<p><strong>Was bedeutet das?</strong> Die Häufigkeitsrate beschreibt den Prozentsatz der Fälle, in denen eine Kategorie im Verhältnis zur Anzahl der durchgeführten Datenerhebungen identifiziert wurde. <strong>Hinweis:</strong> Die Häufigkeitsrate gibt keinen Hinweis auf die Menge.</p>
+<p>Die Häufigkeitsrate ist zu verwenden, um festzustellen, wie häufig ein Objekt innerhalb eines geografischen Bereichs gefunden wurde. Objekte können nach Häufigkeitsrate unterschieden werden. Die Häufigkeitsrate und p/m ist zu verwenden, um Objekte zu identifizieren, die nur selten, aber in grossen Mengen gefunden werden.</p>
+<p><strong>Unterschiedliche Häufigkeitsraten auf verschiedenen Ebenen</strong></p>
+<p>Die Häufigkeitsrate wird auf jeder Aggregationsebene berechnet. Daher ändert sich die Häufigkeitsrate für ein bestimmtes Objekt je nach den geografischen Grenzen, die die Aggregationsebene definieren. Für das Erhebungsgebiet Aare sind alle Objekte mit einer Häufigkeitsrate von mindestens 50 % zu betrachten.</p>
+<figure class="align-default" id="fail-rate-key-i">
+<img alt="_images/fail_rate_key_i.jpeg" src="_images/fail_rate_key_i.jpeg" />
+<figcaption>
+<p><span class="caption-number">Abb. 10.3 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#fail-rate-key-i" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#fail-rate-key-i"><span class="std std-numref">Abbildung 10.3:</span></a> Die Häufigkeitsraten der am meisten gefundenen Objekte aus dem Erhebungsgebiet Aare bei verschiedenen Aggregationsstufen.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Mit Ausnahme von Industriefolien und Kunststofffragmenten war die Häufigkeitsrate in Biel/Bienne höher als in allen anderen Untersuchungsgebieten. Das bedeutet, dass die Wahrscheinlichkeit, diese Objekte zu finden, in Biel pro Untersuchung grösser war als an den meisten anderen Orten.</p>
+<p>Die Häufigkeitsrate ist die wahrscheinlichste Schätzung (MLE) der Wahrscheinlichkeit, mindestens ein Objekt zu finden <span id="id6">[]</span>. Wenn das Objekt in allen vorherigen Stichproben identifiziert wurde und sich Präventionsmassnahmen nicht geändert haben, kann man davon ausgehen, dass auch in den folgenden Stichproben mindestens ein Objekt zu finden sein wird.</p>
+</section>
+<section id="objekte-pro-meter">
+<h3><span class="section-number">10.3.3. </span>Objekte pro Meter<a class="headerlink" href="#objekte-pro-meter" title="Link zu dieser Überschrift">#</a></h3>
+<p>Objekte pro Meter (p/m) ist die Anzahl der bei jeder Untersuchung gefundenen Objekte geteilt durch die Länge der untersuchten Uferlinie.</p>
+<p><strong>Was bedeutet das?</strong> p/m beschreibt die Menge eines Objekts, das pro Meter gefunden wurde. Es handelt sich um eine Methode zur Normalisierung der Daten aus allen Vermessungen, damit sie verglichen werden können.</p>
+<p>P/m ist zu verwenden um die Objekte zu finden, die in den grössten Mengen gefunden wurden. Mit p/m können Zonen der Anhäufung identifiziert werden.</p>
+<p>Warum nicht die Fläche verwenden? Der EU-Standard empfiehlt, die Ergebnisse als Anzahl der Objekte pro Länge der untersuchten Küstenlinie anzugeben, normalerweise 100 Meter <span id="id7">[]</span>. Die Fläche wurde für 99 % aller Erhebungen in IQAASL berechnet. Die Ergebnisse für diese Analyse werden in p/m angegeben.</p>
+<figure class="align-default" id="pcs-m-key-i">
+<img alt="_images/pcs_m_key_i.jpeg" src="_images/pcs_m_key_i.jpeg" />
+<figcaption>
+<p><span class="caption-number">Abb. 10.4 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#pcs-m-key-i" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#pcs-m-key-i"><span class="std std-numref">Abbildung 10.4:</span></a> Der Median (p/m) der häufigsten Objekte im Erhebungsgebiet Aare.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Der angegebene Wert ist der Median der Erhebungsergebnisse für diese Aggregationsebene und dieses Objekt. Ein Medianwert von Null bedeutet, dass das Objekt in weniger als 1/2 der Erhebungen für diese Aggregationsebene identifiziert wurde. Betrachten wir zum Beispiel die Ergebnisse für Dämmstoffe, einschliesslich Spritzschäumen: Der Medianwert für das Erhebungsgebiet Aare ist gleich Null. Betrachtet man jedoch nur die Ergebnisse vom Bielersee oder jene aus Biel/Bienne, ist der Medianwert grösser als Null. Dies deutet darauf hin, dass am Bielersee und speziell in Biel/Bienne mehr Dämmstoffe gefunden wurden als im übrigen Aaregebiet.</p>
+</section>
+<section id="prozentsatz-der-gesamtmenge">
+<h3><span class="section-number">10.3.4. </span>Prozentsatz der Gesamtmenge<a class="headerlink" href="#prozentsatz-der-gesamtmenge" title="Link zu dieser Überschrift">#</a></h3>
+<p>Der prozentuale Anteil an der Gesamtzahl ist die Menge eines gefundenen Objekts geteilt durch die Gesamtzahl aller gefundenen Objekte für eine(n) bestimmte(n) Ort/Region und einen bestimmten Datumsbereich.</p>
+<p><strong>Was bedeutet das?</strong> Der prozentuale Anteil an der Gesamtmenge beschreibt die Zusammensetzung der gefundenen Abfallobjekte.</p>
+<p>Der prozentuale Anteil an der Gesamtmenge ist zu verwenden, um die wichtigsten Abfallobjekten zu definieren. Mit dem prozentualen Anteil können Prioritäten auf regionaler Ebene ermittelt werden.</p>
+<p>Ähnlich wie bei den Objekten pro Meter ist ein Objekt mit einer niedrigen Häufigkeitsrate und einem hohen Prozentsatz an der Gesamtzahl ein Signal dafür, dass Objekte möglicherweise in unregelmässigen Abständen in grossen Mengen deponiert werden: Verklappung oder Unfälle.</p>
+<figure class="align-default" id="percent-total-i">
+<img alt="_images/percent_total_i.jpeg" src="_images/percent_total_i.jpeg" />
+<figcaption>
+<p><span class="caption-number">Abb. 10.5 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#percent-total-i" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#percent-total-i"><span class="std std-numref">Abbildung 10.5:</span></a> Die häufigsten Objekte im Erhebungsgebiet Aare machen rund 66 % (2022) der Gesamtzahl der erfassten Objekte (3067) an den drei Erhebungsorten in Biel/Bienne aus.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
+</section>
+<section id="diskussion">
+<h2><span class="section-number">10.4. </span>Diskussion<a class="headerlink" href="#diskussion" title="Link zu dieser Überschrift">#</a></h2>
+<p>Zwischen April 2020 und Mai 2021 wurden 16 Datenerhebungen an 3 verschiedenen Orten in Biel/Bienne durchgeführt, bei denen 3067 Objekte identifiziert werden konnten. Die häufigsten Objekte aus dem Erhebungsgebiet Aare machen 66 % aller in Biel identifizierten Objekte aus. Objekte, die in direktem Zusammenhang mit dem Konsum stehen (Lebensmittel, Getränke, Tabak), werden in einer Häufigkeit gefunden, die über dem Median des Erhebungsgebiets liegt, den diese Objekte stellen rund 34 % der gesammelten Abfallobjekte in Biel/Bienne dar, im Vergleich zu 25 % für alle Untersuchungsgebiete.</p>
+<p>Objekte, die nicht direkt mit Konsumverhalten in Verbindung stehen, wie zerbrochene Kunststoffe, Industriefolien, expandiertes Polystyrol oder Industriepellets, werden in grösseren Mengen gefunden als im übrigen Erhebungsgebiet Aare. Expandiertes Polystyrol wird als äussere Isolierhülle für Gebäude (Neubauten und Renovierungen) und zum Schutz von Bauteilen beim Transport verwendet. Biel hat eine starke industrielle Basis und eine aktive Bau- und Produktionsbasis. Zusammengenommen machen diese Objekte 30 % der insgesamt gesammelten Objekte aus.</p>
+<section id="anwendung">
+<h3><span class="section-number">10.4.1. </span>Anwendung<a class="headerlink" href="#anwendung" title="Link zu dieser Überschrift">#</a></h3>
+<p>Bei den Schlüsselindikatoren handelt es sich um einfache Kennzahlen, die direkt aus den Erhebungsergebnissen übernommen wurden. Änderungen in der Grössenordnung dieser Verhältnisse signalisieren Änderungen in der relativen Menge bestimmter Objekte. Wenn die Schlüsselindikatoren im Rahmen eines Überwachungsprogramms verwendet werden, ermöglichen sie die Identifizierung wahrscheinlicher Anreicherungszonen.</p>
+</section>
+<section id="praktische-ubung">
+<h3><span class="section-number">10.4.2. </span>Praktische Übung<a class="headerlink" href="#praktische-ubung" title="Link zu dieser Überschrift">#</a></h3>
+<p>Industrielle Kunststoffgranulate (GPI) sind das wichtigste Material zur Herstellung von Kunststoffgegenständen, die in der Schweiz in grossem Umfang verwendet werden. Sie sind scheiben- oder pelletförmig und haben einen Durchmesser von ungefähr 5 mm.</p>
+<p>Beantworten Sie anhand der folgenden Erhebungsergebnisse, der Karte mit den Erhebungsorten und unter Beibehaltung der zu Beginn dieses Artikels dargestellten Annahmen die folgenden Fragen:</p>
+<ul class="simple">
+<li><p>Wo besteht die grösste Wahrscheinlichkeit, mindestens ein Vorkommen des Abfallobjekts zu finden?</p></li>
+<li><p>Wie gross ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden?</p></li>
+<li><p>Warum haben Sie sich für diesen Ort oder diese Orte entschieden? Wie sicher sind Sie sich bei Ihrer Wahl?</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aggs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc_date&#39;</span><span class="p">:</span><span class="s1">&#39;nunique&#39;</span><span class="p">,</span> <span class="s1">&#39;fail&#39;</span><span class="p">:</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;pcs_m&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">}</span>
+<span class="n">new_col_names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;loc_date&quot;</span><span class="p">:</span><span class="s2">&quot;Anzahl Proben&quot;</span><span class="p">,</span> <span class="s2">&quot;fail&quot;</span><span class="p">:</span><span class="s2">&quot;Anzahl der Fälle&quot;</span><span class="p">,</span> <span class="s2">&quot;pcs_m&quot;</span><span class="p">:</span><span class="s2">&quot;Median p/m&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;Gefunden&quot;</span><span class="p">}</span>
+
+<span class="n">biel_g95</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">water_name_slug</span> <span class="o">==</span> <span class="s1">&#39;bielersee&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s1">&#39;G112&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;location&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">aggs</span><span class="p">)</span>
+<span class="n">biel_g95</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_col_names</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">biel_g95</span><span class="p">[</span><span class="s2">&quot;Median p/m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">biel_g95</span><span class="p">[</span><span class="s2">&quot;Median p/m&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">biel_g95</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">dims_table_caption</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;&quot;</span>
+<span class="p">]</span>
+
+<span class="c1"># pdf table out</span>
+<span class="n">dims_table_caption</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dims_table_caption</span><span class="p">)</span>
+<span class="n">col_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.2</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">2.5</span><span class="o">*</span><span class="n">cm</span><span class="p">]</span>
+
+<span class="n">dims_pdf_table</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">aSingleStyledTable</span><span class="p">(</span><span class="n">biel_g95</span><span class="p">,</span> <span class="n">colWidths</span><span class="o">=</span><span class="n">col_widths</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">featuredata</span><span class="o">.</span><span class="n">default_table_style</span><span class="p">)</span>
+<span class="n">dims_pdf_table_caption</span> <span class="o">=</span> <span class="n">Paragraph</span><span class="p">(</span><span class="n">dims_table_caption</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">caption_style</span><span class="p">)</span>
+
+<span class="n">pdf_table_and_caption</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">tableAndCaption</span><span class="p">(</span><span class="n">dims_pdf_table</span><span class="p">,</span> <span class="n">dims_pdf_table_caption</span><span class="p">,</span><span class="n">col_widths</span><span class="p">)</span>
+
+<span class="n">header_row</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;th:nth-child(1)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: #FFF;&#39;</span><span class="p">}</span>
+<span class="n">even_rows</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(even)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: rgba(139, 69, 19, 0.08);&#39;</span><span class="p">}</span>
+<span class="n">odd_rows</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(odd)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="s1">&#39;background: #FFF;&#39;</span><span class="p">}</span>
+<span class="n">table_font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;tr&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="s1">&#39;font-size: 12px;&#39;</span><span class="p">}</span>
+<span class="n">table_css_styles</span> <span class="o">=</span> <span class="p">[</span><span class="n">even_rows</span><span class="p">,</span> <span class="n">odd_rows</span><span class="p">,</span> <span class="n">table_font</span><span class="p">,</span> <span class="n">header_row</span><span class="p">]</span>
+
+<span class="n">formatter</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;median pcs/m&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">replaceDecimal</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;de&quot;</span><span class="p">),</span>
+   
+<span class="p">}</span>
+
+<span class="n">mcc</span> <span class="o">=</span> <span class="n">biel_g95</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span><span class="o">.</span><span class="n">set_table_styles</span><span class="p">(</span><span class="n">table_css_styles</span><span class="p">)</span>
+<span class="n">mcc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_e0942 tr:nth-child(even) {
+  background-color: rgba(139, 69, 19, 0.08);
+}
+#T_e0942 tr:nth-child(odd) {
+  background: #FFF;
+}
+#T_e0942 tr {
+  font-size: 12px;
+}
+#T_e0942 th:nth-child(1) {
+  background-color: #FFF;
+}
+</style>
+<table id="T_e0942">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_e0942_level0_col0" class="col_heading level0 col0" >Anzahl Proben</th>
+      <th id="T_e0942_level0_col1" class="col_heading level0 col1" >Anzahl der Fälle</th>
+      <th id="T_e0942_level0_col2" class="col_heading level0 col2" >Median p/m</th>
+      <th id="T_e0942_level0_col3" class="col_heading level0 col3" >Gefunden</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_e0942_level0_row0" class="row_heading level0 row0" >bielersee_vinelz_fankhausers</th>
+      <td id="T_e0942_row0_col0" class="data row0 col0" >12</td>
+      <td id="T_e0942_row0_col1" class="data row0 col1" >9</td>
+      <td id="T_e0942_row0_col2" class="data row0 col2" >0.128000</td>
+      <td id="T_e0942_row0_col3" class="data row0 col3" >22</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row1" class="row_heading level0 row1" >camp-des-peches</th>
+      <td id="T_e0942_row1_col0" class="data row1 col0" >1</td>
+      <td id="T_e0942_row1_col1" class="data row1 col1" >0</td>
+      <td id="T_e0942_row1_col2" class="data row1 col2" >0.000000</td>
+      <td id="T_e0942_row1_col3" class="data row1 col3" >0</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row2" class="row_heading level0 row2" >erlach-camping-strand</th>
+      <td id="T_e0942_row2_col0" class="data row2 col0" >1</td>
+      <td id="T_e0942_row2_col1" class="data row2 col1" >0</td>
+      <td id="T_e0942_row2_col2" class="data row2 col2" >0.000000</td>
+      <td id="T_e0942_row2_col3" class="data row2 col3" >0</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row3" class="row_heading level0 row3" >gals-reserve</th>
+      <td id="T_e0942_row3_col0" class="data row3 col0" >2</td>
+      <td id="T_e0942_row3_col1" class="data row3 col1" >0</td>
+      <td id="T_e0942_row3_col2" class="data row3 col2" >0.000000</td>
+      <td id="T_e0942_row3_col3" class="data row3 col3" >0</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row4" class="row_heading level0 row4" >ligerz-strand</th>
+      <td id="T_e0942_row4_col0" class="data row4 col0" >2</td>
+      <td id="T_e0942_row4_col1" class="data row4 col1" >0</td>
+      <td id="T_e0942_row4_col2" class="data row4 col2" >0.000000</td>
+      <td id="T_e0942_row4_col3" class="data row4 col3" >0</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row5" class="row_heading level0 row5" >luscherz-plage</th>
+      <td id="T_e0942_row5_col0" class="data row5 col0" >4</td>
+      <td id="T_e0942_row5_col1" class="data row5 col1" >2</td>
+      <td id="T_e0942_row5_col2" class="data row5 col2" >0.015000</td>
+      <td id="T_e0942_row5_col3" class="data row5 col3" >3</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row6" class="row_heading level0 row6" >luscherz-two</th>
+      <td id="T_e0942_row6_col0" class="data row6 col0" >1</td>
+      <td id="T_e0942_row6_col1" class="data row6 col1" >0</td>
+      <td id="T_e0942_row6_col2" class="data row6 col2" >0.000000</td>
+      <td id="T_e0942_row6_col3" class="data row6 col3" >0</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row7" class="row_heading level0 row7" >mullermatte</th>
+      <td id="T_e0942_row7_col0" class="data row7 col0" >12</td>
+      <td id="T_e0942_row7_col1" class="data row7 col1" >9</td>
+      <td id="T_e0942_row7_col2" class="data row7 col2" >0.073000</td>
+      <td id="T_e0942_row7_col3" class="data row7 col3" >37</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row8" class="row_heading level0 row8" >nidau-strand</th>
+      <td id="T_e0942_row8_col0" class="data row8 col0" >1</td>
+      <td id="T_e0942_row8_col1" class="data row8 col1" >1</td>
+      <td id="T_e0942_row8_col2" class="data row8 col2" >0.080000</td>
+      <td id="T_e0942_row8_col3" class="data row8 col3" >2</td>
+    </tr>
+    <tr>
+      <th id="T_e0942_level0_row9" class="row_heading level0 row9" >strandboden-biel</th>
+      <td id="T_e0942_row9_col0" class="data row9 col0" >2</td>
+      <td id="T_e0942_row9_col1" class="data row9 col1" >2</td>
+      <td id="T_e0942_row9_col2" class="data row9 col2" >0.065000</td>
+      <td id="T_e0942_row9_col3" class="data row9 col3" >7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<figure class="align-default" id="practical-excercise">
+<img alt="_images/practical_excercise.jpeg" src="_images/practical_excercise.jpeg" />
+<figcaption>
+<p><span class="caption-number">Abb. 10.6 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#practical-excercise" title="Link zu diesem Bild">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#practical-excercise"><span class="std std-numref">Abbildung 10.6:</span></a> Die häufigsten Objekte im Erhebungsgebiet Aare machen rund 66 % (2022) der Gesamtzahl der erfassten Objekte (3067) an den drei Erhebungsorten in Biel/Bienne aus.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="code_groups.html" title="zurück Seite">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">zurück</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>Codegruppen</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="reuse_remake.html" title="weiter Seite">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Recyceln und neugestalten</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    <div class="extra_footer">
+      <p>
+   Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
