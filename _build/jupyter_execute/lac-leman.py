@@ -75,15 +75,12 @@ import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
+from PIL import Image as PILImage
 from IPython.display import Markdown as md
 from myst_nb import glue
 
 # chart style
 sns.set_style("whitegrid")
-
-# colors for gradients
-cmap2 = ck.cmap2
-colors_palette = ck.colors_palette
 
 # border and row shading for tables
 a_color = "saddlebrown"
@@ -261,6 +258,15 @@ odd_rows = {'selector': 'tr:nth-child(odd)', 'props': 'background: #FFF;'}
 table_font = {'selector': 'tr', 'props': 'font-size: 12px;'}
 table_css_styles = [even_rows, odd_rows, table_font, header_row]
 
+def convertPixelToCm(file_name: str = None):
+    im = PILImage.open(file_name)
+    width, height = im.size
+    dpi = im.info.get("dpi", (72, 72))
+    width_cm = width / dpi[0] * 2.54
+    height_cm = height / dpi[1] * 2.54
+    
+    return width_cm, height_cm
+
 
 # pdf download is an option 
 # the .pdf output is generated in parallel
@@ -269,29 +275,29 @@ table_css_styles = [even_rows, odd_rows, table_font, header_row]
 # reportlab is used to produce the document
 # the components of the document are captured at run time
 # the pdf link gives the name and location of the future doc
-pdf_link = f'resources/pdfs/{this_feature["slug"]}_de.pdf'
+pdf_link = f'resources/pdfs/{this_feature["slug"]}.pdf'
 
 # the components are stored in an array and collected as the script runs
 pdfcomponents = []
 
 # pdf title and map
 pdf_title = Paragraph(this_feature["name"], featuredata.title_style)
-map_image =  Image(bassin_map, width=cm*19, height=20*cm, kind="proportional", hAlign= "CENTER")
+# map_image =  Image(bassin_map, width=cm*19, height=20*cm, kind="proportional", hAlign= "CENTER")
 
 pdfcomponents = featuredata.addToDoc([
     pdf_title,    
     featuredata.small_space,
-    map_image
+    
 ], pdfcomponents)
 
-glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
+# glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
 
 
-# (lac-leman_de)=
+# (lac-leman)=
 # # Lac Léman
 # 
 # 
-# {Download}`Download </resources/pdfs/lac-leman_de.pdf>`
+# {Download}`Download </resources/pdfs/lac-leman.pdf>`
 
 # In[2]:
 
@@ -299,8 +305,27 @@ glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
 map_caption = featuredata.defaultMapCaption(language="de")
 glue("lac-leman_city_map_caption", map_caption, display=False)
 
+o_w, o_h = convertPixelToCm(bassin_map)
+
+f1cap = Paragraph(map_caption, style=featuredata.caption_style)
+
+figure_kwargs = {
+    "image_file":bassin_map,
+    "caption": f1cap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 16,
+    "caption_height":.75,
+    "hAlign": "CENTER",
+}
+
+f1 = featuredata.figureAndCaptionTable(**figure_kwargs)
+
+
 new_components = [
-    Paragraph(map_caption, featuredata.caption_style)
+    f1,
+    featuredata.small_space
+    
 ]
 # add those sections
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
@@ -336,7 +361,7 @@ components_markdown = "".join([f'*{x[0]}*\n\n>{x[1]}\n\n' for x in feature_compo
 new_components = [
     featuredata.smallest_space,
     Paragraph("Erhebungsorte", featuredata.section_title), 
-    featuredata.smallest_space,
+    featuredata.small_space,
     Paragraph(an_admin_summary , featuredata.p_style)    
 ]
     
@@ -383,11 +408,14 @@ dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: fea
 dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte  und Masse für die Gemeinden'
 
 # pdf table                 
-d_chart = featuredata.aStyledTable(dims_table, caption=dims_table_caption, colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)])
+# pdf components                 
+d_chart = featuredata.aSingleStyledTable(dims_table, colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)])
+d_capt = Paragraph(dims_table_caption, featuredata.caption_style)
+a_dims_table = featuredata.tableAndCaption(d_chart, d_capt, [3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-2)])
 
 new_components = [
     featuredata.smallest_space,
-    d_chart
+    a_dims_table
 ]
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
@@ -461,7 +489,7 @@ sns.scatterplot(data=fdx.sample_totals, x="date", y=unit_label, label=this_featu
 # monthly or quaterly plot
 sns.lineplot(data=resample_plot, x=resample_plot.index, y=resample_plot, label=F"{this_feature['name']}: monatlicher Medianwert", color="magenta", ax=ax)
 # axis formatting
-ax.set_ylabel(unit_label, **ck.xlab_k14)
+ax.set_ylabel(unit_label, **featuredata.xlab_k14)
 ax.set_xlabel("")
 ax.xaxis.set_minor_locator(days)
 ax.xaxis.set_major_formatter(months_fmt)
@@ -480,8 +508,8 @@ sns.lineplot(x=feature_ecd["x"], y=feature_ecd["y"], color="darkblue", ax=axtwo,
 other_features = featuredata.ecdfOfAColumn(dx, unit_label)
 sns.lineplot(x=other_features["x"], y=other_features["y"], color="magenta", label=top, linewidth=1, ax=axtwo)
 
-axtwo.set_xlabel(unit_label, **ck.xlab_k14)
-axtwo.set_ylabel("Verhältnis der Erhebungen", **ck.xlab_k14)
+axtwo.set_xlabel(unit_label, **featuredata.xlab_k14)
+axtwo.set_ylabel("Verhältnis der Erhebungen", **featuredata.xlab_k14)
 axtwo.set_xlim(0, 3000)
 
 axtwo.xaxis.set_major_locator(MultipleLocator(500))
@@ -588,23 +616,52 @@ samp_mat_subsection = Paragraph("Zusammengefasste Daten und Materialarten", feat
 samp_material_table = Image(sample_summaries_file_name , width=12*cm, height=10*cm, kind="proportional", hAlign= "CENTER")
 samp_material_caption = Paragraph(summary_of_survey_totals, featuredata.caption_style)
 
+o_w, o_h = convertPixelToCm(sample_totals_file_name)
+
+f2cap = Paragraph(sample_total_notes, featuredata.caption_style)
+
+figure_kwargs = {
+    "image_file":sample_totals_file_name,
+    "caption": f2cap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 15,
+    "caption_height":.75,
+    "hAlign": "CENTER",
+}
+
+f2 = featuredata.figureAndCaptionTable(**figure_kwargs)
+
+o_w, o_h = convertPixelToCm(sample_summaries_file_name)
+
+f3cap = Paragraph(summary_of_survey_totals, featuredata.caption_style)
+
+figure_kwargs = {
+    "image_file":sample_summaries_file_name,
+    "caption": f3cap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 12,
+    "caption_height":.75,
+    "hAlign": "CENTER",
+}
+
+f3 = featuredata.figureAndCaptionTable(**figure_kwargs)
+
 new_components = [KeepTogether([
     featuredata.small_space,
     sample_summary_subsection,
     featuredata.small_space,
-    s_totals,
-    featuredata.smallest_space,
-    s_totals_caption,
+    f2,
     featuredata.small_space,
     samp_mat_subsection,
     featuredata.small_space,
-    samp_material_table,
-    featuredata.smallest_space,
-    samp_material_caption,
+    f3,
     
 ]), PageBreak()]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
 
 # the most common results
 most_common_display = fdx.most_common
@@ -636,9 +693,12 @@ mc_caption_string = [
     f'aller gefundenen Objekte aus. Anmerkung: {unit_label} = Medianwert der Erhebung.'
 ]
 
-mc_caption_string = "".join(mc_caption_string)
+colwidths = [4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
 
-pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+# pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+d_chart = featuredata.aSingleStyledTable(data, colWidths=colwidths)
+d_capt = featuredata.makeAParagraph(mc_caption_string, style=featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 
 most_common_display.index.name = None
 most_common_display.columns.name = None
@@ -673,7 +733,7 @@ glue('lac-leman_most_common_tables', mcd, display=False)
 mc_section_title = Paragraph("Die am häufigsten gefundenen Objekte", featuredata.section_title)
 para_g = "Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)"
 mc_section_para = Paragraph(para_g, featuredata.p_style)
-mc_table_cap = Paragraph(mc_caption_string, featuredata.caption_style)
+# mc_table_cap = Paragraph(mc_caption_string, featuredata.caption_style)
 
 new_components = [
     KeepTogether([
@@ -681,7 +741,7 @@ new_components = [
         featuredata.small_space,
         mc_section_para,
         featuredata.large_space,
-        pdf_mc_table,
+        mc_table,
         ])
 ]
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
@@ -714,7 +774,7 @@ mc_comp[bassin_label] = mc_parent
 mc_comp[top] = mc_period
 
 caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
-col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
+col_widths=[4.5*cm, *[1.2*cm]*len(mc_comp.columns)]
 mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gemeinden", featuredata.subsection_title)
 tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
@@ -969,8 +1029,8 @@ ptd = ptd.applymap_index(featuredata.rotateText, axis=1)
 # the caption prefix is used in the case where the table needs to be split horzontally
 caption_prefix =  'Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden: '
 
-col_widths = [4.5*cm, *[1.2*cm]*(len(pt_comp.columns)-1)]
-cgpercent_tables = featuredata.splitTableWidth(pt_comp, gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
+col_widths = [3.5*cm, *[1.2*cm]*len(pt_comp.columns)]
+cgpercent_tables = featuredata.splitTableWidth(pt_comp.mul(100).astype(int), gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths) 
 
 
@@ -1021,7 +1081,7 @@ code_group_pcsm_caption = [
 code_group_pcsm_caption = ''.join(code_group_pcsm_caption)
 
 caption_prefix =  f'Verwendungszweck der gefundenen Objekte Median {unit_label} am '
-col_widths = [4.5*cm, *[1.2*cm]*(len(grouppcs_comp.columns)-1)]
+col_widths = [3.5*cm, *[1.2*cm]*(len(grouppcs_comp.columns)-1)]
 cgpcsm_tables = featuredata.splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, caption=code_group_pcsm_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
@@ -1123,7 +1183,11 @@ frags_table = data.style.format(aformatter).set_table_styles(table_css_styles)
 glue("lac-leman_frag_table_caption", frag_captions, display=False)
 glue("lac-leman_frags_table", frags_table, display=False)
 
-frag_table = featuredata.aStyledTable(data, caption=frag_captions, colWidths=[7*cm, *[2*cm]*(len(dims_table.columns)-1)])
+# pdf components
+col_widths = [7*cm, *[2*cm]*len(data.columns)]
+d_chart = featuredata.aSingleStyledTable(data, colWidths=col_widths)
+d_capt = Paragraph(frag_captions, featuredata.caption_style)
+a_dims_table = featuredata.tableAndCaption(d_chart, d_capt, col_widths)
 
 new_components = [
     KeepTogether([
@@ -1134,7 +1198,7 @@ new_components = [
         frag,
         featuredata.small_space
     ]),
-    frag_table
+    a_dims_table
 ]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
@@ -1237,7 +1301,7 @@ new_components = [
         location_subsection,
         featuredata.small_space,
         new_map_image,
-        featuredata.smaller_space,
+        featuredata.small_space,
         pdf_table,
         
     ]),

@@ -131,7 +131,7 @@ style = TableStyle([
         ])
 
 
-# (codegroupsde)=
+# (codegroups)=
 # # Codegruppen
 # 
 # {Download}`Download </resources/pdfs/codegroups.pdf>`
@@ -184,7 +184,7 @@ dfCodes = dfCodes[dfCodes.material.isin(['Metal', 'Chemicals', 'Cloth', 'Glass',
 dfCodes["material"] = dfCodes.material.map(lambda x: sut.mat_ge[x])
 
 # translate the code groups and columns to local
-dfCodes["groupname"] = dfCodes["groupname"].map(lambda x: sut.group_names_de[x])
+dfCodes["groupname"] = dfCodes["groupname"].map(lambda x: featuredata.group_names_de[x])
 
 # rename the columns
 new_names = {"description":"Objekte", "groupname":"Gruppenname", "material":"Material", "Parent code":"pc"}
@@ -851,7 +851,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 # ### Infrastruktur 
 # 
-# Infrastruktur bezieht sich auf alle Formen des Baus, der Renovierung und der Instandhaltung von öffentlichen und privaten Bauwerken, einschliesslich Strassen, Brücken und Häfen sowie der Strom- und Wasserversorgung. Entlang aller untersuchten Seen wurden bedeutende Mengen an Baukunststoffen und insbesondere an geschäumten Kunststoffen festgestellt [Alle Erhebungen](allsurveysde).
+# Infrastruktur bezieht sich auf alle Formen des Baus, der Renovierung und der Instandhaltung von öffentlichen und privaten Bauwerken, einschliesslich Strassen, Brücken und Häfen sowie der Strom- und Wasserversorgung. Entlang aller untersuchten Seen wurden bedeutende Mengen an Baukunststoffen und insbesondere an geschäumten Kunststoffen festgestellt [Alle Erhebungen](allsurveys).
 # 
 # Gängige Kunststoffe im Bauwesen sind Rohrstücke, Kabelschutzvorrichtungen, flexible und starre Schläuche sowie die dazugehörigen Verbindungsstücke, Armaturen und Abdeckungen. Kunststoffe, die bei der Betonherstellung verwendet werden, wie Dübel, Anker und Abstandshalter, wurden ebenfalls häufig identifiziert. Einige Artikel, die mit Kunststoffen im Bauwesen in Verbindung gebracht werden, haben eindeutige Codes wie G93 Kabelbinder oder G17 Behälter für Injektionspistolen. 
 # 
@@ -1030,7 +1030,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 # ### Essen und Trinken
 # 
-# Beinhaltet alle Materialien, die mit Essen und Trinken in Verbindung stehen. Die grössten Mengen an Einwegkunststoffen (SUP) werden im Zusammenhang mit dem Verzehr im Freien oder zum Mitnehmen verwendet. Verpackungen für Süssigkeiten und Snacks (G30) und Glasscherben (G200) sind an den Schweizer Gewässern am häufigsten anzutreffen [Alle Erhebungen](allsurveysde)
+# Beinhaltet alle Materialien, die mit Essen und Trinken in Verbindung stehen. Die grössten Mengen an Einwegkunststoffen (SUP) werden im Zusammenhang mit dem Verzehr im Freien oder zum Mitnehmen verwendet. Verpackungen für Süssigkeiten und Snacks (G30) und Glasscherben (G200) sind an den Schweizer Gewässern am häufigsten anzutreffen [Alle Erhebungen](allsurveys)
 
 # In[19]:
 

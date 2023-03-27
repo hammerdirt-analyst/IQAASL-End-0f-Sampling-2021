@@ -262,7 +262,7 @@ table_css_styles = [even_rows, odd_rows, table_font, header_row]
 # reportlab is used to produce the document
 # the components of the document are captured at run time
 # the pdf link gives the name and location of the future doc
-pdf_link = f'resources/pdfs/{this_feature["slug"]}_de.pdf'
+pdf_link = f'resources/pdfs/{this_feature["slug"]}.pdf'
 
 # the components are stored in an array and collected as the script runs
 pdfcomponents = []
@@ -281,7 +281,7 @@ pdfcomponents = featuredata.addToDoc([
 # (lesalpesde)=
 # # Alpen und der Jura
 # 
-# {Download}`Download </resources/pdfs/les-alpes_de.pdf>`
+# {Download}`Download </resources/pdfs/les-alpes.pdf>`
 
 # ```{figure} resources/maps/survey_areas/alpesvalaisannes.jpeg
 # ---
@@ -1230,7 +1230,7 @@ cols_to_use = featuredata.most_common_objects_table_de
 cols_to_use.update({unit_label:unit_label})
 table_data = most_common[cols_to_use.keys()].copy()
 table_data.rename(columns=cols_to_use, inplace=True)
-table_data.set_index("Objekt", inplace=True)
+table_data.set_index("Objekte", inplace=True)
 mcd =table_data.style.format(aformatter).set_table_styles(table_css_styles)
 mcd.index.name = None
 mcd.columns.name = None
@@ -1823,7 +1823,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 3. Abdeckband
 # 4. Seilbahnbürste 
 # 
-# Das Fehlen von expandiertem oder extrudiertem Polystyrol in der Liste der am häufigsten vorkommenden Objekte im Erhebungsgebiet Alpen und Jura steht in scharfem Kontrast zu den anderen Erhebungsgebieten, in denen expandiertes oder extrudiertes Polystyrol etwa 13 % der Gesamtmenge ausmacht, siehe [_Seen und Flüsse_](allsurveysde).
+# Das Fehlen von expandiertem oder extrudiertem Polystyrol in der Liste der am häufigsten vorkommenden Objekte im Erhebungsgebiet Alpen und Jura steht in scharfem Kontrast zu den anderen Erhebungsgebieten, in denen expandiertes oder extrudiertes Polystyrol etwa 13 % der Gesamtmenge ausmacht, siehe [_Seen und Flüsse_](allsurveys).
 # 
 # ### Implementierung von Abfallerhebungen in das bestehende Geschäftsmodell
 # 

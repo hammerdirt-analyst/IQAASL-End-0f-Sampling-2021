@@ -75,15 +75,12 @@ from resources.featuredata import makeAList
 import resources.sr_ut as sut
 
 # images and display
+from PIL import Image as PILImage
 from IPython.display import Markdown as md
 from myst_nb import glue
 
 # chart style
 sns.set_style("whitegrid")
-
-# colors for gradients
-# cmap2 = ck.cmap2
-
 
 # border and row shading for tables
 a_color = "saddlebrown"
@@ -134,7 +131,7 @@ fail_rate = 50
 
 # Changing these variables produces different reports
 # Call the map image for the area of interest
-bassin_map = "resources/maps/bielersee_city_labels.jpeg"
+bassin_map = "resources/maps/neuenburgersee_city_labels.jpeg"
 
 # the label for the aggregation of all data in the region
 top = "Alle Erhebungsgebiete"
@@ -145,9 +142,9 @@ top = "Alle Erhebungsgebiete"
 this_feature = {'slug':'neuenburgersee', 'name':"Neuenburgersee", 'level':'water_name_slug'}
 
 # the lake is in this survey area
-this_bassin = "aare"
+this_bassin = "linth"
 # label for survey area
-bassin_label = "Erhebungsgebiet Aare"
+bassin_label = "Erhebungsgebiet Linth"
 
 # these are the smallest aggregated components
 # choices are water_name_slug=lake or river, city or location at the scale of a river bassin 
@@ -264,6 +261,15 @@ odd_rows = {'selector': 'tr:nth-child(odd)', 'props': 'background: #FFF;'}
 table_font = {'selector': 'tr', 'props': 'font-size: 12px;'}
 table_css_styles = [even_rows, odd_rows, table_font, header_row]
 
+def convertPixelToCm(file_name: str = None):
+    im = PILImage.open(file_name)
+    width, height = im.size
+    dpi = im.info.get("dpi", (72, 72))
+    width_cm = width / dpi[0] * 2.54
+    height_cm = height / dpi[1] * 2.54
+    
+    return width_cm, height_cm
+
 
 # pdf download is an option 
 # reportlab is used to produce the document
@@ -274,12 +280,13 @@ pdfcomponents = []
 
 # pdf title and map
 pdf_title = Paragraph(this_feature["name"], featuredata.title_style)
-map_image =  Image(bassin_map, width=cm*19, height=20*cm, kind="proportional", hAlign= "CENTER")
+# map_image =  Image(bassin_map, width=cm*19, height=20*cm, kind="proportional", hAlign= "CENTER")
+
 
 pdfcomponents = featuredata.addToDoc([
     pdf_title,    
     featuredata.small_space,
-    map_image
+   
 ], pdfcomponents)
 
 glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
@@ -295,22 +302,42 @@ glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
 
 
 map_caption = featuredata.defaultMapCaption(language="de")
-glue("city_map_caption", map_caption, display=False)
+glue(f"{this_feature['slug']}_city_map_caption", map_caption, display=False)
+
+
+o_w, o_h = convertPixelToCm(bassin_map)
+
+f1cap = Paragraph(map_caption, style=featuredata.caption_style)
+
+figure_kwargs = {
+    "image_file":bassin_map,
+    "caption": f1cap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 16,
+    "caption_height":.75,
+    "hAlign": "CENTER",
+}
+
+f1 = featuredata.figureAndCaptionTable(**figure_kwargs)
+
 
 new_components = [
-    Paragraph(map_caption, featuredata.caption_style)
+    f1,
+    featuredata.small_space
+    
 ]
 # add those sections
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# ```{figure} resources/maps/bielersee_city_labels.jpeg
+# ```{figure} resources/maps/neuenburgersee_city_labels.jpeg
 # ---
 # name: neuenburgersee_map
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <neuenburgersee_map>` {glue:text}`city_map_caption`
+# {numref}`Abbildung %s: <neuenburgersee_map>` {glue:text}`neuenburgersee_city_map_caption`
 
 # ## Erhebungsorte
 
@@ -329,7 +356,7 @@ components_markdown = [f'*{x[0]}*\n\n>{x[1]}\n\n' for x in feature_components]
 pdfcomponents = featuredata.addToDoc([
     featuredata.smallest_space,
     Paragraph("Erhebungsorte", featuredata.section_title), 
-    featuredata.smallest_space,
+    featuredata.small_space,
     Paragraph(an_admin_summary , featuredata.p_style)    
 ], pdfcomponents)
 
@@ -376,12 +403,13 @@ dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: fea
 dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte  und Masse für die Gemeinden'
 
 # pdf components                 
-d_chart = featuredata.aStyledTable(dims_table, caption=dims_table_caption, colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)])
-# d_capt = Paragraph(dims_table_caption, featuredata.caption_style)
+d_chart = featuredata.aSingleStyledTable(dims_table, colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)])
+d_capt = Paragraph(dims_table_caption, featuredata.caption_style)
+a_dims_table = featuredata.tableAndCaption(d_chart, d_capt, [3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-2)])
 
 new_components = [
     featuredata.smallest_space,
-    d_chart
+    a_dims_table
 ]
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
@@ -581,19 +609,47 @@ samp_mat_subsection = Paragraph("Zusammengefasste Daten und Materialarten", feat
 samp_material_table = Image(sample_summaries_file_name , width=12*cm, height=10*cm, kind="proportional", hAlign= "CENTER")
 samp_material_caption = Paragraph(summary_of_survey_totals, featuredata.caption_style)
 
+o_w, o_h = convertPixelToCm(sample_totals_file_name)
+
+f2cap = Paragraph(sample_total_notes, featuredata.caption_style)
+
+figure_kwargs = {
+    "image_file":sample_totals_file_name,
+    "caption": f2cap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 15,
+    "caption_height":.75,
+    "hAlign": "CENTER",
+}
+
+f2 = featuredata.figureAndCaptionTable(**figure_kwargs)
+
+o_w, o_h = convertPixelToCm(sample_summaries_file_name)
+
+f3cap = Paragraph(summary_of_survey_totals, featuredata.caption_style)
+
+figure_kwargs = {
+    "image_file":sample_summaries_file_name,
+    "caption": f3cap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 12,
+    "caption_height":.75,
+    "hAlign": "CENTER",
+}
+
+f3 = featuredata.figureAndCaptionTable(**figure_kwargs)
+
 new_components = [KeepTogether([
     featuredata.small_space,
     sample_summary_subsection,
     featuredata.small_space,
-    s_totals,
-    featuredata.smallest_space,
-    s_totals_caption,
+    f2,
     featuredata.small_space,
     samp_mat_subsection,
     featuredata.small_space,
-    samp_material_table,
-    featuredata.smallest_space,
-    samp_material_caption,
+    f3,
     
 ]), PageBreak()]
 
@@ -631,8 +687,12 @@ mc_caption_string = [
 
 mc_caption_string = "".join(mc_caption_string)
 
-pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+colwidths = [4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
 
+# pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+d_chart = featuredata.aSingleStyledTable(data, colWidths=colwidths)
+d_capt = Paragraph(mc_caption_string, featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 most_common_display.index.name = None
 most_common_display.columns.name = None
 
@@ -676,7 +736,7 @@ new_components = [
         featuredata.small_space,
         mc_section_para,
         featuredata.large_space,
-        pdf_mc_table,
+        mc_table
         ])
 ]
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
@@ -716,9 +776,11 @@ def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradi
     if len(data.columns) > 13:
         tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
     else:
-        tables = featuredata.aStyledTable(data, caption=caption, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)
-            # featuredata.smallest_space, 
-            # Paragraph(caption, featuredata.caption_style)
+        tables = featuredata.aSingleStyledTable(data, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)
+        table_cap =   f'{caption_prefix}, {", ".join(data.columns)}'
+        table_cap = Paragraph(table_cap, style=featuredata.caption_style)
+        tables = featuredata.tableAndCaption(tables, table_cap, col_widths)
+        
         
     
     return tables
@@ -738,6 +800,7 @@ else:
     
 
 new_components = [
+    featuredata.small_space,
     KeepTogether(grouped_pdf_components)
 ]
 
@@ -980,7 +1043,7 @@ caption_prefix =  'Verwendungszweck oder Beschreibung der identifizierten Objekt
 
 
 col_widths = [4.5*cm, *[1.2*cm]*(len(pt_comp.columns)-1)]
-cgpercent_tables = splitTableWidth(pt_comp, gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
+cgpercent_tables = splitTableWidth(pt_comp.mul(100).astype(int), gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths) 
 
 
@@ -1133,7 +1196,13 @@ frags_table = data.style.format(aformatter).set_table_styles(table_css_styles)
 glue("neuenburgersee_frag_table_caption", frag_captions, display=False)
 glue("neuenburgersee_frags_table", frags_table, display=False)
 
-frag_table = featuredata.aStyledTable(data, caption=frag_captions, colWidths=[7*cm, *[2*cm]*(len(dims_table.columns)-1)])
+# pdf components
+col_widths = [7*cm, *[2*cm]*len(data.columns)]
+d_chart = featuredata.aSingleStyledTable(data, colWidths=col_widths)
+d_capt = Paragraph(frag_captions, featuredata.caption_style)
+a_dims_table = featuredata.tableAndCaption(d_chart, d_capt, col_widths)
+
+
 
 
 
@@ -1146,7 +1215,7 @@ new_components = [
         frag,
         featuredata.small_space
     ]),
-    frag_table,
+    a_dims_table,
     
     ]
 
@@ -1169,7 +1238,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <neuenburgersee_location_map>` Karte des Erhebungsgebiets 2020 bis 2021.  Der Durchmesser der Punktsymbole entspricht dem Median der Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort.
+# {numref}`Abbildung %s: <neuenburgersee_location_map>` 
 
 # In[14]:
 
@@ -1240,16 +1309,16 @@ complete_inventory[unit_label] = complete_inventory[unit_label].astype(int)
 complete_inventory.rename(columns=featuredata.inventory_table_de, inplace=True)
     
 # inventory_subsection = Paragraph("Inventar der Objekte", featuredata.subsection_title)
-col_widths=[1.2*cm, 4.5*cm, 2.2*cm, 1.5*cm, 1.5*cm, 2.4*cm, 1.5*cm]
+col_widths=[1.2*cm, 5.5*cm, 2.2*cm, 1.5*cm, 1.5*cm, 2.4*cm, 1.5*cm]
 inventory_table = aStyledTableWithTitleRow(complete_inventory, title="Inventar der Objekte", colWidths=col_widths)
-new_map_image =  Image('resources/maps/bielersee_location_labels.jpeg', width=cm*14, height=11*cm, kind="proportional", hAlign= "CENTER")
+new_map_image =  Image('resources/maps/neuenburgersee_location_labels.jpeg', width=cm*14, height=11*cm, kind="proportional", hAlign= "CENTER")
 new_components = [
     KeepTogether([
         featuredata.large_space,
         location_subsection,
         featuredata.small_space,
         new_map_image,
-        Paragraph(map_caption, featuredata.caption_style),
+        featuredata.small_space,        
         pdf_table,
         
     ]),

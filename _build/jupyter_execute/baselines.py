@@ -131,7 +131,7 @@ code_material_map = dfCodes.material
 # (threshhold)=
 # # Basiswerte für Abfallobjekte an Gewässern
 # 
-# {Download}`Download </resources/pdfs/baselines_de.pdf>`
+# {Download}`Download </resources/pdfs/baselines.pdf>`
 # 
 # 
 # Basiswerte (BVs), die auch als Benchmarks bezeichnet werden, sind die Mengen oder Werte, die zur statistischen Definition einer Situation verwendet werden. Die BVs beziehen sich auf eine Reihe von Daten, die sowohl zeitlich als auch geografisch begrenzt sind und auch als Referenzpunkt oder Basisperiode bezeichnet werden. BVs sind die Grössen, an denen der Fortschritt gemessen wird. In dieser Hinsicht sind die BVs eng mit den Daten und den zu ihrer Erhebung verwendeten Methoden verbunden.
@@ -146,7 +146,7 @@ code_material_map = dfCodes.material
 # 
 # Im September 2020 schliesslich legte die EU Basis- und Zielwerte auf der Grundlage der 2015–2016 erhobenen Daten fest. Die Zielwerte beziehen sich auf den guten Umweltzustand der Meeresgewässer, der in der Meeresstrategie-Rahmenrichtlinie (MSRL) beschrieben wird. Die Basiswerte wurden anhand der in der Veröffentlichung von 2019 beschriebenen Methoden berechnet.{cite}`threshholdeu`
 
-# In[ ]:
+# In[2]:
 
 
 pdfcomponents = []
@@ -476,7 +476,7 @@ plt.close()
 # 
 # #### Zählen von Objekten 
 # 
-# Alle sichtbaren Objekte innerhalb eines Untersuchungsgebiets werden gesammelt, klassifiziert und gezählt. Das Gesamtgewicht von Material und Plastik wird ebenfalls erfasst. Die Objekte werden anhand von [ Code-Definitionen ](codegroupsde) klassifiziert, die auf einer Masterliste von Codes in the guide basieren. Spezielle Objekte, die von lokalem Interesse sind, wurden unter G9xx und G7xx hinzugefügt.
+# Alle sichtbaren Objekte innerhalb eines Untersuchungsgebiets werden gesammelt, klassifiziert und gezählt. Das Gesamtgewicht von Material und Plastik wird ebenfalls erfasst. Die Objekte werden anhand von [ Code-Definitionen ](codegroups) klassifiziert, die auf einer Masterliste von Codes in the guide basieren. Spezielle Objekte, die von lokalem Interesse sind, wurden unter G9xx und G7xx hinzugefügt.
 
 # In[5]:
 
@@ -2571,7 +2571,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # In[26]:
 
 
-doc = SimpleDocTemplate("resources/pdfs/baselines_de.pdf", pagesize=A4, leftMargin=2.5*cm, rightMargin=1.5*cm, topMargin=3*cm, bottomMargin=1.5*cm)
+doc = SimpleDocTemplate("resources/pdfs/baselines.pdf", pagesize=A4, leftMargin=2.5*cm, rightMargin=1.5*cm, topMargin=3*cm, bottomMargin=1.5*cm)
 pageinfo= f"IQAASL: Basiswerte für Abfallobjekte an Gewässern"
 
 def myLaterPages(canvas, doc):

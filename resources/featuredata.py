@@ -1067,6 +1067,7 @@ class AdministrativeSummary(Beaches):
         # map the qauntity to the dimensional data
         q_map = self.feature_data.groupby(self.feature_component).quantity.sum()
         
+        
         # collect the number of samples from the survey total data:
         for name in dims_table.index:
             if self.feature_component == "location":
@@ -1077,6 +1078,7 @@ class AdministrativeSummary(Beaches):
             else:
                 mask = self.feature_data[self.feature_component] == name
                 dims_table.loc[name, "samples"] = self.feature_data[mask].loc_date.nunique()
+                
                 dims_table.loc[name, "quantity"] = q_map[name]
                 
         if self.feature_component == "water_name_slug":
@@ -1383,6 +1385,7 @@ def aSingleStyledTable(data, header_style: Paragraph = styled_table_header, vert
                        gradient: bool = False):
     table_data = data.reset_index()
     
+    
     if vertical_header:
         headers = [verticalText(x) for x in data.columns]
         headers = [verticalText(" "), *headers]
@@ -1483,13 +1486,13 @@ def aStyledTableExtended(data, row_header: int=0, row_ends: int=-3, caption_pref
     
     table_one_caption = f'{caption_prefix}, {", ".join(first_table_cols)}'
     table_one_caption = Paragraph(table_one_caption, caption_style)
-    col_widths = [4.5 * cm, *[1.2 * cm] * (len(first_table_data.columns) - 1)]
+    col_widths = [colWidths[0], *[1.2 * cm] * len(first_table_data.columns)]
     table_one = aSingleStyledTable(first_table_data, colWidths=col_widths, gradient=True, vertical_header=vertical_header)
     table_one_and_caption = tableAndCaption(table_one, table_one_caption, col_widths)
 
     table_two_caption = f'{caption_prefix}, {", ".join(second_table_cols)}'
     table_two_caption = Paragraph(table_two_caption, caption_style)
-    col_widths = [4.5 * cm, *[1.2 * cm] * (len(second_table_data.columns) - 1)]
+    col_widths = [colWidths[0], *[1.2 * cm] * len(second_table_data.columns)]
     table_two = aSingleStyledTable(second_table_data, colWidths=col_widths, gradient=True, vertical_header=vertical_header)
     table_two_and_caption = tableAndCaption(table_two, table_two_caption, col_widths)
     

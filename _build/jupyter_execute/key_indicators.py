@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[11]:
+# In[1]:
 
 
 # -*- coding: utf-8 -*-
@@ -283,7 +283,7 @@ def convertPixelToCm(file_name: str = None):
 # reportlab is used to produce the document
 # the arguments for the document are captured at run time
 # capture for pdf content
-pdf_link = f'resources/pdfs/key_indicators_de.pdf'
+pdf_link = f'resources/pdfs/key_indicators.pdf'
 pdfcomponents = []
 
 
@@ -291,7 +291,7 @@ pdfcomponents = []
 # # Statistische Schlüsselindikatoren
 # 
 # 
-# {Download}`Download </resources/pdfs/key_indicators_de.pdf>`
+# {Download}`Download </resources/pdfs/key_indicators.pdf>`
 
 # Die Schlüsselindikatoren sind einfach zu berechnen und werden direkt aus den Erhebungsergebnissen entnommen. Sie sind für die Identifizierung von Akkumulationszonen im Wassereinzugsgebiet unerlässlich. Wenn sie im Rahmen eines Abfallüberwachungsprogramms verwendet und mit spezifischen Kenntnissen über die Umgebung kombiniert werden, helfen die Schlüsselindikatoren, potenzielle Abfallquellen zu identifizieren. {cite}`mlwguidance`
 # 
@@ -332,7 +332,7 @@ pdfcomponents = []
 # 
 # ## Die wichtigsten Indikatoren
 
-# In[12]:
+# In[2]:
 
 
 # pdf title and map
@@ -532,7 +532,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <key_indicators_data>` Die Resultate des Erhebungsgebiets Aare, mit Ausschnitt Biel/Bienne und Monatsmedian. links: Zusammenfassende Statistik für das Erhebungsgebiet Aare. Rechts: Zusammenfassende Statistik Biel/Bienne.
 
-# In[13]:
+# In[3]:
 
 
 o_w, o_h = convertPixelToCm("resources/output/key_indicators_data.jpeg")
@@ -585,7 +585,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <fail_rate_key_i>` Die Häufigkeitsraten der am meisten gefundenen Objekte aus dem Erhebungsgebiet Aare bei verschiedenen Aggregationsstufen.
 
-# In[14]:
+# In[4]:
 
 
 subsection_4 = Paragraph("Die Anzahl der Proben", style=subsection_title)
@@ -695,7 +695,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <pcs_m_key_i>` Der Median (p/m) der häufigsten Objekte im Erhebungsgebiet Aare.
 
-# In[15]:
+# In[5]:
 
 
 p14 = [
@@ -791,7 +791,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <percent_total_i>` Die häufigsten Objekte im Erhebungsgebiet Aare machen rund 66 % (2022) der Gesamtzahl der erfassten Objekte (3067) an den drei Erhebungsorten in Biel/Bienne aus.
 
-# In[16]:
+# In[6]:
 
 
 p21 = [
@@ -881,7 +881,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # * Wie gross ist die wahrscheinliche Mindestmenge an Pellets, die Sie bei einer Untersuchung von 50 Metern finden würden?
 # * Warum haben Sie sich für diesen Ort oder diese Orte entschieden? Wie sicher sind Sie sich bei Ihrer Wahl?
 
-# In[17]:
+# In[7]:
 
 
 section_3 = Paragraph("Diskussion", style=section_title)
@@ -957,7 +957,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[18]:
+# In[8]:
 
 
 aggs = {'loc_date':'nunique', 'fail':'sum', 'pcs_m':'mean', "quantity":"sum"}
@@ -1004,7 +1004,7 @@ mcc
 # ```
 # {numref}`Abbildung %s: <practical_excercise>` Die häufigsten Objekte im Erhebungsgebiet Aare machen rund 66 % (2022) der Gesamtzahl der erfassten Objekte (3067) an den drei Erhebungsorten in Biel/Bienne aus.
 
-# In[19]:
+# In[9]:
 
 
 o_w, o_h = convertPixelToCm("resources/maps/practical_excercise.jpeg")
@@ -1031,7 +1031,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[20]:
+# In[10]:
 
 
 doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=1.5*cm, topMargin=3*cm, bottomMargin=1.5*cm)

@@ -15,19 +15,19 @@ import locale
 #
 #
 # # columns needed
-# def shorten_the_value(an_array, a_df):
-#     """Change the value in a data frame column with an array of three values.
-#
-#     Args:
-#     an_array: array: the index, column and the new value
-#     a_df: dataframe: the dataframe to change:
-#
-#     Returns:
-#     The changed dataframe
-#     """
-#     a_df.loc[an_array[0], an_array[1]] = an_array[2]
-#
-#     return a_df
+def shorten_the_value(an_array, a_df):
+    """Change the value in a data frame column with an array of three values.
+
+    Args:
+    an_array: array: the index, column and the new value
+    a_df: dataframe: the dataframe to change:
+
+    Returns:
+    The changed dataframe
+    """
+    a_df.loc[an_array[0], an_array[1]] = an_array[2]
+
+    return a_df
 #
 #
 # def fo_rmat_date_column(x, a_format="%Y-%m-%d"):
@@ -79,14 +79,14 @@ def hide_spines_ticks_grids(an_ax):
 #         return data
 #
 #
-# def make_plot_with_spearmans(data, ax, n, unit_label="p/100m"):
-#     """Gets Spearmans ranked correlation and make A/B scatter plot. Must proived a
-#     matplotlib axis object.
-#     """
-#     sns.scatterplot(data=data, x=n, y=unit_label, ax=ax, color="black", s=30, edgecolor="white", alpha=0.6)
-#     corr, a_p = stats.spearmanr(data[n], data[unit_label])
-#
-#     return ax, corr, a_p
+def make_plot_with_spearmans(data, ax, n, unit_label="p/100m"):
+    """Gets Spearmans ranked correlation and make A/B scatter plot. Must proived a
+    matplotlib axis object.
+    """
+    sns.scatterplot(data=data, x=n, y=unit_label, ax=ax, color="black", s=30, edgecolor="white", alpha=0.6)
+    corr, a_p = stats.spearmanr(data[n], data[unit_label])
+
+    return ax, corr, a_p
 
 
 def make_a_summary_table(ax, data, colLabels, a_color="saddlebrown", font_size=12):
@@ -190,37 +190,37 @@ def make_a_table(ax, data, colLabels=[], a_color="saddlebrown", colWidths=[.22, 
 #
 #
 #
-# def the_aggregated_object_values(data, description_map={}, material_map={}, agg={}, obj="code", agg_level="groupname", material_totals="material", **kwargs):
-#     """Assigns description and material type to objects in the survey results. Defines the cumulative fail-rate, % of total
-#     and material totals for all the objects in data.
-#
-#     :param data: The data frame that has the survey data
-#     :param obj: The column of interest, the highest aggregation element
-#     :param agg_level: The next level of aggregateion, column of interest
-#     :param agg: A dictionary of columns and aggregation functions
-#     :param material_totals: Wether to include a material column or not
-#     :param description_map: A mapping of code value to the plain text description of the object
-#     :param material_map: A mapping of code value to the material composition of the object
-#     :return: A pandas data frame of the cumulative results for each object in obj
-#     """
-#
-#     code_totals = data.groupby([obj, agg_level], as_index=False).agg(agg)
-#
-#     # percent of total
-#     code_totals["% of total"] = ((code_totals.quantity/code_totals.quantity.sum())*100).round(2)
-#
-#     # fail and fail-rate
-#     code_totals["fail"] = code_totals.code.map(lambda x: data[(data.code == x) & (data.quantity > 0)].loc_date.nunique())
-#     code_totals["fail rate"] = ((code_totals.fail/data.loc_date.nunique())*100).astype("int")
-#     code_totals.set_index("code",inplace=True)
-#     code_totals["item"] = code_totals.index.map(lambda x: description_map[x])
-#
-#     if material_totals:
-#
-#         code_totals[material_totals] = code_totals.index.map(lambda x: material_map[x])
-#
-#
-#     return code_totals
+def the_aggregated_object_values(data, description_map={}, material_map={}, agg={}, obj="code", agg_level="groupname", material_totals="material", **kwargs):
+    """Assigns description and material type to objects in the survey results. Defines the cumulative fail-rate, % of total
+    and material totals for all the objects in data.
+
+    :param data: The data frame that has the survey data
+    :param obj: The column of interest, the highest aggregation element
+    :param agg_level: The next level of aggregateion, column of interest
+    :param agg: A dictionary of columns and aggregation functions
+    :param material_totals: Wether to include a material column or not
+    :param description_map: A mapping of code value to the plain text description of the object
+    :param material_map: A mapping of code value to the material composition of the object
+    :return: A pandas data frame of the cumulative results for each object in obj
+    """
+
+    code_totals = data.groupby([obj, agg_level], as_index=False).agg(agg)
+
+    # percent of total
+    code_totals["% of total"] = ((code_totals.quantity/code_totals.quantity.sum())*100).round(2)
+
+    # fail and fail-rate
+    code_totals["fail"] = code_totals.code.map(lambda x: data[(data.code == x) & (data.quantity > 0)].loc_date.nunique())
+    code_totals["fail rate"] = ((code_totals.fail/data.loc_date.nunique())*100).astype("int")
+    code_totals.set_index("code",inplace=True)
+    code_totals["item"] = code_totals.index.map(lambda x: description_map[x])
+
+    if material_totals:
+
+        code_totals[material_totals] = code_totals.index.map(lambda x: material_map[x])
+
+
+    return code_totals
 #
 # def the_ratio_object_to_total(data, obj="material", measure="quantity", metric="% of total"):
 #     """Makes a ratio column of one column to another. The instance quantity is divided by the total quantity.
@@ -390,23 +390,23 @@ def make_a_table(ax, data, colLabels=[], a_color="saddlebrown", colWidths=[.22, 
 #     return plot, rate
 #
 # # convenience function to change the index names in a series
-# def change_series_index_labels(x, change_names):
-#     """A convenience funtion to change the index labels of a series x.
-#     Change_names is keyed to the series index.
-#
-#     :param x: A pandas series
-#     :type x: pandas.series
-#     :param change_names: A dictionary that has keys = x.index and
-#         values = new x.index label
-#     :type change_names: dict
-#     :return: The series with the new labels
-#     :rtype: pandas.series
-#     """
-#
-#     new_dict = {}
-#     for param in x.index:
-#         new_dict.update({change_names[param]:x[param]})
-#     return pd.Series(new_dict)
+def change_series_index_labels(x, change_names):
+    """A convenience funtion to change the index labels of a series x.
+    Change_names is keyed to the series index.
+
+    :param x: A pandas series
+    :type x: pandas.series
+    :param change_names: A dictionary that has keys = x.index and
+        values = new x.index label
+    :type change_names: dict
+    :return: The series with the new labels
+    :rtype: pandas.series
+    """
+
+    new_dict = {}
+    for param in x.index:
+        new_dict.update({change_names[param]:x[param]})
+    return pd.Series(new_dict)
 #
 # def create_summary_table_index(unit_label, lang="EN"):
 #     """Assigns the current units to the keys and creates
@@ -485,32 +485,32 @@ def make_a_table(ax, data, colLabels=[], a_color="saddlebrown", colWidths=[.22, 
 #
 #     return data
 #
-# def fmt_combined_summary(data, nf=[-1], fmt="{:,}", use_locale=True):
-#     """Convenience function for formatting the values of the combined
-#     summary. Accepts a series and returns an array of tuples of the
-#     index label and the formatted value
-#
-#     :param data:A pandas series of values that need to be formatted
-#     :type data: pandas.core.series.Series
-#     :param nf: Index of objects not to format
-#     :type nf: array
-#     :param fmt: The formatting to be applied to each value
-#     :type fmt: string
-#     :return: An aray of tuples (<index label>, <formatted value>)
-#     :rtype: array
-#     """
-#
-#     if use_locale:
-#         new_data = [(x,  f"{locale.format_string('%d', data[x], grouping=True)}") for x in data.index[:]]
-#
-#     elif len(nf):
-#         new_data = [(x, fmt.format(int(data[x]))) for x in data.index[:-1]]
-#         new_data.append((data.index[-1], int(data[-1])))
-#
-#     else:
-#         new_data = [(x, fmt.format(int(data[x]))) for x in data.index]
-#
-#     return new_data
+def fmt_combined_summary(data, nf=[-1], fmt="{:,}", use_locale=True):
+    """Convenience function for formatting the values of the combined
+    summary. Accepts a series and returns an array of tuples of the
+    index label and the formatted value
+
+    :param data:A pandas series of values that need to be formatted
+    :type data: pandas.core.series.Series
+    :param nf: Index of objects not to format
+    :type nf: array
+    :param fmt: The formatting to be applied to each value
+    :type fmt: string
+    :return: An aray of tuples (<index label>, <formatted value>)
+    :rtype: array
+    """
+
+    if use_locale:
+        new_data = [(x,  f"{locale.format_string('%d', data[x], grouping=True)}") for x in data.index[:]]
+
+    elif len(nf):
+        new_data = [(x, fmt.format(int(data[x]))) for x in data.index[:-1]]
+        new_data.append((data.index[-1], int(data[-1])))
+
+    else:
+        new_data = [(x, fmt.format(int(data[x]))) for x in data.index]
+
+    return new_data
 #
 # def aggregate_to_group_name(data, unit_label="p/100m", column="groupname", name="afeaturename", val="pt"):
 #     """Convenience function, takes in a data frame and returns the aggregated values specified by <val> of <column> in
@@ -569,17 +569,17 @@ def make_a_table(ax, data, colLabels=[], a_color="saddlebrown", colWidths=[.22, 
 #            "intersects": "Flussmündung"
 #            }
 #
-# mat_ge = {"Metal":"Metall",
-#           "Chemicals":"Chemikalien",
-#           "Paper":"Papier",
-#           "Glass":"Glas",
-#           "Rubber":"Gummi",
-#           "Wood":"Holz",
-#           "Cloth":"Stoff",
-#           "Unidentified":"Unbekannt",
-#           "Undefined":"Unbestimmt",
-#           "Plastic":"Plastik"
-#          }
+mat_ge = {"Metal":"Metall",
+          "Chemicals":"Chemikalien",
+          "Paper":"Papier",
+          "Glass":"Glas",
+          "Rubber":"Gummi",
+          "Wood":"Holz",
+          "Cloth":"Stoff",
+          "Unidentified":"Unbekannt",
+          "Undefined":"Unbestimmt",
+          "Plastic":"Plastik"
+         }
 #
 # group_names_de =  {"waste water":"Abwasser",
 #                    "micro plastics (< 5mm)":"Mikroplastik (< 5mm)",
@@ -610,57 +610,57 @@ def make_a_table(ax, data, colLabels=[], a_color="saddlebrown", colWidths=[.22, 
 # }
 #
 #
-# def display_image_ipython(file_location, thumb=(1200, 700), rotate=0):
-#     """Convenience method to use PIL and Ipython to display images.
+def display_image_ipython(file_location, thumb=(1200, 700), rotate=0):
+    """Convenience method to use PIL and Ipython to display images.
+
+    :param file_location: The location of the file relative location of the file
+    :type file_location: string
+    :param thumb: The size of the image
+    :type thumb: tuple, integers
+    :return: displays the image or a message that the image could not be displayed
+    :rtype: displayed image
+    """
+
+    try:
+        im = PILImage.open(file_location)
+
+    except:
+        print(f"could not load image {file_location} ")
+
+    if rotate == 0:
+      im.thumbnail(thumb)
+
+
+
+
+    else:
+      im.thumbnail(thumb)
+      im.rotate(rotate)
+
+
+
+    display(im)
 #
-#     :param file_location: The location of the file relative location of the file
-#     :type file_location: string
-#     :param thumb: The size of the image
-#     :type thumb: tuple, integers
-#     :return: displays the image or a message that the image could not be displayed
-#     :rtype: displayed image
-#     """
 #
-#     try:
-#         im = PILImage.open(file_location)
-#
-#     except:
-#         print(f"could not load image {file_location} ")
-#
-#     if rotate == 0:
-#       im.thumbnail(thumb)
-#
-#
-#
-#
-#     else:
-#       im.thumbnail(thumb)
-#       im.rotate(rotate)
-#
-#
-#
-#     display(im)
-#
-#
-# def get_rid_of_ix(data, prefix=""):
-#   """Compares the components of <prefix> to the first n components
-#   of <data>, n=len(<prefix>). If there is a match <new_data> is
-#   returned minus the components of <prefix>.
-#
-#   :param data: The object that may need to be trimmed
-#   :type data: array or str,
-#   :param prefix: The components to be removed
-#   :type prefix:  array or str
-#   :return: an array or str
-#   """
-#   test = len(prefix)
-#
-#   if data[:test] == prefix[0:]:
-#     new_data = data[test:]
-#   else:
-#     new_data = data
-#
-#   return new_data
+def get_rid_of_ix(data, prefix=""):
+  """Compares the components of <prefix> to the first n components
+  of <data>, n=len(<prefix>). If there is a match <new_data> is
+  returned minus the components of <prefix>.
+
+  :param data: The object that may need to be trimmed
+  :type data: array or str,
+  :param prefix: The components to be removed
+  :type prefix:  array or str
+  :return: an array or str
+  """
+  test = len(prefix)
+
+  if data[:test] == prefix[0:]:
+    new_data = data[test:]
+  else:
+    new_data = data
+
+  return new_data
 #
 #
 #

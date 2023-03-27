@@ -64,7 +64,7 @@ save_figure_kwargs = {
     "backend": None,
 }
 
-pdf_link = 'resources/pdfs/land_use_correlation_de.pdf'
+pdf_link = 'resources/pdfs/land_use_correlation.pdf'
 
 # set some parameters:
 today = dt.datetime.now().date().strftime("%Y-%m-%d")
@@ -111,7 +111,7 @@ dfCodes = codes_class.dfCodes
 # (luseprofile)=
 # # Landnutzungsprofil
 # 
-# {Download}`Download </resources/pdfs/land_use_correlation_de.pdf>`
+# {Download}`Download </resources/pdfs/land_use_correlation.pdf>`
 # 
 # *Das Landnutzungsprofil* ist eine numerische Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität um den Erhebungsort. Das Profil wird anhand von Daten berechnet, die in Kartenebenen gespeichert sind, die im [_Geoportal des Bundes_](https://www.geo.admin.ch/) und beim [_Bundesamt für Statistik_](https://www.bfs.admin.ch/bfs/en/home.html) verfügbar sind.
 # 
@@ -594,7 +594,7 @@ figure_3 = figureAndCaptionTable(**figure_kwargs)
 
 # explanatory variables that are being considered
 luse_exp = ['% to buildings', '% to recreation', '% to agg', '% to woods', 'streets km', 'intersects']
-luse_ge = sut.luse_ge
+luse_ge = featuredata.luse_de
 # columns needed
 use_these_cols = ['loc_date' ,
                   'date',

@@ -275,7 +275,7 @@ table_css_styles = [even_rows, odd_rows, table_font, header_row]
 # reportlab is used to produce the document
 # the components of the document are captured at run time
 # the pdf link gives the name and location of the future doc
-pdf_link = f'resources/pdfs/{this_feature["slug"]}_de.pdf'
+pdf_link = f'resources/pdfs/{this_feature["slug"]}_sa.pdf'
 
 # the components are stored in an array and collected as the script runs
 pdfcomponents = []
@@ -298,7 +298,7 @@ pdfcomponents = featuredata.addToDoc([
 # (allsurveys)=
 # # Seen und Fliessgewässer
 # 
-# {Download}`Download </resources/pdfs/all_de.pdf>`
+# {Download}`Download </resources/pdfs/all_sa.pdf>`
 
 # ```{figure} resources/maps/all_survey_areas_summary.jpeg
 # ---

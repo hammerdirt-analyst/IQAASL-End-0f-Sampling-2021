@@ -8,18 +8,27 @@ parts:
   - caption: Zusammenfassung
     numbered: True
     chapters:
+    - file: key_indicators
+    - file: baselines
+    - file: land_use_correlation
+    - file: shared_responsibility
+    - file: reuse_remake
+    - file: code_groups
     - file: lakes_rivers
     - file: alpes_valaisannes
     - file: aare_sa
+    - file: linth_sa
+    - file: ticino_sa
     - file: bielersee
     - file: neuenburgersee
     - file: lac-leman
-    - file: baselines
-    - file: land_use_correlation
-    - file: code_groups
-    - file: key_indicators
-    - file: reuse_remake
-    - file: shared_responsibility
+    - file: zurichsee
+    - file: walensee
+    
+    
+    
+    
+    
     
    
  

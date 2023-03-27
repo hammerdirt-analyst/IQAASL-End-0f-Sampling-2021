@@ -57,15 +57,30 @@ import seaborn as sns
 from matplotlib import colors as mplcolors
 
 # build report
-from reportlab.platypus.flowables import Flowable
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, PageBreak, KeepTogether
-from reportlab.lib.pagesizes import A4
-from reportlab.rl_config import defaultPageSize
-from reportlab.lib.units import inch, cm
+
+# from reportlab.platypus.flowables import Flowable
+# from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer,  PageBreak, ListFlowable, ListItem, KeepTogether
+# from reportlab.lib.pagesizes import A4
+# from reportlab.rl_config import defaultPageSize
+# from reportlab.lib.units import inch, cm
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.colors import HexColor
-from reportlab.platypus import Table, TableStyle
+# from reportlab.lib.colors import HexColor
+# from reportlab.platypus import Table, TableStyle
 from reportlab.lib import colors
+# build report
+import reportlab
+from reportlab.platypus.flowables import Flowable
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether, Image
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.units import cm
+from reportlab.platypus import Table, TableStyle
+
+# the module that has all the methods for handling the data
+import resources.featuredata as featuredata
+from resources.featuredata import makeAList, small_space, large_space, aSingleStyledTable, smallest_space
+from resources.featuredata import caption_style, subsection_title, title_style, block_quote_style, makeBibEntry
+from resources.featuredata import figureAndCaptionTable, tableAndCaption, aStyledTableWithTitleRow
+from resources.featuredata import sectionParagraphs, section_title, addToDoc, makeAParagraph, bold_block
 
 # the module that has all the methods for handling the data
 import resources.featuredata as featuredata
@@ -76,6 +91,7 @@ import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
+from PIL import Image as PILImage
 from IPython.display import Markdown as md
 from myst_nb import glue
 
@@ -278,7 +294,7 @@ table_css_styles = [even_rows, odd_rows, table_font, header_row]
 # reportlab is used to produce the document
 # the components of the document are captured at run time
 # the pdf link gives the name and location of the future doc
-pdf_link = f'resources/pdfs/{this_feature["slug"]}_de.pdf'
+pdf_link = f'resources/pdfs/{this_feature["slug"]}_sa.pdf'
 
 # the components are stored in an array and collected as the script runs
 pdfcomponents = []
@@ -293,13 +309,11 @@ pdfcomponents = featuredata.addToDoc([
     map_image
 ], pdfcomponents)
 
-# glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
-
 
 # (aaresa)=
 # # Aare
 # 
-# {Download}`Download </resources/pdfs/aare_de.pdf>`
+# {Download}`Download </resources/pdfs/aare_sa.pdf>`
 
 # In[2]:
 
@@ -629,7 +643,7 @@ figure_kwargs = {
     "image_file": land_use_file_name,
     "caption": land_use_caption,
     "desired_width": 14,
-    "caption_height": 2,
+    "caption_height": .75,
     "original_height": 8,
     "original_width": 9,
 }
