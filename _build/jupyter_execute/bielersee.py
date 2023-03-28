@@ -769,26 +769,26 @@ mc_comp[bassin_label] = mc_parent
 mc_comp[top] = mc_period
 
 # pdf out put
-def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,  
-                    this_feature: str = None, vertical_header: bool = False, colWidths=[4*cm, *[None]*len(data.columns)]):
-    # print(len(data.columns))
+# def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,  
+#                     this_feature: str = None, vertical_header: bool = False, colWidths=[4*cm, *[None]*len(data.columns)]):
+#     # print(len(data.columns))
     
-    if len(data.columns) > 13:
-        tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
-    else:
-        tables = featuredata.aSingleStyledTable(data, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)
-        table_cap =   f'{caption_prefix}, {", ".join(data.columns)}'
-        table_cap = Paragraph(table_cap, style=featuredata.caption_style)
-        tables = featuredata.tableAndCaption(tables, table_cap, col_widths)
+#     if len(data.columns) > 13:
+#         tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
+#     else:
+#         tables = featuredata.aSingleStyledTable(data, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)
+#         table_cap =   f'{caption_prefix}, {", ".join(data.columns)}'
+#         table_cap = Paragraph(table_cap, style=featuredata.caption_style)
+#         tables = featuredata.tableAndCaption(tables, table_cap, col_widths)
         
         
     
-    return tables
+#     return tables
 
 caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
 col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
 mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gemeinden", featuredata.subsection_title)
-tables = splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
+tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 # identify the tables variable as either a list or a Flowable:
@@ -1043,7 +1043,7 @@ caption_prefix =  'Verwendungszweck oder Beschreibung der identifizierten Objekt
 
 
 col_widths = [4.5*cm, *[1.2*cm]*(len(pt_comp.columns)-1)]
-cgpercent_tables = splitTableWidth(pt_comp.mul(100).astype(int), gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
+cgpercent_tables = featuredata.splitTableWidth(pt_comp.mul(100).astype(int), gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths) 
 
 
@@ -1095,7 +1095,7 @@ code_group_pcsm_caption = ''.join(code_group_pcsm_caption)
 
 caption_prefix =  f'Verwendungszweck der gefundenen Objekte Median {unit_label} am '
 col_widths = [4.5*cm, *[1.2*cm]*(len(grouppcs_comp.columns)-1)]
-cgpcsm_tables = splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, 
+cgpcsm_tables = featuredata.splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, 
                                 caption=code_group_pcsm_caption, this_feature=this_feature["name"], 
                                 vertical_header=True, colWidths=col_widths)
 

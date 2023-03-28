@@ -1607,15 +1607,20 @@ def aStyledTableWithTitleRow(data, header_style: Paragraph = styled_table_header
     return table
 
 
-def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False, row_ends=-3,
-                    this_feature: str = None, vertical_header: bool = False, colWidths: list = None):
+def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,
+                    this_feature: str = None, vertical_header: bool = False,
+                    colWidths=[4 * cm, *[None] * 4]):
+    # print(len(data.columns))
+    
     if len(data.columns) > 13:
         tables = aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix,
-                                                  row_ends=row_ends, vertical_header=vertical_header,
-                                                  colWidths=colWidths)
+                                                  vertical_header=vertical_header, colWidths=colWidths)
     else:
-        tables = aStyledTable(data, caption=caption, vertical_header=vertical_header, gradient=gradient,
-                                          colWidths=colWidths)
+        tables = aSingleStyledTable(data, vertical_header=vertical_header, gradient=gradient,
+                                                colWidths=colWidths)
+        table_cap = f'{caption_prefix}, {", ".join(data.columns)}'
+        table_cap = Paragraph(table_cap, style=caption_style)
+        tables = tableAndCaption(tables, table_cap, colWidths)
     
     return tables
 

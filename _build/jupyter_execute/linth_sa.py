@@ -164,7 +164,7 @@ this_feature = {'slug':'linth', 'name':"Erhebungsgebiet Linth", 'level':'river_b
 # the lake is in this survey area
 this_bassin = "linth"
 # label for survey area
-bassin_label = "Erhebungsgebiet Linth"
+bassin_label = "Erhebungsgebiet linth"
 
 # these are the smallest aggregated components
 # choices are water_name_slug=lake or river, city or location at the scale of a river bassin 
@@ -882,7 +882,12 @@ mc_caption_string = [
 
 mc_caption_string = "".join(mc_caption_string)
 
-pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+colwidths = [4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
+
+mc_caption_string = "".join(mc_caption_string)
+d_chart = featuredata.aSingleStyledTable(data, colWidths=colwidths)
+d_capt = featuredata.makeAParagraph(mc_caption_string, style=featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 
 most_common_display.index.name = None
 most_common_display.columns.name = None
@@ -917,7 +922,6 @@ glue('linth_most_common_tables', mcd, display=False)
 mc_section_title = Paragraph("Die am häufigsten gefundenen Objekte", featuredata.section_title)
 para_g = "Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)"
 mc_section_para = Paragraph(para_g, featuredata.p_style)
-mc_table_cap = Paragraph(mc_caption_string, featuredata.caption_style)
 
 new_components = [
     KeepTogether([
@@ -926,7 +930,7 @@ new_components = [
         mc_section_para
     ]),
     featuredata.large_space,
-    pdf_mc_table,
+    mc_table,
        
 ]
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
@@ -960,22 +964,10 @@ mc_period = featuredata.changeSeriesIndexLabels(mc_period, {x:fdx.dMap.loc[x] fo
 mc_comp[this_feature["name"]]= mc_feature
 mc_comp[top] = mc_period
 
-# pdf out put
-def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,  
-                    this_feature: str = None, vertical_header: bool = False, colWidths=[4*cm, *[None]*len(data.columns)]):
-    # print(len(data.columns))
-    
-    if len(data.columns) > 13:
-        tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
-    else:
-        tables = featuredata.aStyledTable(data, caption=caption, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)        
-    
-    return tables
-
 caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
 col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
 mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gewässer", featuredata.subsection_title)
-tables = splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
+tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 # identify the tables variable as either a list or a Flowable:
@@ -1079,15 +1071,16 @@ df_to_pdf = by_month.applymap(featuredata.replaceDecimal)
 
 # make pdf table
 col_widths = [4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
-monthly_results = featuredata.aStyledTable(by_month, caption=monthly_data_caption,
-                                           vertical_header=False, gradient=True,
-                                           colWidths=col_widths)
+
+d_chart = featuredata.aSingleStyledTable(by_month, vertical_header=False, gradient=True, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(monthly_data_caption, style=featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 new_components = [
     KeepTogether([
         featuredata.large_space,
         mc_monthly_title,
         featuredata.large_space,
-        monthly_results,
+        mc_table,
     ])
 ]
 
@@ -1246,7 +1239,7 @@ plt.subplots_adjust(wspace=0, hspace=0)
 # figure caption
 caption_spearmans = [
     "Ausgewertete Korrelationen der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil ",
-    "im Erhebungsgebiet Linth. Für alle gültigen Erhebungen an Seen n = 118. Legende: wenn p > 0,05 = weiss,  ",
+    f'im Erhebungsgebiet Linth. Für alle gültigen Erhebungen an Seen n={str(admin_summary["loc_date"])}. Legende: wenn p > 0,05 = weiss,  ',
     "wenn p < 0,05 und Rho > 0 = rot, wenn p < 0,05 und Rho < 0 = gelb.",  
 ]
 
@@ -1293,8 +1286,8 @@ plt.close()
 spearmans_chart = Image(sample_summaries_file_name, width=10*cm, height=15*cm, kind="proportional", hAlign= "CENTER")
 caption_spearmans = Paragraph(spearmans, featuredata.caption_style)
 chart_style = TableStyle([
-    ('VALIGN', (0, 0), (0, -0), 'TOP'),
-    ('VALIGN', (0, 1), (0,1), 'BOTTOM')
+    ('VALIGN', (0, 0), (0, 0), 'BOTTOM'),
+    ('VALIGN', (0, 1), (0,-1), 'MIDDLE')
 ])
 table_data = [[spearmans_chart, caption_spearmans]]
 spearmans_table = Table(table_data, style=chart_style,colWidths=[cm*10, cm*6], rowHeights=cm*12)
@@ -1406,7 +1399,7 @@ ptd = ptd.applymap_index(featuredata.rotateText, axis=1)
 caption_prefix =  'Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden: '
 
 col_widths = [4.5*cm, *[1.2*cm]*(len(pt_comp.columns)-1)]
-cgpercent_tables = splitTableWidth(pt_comp, gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
+cgpercent_tables = featuredata.splitTableWidth(pt_comp.mul(100).astype(int), gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths) 
 
 
@@ -1459,7 +1452,7 @@ code_group_pcsm_caption = ''.join(code_group_pcsm_caption)
 
 caption_prefix =  f'Verwendungszweck der gefundenen Objekte Median {unit_label} am '
 col_widths = [4.5*cm, *[1.2*cm]*(len(grouppcs_comp.columns)-1)]
-cgpcsm_tables = splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, caption=code_group_pcsm_caption,
+cgpcsm_tables = featuredata.splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, caption=code_group_pcsm_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 if isinstance(cgpcsm_tables, (list, np.ndarray)):
@@ -1601,7 +1594,13 @@ m_common_percent_of_total = fdx.most_common['Objekte (St.)'].sum()/fdx.code_summ
 mc_caption_string = f'Häufigste Objekte p/100 m an Fliessgewässern im {this_feature["name"]}: Medianwert der Erhebung.'
 
 
-pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+# pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+
+col_widths = [4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
+
+d_chart = featuredata.aSingleStyledTable(data, vertical_header=False, gradient=False, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph([monthly_data_caption], style=featuredata.caption_style)
+pdf_mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 
 most_common_display.index.name = None
 most_common_display.columns.name = None
@@ -1656,7 +1655,7 @@ new_components = [
         r_totals_caption,
         featuredata.small_space,
         r_mc_subsection,
-        featuredata.large_space,
+        featuredata.small_space,
         pdf_mc_table,        
         PageBreak()
         ])
@@ -1728,7 +1727,12 @@ frags_table = data.style.format(aformatter).set_table_styles(table_css_styles)
 glue("linth_frag_table_caption", frag_captions, display=False)
 glue("linth_frags_table", frags_table, display=False)
 
-frag_table = featuredata.aStyledTable(data, caption=frag_captions, colWidths=[7*cm, *[2*cm]*(len(dims_table.columns)-1)])
+# frag_table = featuredata.aStyledTable(data, caption=frag_captions, colWidths=[7*cm, *[2*cm]*(len(dims_table.columns)-1)])
+col_widths = [7*cm, *[2*cm]*(len(data.columns)-1)]
+
+d_chart = featuredata.aSingleStyledTable(data, vertical_header=False, gradient=False, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(frag_caption, style=featuredata.caption_style)
+pdf_mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 
 new_components = [
     KeepTogether([
@@ -1739,7 +1743,7 @@ new_components = [
         frag,
         featuredata.small_space
     ]),
-    frag_table
+    pdf_mc_table
 ]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)

@@ -20,6 +20,7 @@ parts:
     - file: aare_sa
     - file: linth_sa
     - file: ticino_sa
+    - file: rhone_sa
     - file: bielersee
     - file: neuenburgersee
     - file: lac-leman

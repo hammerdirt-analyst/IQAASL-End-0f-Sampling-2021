@@ -175,7 +175,7 @@ this_level = 'water_name_slug'
 doc_title = "ticino_sa"
 
 # identify the lakes of interest for the survey area
-lakes_of_interest = ['walensee', 'zurichsee']
+lakes_of_interest = ['lago-di-lugano','lago-maggiore']
 
 # !! End note book variables !!
 ## data
@@ -882,7 +882,12 @@ mc_caption_string = [
 
 mc_caption_string = "".join(mc_caption_string)
 
-pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+colwidths = [4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
+
+mc_caption_string = "".join(mc_caption_string)
+d_chart = featuredata.aSingleStyledTable(data, colWidths=colwidths)
+d_capt = featuredata.makeAParagraph(mc_caption_string, style=featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 
 most_common_display.index.name = None
 most_common_display.columns.name = None
@@ -917,7 +922,6 @@ glue('ticino_most_common_tables', mcd, display=False)
 mc_section_title = Paragraph("Die am häufigsten gefundenen Objekte", featuredata.section_title)
 para_g = "Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)"
 mc_section_para = Paragraph(para_g, featuredata.p_style)
-mc_table_cap = Paragraph(mc_caption_string, featuredata.caption_style)
 
 new_components = [
     KeepTogether([
@@ -926,7 +930,7 @@ new_components = [
         mc_section_para
     ]),
     featuredata.large_space,
-    pdf_mc_table,
+    mc_table,
        
 ]
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
@@ -960,22 +964,10 @@ mc_period = featuredata.changeSeriesIndexLabels(mc_period, {x:fdx.dMap.loc[x] fo
 mc_comp[this_feature["name"]]= mc_feature
 mc_comp[top] = mc_period
 
-# pdf out put
-def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,  
-                    this_feature: str = None, vertical_header: bool = False, colWidths=[4*cm, *[None]*len(data.columns)]):
-    # print(len(data.columns))
-    
-    if len(data.columns) > 13:
-        tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
-    else:
-        tables = featuredata.aStyledTable(data, caption=caption, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)        
-    
-    return tables
-
 caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
 col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
 mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gewässer", featuredata.subsection_title)
-tables = splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
+tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 # identify the tables variable as either a list or a Flowable:
@@ -1079,15 +1071,16 @@ df_to_pdf = by_month.applymap(featuredata.replaceDecimal)
 
 # make pdf table
 col_widths = [4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
-monthly_results = featuredata.aStyledTable(by_month, caption=monthly_data_caption,
-                                           vertical_header=False, gradient=True,
-                                           colWidths=col_widths)
+
+d_chart = featuredata.aSingleStyledTable(by_month, vertical_header=False, gradient=True, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(monthly_data_caption, style=featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 new_components = [
     KeepTogether([
         featuredata.large_space,
         mc_monthly_title,
         featuredata.large_space,
-        monthly_results,
+        mc_table,
     ])
 ]
 
@@ -1112,143 +1105,163 @@ glue("ticino_monthly_results", mcdm, display=False)
 # ```
 # {numref}`Abbildung %s: <ticino_monthly_results>` {glue:text}`ticino_monthly_results_caption`
 
+# ## Erhebungsergebnisse und Landnutzung
 # 
+# Das Landnutzungsprofil ist eine Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Ergebnissen der Datenerhebungen werden mit dem Landnutzungsprofil für einen Radius von 1500 m um den Erhebungsort verglichen.
+# 
+# Eine Assoziation ist eine Beziehung zwischen den Ergebnissen der Datenerhebungen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmass der Beziehung ist weder definiert noch linear.
+# 
+# Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein statistisch signifikanter Zusammenhang zwischen der Landnutzung und den bei einer Abfallobjekte-Erhebung identifizierten Objekten besteht.
+# 
+# Die verwendete Methode ist der Spearmans Rho oder Spearmans geordneter Korrelationskoeffizient. Die Testergebnisse werden bei p < 0,05 für alle gültigen Erhebungen an Seen im Untersuchungsgebiet ausgewertet.
+# 
+# 1. Rot/Rosa steht für eine positive Assoziation
+# 2. Gelb steht für eine negative Assoziation
+# 3. Weiss bedeutet, dass keine statistische Grundlage für die Annahme eines Zusammenhangs besteht
 
 # In[12]:
 
 
-# land_use_section_title = "Erhebungsergebnisse und Landnutzung"
-# luse_section_summary = [
-#     "Das Landnutzungsprofil ist eine Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität ",
-#     "und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Ergebnissen der ",
-#     "Datenerhebungen werden mit dem Landnutzungsprofil für einen Radius von 1500 m um den Erhebungsort verglichen."
-# ]
+land_use_section_title = "Erhebungsergebnisse und Landnutzung"
+luse_section_summary = [
+    "Das Landnutzungsprofil ist eine Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität ",
+    "und der Umweltbedingungen rund um den Erhebungsort. Die Schlüsselindikatoren aus den Ergebnissen der ",
+    "Datenerhebungen werden mit dem Landnutzungsprofil für einen Radius von 1500 m um den Erhebungsort verglichen."
+]
 
-# p_one = [
-#     "Eine Assoziation ist eine Beziehung zwischen den Ergebnissen der Datenerhebungen und ",
-#     "dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmass der Beziehung ist ",
-#     "weder definiert noch linear."
-# ]
+p_one = [
+    "Eine Assoziation ist eine Beziehung zwischen den Ergebnissen der Datenerhebungen und ",
+    "dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmass der Beziehung ist ",
+    "weder definiert noch linear."
+]
 
-# p_two = [
-#     "Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein ",
-#     "statistisch signifikanter Zusammenhang zwischen der Landnutzung und den bei einer ",
-#     "Abfallobjekte-Erhebung identifizierten Objekten besteht."
-# ]
+p_two = [
+    "Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein ",
+    "statistisch signifikanter Zusammenhang zwischen der Landnutzung und den bei einer ",
+    "Abfallobjekte-Erhebung identifizierten Objekten besteht."
+]
 
-# p_three = [
-#     "Die verwendete Methode ist der Spearmans Rho oder Spearmans geordneter Korrelationskoeffizient. ",
-#     "Die Testergebnisse werden bei p < 0,05 für alle gültigen Erhebungen an ",
-#     "Seen im Untersuchungsgebiet ausgewertet."
-# ]
+p_three = [
+    "Die verwendete Methode ist der Spearmans Rho oder Spearmans geordneter Korrelationskoeffizient. ",
+    "Die Testergebnisse werden bei p < 0,05 für alle gültigen Erhebungen an ",
+    "Seen im Untersuchungsgebiet ausgewertet."
+]
 
-# values = [
-#     "Rot/Rosa steht für eine positive Assoziation",
-#     "Gelb steht für eine negative Assoziation",
-#     "Weiss bedeutet, dass keine statistische Grundlage für die Annahme eines Zusammenhangs besteht"
-# ]
+values = [
+    "Rot/Rosa steht für eine positive Assoziation",
+    "Gelb steht für eine negative Assoziation",
+    "Weiss bedeutet, dass keine statistische Grundlage für die Annahme eines Zusammenhangs besteht"
+]
 
 
-# a_list_groups = makeAList(values)
+a_list_groups = makeAList(values)
 
-# section_title = Paragraph(land_use_section_title, featuredata.section_title)
-# section_summary = Paragraph(''.join(luse_section_summary), featuredata.p_style)
-# para_one = Paragraph(''.join(p_one), featuredata.p_style)
-# para_two = Paragraph(''.join(p_two), featuredata.p_style)
-# para_three = Paragraph(''.join(p_three), featuredata.p_style)
+section_title = Paragraph(land_use_section_title, featuredata.section_title)
+section_summary = Paragraph(''.join(luse_section_summary), featuredata.p_style)
+para_one = Paragraph(''.join(p_one), featuredata.p_style)
+para_two = Paragraph(''.join(p_two), featuredata.p_style)
+para_three = Paragraph(''.join(p_three), featuredata.p_style)
 
-# new_components = [
-#     PageBreak(),
-#     featuredata.large_space,
-#     section_title,
-#     featuredata.small_space,
-#     section_summary,
-#     featuredata.small_space,
-#     para_one,
-#     featuredata.small_space,
-#     para_two,
-#     featuredata.small_space,
-#     para_three,
-#     featuredata.small_space,
-#     a_list_groups
-# ]
+new_components = [
+    PageBreak(),
+    featuredata.large_space,
+    section_title,
+    featuredata.small_space,
+    section_summary,
+    featuredata.small_space,
+    para_one,
+    featuredata.small_space,
+    para_two,
+    featuredata.small_space,
+    para_three,
+    featuredata.small_space,
+    a_list_groups
+]
 
-# pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
 # In[13]:
 
 
-# corr_data = fd[(fd.code.isin(fdx.most_common.index))&(fd.water_name_slug.isin(lakes_of_interest))].copy()
-# land_use_columns = featuredata.default_land_use_columns
-# code_description_map = fdx.dMap
+corr_data = fd[(fd.code.isin(fdx.most_common.index))&(fd.water_name_slug.isin(lakes_of_interest))].copy()
+land_use_columns = featuredata.default_land_use_columns
+code_description_map = fdx.dMap
 
-# def make_plot_with_spearmans(data, ax, n, unit_label="p/100m"):
-#     """Gets Spearmans ranked correlation and make A/B scatter plot. Must proived a
-#     matplotlib axis object.
-#     """
-#     corr, a_p = stats.spearmanr(data[n], data[unit_label])
+def make_plot_with_spearmans(data, ax, n, unit_label="p/100m"):
+    """Gets Spearmans ranked correlation and make A/B scatter plot. Must proived a
+    matplotlib axis object.
+    """
+    corr, a_p = stats.spearmanr(data[n], data[unit_label])
     
-#     if a_p < 0.05:
-#         if corr > 0:
-#             ax.patch.set_facecolor("salmon")
-#             ax.patch.set_alpha(0.5)
-#         else:
-#             ax.patch.set_facecolor("palegoldenrod")
-#             ax.patch.set_alpha(0.5)
+    if a_p < 0.05:
+        if corr > 0:
+            ax.patch.set_facecolor("salmon")
+            ax.patch.set_alpha(0.5)
+        else:
+            ax.patch.set_facecolor("palegoldenrod")
+            ax.patch.set_alpha(0.5)
 
-#     return ax, corr, a_p
+    return ax, corr, a_p
 
-# # chart the results of test for association
-# fig, axs = plt.subplots(len(fdx.most_common.index),len(land_use_columns), figsize=(len(land_use_columns)*1,len(fdx.most_common.index)*1), sharey="row")
+# chart the results of test for association
+fig, axs = plt.subplots(len(fdx.most_common.index),len(land_use_columns), figsize=(len(land_use_columns)*1,len(fdx.most_common.index)*1), sharey="row")
 
-# # the test is conducted on the survey results for each code
-# for i,code in enumerate(fdx.most_common.index):
-#     # slice the data
-#     data = corr_data[corr_data.code == code]
+# the test is conducted on the survey results for each code
+for i,code in enumerate(fdx.most_common.index):
+    # slice the data
+    data = corr_data[corr_data.code == code]
     
-#     # run the test on for each land use feature
-#     for j, n in enumerate(land_use_columns):       
-#         # assign ax and set some parameters
-#         ax=axs[i, j]
-#         ax.grid(False)
-#         ax.tick_params(axis="both", which="both",bottom=False,top=False,labelbottom=False, labelleft=False, left=False)
+    # run the test on for each land use feature
+    for j, n in enumerate(land_use_columns):       
+        # assign ax and set some parameters
+        ax=axs[i, j]
+        ax.grid(False)
+        ax.tick_params(axis="both", which="both",bottom=False,top=False,labelbottom=False, labelleft=False, left=False)
         
-#         # check the axis and set titles and labels       
-#         if i == 0:
-#             ax.set_title(f"{featuredata.luse_de[n]}", rotation=67.5, ha="left", fontsize=12)
-#         else:
-#             pass
+        # check the axis and set titles and labels       
+        if i == 0:
+            ax.set_title(f"{featuredata.luse_de[n]}", rotation=67.5, ha="left", fontsize=12)
+        else:
+            pass
         
-#         if j == 0:
-#             ax.set_ylabel(f"{code_description_map[code]}", rotation=0, ha="right", labelpad=10, fontsize=12)
-#             ax.set_xlabel(" ")
-#         else:
-#             ax.set_xlabel(" ")
-#             ax.set_ylabel(" ")
-#         # run test
-#         ax = make_plot_with_spearmans(data, ax, n, unit_label=unit_label)
+        if j == 0:
+            ax.set_ylabel(f"{code_description_map[code]}", rotation=0, ha="right", labelpad=10, fontsize=12)
+            ax.set_xlabel(" ")
+        else:
+            ax.set_xlabel(" ")
+            ax.set_ylabel(" ")
+        # run test
+        ax = make_plot_with_spearmans(data, ax, n, unit_label=unit_label)
 
 
-# plt.subplots_adjust(wspace=0, hspace=0)
-# # figure caption
-# caption_spearmans = [
-#     "Ausgewertete Korrelationen der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil ",
-#     "im Erhebungsgebiet ticino. Für alle gültigen Erhebungen an Seen n = 118. Legende: wenn p > 0,05 = weiss,  ",
-#     "wenn p < 0,05 und Rho > 0 = rot, wenn p < 0,05 und Rho < 0 = gelb.",  
-# ]
+plt.subplots_adjust(wspace=0, hspace=0)
+# figure caption
+caption_spearmans = [
+    "Ausgewertete Korrelationen der am häufigsten gefundenen Objekte in Bezug auf das Landnutzungsprofil ",
+    f'im Erhebungsgebiet ticino. Für alle gültigen Erhebungen an Seen n={str(admin_summary["loc_date"])}. Legende: wenn p > 0,05 = weiss,  ',
+    "wenn p < 0,05 und Rho > 0 = rot, wenn p < 0,05 und Rho < 0 = gelb.",  
+]
 
-# spearmans = ''.join(caption_spearmans)
-# glue(f'{this_feature["slug"]}_spearmans_caption', spearmans, display=False)
+spearmans = ''.join(caption_spearmans)
+glue(f'{this_feature["slug"]}_spearmans_caption', spearmans, display=False)
 
-# figure_name = f'{this_feature["slug"]}_survey_area_spearmans'
-# sample_summaries_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
-# save_figure_kwargs.update({"fname":sample_summaries_file_name})
+figure_name = f'{this_feature["slug"]}_survey_area_spearmans'
+sample_summaries_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
+save_figure_kwargs.update({"fname":sample_summaries_file_name})
 
-# plt.savefig(**save_figure_kwargs)
-# glue('ticino_survey_area_spearmans', fig, display=False)
-# plt.close()
+plt.savefig(**save_figure_kwargs)
+glue('ticino_survey_area_spearmans', fig, display=False)
+plt.close()
 
+
+# ```{glue:figure} ticino_survey_area_spearmans
+# ---
+# name: 'ticino_survey_area_spearmans'
+# ---
+# ` `
+# ```
+# {numref}`Abbildung %s: <ticino_survey_area_spearmans>` {glue:text}`ticino_spearmans_caption`
 
 # ## Verwendungszweck der gefundenen Objekte
 # 
@@ -1270,22 +1283,22 @@ glue("ticino_monthly_results", mcdm, display=False)
 # In[14]:
 
 
-# spearmans_chart = Image(sample_summaries_file_name, width=10*cm, height=15*cm, kind="proportional", hAlign= "CENTER")
-# caption_spearmans = Paragraph(spearmans, featuredata.caption_style)
-# chart_style = TableStyle([
-#     ('VALIGN', (0, 0), (0, -0), 'TOP'),
-#     ('VALIGN', (0, 1), (0,1), 'BOTTOM')
-# ])
-# table_data = [[spearmans_chart, caption_spearmans]]
-# spearmans_table = Table(table_data, style=chart_style,colWidths=[cm*10, cm*6], rowHeights=cm*12)
+spearmans_chart = Image(sample_summaries_file_name, width=10*cm, height=15*cm, kind="proportional", hAlign= "CENTER")
+caption_spearmans = Paragraph(spearmans, featuredata.caption_style)
+chart_style = TableStyle([
+    ('VALIGN', (0, 0), (0, 0), 'BOTTOM'),
+    ('VALIGN', (0, 1), (0, 1), 'MIDDLE')
+])
+table_data = [[spearmans_chart, caption_spearmans]]
+spearmans_table = Table(table_data, style=chart_style,colWidths=[cm*10, cm*6], rowHeights=cm*12)
 
-# new_components = [
-#     featuredata.large_space,
-#     featuredata.large_space,
-#     spearmans_table
-# ]
+new_components = [
+    featuredata.large_space,
+    featuredata.large_space,
+    spearmans_table
+]
 
-# pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # make pdf out put
 cone_group_subtitle = Paragraph("Verwendungszweck der gefundenen Objekte", featuredata.section_title)
@@ -1386,7 +1399,7 @@ ptd = ptd.applymap_index(featuredata.rotateText, axis=1)
 caption_prefix =  'Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden: '
 
 col_widths = [4.5*cm, *[1.2*cm]*(len(pt_comp.columns)-1)]
-cgpercent_tables = splitTableWidth(pt_comp, gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
+cgpercent_tables = featuredata.splitTableWidth(pt_comp.mul(100).astype(int), gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths) 
 
 
@@ -1439,7 +1452,7 @@ code_group_pcsm_caption = ''.join(code_group_pcsm_caption)
 
 caption_prefix =  f'Verwendungszweck der gefundenen Objekte Median {unit_label} am '
 col_widths = [4.5*cm, *[1.2*cm]*(len(grouppcs_comp.columns)-1)]
-cgpcsm_tables = splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, caption=code_group_pcsm_caption,
+cgpcsm_tables = featuredata.splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, caption=code_group_pcsm_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 if isinstance(cgpcsm_tables, (list, np.ndarray)):
@@ -1581,7 +1594,13 @@ m_common_percent_of_total = fdx.most_common['Objekte (St.)'].sum()/fdx.code_summ
 mc_caption_string = f'Häufigste Objekte p/100 m an Fliessgewässern im {this_feature["name"]}: Medianwert der Erhebung.'
 
 
-pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+# pdf_mc_table  = featuredata.aStyledTable(data, caption=mc_caption_string, colWidths=[4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm])
+
+col_widths = [4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
+
+d_chart = featuredata.aSingleStyledTable(data, vertical_header=False, gradient=False, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph([monthly_data_caption], style=featuredata.caption_style)
+pdf_mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 
 most_common_display.index.name = None
 most_common_display.columns.name = None
@@ -1636,7 +1655,7 @@ new_components = [
         r_totals_caption,
         featuredata.small_space,
         r_mc_subsection,
-        featuredata.large_space,
+        featuredata.small_space,
         pdf_mc_table,        
         PageBreak()
         ])
@@ -1708,7 +1727,12 @@ frags_table = data.style.format(aformatter).set_table_styles(table_css_styles)
 glue("ticino_frag_table_caption", frag_captions, display=False)
 glue("ticino_frags_table", frags_table, display=False)
 
-frag_table = featuredata.aStyledTable(data, caption=frag_captions, colWidths=[7*cm, *[2*cm]*(len(dims_table.columns)-1)])
+# frag_table = featuredata.aStyledTable(data, caption=frag_captions, colWidths=[7*cm, *[2*cm]*(len(dims_table.columns)-1)])
+col_widths = [7*cm, *[2*cm]*(len(data.columns)-1)]
+
+d_chart = featuredata.aSingleStyledTable(data, vertical_header=False, gradient=False, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(frag_caption, style=featuredata.caption_style)
+pdf_mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 
 new_components = [
     KeepTogether([
@@ -1719,7 +1743,7 @@ new_components = [
         frag,
         featuredata.small_space
     ]),
-    frag_table
+    pdf_mc_table
 ]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
