@@ -8,6 +8,7 @@ parts:
   - caption: Zusammenfassung
     numbered: True
     chapters:
+    - file: intro_de
     - file: key_indicators
     - file: baselines
     - file: land_use_correlation

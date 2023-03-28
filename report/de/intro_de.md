@@ -6,7 +6,7 @@ Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastrukt
 
 Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlung von Akkumulationszonen zu erforschen.
 
-__Erkennung von Akkumulation und Leckage mit Spearmans Rho__, *Zusammenarbeit mit Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
+__Erkennung von Akkumulation und Leckage mit Spearmans Rho__, *Zusammenarbeit mit Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html),  Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/).* [Repository](https://github.com/hammerdirt-analyst/swe), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).
 
 __Die Wahrscheinlichkeit, ein Objekt zu finden__, *Zusammenarbeit mit Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
 

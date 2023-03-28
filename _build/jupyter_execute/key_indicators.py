@@ -1046,21 +1046,3 @@ def myLaterPages(canvas, doc):
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
