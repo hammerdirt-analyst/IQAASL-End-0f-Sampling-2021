@@ -164,7 +164,7 @@ this_feature = {'slug':'linth', 'name':"Erhebungsgebiet Linth", 'level':'river_b
 # the lake is in this survey area
 this_bassin = "linth"
 # label for survey area
-bassin_label = "Erhebungsgebiet linth"
+bassin_label = "Erhebungsgebiet Linth"
 
 # these are the smallest aggregated components
 # choices are water_name_slug=lake or river, city or location at the scale of a river bassin 

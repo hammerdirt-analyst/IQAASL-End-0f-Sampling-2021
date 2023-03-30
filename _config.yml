@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title:
-author:
-logo: resources/images/iqaaslogo.png
+title: IQAASL
+author: hammerdirt staff
+# logo: resources/images/iqaaslogo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

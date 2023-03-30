@@ -6,26 +6,45 @@ root: titlepage_de
 
 parts:
   - caption: Zusammenfassung
-    numbered: True
+    numbered: False
     chapters:
     - file: intro_de
-    - file: key_indicators
-    - file: baselines
-    - file: land_use_correlation
-    - file: shared_responsibility
-    - file: reuse_remake
-    - file: code_groups
+    # - file: esummary
+  - caption: Ergebnisse der Erhebung
+    numbered: True
+    chapters:
     - file: lakes_rivers
     - file: alpes_valaisannes
+  - caption: Erhebungsgebiete
+    numbered: True
+    chapters:  
     - file: aare_sa
     - file: linth_sa
     - file: ticino_sa
     - file: rhone_sa
+  - caption: Seen
+    numbered: True
+    chapters:
     - file: bielersee
     - file: neuenburgersee
+    - file: thunerseebrienzersee
     - file: lac-leman
     - file: zurichsee
     - file: walensee
+    - file: maggiorelugano
+  - caption: Verstehen
+    numbered: True
+    chapters:
+    - file: baselines
+    - file: key_indicators    
+    - file: land_use_correlation
+    - file: code_groups
+  - caption: Anwendungen
+    numbered: True
+    chapters:    
+    - file: shared_responsibility
+    - file: reuse_remake
+    
     
     
     

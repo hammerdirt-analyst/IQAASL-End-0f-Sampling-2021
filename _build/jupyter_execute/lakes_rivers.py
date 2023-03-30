@@ -1416,7 +1416,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # * Plastikfragmente: Plastikteile unbestimmter Herkunft oder Verwendung
 # * Persönliche Gegenstände: Accessoires, Hygieneartikel und Kleidung
 # 
-# Im Anhang (Kapitel 1.8.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel  [Codegruppen](codegroupsde) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
+# Im Anhang (Kapitel 1.8.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel  [Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
 # In[16]:
 

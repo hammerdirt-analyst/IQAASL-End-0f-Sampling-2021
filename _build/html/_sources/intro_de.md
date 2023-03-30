@@ -1,12 +1,12 @@
 # Vorwort
 
-| <a href="intro.html"> English </a> | [Italiano](italiano_intro_de) | [Francais](francais_intro_de) |
+| [Italiano](italiano_intro_de) | [Francais](francais_intro_de) |
 
 Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastruktur zu entwickeln, um die Zusammensetzung und Häufigkeit von anthropogenem Material entlang ausgewählter Schweizer Flüsse und Seen genau zu bewerten und diese Ergebnisse in einem konsolidierten, webbasierten Bericht zu präsentieren.
 
 Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlung von Akkumulationszonen zu erforschen.
 
-__Erkennung von Akkumulation und Leckage mit Spearmans Rho__, [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html), *Zusammenarbeit mit Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).*   Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).*
+__Erkennung von Akkumulation und Leckage mit Spearmans Rho__, [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html), *Zusammenarbeit mit Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).   Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).*
 
 __Die Wahrscheinlichkeit, ein Objekt zu finden__, [Repository](https://github.com/hammerdirt-analyst/finding-one-object), *Zusammenarbeit mit Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* 
 
@@ -25,7 +25,7 @@ _Eine Strand-Abfallaufkommen Untersuchung ist die Erfassung von sichtbarem anthr
 
 Um Objekte von regionalem Interesse zu identifizieren, wurden zusätzliche Codes hinzugefügt. So wurden beispielsweise Codes für Gegenstände wie Pheromon-Köderbehälter und Skistöcke entwickelt, um das Vorkommen dieser Gegenstände in bestimmten Regionen zu berücksichtigen. Die Identifizierung und Quantifizierung von Gegenständen ermöglicht es Forschern und Interessenvertretern, wahrscheinliche Quellen zu bestimmen und Strategien zur Reduzierung bestimmter Gegenstände zu definieren.  
 
-Für weitere Informationen: [Code-Gruppen](codegroupsde).
+Für weitere Informationen: [Code-Gruppen](codegroups).
 
 ## Metrische Bewertung
 
@@ -33,9 +33,9 @@ Der Medianwert (50. Perzentil) der Datenerhebungen Ergebnisse wird als die Anzah
 
 Eine Beschränkung der Datenerhebungen auf 100 Meter exponierte Uferlinie hätte die Anzahl der verfügbaren Messstellen sowie die Verwendung bereits vorhandener Daten drastisch reduziert. Daher spiegelt das IQAASL die lokale Topographie mit einer mittleren Erhebungslänge von 45 m und einem Durchschnitt von 51 m wider. Datenerhebungen, die kürzer als 10 m sind, wurden bei der Basisanalyse nicht berücksichtigt. Die Datenerhebungen Ergebnisse werden in p/100m umgerechnet, indem das Ergebnis der Erhebung mit 100 multipliziert wird. 
 
-Sammeln von Daten 
+__Sammeln von Daten__ 
 
-Eine Strand-Abfallaufkommen Untersuchung kann jederzeit von jedem durchgeführt werden. Wenn die Untersuchung nach der im Leitfaden {cite}`mlwguidance` beschriebenen Methode oder nach den [Abfallobjekte am Strand](threshholdde) kann das Ergebnis direkt mit den Tabellen in diesem Bericht verglichen werden. Es ist nicht notwendig, die Daten in das System einzugeben, um die Ergebnisse zu vergleichen.
+Eine Strand-Abfallaufkommen Untersuchung kann jederzeit von jedem durchgeführt werden. Wenn die Untersuchung nach der im Leitfaden {cite}`mlwguidance` beschriebenen Methode oder nach den [Basiswerte für Abfallobjekte an Gewässern](threshhold) kann das Ergebnis direkt mit den Tabellen in diesem Bericht verglichen werden. Es ist nicht notwendig, die Daten in das System einzugeben, um die Ergebnisse zu vergleichen.
 
 Das Sammeln von Daten für den Bericht (oder den nächsten Bericht) erfordert eine gewisse Einarbeitung und eine Bewertung. Es dauert in der Regel 3-5 Datenerhebungen, um eine Person an die Aufgabe zu gewöhnen. Die meiste Zeit wird damit verbracht, Objekte zu identifizieren und zu lernen, wie wichtig es ist, ein Feldnotizbuch zu führen. Der Vorteil der Datenübermittlung besteht darin, dass das Berichtsverfahren automatisiert ist und man jederzeit Zugriff auf die Ergebnisse hat.
 
@@ -47,23 +47,20 @@ Es ist wichtig, den Unterschied zwischen dem _Median_ {cite}`mediandef` und dem 
 
 Betrachten Sie als Beispiel den Median der Datenerhebungen für die häufigsten Objekte am Thuner- und Brienzersee. 
 
-```{figure} resources/images/intro/thunersee_brienzersee_de_20_0.png
+```{glue:figure} thunerseebrienzersee_most_common_heat_map
 ---
-width: 600px
 name: mcommonforeword_de
 ---
-
-` `
-
+``
 ```
 
-{numref}`Figure {number}: <mcommonforeword_de>` _Interpretation der Datenerhebungen Ergebnisse. Die aggregierten Ergebnisse aus allen Erhebungsgebieten befinden sich in der Spalte ganz rechts, vor den aggregierten Ergebnissen aus dem Thunersee und dem Brienzersee. Die ersten sechs Spalten sind die Gemeinden, in denen die Proben genommen wurden. Dieser Standard wird im gesamten Dokument beibehalten. Die Zahl stellt den Medianwert der Erhebung für dieses Objekt dar. Wenn dieses Objekt in mindestens der Hälfte der Datenerhebungen nicht gefunden wird, ist der Medianwert gleich Null. Der Medianwert ist eine vernünftige Schätzung der Anzahl der Objekte, die bei einer Wiederholung einer Abfallobjekte-Erhebung wahrscheinlich gefunden werden._. 
+{numref}`Abbildung %s: <mcommonforeword_de>` _Interpretation der Datenerhebungen Ergebnisse. Die aggregierten Ergebnisse aus allen Erhebungsgebieten befinden sich in der Spalte ganz rechts, vor den aggregierten Ergebnissen aus dem Thunersee und dem Brienzersee. Die ersten sechs Spalten sind die Gemeinden, in denen die Proben genommen wurden. Dieser Standard wird im gesamten Dokument beibehalten. Die Zahl stellt den Medianwert der Erhebung für dieses Objekt dar. Wenn dieses Objekt in mindestens der Hälfte der Datenerhebungen nicht gefunden wird, ist der Medianwert gleich Null. Der Medianwert ist eine vernünftige Schätzung der Anzahl der Objekte, die bei einer Wiederholung einer Abfallobjekte-Erhebung wahrscheinlich gefunden werden._. 
 
 Die Ergebnisse für Bauschutt aus Kunststoffen zeigen, dass dieser in Bönigen (4,5p/100m) und Unterseen (1,5p/100m) häufiger vorkommt als in den anderen Gemeinden, wo der Medianwert bei Null liegt. Industriefolien und Zigaretten wurden jedoch in allen Gemeinden in mindestens 1/2 der Datenerhebungen festgestellt. 
 
 Praktisch gesehen war die Wahrscheinlichkeit, am Strand von Bönigen und Unterseen Bauschutt aus Kunststoff zu finden, größer als in den anderen Gemeinden. Die Wahrscheinlichkeit, Industriefolien zu finden, war jedoch überall ungefähr gleich hoch, am höchsten war sie jedoch in rine (67p/100m). 
 
-Das Kapitel [Schlüsselindikatoren](keyindicatorsde) enthält eine genaue Definition jeder der grundlegenden Statistiken, die aus den Datenerhebungen abgeleitet werden können, und wie sie zur Identifizierung von Akkumulationszonen und signifikanten Ereignissen verwendet werden. Die Methoden zur Berechnung der verschiedenen Umweltvariablen werden in [_Das Landnutzungsprofil_](luseprofilede) erläutert. Die Codes und Beschreibungen, die zur Identifizierung der Objekte verwendet werden, sowie die verschiedenen wirtschaftlichen Gruppierungen werden in [_Code-Gruppen_](codegroupsde). detailliert behandelt. Wie Proben gesammelt werden und die Methoden zur Identifizierung von Extremwerten und zur Berechnung von Basiswerten für eine Region finden Sie unter [_Basiswerte für Strandabfälle_](threshholdde). 
+Das Kapitel [Schlüsselindikatoren](keyindicators) enthält eine genaue Definition jeder der grundlegenden Statistiken, die aus den Datenerhebungen abgeleitet werden können, und wie sie zur Identifizierung von Akkumulationszonen und signifikanten Ereignissen verwendet werden. Die Methoden zur Berechnung der verschiedenen Umweltvariablen werden in [_Das Landnutzungsprofil_](luseprofile) erläutert. Die Codes und Beschreibungen, die zur Identifizierung der Objekte verwendet werden, sowie die verschiedenen wirtschaftlichen Gruppierungen werden in [_Codegruppen_](codegroups). detailliert behandelt. Wie Proben gesammelt werden und die Methoden zur Identifizierung von Extremwerten und zur Berechnung von Basiswerten für eine Region finden Sie unter [_Geteilte Verantwortung_](transport). 
 
 ---
 
@@ -74,13 +71,13 @@ Dieser Bericht ist versioniert, daher ist es sehr einfach, Artikel oder Analysen
 <br />
 
 (italiano_intro_de)=
-# Prefazione
+## Prefazione
 
 Il presente progetto mira a raccogliere dati e a sviluppare l’infrastruttura necessaria per valutare accuratamente la composizione e l’abbondanza di materiale antropogenico lungo fiumi e laghi svizzeri selezionati nonché a presentare questi risultati in un rapporto consolidato basato su web.
 
 I risultati di queste indagini saranno utilizzati per esplorare altri metodi per rilevare le zone di accumulo.
 
-__Rilevamento dell'accumulo e della perdita con il Rho di Spearman__, *collaborazione con Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
+__Rilevamento dell'accumulo e della perdita con il Rho di Spearman__,  [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html), *collaborazione con Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).   Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).*
 
 __La probabilità di trovare un oggetto__, *collaborazione con Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
 
@@ -99,7 +96,7 @@ Nel 2008 è stata pubblicata la prima guida internazionale per il monitoraggio d
 
 Per identificare oggetti di interesse regionale sono stati aggiunti codici supplementari. Per esempio, sono stati sviluppati codici per oggetti come contenitori di esche a feromoni e bastoncini da sci per rendere conto della presenza di questi oggetti quando identificati in determinate regioni. Identificare e quantificare gli oggetti permette ai ricercatori e alle parti interessate di determinare le probabili fonti e definire strategie di riduzione mirate a oggetti specifici.  
 
-Per maggiori informazioni: [Gruppi di codici - deutsch](codegroupsde).
+Per maggiori informazioni: [Gruppi di codici - deutsch](codegroups).
 
 ## Metrica di valutazione 
 
@@ -109,7 +106,7 @@ Limitare le indagini a 100 metri di costa esposta avrebbe ridotto drasticamente 
 
 ### Raccolta di dati
 
-Un’indagine sul beach litter può essere condotta da chiunque in qualsiasi momento. Se l’indagine viene condotta secondo il metodo descritto nella guida {cite}`mlwguidance` o nel [Beach litter baselines - deutsch](threshholdde) il risultato può essere confrontato direttamente con i grafici di questo rapporto. Non è necessario inserire i dati nel sistema per confrontare i risultati.  
+Un’indagine sul beach litter può essere condotta da chiunque in qualsiasi momento. Se l’indagine viene condotta secondo il metodo descritto nella guida {cite}`mlwguidance` o nel [Beach litter baselines - deutsch](threshhold) il risultato può essere confrontato direttamente con i grafici di questo rapporto. Non è necessario inserire i dati nel sistema per confrontare i risultati.  
 
 __La raccolta di dati__ per il rapporto (o il prossimo rapporto) richiede un po’ di addestramento e una valutazione. Di solito sono necessari 3-5 rilevamenti per comprendere adeguatamente il compito. La maggior parte del tempo viene spesa per identificare gli oggetti e l’importanza di mantenere un taccuino da campo. Il vantaggio di contribuire ai dati è che la procedura di reporting è automatizzata e si ha sempre accesso ai risultati.  
 
@@ -137,7 +134,7 @@ I risultati per i rifiuti edili in plastica mostrano che erano più diffusi a B�
 
 In termini pratici c’erano più possibilità di trovare rifiuti edili in plastica sulla spiaggia a Bönigen e Unterseen che negli altri comuni. Tuttavia le possibilità di trovare teli industriali erano all’incirca uguali ovunque ma il massimo si poteva trovare a Brienz (67 p/100 m). 
 
-Il capitolo degli [Indicatori chiave - deutsch ](keyindicatorsde) dà una definizione precisa di ciascuna delle statistiche di base che si possono ricavare dai risultati dell’indagine e come vengono usate per identificare zone di accumulo ed eventi significativi. I metodi usati per calcolare le diverse variabili ambientali sono spiegati in [Il profilo dell’uso del suolo - deutsch](luseprofilede). I codici e le descrizioni usati per identificare gli elementi e i diversi raggruppamenti economici sono trattati in dettaglio in [Gruppi di codici - deutsch](codegroupsde). Come si raccolgono i campioni e i metodi per identificare i valori estremi e calcolare le linee di base per una regione si trovano in [_Beach litter baselines - deutsch_](threshholdde).
+Il capitolo degli [Indicatori chiave - deutsch ](keyindicators) dà una definizione precisa di ciascuna delle statistiche di base che si possono ricavare dai risultati dell’indagine e come vengono usate per identificare zone di accumulo ed eventi significativi. I metodi usati per calcolare le diverse variabili ambientali sono spiegati in [Il profilo dell’uso del suolo - deutsch](luseprofile). I codici e le descrizioni usati per identificare gli elementi e i diversi raggruppamenti economici sono trattati in dettaglio in [Gruppi di codici - deutsch](codegroups). Come si raccolgono i campioni e i metodi per identificare i valori estremi e calcolare le linee di base per una regione si trovano in [_Beach litter baselines - deutsch_](threshhold).
 
 I risultati per ogni comune indicano il lago o il fiume a cui appartengono. Si può produrre un rapporto più dettagliato per ogni comune in questo documento.  
 
@@ -146,13 +143,16 @@ I risultati per ogni comune indicano il lago o il fiume a cui appartengono. Si p
 Questo rapporto indica la versione quindi è molto facile inviare articoli o analisi che correggono, chiariscono o migliorano il contenuto. Per contribuire, basta inviare una richiesta di pull a [fine repo di campionamento](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021). Si accettano richieste redatte in tutte le lingue nazionali ufficiali svizzere.
 
 (francais_intro_de)=
-# Avant-propos
+## Avant-propos
 
 L'objectif de ce projet était de collecter des données et de développer l'infrastructure nécessaire pour évaluer avec précision la composition et l'abondance des matières anthropogènes le long de certains lacs et rivières suisses et de présenter ces résultats dans un rapport consolidé basé sur le Web. 
 
 Les résultats de ces inventaires sont utilisés pour explorer d'autres méthodes de détection des zones d'accumulation.
 
-__Détection de l'accumulation et des fuites avec Spearman's Rho__, *collaboration avec Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).* [Repository](https://github.com/hammerdirt-analyst/landuse)
+__Détection de l'accumulation et des fuites avec Spearman's Rho__, [Repository](https://hammerdirt-analyst.github.io/landuse/titlepage.html), *collaboration avec Louise Schreyers, [Wageningen University and Research](https://www.wur.nl/).   Christian Ludwig, [_Paul Scherer Institute_](https://www.psi.ch/en)/[_EPFL_](https://www.epfl.ch/en/). Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).*
+
+
+
 
 __La probabilité de trouver un objet__ *collaboration avec Romain Tramoy, Laboratoire Eau Environment et Systèmes Urbains [LEESU](https://www.leesu.fr/), Bhavish Patel, [_Paul Scherrer Institute_](https://www.psi.ch/en), Montserrat Filella, [_Department F.-A. Forel, University of Geneva_](https://www.unige.ch/forel/fr/).* [Repository](https://github.com/hammerdirt-analyst/finding-one-object)
 
@@ -171,7 +171,7 @@ En 2008, le premier guide international de surveillance des déchets de plage a 
 
 Afin d'identifier les objets d'intérêt régional, des codes supplémentaires ont été ajoutés. Par exemple, des codes ont été développés pour des objets tels que les conteneurs d'appâts à phéromones et les bâtons de ski afin de tenir compte de l'occurrence de ces objets lorsqu'ils sont identifiés dans certaines régions. L'identification et la quantification des objets permettent aux chercheurs et aux parties prenantes de déterminer les sources probables et de définir des stratégies de réduction ciblant des objets spécifiques.   
 
-Pour plus d'informations: [Groupes de codes - deutsch](codegroupsde).
+Pour plus d'informations: [Groupes de codes - deutsch](codegroups).
 
 ## Mesure d'évaluation 
 
@@ -181,7 +181,7 @@ La valeur médiane ( 50e percentile) des résultats des inventaires est rapport�
 
 ### Collecte des données
 
-Un inventaire de déchets de plage peut être menée par n'importe qui, à tout moment. Si l'inventaire est menée selon la méthode décrite dans le Guide {cite}`mlwguidance`  ou les [Beach litter baselines - deutsch](threshholdde)le résultat peut être comparé directement aux graphiques de ce rapport. Il n'est pas nécessaire de saisir les données dans le système pour comparer les résultats.   
+Un inventaire de déchets de plage peut être menée par n'importe qui, à tout moment. Si l'inventaire est menée selon la méthode décrite dans le Guide {cite}`mlwguidance`  ou les [Beach litter baselines - deutsch](threshhold)le résultat peut être comparé directement aux graphiques de ce rapport. Il n'est pas nécessaire de saisir les données dans le système pour comparer les résultats.   
 
 La collecte de données pour le rapport (ou le rapport suivant) nécessite une certaine formation sur le tas et une évaluation. Il faut généralement 3 à 5 enquêtes pour acclimater une personne à la tâche. La majeure partie du temps est consacrée à l'identification des objets et à l'importance de tenir un carnet de terrain. L'avantage  de contribuer aux données est que la procédure de rapport est automatisée et qu'il est toujours possible d'accéder aux résultats. 
 
@@ -208,7 +208,7 @@ Les résultats pour les déchets de construction en plastique indiquent qu'ils �
 
 Concrètement, il y avait plus de chances de trouver des déchets de construction en plastique sur la plage à Bönigen et Unterseen que dans les autres communes. En revanche, les chances de trouver des bâches industrielles étaient à peu près égales partout, mais c'est à Brienz que l'on pouvait en trouver le plus (67p/100m). 
 
-Le chapitre sur les [indicateurs clés  -deutsch](keyindicatorsde) donne une définition précise de chacune des statistiques de base qui peuvent être dérivées des résultats de l' inventaire et de la manière dont elles sont utilisées pour identifier les zones d'accumulation et les événements significatifs. Les méthodes utilisées pour calculer les différentes variables environnementales sont expliquées dans [Le profil d'utilisation des sols- deutsch](luseprofilede). Les codes et les descriptions utilisés pour identifier les éléments ainsi que les différents groupements économiques sont traités en détail dans [Groupes de codes. - deutsch](codegroupsde). La manière dont les échantillons sont collectés et les méthodes d'identification des valeurs extrêmes et de calcul des lignes de base pour une région se trouvent dans [_valeurs de reference_ - deutsch](threshholdde).
+Le chapitre sur les [indicateurs clés  -deutsch](keyindicators) donne une définition précise de chacune des statistiques de base qui peuvent être dérivées des résultats de l' inventaire et de la manière dont elles sont utilisées pour identifier les zones d'accumulation et les événements significatifs. Les méthodes utilisées pour calculer les différentes variables environnementales sont expliquées dans [Le profil d'utilisation des sols- deutsch](luseprofile). Les codes et les descriptions utilisés pour identifier les éléments ainsi que les différents groupements économiques sont traités en détail dans [Groupes de codes. - deutsch](codegroups). La manière dont les échantillons sont collectés et les méthodes d'identification des valeurs extrêmes et de calcul des lignes de base pour une région se trouvent dans [_valeurs de reference_ - deutsch](threshhold).
 
 Les résultats de chaque municipalité sont inclus avec le lac ou la rivière à laquelle ils appartiennent. Un rapport plus détaillé peut être produit pour n'importe quelle municipalité dans ce document.    
 

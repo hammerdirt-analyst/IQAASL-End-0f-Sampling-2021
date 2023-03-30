@@ -254,7 +254,7 @@ def makeEventIdColumn(data, feature_level, these_features: str = " ", date_range
     # converts string dates to timestamps and localizes to UTC
     data = thereIsData(data=data, atype=(pd.DataFrame,))
     feature_level = thereIsData(data=feature_level, atype=(str,))
-    these_features = thereIsData(data=these_features, atype=(str, ))
+    these_features = thereIsData(data=these_features, atype=(str, list))
     
     if feature_level == "all":
         data[index_name] = list(zip(data[index_prefix].values, data[index_suffix].values))
@@ -264,7 +264,11 @@ def makeEventIdColumn(data, feature_level, these_features: str = " ", date_range
         
     else:
         try:
-            sliced_data = data[data[feature_level] == these_features].copy()
+            if isinstance(these_features, (list,)):
+                mask = data[feature_level].isin(these_features)
+            else:
+                mask = data[feature_level] == these_features
+            sliced_data = data[mask].copy()
             sliced_data[index_name] = list(zip(sliced_data[index_prefix].values, sliced_data[index_suffix].values))
             sliced_data["date"] = pd.to_datetime(sliced_data["date"], format=date_format).dt.tz_localize('UTC')
         
