@@ -142,9 +142,9 @@ top = "Alle Erhebungsgebiete"
 this_feature = {'slug':'bielersee', 'name':"Bielersee", 'level':'water_name_slug'}
 
 # the lake is in this survey area
-this_bassin = "linth"
+this_bassin = "aare"
 # label for survey area
-bassin_label = "Erhebungsgebiet Linth"
+bassin_label = "Erhebungsgebiet Aare"
 
 # these are the smallest aggregated components
 # choices are water_name_slug=lake or river, city or location at the scale of a river bassin 
@@ -768,23 +768,6 @@ mc_comp[this_feature["name"]]= mc_feature
 mc_comp[bassin_label] = mc_parent
 mc_comp[top] = mc_period
 
-# pdf out put
-# def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,  
-#                     this_feature: str = None, vertical_header: bool = False, colWidths=[4*cm, *[None]*len(data.columns)]):
-#     # print(len(data.columns))
-    
-#     if len(data.columns) > 13:
-#         tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
-#     else:
-#         tables = featuredata.aSingleStyledTable(data, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)
-#         table_cap =   f'{caption_prefix}, {", ".join(data.columns)}'
-#         table_cap = Paragraph(table_cap, style=featuredata.caption_style)
-#         tables = featuredata.tableAndCaption(tables, table_cap, col_widths)
-        
-        
-    
-#     return tables
-
 caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
 col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
 mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gemeinden", featuredata.subsection_title)
@@ -792,7 +775,6 @@ tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=capt
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 # identify the tables variable as either a list or a Flowable:
-
 if isinstance(tables, (list, np.ndarray)):
     grouped_pdf_components = [mc_heatmap_title, featuredata.large_space, *tables]
 else:
@@ -887,19 +869,17 @@ monthly_heat_map_gradient = featuredata.colorGradientTable(by_month)
 mc_monthly_title = Paragraph("Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt", featuredata.subsection_title)
 monthly_data_caption = f'{this_feature["name"]}, monatliche Durchschnittsergebnisse p/100 m'
 
-# apply formatting to df for pdf figure/*
-df_to_pdf = by_month.applymap(featuredata.replaceDecimal)
 
-# make pdf table
-col_widths = [4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
-monthly_results = featuredata.aStyledTable(by_month, caption=monthly_data_caption,
-                                           vertical_header=False, gradient=True,
-                                           colWidths=col_widths)
+col_widths = [4*cm, *[1.15*cm]*(len(mc_comp.columns))]
+
+d_chart = featuredata.aSingleStyledTable(by_month, vertical_header=True, gradient=True, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(monthly_data_caption, style=featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 new_components = [
     KeepTogether([
         mc_monthly_title,
         featuredata.large_space,
-        monthly_results,
+        mc_table,
         PageBreak()
     ])
 ]
@@ -1335,16 +1315,25 @@ complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
 # In[16]:
 
 
-doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
-report_url = f'https this will be a link to the url of {doc_title} dot html'
-report_name = f"Bericht IQAASL: {this_feature['name']} {start_date} bis {end_date}"
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)
 
-page_info = f'{report_name}; {report_url}'
+pageinfo = f'IQAASL/See/Zusammengefasste/{this_feature["name"]}'
+
+
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = f"{this_feature['slug']}.html"
+
+link_to_source = f'{source_prefix}{source}'
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(.5*cm, 0.5*cm, "S.%d %s" % (doc.page, page_info))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

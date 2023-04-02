@@ -766,22 +766,38 @@ mc_comp[this_feature["name"]]= mc_feature
 mc_comp[bassin_label] = mc_parent
 mc_comp[top] = mc_period
 
-# pdf out put
-# def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,  
-#                     this_feature: str = None, vertical_header: bool = False, colWidths=[4*cm, *[None]*len(data.columns)]):
-#     # print(len(data.columns))
-    
-#     if len(data.columns) > 13:
-#         tables = featuredata.aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix, vertical_header=vertical_header, colWidths=colWidths)
-#     else:
-#         tables = featuredata.aSingleStyledTable(data, vertical_header=vertical_header, gradient=gradient, colWidths=colWidths)
-#         table_cap =   f'{caption_prefix}, {", ".join(data.columns)}'
-#         table_cap = Paragraph(table_cap, style=featuredata.caption_style)
-#         tables = featuredata.tableAndCaption(tables, table_cap, col_widths)
-        
-        
-    
-#     return tables
+ital = {
+    'Zigarettenfilter': "Filtri di sigarette" ,
+    'Fragmentierte Kunststoffe':"Plastica frammentata",
+    'Expandiertes Polystyrol': "Polistirolo espanso",
+    'Snack-Verpackungen':"Incarti di cibo; caramelle, snack",
+    'Schaumstoffverpackungen/Isolierung': "Telo industriale",
+    ' Getränkeflaschen aus Glas, Glasfragmente':"Bottiglie per bevande in vetro, pezzi",
+    'Industriepellets (Nurdles)':"Pellet industriali (nurdles)",
+    "Insulation foams": "Schiume isolanti",
+    'Wattestäbchen/Tupfer':"Bastoncini di cotton fioc/ tampone",
+    "Expanded foams < 5mm":"Schiume espanse < 5mm",
+    'Kunststoff-Bauabfälle':"Rifiuti plastici da costruzione",
+    "Metal bottle caps and lids":"Tappi e coperchi di bottiglia in metallo",
+    "Packaging films nonfood or unknown":"Pellicole da imballaggio non alimentari o sconosciute"
+}
+
+
+fren = {
+    'Zigarettenfilter': "Filtres à cigarettes",  
+    'Fragmentierte Kunststoffe': "Plastiques fragmentés",
+    'Expandiertes Polystyrol': "Polystyrène expansé",
+    'Snack-Verpackungen':"Emballages alimentaires, bonbons",
+    'Industriefolie (Kunststoff)':"film plastique épais",
+    ' Getränkeflaschen aus Glas, Glasfragmente':"Bouteilles pour boissons, morceaux",
+    'Industriepellets (Nurdles)':"Granules Plastique industriels (GPI)",
+    'Schaumstoffverpackungen/Isolierung':"Isolation : y compris les mousses en spray",
+    'Wattestäbchen/Tupfer':"Bâtonnets de coton-tige",
+    "Expanded foams < 5mm":"Mousses expansées < 5 mm",
+    'Kunststoff-Bauabfälle':"Déchets plastiques de construction",
+    "Metal bottle caps and lids":"Bouchons et couvercles de bouteilles en métal", 
+    'Verpackungsfolien, nicht für Lebensmittel':"Films d'emballage non alimentaires ou inconnus",
+}
 
 caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
 col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
@@ -885,25 +901,20 @@ monthly_heat_map_gradient = featuredata.colorGradientTable(by_month)
 mc_monthly_title = Paragraph("Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt", featuredata.subsection_title)
 monthly_data_caption = f'{this_feature["name"]}, monatliche Durchschnittsergebnisse p/100 m'
 
-# apply formatting to df for pdf figure/*
-df_to_pdf = by_month.applymap(featuredata.replaceDecimal)
-
 # make pdf table
-col_widths = [4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
-monthly_results = featuredata.aStyledTable(by_month, caption=monthly_data_caption,
-                                           vertical_header=False, gradient=True,
-                                           colWidths=col_widths)
+d_chart = featuredata.aSingleStyledTable(by_month, vertical_header=True, gradient=True, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(monthly_data_caption, style=featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 new_components = [
     KeepTogether([
         mc_monthly_title,
         featuredata.large_space,
-        monthly_results,
+        mc_table,
         PageBreak()
     ])
 ]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
-
 # remove the index names for .html display
 by_month.index.name = None
 by_month.columns.name = None
@@ -1296,16 +1307,25 @@ complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
 # In[16]:
 
 
-doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
-report_url = f'https this will be a link to the url of {doc_title} dot html'
-report_name = f"Bericht IQAASL: {this_feature['name']} {start_date} bis {end_date}"
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)
 
-page_info = f'{report_name}; {report_url}'
+pageinfo = f'IQAASL/See/Zusammengefasste/{this_feature["name"]}'
+
+
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = f"{this_feature['slug']}.html"
+
+link_to_source = f'{source_prefix}{source}'
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(.5*cm, 0.5*cm, "S.%d %s" % (doc.page, page_info))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

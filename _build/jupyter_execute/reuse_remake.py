@@ -180,12 +180,8 @@ p5 = makeAParagraph(p5)
 l1 = makeAList(l1)
 p3 = makeAParagraph(p3)
 
-
-
-
-
 o_w, o_h = convertPixelToCm("resources/images/reuse_recycle/machine.jpeg")
-f1caption = makeAParagraph("Identifizierung von Kunststoffen aus Ufer-Abfallaufkommen-Untersuchungen", style=caption_style)
+f1caption = makeAParagraph(["Identifizierung von Kunststoffen aus Ufer-Abfallaufkommen-Untersuchungen"], style=caption_style)
 figure_kwargs = {
     "image_file":"resources/images/reuse_recycle/machine.jpeg",
     "caption": f1caption, 
@@ -727,13 +723,23 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # In[9]:
 
 
-doc = SimpleDocTemplate("resources/pdfs/recycle_remake.pdf", pagesize=A4, leftMargin=2.5*cm, rightMargin=1.5*cm, topMargin=3*cm, bottomMargin=1.5*cm)
-pageinfo= f"IQAASL: Recyceln und neugestalten"
+doc = SimpleDocTemplate("resources/pdfs/recycle_remake.pdf", pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1.5*cm)
+pageinfo= f"IQAASL/Anwendungen/Recyceln und neugestalten"
+
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = "shared_responsibility.html"
+
+link_to_source = f'{source_prefix}{source}'
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(1*cm, 1*cm, "S.%d %s" % (doc.page, pageinfo))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import scipy.stats as stats
 from datetime import datetime
 from babel.dates import get_month_names
 from typing import Any
@@ -1411,13 +1412,14 @@ def aSingleStyledTable(data, header_style: Paragraph = styled_table_header, vert
     new_rows = []
     for a_row in table_data.values.tolist():
         
+        
         if isinstance(a_row[0], str):
             row_index = Paragraph(a_row[0], table_style_right)
-            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            row_data = [Paragraph(replaceDecimal(x), data_style) for x in a_row[1:]]
             new_row = [row_index, *row_data]
             new_rows.append(new_row)
         else:
-            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
+            row_data = [Paragraph(replaceDecimal(x), data_style) for x in a_row[1:]]
             new_rows.append(row_data)
     
     if gradient:
@@ -1426,6 +1428,9 @@ def aSingleStyledTable(data, header_style: Paragraph = styled_table_header, vert
         elements = [x for x in table_color_gradient.getCommands()]
         for element in elements:
             style.add(*element)
+            
+    
+        
     
     new_table = [headers, *new_rows]
     # print(len(style.getCommands()))
@@ -1523,7 +1528,7 @@ def colorGradientTable(data, color_gradient: callable=colorGradient, column: int
     gradient_cells = TableStyle()
     a_min = data.min().min()
     a_max = data.max().max()
-    change_font_color = a_max * .7
+    change_font_color = a_max * .5
     
     if column is None:
         for i, row in enumerate(data.values):
@@ -1613,12 +1618,12 @@ def aStyledTableWithTitleRow(data, header_style: Paragraph = styled_table_header
 
 def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradient=False,
                     this_feature: str = None, vertical_header: bool = False,
-                    colWidths=[4 * cm, *[None] * 4]):
+                    colWidths=[4 * cm, *[None] * 4], rowends: int = -2):
     # print(len(data.columns))
     
     if len(data.columns) > 13:
         tables = aStyledTableExtended(data, gradient=gradient, caption_prefix=caption_prefix,
-                                                  vertical_header=vertical_header, colWidths=colWidths)
+                                      vertical_header=vertical_header, colWidths=colWidths, row_ends=rowends)
     else:
         tables = aSingleStyledTable(data, vertical_header=vertical_header, gradient=gradient,
                                                 colWidths=colWidths)
@@ -1628,4 +1633,34 @@ def splitTableWidth(data, caption_prefix: str = None, caption: str = None, gradi
     
     return tables
 
+def hide_spines_ticks_grids(an_ax):
+    """Removes spines, ticks and grid from matplotlib axis object
 
+    Args:
+        an_ax: object: matplotlib axis
+
+    Returns:
+          nothing
+
+    """
+    for spine in an_ax.spines.values():
+        spine.set_visible(False)
+    an_ax.tick_params(bottom=False, labelbottom=False, left=False, labelleft=False)
+    an_ax.grid(False)
+
+
+def make_plot_with_spearmans(data, ax, n, unit_label="p/100m"):
+    """Gets Spearmans ranked correlation and make A/B scatter plot. Must proived a
+    matplotlib axis object.
+    """
+    corr, a_p = stats.spearmanr(data[n], data[unit_label])
+    
+    if a_p < 0.05:
+        if corr > 0:
+            ax.patch.set_facecolor("salmon")
+            ax.patch.set_alpha(0.5)
+        else:
+            ax.patch.set_facecolor("palegoldenrod")
+            ax.patch.set_alpha(0.5)
+    
+    return ax, corr, a_p

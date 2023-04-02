@@ -8,8 +8,7 @@ parts:
   - caption: Zusammenfassung
     numbered: False
     chapters:
-    - file: intro_de
-    # - file: esummary
+    - file: foreword
   - caption: Ergebnisse der Erhebung
     numbered: True
     chapters:
@@ -44,6 +43,7 @@ parts:
     chapters:    
     - file: shared_responsibility
     - file: reuse_remake
+    - file: slr_2017_iqaasl
     
     
     

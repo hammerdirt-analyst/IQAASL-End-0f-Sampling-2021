@@ -66,6 +66,9 @@ save_figure_kwargs = {
 
 pdf_link = 'resources/pdfs/land_use_correlation.pdf'
 
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = "land_use_correlation.html"
+
 # set some parameters:
 today = dt.datetime.now().date().strftime("%Y-%m-%d")
 start_date = "2020-03-01"
@@ -119,7 +122,7 @@ dfCodes = codes_class.dfCodes
 # 
 # Im September 2020 hat die Europäische Union Basislinien und Zielwerte für Abfallobjekte am Strand veröffentlicht. Nach Abwägung vieler Faktoren, darunter die Transparenz der Berechnungsmethode und die Leistung in Bezug auf Ausreisser, hat die EU entschieden, dass der Medianwert der Datenerhebungen zum Vergleich der Basiswerte zwischen den Regionen verwendet wird. Dies hat das Interesse der Gemeinden geweckt, punktuelle Abfallobjekte besser zu identifizieren und zu quantifizieren, da sie versuchen, den effizientesten Weg zur Einhaltung der Zielwerte zu finden. Die Identifizierung relevanter Landnutzungsmuster und -merkmale ist ein wesentliches Element in diesem Prozess. {cite}`threshholdeu` {cite}`eubaselines` {cite}`vanemmerick`
 # 
-# Hier schlagen wir eine Methode vor, um die Ergebnisse von Untersuchungen des Ufer-Abfallaufkommens im Hinblick auf das Landnutzungsprofil im Umkreis von 1500 m um den Erhebungsort auszuwerten. Die Erhebungsergebnisse der häufigsten Objekte werden mit Hilfe von Spearmans Rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf Assoziation mit den gemessenen Landnutzungsmerkmalen getestet. {cite}`defspearmans` 
+# Hier schlagen wir eine Methode vor, um die Ergebnisse von Untersuchungen des Ufer-Abfallaufkommens im Hinblick auf das Landnutzungsprofil im Umkreis von 1500 m um den Erhebungsort auszuwerten. Die Erhebungsergebnisse der häufigsten Objekte werden mit Hilfe von Spearmans rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf Assoziation mit den gemessenen Landnutzungsmerkmalen getestet. {cite}`defspearmans` 
 # 
 # ## Berechnung des Landnutzungsprofils
 # 
@@ -195,7 +198,7 @@ p_3 = [
 p_4 = [
     "Hier schlagen wir eine Methode vor, um die Ergebnisse von Untersuchungen des Ufer-Abfallaufkommens im Hinblick auf ",
     "das Landnutzungsprofil im Umkreis von 1500 m um den Erhebungsort auszuwerten. Die Erhebungsergebnisse der häufigsten ",
-    "Objekte werden mit Hilfe von Spearmans Rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf ",
+    "Objekte werden mit Hilfe von Spearmans rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf ",
     'Assoziation mit den gemessenen Landnutzungsmerkmalen getestet.<a href="#Wikd" color="blue">(Wikd)</a>'
 ]
 
@@ -289,7 +292,7 @@ p_12 = makeAParagraph(p_12)
 
 new_components = [
     chapter_title,
-    large_space,
+    small_space,
     *p_1_4,
     section_one_title,
     small_space,
@@ -945,7 +948,7 @@ figure_5 = figureAndCaptionTable(**figure_kwargs)
 # 
 # Die Rangkorrelation nach Spearman testet auf eine statistisch signifikante monotone Beziehung oder Assoziation zwischen zwei Variablen. Die Hypothese lautet, dass es keinen Zusammenhang zwischen dem Landnutzungsprofil und den Erhebungsergebnissen gibt. {cite}`defspearmans` 
 # 
-# Die Testergebnisse beziehen sich auf die Richtung (Rho) einer Assoziation und darauf, ob diese Assoziation wahrscheinlich auf einen Zufall zurückzuführen ist (p-Wert) oder nicht.) Damit ein Test als signifikant gilt, muss der p-Wert kleiner als 0,05 sein. {cite}`impspearmans`
+# Die Testergebnisse beziehen sich auf die Richtung (rho) einer Assoziation und darauf, ob diese Assoziation wahrscheinlich auf einen Zufall zurückzuführen ist (p-Wert) oder nicht.) Damit ein Test als signifikant gilt, muss der p-Wert kleiner als 0,05 sein. {cite}`impspearmans`
 # 
 # * Nullhypothese: Es gibt keine monotone Beziehung zwischen den beiden Variablen.
 # * Alternativhypothese: Es besteht eine monotone Beziehung und das Vorzeichen (+/-) gibt die Richtung an.
@@ -957,7 +960,7 @@ figure_5 = figureAndCaptionTable(**figure_kwargs)
 
 p_19 = makeAParagraph(p_19)
 
-subsection_3 = Paragraph("Spearmans Rho – ein Beispiel", style=subsection_title)
+subsection_3 = Paragraph("Spearmans rho – ein Beispiel", style=subsection_title)
 
 p_20 = [
     "Die Rangkorrelation nach Spearman testet auf eine statistisch signifikante monotone ",
@@ -1064,15 +1067,15 @@ plt.close()
 # :name: "spearmans_example"
 # ` `
 # ```
-# {numref}`Abildung %s: <spearmans_example>` __Links:__ Datenerhebungen der Zigarettenstummel in Bezug auf den prozentualen Anteil der Grundstücke an den Gebäuden. Rho = 0,39, p-value < 0,001. __Rechts:__ Datenerhebungen der Zigarettenstummel in Bezug auf den Prozentsatz der landwirtschaftlichen Nutzfläche. Rho = -0,31, p-value < 0,001.
+# {numref}`Abildung %s: <spearmans_example>` __Links:__ Datenerhebungen der Zigarettenstummel in Bezug auf den prozentualen Anteil der Grundstücke an den Gebäuden. rho = 0,39, p-value < 0,001. __Rechts:__ Datenerhebungen der Zigarettenstummel in Bezug auf den Prozentsatz der landwirtschaftlichen Nutzfläche. rho = -0,31, p-value < 0,001.
 
 # In[13]:
 
 
 fig_6_caption = [
     "<b>Links:</b> Datenerhebungen der Zigarettenstummel in Bezug auf den prozentualen Anteil der Grundstücke an den ",
-    "Gebäuden. Rho = 0,39, p-value < 0,001. <b>Rechts:</b> Datenerhebungen der Zigarettenstummel in Bezug auf den ",
-    "Prozentsatz der landwirtschaftlichen Nutzfläche. Rho = -0,31, p-value < 0,001."
+    "Gebäuden. rho = 0,39, p-value < 0,001. <b>Rechts:</b> Datenerhebungen der Zigarettenstummel in Bezug auf den ",
+    "Prozentsatz der landwirtschaftlichen Nutzfläche. rho = -0,31, p-value < 0,001."
 ]
 
 fig_6_caption = makeAParagraph(fig_6_caption, style=caption_style)
@@ -1112,7 +1115,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# Betrachtet man die Erhebungsergebnisse für Zigarettenstummel in Bezug auf den prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ist der Wert von Rho entgegengesetzt.
+# Betrachtet man die Erhebungsergebnisse für Zigarettenstummel in Bezug auf den prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ist der Wert von rho entgegengesetzt.
 # 
 # ### Zuordnung der Erhebungssummen zur Landnutzung
 # 
@@ -1128,7 +1131,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 p_23 = [
     "Betrachtet man die Erhebungsergebnisse für Zigarettenstummel in Bezug auf den ",
     "prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ",
-    "ist der Wert von Rho entgegengesetzt."
+    "ist der Wert von rho entgegengesetzt."
 ]
 p_23 = makeAParagraph(p_23)
 
@@ -1371,7 +1374,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # Aus der ersten Abbildung lässt sich ein positiver Zusammenhang zwischen der Anzahl der identifizierten Objekte und dem prozentualen Anteil der Flächen, die Gebäuden und Orten für Aktivitäten im Freien zugeordnet sind, ableiten. Das Umgekehrte gilt für den prozentualen Anteil von Landwirtschaft und Wald. Es gibt keine statistische Grundlage für die Annahme eines Zusammenhangs zwischen der Länge von Strassen oder der Anzahl von Flussmündungen und dem Gesamtergebnis der Erhebung.
 # 
-# Das Ergebnis von Spearmans Rho für die am häufigsten vorkommenden Objekte steht im Zusammenhang mit den Ergebnissen in der vorangegangenen Abbildung und veranschaulicht, wie sich verschiedene Objekte unter verschiedenen Bedingungen anhäufen.
+# Das Ergebnis von Spearmans rho für die am häufigsten vorkommenden Objekte steht im Zusammenhang mit den Ergebnissen in der vorangegangenen Abbildung und veranschaulicht, wie sich verschiedene Objekte unter verschiedenen Bedingungen anhäufen.
 # 
 # * Rot/Rosa steht für eine positive Assoziation
 # * Gelb steht eine negative Assoziation
@@ -1381,7 +1384,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # In[20]:
 
 
-subsection_six = Paragraph("Ergebnisse Spearmans Rho", style=subsection_title)
+subsection_six = Paragraph("Ergebnisse Spearmans rho", style=subsection_title)
 
 p_26 = [
     "Aus der ersten Abbildung lässt sich ein positiver Zusammenhang zwischen der Anzahl ",
@@ -1393,7 +1396,7 @@ p_26 = [
 ]
 
 p_27 = [
-    "Das Ergebnis von Spearmans Rho für die am häufigsten vorkommenden Objekte steht im ",
+    "Das Ergebnis von Spearmans rho für die am häufigsten vorkommenden Objekte steht im ",
     "Zusammenhang mit den Ergebnissen in der vorangegangenen Abbildung und veranschaulicht, ",
     "wie sich verschiedene Objekte unter verschiedenen Bedingungen anhäufen."
 ]
@@ -1518,7 +1521,7 @@ figure_kwargs.update({
 
 figure_8 = figureAndCaptionTable(**figure_kwargs)
 
-subsection_seven = Paragraph("Spearmans Rho interpretieren", style=subsection_title)
+subsection_seven = Paragraph("Spearmans rho interpretieren", style=subsection_title)
 
 p_28 = [
     "Eine positive Assoziation bedeutet, dass die Erhebungsergebnisse tendenziell ",
@@ -1589,13 +1592,13 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # Die Anzahl der Stichproben, die verwendet werden, um eine Assoziation mit Spearman zu bestimmen, muss vorsichtig gewählt sein.
 # 
-# Ebenso das Gewicht, das den Ergebnissen beigemessen wird. Die Ergebnisse für Zigarettenfilter sind ein gutes Beispiel. Die Diagramme zeigen eindeutig sowohl negative als auch positive Assoziationen in Abhängigkeit von der Landnutzung, aber Rho ist kleiner als 0,5. Es handelt sich also keineswegs um eine lineare Beziehung und das Ausmass bleibt unbestimmt.
+# Ebenso das Gewicht, das den Ergebnissen beigemessen wird. Die Ergebnisse für Zigarettenfilter sind ein gutes Beispiel. Die Diagramme zeigen eindeutig sowohl negative als auch positive Assoziationen in Abhängigkeit von der Landnutzung, aber rho ist kleiner als 0,5. Es handelt sich also keineswegs um eine lineare Beziehung und das Ausmass bleibt unbestimmt.
 # 
 # Die Betroffenen sollten diese Ergebnisse und deren Anwendbarkeit auf ihre spezifische Situation prüfen. Eine Schlussfolgerung, die gezogen werden kann, ist, dass es eine Methode gibt, um auf der Grundlage der empirischen Daten aus den Datenerhebungen mit angemessener Sicherheit Zonen der Akkumulation zu identifizieren. Diese Ergebnisse ermöglichen es den Akteuren, ihre Prioritäten auf die Herausforderungen zu setzen, die für ihre Region oder Situation spezifisch sind.
 # 
 # Der Korrelationskoeffizient nach Spearman lässt sich leicht anwenden, sobald der endgültige Datensatz bestimmt wurde. Der Wert des Koeffizienten ändert sich jedoch je nach Erhebungsgebiet oder See, an dem der Test angewendet wird. Das bedeutet, dass das Verständnis und die Interpretation dieser Ergebnisse nicht nur ein nationales, sondern auch ein regionales und kommunales Anliegen ist. 
 # 
-# __Warum 1500 Meter?__ Für diese Studie haben wir uns mit Objekten befasst, die hohe Werte für Rho bei kleineren Radien aufwiesen, die dem Massstab der bereitgestellten Daten angemessen waren. Es wurden auch andere Entfernungen in Betracht gezogen (2 km, 2,5 km, 5 km und 10 km). Generell gilt, dass mit zunehmendem Radius die den Gebäuden zugewiesene Fläche abnimmt und damit auch der Wert von Rho. Dieses Thema wurde in einem Artikel, der derzeit für das Peer-Review-Verfahren vorbereitet wird, ausführlicher behandelt.
+# __Warum 1500 Meter?__ Für diese Studie haben wir uns mit Objekten befasst, die hohe Werte für rho bei kleineren Radien aufwiesen, die dem Massstab der bereitgestellten Daten angemessen waren. Es wurden auch andere Entfernungen in Betracht gezogen (2 km, 2,5 km, 5 km und 10 km). Generell gilt, dass mit zunehmendem Radius die den Gebäuden zugewiesene Fläche abnimmt und damit auch der Wert von rho. Dieses Thema wurde in einem Artikel, der derzeit für das Peer-Review-Verfahren vorbereitet wird, ausführlicher behandelt.
 # 
 # Die Überprüfung einer Assoziation erfolgt durch die Berücksichtigung aller anderen Schlüsselindikatoren und das Urteil von Experten. Das kommunale Reinigungs- und Unterhaltspersonal ist mit den Bedingungen vor Ort vertraut und ist eine der besten Informationsquellen. Die Wiederholung von Stichproben an einem bestimmten Ort für einen bestimmten Zeitraum und der Vergleich der Ergebnisse mit den Ausgangswerten für das Erhebungsgebiet ist ebenfalls eine zuverlässige Methode, um die Leistung in Bezug auf das Erhebungsgebiet zu bestimmen.
 # 
@@ -1679,7 +1682,7 @@ p_37 = [
 p_38 = [
     "Ebenso das Gewicht, das den Ergebnissen beigemessen wird. Die Ergebnisse für Zigarettenfilter sind ein gutes Beispiel. ",
     "Die Diagramme zeigen eindeutig sowohl negative als auch positive Assoziationen in Abhängigkeit von der Landnutzung, aber ",
-    "Rho ist kleiner als 0,5. Es handelt sich also keineswegs um eine lineare Beziehung und das Ausmass bleibt unbestimmt."
+    "rho ist kleiner als 0,5. Es handelt sich also keineswegs um eine lineare Beziehung und das Ausmass bleibt unbestimmt."
 ]
 
 p_39 = [
@@ -1698,10 +1701,10 @@ p_40 = [
 ]
 
 p_41 = [
-    "<b>Warum 1500 Meter?</b> Für diese Studie haben wir uns mit Objekten befasst, die hohe Werte für Rho bei kleineren Radien ",
+    "<b>Warum 1500 Meter?</b> Für diese Studie haben wir uns mit Objekten befasst, die hohe Werte für rho bei kleineren Radien ",
     "aufwiesen, die dem Massstab der bereitgestellten Daten angemessen waren. Es wurden auch andere Entfernungen in ",
     "Betracht gezogen (2 km, 2,5 km, 5 km und 10 km). Generell gilt, dass mit zunehmendem Radius die den Gebäuden zugewiesene ",
-    "Fläche abnimmt und damit auch der Wert von Rho. Dieses Thema wurde in einem Artikel, der derzeit für das ",
+    "Fläche abnimmt und damit auch der Wert von rho. Dieses Thema wurde in einem Artikel, der derzeit für das ",
     "Peer-Review-Verfahren vorbereitet wird, ausführlicher behandelt."
 ]
 
@@ -1757,14 +1760,23 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # In[24]:
 
 
-doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=1.5*cm, topMargin=3*cm, bottomMargin=1.5*cm)
-pageinfo= f"IQAASL: Landnutzungsprofil"
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1.5*cm)
+pageinfo= f"IQAASL/Verstehen/Landnutzungsprofil"
+
+link_to_source = f'{source_prefix}{source}'
+
+
 
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(1*cm, 1*cm, "S.%d %s" % (doc.page, pageinfo))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

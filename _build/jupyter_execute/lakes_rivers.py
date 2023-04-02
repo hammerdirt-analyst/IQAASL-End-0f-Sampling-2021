@@ -77,6 +77,7 @@ import resources.sr_ut as sut
 
 # images and display
 from IPython.display import Markdown as md
+from PIL import Image as PILImage
 from myst_nb import glue
 
 # chart style
@@ -285,13 +286,40 @@ pdf_title = Paragraph(this_feature["name"], featuredata.title_style)
 map_image =  Image(bassin_map, width=cm*19, height=20*cm, kind="proportional", hAlign= "CENTER")
 
 map_caption = featuredata.defaultMapCaption(language="de")
+f1cap = Paragraph(map_caption, featuredata.caption_style),
 glue(f'{this_feature["slug"]}_city_map_caption', map_caption, display=False)
+
+def convertPixelToCm(file_name: str = None):
+    im = PILImage.open(file_name)
+    width, height = im.size
+    dpi = im.info.get("dpi", (72, 72))
+    width_cm = width / dpi[0] * 2.54
+    height_cm = height / dpi[1] * 2.54
+    
+    return width_cm, height_cm
+
+o_w, o_h = convertPixelToCm(bassin_map)
+
+f1cap = Paragraph(map_caption, style=featuredata.caption_style)
+
+figure_kwargs = {
+    "image_file":bassin_map,
+    "caption": f1cap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 16,
+    "caption_height":.75,
+    "hAlign": "CENTER",
+}
+
+f1 = featuredata.figureAndCaptionTable(**figure_kwargs)
+
 
 pdfcomponents = featuredata.addToDoc([
     pdf_title,    
     featuredata.small_space,
-    map_image,
-    Paragraph(map_caption, featuredata.caption_style),
+    f1
+    
 ], pdfcomponents)
 
 
@@ -868,7 +896,7 @@ plt.close()
 # 
 # Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate).
 
-# In[9]:
+# In[10]:
 
 
 # add summary tables to pdf
@@ -917,7 +945,7 @@ new_components = [KeepTogether([
     sample_summary_subsection,
     featuredata.small_space,
     sample_summary_paragraph,
-    featuredata.large_space,
+    featuredata.small_space,
     s_totals_figure_and_caption,
     featuredata.small_space,
     samp_mat_subsection,
@@ -929,7 +957,7 @@ new_components = [KeepTogether([
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[10]:
+# In[11]:
 
 
 # add new section to pdf
@@ -968,8 +996,8 @@ dxi = data.copy()
 mc_caption_string = [
     "Die häufigsten Objekte für alle Erhebungsgebiete. Die Häufigkeitsrate gibt an, wie oft ein Objekt "
     "in den Erhebungen im Verhältnis zu allen Erhebungen identifiziert wurde: Zigarettenfilter ",
-    f"beispielsweise wurden in {'87 '}{'%'} der Erhebungen gefunden. Zusammengenommen machen die häufigsten ",
-    f"Objekte {'68 '}{'%'} aller gefundenen Objekte aus."
+    f"beispielsweise wurden in {'87'} {'%'} der Erhebungen gefunden. Zusammengenommen machen die häufigsten ",
+    f"Objekte {'68'} {'%'} aller gefundenen Objekte aus."
 ]
    
 mc_caption_string = "".join(mc_caption_string)
@@ -1017,7 +1045,7 @@ glue(f'{this_feature["slug"]}_most_common_tables', mcd, display=False)
 
 # __Häufigste Objekte im Median p/100 m nach Erhebungsgebiet__
 
-# In[11]:
+# In[12]:
 
 
 mc_heat_map_caption = [
@@ -1121,7 +1149,7 @@ glue(f'{this_feature["slug"]}_most_common_heat_map', mcd, display=False)
 
 # __Häufigste Objekte im Monatsdurchschnitt__
 
-# In[12]:
+# In[13]:
 
 
 # collect the survey results of the most common objects
@@ -1222,7 +1250,7 @@ glue(f'{this_feature["slug"]}_monthly_results', mcdm, display=False)
 # 2. Gelb steht für eine negative Assoziation
 # 3. Weiss bedeutet, dass keine statistische Grundlage für die Annahme eines Zusammenhangs besteht
 
-# In[13]:
+# In[14]:
 
 
 land_use_section_title = "Erhebungsergebnisse und Landnutzung"
@@ -1271,20 +1299,20 @@ new_components = [
     section_title,
     featuredata.small_space,
     section_summary,
-    featuredata.small_space,
+    featuredata.smallest_space,
     para_one,
-    featuredata.small_space,
+    featuredata.smallest_space,
     para_two,
-    featuredata.small_space,
+    featuredata.smallest_space,
     para_three,
-    featuredata.small_space,
+    featuredata.smallest_space,
     a_list_groups
 ]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[14]:
+# In[15]:
 
 
 # add the river bassin to fd
@@ -1379,7 +1407,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <all_survey_area_spearmans>` {glue:text}`all_spearmans_caption`
 
-# In[15]:
+# In[16]:
 
 
 spearmans_chart = Image(sample_summaries_file_name, width=10*cm, height=15*cm, kind="proportional", hAlign= "CENTER")
@@ -1418,7 +1446,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Im Anhang (Kapitel 1.8.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel  [Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
-# In[16]:
+# In[17]:
 
 
 # make pdf out put
@@ -1489,7 +1517,7 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[17]:
+# In[18]:
 
 
 components = fdx.componentCodeGroupResults()
@@ -1536,7 +1564,7 @@ glue(f'{this_feature["slug" ]}_codegroup_percent', ptd, display=False)
 # ```
 # {numref}`Abbildung %s: <all_survey_area_codegroup_percent>`{glue:text}`all_codegroup_percent_caption`
 
-# In[18]:
+# In[19]:
 
 
 # pivot that
@@ -1606,7 +1634,7 @@ glue(f'{this_feature["slug" ]}_codegroup_pcsm', cgp, display=False)
 
 # ## Fleisgewässer
 
-# In[19]:
+# In[20]:
 
 
 # summary of sample totals
@@ -1678,7 +1706,7 @@ plt.close()
 
 # __Die an Fliessgewässern am häufigsten gefundenen Objekte__
 
-# In[20]:
+# In[21]:
 
 
 # the most common objects results
@@ -1733,7 +1761,7 @@ glue(f'{this_feature["slug" ]}_rivers_most_common_tables', mcd, display=False)
 # ```
 # {numref}`Abbildung %s: <all_rivers_most_common_tables>` {glue:text}`all_rivers_most_common_caption`
 
-# In[21]:
+# In[22]:
 
 
 rivers_section_title = Paragraph("Die an Fliessgewässern am häufigsten gefundenen Objekte", featuredata.section_title)
@@ -1772,7 +1800,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrags», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert.
 
-# In[22]:
+# In[23]:
 
 
 annex_title = Paragraph("Anhang", featuredata.section_title)
@@ -1872,7 +1900,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 7. Hackuarium
 # 8. hammerdirt
 
-# In[23]:
+# In[24]:
 
 
 # make the organisation list for the .pdf
@@ -1903,7 +1931,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # ### Die Erhebungsorte
 
-# In[24]:
+# In[25]:
 
 
 # display the survey locations
@@ -1962,7 +1990,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[25]:
+# In[26]:
 
 
 pd.set_option("display.max_rows", None)
@@ -2002,18 +2030,26 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 complete_inventory
 
 
-# In[26]:
+# In[27]:
 
 
-doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
-report_url = f'https this will be a link to the url of {doc_title} dot html'
-report_name = f"Bericht IQAASL: {this_feature['name']} {start_date} bis {end_date}"
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)
 
-page_info = f'{report_name}; {report_url}'
+pageinfo= f"IQAASL/Ergebnisse der Erhebung/{this_feature['name']}"
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = "lakes_rivers.html"
+
+link_to_source = f'{source_prefix}{source}'
+
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(.5*cm, 0.5*cm, "S.%d %s" % (doc.page, page_info))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

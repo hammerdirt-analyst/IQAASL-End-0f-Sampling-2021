@@ -44,8 +44,6 @@ import locale
 # math packages:
 import pandas as pd
 import numpy as np
-from math import pi
-import scipy.stats as stats
 
 # charting:
 import matplotlib as mpl
@@ -54,21 +52,13 @@ import matplotlib.dates as mdates
 from matplotlib import ticker
 from matplotlib.ticker import MultipleLocator
 import seaborn as sns
-from matplotlib import colors as mplcolors
+# from matplotlib import colors as mplcolors
 
-# build report
-
-# from reportlab.platypus.flowables import Flowable
-# from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer,  PageBreak, ListFlowable, ListItem, KeepTogether
-# from reportlab.lib.pagesizes import A4
-# from reportlab.rl_config import defaultPageSize
-# from reportlab.lib.units import inch, cm
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-# from reportlab.lib.colors import HexColor
-# from reportlab.platypus import Table, TableStyle
-from reportlab.lib import colors
 # build report
 import reportlab
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib import colors
+
 from reportlab.platypus.flowables import Flowable
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether, Image
 from reportlab.lib.pagesizes import A4
@@ -81,13 +71,9 @@ from resources.featuredata import makeAList, small_space, large_space, aSingleSt
 from resources.featuredata import caption_style, subsection_title, title_style, block_quote_style, makeBibEntry
 from resources.featuredata import figureAndCaptionTable, tableAndCaption, aStyledTableWithTitleRow
 from resources.featuredata import sectionParagraphs, section_title, addToDoc, makeAParagraph, bold_block
-
-# the module that has all the methods for handling the data
-import resources.featuredata as featuredata
 from resources.featuredata import makeAList
 
 # home brew utitilties
-import resources.chart_kwargs as ck
 import resources.sr_ut as sut
 
 # images and display
@@ -95,12 +81,17 @@ from PIL import Image as PILImage
 from IPython.display import Markdown as md
 from myst_nb import glue
 
+def convertPixelToCm(file_name: str = None):
+    im = PILImage.open(file_name)
+    width, height = im.size
+    dpi = im.info.get("dpi", (72, 72))
+    width_cm = width / dpi[0] * 2.54
+    height_cm = height / dpi[1] * 2.54
+    
+    return width_cm, height_cm
+
 # chart style
 sns.set_style("whitegrid")
-
-# colors for gradients
-cmap2 = ck.cmap2
-colors_palette = ck.colors_palette
 
 # border and row shading for tables
 a_color = "saddlebrown"
@@ -164,7 +155,7 @@ this_feature = {'slug':'aare', 'name':"Erhebungsgebiet Aare", 'level':'river_bas
 # the lake is in this survey area
 this_bassin = "aare"
 # label for survey area
-bassin_label = "Erhebungsgebiet aare"
+bassin_label = "Erhebungsgebiet Aare"
 
 # these are the smallest aggregated components
 # choices are water_name_slug=lake or river, city or location at the scale of a river bassin 
@@ -286,7 +277,6 @@ odd_rows = {'selector': 'tr:nth-child(odd)', 'props': 'background: #FFF;'}
 table_font = {'selector': 'tr', 'props': 'font-size: 12px;'}
 table_css_styles = [even_rows, odd_rows, table_font, header_row]
 
-
 # pdf download is an option 
 # the .pdf output is generated in parallel
 # this is the same as if it were on the backend where we would
@@ -301,15 +291,6 @@ pdfcomponents = []
 
 # pdf title and map
 pdf_title = Paragraph(this_feature["name"], featuredata.title_style)
-map_image =  Image(bassin_map, width=cm*19, height=20*cm, kind="proportional", hAlign= "CENTER")
-
-pdfcomponents = featuredata.addToDoc([
-    pdf_title,    
-    featuredata.small_space,
-    map_image
-], pdfcomponents)
-
-# glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
 
 
 # (aaresa)=
@@ -320,14 +301,31 @@ pdfcomponents = featuredata.addToDoc([
 # In[2]:
 
 
-map_caption = featuredata.defaultMapCaption(language="de")
+map_caption = featuredata.defaultMapCaption(language=language)
 glue(f'{this_feature["slug"]}_city_map_caption', map_caption, display=False)
 
+f1cap = Paragraph(map_caption, style=caption_style)
+o_w, o_h = convertPixelToCm(bassin_map)
+
+figure_kwargs = {
+    "image_file":bassin_map,
+    "caption": f1cap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 16,
+    "caption_height":1,
+    "hAlign": "CENTER",
+}
+
+f1 = figureAndCaptionTable(**figure_kwargs)
+
 new_components = [
-    Paragraph(map_caption, featuredata.caption_style)
+     pdf_title,    
+    small_space,
+    f1
 ]
 # add those sections
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
 # ```{figure} resources/maps/aare_city_labels.jpeg
@@ -350,20 +348,21 @@ an_admin_summary = featuredata.makeAdminSummaryStateMent(start_date, end_date, t
 # this collects the components of the feature of interest (city, lake, river)
 # a comma separated string of all the componenets and a heading for each component
 # type is produced
-feature_components = featuredata.collectComponentLandMarks(admin_details, language="de")
+feature_components = featuredata.collectComponentLandMarks(admin_details, language=language)
 
 # markdown output
 components_markdown = "".join([f'*{x[0]}*\n\n>{x[1]}\n\n' for x in feature_components])
 
 new_components = [
-    featuredata.small_space,
-    Paragraph("Erhebungsorte", featuredata.section_title), 
-    featuredata.smallest_space,
+    
+    small_space,
+    Paragraph("Erhebungsorte", section_title), 
+    small_space,
     Paragraph(an_admin_summary , featuredata.p_style),
 ]
 
 # add the admin summary to the pdf
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 # put that all together:
 lake_string = F"""
@@ -399,25 +398,28 @@ thousands_separated = ["Fläche (m2)", "Länge (m)", "Erhebungen", "Objekte (St.
 replace_decimal = ["Plastik (Kg)", "Gesamtgewicht (Kg)"]
 
 # format the dimensional summary for .pdf and add to components
-dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), "de"))
+dims_table[thousands_separated] = dims_table[thousands_separated].applymap(lambda x: featuredata.thousandsSeparator(int(x), language))
 dims_table[replace_decimal] = dims_table[replace_decimal].applymap(lambda x: featuredata.replaceDecimal(str(round(x,2))))
 
 # subsection title
-subsection_title = Paragraph("Kumulative Gesamtmengen nach Gewässer", featuredata.subsection_title)
+subsection_title1 = Paragraph("Kumulative Gesamtmengen nach Gewässer", subsection_title)
 
 # a caption for the figure
 dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte  und Masse für die Gemeinden'
+dims_table_caption = Paragraph(dims_table_caption, style=caption_style)
+# pdf table
+colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)]
+d_chart = aSingleStyledTable(dims_table, colWidths=colWidths)
 
-# pdf table                 
-d_chart = featuredata.aStyledTable(dims_table, caption=dims_table_caption, colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)])
+atable = tableAndCaption(d_chart, dims_table_caption, colWidths)
 
 new_components = [
-    featuredata.small_space,
-    subsection_title,
-    featuredata.small_space,
-    d_chart
+    small_space,
+    subsection_title1,
+    small_space,
+    atable 
 ]
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 # this formats the table through the data frame
 dims_df["Plastik (Kg)"] = dims_df["Plastik (Kg)"].round(2)
@@ -431,12 +433,12 @@ dims_df.columns.name = None
 # this applies formatting to the specifc column based on
 # the language.
 dims_table_formatter = {
-    "Plastik (Kg)": lambda x: featuredata.replaceDecimal(x, "de"),
-    "Gesamtgewicht (Kg)": lambda x: featuredata.replaceDecimal(x, "de"),
-    "Fläche (m2)": lambda x: featuredata.thousandsSeparator(int(x), "de"),
-    "Länge (m)": lambda x: featuredata.thousandsSeparator(int(x), "de"),
-    "Erhebungen": lambda x: featuredata.thousandsSeparator(int(x), "de"),
-    "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), "de")
+    "Plastik (Kg)": lambda x: featuredata.replaceDecimal(x, language),
+    "Gesamtgewicht (Kg)": lambda x: featuredata.replaceDecimal(x, language),
+    "Fläche (m2)": lambda x: featuredata.thousandsSeparator(int(x), language),
+    "Länge (m)": lambda x: featuredata.thousandsSeparator(int(x), language),
+    "Erhebungen": lambda x: featuredata.thousandsSeparator(int(x), language),
+    "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), language)
 }
 
 # use the caption from the .pdf for the online figure
@@ -478,7 +480,7 @@ glue(figure_name, q, display=False)
 # In[5]:
 
 
-section_title =  "Landnutzungsprofil der Erhebungsorte"
+section_titlex =  "Landnutzungsprofil der Erhebungsorte"
 
 section_summary = [
     "Das Landnutzungsprofil zeigt, welche Nutzungen innerhalb eines Radius ",
@@ -510,31 +512,30 @@ p_three = [
 ]
 
 # make paragraphs
-land_use_subtitle = Paragraph(section_title, featuredata.section_title)
+land_use_subtitle = Paragraph(section_titlex, section_title)
 land_use_summary = Paragraph(''.join(section_summary), featuredata.p_style)
 definition_list = makeAList(section_definition)
 para_one = Paragraph("".join(p_one), featuredata.p_style)
 para_two = Paragraph("".join(p_two), featuredata.p_style)
 para_three = Paragraph("".join(p_three), featuredata.p_style)
 
-
 new_components = [
     KeepTogether([        
         land_use_subtitle,
-        featuredata.small_space,
+        small_space,
         land_use_summary,
-        featuredata.smallest_space,
+        smallest_space,
         definition_list,
-        featuredata.smallest_space,
+        smallest_space,
         para_one,
-        featuredata.smallest_space,
+        smallest_space,
         para_two,
-        featuredata.smallest_space,
+        smallest_space,
         para_three
     ])
 ]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
 # In[6]:
@@ -637,27 +638,26 @@ plt.close()
 # In[7]:
 
 
-# add previous chart and caption to .pdf
-land_use_profile = Image(land_use_file_name, width=14*cm, height=10*cm, kind="proportional", hAlign= "CENTER")
-land_use_caption = Paragraph(figure_caption, featuredata.caption_style)
-
+o_w, o_h = convertPixelToCm(land_use_file_name)
+f3cap = Paragraph(figure_caption, caption_style)
 figure_kwargs = {
-    "image_file": land_use_file_name,
-    "caption": land_use_caption,
+    "image_file":land_use_file_name,
+    "caption": f3cap, 
+    "original_width":o_w,
+    "original_height":o_h,
     "desired_width": 14,
-    "caption_height": .75,
-    "original_height": 8,
-    "original_width": 9,
+    "caption_height":1,
+    "hAlign": "CENTER",
 }
 
-figure_and_caption = featuredata.figureAndCaptionTable(**figure_kwargs)
+f3 = figureAndCaptionTable(**figure_kwargs)
 
 new_components = [
-    featuredata.small_space,
-    figure_and_caption
+    small_space,
+    f3
 ]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
 dx = period_data.parentSampleTotals(parent=False)
@@ -681,7 +681,7 @@ sns.scatterplot(data=fdx.sample_totals, x="date", y=unit_label, label=this_featu
 # monthly or quaterly plot
 sns.lineplot(data=resample_plot, x=resample_plot.index, y=resample_plot, label=F"{this_feature['name']}: monatlicher Medianwert", color="magenta", ax=ax)
 
-ax.set_ylabel(unit_label, **ck.xlab_k14)
+ax.set_ylabel(unit_label, **featuredata.xlab_k14)
 
 ax.set_xlabel("")
 ax.xaxis.set_minor_locator(days)
@@ -702,8 +702,8 @@ sns.lineplot(x=feature_ecd["x"], y=feature_ecd["y"], color="darkblue", ax=axtwo,
 other_features = featuredata.ecdfOfAColumn(dx, unit_label)
 sns.lineplot(x=other_features["x"], y=other_features["y"], color="magenta", label=top, linewidth=1, ax=axtwo)
 
-axtwo.set_xlabel(unit_label, **ck.xlab_k14)
-axtwo.set_ylabel("Verhältnis der Erhebungen", **ck.xlab_k14)
+axtwo.set_xlabel(unit_label, **featuredata.xlab_k14)
+axtwo.set_ylabel("Verhältnis der Erhebungen", **featuredata.xlab_k14)
 axtwo.set_xlim(0, 3000)
 axtwo.legend(bbox_to_anchor=(.4,.5), loc="upper left")
 axtwo.xaxis.set_major_locator(MultipleLocator(500))
@@ -728,7 +728,6 @@ sample_total_notes = [
 sample_total_notes = ''.join(sample_total_notes)
 
 glue(f'{this_feature["slug"]}_sample_total_notes', sample_total_notes, display=False)
-
 
 glue("aare_sample_totals", fig, display=False)
 plt.close()
@@ -769,7 +768,7 @@ fig, axs = plt.subplots(1,2)
 a_col = [this_feature["name"], "Total"]
 
 axone = axs[0]
-sut.hide_spines_ticks_grids(axone)
+featuredata.hide_spines_ticks_grids(axone)
 
 table_two = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.75,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_two.get_celld()[(0,0)].get_text().set_text(" ")
@@ -778,7 +777,7 @@ table_two.set_fontsize(12)
 # material table
 axtwo = axs[1]
 axtwo.set_xlabel(" ")
-sut.hide_spines_ticks_grids(axtwo)
+featuredata.hide_spines_ticks_grids(axtwo)
 
 table_three = sut.make_a_table(axtwo, fd_mat_t,  colLabels=list(cols_to_use.values()), colWidths=[.4, .4,.2],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_three.get_celld()[(0,0)].get_text().set_text(" ")
@@ -822,33 +821,60 @@ plt.close()
 
 
 # add summary tables to pdf
-sample_summary_subsection = Paragraph("Verteilung der Erhebungsergebnisse", featuredata.subsection_title)
-s_totals = Image(sample_totals_file_name, width=14*cm, height=10*cm, kind="proportional", hAlign= "CENTER")
-caption_kwargs = ParagraphStyle(**{"name": "caption_style", "fontSize": 9, "fontName": "Times-Italic", "leftIndent":cm*3.5, "rightIndent": cm*2})
-s_totals_caption = Paragraph(sample_total_notes, caption_kwargs)
-samp_mat_subsection = Paragraph("Zusammengefasste Daten und Materialarten", featuredata.subsection_title)
-samp_material_table = Image(sample_summaries_file_name , width=12*cm, height=10*cm, kind="proportional", hAlign= "CENTER")
-caption_kwargs = ParagraphStyle(**{"name": "caption_style", "fontSize": 9, "fontName": "Times-Italic", "leftIndent":cm*3.5, "rightIndent": cm*2})
-samp_material_caption = Paragraph(summary_of_survey_totals, caption_kwargs)
+sample_summary_subsection = Paragraph("Verteilung der Erhebungsergebnisse", subsection_title)
 
-new_components = [KeepTogether([
-    featuredata.small_space,
+sample_total_notes_pdf = [
+    f'<b>Links:</b> {this_feature["name"]}, {featuredata.dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)} ',
+    f'bis {featuredata.dateToYearAndMonth(datetime.strptime(end_date, date_format), lang=date_lang)}, n = {admin_summary["loc_date"]}. ',
+    f'<b>Rechts:</b> empirische Verteilungsfunktion der Erhebungsergebnisse {this_feature["name"]}.'
+]
+s_totals_caption = makeAParagraph(sample_total_notes_pdf, style=caption_style)
+
+samp_mat_subsection = Paragraph("Zusammengefasste Daten und Materialarten", style=subsection_title)
+samp_material_caption = Paragraph(summary_of_survey_totals, style=caption_style)
+
+o_w, o_h = convertPixelToCm(sample_totals_file_name)
+
+figure_kwargs = {
+    "image_file":sample_totals_file_name,
+    "caption": s_totals_caption, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 15,
+    "caption_height":1,
+    "hAlign": "CENTER",
+}
+
+f4 = figureAndCaptionTable(**figure_kwargs)
+
+o_w, o_h = convertPixelToCm(sample_summaries_file_name)
+
+figure_kwargs = {
+    "image_file":sample_summaries_file_name,
+    "caption": samp_material_caption, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 11,
+    "caption_height":1,
+    "hAlign": "CENTER",
+}
+
+f5 = figureAndCaptionTable(**figure_kwargs)
+
+
+new_components = [
+    PageBreak(),
     sample_summary_subsection,
-    featuredata.large_space,
-    s_totals,
-    featuredata.smallest_space,
-    s_totals_caption,
-    featuredata.small_space,
+    small_space,
+    f4,
+    small_space,
     samp_mat_subsection,
-    featuredata.large_space,
-    samp_material_table,
-    featuredata.smallest_space,
-    samp_material_caption,
+    small_space,
+    f5,
     PageBreak()
-    
-])]
+]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 # the most common objects results
 most_common_display = fdx.most_common
@@ -885,9 +911,9 @@ mc_caption_string = "".join(mc_caption_string)
 colwidths = [4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
 
 mc_caption_string = "".join(mc_caption_string)
-d_chart = featuredata.aSingleStyledTable(data, colWidths=colwidths)
-d_capt = featuredata.makeAParagraph(mc_caption_string, style=featuredata.caption_style)
-mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
+d_chart = aSingleStyledTable(data, colWidths=colwidths)
+d_capt = featuredata.makeAParagraph(mc_caption_string, style=caption_style)
+mc_table = tableAndCaption(d_chart, d_capt, colwidths)
 
 most_common_display.index.name = None
 most_common_display.columns.name = None
@@ -895,9 +921,9 @@ most_common_display.columns.name = None
 # set pandas display
 aformatter = {
     "Anteil":lambda x: f"{int(x)}%",
-    f"{unit_label}": lambda x: featuredata.replaceDecimal(x, "de"),
+    f"{unit_label}": lambda x: featuredata.replaceDecimal(x, language),
     "Häufigkeitsrate": lambda x: f"{int(x)}%",   
-    "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), "de")
+    "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), language)
 }
 
 mcd = most_common_display.style.format(aformatter).set_table_styles(table_css_styles)
@@ -919,21 +945,21 @@ glue('aare_most_common_tables', mcd, display=False)
 
 
 # add new section to pdf
-mc_section_title = Paragraph("Die am häufigsten gefundenen Objekte", featuredata.section_title)
+mc_section_title = Paragraph("Die am häufigsten gefundenen Objekte", section_title)
 para_g = "Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate)"
 mc_section_para = Paragraph(para_g, featuredata.p_style)
 
 new_components = [
     KeepTogether([
         mc_section_title,
-        featuredata.small_space,
+        small_space,
         mc_section_para
     ]),
-    featuredata.large_space,
+    small_space,
     mc_table,
        
 ]
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 mc_heat_map_caption = f'Median {unit_label} der häufigsten Objekte am {this_feature["name"]}.'
 
@@ -965,8 +991,8 @@ mc_comp[this_feature["name"]]= mc_feature
 mc_comp[top] = mc_period
 
 caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
-col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
-mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gewässer", featuredata.subsection_title)
+col_widths=[4.5*cm, *[1*cm]*(len(mc_comp.columns))]
+mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gewässer", subsection_title)
 tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
@@ -978,13 +1004,13 @@ else:
     
 
 new_components = [
-    featuredata.large_space,
+    small_space,
     mc_heatmap_title,
-    featuredata.small_space,
+    small_space,
     *grouped_pdf_components
 ]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 # notebook display style
 aformatter = {x: featuredata.replaceDecimal for x in mc_comp.columns}
@@ -1062,29 +1088,26 @@ by_month.set_index("Objekt", drop=True, inplace=True)
 monthly_heat_map_gradient = featuredata.colorGradientTable(by_month)
 
 # subsection title and figure caption
-mc_monthly_title = Paragraph("Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt", featuredata.subsection_title)
+mc_monthly_title = Paragraph("Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt", subsection_title)
 monthly_data_caption = f'{this_feature["name"]}, monatliche Durchschnittsergebnisse p/100 m'
-figure_caption = Paragraph(monthly_data_caption, featuredata.caption_style)
-
-# apply formatting to df for pdf figure/*
-df_to_pdf = by_month.applymap(featuredata.replaceDecimal)
+figure_caption = Paragraph(monthly_data_caption, caption_style)
 
 # make pdf table
-col_widths = [4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
+col_widths = [4.5*cm, *[1*cm]*(len(mc_comp.columns))]
 
-d_chart = featuredata.aSingleStyledTable(by_month, vertical_header=False, gradient=True, colWidths=col_widths)
-d_capt = featuredata.makeAParagraph(monthly_data_caption, style=featuredata.caption_style)
-mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
+d_chart = aSingleStyledTable(by_month, vertical_header=True, gradient=True, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(monthly_data_caption, style=caption_style)
+mc_table = tableAndCaption(d_chart, d_capt, colwidths)
 new_components = [
     KeepTogether([
         featuredata.large_space,
         mc_monthly_title,
         featuredata.large_space,
-        mc_table,
+        mc_table
     ])
 ]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 # remove the index names for .html display
 by_month.index.name = None
@@ -1156,7 +1179,7 @@ values = [
 
 a_list_groups = makeAList(values)
 
-section_title = Paragraph(land_use_section_title, featuredata.section_title)
+section_titlex = Paragraph(land_use_section_title, section_title)
 section_summary = Paragraph(''.join(luse_section_summary), featuredata.p_style)
 para_one = Paragraph(''.join(p_one), featuredata.p_style)
 para_two = Paragraph(''.join(p_two), featuredata.p_style)
@@ -1164,21 +1187,20 @@ para_three = Paragraph(''.join(p_three), featuredata.p_style)
 
 new_components = [
     PageBreak(),
-    featuredata.large_space,
-    section_title,
-    featuredata.small_space,
+    section_titlex,
+    small_space,
     section_summary,
-    featuredata.small_space,
+    smallest_space,
     para_one,
-    featuredata.small_space,
+    smallest_space,
     para_two,
-    featuredata.small_space,
+    smallest_space,
     para_three,
-    featuredata.small_space,
+    smallest_space,
     a_list_groups
 ]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
 # In[13]:
@@ -1187,22 +1209,6 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 corr_data = fd[(fd.code.isin(fdx.most_common.index))&(fd.water_name_slug.isin(lakes_of_interest))].copy()
 land_use_columns = featuredata.default_land_use_columns
 code_description_map = fdx.dMap
-
-def make_plot_with_spearmans(data, ax, n, unit_label="p/100m"):
-    """Gets Spearmans ranked correlation and make A/B scatter plot. Must proived a
-    matplotlib axis object.
-    """
-    corr, a_p = stats.spearmanr(data[n], data[unit_label])
-    
-    if a_p < 0.05:
-        if corr > 0:
-            ax.patch.set_facecolor("salmon")
-            ax.patch.set_alpha(0.5)
-        else:
-            ax.patch.set_facecolor("palegoldenrod")
-            ax.patch.set_alpha(0.5)
-
-    return ax, corr, a_p
 
 # chart the results of test for association
 fig, axs = plt.subplots(len(fdx.most_common.index),len(land_use_columns), figsize=(len(land_use_columns)*1,len(fdx.most_common.index)*1), sharey="row")
@@ -1232,7 +1238,7 @@ for i,code in enumerate(fdx.most_common.index):
             ax.set_xlabel(" ")
             ax.set_ylabel(" ")
         # run test
-        ax = make_plot_with_spearmans(data, ax, n, unit_label=unit_label)
+        ax = featuredata.make_plot_with_spearmans(data, ax, n, unit_label=unit_label)
 
 
 plt.subplots_adjust(wspace=0, hspace=0)
@@ -1278,13 +1284,28 @@ plt.close()
 # * Plastikfragmente: Plastikteile unbestimmter Herkunft oder Verwendung
 # * Persönliche Gegenstände: Accessoires, Hygieneartikel und Kleidung
 # 
-# Im Anhang (Kapitel 3.6.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel [16 Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.
+# Im Anhang befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel [16 Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.
 
 # In[14]:
 
 
+o_w, o_h = convertPixelToCm(sample_summaries_file_name)
+
+figure_kwargs = {
+    "image_file":sample_summaries_file_name,
+    "caption": samp_material_caption, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 13,
+    "caption_height":1,
+    "hAlign": "CENTER",
+}
+
+f5 = figureAndCaptionTable(**figure_kwargs)
+
+
 spearmans_chart = Image(sample_summaries_file_name, width=10*cm, height=15*cm, kind="proportional", hAlign= "CENTER")
-caption_spearmans = Paragraph(spearmans, featuredata.caption_style)
+caption_spearmans = Paragraph(spearmans, caption_style)
 chart_style = TableStyle([
     ('VALIGN', (0, 0), (0, -0), 'TOP'),
     ('VALIGN', (0, 1), (0,1), 'BOTTOM')
@@ -1298,10 +1319,10 @@ new_components = [
     spearmans_table
 ]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 # make pdf out put
-cone_group_subtitle = Paragraph("Verwendungszweck der gefundenen Objekte", featuredata.section_title)
+cone_group_subtitle = Paragraph("Verwendungszweck der gefundenen Objekte", style=section_title)
 
 paragraph_one = [
     "Der Verwendungszweck basiert auf der Verwendung des Objekts, bevor es weggeworfen wurde, ",
@@ -1324,7 +1345,7 @@ group_names_list = [
 ]
 
 paragraph_three = [
-    "Im Anhang (Kapitel 3.6.3) befindet sich die vollständige Liste der identifizierten Objekte, ",
+    "Im Anhang befindet sich die vollständige Liste der identifizierten Objekte, ",
     "einschliesslich Beschreibungen und Gruppenklassifizierung. ",
     "Das Kapitel [16 Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine ",
     "umfassende Liste aller Objekte in einer Gruppe."
@@ -1343,16 +1364,16 @@ a_list_groups = makeAList(group_names_list)
 new_components = [
     KeepTogether([        
         cone_group_subtitle,
-        featuredata.small_space,
+        small_space,
         cgroup_pone,
-        featuredata.small_space,
+        smallest_space,
         a_list_groups,
-        featuredata.small_space,
+        smallest_space,
         cgroup_pthree,
     ])
 ]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
 # In[15]:
@@ -1369,10 +1390,6 @@ pt_comp.rename(columns = proper_column_names, inplace=True)
 # the aggregated codegroup results from the feature
 pt_feature = fdx.codegroup_summary["% of total"]
 pt_comp[this_feature["name"]] = pt_feature
-
-# the aggregated totals for the parent level
-pt_parent = period_data.parentGroupTotals(parent=True, percent=True)
-pt_comp[bassin_label] = pt_parent
 
 # the aggregated totals for the period
 pt_period = period_data.parentGroupTotals(parent=False, percent=True)
@@ -1398,9 +1415,14 @@ ptd = ptd.applymap_index(featuredata.rotateText, axis=1)
 # the caption prefix is used in the case where the table needs to be split horzontally
 caption_prefix =  'Verwendungszweck oder Beschreibung der identifizierten Objekte in % der Gesamtzahl nach Gemeinden: '
 
-col_widths = [4.5*cm, *[1.2*cm]*(len(pt_comp.columns)-1)]
+col_widths = [4.5*cm, *[1*cm]*(len(pt_comp.columns))]
 cgpercent_tables = featuredata.splitTableWidth(pt_comp.mul(100).astype(int), gradient=True, caption_prefix=caption_prefix, caption= code_group_percent_caption,
-                    this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths) 
+                    this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths, rowends=-2)
+
+if isinstance(tables, (list, np.ndarray)):
+    grouped_pdf_components = [*tables]
+else:
+    grouped_pdf_components = [tables]
 
 
 glue("aare_codegroup_percent_caption", code_group_percent_caption, display=False)
@@ -1429,10 +1451,6 @@ grouppcs_comp.rename(columns = proper_column_names, inplace=True)
 pt_feature = fdx.codegroup_summary[unit_label]
 grouppcs_comp[this_feature["name"]] = pt_feature
 
-# the aggregated totals for the parent level
-pt_parent = period_data.parentGroupTotals(parent=True, percent=False)
-grouppcs_comp[bassin_label] = pt_parent
-
 # the aggregated totals for the period
 pt_period = period_data.parentGroupTotals(parent=False, percent=False)
 grouppcs_comp[top] = pt_period
@@ -1451,7 +1469,7 @@ code_group_pcsm_caption = [
 code_group_pcsm_caption = ''.join(code_group_pcsm_caption)
 
 caption_prefix =  f'Verwendungszweck der gefundenen Objekte Median {unit_label} am '
-col_widths = [4.5*cm, *[1.2*cm]*(len(grouppcs_comp.columns)-1)]
+col_widths = [4.5*cm, *[1*cm]*(len(grouppcs_comp.columns))]
 cgpcsm_tables = featuredata.splitTableWidth(grouppcs_comp, gradient=True, caption_prefix=caption_prefix, caption=code_group_pcsm_caption,
                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
@@ -1472,7 +1490,7 @@ else:
     featuredata.larger_space
     ]
     
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 aformatter = {x: featuredata.replaceDecimal for x in grouppcs_comp.columns}
 cgp = grouppcs_comp.style.format(aformatter).set_table_styles(table_css_styles).background_gradient(axis=None, vmin=grouppcs_comp.min().min(), vmax=grouppcs_comp.max().max(), cmap="YlOrBr")
@@ -1527,7 +1545,7 @@ ax.set_ylim(-50, 2000)
 a_col = [this_feature["name"], "Total"]
 
 axone = fig.add_subplot(aspec[:, 6:])
-sut.hide_spines_ticks_grids(axone)
+featuredata.hide_spines_ticks_grids(axone)
 
 table_five = sut.make_a_table(axone, combined_summary,  colLabels=a_col, colWidths=[.75,.25],  bbox=[0,0,1,1], **{"loc":"lower center"})
 table_five.get_celld()[(0,0)].get_text().set_text(" ")
@@ -1598,9 +1616,9 @@ mc_caption_string = f'Häufigste Objekte p/100 m an Fliessgewässern im {this_f
 
 col_widths = [4.5*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
 
-d_chart = featuredata.aSingleStyledTable(data, vertical_header=False, gradient=False, colWidths=col_widths)
-d_capt = featuredata.makeAParagraph([monthly_data_caption], style=featuredata.caption_style)
-pdf_mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
+d_chart = aSingleStyledTable(data, vertical_header=False, gradient=False, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph([monthly_data_caption], style=caption_style)
+pdf_mc_table = tableAndCaption(d_chart, d_capt, colwidths)
 
 most_common_display.index.name = None
 most_common_display.columns.name = None
@@ -1608,9 +1626,9 @@ most_common_display.columns.name = None
 # set pandas display
 aformatter = {
     "Anteil":lambda x: f"{int(x)}%",
-    f"{unit_label}": lambda x: featuredata.replaceDecimal(x, "de"),
+    f"{unit_label}": lambda x: featuredata.replaceDecimal(x, language),
     "Häufigkeitsrate": lambda x: f"{int(x)}%",   
-    "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), "de")
+    "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), language)
 }
 
 mcd = most_common_display.style.format(aformatter).set_table_styles(table_css_styles)
@@ -1629,38 +1647,47 @@ glue('aare_rivers_most_common_tables', mcd, display=False)
 # In[19]:
 
 
-rivers_section_title = Paragraph("Die an Fliessgewässern am häufigsten gefundenen Objekte", featuredata.section_title)
+rivers_section_title = Paragraph("Fliessgewässer", section_title)
+rivers_caption_pdf = [
+    f'<b>Links:</b> {this_feature["name"]} Fliessgewässer, {featuredata.dateToYearAndMonth(datetime.strptime(start_date, date_format), lang=date_lang)} ',
+    f'bis {featuredata.dateToYearAndMonth(datetime.strptime(end_date, date_format), lang=date_lang)}, n = {len(rivers.loc_date.unique())}. ',
+    '<b>Rechts:</b> Zusammenfassung der Daten.'
+]
 
-r_totals = Image(river_totals_file_name, width=14*cm, height=10*cm, kind="proportional", hAlign= "CENTER")
-left_indent = cm*(21-14)/2
-caption_kwargs = {
-        "name": "caption_style",
-        "fontSize": 9,
-        "fontName": "Times-Italic",
-        "leftIndent": left_indent,
-        "rightIndent": left_indent/2
-    }
-new_caption_style = ParagraphStyle(**caption_kwargs)
-r_totals_caption = Paragraph(rivers_caption, new_caption_style)
-r_mc_subsection = Paragraph("Die an Fliessgewässern am häufigsten gefundenen Objekte", featuredata.subsection_title)
-r_mc_caption = Paragraph(mc_caption_string, featuredata.caption_style)
+r_totals_caption = makeAParagraph(rivers_caption_pdf, style=caption_style)
+r_mc_subsection = Paragraph("Die an Fliessgewässern am häufigsten gefundenen Objekte", subsection_title)
+r_mc_caption = Paragraph(mc_caption_string, caption_style)
+
+
+o_w, o_h = convertPixelToCm(river_totals_file_name)
+
+figure_kwargs = {
+    "image_file":river_totals_file_name,
+    "caption": r_totals_caption, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 13,
+    "caption_height":1,
+    "hAlign": "CENTER",
+}
+
+r_totalsx = figureAndCaptionTable(**figure_kwargs)
+
 
 new_components = [
-    KeepTogether([
-        featuredata.large_space,
-        rivers_section_title,
-        featuredata.large_space,
-        r_totals,
-        featuredata.smaller_space,
-        r_totals_caption,
-        featuredata.small_space,
-        r_mc_subsection,
-        featuredata.small_space,
-        pdf_mc_table,        
-        PageBreak()
-        ])
+    PageBreak(),
+    rivers_section_title,
+    small_space,
+    r_totalsx,
+    small_space,
+    small_space,
+    r_mc_subsection,
+    small_space,
+    pdf_mc_table,        
+    PageBreak()
+  
 ]
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
 # ## Anhang
@@ -1672,8 +1699,8 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # In[20]:
 
 
-annex_title = Paragraph("Anhang", featuredata.section_title)
-frag_sub_title = Paragraph("Schaumstoffe und Kunststoffe nach Grösse", featuredata.subsection_title)
+annex_title = Paragraph("Anhang", section_title)
+frag_sub_title = Paragraph("Schaumstoffe und Kunststoffe nach Grösse", subsection_title)
 
 frag_paras = [
     "Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrag», die für die Analyse gruppiert wurden. ",
@@ -1716,10 +1743,9 @@ data.set_index("Objekt", inplace=True, drop=True)
 data.index.name = None
 
 aformatter = {
-    f"{unit_label}": lambda x: featuredata.replaceDecimal(x, "de"),
-    "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), "de"),
-    "Anteil":'{:.0%}',
-   
+    f"{unit_label}": lambda x: featuredata.replaceDecimal(x, language),
+    "Objekte (St.)": lambda x: featuredata.thousandsSeparator(int(x), language),
+    "Anteil":'{:.0%}'   
 }
 
 frags_table = data.style.format(aformatter).set_table_styles(table_css_styles)
@@ -1730,23 +1756,23 @@ glue("aare_frags_table", frags_table, display=False)
 # frag_table = featuredata.aStyledTable(data, caption=frag_captions, colWidths=[7*cm, *[2*cm]*(len(dims_table.columns)-1)])
 col_widths = [7*cm, *[2*cm]*(len(data.columns)-1)]
 
-d_chart = featuredata.aSingleStyledTable(data, vertical_header=False, gradient=False, colWidths=col_widths)
-d_capt = featuredata.makeAParagraph(frag_caption, style=featuredata.caption_style)
-pdf_mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
+d_chart = aSingleStyledTable(data, vertical_header=False, gradient=False, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(frag_caption, style=caption_style)
+pdf_mc_table = tableAndCaption(d_chart, d_capt, colwidths)
 
 new_components = [
     KeepTogether([
         annex_title,
-        featuredata.small_space,
+        small_space,
         frag_sub_title,
         featuredata.smaller_space,
         frag,
-        featuredata.small_space
+        small_space
     ]),
     pdf_mc_table
 ]
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
 # ```{glue:figure} aare_frags_table
@@ -1777,46 +1803,8 @@ disp_beaches.reset_index(inplace=True)
 disp_beaches.rename(columns={"city":"stat", "slug":"standort"}, inplace=True)
 disp_beaches.set_index("standort", inplace=True, drop=True)
 
-def aStyledTableWithTitleRow(data, header_style: Paragraph = featuredata.styled_table_header, title: str = None,
-                 data_style: Paragraph = featuredata.table_style_centered, colWidths: list = None, style: list = None):
-    table_data = data.reset_index()
-   
-    headers = [Paragraph(str(x), header_style)  for x in data.columns]
-    headers = [Paragraph(" ", data_style) , *headers]
-    
-    if style is None:
-        style = featuredata.default_table_style
-
-    new_rows = []
-    for a_row in table_data.values.tolist():
-        
-        if isinstance(a_row[0], str):
-            row_index = Paragraph(a_row[0], featuredata.table_style_right)
-            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
-            new_row = [row_index, *row_data]
-            new_rows.append(new_row)
-        else:
-            row_data = [Paragraph(str(x), data_style) for x in a_row[1:]]
-            new_rows.append(row_data)
-            
-    table_title_style = [
-            ('FONTNAME', (0,0), (-1,-1), 'Helvetica'),
-            ('FONTSIZE', (0, 0), (-1, -1), 12),
-            ('ROWBACKGROUND', (0,0), (-1,-1), [colors.white]),
-            ('TOPPADDING', (0, 0), (-1, -1), 3),
-            ('BOTTOMPADDING', (0, 0), (-1, -1), 3)
-    
-        ]
-        
-    table_title = Table([[title]], style=table_title_style, colWidths=sum(colWidths))
-    new_table = [[table_title], headers, *new_rows]
-    table = Table(new_table, style=style, colWidths=colWidths, repeatRows=2)
-    
-    return table
-    
-
 # make this into a pdf table
-location_subsection = Paragraph("Die Erhebungsorte und Inventar der Objekte", featuredata.subsection_title)
+location_subsection = Paragraph("Die Erhebungsorte und Inventar der Objekte", subsection_title)
 col_widths = [6*cm, 2.2*cm, 2.2*cm, 3*cm]
 pdf_table = aStyledTableWithTitleRow(disp_beaches, title="Die Erhebungsorte", colWidths=col_widths)
 
@@ -1835,9 +1823,8 @@ complete_inventory["quantity"] = complete_inventory["quantity"].map(lambda x: fe
 complete_inventory["% of total"] = complete_inventory["% of total"].astype(int)
 complete_inventory[unit_label] = complete_inventory[unit_label].astype(int)
 complete_inventory.rename(columns=featuredata.inventory_table_de, inplace=True)
-
     
-inventory_subsection = Paragraph("Inventar der Objekte", featuredata.subsection_title)
+inventory_subsection = Paragraph("Inventar der Objekte", subsection_title)
 col_widths=[1.2*cm, 4.5*cm, 2.2*cm, 1.5*cm, 1.5*cm, 2.4*cm, 1.5*cm]
 inventory_table = aStyledTableWithTitleRow(complete_inventory, title="Inventar der Objekte", colWidths=col_widths)
 
@@ -1846,19 +1833,18 @@ new_components = [
     KeepTogether([
         featuredata.large_space,
         location_subsection,
-        featuredata.small_space,
+        small_space,
         new_map_image,
-        Paragraph(map_caption, featuredata.caption_style),
+        Paragraph(map_caption, caption_style),
         featuredata.smaller_space,
         pdf_table,
         
     ]),
     featuredata.large_space,
     inventory_table
-]
-    
+]    
 
-pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 complete_inventory
 
@@ -1866,23 +1852,23 @@ complete_inventory
 # In[23]:
 
 
-doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
-report_url = f'https this will be a link to the url of {doc_title} dot html'
-report_name = f"Bericht IQAASL: {this_feature['name']} {start_date} bis {end_date}"
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)
+pageinfo = f'IQAASL/Erhebungsgebiete/Zusammengefasste/{this_feature["name"]}'
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = f"{this_feature['slug']}_sa.html"
 
-page_info = f'{report_name}; {report_url}'
+link_to_source = f'{source_prefix}{source}'
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(.5*cm, 0.5*cm, "S.%d %s" % (doc.page, page_info))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
-
-
-# In[ ]:
-
-
-
 

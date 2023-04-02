@@ -3,7 +3,7 @@ from matplotlib.colors import LinearSegmentedColormap
 title_k = {'loc':'left', 'pad':14, 'linespacing':1.5, 'fontsize':12}
 title_kr = {'loc':'right', 'pad':14, 'linespacing':1.5, 'fontsize':12}
 title_k14 = {'loc':'left', 'pad':14, 'linespacing':1.5, 'fontsize':14}
-title_k14r = {'loc':'right', 'pad':14, 'linespacing':1.5, 'fontsize':14}
+title_k14r = {'loc':'right', 'pad':14, 'linespacing':1.5, 'fontsize':12}
 xlab_k = {'labelpad':10, 'fontsize':12}
 xlab_k14 = {'labelpad':10, 'fontsize':14}
 xlabels_top = dict(labeltop=True, labelbottom=False, pad=12, labelsize=12)

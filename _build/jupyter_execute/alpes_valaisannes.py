@@ -263,6 +263,8 @@ table_css_styles = [even_rows, odd_rows, table_font, header_row]
 # the components of the document are captured at run time
 # the pdf link gives the name and location of the future doc
 pdf_link = f'resources/pdfs/{this_feature["slug"]}.pdf'
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = "alpes_valaisannes.html"
 
 # the components are stored in an array and collected as the script runs
 pdfcomponents = []
@@ -1399,7 +1401,7 @@ col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
 mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Gegenstände nach Erhebungsort", featuredata.subsection_title)
 mc_heat_map_caption = "Verwendungszweck der gefundenen Objekte an Wanderwegen: Median p/100 m."
 tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
-                    row_ends=-2, this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
+                    this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 # identify the tables variable as either a list or a Flowable:
 if isinstance(tables, (list, np.ndarray)):
@@ -1603,7 +1605,7 @@ table_title = Paragraph(codegroup_heatmap_title, featuredata.p_style)
 
 mc_heat_map_caption = "Verwendungszweck der gefundenen Objekte an Wanderwegen: Median p/100 m."
 tables = featuredata.splitTableWidth(pt_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
-                    row_ends=-2, this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
+                                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 # identify the tables variable as either a list or a Flowable:
 if isinstance(tables, (list, np.ndarray)):
@@ -1663,7 +1665,7 @@ table_title = Paragraph(codegroup_heatmap_title, featuredata.p_style)
 
 mc_heat_map_caption = "Verwendungszweck der gefundenen Objekte an Wanderwegen: Median p/100 m."
 tables = featuredata.splitTableWidth(pt_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
-                    row_ends=-2, this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
+                    this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
 # identify the tables variable as either a list or a Flowable:
 if isinstance(tables, (list, np.ndarray)):
@@ -2423,9 +2425,9 @@ plt.savefig(**save_figure_kwargs)
 
 # figure caption
 compare_notes = [
-    "Oben links: Gesamtsumme der Erhebung in Bezug auf den prozentualen Anteil an landwirtschaftlich genutzter Fläche, Bereich = (0 %, 66 %). ",
-    "Oben rechts: Gesamtzahl der Erhebungen in Bezug auf den Waldanteil, Bereich=(0 %, 65 %). "
-    "Unten links: Gesamtzahl der Erhebungen in Bezug auf die Bevölkerung, Bereich=(199, 10 668)."
+    f'Oben links: Gesamtsumme der Erhebung in Bezug auf den prozentualen Anteil an landwirtschaftlich genutzter Fläche, Bereich = ({0} {"%"}, {66} {"%"}). ',
+    f'Oben rechts: Gesamtzahl der Erhebungen in Bezug auf den Waldanteil, Bereich=({0} {"%"}, {65} {"%"}). ',
+    f'Unten links: Gesamtzahl der Erhebungen in Bezug auf die Bevölkerung, Bereich=({199}, {10668}).'
 ]
 
 compare_notes = ''.join(compare_notes)
@@ -2570,16 +2572,22 @@ complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
 # In[30]:
 
 
-doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
-report_url = f'https this will be a link to the url of {"alpes"} dot html'
-report_name = f"Bericht IQAASL: {this_feature['name']} {start_date} bis {end_date}"
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)
 
-page_info = f'{report_name}; {report_url}'
+pageinfo= f"IQAASL/Ergebnisse der Erhebung/{this_feature['name']}"
+
+
+link_to_source = f'{source_prefix}{source}'
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(.5*cm, 0.5*cm, "S.%d %s" % (doc.page, page_info))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

@@ -823,7 +823,7 @@ glue('lac-leman_most_common_heat_map', mcd, display=False)
 
 # ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
 
-# In[9]:
+# In[10]:
 
 
 # collect the survey results of the most common objects
@@ -872,19 +872,15 @@ monthly_heat_map_gradient = featuredata.colorGradientTable(by_month)
 mc_monthly_title = Paragraph("Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt", featuredata.subsection_title)
 monthly_data_caption = f'{this_feature["name"]}, monatliche Durchschnittsergebnisse p/100 m'
 
-# apply formatting to df for pdf figure/*
-df_to_pdf = by_month.applymap(featuredata.replaceDecimal)
-
 # make pdf table
-col_widths = [4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
-monthly_results = featuredata.aStyledTable(by_month, caption=monthly_data_caption,
-                                           vertical_header=False, gradient=True,
-                                           colWidths=col_widths)
+d_chart = featuredata.aSingleStyledTable(by_month, vertical_header=True, gradient=True, colWidths=col_widths)
+d_capt = featuredata.makeAParagraph(monthly_data_caption, style=featuredata.caption_style)
+mc_table = featuredata.tableAndCaption(d_chart, d_capt, colwidths)
 new_components = [
     KeepTogether([
         mc_monthly_title,
         featuredata.large_space,
-        monthly_results,
+        mc_table,
         PageBreak()
     ])
 ]
@@ -927,7 +923,7 @@ glue("lac-leman_monthly_results", mcdm, display=False)
 # 
 # Im Anhang (Kapitel 3.6.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel [16 Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.
 
-# In[10]:
+# In[11]:
 
 
 # make pdf out put
@@ -987,7 +983,7 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[11]:
+# In[12]:
 
 
 # the results are a callable for the components
@@ -1046,7 +1042,7 @@ glue("lac-leman_codegroup_percent", ptd, display=False)
 # ```
 # {numref}`Abbildung %s: <lac-leman_codegroup_percent>`  {glue:text}`lac-leman_codegroup_percent_caption` 
 
-# In[12]:
+# In[13]:
 
 
 # pivot that
@@ -1125,7 +1121,7 @@ glue("lac-leman_codegroup_pcsm", cgp, display=False)
 # 
 # Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrag», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert.
 
-# In[13]:
+# In[14]:
 
 
 annex_title = Paragraph("Anhang", featuredata.section_title)
@@ -1222,7 +1218,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <lac-leman_location_map>` Karte des Erhebungsgebiets 2020 bis 2021.  Der Durchmesser der Punktsymbole entspricht dem Median der Abfallobjekte pro 100 Meter (p/100 m) am jeweiligen Erhebungsort.
 
-# In[14]:
+# In[15]:
 
 
 # display the survey locations
@@ -1280,7 +1276,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[15]:
+# In[16]:
 
 
 pd.set_option("display.max_rows", None)
@@ -1315,16 +1311,28 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
 
 
-# In[16]:
+# In[17]:
 
 
-doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
-pageinfo= f"IQAASL: {this_feature['name']} {start_date} bis {end_date}"
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)
+
+pageinfo = f'IQAASL/See/Zusammengefasste/{this_feature["name"]}'
+
+
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = f"{this_feature['slug']}.html"
+
+link_to_source = f'{source_prefix}{source}'
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(.5*cm, 0.5*cm, "S.%d %s" % (doc.page, pageinfo))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

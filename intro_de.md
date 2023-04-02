@@ -2,6 +2,12 @@
 
 | [Italiano](italiano_intro_de) | [Francais](francais_intro_de) |
 
+
+| 2017                                                          | 2022  |
+|:--------------------------------------------------------------|:-----:|
+| :::{glue:figure} thunerseebrienzersee_most_common_heat_map::: | table |
+
+
 Das Ziel dieses Projekts war es, Daten zu sammeln und die notwendige Infrastruktur zu entwickeln, um die Zusammensetzung und Häufigkeit von anthropogenem Material entlang ausgewählter Schweizer Flüsse und Seen genau zu bewerten und diese Ergebnisse in einem konsolidierten, webbasierten Bericht zu präsentieren.
 
 Die Ergebnisse dieser Erhebungen werden genutzt, um andere Methoden zur Ermittlung von Akkumulationszonen zu erforschen.
@@ -214,4 +220,4 @@ Les résultats de chaque municipalité sont inclus avec le lac ou la rivière à
 
 ### Contribuer à ce rapport 
 
-Ce rapport est versionné, il est donc très facile de soumettre des articles ou des analyses qui corrigent, clarifient ou améliorent le contenu. Pour contribuer, envoyez une demande de retrait à [repo de fin d'échantillonnage](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021).     Les soumissions sont acceptées dans toutes les langues nationales officielles de la Suisse. 
+Ce rapport est versionné, il est donc très facile de soumettre des articles ou des analyses qui corrigent, clarifient ou améliorent le contenu. Pour contribuer, envoyez une demande de retrait à [repo de fin d'échantillonnage](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021). Les soumissions sont acceptées dans toutes les langues nationales officielles de la Suisse. 

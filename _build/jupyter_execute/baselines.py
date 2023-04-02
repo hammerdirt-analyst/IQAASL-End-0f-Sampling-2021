@@ -140,7 +140,7 @@ code_material_map = dfCodes.material
 # 
 # Der erste internationale Leitfaden zur Erfassung von Abfallobjekten am Strand wurde 2008 vom Umweltprogramm der Vereinten Nationen (UNEP) und der Zwischenstaatlichen Ozeanographischen Kommission (IOC) veröffentlicht {cite}`unepseas`. Auf der Grundlage der gesammelten Arbeit vieler Forschenden wurde diese Methode 2010 von der OSPAR-Kommission übernommen {cite}`ospard10`,  2013 veröffentlichte die EU einen Leitfaden für die Überwachung mariner Abfallobjekte an den europäischen Meeren (_the guide_) {cite}`mlwguidance`. Die Schweiz ist Mitglied von OSPAR und hat über 1000 Proben nach den im the guide beschriebenen Methoden genommen.
 # 
-# Auf _the guide_ folgte 2016 Riverine Litter Monitoring - Options and Recommendations {cite}`riverinemonitor`, der die zunehmende Erkenntnis widerspiegelt, dass Flüsse wichtige Quellen für Haushaltsabfälle in Küstenregionen sind. Zu diesem Zeitpunkt war das erste Projekt zur Überwachung von Abfallobjekten am Genfer See bereits abgeschlossen und die Vorbereitungen für ein einjähriges nationales Projekt in der Schweiz, das von STOPPP initiiert und von WWF-Freiwilligen unterstützt wurde, liefen an, siehe [Vergleich der Datenerhebungen seit 2018](slr-iqaaslde).
+# Auf _the guide_ folgte 2016 Riverine Litter Monitoring - Options and Recommendations {cite}`riverinemonitor`, der die zunehmende Erkenntnis widerspiegelt, dass Flüsse wichtige Quellen für Haushaltsabfälle in Küstenregionen sind. Zu diesem Zeitpunkt war das erste Projekt zur Überwachung von Abfallobjekten am Genfer See bereits abgeschlossen und die Vorbereitungen für ein einjähriges nationales Projekt in der Schweiz, das von STOPPP initiiert und von WWF-Freiwilligen unterstützt wurde, liefen an, siehe [Vergleich der Datenerhebungen seit 2018](slr-iqaasl).
 # 
 # 2019 veröffentlichte das Joint Research Centre (JRC) eine Analyse eines europäischen Datensatzes zu Abfallobjekten am Strand aus den Jahren 2012–2016, ein technisches Dokument, in dem die Methoden und verschiedenen Szenarien zur Berechnung von Basiswerten von Abfallobjekten am Strand detailliert beschrieben werden. Von besonderem Interesse für das JRC war die Robustheit der Methoden gegenüber Extremwerten und die Transparenz der Berechnungsmethode.{cite}`eubaselines`
 # 
@@ -2571,13 +2571,24 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # In[26]:
 
 
-doc = SimpleDocTemplate("resources/pdfs/baselines.pdf", pagesize=A4, leftMargin=2.5*cm, rightMargin=1.5*cm, topMargin=3*cm, bottomMargin=1.5*cm)
-pageinfo= f"IQAASL: Basiswerte für Abfallobjekte an Gewässern"
+doc = SimpleDocTemplate("resources/pdfs/baselines.pdf", pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1.5*cm)
+pageinfo= f"IQAASL/Anwendungen/Basiswerte für Abfallobjekte an Gewässern"
+
+
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = "baselines.html"
+
+link_to_source = f'{source_prefix}{source}'
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(1*cm, 1*cm, "S.%d %s" % (doc.page, pageinfo))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)

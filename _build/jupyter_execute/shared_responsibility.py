@@ -100,6 +100,8 @@ save_figure_kwargs = {
 }
 
 pdf_link = 'resources/pdfs/sharedresponsibility.pdf'
+source_prefix = "https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/"
+source = "shared_responsibility.html"
 
 
 # set the locale to the language desired
@@ -1887,18 +1889,21 @@ newcomps = [
 
 pdfcomponents= addToDoc(newcomps, pdfcomponents)
 
+doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1.5*cm)
+pageinfo= f"IQAASL/Anwendungen/Geteilte Verantwortung"
 
-# In[26]:
 
-
-doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=1.5*cm, topMargin=3*cm, bottomMargin=1.5*cm)
-pageinfo= f"IQAASL: Geteilte Verantwortung"
-
+link_to_source = f'{source_prefix}{source}'
 
 def myLaterPages(canvas, doc):
     canvas.saveState()
-    canvas.setFont('Times-Italic',9)
-    canvas.drawString(1*cm, 1*cm, "S.%d %s" % (doc.page, pageinfo))
+    canvas.setLineWidth(.001*cm)
+    canvas.setFillAlpha(.8)
+    canvas.line(2.5*cm, 27.6*cm,  18.5*cm, 27.6*cm) 
+    canvas.setFont('Times-Roman',9)
+    canvas.drawString(2.5*cm, 1*cm, link_to_source)
+    canvas.drawString(18.5*cm, 1*cm,  "S.%d " % (doc.page,))
+    canvas.drawString(2.5*cm, 27.7*cm, pageinfo)
     canvas.restoreState()
     
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
@@ -1930,7 +1935,7 @@ doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
 
 # *__Unten:__ Rangfolge der häufigsten Objekte mit Landnutzungsmerkmalen.*
 
-# In[27]:
+# In[26]:
 
 
 sut.display_image_ipython("resources/images/shared_responsibility/land_use_correlation_de_30_0.png", thumb=(1200, 700))
@@ -1938,7 +1943,7 @@ sut.display_image_ipython("resources/images/shared_responsibility/land_use_corre
 
 # *__Unten:__ 95% Konfidenzintervall des Medianwertes der Datenerhebungen unter den verschiedenen Landnutzungsklassen.* 
 
-# In[28]:
+# In[27]:
 
 
 # this code was modified from this source:
@@ -2070,7 +2075,7 @@ plt.close()
 
 # *__Unten:__ Die Erhebungsergebnisseder am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.*
 
-# In[29]:
+# In[28]:
 
 
 rur_10 = fd[(fd.rural == 'ländlich')&(fd.code.isin(most_common))].groupby('code', as_index=False).quantity.sum().sort_values(by='quantity', ascending=False)
@@ -2128,7 +2133,7 @@ plt.show()
 # 
 # *source : https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu*
 
-# In[30]:
+# In[29]:
 
 
 # the survey results to test
@@ -2226,7 +2231,7 @@ plt.show()
 # 
 # *__Rechts:__ Land - Stadt: ECDF der ErhebungsergebnisseZigarettenstummel und Bonbonverpackungen (FT)*
 
-# In[31]:
+# In[30]:
 
 
 agg_dobj = fd[(fd.rural == 'ländlich')&(fd.code.isin(['Gfrags', 'Gfoam']))].groupby(['loc_date'])[unit_label].sum().values
@@ -2271,7 +2276,7 @@ plt.show()
 # 
 # Differenz der Mittelwerte von fragmentierten Schaumstoffen und Kunststoffen unter den beiden verschiedenen Landnutzungsklassen. *$\mu_{ländlich}$*  - $\mu_{urban}$, method=shuffle, permutations=5000*
 
-# In[32]:
+# In[31]:
 
 
 # pemutation test: of difference of means FP objects
@@ -2314,7 +2319,7 @@ plt.show()
 # 
 # *$\mu_{länd;ich}$ - $\mu_{urban}$, method=shuffle, permutations=5000*
 
-# In[33]:
+# In[32]:
 
 
 # pemutation test: of difference of means food objects
@@ -2352,7 +2357,7 @@ plt.show()
 
 # *__Oben:__ Verwerfen Sie die Nullhypothese: die beiden Verteilungen sind höchstwahrscheinlich nicht identisch.*
 
-# In[34]:
+# In[33]:
 
 
 # a set of map points with the median survey value for each of the most 
