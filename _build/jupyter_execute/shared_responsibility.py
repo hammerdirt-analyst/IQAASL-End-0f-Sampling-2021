@@ -856,10 +856,10 @@ most_common = list(set([*most_abundant, *common]))
 rural = ["urban", "ländlich"]
 
 # Two code groups
-cgroups = ["DG", "CG"]
+cgroups = ["eOs", "leOs"]
 
-DG = "DG"
-CG = "CG"
+DG = "eOs"
+CG = "leOs"
 
 # Two object types
 obj_groups = ["FP", "FT"]
@@ -884,8 +884,8 @@ fd['rural'] = fd['rural'].where(fd['rural'] == 'urban', 'ländlich')
 
 # labels for the two groups and a label to catch all the other objects
 fd['group'] = 'other'
-fd['group'] = fd.group.where(~fd.code.isin(dist), 'DG')
-fd['group'] = fd.group.where(~fd.code.isin(cont), 'CG')
+fd['group'] = fd.group.where(~fd.code.isin(dist), "eOs")
+fd['group'] = fd.group.where(~fd.code.isin(cont), "leOs")
 
 # survey totals of all locations with its land use profile (indifferent of land use)
 initial = ['loc_date','date','streets', 'intersects']
@@ -912,7 +912,7 @@ months_fmt = mdates.DateFormatter("%b")
 days = mdates.DayLocator(interval=7)
 fig, axs = plt.subplots(1,2, figsize=(11,6), sharey=True)
 
-group_palette = {'CG':'magenta', 'DG':'teal', 'other':'tan'}
+group_palette = {"leOs":'magenta', "eOs":'teal', 'other':'tan'}
 rural_palette = {'ländlich':'black', 'urban':'salmon' }
 
 ax = axs[0]
@@ -994,7 +994,7 @@ f7 = figureAndCaptionTable(**figure_kwargs)
 # In[11]:
 
 
-change_names = {"count":"# E",
+change_names = {"count":"E",
                 "mean":"D",
                 "std":"S", 
                 "min":"min",
@@ -1040,7 +1040,7 @@ a_table.get_celld()[(0,0)].get_text().set_text(" ")
 a_table.set_fontsize(14)
 
 plt.tight_layout()
-axone.set_xlabel("E = # Erhebungen, D=Durchschnitt, S=Standardfehler", labelpad=14, fontsize=14)
+axone.set_xlabel("E = Erhebungen, D=Durchschnitt, S=Standardabweichung", labelpad=14, fontsize=14)
 plt.subplots_adjust(wspace=0.2)
 
 figure_name = "quantiles_rural_urban"
@@ -1160,10 +1160,10 @@ di_agecdf = ECDF(cg_dg_dt[(cg_dg_dt.rural == 'urban')&(cg_dg_dt.group.isin([DG])
 cont_ecdf = ECDF(cg_dg_dt[(cg_dg_dt.rural == 'ländlich')&(cg_dg_dt.group.isin([CG]))]["pt"])
 dist_ecdf = ECDF(cg_dg_dt[(cg_dg_dt.rural == 'ländlich')&(cg_dg_dt.group.isin([DG]))]["pt"])
 
-sns.lineplot(x=cont_ecdf.x, y=cont_ecdf.y, color='salmon', label="ländlich: CG", ax=ax)
-sns.lineplot(x=co_agecdf.x, y=co_agecdf.y, color='magenta', ax=ax, label="urban: CG")
-sns.lineplot(x=dist_ecdf.x, y=dist_ecdf.y, color='teal', label="ländlich: DG", ax=ax)
-sns.lineplot(x=di_agecdf.x, y=di_agecdf.y, color='black', label="urban: DG", ax=ax)
+sns.lineplot(x=cont_ecdf.x, y=cont_ecdf.y, color='salmon', label="ländlich: leOs", ax=ax)
+sns.lineplot(x=co_agecdf.x, y=co_agecdf.y, color='magenta', ax=ax, label="urban: leOs")
+sns.lineplot(x=dist_ecdf.x, y=dist_ecdf.y, color='teal', label="ländlich: eOs", ax=ax)
+sns.lineplot(x=di_agecdf.x, y=di_agecdf.y, color='black', label="urban: eOs", ax=ax)
 
 ax.set_xlabel("% der Gesamtzahl der Befragten", **ck.xlab_k14)
 ax.set_ylabel("% der Erhebungen", **ck.xlab_k14)
@@ -1447,7 +1447,7 @@ fig, ax = plt.subplots()
 
 sns.histplot(new_means, ax=ax)
 ax.set_title(F"$\u0394\mu$ = {np.round(mean_diff, 2)}, perm=5000, p={emp_p} ", **ck.title_k14)
-ax.set_ylabel('permutations', **ck.xlab_k14)
+ax.set_ylabel('Permutationen', **ck.xlab_k14)
 ax.set_xlabel(f"$\mu$ ländlich={np.round(the_mean.loc['ländlich'], 2)} - $\mu$ urban={np.round(the_mean.loc['urban'], 2)}", **ck.xlab_k14)
 
 figure_name = "diff_mean"
@@ -1829,6 +1829,13 @@ l11 = [
     "Entwicklung einer Finanzierungsmethode, die sicherstellt, dass pro Jahr und Region genügend Proben entnommen werden, um die Bedingungen genau zu bewerten und den Forschungsbedarf zu decken"
 ]
 
+p42 = [
+    "Ergänzende Tabellen und Abbildungen zu diesem Kapitel finden Sie unter: ",
+    '<a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/shared_responsibility.html#anhang" color="blue"> Anhang </a>'
+]
+
+p42 = makeAParagraph(p42)
+
 l11 = makeAList(l11)
    
 team = "Van Loon W. Hanke G., Walvoort D."
@@ -1872,7 +1879,10 @@ newcomps = [
     l10,
     smallest_space,
     *p37_40,
-    l11
+    l11,
+    large_space,
+    p42
+    
 ]
 
 pdfcomponents= addToDoc(newcomps, pdfcomponents)
@@ -1938,7 +1948,7 @@ doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
 # In[26]:
 
 
-sut.display_image_ipython("resources/images/shared_responsibility/land_use_correlation_de_30_0.png", thumb=(1200, 700))
+sut.display_image_ipython("resources/output/sprmns_mcommon.jpeg", thumb=(1200, 700))
 
 
 # *__Unten:__ 95% Konfidenzintervall des Medianwertes der Datenerhebungen unter den verschiedenen Landnutzungsklassen.* 
@@ -2038,19 +2048,19 @@ an_int = 50
 # ländlich cis
 r_median = grt_dtr[grt_dtr.rural == 'ländlich'][unit_label].median()
 a_result = compute_bca_ci(grt_dtr[grt_dtr.rural == 'ländlich'][unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
-r_cis = {'ländlich':{"lower 2.5%":a_result[0], "median":r_median, "upper 97.5%": a_result[1] }}
+r_cis = {'ländlich':{"untere 2.5 %":a_result[0], "median":r_median, "obere 97.5 %": a_result[1] }}
 the_bcas.update(r_cis)
 
 # urban cis
 u_median = grt_dtr[grt_dtr.rural == 'urban'][unit_label].median()
 a_result = compute_bca_ci(grt_dtr[grt_dtr.rural == 'urban'][unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
-u_cis = {'urban':{"lower 2.5%":a_result[0], "median":u_median, "upper 97.5%": a_result[1] }}
+u_cis = {'urban':{"untere 2.5 %":a_result[0], "Median":u_median, "obere 97.5 %": a_result[1] }}
 the_bcas.update(u_cis)
 
 # all surveys
 u_median = grt_dtr[unit_label].median()
 a_result = compute_bca_ci(grt_dtr[unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
-all_cis = {"Alle":{"lower 2.5%":a_result[0], "median":u_median, "upper 97.5%": a_result[1] }}
+all_cis = {"alle":{"untere 2.5 %":a_result[0], "Median":u_median, "obere 97.5 %": a_result[1] }}
 
 # combine the results:
 the_bcas.update(all_cis)
@@ -2102,21 +2112,21 @@ axtwo = axs[1]
 
 sut.hide_spines_ticks_grids(axone)
 sut.hide_spines_ticks_grids(axtwo)
-new_col_names = {"item":"Objekt","quantity":"Gesamt", "% of total":"% Gesamt"}
+new_col_names = {"item":"Objekt","quantity":"Total (St.)", "% of total":"Total (%)"}
 data_one = rur_10[['item', 'quantity', "% of total"]].copy()
 data_one.rename(columns=new_col_names, inplace=True)
 data_two = urb_10[['item', 'quantity', "% of total"]].copy()
 data_two.rename(columns=new_col_names, inplace=True)
 
 for a_df in [data_one, data_two]:
-    a_df["Gesamt"] = a_df["Gesamt"].map(lambda x: F"{x:,}")
+    a_df["Total (St.)"] = a_df["Total (St.)"].map(lambda x: F"{x:,}")
 
 first_table = sut.make_a_table(axone, data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
-first_table.get_celld()[(0,0)].get_text().set_text("Ländlich")
+first_table.get_celld()[(0,0)].get_text().set_text("ländlich")
 
 
 a_table = sut.make_a_table(axtwo, data_two.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
-a_table.get_celld()[(0,0)].get_text().set_text("Urban")
+a_table.get_celld()[(0,0)].get_text().set_text("urban")
 
 plt.tight_layout()
 plt.subplots_adjust(hspace=0.1)
@@ -2149,17 +2159,32 @@ for i,code in enumerate(most_common):
 months={
     0:'Jan',
     1:'Feb',
-    2:'Mar',
+    2:"Mär",
     3:'Apr',
-    4:'May',
+    4:'Mai',
     5:'Jun',
     6:'Jul',
     7:'Aug',
     8:'Sep',
-    9:'Oct',
+    9:'Okt',
     10:'Nov',
-    11:'Dec'
+    11:'Dez'
 }
+
+# months_de={
+#     0:"Jan",
+#     1:"Feb",
+#     2:"Mär",
+#     3:"Apr",
+#     4:"Mai",
+#     5:"Jun",
+#     6:"Jul",
+#     7:"Aug",
+#     8:"Sep",
+#     9:"Okt",
+#     10:"Nov",
+#     11:"Dez"
+# }
 
 m_dt = fd.groupby(['loc_date', 'date','group'], as_index=False).agg({'quantity':'sum', unit_label:'sum'})
 
@@ -2193,18 +2218,18 @@ this_month = [x.month for i,x in enumerate(data1.index)]
 twin_ax = ax.twinx()
 twin_ax.grid(None)
 
-ax.bar(this_x, data1.to_numpy(), label='CG', bottom=data2.to_numpy(), linewidth=1, color="salmon", alpha=0.6)
-ax.bar([i for i,x in  enumerate(data2.index)], data2.to_numpy(), label='DG', linewidth=1,color="darkslategray", alpha=0.6)
+ax.bar(this_x, data1.to_numpy(), label="leOs", bottom=data2.to_numpy(), linewidth=1, color="salmon", alpha=0.6)
+ax.bar([i for i,x in  enumerate(data2.index)], data2.to_numpy(), label="eOs", linewidth=1,color="darkslategray", alpha=0.6)
 
-sns.scatterplot(x=this_x,y=[*aare_schonau[2:], np.mean(aare_schonau)], color='turquoise',  edgecolor='magenta', linewidth=1, s=60, label='Aare m³/s', ax=twin_ax)
-sns.scatterplot(x=this_x,y=[*rhone_scex[2:], np.mean(rhone_scex)], color='royalblue',  edgecolor='magenta', linewidth=1, s=60, label='Rhône m³/s', ax=twin_ax)
-sns.scatterplot(x=this_x,y=[*linth_weesen[2:], np.mean(linth_weesen), np.mean(linth_weesen)], color='orange', edgecolor='magenta', linewidth=1, s=60, label='Linth m³/s', ax=twin_ax)
+sns.scatterplot(x=this_x,y=[*aare_schonau[2:], np.mean(aare_schonau)], color='turquoise',  edgecolor='magenta', linewidth=1, s=60, label='Aare m³/Sek.', ax=twin_ax)
+sns.scatterplot(x=this_x,y=[*rhone_scex[2:], np.mean(rhone_scex)], color='royalblue',  edgecolor='magenta', linewidth=1, s=60, label='Rhône m³/Sek.', ax=twin_ax)
+sns.scatterplot(x=this_x,y=[*linth_weesen[2:], np.mean(linth_weesen), np.mean(linth_weesen)], color='orange', edgecolor='magenta', linewidth=1, s=60, label='Linth m³/Sek.', ax=twin_ax)
 handles, labels = ax.get_legend_handles_labels()
 handles2, labels2 = twin_ax.get_legend_handles_labels()
 ax.xaxis.set_major_locator(ticker.FixedLocator([i for i in np.arange(len(this_x))]))
 
 ax.set_ylabel(unit_label, **ck.xlab_k14)
-twin_ax.set_ylabel("m³/sec", **ck.xlab_k14)
+twin_ax.set_ylabel("m³/Sek.", **ck.xlab_k14)
 
 axisticks = ax.get_xticks()
 labelsx = [months[new_month(x-1)] for x in  this_month]
@@ -2308,7 +2333,7 @@ fig, ax = plt.subplots()
 
 sns.histplot(new_means, ax=ax)
 ax.set_title(F"$\u0394\mu$ = {np.round(mean_diff, 2)}, perm=5000, p={emp_p} ", **ck.title_k14)
-ax.set_ylabel('permutations', **ck.xlab_k14)
+ax.set_ylabel('Permutationen', **ck.xlab_k14)
 ax.set_xlabel("$\mu$ ländlich - $\mu$ urban", **ck.xlab_k14)
 plt.show()
 
@@ -2350,7 +2375,7 @@ fig, ax = plt.subplots()
 
 sns.histplot(new_means, ax=ax)
 ax.set_title(F"$\u0394\mu$ = {np.round(mean_diff, 2)}, perm=5000, p={emp_p} ", **ck.title_k14)
-ax.set_ylabel('permutations', **ck.xlab_k14)
+ax.set_ylabel('Permutationen', **ck.xlab_k14)
 ax.set_xlabel("$\mu$ ländlich - $\mu$ urban", **ck.xlab_k14)
 plt.show()
 
@@ -2379,8 +2404,8 @@ cgt = a_maps[a_maps.code.isin(cont)].groupby(['loc_date', 'location'], as_index=
 cgt = cgt.groupby('location')[unit_label].median()
 
 # add columns to som_vals
-som_vals['DG'] = som_vals.index.map(lambda x: dgt.loc[x])
-som_vals['CG'] = som_vals.index.map(lambda x: cgt.loc[x])
+som_vals["eOs"] = som_vals.index.map(lambda x: dgt.loc[x])
+som_vals["leOs"] = som_vals.index.map(lambda x: cgt.loc[x])
 
 these_beaches = dfBeaches.loc[som_vals.index][['latitude','longitude', 'bfsnum', 'city']]
 a_map = pd.concat([these_beaches, som_vals], axis=1)

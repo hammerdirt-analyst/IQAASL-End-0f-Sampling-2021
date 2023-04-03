@@ -1,0 +1,144 @@
+location,water_name_slug,river_bassin,city,pcs_m,quantity,lat,lon
+aabach,zurichsee,linth,Schmerikon,0.23,7,47.220989,8.940365
+aare-limmatspitz,aare,aare,Gebenstorf,0.0,0,47.50106,8.237371
+aare-port,aarenidau-buren-kanal,aare,Port,0.0,0,47.11617,7.26955
+aare-solothurn-lido-strand,aare,aare,Solothurn,0.0,0,47.196949,7.521643
+aare_bern_gerberm,aare,aare,Bern,0.0,0,46.9893631,7.4520977
+aare_bern_scheurerk,aare,aare,Bern,0.0,0,46.9709672,7.4525857
+aare_brugg_buchie,aare,aare,Brugg,0.0,0,47.4948553,8.2365581
+aare_koniz_hoppej,aare,aare,Köniz,0.0,0,46.9345885,7.4581703
+aare_post,aarenidau-buren-kanal,aare,Port,0.01,1,47.116665,7.271953
+aare_suhrespitz_badert,aare,aare,Aarau,0.0,0,47.4056692,8.066018
+anarchy-beach,lac-leman,rhone,La Tour-de-Peilz,0.0,0,46.447216,6.859612
+ascona-traghetto-spiaggia,lago-maggiore,ticino,Ascona,0.07,2,46.153882,8.76848
+augustmutzenbergstrandweg,thunersee,aare,Spiez,0.0,0,46.68664,7.68976
+baby-plage-geneva,lac-leman,rhone,Genève,0.44090909090909086,481,46.208558,6.162923
+baby-plage-ii-geneve,lac-leman,rhone,Genève,0.03,3,46.20894,6.16433
+bain-des-dames,lac-leman,rhone,La Tour-de-Peilz,0.0,0,46.4505068,6.8580918
+baye-de-montreux-g,lac-leman,rhone,Montreux,0.0,0,46.430834,6.908778
+beich,aare,aare,Walperswil,0.0,0,47.048495,7.200528
+bern-fahrstrasse,aare,aare,Bern,0.0,0,46.975866,7.44421
+bern-tiergarten,aare,aare,Bern,0.0,0,46.9331574,7.4520041
+bielersee_vinelz_fankhausers,bielersee,aare,Vinelz,0.1275,22,47.0383984,7.1083114
+boiron,lac-leman,rhone,Tolochenaz,0.0,0,46.4910297,6.4801618
+brugg-be-buren-bsg-standort,aarenidau-buren-kanal,aare,Brügg,0.0,0,47.12222,7.28141
+camp-des-peches,bielersee,aare,Le Landeron,0.0,0,47.052812,7.074053
+camping-gwatt-strand,thunersee,aare,Thun,0.0,0,46.72714,7.62962
+canale-saleggi,ticino,ticino,Bellinzona,0.0,0,46.2006245,9.015853
+caprino,lago-di-lugano,ticino,Lugano,0.0,0,45.9879627,8.9862407
+cully-plage,lac-leman,rhone,Bourg-en-Lavaux,0.04,1,46.4888866,6.7413961
+delta-park,thunersee,aare,Spiez,0.0,0,46.720078,7.635304
+erlach-camping-strand,bielersee,aare,Erlach,0.0,0,47.047159,7.097854
+evole-plage,neuenburgersee,aare,Neuchâtel,0.0,0,46.989477,6.92392
+flibach-river-right-bank,walensee,linth,Weesen,0.0,0,47.133742,9.105461
+foce-del-cassarate,cassarate,ticino,Lugano,0.0,0,46.002411,8.961477
+gals-reserve,bielersee,aare,Gals,0.0,0,47.0462719,7.0850075
+gasi-strand,walensee,linth,Weesen,0.009166666666666667,10,47.128442,9.110831
+gerra-gambarogno,lago-maggiore,ticino,Gambarogno,0.0,0,46.123366,8.785786
+golene-gudo,ticino,ticino,Bellinzona,0.0,0,46.1706553,8.946657
+grand-clos,lac-leman,rhone,Saint-Gingolph,0.14454545454545456,43,46.387746,6.843686
+gummligrabbe,aare,aare,Kallnach,0.0,0,46.98929,7.25073
+hafeli,brienzersee,aare,Bönigen,0.035,3,46.6902834,7.8985922
+hauterive-petite-plage,neuenburgersee,aare,Hauterive (NE),0.0,0,47.010797,6.980304
+impromptu_cudrefin,neuenburgersee,aare,Cudrefin,0.0,0,46.964496,7.027936
+isole-di-brissago-porto,lago-maggiore,ticino,Brissago,0.02,1,46.13276,8.73503
+jona-river-rastplatz,jona,linth,Rapperswil-Jona,0.0,0,47.2161,8.84443
+kusnachter-dorfbach-tobelweg-1-4,dorfbach,linth,Küsnacht (ZH),0.0,0,47.31777,8.588258
+la-pecherie,lac-leman,rhone,Allaman,0.0,0,46.4639187,6.3857321
+la-petite-plage,neuenburgersee,aare,Yverdon-les-Bains,0.0325,36,46.785054,6.656877
+la-thiele_le-mujon_confluence,la-thiele,aare,Yverdon-les-Bains,0.0,0,46.77534,6.6309
+lacleman_gland_lecoanets,lac-leman,rhone,Gland,0.0,0,46.4028106,6.2819586
+lavey-la-source,rhone,rhone,Lavey-Morcles,0.0,0,46.200804,7.021866
+lavey-les-bains,rhone,rhone,Lavey-Morcles,0.0,0,46.2051587,7.012722
+lavey-les-bains-2,rhone,rhone,Lavey-Morcles,0.0,0,46.207726,7.011685
+le-pierrier,lac-leman,rhone,Montreux,0.0,0,46.439727,6.888968
+les-glariers,rhone,rhone,Riddes,0.0,0,46.176736,7.228925
+les-vieux-ronquoz,rhone,rhone,Sion,0.0,0,46.2220487,7.361664
+leuk-mattenstrasse,rhone,rhone,Leuk,0.0,0,46.3147545,7.6225205
+lido,lago-di-lugano,ticino,Lugano,4.73,194,46.0020045,8.9621558
+ligerz-strand,bielersee,aare,Ligerz,0.0,0,47.083979,7.135894
+limmat_dietikon_keiserp,limmat,linth,Dietikon,0.0,0,47.4079891,8.4095398
+limmat_unterengstringen_oggierbuhrer,limmat,linth,Unterengstringen,0.0,0,47.4094003,8.4469334
+limmat_zuerich_suterdglauserp,limmat,linth,Zürich,0.0,0,47.3945393,8.5134435
+limmat_zuerich_wagnerc,limmat,linth,Zürich,0.0,0,47.4034956,8.4777701
+limmat_zurich_mortensena_meiera,limmat,linth,Zürich,0.0,0,47.4002515,8.485411
+linth_mollis,linthkanal,linth,Glarus Nord,0.0,0,47.13137,9.094768
+linth_route9brucke,escherkanal,linth,Glarus Nord,0.0,0,47.12573,9.11734
+linthdammweg,linthkanal,linth,Weesen,0.0,0,47.13179,9.09191
+lugano-centro,lago-di-lugano,ticino,Lugano,3.06,49,46.002627,8.950724
+luscherz-plage,bielersee,aare,Lüscherz,0.015000000000000001,3,47.0479551,7.151242
+luscherz-two,bielersee,aare,Lüscherz,0.0,0,47.047519,7.1528292
+magadino-lido,lago-maggiore,ticino,Gambarogno,0.0,0,46.1493486,8.8556628
+maladaire,lac-leman,rhone,La Tour-de-Peilz,0.011666666666666665,8,46.446296,6.87696
+mannewil,aare,aare,Kallnach,0.2,9,46.996382,7.239024
+mols-rocks,walensee,linth,Quarten,0.0,0,47.1143432,9.2881737
+muhlehorn-dorf,walensee,linth,Glarus Nord,0.0,0,47.118448,9.172124
+mullermatte,bielersee,aare,Biel/Bienne,0.07250000000000001,37,47.133339,7.227907
+murg-bad,walensee,linth,Quarten,0.0,0,47.115307,9.215691
+nidau-strand,bielersee,aare,Nidau,0.08,2,47.127196,7.232613
+nouvelle-plage,neuenburgersee,aare,Estavayer,0.02,1,46.8566464,6.848428
+oben-am-see,brienzersee,aare,Brienz (BE),0.0,0,46.74445107,8.0499211
+oberi-chlihochstetten,aare,aare,Rubigen,0.0,0,46.896025,7.532114
+oyonne,lac-leman,rhone,La Tour-de-Peilz,0.0,0,46.456682,6.852262
+pacha-mama-gerra,lago-maggiore,ticino,Gambarogno,0.0,0,46.123473,8.783508
+parc-des-pierrettes,lac-leman,rhone,Saint-Sulpice (VD),0.24,11,46.515215,6.575531
+pecos-plage,neuenburgersee,aare,Grandson,0.21,15,46.80359,6.63665
+pfafikon-bad,zurichsee,linth,Freienbach,0.16,13,47.206766,8.774182
+plage-de-cheyres,neuenburgersee,aare,Cheyres-Châbles,0.004166666666666667,5,46.818689,6.782256
+plage-de-serriere,neuenburgersee,aare,Neuchâtel,0.0,0,46.98485,6.91345
+plage-de-st-sulpice,lac-leman,rhone,Saint-Sulpice (VD),0.02,1,46.513265,6.570977
+pointe-dareuse,neuenburgersee,aare,Boudry,0.0,0,46.94619,6.87097
+pont-sous-terre,rhone,rhone,Genève,0.0,0,46.2029598,6.13157672
+preverenges,lac-leman,rhone,Préverenges,1.2491666666666668,630,46.51269,6.527657
+preverenges-le-sout,lac-leman,rhone,Préverenges,0.33,33,46.5089049,6.5345263
+quai-maria-belgia,lac-leman,rhone,Vevey,0.0025,1,46.460156,6.836718
+rastplatz-stampf,zurichsee,linth,Rapperswil-Jona,0.02666666666666667,8,47.215177,8.844286
+reuss_hunenberg_eberhardy,reuss,linth,Hünenberg,0.0,0,47.2329755,8.4010121
+reuss_ottenbach_schoenenbergerl,reuss,linth,Merenschwand,0.0,0,47.2783545,8.3942242
+rivapiana,lago-maggiore,ticino,Minusio,0.01,1,46.172079,8.813255
+rocky-plage,lac-leman,rhone,Genève,0.0,0,46.20973675,6.16495237
+route-13,maggia,ticino,Locarno,0.0,0,46.162521,8.7825791
+ruisseau-de-la-croix-plage,neuenburgersee,aare,Cheyres-Châbles,0.0,0,46.81392,6.7747
+san-nazzaro-gambarogno,lago-maggiore,ticino,Gambarogno,0.0,0,46.130443,8.798657
+schmerikon-bahnhof-strand,zurichsee,linth,Schmerikon,0.04,1,47.22478,8.94418
+schusspark-strand,schuss,aare,Biel/Bienne,0.0,0,47.1465,7.26862
+schutzenmatte,emme,aare,Burgdorf,0.0,0,47.057666,7.634001
+seeflechsen,walensee,linth,Glarus Nord,0.0,0,47.1302229,9.1033996
+seemuhlestrasse-strand,walensee,linth,Walenstadt,0.0,0,47.12864,9.2951
+seez,seez,linth,Walenstadt,0.0,0,47.11983,9.300251
+seez_spennwiesenbrucke,seez,linth,Walenstadt,0.0,0,47.114948,9.310123
+sentiero-giro-del-golf-spiaggia,lago-maggiore,ticino,Ascona,0.0,0,46.14577,8.79043
+signalpain,neuenburgersee,aare,Yverdon-les-Bains,0.11,5,46.7862,6.64736
+sihl_zuerich_eggerskoehlingera,sihl,linth,Zürich,0.0,0,47.3818981,8.5383279
+sihl_zuerich_eichenbergerd,sihl,linth,Zürich,0.0,0,47.3395883,8.5166965
+spackmatt,aare,aare,Luterbach,0.03,4,47.223749,7.576711
+spiaggia-parco-ciani,lago-di-lugano,ticino,Lugano,0.0,0,46.00251,8.96082
+strandbeiz,zurichsee,linth,Rapperswil-Jona,0.0,0,47.2158617,8.8430984
+strandboden-biel,bielersee,aare,Biel/Bienne,0.065,7,47.13251,7.233142
+sundbach-strand,thunersee,aare,Beatenberg,0.025,1,46.684386,7.794768
+thun-strandbad,thunersee,aare,Thun,0.0,0,46.739939,7.63352
+thunersee_spiez_meierd_1,thunersee,aare,Spiez,0.0,0,46.7044368,7.6578824
+tiger-duck-beach,lac-leman,rhone,Saint-Sulpice (VD),0.9766666666666667,76,46.518256,6.582546
+tolochenaz,lac-leman,rhone,Tolochenaz,0.0,0,46.4975095,6.4828747
+tschilljus,rhone,rhone,Salgesch,0.0,0,46.304399,7.580262
+untertenzen,walensee,linth,Quarten,0.01,1,47.11526,9.25478
+versoix,lac-leman,rhone,Versoix,0.023333333333333334,4,46.289194,6.1705693
+via-brunari-spiaggia,ticino,ticino,Bellinzona,0.0,0,46.20235,9.01691
+via-mirasole-spiaggia,ticino,ticino,Bellinzona,0.0,0,46.19953,9.01493
+vidy-ruines,lac-leman,rhone,Lausanne,1.997142857142857,90,46.516221,6.596279
+vierwaldstattersee_weggis_schoberls_1,quatre-cantons,linth,Weggis,0.0,0,47.0445321,8.4185689
+vierwaldstattersee_weggis_schoberls_2,quatre-cantons,linth,Weggis,0.0,0,47.043953,8.4173076
+vierwaldstattersee_weggis_schoberls_3,quatre-cantons,linth,Weggis,0.0,0,47.0299566,8.410801
+villa-barton,lac-leman,rhone,Genève,0.11,5,46.22235,6.1525
+vira-gambarogno,lago-maggiore,ticino,Gambarogno,0.0,0,46.143343,8.838759
+vira-spiaggia-left-of-river,lago-maggiore,ticino,Gambarogno,0.0,0,46.1429,8.838407
+walensee_walenstadt_wysse,walensee,linth,Walenstadt,0.016666666666666666,9,47.1218282,9.2995517
+weissenau-neuhaus,thunersee,aare,Unterseen,0.0,0,46.676583,7.817528
+wycheley,brienzersee,aare,Brienz (BE),0.895,111,46.74037,8.04864
+zuerichsee_richterswil_benkoem_2,zurichsee,linth,Richterswil,0.005,2,47.2176458,8.6987133
+zuerichsee_staefa_hennm,zurichsee,linth,Stäfa,0.0,0,47.2346431,8.7698814
+zuerichsee_waedenswil_colomboc_1,zurichsee,linth,Richterswil,0.03,1,47.2195468,8.6919611
+zugerseecholler_cham_blarerm,zugersee,linth,Zug,0.0,0,47.1782157,8.4800128
+zurcher-strand,zurichsee,linth,Zürich,0.0,0,47.3642,8.53742
+zurichsee_kusnachterhorn_thirkell-whitej,zurichsee,linth,Küsnacht (ZH),0.06,20,47.3176849,8.5768602
+zurichsee_wollishofen_langendorfm,zurichsee,linth,Zürich,0.0,0,47.3458899,8.5361545

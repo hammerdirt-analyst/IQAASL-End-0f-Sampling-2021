@@ -896,7 +896,7 @@ plt.close()
 # 
 # Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate).
 
-# In[10]:
+# In[9]:
 
 
 # add summary tables to pdf
@@ -957,7 +957,7 @@ new_components = [KeepTogether([
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[11]:
+# In[10]:
 
 
 # add new section to pdf
@@ -1045,7 +1045,7 @@ glue(f'{this_feature["slug"]}_most_common_tables', mcd, display=False)
 
 # __Häufigste Objekte im Median p/100 m nach Erhebungsgebiet__
 
-# In[12]:
+# In[11]:
 
 
 mc_heat_map_caption = [
@@ -1078,7 +1078,7 @@ mc_period = period_data.parentMostCommon(parent=False)
 mc_period = featuredata.changeSeriesIndexLabels(mc_period, {x:fdx.dMap.loc[x] for x in mc_period.index})
 
 # add the feature, bassin_label and period results to the components table
-mc_comp["Alle"]= mc_feature
+mc_comp["Alle Erhebungsgebiete"]= mc_feature
 # mc_comp[top] = mc_period
 
 # pdf out put
@@ -1149,7 +1149,7 @@ glue(f'{this_feature["slug"]}_most_common_heat_map', mcd, display=False)
 
 # __Häufigste Objekte im Monatsdurchschnitt__
 
-# In[13]:
+# In[12]:
 
 
 # collect the survey results of the most common objects
@@ -1250,7 +1250,7 @@ glue(f'{this_feature["slug"]}_monthly_results', mcdm, display=False)
 # 2. Gelb steht für eine negative Assoziation
 # 3. Weiss bedeutet, dass keine statistische Grundlage für die Annahme eines Zusammenhangs besteht
 
-# In[14]:
+# In[13]:
 
 
 land_use_section_title = "Erhebungsergebnisse und Landnutzung"
@@ -1312,7 +1312,7 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[15]:
+# In[14]:
 
 
 # add the river bassin to fd
@@ -1407,7 +1407,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <all_survey_area_spearmans>` {glue:text}`all_spearmans_caption`
 
-# In[16]:
+# In[15]:
 
 
 spearmans_chart = Image(sample_summaries_file_name, width=10*cm, height=15*cm, kind="proportional", hAlign= "CENTER")
@@ -1446,7 +1446,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Im Anhang (Kapitel 1.8.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel  [Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe. 
 
-# In[17]:
+# In[16]:
 
 
 # make pdf out put
@@ -1517,7 +1517,7 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[18]:
+# In[17]:
 
 
 components = fdx.componentCodeGroupResults()
@@ -1564,7 +1564,7 @@ glue(f'{this_feature["slug" ]}_codegroup_percent', ptd, display=False)
 # ```
 # {numref}`Abbildung %s: <all_survey_area_codegroup_percent>`{glue:text}`all_codegroup_percent_caption`
 
-# In[19]:
+# In[18]:
 
 
 # pivot that
@@ -1632,9 +1632,9 @@ glue(f'{this_feature["slug" ]}_codegroup_pcsm', cgp, display=False)
 # ```
 # {numref}`Abbildung %s: <all_survey_area_codegroup_pcsm>` {glue:text}`all_codegroup_pcsm_caption`
 
-# ## Fleisgewässer
+# ## Fliessgewässer
 
-# In[20]:
+# In[19]:
 
 
 # summary of sample totals
@@ -1654,7 +1654,7 @@ ax = fig.add_subplot(aspec[:, :6])
 line_label = F"{rate} median:{top}"
 
 sns.scatterplot(data=lakes, x="date", y=unit_label, color="black", alpha=0.4, label="Seen", ax=ax)
-sns.scatterplot(data=rivers, x="date", y=unit_label, color="red", s=34, ec="white",label="Fleissgewässer", ax=ax)
+sns.scatterplot(data=rivers, x="date", y=unit_label, color="red", s=34, ec="white",label="Fliessgewässer", ax=ax)
 
 ax.set_ylabel(unit_label, labelpad=10, fontsize=14)
 
@@ -1706,7 +1706,7 @@ plt.close()
 
 # __Die an Fliessgewässern am häufigsten gefundenen Objekte__
 
-# In[21]:
+# In[20]:
 
 
 # the most common objects results
@@ -1761,7 +1761,7 @@ glue(f'{this_feature["slug" ]}_rivers_most_common_tables', mcd, display=False)
 # ```
 # {numref}`Abbildung %s: <all_rivers_most_common_tables>` {glue:text}`all_rivers_most_common_caption`
 
-# In[22]:
+# In[21]:
 
 
 rivers_section_title = Paragraph("Die an Fliessgewässern am häufigsten gefundenen Objekte", featuredata.section_title)
@@ -1800,7 +1800,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrags», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert.
 
-# In[23]:
+# In[22]:
 
 
 annex_title = Paragraph("Anhang", featuredata.section_title)
@@ -1900,7 +1900,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 7. Hackuarium
 # 8. hammerdirt
 
-# In[24]:
+# In[23]:
 
 
 # make the organisation list for the .pdf
@@ -1931,7 +1931,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # ### Die Erhebungsorte
 
-# In[25]:
+# In[24]:
 
 
 # display the survey locations
@@ -1990,7 +1990,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[26]:
+# In[25]:
 
 
 pd.set_option("display.max_rows", None)
@@ -2030,7 +2030,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 complete_inventory
 
 
-# In[27]:
+# In[26]:
 
 
 doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)

@@ -1300,8 +1300,8 @@ axone = axs
 data = p_cis.values
 sut.hide_spines_ticks_grids(axone)
 
-colLabels = ["$" + F"{x}" +"^{th}$" for x in p_cis.columns[:-1]]
-colLabels.append('method')
+colLabels = [F"{x}." for x in p_cis.columns[:-1]]
+colLabels.append('Methode')
 
 table_one = sut.make_a_table(axone, data, colLabels=colLabels, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
 
@@ -1309,7 +1309,7 @@ table_one = sut.make_a_table(axone, data, colLabels=colLabels, colWidths=[.25,*[
 table_one.set_fontsize(12)
 
                         
-table_one.get_celld()[(0,0)].get_text().set_text("Perzentlie")
+table_one.get_celld()[(0,0)].get_text().set_text("Perzentile")
 
 
 plt.tight_layout()
@@ -1353,8 +1353,8 @@ axtwo = axs
 
 data = p_cis.values
 sut.hide_spines_ticks_grids(axtwo)
-colLabels = ["$" + F"{x}" +"^{th}$" for x in p_cis.columns[:-1]]
-colLabels.append('method')
+colLabels = [F"{x}." for x in p_cis.columns[:-1]]
+colLabels.append('Methode')
 
 table_two = sut.make_a_table(axtwo, bcas.values, colLabels=colLabels, colWidths=[.25,*[.15]*5], bbox=[0, 0, 1, 1])
 
@@ -1473,8 +1473,19 @@ for a_bassin in bassins:
     the_sas.update({a_bassin:{'2.5% ci':a_result[0], "Beobachtung": observed, '97.5% ci': a_result[1]}})
 
 sas = pd.DataFrame(the_sas)
+
+new_colnames = {
+    "linth":"Linth",
+    "rhone": "Rhône",
+    "aare":"Aare",
+    "b-method": "Methode"
+}
 sas['b-method'] = 'bca'
+sas.rename(columns=new_colnames, inplace=True)
 sas = sas.reset_index()
+
+
+    
 
 fig, axs = plt.subplots(figsize=(7,4))
 
@@ -1782,7 +1793,7 @@ ax.tick_params(which='both', axis='x', bottom=False)
 
 ax.set_ylim(0, a_2fence+200)
 
-ax.annotate("Bereinigt",
+ax.annotate("bereinigt",
                   xy=(0, a_2fence), xycoords='data',
                   xytext=(.2,a_2fence-200), textcoords='data',
                   size=14, va="center", ha="center",

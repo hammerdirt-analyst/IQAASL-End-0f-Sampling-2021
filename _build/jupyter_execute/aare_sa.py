@@ -406,12 +406,12 @@ subsection_title1 = Paragraph("Kumulative Gesamtmengen nach Gewässer", subsecti
 
 # a caption for the figure
 dims_table_caption = f'{this_feature["name"]}: kumulierten Gewichte  und Masse für die Gemeinden'
-dims_table_caption = Paragraph(dims_table_caption, style=caption_style)
+dims_table_captionpdf = Paragraph(dims_table_caption, style=caption_style)
 # pdf table
 colWidths=[3.5*cm, 3*cm, *[2.2*cm]*(len(dims_table.columns)-1)]
 d_chart = aSingleStyledTable(dims_table, colWidths=colWidths)
 
-atable = tableAndCaption(d_chart, dims_table_caption, colWidths)
+atable = tableAndCaption(d_chart, dims_table_captionpdf, colWidths)
 
 new_components = [
     small_space,
@@ -1532,7 +1532,7 @@ ax = fig.add_subplot(aspec[:, :6])
 line_label = F"{rate} median:{top}"
 
 sns.scatterplot(data=lakes, x="date", y=unit_label, color="black", alpha=0.4, label="Seen", ax=ax)
-sns.scatterplot(data=rivers, x="date", y=unit_label, color="red", s=34, ec="white",label="Fleissgewässer", ax=ax)
+sns.scatterplot(data=rivers, x="date", y=unit_label, color="red", s=34, ec="white",label="Fliessgewässer", ax=ax)
 
 ax.set_ylabel(unit_label, labelpad=10, fontsize=14)
 
