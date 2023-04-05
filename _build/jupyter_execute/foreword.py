@@ -296,7 +296,7 @@ pdfcomponents = featuredata.addToDoc([
 # :img-top: resources/images/titlepage/conferencepresim.jpg
 # :margin: auto
 # +++
-# __Abbildung 1:__ *Eine Strand-Abfallaufkommen Untersuchung ist die Erfassung von sichtbarem anthropogenem Material, das in einem abgegrenzten Gebiet identifiziert wurde, das auf einer Seite von einem See, Fluss oder Meer begrenzt wird.*
+# *Eine Strand-Abfallaufkommen Untersuchung ist die Erfassung von sichtbarem anthropogenem Material, das in einem abgegrenzten Gebiet identifiziert wurde, das auf einer Seite von einem See, Fluss oder Meer begrenzt wird.*
 # ```
 # <br/>
 # 
@@ -512,39 +512,6 @@ glue('t_b_fr', mcdf, display=False)
 # 
 # ---
 
-# In[3]:
-
-
-# map_caption = featuredata.defaultMapCaption(language="de")
-# glue(f"{this_feature['slug']}_city_map_caption", map_caption, display=False)
-
-
-# o_w, o_h = convertPixelToCm(bassin_map)
-
-# f1cap = Paragraph(map_caption, style=featuredata.caption_style)
-
-# figure_kwargs = {
-#     "image_file":bassin_map,
-#     "caption": f1cap, 
-#     "original_width":o_w,
-#     "original_height":o_h,
-#     "desired_width": 16,
-#     "caption_height":.75,
-#     "hAlign": "CENTER",
-# }
-
-# f1 = featuredata.figureAndCaptionTable(**figure_kwargs)
-
-
-# new_components = [
-#     f1,
-#     featuredata.small_space
-    
-# ]
-# # add those sections
-# pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
-
-
 # (italiano_intro_de)=
 # ## Prefazione
 # 
@@ -686,7 +653,7 @@ glue('t_b_fr', mcdf, display=False)
 # 
 # Ce rapport est versionné, il est donc très facile de soumettre des articles ou des analyses qui corrigent, clarifient ou améliorent le contenu. Pour contribuer, envoyez une demande de retrait à [repo de fin d'échantillonnage](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021). Les soumissions sont acceptées dans toutes les langues nationales officielles de la Suisse. 
 
-# In[4]:
+# In[3]:
 
 
 doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)
