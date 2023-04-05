@@ -290,7 +290,16 @@ pdfcomponents = featuredata.addToDoc([
 # 
 # Im Jahr 2008 wurde der erste internationale Leitfaden zur Überwachung von Abfallobjekten am Strand vom Umweltprogramm der Vereinten Nationen (UNEP) und der Zwischenstaatlichen Ozeanographischen Kommission (IOC) veröffentlicht {cite}`unepseas`. Diese Methode wurde 2010 von der OSPAR-Kommission aufgegriffen {cite}`ospard10`. Im Jahr 2013 veröffentlichte die EU einen Leitfaden zur Überwachung von marinen Abfallobjekten in den europäischen Meeren (The guide) {cite}`mlwguidance`. Die Schweiz ist Mitglied von OSPAR und hat über 1.400 Proben nach den im Leitfaden beschriebenen Methoden genommen. 
 # 
-# _Eine Strand-Abfallaufkommen Untersuchung ist die Erfassung von sichtbarem anthropogenem Material, das in einem abgegrenzten Gebiet identifiziert wurde, das auf einer Seite von einem See, Fluss oder Meer begrenzt wird._
+# 
+# ```{card}
+# :class-card: sd-text-black
+# :img-top: resources/images/titlepage/conferencepresim.jpg
+# :margin: auto
+# +++
+# __Abbildung 1:__ *Eine Strand-Abfallaufkommen Untersuchung ist die Erfassung von sichtbarem anthropogenem Material, das in einem abgegrenzten Gebiet identifiziert wurde, das auf einer Seite von einem See, Fluss oder Meer begrenzt wird.*
+# ```
+# <br/>
+# 
 # 
 # * Standorte werden durch ihre GPS-Punkte definiert 
 # * Länge und Breite werden für jeden Erhebungsbereich gemessen 
@@ -553,7 +562,16 @@ glue('t_b_fr', mcdf, display=False)
 # 
 # Nel 2008 è stata pubblicata la prima guida internazionale per il monitoraggio del beach litter dal Programma delle Nazioni Unite per l’ambiente (UNEP) e dalla Commissione oceanografica intergovernativa (COI) {cite}`unepseas`. Questo metodo è stato riprodotto dalla Commissione OSPAR nel 2010 {cite}`ospard10`.  Nel 2013 l’UE ha pubblicato una guida sul monitoraggio dei rifiuti marini nei mari europei (La guida) {cite}`mlwguidance`. La Svizzera è membro di OSPAR e ha più di 1.400 campioni che utilizzano i metodi descritti in tale guida. 
 # 
+# 
+# ```{card}
+# :class-card: sd-text-black
+# :img-top: resources/images/titlepage/conferencepresim.jpg
+# :margin: auto
+# +++
 # *Con un’indagine di beach litter si conta il materiale antropogenico visibile identificato all’interno di un’area delimitata che confina su un lato con un lago, un fiume o un oceano.*
+# ```
+# <br/>
+# 
 # 
 # * Le posizioni sono definite dai loro punti GPS. 
 # * La lunghezza e la larghezza sono misurate per ogni area d’indagine. 
@@ -616,8 +634,15 @@ glue('t_b_fr', mcdf, display=False)
 # 
 # En 2008, le premier guide international de surveillance des déchets de plage a été publié par le Programme des Nations Unies pour l'environnement (PNUE) et la Commission océanographique intergouvernementale (COI) {cite}`unepseas`. Cette méthode a été reproduite par la Commission OSPAR en 2010 {cite}`ospard10`. En 2013, l'UE a publié un guide sur la surveillance des déchets marins dans les mers européennes (le guide) {cite}`mlwguidance`. La Suisse est membre d'OSPAR et dispose de plus de 1 400 inventaires utilisant les méthodes décrites dans Le guide. 
 # 
-# *Un __inventaire de déchets__ de plage consiste à comptabiliser les matériaux anthropogènes visibles identifiés dans une zone délimitée qui est bordée d'un côté par un lac, une rivière ou un océan. *
 # 
+# ```{card}
+# :class-card: sd-text-black
+# :img-top: resources/images/titlepage/conferencepresim.jpg
+# :margin: auto
+# +++
+# *Un __inventaire de déchets__ de plage consiste à comptabiliser les matériaux anthropogènes visibles identifiés dans une zone délimitée qui est bordée d'un côté par un lac, une rivière ou un océan.*
+# ```
+# <br/>
 # * Les emplacements sont définis par leurs points GPS 
 # * La longueur et la largeur sont mesurées pour chaque inventaire 
 # * Les polluants visibles dans la zone d'étude sont collectés, classés, comptés et pesés. 
@@ -645,109 +670,6 @@ glue('t_b_fr', mcdf, display=False)
 # 
 # À titre d'exemple, considérons le résultat médian des inventaires pour les objets les plus courants sur Thunersee et le Brienzersee.  
 
-# In[4]:
-
-
-# # calling componentsMostCommon gets the results for the most common codes
-# # at the component level
-# components = fdx.componentMostCommonPcsM()
-
-# # pivot that and quash the hierarchal column index that is created when the table is pivoted
-# mc_comp = components[["item", unit_label, "city"]].pivot(columns="city", index="item")
-# mc_comp.columns = mc_comp.columns.get_level_values(1)
-
-# # the aggregated total of the feature is taken from the most common objects table
-# mc_feature = fdx.most_common[unit_label]
-# mc_feature = featuredata.changeSeriesIndexLabels(mc_feature, {x:fdx.dMap.loc[x] for x in mc_feature.index})
-
-# # aggregated totals of the parent this is derived from the arguments in kwargs
-# mc_parent = period_data.parentMostCommon(parent=True)
-# mc_parent = featuredata.changeSeriesIndexLabels(mc_parent, {x:fdx.dMap.loc[x] for x in mc_parent.index})
-
-# # the aggregated totals of all the period data
-# mc_period = period_data.parentMostCommon(parent=False)
-# mc_period = featuredata.changeSeriesIndexLabels(mc_period, {x:fdx.dMap.loc[x] for x in mc_period.index})
-
-# # add the feature, bassin_label and period results to the components table
-# mc_comp[this_feature["name"]]= mc_feature
-# mc_comp[bassin_label] = mc_parent
-# mc_comp[top] = mc_period
-
-# ital = {
-#     'Zigarettenfilter': "Filtri di sigarette" ,
-#     'Fragmentierte Kunststoffe':"Plastica frammentata",
-#     'Expandiertes Polystyrol': "Polistirolo espanso",
-#     'Snack-Verpackungen':"Incarti di cibo; caramelle, snack",
-#     'Schaumstoffverpackungen/Isolierung': "Telo industriale",
-#     ' Getränkeflaschen aus Glas, Glasfragmente':"Bottiglie per bevande in vetro, pezzi",
-#     'Industriepellets (Nurdles)':"Pellet industriali (nurdles)",
-#     "Insulation foams": "Schiume isolanti",
-#     'Wattestäbchen/Tupfer':"Bastoncini di cotton fioc/ tampone",
-#     "Expanded foams < 5mm":"Schiume espanse < 5mm",
-#     'Kunststoff-Bauabfälle':"Rifiuti plastici da costruzione",
-#     "Metal bottle caps and lids":"Tappi e coperchi di bottiglia in metallo",
-#     "Packaging films nonfood or unknown":"Pellicole da imballaggio non alimentari o sconosciute"
-# }
-
-
-# fren = {
-#     'Zigarettenfilter': "Filtres à cigarettes",  
-#     'Fragmentierte Kunststoffe': "Plastiques fragmentés",
-#     'Expandiertes Polystyrol': "Polystyrène expansé",
-#     'Snack-Verpackungen':"Emballages alimentaires, bonbons",
-#     'Industriefolie (Kunststoff)':"film plastique épais",
-#     ' Getränkeflaschen aus Glas, Glasfragmente':"Bouteilles pour boissons, morceaux",
-#     'Industriepellets (Nurdles)':"Granules Plastique industriels (GPI)",
-#     'Schaumstoffverpackungen/Isolierung':"Isolation : y compris les mousses en spray",
-#     'Wattestäbchen/Tupfer':"Bâtonnets de coton-tige",
-#     "Expanded foams < 5mm":"Mousses expansées < 5 mm",
-#     'Kunststoff-Bauabfälle':"Déchets plastiques de construction",
-#     "Metal bottle caps and lids":"Bouchons et couvercles de bouteilles en métal", 
-#     'Verpackungsfolien, nicht für Lebensmittel':"Films d'emballage non alimentaires ou inconnus",
-# }
-
-# caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
-# col_widths=[4.5*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
-# mc_heatmap_title = Paragraph("Die am häufigsten gefundenen Objekte nach Gemeinden", featuredata.subsection_title)
-# tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
-#                     this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
-
-# # identify the tables variable as either a list or a Flowable:
-
-# if isinstance(tables, (list, np.ndarray)):
-#     grouped_pdf_components = [mc_heatmap_title, featuredata.large_space, *tables]
-# else:
-#     grouped_pdf_components = [mc_heatmap_title, featuredata.large_space, tables]
-    
-
-# new_components = [
-#     featuredata.small_space,
-#     KeepTogether(grouped_pdf_components)
-# ]
-
-
-# pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
-
-# # notebook display style
-# aformatter = {x: featuredata.replaceDecimal for x in mc_comp.columns}
-# mcd = mc_comp.style.format(aformatter).set_table_styles(table_css_styles)
-# mcd = mcd.background_gradient(axis=None, vmin=mc_comp.min().min(), vmax=mc_comp.max().max(), cmap="YlOrBr")
-
-# # remove the index name and column name labels
-# mcd.index.name = None
-# mcd.columns.name = None
-
-# # rotate the text on the header row
-# # the .applymap_index method in the
-# # df.styler module is used for this
-# mcd = mcd.applymap_index(featuredata.rotateText, axis=1)
-
-# # display markdown html
-# glue(f'{this_feature["slug"]}_mc_heat_map_caption', mc_heat_map_caption, display=False)
-
-# glue('thunerseebrienzersee_most_common_heat_map', mcd, display=False)
-
-
 # ```{glue:figure} t_b_fr
 # ```
 # __Ci-dessus:__ _Interprétation des résultats de l'inventaire. Les résultats agrégés de toutes les zones d'enquêtes figurent dans la colonne d'extrême droite, précédés des résultats agrégés de Thunersee et Brienzersee. Les six premières colonnes correspondent aux municipalités où les échantillons ont été prélevés. Cette norme est maintenue tout au long du document. Le chiffre représente la valeur médiane de l' inventaire pour cet objet. Si cet objet n'est pas trouvé dans au moins la moitié des inventaires, la valeur médiane sera de zéro. La valeur médiane est une estimation raisonnable du nombre d'objets susceptibles d'être trouvés si un inventaire de déchets sauvages était répétée._
@@ -764,7 +686,7 @@ glue('t_b_fr', mcdf, display=False)
 # 
 # Ce rapport est versionné, il est donc très facile de soumettre des articles ou des analyses qui corrigent, clarifient ou améliorent le contenu. Pour contribuer, envoyez une demande de retrait à [repo de fin d'échantillonnage](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021). Les soumissions sont acceptées dans toutes les langues nationales officielles de la Suisse. 
 
-# In[5]:
+# In[4]:
 
 
 doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=1*cm, rightMargin=1*cm, topMargin=1*cm, bottomMargin=1*cm)

@@ -2,8 +2,8 @@
 
 __Edition 2__ ver=1
 
-
-:::{image} resources/images/titlepage/conferencepresim.jpg
+Karte der Erhebungsorte März 2020 - August 2021
+:::{image} resources/maps/intro_map.jpeg
 :alt: Map of IQAASL locations
 :class: bg-primary mb-1
 :width: 1200px
