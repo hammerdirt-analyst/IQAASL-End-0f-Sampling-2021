@@ -637,7 +637,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # ### Verteilung der Ergebnisse 2018 und 2021
 
-# In[18]:
+# In[6]:
 
 
 # group by survey and sum all the objects for each survey AKA: survey total
@@ -760,7 +760,7 @@ plt.subplots_adjust(left=0, bottom=0 )
 plt.savefig(**save_figure_kwargs)
 
 # capture the output
-glue(figure_name, fig, display=True)
+glue(figure_name, fig, display=False)
 plt.close()
 
 
@@ -772,7 +772,133 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_surveys>` **Oben links:** Gesamtwerte der Erhebungen nach Datum. **Oben rechts:** Median der monatlichen Gesamtzahl der Erhebungen. **Unten links:** Anzahl der Stichproben in Bezug auf die Gesamtzahl der Erhebungen. **Unten rechts:** empirische Verteilungsfunktion der Gesamtzahlen der Erhebungen.
 
-# In[ ]:
+# In[7]:
+
+
+# chart that
+fig, ax = plt.subplots(2,2, figsize=(14,9), sharey=False)
+
+# set axs and lables
+axone=ax[0,0]
+axtwo = ax[0,1]
+axthree = ax[1,0]
+axfour = ax[1,1]
+
+axone.set_ylabel(unit_label, **featuredata.xlab_k14)
+axone.xaxis.set_minor_locator(months)
+axone.xaxis.set_major_locator(years)
+axone.set_xlabel(" ")
+
+axtwo.set_xlabel(" ")
+axtwo.set_ylabel(unit_label, **featuredata.xlab_k14)
+axtwo.set_ylim(-10, the_90th)
+
+axthree.set_ylabel("# di campioni", **featuredata.xlab_k14)
+axthree.set_xlabel(unit_label, **ck.xlab_k)
+
+axfour.set_ylabel("% di campioni", **featuredata.xlab_k14)
+axfour.set_xlabel(unit_label, **ck.xlab_k)
+
+# histogram data:
+data_long = pd.melt(data[["survey year", "loc_date", unit_label]],id_vars=["survey year","loc_date"], value_vars=(unit_label,), value_name="survey total")
+data_long["year_bin"] = np.where(data_long["survey year"] ==  "SLR", 0, 1)
+
+# scatter plot of surveys both years
+sns.scatterplot(data=data, x="date", y="p/100 m", color="red", s=10, ec="black", hue="survey year", palette=this_palette, ax=axone)
+axone.legend(loc="upper center", title="Totale indagine")
+
+# monthly median
+sns.lineplot(data=months_2017, x="month", y=unit_label, color=this_palette[ "SLR"], label= "SLR", ax=axtwo)
+sns.lineplot(data=months_2021, x="month", y=unit_label, color=this_palette["IQAASL"], label="IQAASL", ax=axtwo)
+axtwo.legend(title="Mediana mensile")
+
+# histogram
+axthree = sns.histplot(data=data_long, x="survey total", hue="survey year", stat="count", multiple="stack",palette=this_palette, ax=axthree, bins=[x*20 for x in np.arange(80)])
+axthree_legend = axthree.get_legend()
+axthree_legend.set_title("")
+
+# empirical cumulative distribution
+sns.lineplot(x=ecdf_2017.x, y=ecdf_2017.y, ax=axfour, color=this_palette[ "SLR"], label= "SLR")
+sns.lineplot(x=ecdf_2021.x, y=ecdf_2021.y, ax=axfour, color=this_palette["IQAASL"], label="IQAASL")
+
+axfour.xaxis.set_major_locator(ticker.MultipleLocator(1000)) 
+axfour.xaxis.set_minor_locator(ticker.MultipleLocator(100)) 
+
+axfour.legend(loc="center right")
+axfour.tick_params(which="both", bottom=True)
+axfour.grid(visible=True, which="minor",linewidth=0.5)
+
+figure_name = "slr_iqaasl_surveys_it"
+figure_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
+save_figure_kwargs.update({"fname":figure_file_name})
+plt.savefig(**save_figure_kwargs)
+plt.close()
+
+
+# In[8]:
+
+
+# chart that
+fig, ax = plt.subplots(2,2, figsize=(14,9), sharey=False)
+
+# set axs and lables
+axone=ax[0,0]
+axtwo = ax[0,1]
+axthree = ax[1,0]
+axfour = ax[1,1]
+
+axone.set_ylabel(unit_label, **featuredata.xlab_k14)
+axone.xaxis.set_minor_locator(months)
+axone.xaxis.set_major_locator(years)
+axone.set_xlabel(" ")
+
+axtwo.set_xlabel(" ")
+axtwo.set_ylabel(unit_label, **featuredata.xlab_k14)
+axtwo.set_ylim(-10, the_90th)
+
+axthree.set_ylabel("# d'échantillons", **featuredata.xlab_k14)
+axthree.set_xlabel(unit_label, **ck.xlab_k)
+
+axfour.set_ylabel("% d'échantillons", **featuredata.xlab_k14)
+axfour.set_xlabel(unit_label, **ck.xlab_k)
+
+# histogram data:
+data_long = pd.melt(data[["survey year", "loc_date", unit_label]],id_vars=["survey year","loc_date"], value_vars=(unit_label,), value_name="survey total")
+data_long["year_bin"] = np.where(data_long["survey year"] ==  "SLR", 0, 1)
+
+# scatter plot of surveys both years
+sns.scatterplot(data=data, x="date", y="p/100 m", color="red", s=10, ec="black", hue="survey year", palette=this_palette, ax=axone)
+axone.legend(loc="upper center", title="Totale inventaire")
+
+# monthly median
+sns.lineplot(data=months_2017, x="month", y=unit_label, color=this_palette[ "SLR"], label= "SLR", ax=axtwo)
+sns.lineplot(data=months_2021, x="month", y=unit_label, color=this_palette["IQAASL"], label="IQAASL", ax=axtwo)
+axtwo.legend(title="Valeur médiane mensuelle")
+
+# histogram
+axthree = sns.histplot(data=data_long, x="survey total", hue="survey year", stat="count", multiple="stack",palette=this_palette, ax=axthree, bins=[x*20 for x in np.arange(80)])
+axthree_legend = axthree.get_legend()
+axthree_legend.set_title("")
+
+# empirical cumulative distribution
+sns.lineplot(x=ecdf_2017.x, y=ecdf_2017.y, ax=axfour, color=this_palette[ "SLR"], label= "SLR")
+sns.lineplot(x=ecdf_2021.x, y=ecdf_2021.y, ax=axfour, color=this_palette["IQAASL"], label="IQAASL")
+
+axfour.xaxis.set_major_locator(ticker.MultipleLocator(1000)) 
+axfour.xaxis.set_minor_locator(ticker.MultipleLocator(100)) 
+
+axfour.legend(loc="center right")
+axfour.tick_params(which="both", bottom=True)
+axfour.grid(visible=True, which="minor",linewidth=0.5)
+
+figure_name = "slr_iqaasl_surveys_fr"
+figure_file_name = f'{save_fig_prefix}{figure_name}.jpeg'
+save_figure_kwargs.update({"fname":figure_file_name})
+plt.savefig(**save_figure_kwargs)
+plt.close()
+
+
+# In[9]:
 
 
 p8 = [
@@ -838,7 +964,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # ### Zusammenfassende Daten und Materialarten 2018 und 2021
 
-# In[ ]:
+# In[10]:
 
 
 #### format for printing
@@ -931,7 +1057,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_summary_tables>` **Links:** Zusammenfassung der Gesamtzahlen der Erhebung. **Rechts**: Materialarten. Bei den Chemikalien handelt es sich hauptsächlich um Paraffin und beim Holz um verarbeitetes Holz.
 
-# In[ ]:
+# In[11]:
 
 
 ssec2 = Paragraph("Zusammenfassende Daten und Materialarten 2018 und 2021", style=subsection_title)
@@ -974,7 +1100,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # > Alternativhypothese: Der Median des Erhebungsergebnisses von 2018 unterscheidet sich statistisch vom Median 2021 und der beobachtete Unterschied ist nicht zufällig.
 
-# In[ ]:
+# In[12]:
 
 
 ssec3 = Paragraph("Differenz der Mediane zwischen 2018 und 2021", style=subsection_title)
@@ -994,7 +1120,7 @@ l3 = makeAList(l3)
 
 
 
-# In[ ]:
+# In[13]:
 
 
 # data for testing
@@ -1057,7 +1183,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_dif_median>` Die Verteilung der Differenz der Mediane 2018 und 2021. Die Erhebungsergebnisse wurden gemischt und in der Spalte des Erhebungsjahres 5 000 Mal als Stichprobe gezogen. Die Nullhypothese kann nicht verworfen werden, was das Argument stützt, dass die Medianwerte der Erhebungsergebnisse von Jahr zu Jahr ungefähr gleich sind.
 
-# In[ ]:
+# In[14]:
 
 
 f5caption = makeAParagraph(f5caption, caption_style)
@@ -1081,7 +1207,7 @@ f5 = featuredata.figureAndCaptionTable(**figure_kwargs)
 # 
 # Die häufigsten Objekte sind die zehn mengenmässig am häufigsten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Erhebungen identifiziert wurden. Das sind 60–80 % aller Objekte, die in einem bestimmten Erhebungszeitraum identifiziert wurden. Die am häufigsten vorkommenden Objekte 2018 und 2021 sind nicht identisch. Um die Veränderungen zu bewerten, werden nur diejenigen Objekte berücksichtigt, die in beiden Jahren am häufigsten vorkamen. 
 
-# In[ ]:
+# In[15]:
 
 
 # code totals by project
@@ -1183,7 +1309,7 @@ glue(figure_name, com_2021x, display=False)
 # ```
 # {numref}`Abbildung %s: <2021_table>`  Häufigste Objekte IQAASL.
 
-# In[ ]:
+# In[16]:
 
 
 ssec4 = Paragraph("Die am häufigsten gefundenen Objekte", style=subsection_title)
@@ -1229,7 +1355,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Bei der Betrachtung der sechs Seen (oben) gab es 2021 mehr Proben und Erhebungsorte und grössere Mengen an gesammeltem Abfall, aber sowohl der Median als auch der Durchschnitt waren im Vergleich zu 2018 niedriger.  
 
-# In[ ]:
+# In[17]:
 
 
 # a df with just the lakes of interest
@@ -1254,7 +1380,7 @@ com_locs_20 = com_locs_df[com_locs_df["survey year"] == "IQAASL"].location.uniqu
 locs_lakes = lks_df[lks_df["survey year"] == "IQAASL"].location.unique()
 
 
-# In[ ]:
+# In[18]:
 
 
 data=lks_df.groupby(["survey year","loc_date", "date"], as_index=False)[unit_label].sum()
@@ -1359,7 +1485,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_lake_surveys>` **Oben links:** Erhebungssummen nach Datum. **Oben rechts:** Median der monatlichen Erhebungssumme. **Unten links:** Anzahl der Stichproben in Bezug auf die Erhebungssumme. **Unten rechts:** empirische Verteilungsfunktion der Erhebungssummen.
 
-# In[ ]:
+# In[19]:
 
 
 f8caption = makeAParagraph(f8caption, caption_style)
@@ -1379,7 +1505,7 @@ figure_kwargs = {
 f8 = featuredata.figureAndCaptionTable(**figure_kwargs)
 
 
-# In[ ]:
+# In[20]:
 
 
 # group by survey year and use pd.describe to get basic stats
@@ -1482,7 +1608,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_lakes_summary_tables>` **Links:** Zusammenfassung der Gesamterhebung. **Rechts:** Materialarten.
 
-# In[ ]:
+# In[21]:
 
 
 sec2 = Paragraph("Ergebnisse Seen 2018 und 2021", style=section_title)
@@ -1550,7 +1676,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # *Seen: Schlüsselindikatoren der häufigsten Abfallobjekte 2018 und 2021*
 
-# In[ ]:
+# In[22]:
 
 
 # compare the key indicators of the most common objects
@@ -1632,7 +1758,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_lakes_most_common>` Schlüsselindikatoren der häufigsten Abfallobjekte IQAASL und SLR
 
-# In[ ]:
+# In[23]:
 
 
 f10caption = makeAParagraph(f10caption, caption_style)
@@ -1660,7 +1786,7 @@ f10 = featuredata.figureAndCaptionTable(**figure_kwargs)
 # 
 # > Zweite Hypothese: Der Mittelwert der Erhebungsergebnisse für die Seen im Jahr 2018 unterscheidet sich statistisch vom Mittelwert für 2021. Der beobachtete Unterschied ist nicht auf Zufall zurückzuführen. 
 
-# In[ ]:
+# In[24]:
 
 
 # data for testing
@@ -1720,7 +1846,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_lakes_dif_average>` Die Verteilung der Differenz der Mittelwerte der beiden Stichprobenzeiträumen. Die Erhebungsergebnisse wurden gemischt und in der Spalte des Erhebungsjahres 5000 Mal als Stichprobe gezogen. Die Nullhypothese konnte verworfen werden, was die anfängliche Beobachtung stützt, dass im Jahr 2021 weniger beobachtet wurde als 2018.
 
-# In[ ]:
+# In[25]:
 
 
 ssec6 = Paragraph("Seen: Die am häufigsten gefundenen Objekte", style=subsection_title)
@@ -1793,7 +1919,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # * wenn p < 0,05 = gelb: Der Unterschied ist statistisch signifikant.
 
-# In[ ]:
+# In[26]:
 
 
 # data testing
@@ -1886,7 +2012,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_lakes_dif_objects>`  Der beobachtete Unterschied in den Mittelwerten zwischen den beiden Jahren könnte zum Teil durch den Rückgang der Mengen an Zigaretten, Schaumpolystyrol, Metallflaschenverschlüssen und zerbrochenen Kunststoffen erklärt werden.
 
-# In[ ]:
+# In[27]:
 
 
 small = lks_df[lks_df.code.isin([ "G20", "G21", "G22", "G23"])].groupby(["code", "survey year"], as_index=False).agg({"quantity":"sum", "p/100 m":"median"})
@@ -1897,7 +2023,7 @@ small.loc[small["survey year"] == "IQAASL", "p_t"] = small.quantity/ttl.loc["IQA
 # print(small.groupby(["survey year"]).sum())
 
 
-# In[ ]:
+# In[28]:
 
 
 ssec7 = Paragraph("Differenz der Mittel häufigste Objekte", style=subsection_title)
@@ -1962,7 +2088,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # *Unten: Eine Assoziation deutet darauf hin, dass sich die Erhebungssummen für das betreffende Objekt im Verhältnis zu der diesem Merkmal zugewiesenen Fläche (oder im Falle von Strassen oder Flussmündungen: Menge) ändern. Das Ausmass der Beziehung ist nicht definiert, und jede Assoziation ist nicht linear.*
 
-# In[ ]:
+# In[29]:
 
 
 ssec8 = Paragraph("Landnutzungsprofil: Spearmans rangierte Korrelation", style=subsection_title)
@@ -2012,7 +2138,7 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[ ]:
+# In[30]:
 
 
 corr_data = lks_df[(lks_df.code.isin(mcom))].copy()
@@ -2085,7 +2211,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <slr_iqaasl_lakes_landuse>` Eine Assoziation deutet darauf hin, dass sich die Erhebungssummen für das betreffende Objekt im Verhältnis zu der diesem Merkmal zugewiesenen Fläche (oder im Falle von Strassen oder Flussmündungen: Menge) ändern. Das Ausmass der Beziehung ist nicht definiert, und jede Assoziation ist nicht linear.
 
-# In[ ]:
+# In[31]:
 
 
 f13caption = makeAParagraph(f13caption, caption_style)
@@ -2123,7 +2249,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # * Allgegenwärtig: hohe Häufigkeitsrate, hohe Stückzahl pro Meter. Im gesamten Untersuchungsgebiet in gleichbleibender Häufigkeit gefunden, unabhängig von der Landnutzung
 # * Vorübergehend: geringe Häufigkeitsrate, hohe Menge, hohe Stückzahl pro Meter, wenige Verbände. Gelegentlich in grossen Mengen an bestimmten Orten gefunden.
 
-# In[ ]:
+# In[32]:
 
 
 ssec9 = Paragraph("Interpretation von Spearmans rho", style=subsection_title)
@@ -2232,7 +2358,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Künftige Erhebungen sollten sichtbare Objekte aller Grössenordnungen umfassen. Die Datenaggregation kann auf dem Server anhand definierter Regeln erfolgen, die auf bekannten Beziehungen basieren. Die Gesamtzahl ist ein Schlüsselindikator in allen Statistiken, die auf Zähldaten beruhen, und für Modellierungszwecke unerlässlich. 
 
-# In[ ]:
+# In[33]:
 
 
 sec3 = Paragraph("Fazit", style=section_title)
@@ -2470,7 +2596,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Bei beiden Projekten wurden alle Seen in allen Monaten beprobt. Im Jahr 2018 lag das Minimum der Proben pro Monat bei 12 und das Maximum bei 17, verglichen mit einem Minimum von 17 und einem Maximum von 34 im Jahr 2021.
 
-# In[ ]:
+# In[34]:
 
 
 # plot the monthly medidan results for the most common objects
@@ -2535,7 +2661,7 @@ glue("slr_monthly_results", mcdm, display=False)
 
 # 
 
-# In[ ]:
+# In[35]:
 
 
 # repeat for 2021
@@ -2566,12 +2692,6 @@ col_widths = [4.5*cm, *[1.2*cm]*(len(months_iqaasl.columns)-1)]
 d_chart = featuredata.aSingleStyledTable(months_iqaasl, vertical_header=False, gradient=True, colWidths=col_widths)
 d_capt = featuredata.makeAParagraph(["Durchschnittliche monatliche Erhebungsergebnisse der häufigsten Objekten an Seen IQAASL."], style=featuredata.caption_style)
 mc_table = featuredata.tableAndCaption(d_chart, d_capt, col_widths)
-# new_components = [
-#     small_space,
-#     mc_table
-# ]
-
-# pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # remove the index names for .html display
 months_iqaasl.index.name = None
@@ -2584,7 +2704,7 @@ mcdm = months_iqaasl.style.format(formatter=aformatter,precision=1).set_table_st
 glue("iqaasl_monthly_results", mcdm, display=False)
 
 
-# In[ ]:
+# In[36]:
 
 
 sec5 = Paragraph("Anhang", style=section_title)
@@ -2621,7 +2741,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # #### Erhebungsorte
 
-# In[ ]:
+# In[37]:
 
 
 # display the survey locations
@@ -2650,7 +2770,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 disp_beaches
 
 
-# In[ ]:
+# In[38]:
 
 
 new_components = [

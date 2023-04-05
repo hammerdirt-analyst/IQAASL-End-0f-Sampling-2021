@@ -1686,7 +1686,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # format for display
 pt_comp.index.name = None
 pt_comp.columns.name = None
-aformatter = {x: featuredata.replaceDecimal for x in grouppcs_comp.columns}
+aformatter = {x: featuredata.replaceDecimal for x in pt_comp.columns}
 ptd = pt_comp.style.format(aformatter).set_table_styles(table_css_styles).background_gradient(axis=None, vmin=pt_comp.min().min(), vmax=pt_comp.max().max(), cmap="YlOrBr")
 ptd = ptd.applymap_index(featuredata.rotateText, axis=1)
 glue('alpes_survey_area_codegroup_pcsm', ptd, display=False)
@@ -1703,7 +1703,7 @@ glue('alpes_survey_area_codegroup_pcsm', ptd, display=False)
 
 # ### Perzentil-Rangfolge der Erhebungsergebnisse in Bezug auf die Landnutzung
 
-# In[ ]:
+# In[20]:
 
 
 nvsn = fdt.location.unique()
@@ -1769,7 +1769,7 @@ glue('alpes_survey_area_pranking_luse', ptd, display=False)
 # ```
 # {numref}`Abbildung %s: <alpes_survey_area_pranking_luse>` Die Rangfolge der Erhebungsorte in den Alpen und im Jura in Bezug auf die Landnutzung. Die Erhebungsergebnisse in Airolo waren zum Beispiel höher als 83 % aller Erhebungen (Seen, Fliessgewässer, Alpen und Jura). In Andermatt liegen die Erhebungsergebnisse unter 95 % aller Erhebungen mit einem vergleichbaren Landnutzungsprofil.
 
-# In[ ]:
+# In[21]:
 
 
 f = t_data.T.sort_index()
@@ -1868,7 +1868,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Wir danken allen Mitgliedern der Summit Foundation für ihre Hilfe, insbesondere Olivier Kressmann und Téo Gürsoy. 
 
-# In[ ]:
+# In[22]:
 
 
 section_title = Paragraph("Diskussion", featuredata.section_title)
@@ -2123,7 +2123,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # 
 # Die folgende Tabelle enthält die Komponenten “Gfoam” und “Gfrags”, die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert. 
 
-# In[ ]:
+# In[23]:
 
 
 annex_title = Paragraph("Anhang", featuredata.section_title)
@@ -2220,7 +2220,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # ### Landnutzungsprofil der Erhebungsorte
 
-# In[ ]:
+# In[24]:
 
 
 # get the land use profile of AV
@@ -2283,7 +2283,7 @@ glue('alpes_survey_area_luse_commune', land_use_display, display=False)
 # * Wald: 0 to 83\%
 # * Bevölkerung: 199 to 10 668
 
-# In[ ]:
+# In[25]:
 
 
 # define land use ranges based on the sample data
@@ -2448,7 +2448,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <les-alpes_compare_luse>`{glue:text}`les-alpes_compare_notes`
 
-# In[ ]:
+# In[26]:
 
 
 compare_title = Paragraph("Alpen und Jura in Bezug auf die Landnutzung", featuredata.subsection_title)
@@ -2501,7 +2501,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 # ### Die Erhebungsorte
 
-# In[ ]:
+# In[27]:
 
 
 # display the survey locations
@@ -2521,7 +2521,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[ ]:
+# In[28]:
 
 
 pd.set_option("display.max_rows", None)
@@ -2560,7 +2560,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 complete_inventory
 
 
-# In[ ]:
+# In[29]:
 
 
 pd.set_option("display.max_rows", None)
@@ -2572,7 +2572,7 @@ complete_inventory.rename(columns=featuredata.inventory_table_de, inplace=True)
 complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
 
 
-# In[ ]:
+# In[30]:
 
 
 doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)

@@ -151,7 +151,7 @@ def defaultMapCaption(language: str = "de"):
     
 
 
-def thousandsSeparator(aninteger: int, lang: str = "de"):
+def thousandsSeparator(aninteger: int=None, lang: str = "de"):
     # Replaces the comma with a space in integers >= 1000
     astring = "{:,}".format(aninteger)
     if lang == "de":
@@ -1208,7 +1208,7 @@ def sectionParagraphs(a_list_of_lists, smallspace=small_space, style=p_style):
     return section
 
 
-def adminFormatNumericInteger(func=thousandsSeparator, an_int: str=None, language: str=None):
+def adminFormatNumericInteger(func=thousandsSeparator, an_int: str=None, language: str = "de"):
     # uses the method defined by func to apply numeric formatting according to the language variable
     try:
         data = func(an_int, language)

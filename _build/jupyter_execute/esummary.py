@@ -302,7 +302,7 @@ pdfcomponents = []
 # map_image =  Image(bassin_map, width=cm*19, height=20*cm, kind="proportional", hAlign= "CENTER")
 
 map_caption = [
-    "Karte der Erhebungsstandorte März 2020–August 2021. Die rot dargestellten Standorte betreffen Erhebungen an Fliessgewässern oder Seen, ",
+    "<b>Abbildung 1:</b> Karte der Erhebungsstandorte März 2020–August 2021. Die rot dargestellten Standorte betreffen Erhebungen an Fliessgewässern oder Seen, ",
     "die violetten Punkte sind die Standorte in den Alpen und im Jura."
 ]
 f1cap = makeAParagraph(map_caption, featuredata.caption_style),
@@ -317,15 +317,15 @@ def convertPixelToCm(file_name: str = None):
     
     return width_cm, height_cm
 
-astyle = "'display:flex; align-content:center; flex-flow:column no-wrap; flex-direction:column; width80%;  box-shadow: 0px 0px 3px #d2d9db'"
+astyle = "'display:flex; align-content:center; flex-flow:column no-wrap; flex-direction:column;  box-shadow: 0px 0px 3px #d2d9db'"
 
 
 def cardFigure(html_table: str=None, table_caption: str=None, style: str=astyle):
     
     
     figure_in_a_card = f"""
-    <div style={style}>
-        <div style='padding:10px;'>
+    <div style={style}> 
+       <div style='padding:20px;width:80%;margin:auto'>
             {html_table}
         </div>
         <div style='border-top: 1px solid #d2d9db;'>
@@ -357,12 +357,13 @@ figure_kwargs = {
 f1 = figureAndCaptionTable(**figure_kwargs)
 
 
+# (kurzfassung)=
 # # Kurzfassung
 # 
 # {Download}`Download </resources/pdfs/esummary.pdf>`
 # 
 # 
-# | [Italiano](italiande)| [Français](francaisde) |
+# |[Italiano](it-esum)| [Français](fr-esum)|
 # 
 # Beim Projekt «Identification, quantification and analysis of anthropogenic Swiss litter» (Identifizierung, Quantifizierung und Analyse von anthropogenem Abfall in der Schweiz, IQAASL) handelt es sich um ein vom Bundesamt für Umwelt (BAFU) in Auftrag gegebenes Projekt zur Erhebung von Daten über sichtbare Schadstoffe an Schweizer Seen und Flüssen. Mit Hilfe von Datenerhebungen wurden Abfallobjekte gesammelt und identifiziert, alle weggeworfenen Materialien wurden eingesammelt. Das Projekt wurde auf 20 Standorte in den Alpen und im Jura ausgeweitet, insgesamt wurden 406 Erhebungen von 163 Standorten in 95 Gemeinden genommen. 
 #     
@@ -371,11 +372,11 @@ f1 = figureAndCaptionTable(**figure_kwargs)
 # ```{card}
 # :class-card: sd-text-black
 # :img-top: resources/maps/esummary_map.jpeg
+# :margin: auto
 # +++
-# Figure : Karte der Erhebungsstandorte März 2020–August 2021. Die rot dargestellten Standorte betreffen Erhebungen an Fliessgewässern oder Seen, die violetten Punkte sind die Standorte in den Alpen und im Jura.
+# __Abbildung 1:__ *Karte der Erhebungsstandorte März 2020–August 2021. Die rot dargestellten Standorte betreffen Erhebungen an Fliessgewässern oder Seen, die violetten Punkte sind die Standorte in den Alpen und im Jura.*
 # ```
-# Gesamtwerte der Erhebungen nach Datum.
-# {numref}`Abbildung %s: <esummarymap_de>` Karte der Erhebungsstandorte März 2020–August 2021. Die rot dargestellten Standorte betreffen Erhebungen an Fliessgewässern oder Seen, die violetten Punkte sind die Standorte in den Alpen und im Jura.
+# 
 # 
 # ##  Seen und Flüsse 
 # 
@@ -511,10 +512,6 @@ new_components = [
 # add those sections
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
-
-# In[4]:
-
-
 # the bibiliography entries for the article:
 
 def aBibEntry(name, team, pub):
@@ -582,7 +579,7 @@ references = [
 # 
 # Gegenstände im Zusammenhang mit Lebensmitteln, Getränken und Tabakwaren werden häufiger an Erhebungsstandorten gefunden, an denen ein grösserer Landanteil von Gebäuden oder festen Infrastrukturen beansprucht wird, ganz im Gegensatz zu Standorten mit einem grösseren Anteil an Wäldern oder landwirtschaftlichen Flächen. Infrastrukturmaterial und fragmentierte Kunststoffe werden allerdings in allen Erhebungsgebieten unabhängig von der Landnutzung rund um die Erhebungsstandorte ähnlich häufig gefunden.
 
-# In[5]:
+# In[4]:
 
 
 ssec1 = Paragraph("Medianwert der Erhebungen", style=subsection_title)
@@ -647,7 +644,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[6]:
+# In[5]:
 
 
 # the most common objects results
@@ -675,7 +672,7 @@ esum_most_common = data.copy()
 # make caption
 # get percent of total to make the caption string
 mc_caption_string = [
-    "Gesamtergebnisse der Erhebung für alle Seen und Fliessgewässer: die am häufigsten gefundenen Gegenstände von März 2020 bis Mai 2021. ",
+    "<b>Abbildung 2:</b> Gesamtergebnisse der Erhebung für alle Seen und Fliessgewässer: die am häufigsten gefundenen Gegenstände von März 2020 bis Mai 2021. ",
     "Die Häufigkeitsrate (wird in diesem Bericht als “Ausfallrate” bezeichnet) entspricht dem Verhältnis der Anzahl Ereignisse, bei denen ",
     "ein Gegenstand mindestens einmal gefunden wurde, zur Anzahl der total durchgeführten Erhebungen. Die Menge gibt an, wie häufig ein Objekt ",
     "gefunden wurde, sowie der Medianwert der Abfallobjekte pro 100 Meter (p/100 m). So wurden beispielsweise in 87 Prozent der Erhebungen insgesamt ",
@@ -711,7 +708,7 @@ IPython.display.display(HTML(cardFigure(html_table=mcdic.to_html(), table_captio
 
 # Industriepellets und Schaumstoffe < 5 mm kamen beide in signifikanten Mengen vor, wurden jedoch in weniger als 50 Prozent der Erhebungen festgestellt (Median = 0). Dies deutet darauf hin, dass sie an spezifischen Standorten in hoher Dichte vorkommen. Zwar handelt es sich bei beiden Gegenständen um Mikroplastik, doch unterscheiden sich ihre Verwendung, ihre Herkunft und ihre Häufigkeit je nach Region des Erhebungsgebiets. Industriepellets sind Rohstoffe, die in Spritzgussverfahren verwendet werden, während Schaumstoffkügelchen entstehen, wenn Styropor zerkleinert wird. Weitere Angaben zu Standort, Mengen und Häufigkeit einzelner Gegenstände finden sich im  [Seen und Fleisgewässer](allsurveys).
 
-# In[7]:
+# In[6]:
 
 
 p15 = [
@@ -736,11 +733,11 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[8]:
+# In[7]:
 
 
 mc_heat_map_caption = [
-    "Alle Seen und Fliessgewässer nach Erhebungsgebiet: Der Medianwert der am häufigsten gefundenen Gegenstände; die ",
+    "<b>Abbildung 3:</b> Alle Seen und Fliessgewässer nach Erhebungsgebiet: Der Medianwert der am häufigsten gefundenen Gegenstände; die ",
     "Häufigkeiten variieren je nach Region des Erhebungsgebiets. So wiesen fragmentierte Kunststoffe in den Erhebungsgebieten ",
     "Aare (18,5 p/100 m) und Rhone (48 p/100 m) die höchsten Medianwerte auf."
 ]
@@ -772,24 +769,14 @@ mc_period = featuredata.changeSeriesIndexLabels(mc_period, {x:fdx.dMap.loc[x] fo
 # add the feature, bassin_label and period results to the components table
 mc_comp["Alle Erhebungsgebiete"]= mc_feature
 
-caption_prefix =  f'Median {unit_label} der häufigsten Objekte am '
 col_widths=[5.1*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
-mc_heatmap_title = Paragraph(f"Häufigste Objekte im Median {unit_label} nach Erhebungsgebiet", featuredata.bold_block)
-tables = featuredata.splitTableWidth(mc_comp, gradient=True, caption_prefix=caption_prefix, caption=mc_heat_map_caption,
-                    this_feature=this_feature["name"], vertical_header=True, colWidths=col_widths)
 
-# identify the tables variable as either a list or a Flowable:
-if isinstance(tables, list):
-    grouped_pdf_components = [*tables]
-else:
-    grouped_pdf_components = [tables]
-    
+atable = aSingleStyledTable(mc_comp, gradient=True, vertical_header=True, colWidths=col_widths)
+atable_cap = makeAParagraph(mc_heat_map_caption, style=caption_style)
+table_and_cap =tableAndCaption(atable, atable_cap, col_widths)
 
 new_components = [
-    # featuredata.small_space,
-    # mc_heatmap_title,
-    # featuredata.small_space,
-    *grouped_pdf_components
+     table_and_cap
 ]
 
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
@@ -814,20 +801,21 @@ IPython.display.display(HTML(cardFigure(html_table=mcd.to_html(), table_caption=
 
 # ## Trends 2017–2018
 # 
-# Ein Vergleich der IQAASL-Ergebnisse mit ähnlichen Daten für Seen und Fliessgewässer, die 2017/2018 (SLR) erhoben wurden, zeigen keine statistischen Unterschiede. Allerdings gab es Abweichungen bei der Häufigkeit der Gegenstände. So wurden in der Erhebungsperiode 2020–2021 im Allgemeinen weniger Zigaretten und Flaschendeckel gefunden. An vielen Standorten wurden jedoch keine Veränderungen beobachtet und die Menge an fragmentierten Kunst- und Schaumstoffen dürfte zugenommen haben ( Details siehe [ Vergleich der Datenerhebungen seit 2018](slr-iqaasl)).
+# Ein Vergleich der IQAASL-Ergebnisse mit ähnlichen Daten für Seen und Fliessgewässer, die 2017/2018 (SLR) erhoben wurden, zeigen keine statistischen Unterschiede. Allerdings gab es Abweichungen bei der Häufigkeit der Gegenstände. So wurden in der Erhebungsperiode 2020–2021 im Allgemeinen weniger Zigaretten und Flaschendeckel gefunden. An vielen Standorten wurden jedoch keine Veränderungen beobachtet und die Menge an fragmentierten Kunst- und Schaumstoffen dürfte zugenommen haben ( Details siehe [ Vergleich der Datenerhebungen seit 2018](slr-iqaasl).
 # 
 # ```{card}
 # :class-card: sd-text-black
 # :img-top: resources/output/slr_iqaasl_surveys.jpeg
+# :margin: auto
 # +++
-# Gesamtwerte der Erhebungen nach Datum.
+# __Abbildung 4:__ *Vergleich der Erhebungsergebnisse von SLR (2018) und IQAASL (2021). __Oben links:__ Gesamtergebnisse der Erhebung nach Datum. __Oben rechts:__ Median der Gesamtergebnisse der monatlichen Erhebungen. __Unten links:__ Anzahl Proben im Verhältnis zum Gesamtergebnis der Erhebung. __Unten rechts:__ empirische kumulative Verteilung der Gesamtergebnisse der Erhebung.* 
 # ``` 
 # 
 # ## Die Alpen und der Jura
 # 
-# Von den 20 Erhebungen im Erhebungsgebiet Alpen wiesen 17 eine Länge und eine Breite von über 10 m auf. Der Medianwert der Erhebungen betrug 110 p/100 m und lag damit unter dem Medianwert der anderen Erhebungsgebiete (189 p/100 m). Gegenstände aus dem Konsumbereich wie Lebensmittel und Getränke oder Tabakwaren machten einen geringeren Anteil an der Gesamtzahl aus und wiesen eine tiefere p/100 m-Rate auf im Vergleich zu den Ergebnissen von Standorten an Uferlinien. Dieser Unterschied könnte teilweise auf den geringen Verstädterungsgrad des Erhebungsgebiets Alpen im Vergleich zu allen anderen Erhebungsgebieten zurückzuführen sein sowie darauf, dass Material sich tendenziell flussabwärts bewegt. Für die Ergebungsmethodik und die Ergebnisse der Erhebung in den Alpen siehe [ Die Alpen und der Jura ](lesalpes)).
+# Von den 20 Erhebungen im Erhebungsgebiet Alpen wiesen 17 eine Länge und eine Breite von über 10 m auf. Der Medianwert der Erhebungen betrug 110 p/100 m und lag damit unter dem Medianwert der anderen Erhebungsgebiete (189 p/100 m). Gegenstände aus dem Konsumbereich wie Lebensmittel und Getränke oder Tabakwaren machten einen geringeren Anteil an der Gesamtzahl aus und wiesen eine tiefere p/100 m-Rate auf im Vergleich zu den Ergebnissen von Standorten an Uferlinien. Dieser Unterschied könnte teilweise auf den geringen Verstädterungsgrad des Erhebungsgebiets Alpen im Vergleich zu allen anderen Erhebungsgebieten zurückzuführen sein sowie darauf, dass Material sich tendenziell flussabwärts bewegt. Für die Ergebungsmethodik und die Ergebnisse der Erhebung in den Alpen siehe [ Die Alpen und der Jura ](lesalpes).
 
-# In[9]:
+# In[8]:
 
 
 sec2 = Paragraph("Trends 2017-2018", style=section_title)
@@ -837,12 +825,12 @@ p16 = [
     "zeigen keine statistischen Unterschiede. Allerdings gab es Abweichungen bei der Häufigkeit der Gegenstände. So wurden in ",
     "der Erhebungsperiode 2020–2021 im Allgemeinen weniger Zigaretten und Flaschendeckel gefunden. An vielen Standorten wurden ",
     "jedoch keine Veränderungen beobachtet und die Menge an fragmentierten Kunst- und Schaumstoffen dürfte zugenommen haben ",
-    '( Details siehe <a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/slr-iqaasl.html" color="blue"> Vergleich der Datenerhebungen seit 2018</a>)',
+    '(Details siehe <a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/slr-iqaasl.html" color="blue"> Vergleich der Datenerhebungen seit 2018</a>)',
 
 ]
 p16 = makeAParagraph(p16)
 
-o_w, o_h = convertPixelToCm("resources/output/slr_iqaasl_surveys.jpeg")
+
 f2cap = [
    "Vergleich der Erhebungsergebnisse von SLR (2018) und IQAASL (2021). <b>Oben links:</b> Gesamtergebnisse der Erhebung nach Datum. <b>Oben rechts:</b> Median ",
     "der Gesamtergebnisse der monatlichen Erhebungen. <b>Unten links: </b> Anzahl Proben im Verhältnis zum Gesamtergebnis der Erhebung. <b>Unten rechts:</b> ",
@@ -859,11 +847,12 @@ p17 = [
     "und Getränke oder Tabakwaren machten einen geringeren Anteil an der Gesamtzahl aus und wiesen eine tiefere p/100 m-Rate auf im Vergleich zu ",
     "den Ergebnissen von Standorten an Uferlinien. Dieser Unterschied könnte teilweise auf den geringen Verstädterungsgrad des Erhebungsgebiets Alpen im ",
     "Vergleich zu allen anderen Erhebungsgebieten zurückzuführen sein sowie darauf, dass Material sich tendenziell flussabwärts bewegt. Für die ",
-    "Ergebungsmethodik und die Ergebnisse der Erhebung in den Alpen siehe [ Die Alpen und der Jura ](lesalpes)).",
-    '( Details siehe <a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/alpes_valaisannes.html" color="blue"> Die Alpen und der Jura</a>)'
+    "Ergebungsmethodik und die Ergebnisse der Erhebung in den Alpen siehe ",
+    '<a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/alpes_valaisannes.html" color="blue">Die Alpen und der Jura</a>.'
 ]
 p17 = makeAParagraph(p17)
 
+o_w, o_h = convertPixelToCm("resources/output/slr_iqaasl_surveys.jpeg")
 figure_kwargs = {
     "image_file":"resources/output/slr_iqaasl_surveys.jpeg",
     "caption": f2cap, 
@@ -910,7 +899,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # Die Organisationen, die sich an IQAASL beteiligt haben, suchen aktiv nach Möglichkeiten, den Datenerhebungsprozess und/oder die Ergebnisse in ihr eigenes Geschäftsmodell zu integrieren. Allerdings gibt es in vielen regionalen Organisationen zu wenige Datenwissenschaftlerinnen und Datenwissenschaftler, was den Integrationsprozess verlängern und die Innovationsrate auf der Ebene, auf der sie am nötigsten wäre, drosseln könnte
 
-# In[10]:
+# In[9]:
 
 
 sec4 = Paragraph("Kommunikation der Ergebnisse", style=section_title)
@@ -1002,7 +991,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # Akademische Kreise formell in Planung, Probenahme und Analyse einbeziehen. Dieses Projekt wurde durch die Zusammenarbeit von Professorinnen und Professoren von ETH, UNIGE, EPFL, PSI und FHNW geprägt. Universitäre Partner wären ideal, um die Analysemethoden weiterzuentwickeln. Das Citizen Science Center (ETH) und das Citizen Cyberlab (UNIGE) verfügen über die Erfahrung und die Infrastruktur, um bürgerwissenschaftliche Überwachungsprojekte mit Forschungstätigkeiten zu verknüpfen. Auf diese Weise kann ein äusserst anpassungsfähiger und effizienter Überwachungsplan erarbeitet werden.
 # 
 
-# In[11]:
+# In[10]:
 
 
 sec6 = Paragraph("Empfehlungen", style=section_title)
@@ -1053,7 +1042,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # __Gegenstände im Zusammenhang mit Landnutzungsmerkmalen__
 # 
-# Die Ergebnisse weisen auf einen positiven Zusammenhang zwischen der Anzahl Gebäude und der Menge an Gegenständen aus den Bereichen Lebensmittel, Getränke und Tabakwaren hin. Dies legt nahe, dass Strategien zur Verringerung dieser Gegenstände in Gebieten ansetzen sollten, die eine hohe Konzentration an Infrastrukturen in Ufernähe aufweisen. Die Ergebnisse aus dem Erhebungsgebiet Rhone lassen vermuten, dass sich lokale Sensibilisierungskampagnen positiv auswirken könnten ( siehe  [Seen und Fleisgewässer](allsurveys). ). Auch wenn alle Gegenstände im Zusammenhang mit Lebensmitteln, Getränken und Tabakwaren, auf die Sensibilisierungskampagnen für Abfall in der Regel abzielen, beseitigt würden, würde dies die Gesamtmengen zwar signifikant reduzieren, doch würden immer noch 64 Prozent des Materials liegen bleiben.
+# Die Ergebnisse weisen auf einen positiven Zusammenhang zwischen der Anzahl Gebäude und der Menge an Gegenständen aus den Bereichen Lebensmittel, Getränke und Tabakwaren hin. Dies legt nahe, dass Strategien zur Verringerung dieser Gegenstände in Gebieten ansetzen sollten, die eine hohe Konzentration an Infrastrukturen in Ufernähe aufweisen. Die Ergebnisse aus dem Erhebungsgebiet Rhone lassen vermuten, dass sich lokale Sensibilisierungskampagnen positiv auswirken könnten siehe [Seen und Fleisgewässer](allsurveys). Auch wenn alle Gegenstände im Zusammenhang mit Lebensmitteln, Getränken und Tabakwaren, auf die Sensibilisierungskampagnen für Abfall in der Regel abzielen, beseitigt würden, würde dies die Gesamtmengen zwar signifikant reduzieren, doch würden immer noch 64 Prozent des Materials liegen bleiben.
 # 
 # Weitere gängige Reduktionsstrategien sind u. a. die folgenden:
 # 
@@ -1063,7 +1052,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # Viele Länder haben bereits begonnen, Einschränkungen für bestimmte Gegenstände einzuführen. So dürfen beispielsweise Einwegteller und -besteck aus Plastik, Strohhalme, Ballonstäbe und Wattestäbchen aus Kunststoff seit dem 3. Juli 2021 in den EU-Mitgliedstaaten nicht mehr verkauft werden. In Frankreich werden in Regenwasserkanalisationen erfolgreich Rückhaltenetze eingesetzt, damit Abfälle nicht mehr in Seen und Fliessgewässer gelangen, was jedoch Investitionen in Infrastruktur, Ausrüstung und Arbeitskräfte bedingt.
 
-# In[12]:
+# In[11]:
 
 
 sec7 = Paragraph("Beseitigung und Reduktion", style=section_title)
@@ -1147,7 +1136,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # Beseitigungs- oder Reduktionsstrategien erfordern regionale Massnahmen, um auch die Gemeinden oberhalb der Erhebungsstandorte miteinzubeziehen. Wahrscheinlich würde eine weniger starke Abhängigkeit von Einwegkunststoffen, Schaumstoffen, Baukunststoffen und Industriefolien dazu führen, dass kleinere Mengen dieser Materialien in die Umwelt gelangen. Da diese Materialien günstige Wegwerfwaren sind, wurden sie in allen Sektoren immer häufiger eingesetzt, wodurch eine immer grössere Abhängigkeit entstand. Das geringe Gewicht und ihre Abbaueigenschaften erleichtern die Fragmentierung dieser Materialien sowie ein Entweichen in die Umwelt, insbesondere, wenn sie länger im Freien verbleiben. Kunststoffschadstoffe sind ein weltweites Problem und immer mehr Länder ergreifen Massnahmen, um weniger von Einwegkunststoffen und -schaumstoffen wie Styropor abhängig zu sein.
 
-# In[13]:
+# In[12]:
 
 
 sec7 = Paragraph("Nicht mit der Landnutzung verbundene Gegenstände", style=section_title)
@@ -1217,9 +1206,10 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
 
+# (it-esum)=
 # ## Sommario esecutivo
 # 
-# | Deutsch | Français |
+# | [Deutsch](kurzfassung) | [Français](fr-esum)|
 # 
 # IQAASL (Identificazione, quantificazione e analisi dei rifiuti antropogenici in Svizzera) è un progetto commissionato dall’Ufficio federale dell’ambiente (UFAM) per raccogliere dati sugli inquinanti visibili lungo le rive di laghi e fiumi svizzeri. Tutti i materiali scaricati nell’ambiente sono stati raccolti e identificati con l’ausilio di tecniche d’indagine sui rifiuti. Il progetto è stato ampliato al fine di includere 20 ubicazioni nelle Alpi e nel Giura, per un totale di 406 campioni prelevati da 163 ubicazioni in 95 comuni.
 # 
@@ -1227,9 +1217,10 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # ```{card}
 # :class-card: sd-text-black
-# :img-top: resources/maps/esummary_map.jpeg
+# :img-top: resources/maps/esummary_mapit.jpeg
+# :margin: auto
 # +++
-# Figure : Karte der Erhebungsstandorte März 2020–August 2021. Die rot dargestellten Standorte betreffen Erhebungen an Fliessgewässern oder Seen, die violetten Punkte sind die Standorte in den Alpen und im Jura.
+# __Figura 1:__ *Mappa delle ubicazioni oggetto d’indagine da marzo 2020 ad agosto 2021. Le ubicazioni contrassegnate in rosso indicano le indagini su fiumi o laghi e i punti in viola designano le ubicazioni sulle Alpi e nel Giura.*
 # ```
 # ## Laghi e fiumi
 # 
@@ -1255,7 +1246,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # 
 
-# In[14]:
+# In[13]:
 
 
 p41 = makeAParagraph(["Area d’indagine dell’Aare"], style=bold_block)
@@ -1348,14 +1339,8 @@ figure_kwargs = {
 
 f1i = figureAndCaptionTable(**figure_kwargs)
 
-
-
-
-
-
-
 new_components = [
-    large_space,
+    PageBreak(),
     seci,
     small_space,
     *p36_37,
@@ -1394,7 +1379,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # Le indagini in Svizzera hanno evidenziato in media una portata più ridotta rispetto agli ambienti marini e sono state condotte in ubicazioni che nella maggior parte delle circostanze sarebbero considerate urbane. Finora, nel continente europeo il monitoraggio generalizzato di laghi e fiumi a monte delle regioni costiere non è stato una pratica generalizzata. È tuttavia in atto un’iniziativa coordinata, condotta da un gruppo di associazioni in Svizzera e in Francia, per definire un protocollo comune di monitoraggio e scambio di dati per il bacino del Rodano. L’Università e istituto di ricerca di Wageningen, Paesi Bassi, ha altresì iniziato ad analizzare i dati raccolti nel delta della Mosa e del Reno utilizzando protocolli analoghi a quelli IQAASL {cite}`meuserhine`.
 # 
 
-# In[15]:
+# In[14]:
 
 
 sseci1 = Paragraph("Totale mediano dell’indagine", style=subsection_title)
@@ -1440,68 +1425,669 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # Gli oggetti correlati al consumo di prodotti alimentari, bevande e tabacco vengono censiti con percentuali più elevate nelle zone d’indagine con una quota maggiore di edifici o infrastrutture fisse. Una tendenza inversa si riscontra nelle ubicazioni con una percentuale maggiore di terreni ricoperti da boschi o dedicati ad attività agricole. Materiali per infrastrutture e plastiche frammentate sono invece reperiti con una frequenza analoga in tutte le aree d’indagine, indipendentemente dalla destinazione d’uso dei terreni circostanti.
 
-# ```{card}
-# :class-card: sd-text-black
-# :img-top: resources/output/slr_iqaasl_surveys.jpeg
-# +++
-# Figure : Gli oggetti correlati al consumo di prodotti alimentari, bevande e tabacco vengono censiti con percentuali più elevate nelle zone d’indagine con una quota maggiore di edifici o 
-# ``` 
-
-# In[16]:
-
-
-f2icap = [
-    "Totale delle indagini per tutti i laghi e i fiumi: gli oggetti più comuni censiti da marzo 2020 a maggio 2021. Il tasso ",
-    "di occorrenza (indicato come “tasso di insuccesso” in questo rapporto) è il rapporto tra il numero di volte in cui un ",
-    "oggetto è stato censito con almeno un’occorrenza rispetto al numero totale di indagini. La quantità è il numero totale ",
-    "di elementi raccolti per un oggetto censito e la mediana dei pezzi di rifiuti per 100 metri lineari (p/100 m). Per esempio, ",
-    "un totale di 8 485 mozziconi di sigarette è stato censito nell’87 per cento delle indagini, pari al 15 per cento degli elementi ",
-    "totali raccolti e con un valore mediano di 20 mozziconi per 100 metri lineari di linea rivierasca."
-]
-
-f2i_cap = ''.join(f2icap)
-fg = mcdic.to_html()
-
-
-
-
-
-
-# In[17]:
+# In[15]:
 
 
 sseci2 = Paragraph("Gli oggetti più comuni", style=subsection_title)
 
 p48 = [
-    "Gli oggetti più comuni sono definiti come quegli elementi censiti in almeno il 50 per cento di tutte le indagini e/o che si collocano tra i ",
-    "dieci più frequenti per quantità. Come gruppo, gli oggetti più comuni rappresentano il 68 per cento di tutti gli elementi censiti nel periodo ",
-    "di campionamento. Nel novero degli elementi più comuni, il 27 per cento è correlato al consumo di prodotti alimentari, bevande e tabacco, mentre ",
-    "il 24 per cento proviene da infrastrutture e agricoltura."
+    "Gli oggetti più comuni sono definiti come quegli elementi censiti in almeno il 50 per cento di tutte le indagini e/o che ",
+    "si collocano tra i dieci più frequenti per quantità. Come gruppo, gli oggetti più comuni rappresentano il 68 per cento di ",
+    "tutti gli elementi censiti nel periodo di campionamento. Nel novero degli elementi più comuni, il 27 per cento è correlato ",
+    "al consumo di prodotti alimentari, bevande e tabacco, mentre il 24 per cento proviene da infrastrutture e agricoltura."
 ]
 
 p49 = [
-    "Gli oggetti correlati al consumo di prodotti alimentari, bevande e tabacco vengono censiti con percentuali più elevate nelle zone d’indagine con ",
-    "una quota maggiore di edifici o infrastrutture fisse. Una tendenza inversa si riscontra nelle ubicazioni con una percentuale maggiore di terreni ",
-    "ricoperti da boschi o dedicati ad attività agricole. Materiali per infrastrutture e plastiche frammentate sono invece reperiti con una frequenza ",
-    "analoga in tutte le aree d’indagine, indipendentemente dalla destinazione d’uso dei terreni circostanti.",
+    "Gli oggetti correlati al consumo di prodotti alimentari, bevande e tabacco vengono censiti con percentuali più elevate nelle ",
+    "zone d’indagine con una quota maggiore di edifici o infrastrutture fisse. Una tendenza inversa si riscontra nelle ubicazioni con ",
+    "una percentuale maggiore di terreni ricoperti da boschi o dedicati ad attività agricole. Materiali per infrastrutture e plastiche ",
+    "frammentate sono invece reperiti con una frequenza analoga in tutte le aree d’indagine, indipendentemente dalla destinazione d’uso ",
+    "dei terreni circostanti."
 ]
 
 p48_49 = sectionParagraphs([p48, p49], smallspace=smallest_space)
 
 new_components = [
-    sseci1,
-    small_space,
-    *p45_47,
+    PageBreak(),
     sseci2,
     small_space,
-    *p48_49
+    *p48_49,
     
 ]
 # add those sections
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
+ital = {
+    "Zigarettenfilter": "Filtri di sigarette" ,
+    "Fragmentierte Kunststoffe":"Plastica frammentata",
+    "Expandiertes Polystyrol": "Polistirolo espanso",
+    "Snack-Verpackungen":"Incarti di cibo; caramelle, snack",
+    "Industriefolie (Kunststoff)": "Telo industriale",
+    " Getränkeflaschen aus Glas, Glasfragmente":"Bottiglie per bevande in vetro, pezzi",
+    "Industriepellets (Nurdles)":"Pellet industriali (nurdles)",
+    "Schaumstoffverpackungen/Isolierung": "Schiume isolanti",
+    "Wattestäbchen/Tupfer":"Bastoncini di cotton fioc/ tampone",
+    "Styropor < 5mm":"Schiume espanse < 5mm",
+    "Kunststoff-Bauabfälle":"Rifiuti plastici da costruzione",
+    "Kronkorken, Lasche von Dose/Ausfreisslachen":"Tappi e coperchi di bottiglia in metallo",
+    "Packaging films nonfood or unknown":"Pellicole da imballaggio non alimentari o sconosciute"
+}
+
+
+fren = {
+    "Zigarettenfilter": "Filtres à cigarettes",  
+    "Fragmentierte Kunststoffe": "Plastiques fragmentés",
+    "Expandiertes Polystyrol": "Polystyrène expansé",
+    "Snack-Verpackungen":"Emballages alimentaires, bonbons",
+    "Industriefolie (Kunststoff)":"film plastique épais",
+    " Getränkeflaschen aus Glas, Glasfragmente":"Bouteilles pour boissons, morceaux",
+    "Industriepellets (Nurdles)":"Granules Plastique industriels (GPI)",
+    "Schaumstoffverpackungen/Isolierung":"Isolation : y compris les mousses en spray",
+    "Wattestäbchen/Tupfer":"Bâtonnets de coton-tige",
+    "Styropor < 5mm":"Mousses expansées < 5 mm",
+    "Kunststoff-Bauabfälle":"Déchets plastiques de construction",
+    "Kronkorken, Lasche von Dose/Ausfreisslachen":"Bouchons et couvercles de bouteilles en métal", 
+    "Packaging films nonfood or unknown":"Films d'emballage non alimentaires ou inconnus",
+}
+
+# the most common objects results
+most_common_display = fdx.most_common
+
+# language appropriate columns
+cols_to_use = featuredata.most_common_objects_table_de
+cols_to_use.update({unit_label:unit_label})
+
+# data for display
+most_common_display.rename(columns=cols_to_use, inplace=True)
+most_common_display = most_common_display[cols_to_use.values()].copy()
+most_common_display = most_common_display.set_index("Objekte", drop=True)
+
+# .pdf output
+data = most_common_display.copy()
+data["Anteil"] = data["Anteil"].map(lambda x: f"{int(x)}%")
+data['Objekte (St.)'] = data['Objekte (St.)'].map(lambda x:featuredata.thousandsSeparator(x, language))
+data['Häufigkeitsrate'] = data['Häufigkeitsrate'].map(lambda x: f"{x}%")
+data[unit_label] = data[unit_label].map(lambda x: featuredata.replaceDecimal(round(x,1)))
+new_cols = {'Objekte (St.)':"quantita", "Anteil":"% del totale", 'Häufigkeitsrate':'tasso di occorrenza'}
+data.rename(columns=new_cols, inplace=True)
+
+data["Index"] = data.index.map(lambda x: ital[x])
+data.set_index("Index", drop=True, inplace=True)
+
+# save a copy for the frnech and italian versions
+esum_most_common = data.copy()
+
+# make caption
+# get percent of total to make the caption string
+mc_caption_string = [
+    "<b>Figura 2:</b> Totale delle indagini per tutti i laghi e i fiumi: gli oggetti più comuni censiti da marzo 2020 a maggio 2021. Il tasso ",
+    "di occorrenza (indicato come “tasso di insuccesso” in questo rapporto) è il rapporto tra il numero di volte in cui un ",
+    "oggetto è stato censito con almeno un’occorrenza rispetto al numero totale di indagini. La quantità è il numero totale ",
+    "di elementi raccolti per un oggetto censito e la mediana dei pezzi di rifiuti per 100 metri lineari (p/100 m). Per esempio, ",
+    "un totale di 8 485 mozziconi di sigarette è stato censito nell’87 per cento delle indagini, pari al 15 per cento degli elementi ",
+    "totali raccolti e con un valore mediano di 20 mozziconi per 100 metri lineari di linea rivierasca."
+]
+   
+
+colWidths = [5.1*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
+
+d_chart = aSingleStyledTable(data, colWidths=colWidths)
+d_capt = makeAParagraph(mc_caption_string, caption_style)
+mc_table = tableAndCaption(d_chart, d_capt, colWidths)
+
+new_components = [
+    smallest_space,
+    mc_table,
+]
+
+pdfcomponents = addToDoc(new_components, pdfcomponents)
+
+most_common_display["Index"] = most_common_display.index.map(lambda x: ital[x])
+most_common_display.set_index("Index", inplace=True, drop=True)
+most_common_display.index.name = None
+most_common_display.columns.name = None
+
+most_common_display.rename(columns=new_cols, inplace=True)
+
+# set pandas display
+aformatter = {
+    "% del totale":lambda x: f"{int(x)}%",
+    f"{unit_label}": lambda x: featuredata.replaceDecimal(x, "de"),
+    'tasso di occorrenza': lambda x: f"{int(x)}%",   
+    "quantita": lambda x: featuredata.thousandsSeparator(int(x), "de")
+}
+
+mcdic = most_common_display.style.format(aformatter).set_table_styles(table_css_styles)
+
+
+
+
+IPython.display.display(HTML(cardFigure(html_table=mcdic.to_html(), table_caption= "".join(mc_caption_string))))
+
+
+# Granulati di plastica di provenienza industriale e schiume espanse < 5 mm hanno evidenziato entrambi occorrenze in quantità significative, ma sono stati censiti in meno del 50 per cento delle indagini (mediana di 0), indicando conteggi elevati in ubicazioni specifiche. Pur trattandosi in entrambi i casi di microplastiche, le loro peculiarità in termini di impiego, origine e tasso di occorrenza sono diverse a seconda della regione dell’area d’indagine. I granulati di plastica di provenienza industriale sono materie prime usate nei processi di stampaggio a iniezione e le palline di plastica espansa derivano dalla frammentazione del polistirolo espanso. Per maggiori informazioni su ubicazione, quantità e tasso di occorrenza dei singoli oggetti, si veda la sezione [Laghi e fiumi - deutsch](allsurveys)
+
+# In[16]:
+
+
+p50 = [
+    "Granulati di plastica di provenienza industriale e schiume espanse < 5 mm hanno evidenziato entrambi occorrenze in quantità significative, ",
+    "ma sono stati censiti in meno del 50 per cento delle indagini (mediana di 0), indicando conteggi elevati in ubicazioni specifiche. Pur ",
+    "trattandosi in entrambi i casi di microplastiche, le loro peculiarità in termini di impiego, origine e tasso di occorrenza sono diverse a ",
+    "seconda della regione dell’area d’indagine. I granulati di plastica di provenienza industriale sono materie prime usate nei processi di ",
+    "stampaggio a iniezione e le palline di plastica espansa derivano dalla frammentazione del polistirolo espanso. Per maggiori informazioni su "
+    "ubicazione, quantità e tasso di occorrenza dei singoli oggetti, si veda la sezione ",
+    '<a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/lakes_rivers.html" color="blue">Laghi e fiumi -deutsch</a>.'
+]
+
+p50 = makeAParagraph(p50)
+
+new_components = [
+    smallest_space,
+    p50,
+    smallest_space 
+]
+# add those sections
+pdfcomponents = addToDoc(new_components, pdfcomponents)
+
+mc_heat_map_caption = [
+    "<b>Figura 3:</b> Tutti i laghi e i fiumi per area di indagine: totale mediano dell’indagine degli oggetti più comuni censiti; le percentuali ",
+    "variano a seconda della regione dell’area d’indagine. Per esempio, le plastiche frammentate hanno evidenziato il valore mediano ",
+    "maggiore nelle aree d’indagine di Aare (18,5 p/100 m) e Rodano (48 p/100 m).",
+]
+mc_heat_map_caption = ''.join(mc_heat_map_caption)
+
+# calling componentsMostCommon gets the results for the most common codes
+# at the component level
+components = fdx.componentMostCommonPcsM()
+
+# map to proper names for features
+feature_names = featuredata.river_basin_de
+
+# pivot that and quash the hierarchal column index that is created when the table is pivoted
+mc_comp = components[["item", unit_label, this_level]].pivot(columns=this_level, index="item")
+mc_comp.columns = mc_comp.columns.get_level_values(1)
+
+# insert the proper columns names for display
+proper_column_names = {x : feature_names[x] for x in mc_comp.columns}
+mc_comp.rename(columns = proper_column_names, inplace=True)
+
+# the aggregated total of the feature is taken from the most common objects table
+mc_feature = fdx.most_common[unit_label]
+mc_feature = featuredata.changeSeriesIndexLabels(mc_feature, {x:fdx.dMap.loc[x] for x in mc_feature.index})
+
+# the aggregated totals of all the period data
+mc_period = period_data.parentMostCommon(parent=False)
+mc_period = featuredata.changeSeriesIndexLabels(mc_period, {x:fdx.dMap.loc[x] for x in mc_period.index})
+
+# add the feature, bassin_label and period results to the components table
+mc_comp["Tute le aree di indagine"] = mc_feature
+
+mc_comp["Index"] = mc_comp.index.map(lambda x: ital[x])
+mc_comp.set_index("Index", inplace=True, drop=True)
+
+col_widths=[5.1*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
+
+atable = aSingleStyledTable(mc_comp, gradient=True, vertical_header=True, colWidths=col_widths)
+atable_cap = makeAParagraph(mc_heat_map_caption, style=caption_style)
+table_and_cap =tableAndCaption(atable, atable_cap, col_widths)
+
+new_components = [
+     table_and_cap
+]
+
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
+# notebook display style
+aformatter = {x: featuredata.replaceDecimal for x in mc_comp.columns}
+mcd = mc_comp.style.format(aformatter).set_table_styles(table_css_styles)
+mcd = mcd.background_gradient(axis=None, vmin=mc_comp.min().min(), vmax=mc_comp.max().max(), cmap="YlOrBr")
+
+# remove the index name and column name labels
+mcd.index.name = None
+mcd.columns.name = None
+
+# rotate the text on the header row
+# the .applymap_index method in the
+# df.styler module is used for this
+mcd = mcd.applymap_index(featuredata.rotateText, axis=1)
+
+# display markdown html
+IPython.display.display(HTML(cardFigure(html_table=mcd.to_html(), table_caption= "".join(mc_heat_map_caption))))
+
+
+# ## Tendenze in atto dal 2017-2018
+# 
+# Dati analoghi relativi a un’indagine su laghi e fiumi raccolti nel periodo 2017-2018 (SLR) non hanno evidenziato differenze statistiche nel raffronto con i risultati IQAASL. Sono state tuttavia registrate variazioni a livello di quantità degli oggetti. In generale, nel periodo di indagine 2020-2021 è stato censito un numero inferiore di mozziconi di sigarette e tappi di bottiglia, ma per molte ubicazioni non si è registrata alcuna variazione e si è avuto probabilmente un aumento delle plastiche e delle schiume espanse frammentate. Per i dettagli in merito, si veda [Aumento e diminuzione dei rifiuti dal 2017 -deutsch](slr-iqaasl).
+# 
+# 
+# ```{card}
+# :class-card: sd-text-black
+# :img-top: resources/output/slr_iqaasl_surveys_it.jpeg
+# :margin: auto
+# +++
+# __Figura 4:__ *Raffronto dei risultati d’indagine tra SRL (2018) e IQAASL (2021). __In alto a sinistra:__ totali delle indagini per data. __In alto a destra:__ totale mediano dell’indagine mensile. __In basso a sinistra:__ numero di campioni rispetto al totale dell’indagine. __In basso a sinistra:__ distribuzione cumulativa empirica dei totali delle indagini.* 
+# ``` 
+# 
+# ## Alpi e Giura
+# 
+# Sulle venti indagini condotte nell’area delle Alpi, 17 hanno soddisfatto i criteri di lunghezza e larghezza superiori a 10 m. Il valore mediano delle indagini è stato di 110 p/100m, inferiore al valore mediano di tutte le altre aree d’indagine (189 p/100 m). Gli oggetti correlati ai consumi personali, per esempio di prodotti alimentari e bevande o tabacco, hanno evidenziato una percentuale più bassa rispetto al totale, con un tasso di p/100 m inferiore rispetto ai risultati delle ubicazioni rivierasche. Questa differenza potrebbe essere in parte dovuta sia ai bassi livelli di urbanizzazione che caratterizzano l’area d’indagine delle Alpi rispetto a tutte le altre aree d’indagine, sia alla tendenza del materiale a fluire a valle. Per quanto concerne la metodologia di indagine adottata per le Alpi e i relativi risultati, si veda la sezione [ Alpi e Giura -deutsch ](lesalpes).
+# 
+# ## Comunicazione dei risultati¶
+# 
+# Per comunicare le quantità di agenti inquinanti è utile convertire i risultati in una semplice parametrazione di pezzi medi per 100 m lineari, in quanto la media è generalmente più elevata e raramente risulta pari a 0. Quando si considerano valori estremi, tuttavia, __la media può risultare anche doppia rispetto alla mediana creando confusione circa la differenza tra i risultati osservati e quelli riportati__. Quando si adottano protocolli di questo tipo, comunicare la gamma di valori possibili o la probabilità di reperire un oggetto costituisce un fattore più informativo e ripetibile. Per esempio, in relazione all’interpretazione delle quantità di granulati di plastica di provenienza industriale censiti sul Lago Lemano.
+
+# In[17]:
+
+
+seci3 = Paragraph("Tendenze in atto dal 2017-2018", style=section_title)
+
+p51 = [
+    "Dati analoghi relativi a un’indagine su laghi e fiumi raccolti nel periodo 2017-2018 (SLR) non hanno evidenziato differenze statistiche nel ",
+    "raffronto con i risultati IQAASL. Sono state tuttavia registrate variazioni a livello di quantità degli oggetti. In generale, nel periodo di ",
+    "indagine 2020-2021 è stato censito un numero inferiore di mozziconi di sigarette e tappi di bottiglia, ma per molte ubicazioni non si è ",
+    "registrata alcuna variazione e si è avuto probabilmente un aumento delle plastiche e delle schiume espanse frammentate. Per i dettagli in ",
+    'merito, si veda <a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/slr-iqaasl.html" color="blue">Aumento e diminuzione dei rifiuti dal 2017 -deutsch </a>.',
+
+]
+
+p51 = makeAParagraph(p51)
+
+seci4 = Paragraph("Alpi e Giura", style=section_title)
+
+p52 = [
+    "Sulle venti indagini condotte nell’area delle Alpi, 17 hanno soddisfatto i criteri di lunghezza e larghezza superiori a 10 m. Il valore mediano delle ",
+    "indagini è stato di 110 p/100m, inferiore al valore mediano di tutte le altre aree d’indagine (189 p/100 m). Gli oggetti correlati ai consumi personali, ",
+    "per esempio di prodotti alimentari e bevande o tabacco, hanno evidenziato una percentuale più bassa rispetto al totale, con un tasso di p/100 m inferiore ",
+    "rispetto ai risultati delle ubicazioni rivierasche. Questa differenza potrebbe essere in parte dovuta sia ai bassi livelli di urbanizzazione che ",
+    "caratterizzano l’area d’indagine delle Alpi rispetto a tutte le altre aree d’indagine, sia alla tendenza del materiale a fluire a valle. Per quanto concerne ",
+    "la metodologia di indagine adottata per le Alpi e i relativi risultati, si veda la sezione ",
+    '<a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/alpes_valaisannes.html" color="blue">Alpi e Giura -deutsch</a>.'
+]
+
+p52 = makeAParagraph(p52) 
+
+fig4icap = [
+    "<b>Figura 4:</b> Raffronto dei risultati d’indagine tra SRL (2018) e IQAASL (2021). <b>In alto a sinistra:</b> totali delle indagini per data. ",
+    "<b>In alto a destra:</b> totale mediano dell’indagine mensile. <b>In basso a sinistra:</b> numero di campioni rispetto al totale dell’indagine. ",
+    "<b>In basso a destra:</b> distribuzione cumulativa empirica dei totali delle indagini."
+]
+
+seci5 = Paragraph("Comunicazione dei risultati", style=section_title)
+
+p53 = [
+    "Per comunicare le quantità di agenti inquinanti è utile convertire i risultati in una semplice parametrazione di pezzi medi per 100 m ",
+    "lineari, in quanto la media è generalmente più elevata e raramente risulta pari a 0. Quando si considerano valori estremi, tuttavia, ",
+    "la media può risultare anche doppia rispetto alla mediana creando confusione circa la differenza tra i risultati osservati e quelli ",
+    "riportati. Quando si adottano protocolli di questo tipo, comunicare la gamma di valori possibili o la probabilità di reperire un ",
+    "oggetto costituisce un fattore più informativo e ripetibile. Per esempio, in relazione all’interpretazione delle quantità di granulati ",
+    "di plastica di provenienza industriale censiti sul Lago Lemano."
+]
+
+p54 = [
+    "Sono stati reperiti 1387 granulati in plastica (GPI), pari al 5 per cento di tutti gli oggetti censiti sul Lago Lemano. Il numero di ",
+    "unità di granulati per 100 m lineari varia da 0 a 1033 a seconda della regione. Per il lago, in generale, sussiste ovunque una probabilità ",
+    "pari a circa il 40 per cento di trovare almeno un granulato durante un rilevamento. In alcune località come Ginevra (probabilità del 60%) o ",
+    "Préverenges (probabilità dell’80%), i granulati di plastica industriale costituiscono elementi costanti sulle sponde del lago e quantità tra ",
+    "3 p/100 m e 56 p/100 m sono del tutto comuni."
+]
+
+p53 = makeAParagraph(p53)
+
+p54 = makeAParagraph(p54, style=block_quote_style)
+
+
+fig4icap = makeAParagraph(fig4icap, style=caption_style)
+
+o_w, o_h = convertPixelToCm("resources/output/slr_iqaasl_surveys.jpeg")
+figure_kwargs = {
+    "image_file":"resources/output/slr_iqaasl_surveys.jpeg",
+    "caption": fig4icap, 
+    "original_width":o_w,
+    "original_height":o_h,
+    "desired_width": 14,
+    "caption_height":2,
+    "hAlign": "CENTER",
+}
+
+f4i = figureAndCaptionTable(**figure_kwargs)
+
+
+new_components = [
+    small_space,
+    seci3,
+    small_space,
+    p51,
+    smallest_space,
+    f4i,
+    small_space,
+    seci4,
+    small_space,
+    p52,
+    small_space,
+    seci5,
+    small_space,
+    p53,
+    smallest_space,
+    p54,
+    smallest_space,
+]
+
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
+
+# ## Conclusioni
+# 
+# Su scala nazionale, i risultati dell’indagine IQAASL riflettono una certa stabilità rispetto ai dati rilevati nel 2017 dallo studio SLR. Tuttavia, è stata registrata una diminuzione generalizzata della quantità di oggetti correlati al consumo di prodotti alimentari, bevande e tabacco. Gli oggetti legati alle infrastrutture e alle plastiche e schiume espanse frammentate non sono diminuiti e alcune ubicazioni hanno eventualmente registrato forti incrementi. Le misure di contenimento della pandemia, che limitano i grandi assembramenti all’aperto, hanno probabilmente prodotto un effetto favorevole sulla riduzione degli oggetti legati al consumo di prodotti alimentari, bevande e tabacco. I maggiori aumenti per quanto concerne gli oggetti legati alle infrastrutture sono stati registrati nei Cantoni Vallese e Vaud, nonché a Brienz: tutte ubicazioni in prossimità dei punti di immissione dei fiumi Rodano e Aare.
+# 
+# La destinazione d’uso del terreno prospiciente a un luogo d’indagine produce un effetto misurabile sul deposito di determinati oggetti. Il numero di edifici e infrastrutture presenti è direttamente proporzionale al reperimento di rifiuti correlati al consumo di prodotti alimentari e tabacco. Oggetti come plastiche frammentate e teli industriali non presentano invece lo stesso grado di correlazione e sono censiti con un’occorrenza percentuale approssimativamente analoga a prescindere dalla destinazione d’uso del terreno, con picchi di frequenza in prossimità dei punti di immissione di fiumi/canali.
+# 
+# Attualmente tre delle quattro aree di indagine nell’IQAASL sono monitorate in modo attivo da agenzie governative e di ricerca a valle della Svizzera, con l’utilizzo di metodologie analoghe a quelle illustrate nel presente rapporto. Le associazioni regionali in Svizzera stanno inoltre promuovendo attivamente una rendicontazione e dei protocolli standard con organizzazioni partner nell’UE.
+# 
+# QAASL è un progetto di «citizen science» che si avvale esclusivamente di strumenti open-source e condivide i dati su licenza pubblica GNU, permettendo la collaborazione con le parti coinvolte. Alla fine del mandato, fissata in data 31 dicembre 2021, Hammerdirt si assumerà la responsabilità per la gestione del codice e dell’archivio di dati ospitato pubblicamente su Github.
+# 
+# Le associazioni che hanno partecipato al progetto IQAASL sono alla ricerca attiva di modalità per integrare il processo di raccolta dei dati e/o i risultati nel rispettivo modello di business. All’interno di molte associazioni regionali sussiste tuttavia una carenza di data scientist e ciò potrebbe tradursi in un allungamento del processo di integrazione e in un’inibizione del tasso di innovazione proprio negli ambiti in cui questo aspetto risulta più necessario.
+# 
+
 # In[18]:
+
+
+seci6 = Paragraph("Conclusioni", style=section_title)
+
+p55 = [
+    "Su scala nazionale, i risultati dell’indagine IQAASL riflettono una certa stabilità rispetto ai dati rilevati nel 2017 dallo studio SLR. Tuttavia, ",
+    "è stata registrata una diminuzione generalizzata della quantità di oggetti correlati al consumo di prodotti alimentari, bevande e tabacco. Gli oggetti ",
+    "legati alle infrastrutture e alle plastiche e schiume espanse frammentate non sono diminuiti e alcune ubicazioni hanno eventualmente registrato forti ",
+    "incrementi. Le misure di contenimento della pandemia, che limitano i grandi assembramenti all’aperto, hanno probabilmente prodotto un effetto favorevole ",
+    "sulla riduzione degli oggetti legati al consumo di prodotti alimentari, bevande e tabacco. I maggiori aumenti per quanto concerne gli oggetti legati ",
+    "alle infrastrutture sono stati registrati nei Cantoni Vallese e Vaud, nonché a Brienz: tutte ubicazioni in prossimità dei punti di immissione dei ",
+    "fiumi Rodano e Aare."
+]
+
+p56 = [
+    "La destinazione d’uso del terreno prospiciente a un luogo d’indagine produce un effetto misurabile sul deposito di determinati oggetti. ",
+    "Il numero di edifici e infrastrutture presenti è direttamente proporzionale al reperimento di rifiuti correlati al consumo di prodotti ",
+    "alimentari e tabacco. Oggetti come plastiche frammentate e teli industriali non presentano invece lo stesso grado di correlazione e ",
+    "sono censiti con un’occorrenza percentuale approssimativamente analoga a prescindere dalla destinazione d’uso del terreno, con picchi di frequenza ",
+    "in prossimità dei punti di immissione di fiumi/canali."
+]
+
+p57 = [
+    "Attualmente tre delle quattro aree di indagine nell’IQAASL sono monitorate in modo attivo da agenzie governative e di ricerca a valle ",
+    "della Svizzera, con l’utilizzo di metodologie analoghe a quelle illustrate nel presente rapporto. Le associazioni regionali in Svizzera ",
+    "stanno inoltre promuovendo attivamente una rendicontazione e dei protocolli standard con organizzazioni partner nell’UE.",
+]
+
+p58 = [
+    "IQAASL è un progetto di «citizen science» che si avvale esclusivamente di strumenti open-source e condivide i dati su licenza pubblica GNU, ",
+    "permettendo la collaborazione con le parti coinvolte. Alla fine del mandato, fissata in data 31 dicembre 2021, Hammerdirt si assumerà la ",
+    "responsabilità per la gestione del codice e dell’archivio di dati ospitato pubblicamente su Github."
+]
+
+
+p59 = [
+    "Le associazioni che hanno partecipato al progetto IQAASL sono alla ricerca attiva di modalità per integrare il processo di raccolta dei dati ",
+    "e/o i risultati nel rispettivo modello di business. All’interno di molte associazioni regionali sussiste tuttavia una carenza di data scientist ",
+    "e ciò potrebbe tradursi in un allungamento del processo di integrazione e in un’inibizione del tasso di innovazione proprio negli ambiti in cui ",
+    "questo aspetto risulta più necessario."
+]
+
+p55_59 = sectionParagraphs([p55, p56,p57, p58, p59], smallspace=smallest_space)
+
+new_components = [
+    PageBreak(),
+    small_space,
+    seci6,
+    small_space,
+    *p55_59
+]
+
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
+
+# ## Raccomandazioni
+# ### Monitoraggio e rendicontazione
+# 
+# L’aumento dell’efficienza a livello di scambio di dati e di reportistica potrebbe essere ottenuto con effetto immediato definendo un formato di rendicontazione standard. In questo modo, per le amministrazioni regionali sarebbe più agevole comunicare le priorità alle altre parti coinvolte, agevolando le strategie di monitoraggio e contribuendo a definire gli obiettivi di riduzione. In quest’ottica, si potrebbero adottare le seguenti misure:
+# 
+# > Sviluppo di una rete di associazioni responsabili per la raccolta e la rendicontazione dei risultati.
+# 
+# > Creazione di un formato di rendicontazione standard per agevolare la comunicazione tra amministrazioni a livello comunale, cantonale e regionale/distrettuale, con contestuale miglioramento del coordinamento delle strategie di riduzione a livello regionale e locale.
+# 
+# > Definizione del successivo periodo di campionamento e dei relativi intervalli.
+# 
+# Coinvolgimento formale del mondo accademico nelle attività di pianificazione, campionamento e analisi. Questo progetto è stato creato con la collaborazione di professori delle seguenti università: Politecnico federale di Zurigo (ETH), Università di Ginevra (UNIGE), Scuola politecnica federale di Losanna (EPFL), Istituto Paul Scherrer (PSI) e Scuola universitaria professionale della Svizzera nordoccidentale (FHNW). La collaborazione di partner universitari è auspicabile per la prosecuzione dello sviluppo di metodologie analitiche. Il Citizen Science Center (ETH) e il Citizen Cyberlab (UNIGE) dispongono dell’esperienza e delle infrastrutture per collegare i progetti di monitoraggio di «citizen science» con le attività di ricerca, dando così vita a un piano di monitoraggio molto flessibile ed efficiente.
+# 
+
+# In[19]:
+
+
+seci7 = Paragraph("Raccomandazioni", style=section_title)
+sseci4 = Paragraph("Monitoraggio e rendicontazione", style=subsection_title)
+
+p60 = [
+    "L’aumento dell’efficienza a livello di scambio di dati e di reportistica potrebbe essere ottenuto con effetto immediato definendo un formato di rendicontazione ",
+    "standard. In questo modo, per le amministrazioni regionali sarebbe più agevole comunicare le priorità alle altre parti coinvolte, agevolando le strategie ",
+    "di monitoraggio e contribuendo a definire gli obiettivi di riduzione. In quest’ottica, si potrebbero adottare le seguenti misure:"
+]
+
+p60 = makeAParagraph(p60)
+
+li7 = [
+    "Sviluppo di una rete di associazioni responsabili per la raccolta e la rendicontazione dei risultati.",
+    "Creazione di un formato di rendicontazione standard per agevolare la comunicazione tra amministrazioni a livello comunale, cantonale e regionale/distrettuale, con contestuale miglioramento del coordinamento delle strategie di riduzione a livello regionale e locale.",
+    "Definizione del successivo periodo di campionamento e dei relativi intervalli."
+]
+li7 = makeAList(li7)
+
+p61 = [
+    "Coinvolgimento formale del mondo accademico nelle attività di pianificazione, campionamento e analisi. Questo progetto è stato creato con la collaborazione di ",
+    "professori delle seguenti università: Politecnico federale di Zurigo (ETH), Università di Ginevra (UNIGE), Scuola politecnica federale di Losanna (EPFL), ",
+    "Istituto Paul Scherrer (PSI) e Scuola universitaria professionale della Svizzera nordoccidentale (FHNW). La collaborazione di partner universitari è auspicabile per ",
+    "la prosecuzione dello sviluppo di metodologie analitiche. Il Citizen Science Center (ETH) e il Citizen Cyberlab (UNIGE) dispongono dell’esperienza e delle infrastrutture ",
+    "per collegare i progetti di monitoraggio di «citizen science» con le attività di ricerca, dando così vita a un piano di monitoraggio molto flessibile ed efficiente."
+]
+
+p61 = makeAParagraph(p61)
+
+
+new_components = [
+    small_space,
+    seci7,
+    smallest_space,
+    sseci4,
+    small_space,
+    p60,
+    smallest_space,
+    li7,
+    smallest_space,
+    p61
+]
+
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
+
+# ## Eliminazione e riduzione
+# 
+# Le strategie per l’eliminazione o la riduzione dei rifiuti lungo le rive di specchi e corsi d’acqua dovrebbero innanzitutto considerare le fonti di provenienza degli agenti inquinanti.
+# 
+# __Oggetti associati a fattori di uso del suolo__
+# 
+# I risultati indicano una correlazione positiva tra il numero di edifici presenti e la quantità di rifiuti correlati al consumo di prodotti alimentari, bevande e tabacco. Si evince che le strategie di riduzione per questi oggetti dovrebbero iniziare nelle aree che presentano alte concentrazioni di infrastrutture in prossimità della linea rivierasca. I risultati dell’area di indagine del Rodano indicano che la conduzione di campagne di sensibilizzazione a livello locale potrebbe produrre effetti positivi. Si veda a riguardo la Figura 1.9 [Laghi e fiumi - deutsch](allsurveys) . Anche se l’eliminazione di tutti gli oggetti correlati al consumo di generi alimentari, bevande e tabacco, sui quali di norma si concentrano le campagne di sensibilizzazione sui rifiuti, contribuirebbe in maniera significativa alla riduzione delle quantità totali, __rimarrebbe comunque il 64 per cento del materiale complessivo__.
+# 
+# Altre strategie comunemente diffuse di riduzione delle immissioni di rifiuti comprendono:
+# 
+# * una predisposizione adeguata di contenitori per l’immondizia resistenti alle intemperie e agli animali;
+# * dei miglioramenti nei programmi di ritiro dei rifiuti e di pulizia delle strade;
+# * la riduzione dei contenitori di plastica monouso.
+# 
+# Molti Paesi hanno già messo in atto procedure di restrizione di elementi mirati. Per esempio, a partire dal 3 luglio 2021 non è più consentito immettere sui mercati degli Stati membri dell’UE articoli di plastica monouso quali piatti, posate, bastoncini per palloncini e bastoncini di ovatta. Reti di contenimento per intercettare i rifiuti nei sistemi di drenaggio dell’acqua piovana prima dell’immissione in laghi e fiumi sono state impiegate con successo in Francia, ma richiedono investimenti in infrastrutture, attrezzature e manodopera.
+# 
+
+# In[20]:
+
+
+seci8 = Paragraph("Eliminazione e riduzione", style=section_title)
+
+p63 = [
+    "Le strategie per l’eliminazione o la riduzione dei rifiuti lungo le rive di specchi e corsi d’acqua dovrebbero innanzitutto considerare le fonti di provenienza degli agenti inquinanti."
+]
+
+p64 = [
+    "<b>Oggetti associati a fattori di uso del suolo</b>"
+]
+
+p65 = [
+    "I risultati indicano una correlazione positiva tra il numero di edifici presenti e la quantità di rifiuti correlati al consumo di prodotti alimentari, bevande ",
+    "e tabacco. Si evince che le strategie di riduzione per questi oggetti dovrebbero iniziare nelle aree che presentano alte concentrazioni di infrastrutture in ",
+    "prossimità della linea rivierasca. I risultati dell’area di indagine del Rodano indicano che la conduzione di campagne di sensibilizzazione a livello locale ",
+    "potrebbe produrre effetti positivi. Si veda a riguardo la Figura 1.9 ",
+    '<a href="https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/lakes_rivers.html" color="blue">Laghi e fiumi -deutsch</a>. ',
+    "Anche se l’eliminazione di tutti gli oggetti correlati al ",
+    "consumo di generi alimentari, bevande e tabacco, sui quali di norma si concentrano le campagne di sensibilizzazione sui rifiuti, contribuirebbe in maniera ",
+    "significativa alla riduzione delle quantità totali, <b>rimarrebbe comunque il 64 per cento del materiale complessivo</b>."
+]
+
+p66 = [
+    "Altre strategie comunemente diffuse di riduzione delle immissioni di rifiuti comprendono:"
+]
+
+p63_66 = sectionParagraphs([p63, p63, p64, p65, p66], smallspace=smallest_space)
+
+l8i = [
+    "una predisposizione adeguata di contenitori per l’immondizia resistenti alle intemperie e agli animali",
+    "dei miglioramenti nei programmi di ritiro dei rifiuti e di pulizia delle strade;",
+    "la riduzione dei contenitori di plastica monouso."
+]
+
+l8i = makeAParagraph(l8i)
+
+new_components = [
+    small_space,
+    seci8,
+    small_space,
+    *p63_66,
+    l8i,
+    
+]
+
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
+
+# Oggetti non associati all’uso del suolo
+# 
+# Gli oggetti che non presentano una correlazione positiva con l’uso del suolo richiedono un intervento coordinato almeno a livello di lago o di fiume, nonché per tutte le località a monte delle ubicazioni di rilevamento previste. Il novero degli oggetti più comunemente diffusi comprende:
+# 
+# * plastiche frammentate
+# * schiume espanse frammentate
+# * plastiche da costruzione
+# * granulati di plastica di provenienza industriale
+# * bastoncini di ovatta
+# * teli industriali
+# 
+# Questi oggetti costituiscono il 40 per cento di tutto il materiale censito. Molti hanno applicazioni industriali e di igiene personale, tipicamente non associate ad attività rivierasche. L’intensificazione delle campagne di sensibilizzazione mirate alla prevenzione di perdite di materiale da settori specifici può ridurre l’occorrenza di oggetti come i granulati industriali usati per lo stampaggio a iniezione di articoli in plastica. Alcuni oggetti come i bastoncini di ovatta e altre plastiche scaricate dal water vengono immessi nei laghi e nei fiumi attraverso gli impianti di trattamento delle acque.
+# 
+# Le strategie di riduzione possono comprendere:
+# 
+# * il miglioramento degli impianti di trattamento delle acque reflue per ridurre gli sversamenti di materiale
+# * l’attuazione di campagne di sensibilizzazione per oggetti o prodotti specifici
+# * l’attuazione di campagne di sensibilizzazione per settori produttivi specifici
+# 
+# Le strategie di eliminazione o di riduzione richiedono interventi coordinati a livello regionale, al fine di coinvolgere le comunità a monte delle ubicazioni di indagine.
+# 
+# Una minore dipendenza da plastiche monouso, plastiche espanse, plastiche da costruzione come pure da fogli e pellicole industriali ridurrebbe probabilmente in ampia misura i volumi di questi inquinanti che finiscono nell’ambiente. Il basso costo e la natura «usa e getta» di questi materiali si sono tradotti in un’abbondanza e una dipendenza sempre maggiori in tutti i settori. Le caratteristiche di leggerezza e degradabilità di questi materiali agevolano la frammentazione e la dispersione nei sistemi naturali, soprattutto in caso di esposizione esterna prolungata. Gli inquinanti plastici costituiscono un problema globale e un numero sempre maggiore di Paesi sta portando avanti un processo di riduzione della dipendenza dalle plastiche monouso e dalle plastiche espanse come il polistirolo.
+
+# In[21]:
+
+
+p77 = ["<b>Oggetti non associati all’uso del suolo</b>"]
+
+p78 = [
+    "Gli oggetti che non presentano una correlazione positiva con l’uso del suolo richiedono un intervento coordinato almeno a livello di lago o di fiume, ",
+    "nonché per tutte le località a monte delle ubicazioni di rilevamento previste. Il novero degli oggetti più comunemente diffusi comprende:"
+]
+
+p77_78 = sectionParagraphs([p77, p78], smallspace=smallest_space)
+
+l9i = [
+    "plastiche frammentate",
+    "schiume espanse frammentate",
+    "plastiche da costruzione",
+    "granulati di plastica di provenienza industriale",
+    "bastoncini di ovatta",
+    "teli industriali",
+]
+
+l9i = makeAList(l9i)
+
+p79 = [
+    "Questi oggetti costituiscono il 40 per cento di tutto il materiale censito. Molti hanno applicazioni industriali e di igiene personale, tipicamente ",
+    "non associate ad attività rivierasche. L’intensificazione delle campagne di sensibilizzazione mirate alla prevenzione di perdite di materiale da ",
+    "settori specifici può ridurre l’occorrenza di oggetti come i granulati industriali usati per lo stampaggio a iniezione di articoli in plastica. ",
+    "Alcuni oggetti come i bastoncini di ovatta e altre plastiche scaricate dal water vengono immessi nei laghi e nei fiumi attraverso gli impianti di ",
+    "trattamento delle acque."
+]
+
+p80 = ["Le strategie di riduzione possono comprendere:"]
+
+p79_80 = sectionParagraphs([p79, p80], smallspace=smallest_space)
+
+l10i = [
+    "il miglioramento degli impianti di trattamento delle acque reflue per ridurre gli sversamenti di materiale",
+    "l’attuazione di campagne di sensibilizzazione per oggetti o prodotti specifici",
+    "l’attuazione di campagne di sensibilizzazione per settori produttivi specifici"
+]
+
+l10i = makeAList(l10i)
+p81 = [
+    "Le strategie di eliminazione o di riduzione richiedono interventi coordinati a livello regionale, al fine di coinvolgere le comunità a monte delle ubicazioni di indagine."
+]
+
+p82 = [
+    "Una minore dipendenza da plastiche monouso, plastiche espanse, plastiche da costruzione come pure da fogli e pellicole industriali ridurrebbe probabilmente in ",
+    "ampia misura i volumi di questi inquinanti che finiscono nell’ambiente. Il basso costo e la natura «usa e getta» di questi materiali si sono tradotti in ",
+    "un’abbondanza e una dipendenza sempre maggiori in tutti i settori. Le caratteristiche di leggerezza e degradabilità di questi materiali agevolano la ",
+    "frammentazione e la dispersione nei sistemi naturali, soprattutto in caso di esposizione esterna prolungata. Gli inquinanti plastici costituiscono un ",
+    "problema globale e un numero sempre maggiore di Paesi sta portando avanti un processo di riduzione della dipendenza dalle plastiche monouso e dalle plastiche ",
+    "espanse come il polistirolo."
+]
+
+p81_82 = sectionParagraphs([p81, p82], smallspace=smallest_space)
+
+new_components = [
+    smallest_space,
+    *p77_78,
+    l9i,
+    smallest_space,
+    *p79_80,
+    l10i,
+    smallest_space,
+    *p81_82
+    
+]
+
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
+
+# (fr-esum)=
+# ## Résumé
+# 
+# | [Italiano](it-esum) | [Deutsch](kurzfassung) |
+# 
+# L’IQAASL (Identification, quantification and analysis of anthropogenic Swiss litter) est un projet mandaté par l’Office fédéral de l’environnement (OFEV) dans le but de recueillir des données sur les déchets visibles sur les rivages des lacs et des cours d’eau suisses. Tous les déchets collectés ont été identifiés à l’aide de techniques d’inventaire spécifiques. Le projet a été élargi pour inclure 20 sites supplémentaires situés dans les Alpes et le Jura. Au total, 406 inventaires ont été réalisés sur 163 sites dans 95 communes.
+# 
+# Ce rapport résume et analyse les inventaires effectués en Suisse de mars 2020 à août 2021 et explicite les méthodes de travail utilisées. Cette phase d’échantillonnage se chevauche avec la période d’enquête du Swiss Litter Report (SLR) {cite}`slr`, qui s’est déroulée d’avril 2017 à mars 2018. Le SLR est le premier projet d’envergure nationale dans le cadre duquel le protocole standard décrit dans le Guide sur la surveillance des déchets marins dans les mers européennes {cite}`mlwguidance`, ou toute autre méthode comparable, a été utilisé. Ce chevauchement permet la comparaison des résultats de la présente étude avec celle du SLR.
+# 
+# ```{card}
+# :class-card: sd-text-black
+# :img-top: resources/maps/esummary_mapfr.jpeg
+# :margin: auto
+# +++
+# __Figure 1:__ *Cartes des zones de relevé étudiées entre mars 2020 et août 2021. Les sites signalés en rouge correspondent aux inventaires réalisés sur les plages de lacs et de cours d’eau, ceux en violet aux relevés effectués dans les Alpes et le Jura.*
+# ``` 
+
+# In[22]:
 
 
 new_components = [
@@ -1532,8 +2118,26 @@ def myLaterPages(canvas, doc):
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
 
 
+# ```{card}
+# :class-card: sd-text-black
+# :img-top: resources/output/slr_iqaasl_surveys_fr.jpeg
+# :margin: auto
+# +++
+# __Figura 4:__ *Raffronto dei risultati d’indagine tra SRL (2018) e IQAASL (2021). __In alto a sinistra:__ totali delle indagini per data. __In alto a destra:__ totale mediano dell’indagine mensile. __In basso a sinistra:__ numero di campioni rispetto al totale dell’indagine. __In basso a sinistra:__ distribuzione cumulativa empirica dei totali delle indagini.* 
+# ``` 
+
 # In[ ]:
 
 
 
 
+
+# ```{card}
+# :class-card: sd-text-black
+# :img-top: resources/maps/esummary_mapfr.jpeg
+# :margin: auto
+# +++
+# __Figura 1:__ *Mappa delle ubicazioni oggetto d’indagine da marzo 2020 ad agosto 2021. Le ubicazioni contrassegnate in rosso indicano le indagini su fiumi o laghi e i punti in viola designano le ubicazioni sulle Alpi e nel Giura.*
+# ```
+
+# ##### 

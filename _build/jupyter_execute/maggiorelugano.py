@@ -836,7 +836,7 @@ glue('maggiorelugano_most_common_heat_map', mcd, display=False)
 
 # ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
 
-# In[10]:
+# In[9]:
 
 
 # collect the survey results of the most common objects
@@ -936,7 +936,7 @@ glue("maggiorelugano_monthly_results", mcdm, display=False)
 # 
 # Im Anhang (Kapitel 3.6.3) befindet sich die vollständige Liste der identifizierten Objekte, einschliesslich Beschreibungen und Gruppenklassifizierung. Das Kapitel [16 Codegruppen](codegroups) beschreibt jede Codegruppe im Detail und bietet eine umfassende Liste aller Objekte in einer Gruppe.
 
-# In[11]:
+# In[10]:
 
 
 # make pdf out put
@@ -994,7 +994,7 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# In[12]:
+# In[11]:
 
 
 # the results are a callable for the components
@@ -1053,7 +1053,7 @@ glue("maggiorelugano_codegroup_percent", ptd, display=False)
 # ```
 # {numref}`Abbildung %s: <maggiorelugano_codegroup_percent>`  {glue:text}`maggiorelugano_codegroup_percent_caption` 
 
-# In[13]:
+# In[12]:
 
 
 # pivot that
@@ -1133,7 +1133,7 @@ glue("maggiorelugano_codegroup_pcsm", cgp, display=False)
 # 
 # Die folgende Tabelle enthält die Komponenten «Gfoam» und «Gfrag», die für die Analyse gruppiert wurden. Objekte, die als Schaumstoffe gekennzeichnet sind, werden als Gfoam gruppiert und umfassen alle geschäumten Polystyrol-Kunststoffe > 0,5 cm. Kunststoffteile und Objekte aus kombinierten Kunststoff- und Schaumstoffmaterialien > 0,5 cm werden für die Analyse als Gfrags gruppiert.
 
-# In[14]:
+# In[13]:
 
 
 annex_title = Paragraph("Anhang", featuredata.section_title)
@@ -1234,7 +1234,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung %s: <maggiorelugano_location_map>` 
 
-# In[15]:
+# In[14]:
 
 
 # display the survey locations
@@ -1255,7 +1255,7 @@ disp_beaches
 
 # ### Inventar der Objekte
 
-# In[16]:
+# In[15]:
 
 
 pd.set_option("display.max_rows", None)
@@ -1289,7 +1289,7 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 complete_inventory.sort_values(by="Objekte (St.)", ascending=False)
 
 
-# In[17]:
+# In[16]:
 
 
 doc = SimpleDocTemplate(pdf_link, pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1*cm)

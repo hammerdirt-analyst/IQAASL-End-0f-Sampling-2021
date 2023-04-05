@@ -235,25 +235,6 @@ fd_rivers = fd_kwargs.update({"water_type":"r"})
 fdr = featuredata.Components(**fd_kwargs)
 fdr.makeFeatureData()
 
-# collects the summarized values for the feature data
-# use this to generate the summary data for the survey area
-# and the section for the rivers
-# admin_kwargs = {
-#     "data":fd,
-#     "dims_data":dfDims,
-#     "label": this_feature["name"],
-#     "feature_component": this_level,
-#     "date_range":start_end,
-#     **{"dfBeaches":dfBeaches}
-# }
-# admin_details = featuredata.AdministrativeSummary(**admin_kwargs)
-# admin_summary = admin_details.summaryObject()
-
-# # update the admin kwargs with river data to make the river summary
-# admin_kwargs.update({"data":fdr.feature_data})
-# admin_r_details = featuredata.AdministrativeSummary(**admin_kwargs)
-# admin_r_summary = admin_r_details.summaryObject()
-
 # this defines the css rules for the note-book table displays
 header_row = {'selector': 'th:nth-child(1)', 'props': f'background-color: #FFF;'}
 even_rows = {"selector": 'tr:nth-child(even)', 'props': f'background-color: rgba(139, 69, 19, 0.08);'}

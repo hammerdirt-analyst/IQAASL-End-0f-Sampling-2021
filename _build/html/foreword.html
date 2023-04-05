@@ -813,25 +813,6 @@ title="Open an issue"
 <span class="n">fdr</span> <span class="o">=</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">Components</span><span class="p">(</span><span class="o">**</span><span class="n">fd_kwargs</span><span class="p">)</span>
 <span class="n">fdr</span><span class="o">.</span><span class="n">makeFeatureData</span><span class="p">()</span>
 
-<span class="c1"># collects the summarized values for the feature data</span>
-<span class="c1"># use this to generate the summary data for the survey area</span>
-<span class="c1"># and the section for the rivers</span>
-<span class="c1"># admin_kwargs = {</span>
-<span class="c1">#     &quot;data&quot;:fd,</span>
-<span class="c1">#     &quot;dims_data&quot;:dfDims,</span>
-<span class="c1">#     &quot;label&quot;: this_feature[&quot;name&quot;],</span>
-<span class="c1">#     &quot;feature_component&quot;: this_level,</span>
-<span class="c1">#     &quot;date_range&quot;:start_end,</span>
-<span class="c1">#     **{&quot;dfBeaches&quot;:dfBeaches}</span>
-<span class="c1"># }</span>
-<span class="c1"># admin_details = featuredata.AdministrativeSummary(**admin_kwargs)</span>
-<span class="c1"># admin_summary = admin_details.summaryObject()</span>
-
-<span class="c1"># # update the admin kwargs with river data to make the river summary</span>
-<span class="c1"># admin_kwargs.update({&quot;data&quot;:fdr.feature_data})</span>
-<span class="c1"># admin_r_details = featuredata.AdministrativeSummary(**admin_kwargs)</span>
-<span class="c1"># admin_r_summary = admin_r_details.summaryObject()</span>
-
 <span class="c1"># this defines the css rules for the note-book table displays</span>
 <span class="n">header_row</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;th:nth-child(1)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: #FFF;&#39;</span><span class="p">}</span>
 <span class="n">even_rows</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(even)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: rgba(139, 69, 19, 0.08);&#39;</span><span class="p">}</span>

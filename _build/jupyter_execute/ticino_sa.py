@@ -375,7 +375,7 @@ md(lake_string)
 
 # ### Kumulative Gesamtmengen nach Gewässer
 
-# In[24]:
+# In[4]:
 
 
 # the basic summary of dimensional data is available in the AdministrativeSummary class
