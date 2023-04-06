@@ -30,24 +30,24 @@ def shorten_the_value(an_array, a_df):
     return a_df
 #
 #
-# def fo_rmat_date_column(x, a_format="%Y-%m-%d"):
-#     # takes in a a data frame and converts the date column to timestamp
-#     x["date"] = pd.to_datetime(x["date"], format=a_format)
-#     return x.copy()
+def fo_rmat_date_column(x, a_format="%Y-%m-%d"):
+    # takes in a a data frame and converts the date column to timestamp
+    x["date"] = pd.to_datetime(x["date"], format=a_format)
+    return x.copy()
 #
 #
-# def slic_eby_date(x, start_date, end_date):
-#     # slices a data frame by the start and end date inclusive
-#     return x[(x.date >= start_date) & (x.date <= end_date)].copy()
-#
-#
-# def fo_rmat_and_slice_date(x, a_format="", start_date="", end_date=""):
-#     # formats the date column and slices the data frame by the start and end date
-#     new_df = fo_rmat_date_column(x, a_format=a_format)
-#     new_df = slic_eby_date(new_df, start_date, end_date)
-#     return new_df
-#
-#
+def slic_eby_date(x, start_date, end_date):
+    # slices a data frame by the start and end date inclusive
+    return x[(x.date >= start_date) & (x.date <= end_date)].copy()
+
+
+def fo_rmat_and_slice_date(x, a_format="", start_date="", end_date=""):
+    # formats the date column and slices the data frame by the start and end date
+    new_df = fo_rmat_date_column(x, a_format=a_format)
+    new_df = slic_eby_date(new_df, start_date, end_date)
+    return new_df
+
+
 def hide_spines_ticks_grids(an_ax):
     """Removes spines, ticks and grid from matplotlib axis object
 

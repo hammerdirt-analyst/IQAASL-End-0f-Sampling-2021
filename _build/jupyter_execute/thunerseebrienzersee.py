@@ -1247,7 +1247,6 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <thunerseebrienzersee_location_map>` 
 
 # In[14]:
 

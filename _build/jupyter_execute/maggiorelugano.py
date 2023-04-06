@@ -139,7 +139,7 @@ top = "Alle Erhebungsgebiete"
 # define the feature level and components
 # the feature of interest is the Aare (aare) at the river basin (river_bassin) level.
 # the label for charting is called 'name'
-this_feature = {'slug':'maggiorelugano', 'name':"Lago Maggiore/Lugano", 'level':'water_name_slug'}
+this_feature = {'slug':'maggiorelugano', 'name':"Lago Maggiore/Luganersee", 'level':'water_name_slug'}
 
 # the lake is in this survey area
 this_bassin = "ticino"
@@ -218,7 +218,7 @@ fd = fdx.feature_data
 # feature_level = parent_level
 period_kwargs = {
     "period_data": fdx.period_data,
-    "these_features": ["thunersee","brienzersee"],
+    "these_features": ['lago-di-lugano','lago-maggiore'],
     "feature_level":this_feature['level'],
     "feature_parent":this_bassin,
     "parent_level": "river_bassin",
@@ -291,7 +291,7 @@ pdfcomponents = featuredata.addToDoc([
 
 
 # (maggiorelugano)=
-# # Lago Maggiore/Lugano
+# # Lago Maggiore/Luganersee
 # 
 # 
 # {Download}`Download </resources/pdfs/maggiorelugano.pdf>`
@@ -1232,7 +1232,6 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <maggiorelugano_location_map>` 
 
 # In[14]:
 

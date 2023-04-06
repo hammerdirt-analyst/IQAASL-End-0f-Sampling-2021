@@ -717,12 +717,16 @@ cs = dt_all[unit_label].describe().round(2)
 
 # change the names
 csx = sut.change_series_index_labels(cs, featuredata.createSummaryTableIndex(unit_label, language="de"))
+# combined_summary = csx.apply(lambda x: featuredata.thousandsSeparator(int(x)))
 
-combined_summary = sut.fmt_combined_summary(csx, nf=[])
+
+# csx.loc["max p/100 m "] = featuredata.thousandsSeparator(csx.loc["max p/100 m"])
+
+combined_summary = [(x, featuredata.thousandsSeparator(int(csx.loc[x]))) for x in csx.index]
 
 sut.hide_spines_ticks_grids(axtwo)
 
-a_table = sut.make_a_table(axtwo, combined_summary[1:],  colLabels=["Stat", unit_label], colWidths=[.6,.4], bbox=[0, 0, 1, 1])
+a_table = sut.make_a_table(axtwo, combined_summary,  colLabels=["Stat", unit_label], colWidths=[.6,.4], bbox=[0, 0, 1, 1])
 a_table.get_celld()[(0,0)].get_text().set_text(" ")
 
 axtwo.tick_params(which='both', axis='both', labelsize=14)
@@ -756,7 +760,7 @@ plt.close()
 # ```
 # {numref}`Abbildung {number}: <baseline_sample_totals>` {glue:text}`baseline_sample_total_notes`
 
-# In[8]:
+# In[9]:
 
 
 sub_section_one_title = Paragraph("Die Daten", style=subsection_title)
@@ -802,14 +806,14 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[9]:
+# In[10]:
 
 
 # percentile rankings  1, 5, 10, 15, 20
 these_vals = []
 for element in [.01,.05,.10,.15,.20, .5, .9 ]:
     a_val = np.quantile(dt_all[unit_label].to_numpy(), element)
-    these_vals.append((F"{element*100}%",F"{int(a_val)}"))
+    these_vals.append((F"{int(element*100)}.",F"{int(a_val)}"))
 
 fig = plt.figure(figsize=(10,5))
 
@@ -884,7 +888,7 @@ plt.close()
 # 
 # Aus den oben genannten Gründen wird der Medianwert einer Mindestanzahl von Proben, die während eines Probenahmezeitraums in einem Erhebungsgebiet gesammelt wurden, als statistisch geeignet für die Bewertung von Strand-Abfallobjekten angesehen. Für die Meeresumwelt beträgt die Mindestanzahl der Proben 40 pro Unterregion und der Probenahmezeitraum 6 Jahre. {cite}`eubaselines` 
 
-# In[10]:
+# In[11]:
 
 
 fig_8_cap = Paragraph(empirical_dist_notes, style=caption_style)
@@ -999,7 +1003,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # ### Vergleich der Bootstrap-KIs 
 
-# In[11]:
+# In[12]:
 
 
 subsection_ki = Paragraph("Konfidenzintervalle (KIs)", subsection_title)
@@ -1154,7 +1158,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[12]:
+# In[13]:
 
 
 # this code was modified from this source:
@@ -1344,7 +1348,7 @@ plt.close()
 # 
 # {numref}`Abbildung {number}: <ci_percentile_bootstrap>` {glue:text}`ci_percentile_bootstrap_notes`
 
-# In[13]:
+# In[14]:
 
 
 fig, axs = plt.subplots(figsize=(6,4))
@@ -1403,7 +1407,7 @@ plt.close()
 # 
 # {numref}`Abbildung {number}: <mullermatte_bielersee31_01_2021>` Beispiel für das Konfidenzintervall: Das Ergebnis der Datenerhebungen in Biel am 31.01.2021 war grösser als der Medianwert für alle Datenerhebungen. Es wurden 123 Objekte (p) über 40 Meter (m) Uferlinie gesammelt. Zunächst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (p/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert: $(pcs/m)*100 = (123_{pcs} / 40_m)*100 m \approxeq \text{313 p/100 m}$
 
-# In[14]:
+# In[15]:
 
 
 subsection_kis_two = Paragraph("Vergleich der Bootstrap-KIs", style=subsection_title)
@@ -1461,7 +1465,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # In der vorliegenden Studie wurden in drei von vier Erhebungsgebieten mehr als 40 Erhebungen durchgeführt.
 
-# In[15]:
+# In[16]:
 
 
 bassins = ["linth", "aare", "rhone"]
@@ -1484,7 +1488,9 @@ sas['b-method'] = 'bca'
 sas.rename(columns=new_colnames, inplace=True)
 sas = sas.reset_index()
 
-
+sas["Linth"] = sas["Linth"].apply(lambda x: featuredata.thousandsSeparator(int(x)))
+sas["Aare"] = sas["Aare"].apply(lambda x: featuredata.thousandsSeparator(int(x)))
+sas["Rhône"] = sas["Rhône"].apply(lambda x: featuredata.thousandsSeparator(int(x)))
     
 
 fig, axs = plt.subplots(figsize=(7,4))
@@ -1524,7 +1530,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <ci_survey_area>` {glue:text}`ci_survey_area_notes`
 
-# In[16]:
+# In[17]:
 
 
 fig_11_caption = [
@@ -1648,7 +1654,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # Die Grenzen werden erweitert oder reduziert, um der Form der Daten besser zu entsprechen. Infolgedessen repräsentieren die oberen und unteren Grenzen einen grösseren Wertebereich in Bezug auf das Perzentil-Ranking als bei der unangepassten Version.
 
-# In[17]:
+# In[18]:
 
 
 extreme_section = Paragraph("Extremewerte", section_title)
@@ -1753,7 +1759,7 @@ hv08 = makeAParagraph(featuredata.makeBibEntry(name="HV08", team="Mia Hubert and
 references = [*references, smallest_space,spmodel, smallest_space, hv08]
 
 
-# In[18]:
+# In[19]:
 
 
 # implementation of medcouple
@@ -1843,7 +1849,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <tukeys_example>` {glue:text}`tukeys_example_notes`
 
-# In[19]:
+# In[20]:
 
 
 fig_13_cap = makeAParagraph(f"<b>Rechts:</b> {tukeys_caption}", style=caption_style)
@@ -1925,7 +1931,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # {numref}`Abbildung {number}: <onethous60053pcs100m>` Beispiel für bereinigte Extremwerte: St. Gingolph, 12.08.2020. Es wurden 514 Objekte (p) über 31 Meter (m) Uferlinie gesammelt. Zuerst wird der Wert der Datenerhebungen in Abfallobjekte pro Meter (p/m) umgerechnet und dann mit der erforderlichen Anzahl von Metern (100) multipliziert: $(pcs/m)*100 = (514_{pcs} / 31_m)*100m \approxeq  \text{1'652 p/100 m}$
 
-# In[20]:
+# In[21]:
 
 
 figure_kwargs.update({
@@ -1967,7 +1973,7 @@ figure_13 = figureAndCaptionTable(**figure_kwargs)
 # * Wenn das Modell korrekt angenommen wird, ist MLE die effizienteste Schätzung.
 # * MLE führt zu unverzerrten Schätzungen in grösseren Stichproben. 
 
-# In[21]:
+# In[22]:
 
 
 model_section_title = Paragraph("Modellierung", section_title)
@@ -2129,7 +2135,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[22]:
+# In[23]:
 
 
 # implementaion of MLE
@@ -2279,7 +2285,7 @@ plt.close()
 # ```
 # {numref}`Abbildung %s: <models_compare>` __Anpassen der Daten an die zugrundeliegende NB-Verteilung.__ Die beobachteten Erhebungsergebnisse werden mit den geschätzten Datenerhebungen unter Verwendung der Methode der Momente und der Maximum-Likelihood-Schätzung verglichen. __Links:__ Histogramm der Ergebnisse im Vergleich zu den beobachteten Daten. __Rechts:__ Verteilung der Ergebnisse im Vergleich zu den beobachteten Daten mit 90. Perzentil.
 
-# In[23]:
+# In[24]:
 
 
 fig_15_cap = makeAParagraph(models_compare_notes, caption_style)
@@ -2338,7 +2344,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # ```
 # {numref}`Abbildung {number}: <aare_sa_de_23_0>` Vergleich der Basiswerte der häufigsten Objekte. Erhebungsgebiet Aare, Seen und Fliessgewässer 2020–2021. Orte mit mehr als 30 Datenerhebungen: Bielersee, Neuenburgersee und Thunersee.
 
-# In[24]:
+# In[25]:
 
 
 implement_title = Paragraph("Umsetzung", section_title)
@@ -2467,7 +2473,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # 
 # Zum Expertenwissen gehört die Fähigkeit, Erhebungsergebnisse in den Kontext lokaler Ereignisse und der Topographie einzuordnen. Dieses Urteilsvermögen in Bezug auf die Daten und die Umgebung ist für die Identifizierung potenzieller Quellen und Prioritäten von wesentlicher Bedeutung. 
 
-# In[25]:
+# In[26]:
 
 
 p_55 = [
@@ -2579,7 +2585,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# In[26]:
+# In[27]:
 
 
 doc = SimpleDocTemplate("resources/pdfs/baselines.pdf", pagesize=A4, leftMargin=2.5*cm, rightMargin=2.5*cm, topMargin=2.5*cm, bottomMargin=1.5*cm)

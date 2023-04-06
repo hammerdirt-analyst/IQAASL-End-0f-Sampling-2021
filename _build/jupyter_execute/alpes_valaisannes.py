@@ -1163,7 +1163,7 @@ plt.close()
 # ` `
 # ```
 # 
-# {numref}`Abbildung %s: <les-alpes_sample_material_tables>`{glue:text}`les-alpes_sample_summaries_caption`
+# {numref}`Abbildung %s: <les-alpes_sample_material_tables>` {glue:text}`les-alpes_sample_summaries_caption`
 
 # In[12]:
 
@@ -2446,7 +2446,7 @@ plt.close()
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <les-alpes_compare_luse>`{glue:text}`les-alpes_compare_notes`
+# {numref}`Abbildung %s: <les-alpes_compare_luse>` {glue:text}`les-alpes_compare_notes`
 
 # In[26]:
 

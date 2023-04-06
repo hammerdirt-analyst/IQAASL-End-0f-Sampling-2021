@@ -1233,7 +1233,6 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <neuenburgersee_location_map>` 
 
 # In[14]:
 

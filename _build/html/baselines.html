@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="15. Statistische Schlüsselindikatoren" href="key_indicators.html" />
-    <link rel="prev" title="13. Lago Maggiore/Lugano" href="maggiorelugano.html" />
+    <link rel="prev" title="13. Lago Maggiore/Luganersee" href="maggiorelugano.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -194,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="zurichsee.html">
-   11. Zurichsee
+   11. Zürichsee
   </a>
  </li>
  <li class="toctree-l1">
@@ -204,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="maggiorelugano.html">
-   13. Lago Maggiore/Lugano
+   13. Lago Maggiore/Luganersee
   </a>
  </li>
 </ul>
@@ -225,13 +225,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="land_use_correlation.html">
-   16. Landnutzungsprofil
+  <a class="reference internal" href="code_groups.html">
+   16. Codegruppen
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="code_groups.html">
-   17. Codegruppen
+  <a class="reference internal" href="land_use_correlation.html">
+   17. Landnutzungsprofil
   </a>
  </li>
 </ul>
@@ -242,13 +242,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="shared_responsibility.html">
-   18. Geteilte Verantwortung
+  <a class="reference internal" href="reuse_remake.html">
+   18. Recyceln und neugestalten
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="reuse_remake.html">
-   19. Recyceln und neugestalten
+  <a class="reference internal" href="shared_responsibility.html">
+   19. Geteilte Verantwortung
   </a>
  </li>
  <li class="toctree-l1">
@@ -973,12 +973,16 @@ title="Open an issue"
 
 <span class="c1"># change the names</span>
 <span class="n">csx</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">change_series_index_labels</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">createSummaryTableIndex</span><span class="p">(</span><span class="n">unit_label</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;de&quot;</span><span class="p">))</span>
+<span class="c1"># combined_summary = csx.apply(lambda x: featuredata.thousandsSeparator(int(x)))</span>
 
-<span class="n">combined_summary</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">fmt_combined_summary</span><span class="p">(</span><span class="n">csx</span><span class="p">,</span> <span class="n">nf</span><span class="o">=</span><span class="p">[])</span>
+
+<span class="c1"># csx.loc[&quot;max p/100 m &quot;] = featuredata.thousandsSeparator(csx.loc[&quot;max p/100 m&quot;])</span>
+
+<span class="n">combined_summary</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">csx</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="p">])))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">csx</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
 
 <span class="n">sut</span><span class="o">.</span><span class="n">hide_spines_ticks_grids</span><span class="p">(</span><span class="n">axtwo</span><span class="p">)</span>
 
-<span class="n">a_table</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axtwo</span><span class="p">,</span> <span class="n">combined_summary</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>  <span class="n">colLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stat&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">],</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.6</span><span class="p">,</span><span class="mf">.4</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">a_table</span> <span class="o">=</span> <span class="n">sut</span><span class="o">.</span><span class="n">make_a_table</span><span class="p">(</span><span class="n">axtwo</span><span class="p">,</span> <span class="n">combined_summary</span><span class="p">,</span>  <span class="n">colLabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stat&quot;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">],</span> <span class="n">colWidths</span><span class="o">=</span><span class="p">[</span><span class="mf">.6</span><span class="p">,</span><span class="mf">.4</span><span class="p">],</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">a_table</span><span class="o">.</span><span class="n">get_celld</span><span class="p">()[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
 <span class="n">axtwo</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -1027,7 +1031,7 @@ title="Open an issue"
 <span class="n">these_vals</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">.01</span><span class="p">,</span><span class="mf">.05</span><span class="p">,</span><span class="mf">.10</span><span class="p">,</span><span class="mf">.15</span><span class="p">,</span><span class="mf">.20</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="mf">.9</span> <span class="p">]:</span>
     <span class="n">a_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">dt_all</span><span class="p">[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">element</span><span class="p">)</span>
-    <span class="n">these_vals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">element</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">a_val</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="n">these_vals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">element</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span><span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">a_val</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
@@ -1416,7 +1420,9 @@ title="Open an issue"
 <span class="n">sas</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_colnames</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sas</span> <span class="o">=</span> <span class="n">sas</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
-
+<span class="n">sas</span><span class="p">[</span><span class="s2">&quot;Linth&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas</span><span class="p">[</span><span class="s2">&quot;Linth&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">sas</span><span class="p">[</span><span class="s2">&quot;Aare&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas</span><span class="p">[</span><span class="s2">&quot;Aare&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">sas</span><span class="p">[</span><span class="s2">&quot;Rhône&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas</span><span class="p">[</span><span class="s2">&quot;Rhône&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
     
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -1876,7 +1882,7 @@ title="Open an issue"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">13. </span>Lago Maggiore/Lugano</p>
+            <p class="prev-next-title"><span class="section-number">13. </span>Lago Maggiore/Luganersee</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="key_indicators.html" title="weiter Seite">

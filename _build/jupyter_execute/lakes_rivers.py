@@ -799,7 +799,7 @@ plt.savefig(**save_figure_kwargs)
 # figure caption
 sample_total_notes = [    
     "Links: Alle Erhebungen zwischen März 2020 bis Mai 2021, gruppiert nach ",
-    f"Erhebungsgebiet und aggregiert zum monatlichen Median. Werte über {'1778 '}{unit_label} ",
+    f"Erhebungsgebiet und aggregiert zum monatlichen Median. Werte über {'1 778 '}{unit_label} ",
     "sind nicht dargestellt. Rechts: Die empirische Verteilungsfunktion der Gesamtwerte ",
     "der Erhebungen." 
 ]
@@ -1041,7 +1041,7 @@ glue(f'{this_feature["slug"]}_most_common_tables', mcd, display=False)
 # 
 # ` `
 # ```
-# {numref}`Abbildung {number}: <all_most_common_tables>`{glue:text}`all_most_common_caption`
+# {numref}`Abbildung {number}: <all_most_common_tables>` {glue:text}`all_most_common_caption`
 
 # __Häufigste Objekte im Median p/100 m nach Erhebungsgebiet__
 
@@ -1562,7 +1562,7 @@ glue(f'{this_feature["slug" ]}_codegroup_percent', ptd, display=False)
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <all_survey_area_codegroup_percent>`{glue:text}`all_codegroup_percent_caption`
+# {numref}`Abbildung %s: <all_survey_area_codegroup_percent>` {glue:text}`all_codegroup_percent_caption`
 
 # In[18]:
 
@@ -1702,7 +1702,7 @@ plt.close()
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <all_survey_area_rivers_summary>`{glue:text}`all_survey_area_rivers_summary_caption`
+# {numref}`Abbildung %s: <all_survey_area_rivers_summary>` {glue:text}`all_survey_area_rivers_summary_caption`
 
 # __Die an Fliessgewässern am häufigsten gefundenen Objekte__
 

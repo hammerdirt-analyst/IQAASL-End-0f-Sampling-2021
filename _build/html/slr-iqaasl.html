@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="prev" title="19. Recyceln und neugestalten" href="reuse_remake.html" />
+    <link rel="prev" title="19. Geteilte Verantwortung" href="shared_responsibility.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="de">
     
@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="zurichsee.html">
-   11. Zurichsee
+   11. Zürichsee
   </a>
  </li>
  <li class="toctree-l1">
@@ -203,7 +203,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="maggiorelugano.html">
-   13. Lago Maggiore/Lugano
+   13. Lago Maggiore/Luganersee
   </a>
  </li>
 </ul>
@@ -224,13 +224,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="land_use_correlation.html">
-   16. Landnutzungsprofil
+  <a class="reference internal" href="code_groups.html">
+   16. Codegruppen
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="code_groups.html">
-   17. Codegruppen
+  <a class="reference internal" href="land_use_correlation.html">
+   17. Landnutzungsprofil
   </a>
  </li>
 </ul>
@@ -241,13 +241,13 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="shared_responsibility.html">
-   18. Geteilte Verantwortung
+  <a class="reference internal" href="reuse_remake.html">
+   18. Recyceln und neugestalten
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="reuse_remake.html">
-   19. Recyceln und neugestalten
+  <a class="reference internal" href="shared_responsibility.html">
+   19. Geteilte Verantwortung
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -1276,7 +1276,7 @@ title="Open an issue"
 <span class="n">c</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
 <span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
-<span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># material totals</span>
 <span class="n">mat_total</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;survey year&quot;</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1296,8 +1296,8 @@ title="Open an issue"
 <span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;pt&quot;</span><span class="p">]</span> <span class="o">=</span><span class="p">((</span><span class="n">mat_total</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">mat_total</span><span class="o">.</span><span class="n">yt</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># format for printing:</span>
-<span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;pt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_total</span><span class="o">.</span><span class="n">pt</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_total</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;pt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_total</span><span class="o">.</span><span class="n">pt</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">featuredata</span><span class="o">.</span><span class="n">replaceDecimal</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_total</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># pivot and rename columns</span>
 <span class="n">m_t</span> <span class="o">=</span> <span class="n">mat_total</span><span class="p">[[</span><span class="s2">&quot;survey year&quot;</span><span class="p">,</span><span class="s2">&quot;mat&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;pt&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;survey year&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;mat&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -1536,78 +1536,78 @@ title="Open an issue"
 <figure class="align-default" id="table">
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_70e18 tr:nth-child(even) {
+#T_96657 tr:nth-child(even) {
   background-color: rgba(139, 69, 19, 0.08);
 }
-#T_70e18 tr:nth-child(odd) {
+#T_96657 tr:nth-child(odd) {
   background: #FFF;
 }
-#T_70e18 tr {
+#T_96657 tr {
   font-size: 12px;
 }
-#T_70e18 th:nth-child(1) {
+#T_96657 th:nth-child(1) {
   background-color: #FFF;
 }
 </style>
-<table id="T_70e18">
+<table id="T_96657">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_70e18_level0_col0" class="col_heading level0 col0" >Total (St.)</th>
-      <th id="T_70e18_level0_col1" class="col_heading level0 col1" >Total (%)</th>
-      <th id="T_70e18_level0_col2" class="col_heading level0 col2" >Häufigkeitsrate</th>
-      <th id="T_70e18_level0_col3" class="col_heading level0 col3" >p/100 m</th>
+      <th id="T_96657_level0_col0" class="col_heading level0 col0" >Total (St.)</th>
+      <th id="T_96657_level0_col1" class="col_heading level0 col1" >Total (%)</th>
+      <th id="T_96657_level0_col2" class="col_heading level0 col2" >Häufigkeitsrate</th>
+      <th id="T_96657_level0_col3" class="col_heading level0 col3" >p/100 m</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_70e18_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
-      <td id="T_70e18_row0_col0" class="data row0 col0" >13 174.0</td>
-      <td id="T_70e18_row0_col1" class="data row0 col1" >30%</td>
-      <td id="T_70e18_row0_col2" class="data row0 col2" >76%</td>
-      <td id="T_70e18_row0_col3" class="data row0 col3" >14,0</td>
+      <th id="T_96657_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
+      <td id="T_96657_row0_col0" class="data row0 col0" >13 174.0</td>
+      <td id="T_96657_row0_col1" class="data row0 col1" >30%</td>
+      <td id="T_96657_row0_col2" class="data row0 col2" >76%</td>
+      <td id="T_96657_row0_col3" class="data row0 col3" >14,0</td>
     </tr>
     <tr>
-      <th id="T_70e18_level0_row1" class="row_heading level0 row1" >Objekte aus Kunststoff 2,5 - 50 cm</th>
-      <td id="T_70e18_row1_col0" class="data row1 col0" >3 349.0</td>
-      <td id="T_70e18_row1_col1" class="data row1 col1" >7%</td>
-      <td id="T_70e18_row1_col2" class="data row1 col2" >64%</td>
-      <td id="T_70e18_row1_col3" class="data row1 col3" >6,0</td>
+      <th id="T_96657_level0_row1" class="row_heading level0 row1" >Objekte aus Kunststoff 2,5 - 50 cm</th>
+      <td id="T_96657_row1_col0" class="data row1 col0" >3 349.0</td>
+      <td id="T_96657_row1_col1" class="data row1 col1" >7%</td>
+      <td id="T_96657_row1_col2" class="data row1 col2" >64%</td>
+      <td id="T_96657_row1_col3" class="data row1 col3" >6,0</td>
     </tr>
     <tr>
-      <th id="T_70e18_level0_row2" class="row_heading level0 row2" >Snack-Verpackungen</th>
-      <td id="T_70e18_row2_col0" class="data row2 col0" >2 715.0</td>
-      <td id="T_70e18_row2_col1" class="data row2 col1" >6%</td>
-      <td id="T_70e18_row2_col2" class="data row2 col2" >60%</td>
-      <td id="T_70e18_row2_col3" class="data row2 col3" >4,0</td>
+      <th id="T_96657_level0_row2" class="row_heading level0 row2" >Snack-Verpackungen</th>
+      <td id="T_96657_row2_col0" class="data row2 col0" >2 715.0</td>
+      <td id="T_96657_row2_col1" class="data row2 col1" >6%</td>
+      <td id="T_96657_row2_col2" class="data row2 col2" >60%</td>
+      <td id="T_96657_row2_col3" class="data row2 col3" >4,0</td>
     </tr>
     <tr>
-      <th id="T_70e18_level0_row3" class="row_heading level0 row3" >Industriefolie (Kunststoff)</th>
-      <td id="T_70e18_row3_col0" class="data row3 col0" >2 069.0</td>
-      <td id="T_70e18_row3_col1" class="data row3 col1" >4%</td>
-      <td id="T_70e18_row3_col2" class="data row3 col2" >40%</td>
-      <td id="T_70e18_row3_col3" class="data row3 col3" >0,0</td>
+      <th id="T_96657_level0_row3" class="row_heading level0 row3" >Industriefolie (Kunststoff)</th>
+      <td id="T_96657_row3_col0" class="data row3 col0" >2 069.0</td>
+      <td id="T_96657_row3_col1" class="data row3 col1" >4%</td>
+      <td id="T_96657_row3_col2" class="data row3 col2" >40%</td>
+      <td id="T_96657_row3_col3" class="data row3 col3" >0,0</td>
     </tr>
     <tr>
-      <th id="T_70e18_level0_row4" class="row_heading level0 row4" >Expandiertem Polystyrol 2,5 - 50 cm</th>
-      <td id="T_70e18_row4_col0" class="data row4 col0" >1 699.0</td>
-      <td id="T_70e18_row4_col1" class="data row4 col1" >3%</td>
-      <td id="T_70e18_row4_col2" class="data row4 col2" >39%</td>
-      <td id="T_70e18_row4_col3" class="data row4 col3" >0,0</td>
+      <th id="T_96657_level0_row4" class="row_heading level0 row4" >Expandiertem Polystyrol 2,5 - 50 cm</th>
+      <td id="T_96657_row4_col0" class="data row4 col0" >1 699.0</td>
+      <td id="T_96657_row4_col1" class="data row4 col1" >3%</td>
+      <td id="T_96657_row4_col2" class="data row4 col2" >39%</td>
+      <td id="T_96657_row4_col3" class="data row4 col3" >0,0</td>
     </tr>
     <tr>
-      <th id="T_70e18_level0_row5" class="row_heading level0 row5" >Flaschenverschlüsse aus Metall</th>
-      <td id="T_70e18_row5_col0" class="data row5 col0" >1 255.0</td>
-      <td id="T_70e18_row5_col1" class="data row5 col1" >2%</td>
-      <td id="T_70e18_row5_col2" class="data row5 col2" >42%</td>
-      <td id="T_70e18_row5_col3" class="data row5 col3" >0,0</td>
+      <th id="T_96657_level0_row5" class="row_heading level0 row5" >Flaschenverschlüsse aus Metall</th>
+      <td id="T_96657_row5_col0" class="data row5 col0" >1 255.0</td>
+      <td id="T_96657_row5_col1" class="data row5 col1" >2%</td>
+      <td id="T_96657_row5_col2" class="data row5 col2" >42%</td>
+      <td id="T_96657_row5_col3" class="data row5 col3" >0,0</td>
     </tr>
     <tr>
-      <th id="T_70e18_level0_row6" class="row_heading level0 row6" >Wattestäbchen/Tupfer</th>
-      <td id="T_70e18_row6_col0" class="data row6 col0" >1 043.0</td>
-      <td id="T_70e18_row6_col1" class="data row6 col1" >2%</td>
-      <td id="T_70e18_row6_col2" class="data row6 col2" >14%</td>
-      <td id="T_70e18_row6_col3" class="data row6 col3" >0,0</td>
+      <th id="T_96657_level0_row6" class="row_heading level0 row6" >Wattestäbchen/Tupfer</th>
+      <td id="T_96657_row6_col0" class="data row6 col0" >1 043.0</td>
+      <td id="T_96657_row6_col1" class="data row6 col1" >2%</td>
+      <td id="T_96657_row6_col2" class="data row6 col2" >14%</td>
+      <td id="T_96657_row6_col3" class="data row6 col3" >0,0</td>
     </tr>
   </tbody>
 </table>
@@ -1620,78 +1620,78 @@ title="Open an issue"
 <figure class="align-default" id="id8">
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_58c89 tr:nth-child(even) {
+#T_a4442 tr:nth-child(even) {
   background-color: rgba(139, 69, 19, 0.08);
 }
-#T_58c89 tr:nth-child(odd) {
+#T_a4442 tr:nth-child(odd) {
   background: #FFF;
 }
-#T_58c89 tr {
+#T_a4442 tr {
   font-size: 12px;
 }
-#T_58c89 th:nth-child(1) {
+#T_a4442 th:nth-child(1) {
   background-color: #FFF;
 }
 </style>
-<table id="T_58c89">
+<table id="T_a4442">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_58c89_level0_col0" class="col_heading level0 col0" >Total (St.)</th>
-      <th id="T_58c89_level0_col1" class="col_heading level0 col1" >Total (%)</th>
-      <th id="T_58c89_level0_col2" class="col_heading level0 col2" >Häufigkeitsrate</th>
-      <th id="T_58c89_level0_col3" class="col_heading level0 col3" >p/100 m</th>
+      <th id="T_a4442_level0_col0" class="col_heading level0 col0" >Total (St.)</th>
+      <th id="T_a4442_level0_col1" class="col_heading level0 col1" >Total (%)</th>
+      <th id="T_a4442_level0_col2" class="col_heading level0 col2" >Häufigkeitsrate</th>
+      <th id="T_a4442_level0_col3" class="col_heading level0 col3" >p/100 m</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_58c89_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
-      <td id="T_58c89_row0_col0" class="data row0 col0" >7 614.0</td>
-      <td id="T_58c89_row0_col1" class="data row0 col1" >21%</td>
-      <td id="T_58c89_row0_col2" class="data row0 col2" >87%</td>
-      <td id="T_58c89_row0_col3" class="data row0 col3" >20,0</td>
+      <th id="T_a4442_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
+      <td id="T_a4442_row0_col0" class="data row0 col0" >7 614.0</td>
+      <td id="T_a4442_row0_col1" class="data row0 col1" >21%</td>
+      <td id="T_a4442_row0_col2" class="data row0 col2" >87%</td>
+      <td id="T_a4442_row0_col3" class="data row0 col3" >20,0</td>
     </tr>
     <tr>
-      <th id="T_58c89_level0_row1" class="row_heading level0 row1" >Snack-Verpackungen</th>
-      <td id="T_58c89_row1_col0" class="data row1 col0" >3 097.0</td>
-      <td id="T_58c89_row1_col1" class="data row1 col1" >8%</td>
-      <td id="T_58c89_row1_col2" class="data row1 col2" >85%</td>
-      <td id="T_58c89_row1_col3" class="data row1 col3" >9,0</td>
+      <th id="T_a4442_level0_row1" class="row_heading level0 row1" >Snack-Verpackungen</th>
+      <td id="T_a4442_row1_col0" class="data row1 col0" >3 097.0</td>
+      <td id="T_a4442_row1_col1" class="data row1 col1" >8%</td>
+      <td id="T_a4442_row1_col2" class="data row1 col2" >85%</td>
+      <td id="T_a4442_row1_col3" class="data row1 col3" >9,0</td>
     </tr>
     <tr>
-      <th id="T_58c89_level0_row2" class="row_heading level0 row2" >Objekte aus Kunststoff 2,5 - 50 cm</th>
-      <td id="T_58c89_row2_col0" class="data row2 col0" >2 906.0</td>
-      <td id="T_58c89_row2_col1" class="data row2 col1" >8%</td>
-      <td id="T_58c89_row2_col2" class="data row2 col2" >80%</td>
-      <td id="T_58c89_row2_col3" class="data row2 col3" >7,0</td>
+      <th id="T_a4442_level0_row2" class="row_heading level0 row2" >Objekte aus Kunststoff 2,5 - 50 cm</th>
+      <td id="T_a4442_row2_col0" class="data row2 col0" >2 906.0</td>
+      <td id="T_a4442_row2_col1" class="data row2 col1" >8%</td>
+      <td id="T_a4442_row2_col2" class="data row2 col2" >80%</td>
+      <td id="T_a4442_row2_col3" class="data row2 col3" >7,0</td>
     </tr>
     <tr>
-      <th id="T_58c89_level0_row3" class="row_heading level0 row3" >Industriefolie (Kunststoff)</th>
-      <td id="T_58c89_row3_col0" class="data row3 col0" >2 485.0</td>
-      <td id="T_58c89_row3_col1" class="data row3 col1" >7%</td>
-      <td id="T_58c89_row3_col2" class="data row3 col2" >70%</td>
-      <td id="T_58c89_row3_col3" class="data row3 col3" >5,0</td>
+      <th id="T_a4442_level0_row3" class="row_heading level0 row3" >Industriefolie (Kunststoff)</th>
+      <td id="T_a4442_row3_col0" class="data row3 col0" >2 485.0</td>
+      <td id="T_a4442_row3_col1" class="data row3 col1" >7%</td>
+      <td id="T_a4442_row3_col2" class="data row3 col2" >70%</td>
+      <td id="T_a4442_row3_col3" class="data row3 col3" >5,0</td>
     </tr>
     <tr>
-      <th id="T_58c89_level0_row4" class="row_heading level0 row4" >Expandiertem Polystyrol 2,5 - 50 cm</th>
-      <td id="T_58c89_row4_col0" class="data row4 col0" >1 737.0</td>
-      <td id="T_58c89_row4_col1" class="data row4 col1" >4%</td>
-      <td id="T_58c89_row4_col2" class="data row4 col2" >52%</td>
-      <td id="T_58c89_row4_col3" class="data row4 col3" >1,0</td>
+      <th id="T_a4442_level0_row4" class="row_heading level0 row4" >Expandiertem Polystyrol 2,5 - 50 cm</th>
+      <td id="T_a4442_row4_col0" class="data row4 col0" >1 737.0</td>
+      <td id="T_a4442_row4_col1" class="data row4 col1" >4%</td>
+      <td id="T_a4442_row4_col2" class="data row4 col2" >52%</td>
+      <td id="T_a4442_row4_col3" class="data row4 col3" >1,0</td>
     </tr>
     <tr>
-      <th id="T_58c89_level0_row5" class="row_heading level0 row5" >Wattestäbchen/Tupfer</th>
-      <td id="T_58c89_row5_col0" class="data row5 col0" >1 337.0</td>
-      <td id="T_58c89_row5_col1" class="data row5 col1" >3%</td>
-      <td id="T_58c89_row5_col2" class="data row5 col2" >51%</td>
-      <td id="T_58c89_row5_col3" class="data row5 col3" >1,0</td>
+      <th id="T_a4442_level0_row5" class="row_heading level0 row5" >Wattestäbchen/Tupfer</th>
+      <td id="T_a4442_row5_col0" class="data row5 col0" >1 337.0</td>
+      <td id="T_a4442_row5_col1" class="data row5 col1" >3%</td>
+      <td id="T_a4442_row5_col2" class="data row5 col2" >51%</td>
+      <td id="T_a4442_row5_col3" class="data row5 col3" >1,0</td>
     </tr>
     <tr>
-      <th id="T_58c89_level0_row6" class="row_heading level0 row6" >Flaschenverschlüsse aus Metall</th>
-      <td id="T_58c89_row6_col0" class="data row6 col0" >621.0</td>
-      <td id="T_58c89_row6_col1" class="data row6 col1" >1%</td>
-      <td id="T_58c89_row6_col2" class="data row6 col2" >51%</td>
-      <td id="T_58c89_row6_col3" class="data row6 col3" >1,0</td>
+      <th id="T_a4442_level0_row6" class="row_heading level0 row6" >Flaschenverschlüsse aus Metall</th>
+      <td id="T_a4442_row6_col0" class="data row6 col0" >621.0</td>
+      <td id="T_a4442_row6_col1" class="data row6 col1" >1%</td>
+      <td id="T_a4442_row6_col2" class="data row6 col2" >51%</td>
+      <td id="T_a4442_row6_col3" class="data row6 col3" >1,0</td>
     </tr>
   </tbody>
 </table>
@@ -1866,7 +1866,7 @@ title="Open an issue"
 <span class="n">cy</span> <span class="o">=</span> <span class="n">combined_summary</span><span class="p">[</span><span class="n">col_rder</span><span class="p">]</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">cy</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
-<span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">locale</span><span class="o">.</span><span class="n">format_string</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">grouping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[[</span> <span class="s2">&quot;SLR&quot;</span><span class="p">,</span> <span class="s2">&quot;IQAASL&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># material totals</span>
 <span class="n">mat_total</span> <span class="o">=</span> <span class="n">lks_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;survey year&quot;</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1886,8 +1886,8 @@ title="Open an issue"
 <span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;pt&quot;</span><span class="p">]</span> <span class="o">=</span><span class="p">((</span><span class="n">mat_total</span><span class="o">.</span><span class="n">quantity</span><span class="o">/</span><span class="n">mat_total</span><span class="o">.</span><span class="n">yt</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># format for printing:</span>
-<span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;pt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_total</span><span class="o">.</span><span class="n">pt</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_total</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;pt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_total</span><span class="o">.</span><span class="n">pt</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">F</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">featuredata</span><span class="o">.</span><span class="n">replaceDecimal</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="n">mat_total</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat_total</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">featuredata</span><span class="o">.</span><span class="n">thousandsSeparator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">m_t</span> <span class="o">=</span> <span class="n">mat_total</span><span class="p">[[</span><span class="s2">&quot;survey year&quot;</span><span class="p">,</span><span class="s2">&quot;mat&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;pt&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;survey year&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s2">&quot;mat&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">m_t</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mat&quot;</span><span class="p">:</span><span class="s2">&quot;material&quot;</span><span class="p">,</span> <span class="s2">&quot;pt&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="si">% o</span><span class="s2">f total&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2412,338 +2412,338 @@ title="Open an issue"
 <figure class="align-default" id="slr-monthly-results">
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_a0fa0 tr:nth-child(even) {
+#T_ac251 tr:nth-child(even) {
   background-color: rgba(139, 69, 19, 0.08);
 }
-#T_a0fa0 tr:nth-child(odd) {
+#T_ac251 tr:nth-child(odd) {
   background: #FFF;
 }
-#T_a0fa0 tr {
+#T_ac251 tr {
   font-size: 12px;
 }
-#T_a0fa0 th:nth-child(1) {
+#T_ac251 th:nth-child(1) {
   background-color: #FFF;
 }
-#T_a0fa0_row0_col0, #T_a0fa0_row0_col4, #T_a0fa0_row1_col5, #T_a0fa0_row2_col6, #T_a0fa0_row2_col10, #T_a0fa0_row3_col10, #T_a0fa0_row4_col10 {
-  background-color: #fffedf;
-  color: #000000;
-}
-#T_a0fa0_row0_col1 {
-  background-color: #fedf88;
-  color: #000000;
-}
-#T_a0fa0_row0_col2 {
-  background-color: #fff8c0;
-  color: #000000;
-}
-#T_a0fa0_row0_col3, #T_a0fa0_row1_col4, #T_a0fa0_row4_col9 {
-  background-color: #fffddd;
-  color: #000000;
-}
-#T_a0fa0_row0_col5, #T_a0fa0_row1_col11, #T_a0fa0_row3_col6, #T_a0fa0_row4_col8 {
-  background-color: #fffddb;
-  color: #000000;
-}
-#T_a0fa0_row0_col6, #T_a0fa0_row1_col3, #T_a0fa0_row6_col8 {
-  background-color: #fffcd7;
-  color: #000000;
-}
-#T_a0fa0_row0_col7 {
-  background-color: #fffddc;
-  color: #000000;
-}
-#T_a0fa0_row0_col8 {
-  background-color: #ffffe5;
-  color: #000000;
-}
-#T_a0fa0_row0_col9, #T_a0fa0_row1_col8, #T_a0fa0_row1_col10 {
-  background-color: #ffffe4;
-  color: #000000;
-}
-#T_a0fa0_row0_col10 {
-  background-color: #fffee2;
-  color: #000000;
-}
-#T_a0fa0_row0_col11, #T_a0fa0_row4_col7 {
-  background-color: #fffbd2;
-  color: #000000;
-}
-#T_a0fa0_row1_col0 {
-  background-color: #fffbcf;
-  color: #000000;
-}
-#T_a0fa0_row1_col1, #T_a0fa0_row3_col5 {
-  background-color: #fffacb;
-  color: #000000;
-}
-#T_a0fa0_row1_col2, #T_a0fa0_row3_col3, #T_a0fa0_row5_col6 {
-  background-color: #fffbd3;
-  color: #000000;
-}
-#T_a0fa0_row1_col6, #T_a0fa0_row1_col9 {
-  background-color: #fffee0;
-  color: #000000;
-}
-#T_a0fa0_row1_col7 {
-  background-color: #fffdd9;
-  color: #000000;
-}
-#T_a0fa0_row2_col0, #T_a0fa0_row4_col6 {
-  background-color: #fffcd4;
-  color: #000000;
-}
-#T_a0fa0_row2_col1, #T_a0fa0_row2_col2, #T_a0fa0_row2_col4, #T_a0fa0_row5_col7 {
-  background-color: #fff8c4;
-  color: #000000;
-}
-#T_a0fa0_row2_col3, #T_a0fa0_row3_col4, #T_a0fa0_row4_col0, #T_a0fa0_row6_col9 {
-  background-color: #fff7bc;
-  color: #000000;
-}
-#T_a0fa0_row2_col5 {
-  background-color: #feeaa0;
-  color: #000000;
-}
-#T_a0fa0_row2_col7, #T_a0fa0_row3_col7 {
-  background-color: #fffcd6;
-  color: #000000;
-}
-#T_a0fa0_row2_col8, #T_a0fa0_row3_col8 {
-  background-color: #ffface;
-  color: #000000;
-}
-#T_a0fa0_row2_col9, #T_a0fa0_row5_col8 {
-  background-color: #fff9c5;
-  color: #000000;
-}
-#T_a0fa0_row2_col11 {
-  background-color: #fff5b8;
-  color: #000000;
-}
-#T_a0fa0_row3_col0, #T_a0fa0_row4_col3, #T_a0fa0_row5_col0, #T_a0fa0_row5_col10 {
-  background-color: #fff8c1;
-  color: #000000;
-}
-#T_a0fa0_row3_col1 {
-  background-color: #fee596;
-  color: #000000;
-}
-#T_a0fa0_row3_col2, #T_a0fa0_row3_col11 {
-  background-color: #fff7bd;
-  color: #000000;
-}
-#T_a0fa0_row3_col9 {
-  background-color: #fffcd8;
-  color: #000000;
-}
-#T_a0fa0_row4_col1 {
-  background-color: #fff1ae;
-  color: #000000;
-}
-#T_a0fa0_row4_col2 {
-  background-color: #feeca4;
-  color: #000000;
-}
-#T_a0fa0_row4_col4 {
-  background-color: #fff9c9;
-  color: #000000;
-}
-#T_a0fa0_row4_col5 {
-  background-color: #fff0ad;
-  color: #000000;
-}
-#T_a0fa0_row4_col11 {
-  background-color: #febd49;
-  color: #000000;
-}
-#T_a0fa0_row5_col1 {
-  background-color: #febf4b;
-  color: #000000;
-}
-#T_a0fa0_row5_col2 {
-  background-color: #fee99e;
-  color: #000000;
-}
-#T_a0fa0_row5_col3, #T_a0fa0_row5_col4 {
-  background-color: #feeba2;
-  color: #000000;
-}
-#T_a0fa0_row5_col5 {
-  background-color: #fedb80;
-  color: #000000;
-}
-#T_a0fa0_row5_col9 {
-  background-color: #fff8c2;
-  color: #000000;
-}
-#T_a0fa0_row5_col11 {
-  background-color: #feeaa1;
-  color: #000000;
-}
-#T_a0fa0_row6_col0 {
+#T_ac251_row0_col0 {
   background-color: #fd9627;
   color: #000000;
 }
-#T_a0fa0_row6_col1 {
+#T_ac251_row0_col1 {
   background-color: #b34003;
   color: #f1f1f1;
 }
-#T_a0fa0_row6_col2 {
+#T_ac251_row0_col2 {
   background-color: #662506;
   color: #f1f1f1;
 }
-#T_a0fa0_row6_col3 {
+#T_ac251_row0_col3 {
   background-color: #c84a02;
   color: #f1f1f1;
 }
-#T_a0fa0_row6_col4 {
+#T_ac251_row0_col4 {
   background-color: #f4821d;
   color: #f1f1f1;
 }
-#T_a0fa0_row6_col5 {
+#T_ac251_row0_col5 {
   background-color: #feb340;
   color: #000000;
 }
-#T_a0fa0_row6_col6 {
+#T_ac251_row0_col6 {
   background-color: #fede86;
   color: #000000;
 }
-#T_a0fa0_row6_col7 {
+#T_ac251_row0_col7 {
   background-color: #fed778;
   color: #000000;
 }
-#T_a0fa0_row6_col10 {
+#T_ac251_row0_col8, #T_ac251_row4_col3, #T_ac251_row5_col6 {
+  background-color: #fffcd7;
+  color: #000000;
+}
+#T_ac251_row0_col9, #T_ac251_row1_col3, #T_ac251_row2_col0, #T_ac251_row3_col4 {
+  background-color: #fff7bc;
+  color: #000000;
+}
+#T_ac251_row0_col10 {
   background-color: #fff6b9;
   color: #000000;
 }
-#T_a0fa0_row6_col11 {
+#T_ac251_row0_col11 {
   background-color: #fed573;
   color: #000000;
 }
+#T_ac251_row1_col0, #T_ac251_row2_col6 {
+  background-color: #fffcd4;
+  color: #000000;
+}
+#T_ac251_row1_col1, #T_ac251_row1_col2, #T_ac251_row1_col4, #T_ac251_row6_col7 {
+  background-color: #fff8c4;
+  color: #000000;
+}
+#T_ac251_row1_col5 {
+  background-color: #feeaa0;
+  color: #000000;
+}
+#T_ac251_row1_col6, #T_ac251_row1_col10, #T_ac251_row2_col10, #T_ac251_row3_col10, #T_ac251_row4_col5, #T_ac251_row5_col0, #T_ac251_row5_col4 {
+  background-color: #fffedf;
+  color: #000000;
+}
+#T_ac251_row1_col7, #T_ac251_row3_col7 {
+  background-color: #fffcd6;
+  color: #000000;
+}
+#T_ac251_row1_col8, #T_ac251_row3_col8 {
+  background-color: #ffface;
+  color: #000000;
+}
+#T_ac251_row1_col9, #T_ac251_row6_col8 {
+  background-color: #fff9c5;
+  color: #000000;
+}
+#T_ac251_row1_col11 {
+  background-color: #fff5b8;
+  color: #000000;
+}
+#T_ac251_row2_col1 {
+  background-color: #fff1ae;
+  color: #000000;
+}
+#T_ac251_row2_col2 {
+  background-color: #feeca4;
+  color: #000000;
+}
+#T_ac251_row2_col3, #T_ac251_row3_col0, #T_ac251_row6_col0, #T_ac251_row6_col10 {
+  background-color: #fff8c1;
+  color: #000000;
+}
+#T_ac251_row2_col4 {
+  background-color: #fff9c9;
+  color: #000000;
+}
+#T_ac251_row2_col5 {
+  background-color: #fff0ad;
+  color: #000000;
+}
+#T_ac251_row2_col7, #T_ac251_row5_col11 {
+  background-color: #fffbd2;
+  color: #000000;
+}
+#T_ac251_row2_col8, #T_ac251_row3_col6, #T_ac251_row4_col11, #T_ac251_row5_col5 {
+  background-color: #fffddb;
+  color: #000000;
+}
+#T_ac251_row2_col9, #T_ac251_row4_col4, #T_ac251_row5_col3 {
+  background-color: #fffddd;
+  color: #000000;
+}
+#T_ac251_row2_col11 {
+  background-color: #febd49;
+  color: #000000;
+}
+#T_ac251_row3_col1 {
+  background-color: #fee596;
+  color: #000000;
+}
+#T_ac251_row3_col2, #T_ac251_row3_col11 {
+  background-color: #fff7bd;
+  color: #000000;
+}
+#T_ac251_row3_col3, #T_ac251_row4_col2, #T_ac251_row6_col6 {
+  background-color: #fffbd3;
+  color: #000000;
+}
+#T_ac251_row3_col5, #T_ac251_row4_col1 {
+  background-color: #fffacb;
+  color: #000000;
+}
+#T_ac251_row3_col9 {
+  background-color: #fffcd8;
+  color: #000000;
+}
+#T_ac251_row4_col0 {
+  background-color: #fffbcf;
+  color: #000000;
+}
+#T_ac251_row4_col6, #T_ac251_row4_col9 {
+  background-color: #fffee0;
+  color: #000000;
+}
+#T_ac251_row4_col7 {
+  background-color: #fffdd9;
+  color: #000000;
+}
+#T_ac251_row4_col8, #T_ac251_row4_col10, #T_ac251_row5_col9 {
+  background-color: #ffffe4;
+  color: #000000;
+}
+#T_ac251_row5_col1 {
+  background-color: #fedf88;
+  color: #000000;
+}
+#T_ac251_row5_col2 {
+  background-color: #fff8c0;
+  color: #000000;
+}
+#T_ac251_row5_col7 {
+  background-color: #fffddc;
+  color: #000000;
+}
+#T_ac251_row5_col8 {
+  background-color: #ffffe5;
+  color: #000000;
+}
+#T_ac251_row5_col10 {
+  background-color: #fffee2;
+  color: #000000;
+}
+#T_ac251_row6_col1 {
+  background-color: #febf4b;
+  color: #000000;
+}
+#T_ac251_row6_col2 {
+  background-color: #fee99e;
+  color: #000000;
+}
+#T_ac251_row6_col3, #T_ac251_row6_col4 {
+  background-color: #feeba2;
+  color: #000000;
+}
+#T_ac251_row6_col5 {
+  background-color: #fedb80;
+  color: #000000;
+}
+#T_ac251_row6_col9 {
+  background-color: #fff8c2;
+  color: #000000;
+}
+#T_ac251_row6_col11 {
+  background-color: #feeaa1;
+  color: #000000;
+}
 </style>
-<table id="T_a0fa0">
+<table id="T_ac251">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_a0fa0_level0_col0" class="col_heading level0 col0" >Apr.</th>
-      <th id="T_a0fa0_level0_col1" class="col_heading level0 col1" >Mai</th>
-      <th id="T_a0fa0_level0_col2" class="col_heading level0 col2" >Juni</th>
-      <th id="T_a0fa0_level0_col3" class="col_heading level0 col3" >Juli</th>
-      <th id="T_a0fa0_level0_col4" class="col_heading level0 col4" >Aug.</th>
-      <th id="T_a0fa0_level0_col5" class="col_heading level0 col5" >Sept.</th>
-      <th id="T_a0fa0_level0_col6" class="col_heading level0 col6" >Okt.</th>
-      <th id="T_a0fa0_level0_col7" class="col_heading level0 col7" >Nov.</th>
-      <th id="T_a0fa0_level0_col8" class="col_heading level0 col8" >Dez.</th>
-      <th id="T_a0fa0_level0_col9" class="col_heading level0 col9" >Jan.</th>
-      <th id="T_a0fa0_level0_col10" class="col_heading level0 col10" >Feb.</th>
-      <th id="T_a0fa0_level0_col11" class="col_heading level0 col11" >März</th>
+      <th id="T_ac251_level0_col0" class="col_heading level0 col0" >Apr.</th>
+      <th id="T_ac251_level0_col1" class="col_heading level0 col1" >Mai</th>
+      <th id="T_ac251_level0_col2" class="col_heading level0 col2" >Juni</th>
+      <th id="T_ac251_level0_col3" class="col_heading level0 col3" >Juli</th>
+      <th id="T_ac251_level0_col4" class="col_heading level0 col4" >Aug.</th>
+      <th id="T_ac251_level0_col5" class="col_heading level0 col5" >Sept.</th>
+      <th id="T_ac251_level0_col6" class="col_heading level0 col6" >Okt.</th>
+      <th id="T_ac251_level0_col7" class="col_heading level0 col7" >Nov.</th>
+      <th id="T_ac251_level0_col8" class="col_heading level0 col8" >Dez.</th>
+      <th id="T_ac251_level0_col9" class="col_heading level0 col9" >Jan.</th>
+      <th id="T_ac251_level0_col10" class="col_heading level0 col10" >Feb.</th>
+      <th id="T_ac251_level0_col11" class="col_heading level0 col11" >März</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_a0fa0_level0_row0" class="row_heading level0 row0" >Wattestäbchen/Tupfer</th>
-      <td id="T_a0fa0_row0_col0" class="data row0 col0" >8,9</td>
-      <td id="T_a0fa0_row0_col1" class="data row0 col1" >82,4</td>
-      <td id="T_a0fa0_row0_col2" class="data row0 col2" >36,8</td>
-      <td id="T_a0fa0_row0_col3" class="data row0 col3" >10,5</td>
-      <td id="T_a0fa0_row0_col4" class="data row0 col4" >9,6</td>
-      <td id="T_a0fa0_row0_col5" class="data row0 col5" >12,8</td>
-      <td id="T_a0fa0_row0_col6" class="data row0 col6" >15,8</td>
-      <td id="T_a0fa0_row0_col7" class="data row0 col7" >11,5</td>
-      <td id="T_a0fa0_row0_col8" class="data row0 col8" >2,9</td>
-      <td id="T_a0fa0_row0_col9" class="data row0 col9" >4,6</td>
-      <td id="T_a0fa0_row0_col10" class="data row0 col10" >5,8</td>
-      <td id="T_a0fa0_row0_col11" class="data row0 col11" >20,8</td>
+      <th id="T_ac251_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
+      <td id="T_ac251_row0_col0" class="data row0 col0" >153,6</td>
+      <td id="T_ac251_row0_col1" class="data row0 col1" >242,8</td>
+      <td id="T_ac251_row0_col2" class="data row0 col2" >299,2</td>
+      <td id="T_ac251_row0_col3" class="data row0 col3" >228,4</td>
+      <td id="T_ac251_row0_col4" class="data row0 col4" >171,1</td>
+      <td id="T_ac251_row0_col5" class="data row0 col5" >128,9</td>
+      <td id="T_ac251_row0_col6" class="data row0 col6" >83,9</td>
+      <td id="T_ac251_row0_col7" class="data row0 col7" >91,0</td>
+      <td id="T_ac251_row0_col8" class="data row0 col8" >16,7</td>
+      <td id="T_ac251_row0_col9" class="data row0 col9" >41,0</td>
+      <td id="T_ac251_row0_col10" class="data row0 col10" >43,2</td>
+      <td id="T_ac251_row0_col11" class="data row0 col11" >93,9</td>
     </tr>
     <tr>
-      <th id="T_a0fa0_level0_row1" class="row_heading level0 row1" >Flaschenverschlüsse aus Metall</th>
-      <td id="T_a0fa0_row1_col0" class="data row1 col0" >23,1</td>
-      <td id="T_a0fa0_row1_col1" class="data row1 col1" >26,2</td>
-      <td id="T_a0fa0_row1_col2" class="data row1 col2" >20,2</td>
-      <td id="T_a0fa0_row1_col3" class="data row1 col3" >16,5</td>
-      <td id="T_a0fa0_row1_col4" class="data row1 col4" >10,5</td>
-      <td id="T_a0fa0_row1_col5" class="data row1 col5" >8,9</td>
-      <td id="T_a0fa0_row1_col6" class="data row1 col6" >7,9</td>
-      <td id="T_a0fa0_row1_col7" class="data row1 col7" >13,8</td>
-      <td id="T_a0fa0_row1_col8" class="data row1 col8" >4,7</td>
-      <td id="T_a0fa0_row1_col9" class="data row1 col9" >8,4</td>
-      <td id="T_a0fa0_row1_col10" class="data row1 col10" >4,2</td>
-      <td id="T_a0fa0_row1_col11" class="data row1 col11" >13,3</td>
+      <th id="T_ac251_level0_row1" class="row_heading level0 row1" >Expandiertem Polystyrol 2,5 - 50 cm</th>
+      <td id="T_ac251_row1_col0" class="data row1 col0" >19,1</td>
+      <td id="T_ac251_row1_col1" class="data row1 col1" >33,7</td>
+      <td id="T_ac251_row1_col2" class="data row1 col2" >33,4</td>
+      <td id="T_ac251_row1_col3" class="data row1 col3" >40,6</td>
+      <td id="T_ac251_row1_col4" class="data row1 col4" >33,9</td>
+      <td id="T_ac251_row1_col5" class="data row1 col5" >64,6</td>
+      <td id="T_ac251_row1_col6" class="data row1 col6" >9,8</td>
+      <td id="T_ac251_row1_col7" class="data row1 col7" >16,8</td>
+      <td id="T_ac251_row1_col8" class="data row1 col8" >24,1</td>
+      <td id="T_ac251_row1_col9" class="data row1 col9" >32,3</td>
+      <td id="T_ac251_row1_col10" class="data row1 col10" >9,8</td>
+      <td id="T_ac251_row1_col11" class="data row1 col11" >44,1</td>
     </tr>
     <tr>
-      <th id="T_a0fa0_level0_row2" class="row_heading level0 row2" >Expandiertem Polystyrol 2,5 - 50 cm</th>
-      <td id="T_a0fa0_row2_col0" class="data row2 col0" >19,1</td>
-      <td id="T_a0fa0_row2_col1" class="data row2 col1" >33,7</td>
-      <td id="T_a0fa0_row2_col2" class="data row2 col2" >33,4</td>
-      <td id="T_a0fa0_row2_col3" class="data row2 col3" >40,6</td>
-      <td id="T_a0fa0_row2_col4" class="data row2 col4" >33,9</td>
-      <td id="T_a0fa0_row2_col5" class="data row2 col5" >64,6</td>
-      <td id="T_a0fa0_row2_col6" class="data row2 col6" >9,8</td>
-      <td id="T_a0fa0_row2_col7" class="data row2 col7" >16,8</td>
-      <td id="T_a0fa0_row2_col8" class="data row2 col8" >24,1</td>
-      <td id="T_a0fa0_row2_col9" class="data row2 col9" >32,3</td>
-      <td id="T_a0fa0_row2_col10" class="data row2 col10" >9,8</td>
-      <td id="T_a0fa0_row2_col11" class="data row2 col11" >44,1</td>
+      <th id="T_ac251_level0_row2" class="row_heading level0 row2" >Snack-Verpackungen</th>
+      <td id="T_ac251_row2_col0" class="data row2 col0" >40,2</td>
+      <td id="T_ac251_row2_col1" class="data row2 col1" >52,4</td>
+      <td id="T_ac251_row2_col2" class="data row2 col2" >61,4</td>
+      <td id="T_ac251_row2_col3" class="data row2 col3" >36,1</td>
+      <td id="T_ac251_row2_col4" class="data row2 col4" >29,5</td>
+      <td id="T_ac251_row2_col5" class="data row2 col5" >53,7</td>
+      <td id="T_ac251_row2_col6" class="data row2 col6" >19,0</td>
+      <td id="T_ac251_row2_col7" class="data row2 col7" >20,8</td>
+      <td id="T_ac251_row2_col8" class="data row2 col8" >12,4</td>
+      <td id="T_ac251_row2_col9" class="data row2 col9" >10,8</td>
+      <td id="T_ac251_row2_col10" class="data row2 col10" >9,1</td>
+      <td id="T_ac251_row2_col11" class="data row2 col11" >120,9</td>
     </tr>
     <tr>
-      <th id="T_a0fa0_level0_row3" class="row_heading level0 row3" >Industriefolie (Kunststoff)</th>
-      <td id="T_a0fa0_row3_col0" class="data row3 col0" >35,7</td>
-      <td id="T_a0fa0_row3_col1" class="data row3 col1" >73,2</td>
-      <td id="T_a0fa0_row3_col2" class="data row3 col2" >39,1</td>
-      <td id="T_a0fa0_row3_col3" class="data row3 col3" >20,2</td>
-      <td id="T_a0fa0_row3_col4" class="data row3 col4" >40,3</td>
-      <td id="T_a0fa0_row3_col5" class="data row3 col5" >26,7</td>
-      <td id="T_a0fa0_row3_col6" class="data row3 col6" >12,8</td>
-      <td id="T_a0fa0_row3_col7" class="data row3 col7" >17,6</td>
-      <td id="T_a0fa0_row3_col8" class="data row3 col8" >24,2</td>
-      <td id="T_a0fa0_row3_col9" class="data row3 col9" >15,2</td>
-      <td id="T_a0fa0_row3_col10" class="data row3 col10" >9,6</td>
-      <td id="T_a0fa0_row3_col11" class="data row3 col11" >39,5</td>
+      <th id="T_ac251_level0_row3" class="row_heading level0 row3" >Industriefolie (Kunststoff)</th>
+      <td id="T_ac251_row3_col0" class="data row3 col0" >35,7</td>
+      <td id="T_ac251_row3_col1" class="data row3 col1" >73,2</td>
+      <td id="T_ac251_row3_col2" class="data row3 col2" >39,1</td>
+      <td id="T_ac251_row3_col3" class="data row3 col3" >20,2</td>
+      <td id="T_ac251_row3_col4" class="data row3 col4" >40,3</td>
+      <td id="T_ac251_row3_col5" class="data row3 col5" >26,7</td>
+      <td id="T_ac251_row3_col6" class="data row3 col6" >12,8</td>
+      <td id="T_ac251_row3_col7" class="data row3 col7" >17,6</td>
+      <td id="T_ac251_row3_col8" class="data row3 col8" >24,2</td>
+      <td id="T_ac251_row3_col9" class="data row3 col9" >15,2</td>
+      <td id="T_ac251_row3_col10" class="data row3 col10" >9,6</td>
+      <td id="T_ac251_row3_col11" class="data row3 col11" >39,5</td>
     </tr>
     <tr>
-      <th id="T_a0fa0_level0_row4" class="row_heading level0 row4" >Snack-Verpackungen</th>
-      <td id="T_a0fa0_row4_col0" class="data row4 col0" >40,2</td>
-      <td id="T_a0fa0_row4_col1" class="data row4 col1" >52,4</td>
-      <td id="T_a0fa0_row4_col2" class="data row4 col2" >61,4</td>
-      <td id="T_a0fa0_row4_col3" class="data row4 col3" >36,1</td>
-      <td id="T_a0fa0_row4_col4" class="data row4 col4" >29,5</td>
-      <td id="T_a0fa0_row4_col5" class="data row4 col5" >53,7</td>
-      <td id="T_a0fa0_row4_col6" class="data row4 col6" >19,0</td>
-      <td id="T_a0fa0_row4_col7" class="data row4 col7" >20,8</td>
-      <td id="T_a0fa0_row4_col8" class="data row4 col8" >12,4</td>
-      <td id="T_a0fa0_row4_col9" class="data row4 col9" >10,8</td>
-      <td id="T_a0fa0_row4_col10" class="data row4 col10" >9,1</td>
-      <td id="T_a0fa0_row4_col11" class="data row4 col11" >120,9</td>
+      <th id="T_ac251_level0_row4" class="row_heading level0 row4" >Flaschenverschlüsse aus Metall</th>
+      <td id="T_ac251_row4_col0" class="data row4 col0" >23,1</td>
+      <td id="T_ac251_row4_col1" class="data row4 col1" >26,2</td>
+      <td id="T_ac251_row4_col2" class="data row4 col2" >20,2</td>
+      <td id="T_ac251_row4_col3" class="data row4 col3" >16,5</td>
+      <td id="T_ac251_row4_col4" class="data row4 col4" >10,5</td>
+      <td id="T_ac251_row4_col5" class="data row4 col5" >8,9</td>
+      <td id="T_ac251_row4_col6" class="data row4 col6" >7,9</td>
+      <td id="T_ac251_row4_col7" class="data row4 col7" >13,8</td>
+      <td id="T_ac251_row4_col8" class="data row4 col8" >4,7</td>
+      <td id="T_ac251_row4_col9" class="data row4 col9" >8,4</td>
+      <td id="T_ac251_row4_col10" class="data row4 col10" >4,2</td>
+      <td id="T_ac251_row4_col11" class="data row4 col11" >13,3</td>
     </tr>
     <tr>
-      <th id="T_a0fa0_level0_row5" class="row_heading level0 row5" >Objekte aus Kunststoff 2,5 - 50 cm</th>
-      <td id="T_a0fa0_row5_col0" class="data row5 col0" >36,1</td>
-      <td id="T_a0fa0_row5_col1" class="data row5 col1" >117,9</td>
-      <td id="T_a0fa0_row5_col2" class="data row5 col2" >66,1</td>
-      <td id="T_a0fa0_row5_col3" class="data row5 col3" >62,4</td>
-      <td id="T_a0fa0_row5_col4" class="data row5 col4" >62,6</td>
-      <td id="T_a0fa0_row5_col5" class="data row5 col5" >86,7</td>
-      <td id="T_a0fa0_row5_col6" class="data row5 col6" >19,4</td>
-      <td id="T_a0fa0_row5_col7" class="data row5 col7" >33,5</td>
-      <td id="T_a0fa0_row5_col8" class="data row5 col8" >32,9</td>
-      <td id="T_a0fa0_row5_col9" class="data row5 col9" >34,8</td>
-      <td id="T_a0fa0_row5_col10" class="data row5 col10" >36,0</td>
-      <td id="T_a0fa0_row5_col11" class="data row5 col11" >63,6</td>
+      <th id="T_ac251_level0_row5" class="row_heading level0 row5" >Wattestäbchen/Tupfer</th>
+      <td id="T_ac251_row5_col0" class="data row5 col0" >8,9</td>
+      <td id="T_ac251_row5_col1" class="data row5 col1" >82,4</td>
+      <td id="T_ac251_row5_col2" class="data row5 col2" >36,8</td>
+      <td id="T_ac251_row5_col3" class="data row5 col3" >10,5</td>
+      <td id="T_ac251_row5_col4" class="data row5 col4" >9,6</td>
+      <td id="T_ac251_row5_col5" class="data row5 col5" >12,8</td>
+      <td id="T_ac251_row5_col6" class="data row5 col6" >15,8</td>
+      <td id="T_ac251_row5_col7" class="data row5 col7" >11,5</td>
+      <td id="T_ac251_row5_col8" class="data row5 col8" >2,9</td>
+      <td id="T_ac251_row5_col9" class="data row5 col9" >4,6</td>
+      <td id="T_ac251_row5_col10" class="data row5 col10" >5,8</td>
+      <td id="T_ac251_row5_col11" class="data row5 col11" >20,8</td>
     </tr>
     <tr>
-      <th id="T_a0fa0_level0_row6" class="row_heading level0 row6" >Zigarettenfilter</th>
-      <td id="T_a0fa0_row6_col0" class="data row6 col0" >153,6</td>
-      <td id="T_a0fa0_row6_col1" class="data row6 col1" >242,8</td>
-      <td id="T_a0fa0_row6_col2" class="data row6 col2" >299,2</td>
-      <td id="T_a0fa0_row6_col3" class="data row6 col3" >228,4</td>
-      <td id="T_a0fa0_row6_col4" class="data row6 col4" >171,1</td>
-      <td id="T_a0fa0_row6_col5" class="data row6 col5" >128,9</td>
-      <td id="T_a0fa0_row6_col6" class="data row6 col6" >83,9</td>
-      <td id="T_a0fa0_row6_col7" class="data row6 col7" >91,0</td>
-      <td id="T_a0fa0_row6_col8" class="data row6 col8" >16,7</td>
-      <td id="T_a0fa0_row6_col9" class="data row6 col9" >41,0</td>
-      <td id="T_a0fa0_row6_col10" class="data row6 col10" >43,2</td>
-      <td id="T_a0fa0_row6_col11" class="data row6 col11" >93,9</td>
+      <th id="T_ac251_level0_row6" class="row_heading level0 row6" >Objekte aus Kunststoff 2,5 - 50 cm</th>
+      <td id="T_ac251_row6_col0" class="data row6 col0" >36,1</td>
+      <td id="T_ac251_row6_col1" class="data row6 col1" >117,9</td>
+      <td id="T_ac251_row6_col2" class="data row6 col2" >66,1</td>
+      <td id="T_ac251_row6_col3" class="data row6 col3" >62,4</td>
+      <td id="T_ac251_row6_col4" class="data row6 col4" >62,6</td>
+      <td id="T_ac251_row6_col5" class="data row6 col5" >86,7</td>
+      <td id="T_ac251_row6_col6" class="data row6 col6" >19,4</td>
+      <td id="T_ac251_row6_col7" class="data row6 col7" >33,5</td>
+      <td id="T_ac251_row6_col8" class="data row6 col8" >32,9</td>
+      <td id="T_ac251_row6_col9" class="data row6 col9" >34,8</td>
+      <td id="T_ac251_row6_col10" class="data row6 col10" >36,0</td>
+      <td id="T_ac251_row6_col11" class="data row6 col11" >63,6</td>
     </tr>
   </tbody>
 </table>
@@ -2762,394 +2762,394 @@ title="Open an issue"
 <figure class="align-default" id="iqaasl-monthly-results">
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_0670f tr:nth-child(even) {
+#T_b83e9 tr:nth-child(even) {
   background-color: rgba(139, 69, 19, 0.08);
 }
-#T_0670f tr:nth-child(odd) {
+#T_b83e9 tr:nth-child(odd) {
   background: #FFF;
 }
-#T_0670f tr {
+#T_b83e9 tr {
   font-size: 12px;
 }
-#T_0670f th:nth-child(1) {
+#T_b83e9 th:nth-child(1) {
   background-color: #FFF;
 }
-#T_0670f_row0_col0 {
-  background-color: #fffddc;
-  color: #000000;
-}
-#T_0670f_row0_col1, #T_0670f_row3_col10 {
-  background-color: #fff7bc;
-  color: #000000;
-}
-#T_0670f_row0_col2 {
-  background-color: #fee697;
-  color: #000000;
-}
-#T_0670f_row0_col3 {
-  background-color: #fee79a;
-  color: #000000;
-}
-#T_0670f_row0_col4 {
-  background-color: #fff6b9;
-  color: #000000;
-}
-#T_0670f_row0_col5 {
-  background-color: #fffacb;
-  color: #000000;
-}
-#T_0670f_row0_col6, #T_0670f_row3_col7 {
-  background-color: #fff9c6;
-  color: #000000;
-}
-#T_0670f_row0_col7, #T_0670f_row1_col5 {
-  background-color: #fffedf;
-  color: #000000;
-}
-#T_0670f_row0_col8, #T_0670f_row4_col7, #T_0670f_row4_col10 {
-  background-color: #fff8c2;
-  color: #000000;
-}
-#T_0670f_row0_col9, #T_0670f_row3_col9, #T_0670f_row5_col9 {
-  background-color: #fff8c4;
-  color: #000000;
-}
-#T_0670f_row0_col10, #T_0670f_row2_col7 {
-  background-color: #fffcd4;
-  color: #000000;
-}
-#T_0670f_row0_col11 {
-  background-color: #fff4b5;
-  color: #000000;
-}
-#T_0670f_row1_col0 {
-  background-color: #fffee0;
-  color: #000000;
-}
-#T_0670f_row1_col1, #T_0670f_row1_col4 {
-  background-color: #fffcd8;
-  color: #000000;
-}
-#T_0670f_row1_col2, #T_0670f_row1_col3, #T_0670f_row5_col7 {
-  background-color: #fffbd3;
-  color: #000000;
-}
-#T_0670f_row1_col6, #T_0670f_row1_col11 {
-  background-color: #fffee2;
-  color: #000000;
-}
-#T_0670f_row1_col7, #T_0670f_row1_col10 {
-  background-color: #ffffe5;
-  color: #000000;
-}
-#T_0670f_row1_col8 {
-  background-color: #ffffe4;
-  color: #000000;
-}
-#T_0670f_row1_col9 {
-  background-color: #fffee1;
-  color: #000000;
-}
-#T_0670f_row2_col0, #T_0670f_row2_col2 {
-  background-color: #fed97c;
-  color: #000000;
-}
-#T_0670f_row2_col1 {
-  background-color: #fee28e;
-  color: #000000;
-}
-#T_0670f_row2_col3 {
-  background-color: #fed26d;
-  color: #000000;
-}
-#T_0670f_row2_col4 {
-  background-color: #ffeea8;
-  color: #000000;
-}
-#T_0670f_row2_col5 {
-  background-color: #fff8c1;
-  color: #000000;
-}
-#T_0670f_row2_col6 {
-  background-color: #fffbcf;
-  color: #000000;
-}
-#T_0670f_row2_col8, #T_0670f_row2_col11 {
-  background-color: #fffddb;
-  color: #000000;
-}
-#T_0670f_row2_col9 {
-  background-color: #fff9c9;
-  color: #000000;
-}
-#T_0670f_row2_col10 {
-  background-color: #fffcd6;
-  color: #000000;
-}
-#T_0670f_row3_col0, #T_0670f_row4_col0, #T_0670f_row6_col6 {
-  background-color: #fedf88;
-  color: #000000;
-}
-#T_0670f_row3_col1 {
-  background-color: #ffefaa;
-  color: #000000;
-}
-#T_0670f_row3_col2 {
-  background-color: #feeba2;
-  color: #000000;
-}
-#T_0670f_row3_col3 {
-  background-color: #fed676;
-  color: #000000;
-}
-#T_0670f_row3_col4, #T_0670f_row4_col1 {
-  background-color: #feeca4;
-  color: #000000;
-}
-#T_0670f_row3_col5, #T_0670f_row5_col5, #T_0670f_row5_col11 {
-  background-color: #fee08a;
-  color: #000000;
-}
-#T_0670f_row3_col6 {
-  background-color: #ffefac;
-  color: #000000;
-}
-#T_0670f_row3_col8 {
-  background-color: #fffacd;
-  color: #000000;
-}
-#T_0670f_row3_col11 {
-  background-color: #e76b11;
-  color: #f1f1f1;
-}
-#T_0670f_row4_col2 {
-  background-color: #fec34f;
-  color: #000000;
-}
-#T_0670f_row4_col3 {
-  background-color: #fec550;
-  color: #000000;
-}
-#T_0670f_row4_col4 {
-  background-color: #fee596;
-  color: #000000;
-}
-#T_0670f_row4_col5 {
-  background-color: #fec859;
-  color: #000000;
-}
-#T_0670f_row4_col6 {
-  background-color: #feeaa0;
-  color: #000000;
-}
-#T_0670f_row4_col8 {
-  background-color: #fff7be;
-  color: #000000;
-}
-#T_0670f_row4_col9 {
-  background-color: #fff1b0;
-  color: #000000;
-}
-#T_0670f_row4_col11 {
-  background-color: #e1640e;
-  color: #f1f1f1;
-}
-#T_0670f_row5_col0 {
-  background-color: #feca5d;
-  color: #000000;
-}
-#T_0670f_row5_col1 {
-  background-color: #feaa38;
-  color: #000000;
-}
-#T_0670f_row5_col2 {
-  background-color: #feb340;
-  color: #000000;
-}
-#T_0670f_row5_col3 {
-  background-color: #feab39;
-  color: #000000;
-}
-#T_0670f_row5_col4 {
-  background-color: #fedc82;
-  color: #000000;
-}
-#T_0670f_row5_col6 {
-  background-color: #fff4b6;
-  color: #000000;
-}
-#T_0670f_row5_col8 {
-  background-color: #feeda6;
-  color: #000000;
-}
-#T_0670f_row5_col10 {
-  background-color: #fff8c0;
-  color: #000000;
-}
-#T_0670f_row6_col0 {
+#T_b83e9_row0_col0 {
   background-color: #cd4d03;
   color: #f1f1f1;
 }
-#T_0670f_row6_col1 {
+#T_b83e9_row0_col1 {
   background-color: #f07818;
   color: #f1f1f1;
 }
-#T_0670f_row6_col2, #T_0670f_row6_col3 {
+#T_b83e9_row0_col2, #T_b83e9_row0_col3 {
   background-color: #662506;
   color: #f1f1f1;
 }
-#T_0670f_row6_col4 {
+#T_b83e9_row0_col4 {
   background-color: #732905;
   color: #f1f1f1;
 }
-#T_0670f_row6_col5 {
+#T_b83e9_row0_col5 {
   background-color: #702806;
   color: #f1f1f1;
 }
-#T_0670f_row6_col7 {
+#T_b83e9_row0_col6, #T_b83e9_row2_col0, #T_b83e9_row3_col0 {
+  background-color: #fedf88;
+  color: #000000;
+}
+#T_b83e9_row0_col7 {
   background-color: #fff1ae;
   color: #000000;
 }
-#T_0670f_row6_col8 {
+#T_b83e9_row0_col8 {
   background-color: #fff3b2;
   color: #000000;
 }
-#T_0670f_row6_col9 {
+#T_b83e9_row0_col9 {
   background-color: #fee89d;
   color: #000000;
 }
-#T_0670f_row6_col10 {
+#T_b83e9_row0_col10 {
   background-color: #fed069;
   color: #000000;
 }
-#T_0670f_row6_col11 {
+#T_b83e9_row0_col11 {
   background-color: #fb9326;
   color: #000000;
 }
+#T_b83e9_row1_col0, #T_b83e9_row1_col2 {
+  background-color: #fed97c;
+  color: #000000;
+}
+#T_b83e9_row1_col1 {
+  background-color: #fee28e;
+  color: #000000;
+}
+#T_b83e9_row1_col3 {
+  background-color: #fed26d;
+  color: #000000;
+}
+#T_b83e9_row1_col4 {
+  background-color: #ffeea8;
+  color: #000000;
+}
+#T_b83e9_row1_col5 {
+  background-color: #fff8c1;
+  color: #000000;
+}
+#T_b83e9_row1_col6 {
+  background-color: #fffbcf;
+  color: #000000;
+}
+#T_b83e9_row1_col7, #T_b83e9_row5_col10 {
+  background-color: #fffcd4;
+  color: #000000;
+}
+#T_b83e9_row1_col8, #T_b83e9_row1_col11 {
+  background-color: #fffddb;
+  color: #000000;
+}
+#T_b83e9_row1_col9 {
+  background-color: #fff9c9;
+  color: #000000;
+}
+#T_b83e9_row1_col10 {
+  background-color: #fffcd6;
+  color: #000000;
+}
+#T_b83e9_row2_col1, #T_b83e9_row3_col4 {
+  background-color: #feeca4;
+  color: #000000;
+}
+#T_b83e9_row2_col2 {
+  background-color: #fec34f;
+  color: #000000;
+}
+#T_b83e9_row2_col3 {
+  background-color: #fec550;
+  color: #000000;
+}
+#T_b83e9_row2_col4 {
+  background-color: #fee596;
+  color: #000000;
+}
+#T_b83e9_row2_col5 {
+  background-color: #fec859;
+  color: #000000;
+}
+#T_b83e9_row2_col6 {
+  background-color: #feeaa0;
+  color: #000000;
+}
+#T_b83e9_row2_col7, #T_b83e9_row2_col10, #T_b83e9_row5_col8 {
+  background-color: #fff8c2;
+  color: #000000;
+}
+#T_b83e9_row2_col8 {
+  background-color: #fff7be;
+  color: #000000;
+}
+#T_b83e9_row2_col9 {
+  background-color: #fff1b0;
+  color: #000000;
+}
+#T_b83e9_row2_col11 {
+  background-color: #e1640e;
+  color: #f1f1f1;
+}
+#T_b83e9_row3_col1 {
+  background-color: #ffefaa;
+  color: #000000;
+}
+#T_b83e9_row3_col2 {
+  background-color: #feeba2;
+  color: #000000;
+}
+#T_b83e9_row3_col3 {
+  background-color: #fed676;
+  color: #000000;
+}
+#T_b83e9_row3_col5, #T_b83e9_row6_col5, #T_b83e9_row6_col11 {
+  background-color: #fee08a;
+  color: #000000;
+}
+#T_b83e9_row3_col6 {
+  background-color: #ffefac;
+  color: #000000;
+}
+#T_b83e9_row3_col7, #T_b83e9_row5_col6 {
+  background-color: #fff9c6;
+  color: #000000;
+}
+#T_b83e9_row3_col8 {
+  background-color: #fffacd;
+  color: #000000;
+}
+#T_b83e9_row3_col9, #T_b83e9_row5_col9, #T_b83e9_row6_col9 {
+  background-color: #fff8c4;
+  color: #000000;
+}
+#T_b83e9_row3_col10, #T_b83e9_row5_col1 {
+  background-color: #fff7bc;
+  color: #000000;
+}
+#T_b83e9_row3_col11 {
+  background-color: #e76b11;
+  color: #f1f1f1;
+}
+#T_b83e9_row4_col0 {
+  background-color: #fffee0;
+  color: #000000;
+}
+#T_b83e9_row4_col1, #T_b83e9_row4_col4 {
+  background-color: #fffcd8;
+  color: #000000;
+}
+#T_b83e9_row4_col2, #T_b83e9_row4_col3, #T_b83e9_row6_col7 {
+  background-color: #fffbd3;
+  color: #000000;
+}
+#T_b83e9_row4_col5, #T_b83e9_row5_col7 {
+  background-color: #fffedf;
+  color: #000000;
+}
+#T_b83e9_row4_col6, #T_b83e9_row4_col11 {
+  background-color: #fffee2;
+  color: #000000;
+}
+#T_b83e9_row4_col7, #T_b83e9_row4_col10 {
+  background-color: #ffffe5;
+  color: #000000;
+}
+#T_b83e9_row4_col8 {
+  background-color: #ffffe4;
+  color: #000000;
+}
+#T_b83e9_row4_col9 {
+  background-color: #fffee1;
+  color: #000000;
+}
+#T_b83e9_row5_col0 {
+  background-color: #fffddc;
+  color: #000000;
+}
+#T_b83e9_row5_col2 {
+  background-color: #fee697;
+  color: #000000;
+}
+#T_b83e9_row5_col3 {
+  background-color: #fee79a;
+  color: #000000;
+}
+#T_b83e9_row5_col4 {
+  background-color: #fff6b9;
+  color: #000000;
+}
+#T_b83e9_row5_col5 {
+  background-color: #fffacb;
+  color: #000000;
+}
+#T_b83e9_row5_col11 {
+  background-color: #fff4b5;
+  color: #000000;
+}
+#T_b83e9_row6_col0 {
+  background-color: #feca5d;
+  color: #000000;
+}
+#T_b83e9_row6_col1 {
+  background-color: #feaa38;
+  color: #000000;
+}
+#T_b83e9_row6_col2 {
+  background-color: #feb340;
+  color: #000000;
+}
+#T_b83e9_row6_col3 {
+  background-color: #feab39;
+  color: #000000;
+}
+#T_b83e9_row6_col4 {
+  background-color: #fedc82;
+  color: #000000;
+}
+#T_b83e9_row6_col6 {
+  background-color: #fff4b6;
+  color: #000000;
+}
+#T_b83e9_row6_col8 {
+  background-color: #feeda6;
+  color: #000000;
+}
+#T_b83e9_row6_col10 {
+  background-color: #fff8c0;
+  color: #000000;
+}
 </style>
-<table id="T_0670f">
+<table id="T_b83e9">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_0670f_level0_col0" class="col_heading level0 col0" >Apr.</th>
-      <th id="T_0670f_level0_col1" class="col_heading level0 col1" >Mai</th>
-      <th id="T_0670f_level0_col2" class="col_heading level0 col2" >Juni</th>
-      <th id="T_0670f_level0_col3" class="col_heading level0 col3" >Juli</th>
-      <th id="T_0670f_level0_col4" class="col_heading level0 col4" >Aug.</th>
-      <th id="T_0670f_level0_col5" class="col_heading level0 col5" >Sept.</th>
-      <th id="T_0670f_level0_col6" class="col_heading level0 col6" >Okt.</th>
-      <th id="T_0670f_level0_col7" class="col_heading level0 col7" >Nov.</th>
-      <th id="T_0670f_level0_col8" class="col_heading level0 col8" >Dez.</th>
-      <th id="T_0670f_level0_col9" class="col_heading level0 col9" >Jan.</th>
-      <th id="T_0670f_level0_col10" class="col_heading level0 col10" >Feb.</th>
-      <th id="T_0670f_level0_col11" class="col_heading level0 col11" >März</th>
+      <th id="T_b83e9_level0_col0" class="col_heading level0 col0" >Apr.</th>
+      <th id="T_b83e9_level0_col1" class="col_heading level0 col1" >Mai</th>
+      <th id="T_b83e9_level0_col2" class="col_heading level0 col2" >Juni</th>
+      <th id="T_b83e9_level0_col3" class="col_heading level0 col3" >Juli</th>
+      <th id="T_b83e9_level0_col4" class="col_heading level0 col4" >Aug.</th>
+      <th id="T_b83e9_level0_col5" class="col_heading level0 col5" >Sept.</th>
+      <th id="T_b83e9_level0_col6" class="col_heading level0 col6" >Okt.</th>
+      <th id="T_b83e9_level0_col7" class="col_heading level0 col7" >Nov.</th>
+      <th id="T_b83e9_level0_col8" class="col_heading level0 col8" >Dez.</th>
+      <th id="T_b83e9_level0_col9" class="col_heading level0 col9" >Jan.</th>
+      <th id="T_b83e9_level0_col10" class="col_heading level0 col10" >Feb.</th>
+      <th id="T_b83e9_level0_col11" class="col_heading level0 col11" >März</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_0670f_level0_row0" class="row_heading level0 row0" >Wattestäbchen/Tupfer</th>
-      <td id="T_0670f_row0_col0" class="data row0 col0" >4,6</td>
-      <td id="T_0670f_row0_col1" class="data row0 col1" >14,9</td>
-      <td id="T_0670f_row0_col2" class="data row0 col2" >25,9</td>
-      <td id="T_0670f_row0_col3" class="data row0 col3" >25,3</td>
-      <td id="T_0670f_row0_col4" class="data row0 col4" >15,9</td>
-      <td id="T_0670f_row0_col5" class="data row0 col5" >10,1</td>
-      <td id="T_0670f_row0_col6" class="data row0 col6" >11,6</td>
-      <td id="T_0670f_row0_col7" class="data row0 col7" >4,0</td>
-      <td id="T_0670f_row0_col8" class="data row0 col8" >13,0</td>
-      <td id="T_0670f_row0_col9" class="data row0 col9" >12,5</td>
-      <td id="T_0670f_row0_col10" class="data row0 col10" >7,3</td>
-      <td id="T_0670f_row0_col11" class="data row0 col11" >17,1</td>
+      <th id="T_b83e9_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
+      <td id="T_b83e9_row0_col0" class="data row0 col0" >79,2</td>
+      <td id="T_b83e9_row0_col1" class="data row0 col1" >64,2</td>
+      <td id="T_b83e9_row0_col2" class="data row0 col2" >106,0</td>
+      <td id="T_b83e9_row0_col3" class="data row0 col3" >106,0</td>
+      <td id="T_b83e9_row0_col4" class="data row0 col4" >102,4</td>
+      <td id="T_b83e9_row0_col5" class="data row0 col5" >103,5</td>
+      <td id="T_b83e9_row0_col6" class="data row0 col6" >29,6</td>
+      <td id="T_b83e9_row0_col7" class="data row0 col7" >19,2</td>
+      <td id="T_b83e9_row0_col8" class="data row0 col8" >17,6</td>
+      <td id="T_b83e9_row0_col9" class="data row0 col9" >24,4</td>
+      <td id="T_b83e9_row0_col10" class="data row0 col10" >35,7</td>
+      <td id="T_b83e9_row0_col11" class="data row0 col11" >55,5</td>
     </tr>
     <tr>
-      <th id="T_0670f_level0_row1" class="row_heading level0 row1" >Flaschenverschlüsse aus Metall</th>
-      <td id="T_0670f_row1_col0" class="data row1 col0" >3,6</td>
-      <td id="T_0670f_row1_col1" class="data row1 col1" >6,1</td>
-      <td id="T_0670f_row1_col2" class="data row1 col2" >7,6</td>
-      <td id="T_0670f_row1_col3" class="data row1 col3" >7,8</td>
-      <td id="T_0670f_row1_col4" class="data row1 col4" >6,0</td>
-      <td id="T_0670f_row1_col5" class="data row1 col5" >3,9</td>
-      <td id="T_0670f_row1_col6" class="data row1 col6" >2,8</td>
-      <td id="T_0670f_row1_col7" class="data row1 col7" >1,7</td>
-      <td id="T_0670f_row1_col8" class="data row1 col8" >2,3</td>
-      <td id="T_0670f_row1_col9" class="data row1 col9" >3,3</td>
-      <td id="T_0670f_row1_col10" class="data row1 col10" >2,0</td>
-      <td id="T_0670f_row1_col11" class="data row1 col11" >2,6</td>
+      <th id="T_b83e9_level0_row1" class="row_heading level0 row1" >Expandiertem Polystyrol 2,5 - 50 cm</th>
+      <td id="T_b83e9_row1_col0" class="data row1 col0" >32,2</td>
+      <td id="T_b83e9_row1_col1" class="data row1 col1" >28,4</td>
+      <td id="T_b83e9_row1_col2" class="data row1 col2" >32,2</td>
+      <td id="T_b83e9_row1_col3" class="data row1 col3" >35,1</td>
+      <td id="T_b83e9_row1_col4" class="data row1 col4" >20,9</td>
+      <td id="T_b83e9_row1_col5" class="data row1 col5" >13,3</td>
+      <td id="T_b83e9_row1_col6" class="data row1 col6" >9,0</td>
+      <td id="T_b83e9_row1_col7" class="data row1 col7" >7,4</td>
+      <td id="T_b83e9_row1_col8" class="data row1 col8" >5,3</td>
+      <td id="T_b83e9_row1_col9" class="data row1 col9" >10,9</td>
+      <td id="T_b83e9_row1_col10" class="data row1 col10" >6,9</td>
+      <td id="T_b83e9_row1_col11" class="data row1 col11" >5,3</td>
     </tr>
     <tr>
-      <th id="T_0670f_level0_row2" class="row_heading level0 row2" >Expandiertem Polystyrol 2,5 - 50 cm</th>
-      <td id="T_0670f_row2_col0" class="data row2 col0" >32,2</td>
-      <td id="T_0670f_row2_col1" class="data row2 col1" >28,4</td>
-      <td id="T_0670f_row2_col2" class="data row2 col2" >32,2</td>
-      <td id="T_0670f_row2_col3" class="data row2 col3" >35,1</td>
-      <td id="T_0670f_row2_col4" class="data row2 col4" >20,9</td>
-      <td id="T_0670f_row2_col5" class="data row2 col5" >13,3</td>
-      <td id="T_0670f_row2_col6" class="data row2 col6" >9,0</td>
-      <td id="T_0670f_row2_col7" class="data row2 col7" >7,4</td>
-      <td id="T_0670f_row2_col8" class="data row2 col8" >5,3</td>
-      <td id="T_0670f_row2_col9" class="data row2 col9" >10,9</td>
-      <td id="T_0670f_row2_col10" class="data row2 col10" >6,9</td>
-      <td id="T_0670f_row2_col11" class="data row2 col11" >5,3</td>
+      <th id="T_b83e9_level0_row2" class="row_heading level0 row2" >Snack-Verpackungen</th>
+      <td id="T_b83e9_row2_col0" class="data row2 col0" >29,5</td>
+      <td id="T_b83e9_row2_col1" class="data row2 col1" >22,1</td>
+      <td id="T_b83e9_row2_col2" class="data row2 col2" >41,0</td>
+      <td id="T_b83e9_row2_col3" class="data row2 col3" >40,5</td>
+      <td id="T_b83e9_row2_col4" class="data row2 col4" >26,3</td>
+      <td id="T_b83e9_row2_col5" class="data row2 col5" >38,9</td>
+      <td id="T_b83e9_row2_col6" class="data row2 col6" >23,5</td>
+      <td id="T_b83e9_row2_col7" class="data row2 col7" >12,8</td>
+      <td id="T_b83e9_row2_col8" class="data row2 col8" >14,2</td>
+      <td id="T_b83e9_row2_col9" class="data row2 col9" >18,7</td>
+      <td id="T_b83e9_row2_col10" class="data row2 col10" >12,8</td>
+      <td id="T_b83e9_row2_col11" class="data row2 col11" >71,2</td>
     </tr>
     <tr>
-      <th id="T_0670f_level0_row3" class="row_heading level0 row3" >Industriefolie (Kunststoff)</th>
-      <td id="T_0670f_row3_col0" class="data row3 col0" >29,7</td>
-      <td id="T_0670f_row3_col1" class="data row3 col1" >20,1</td>
-      <td id="T_0670f_row3_col2" class="data row3 col2" >22,8</td>
-      <td id="T_0670f_row3_col3" class="data row3 col3" >33,1</td>
-      <td id="T_0670f_row3_col4" class="data row3 col4" >22,2</td>
-      <td id="T_0670f_row3_col5" class="data row3 col5" >29,2</td>
-      <td id="T_0670f_row3_col6" class="data row3 col6" >19,7</td>
-      <td id="T_0670f_row3_col7" class="data row3 col7" >11,8</td>
-      <td id="T_0670f_row3_col8" class="data row3 col8" >9,8</td>
-      <td id="T_0670f_row3_col9" class="data row3 col9" >12,3</td>
-      <td id="T_0670f_row3_col10" class="data row3 col10" >15,1</td>
-      <td id="T_0670f_row3_col11" class="data row3 col11" >68,8</td>
+      <th id="T_b83e9_level0_row3" class="row_heading level0 row3" >Industriefolie (Kunststoff)</th>
+      <td id="T_b83e9_row3_col0" class="data row3 col0" >29,7</td>
+      <td id="T_b83e9_row3_col1" class="data row3 col1" >20,1</td>
+      <td id="T_b83e9_row3_col2" class="data row3 col2" >22,8</td>
+      <td id="T_b83e9_row3_col3" class="data row3 col3" >33,1</td>
+      <td id="T_b83e9_row3_col4" class="data row3 col4" >22,2</td>
+      <td id="T_b83e9_row3_col5" class="data row3 col5" >29,2</td>
+      <td id="T_b83e9_row3_col6" class="data row3 col6" >19,7</td>
+      <td id="T_b83e9_row3_col7" class="data row3 col7" >11,8</td>
+      <td id="T_b83e9_row3_col8" class="data row3 col8" >9,8</td>
+      <td id="T_b83e9_row3_col9" class="data row3 col9" >12,3</td>
+      <td id="T_b83e9_row3_col10" class="data row3 col10" >15,1</td>
+      <td id="T_b83e9_row3_col11" class="data row3 col11" >68,8</td>
     </tr>
     <tr>
-      <th id="T_0670f_level0_row4" class="row_heading level0 row4" >Snack-Verpackungen</th>
-      <td id="T_0670f_row4_col0" class="data row4 col0" >29,5</td>
-      <td id="T_0670f_row4_col1" class="data row4 col1" >22,1</td>
-      <td id="T_0670f_row4_col2" class="data row4 col2" >41,0</td>
-      <td id="T_0670f_row4_col3" class="data row4 col3" >40,5</td>
-      <td id="T_0670f_row4_col4" class="data row4 col4" >26,3</td>
-      <td id="T_0670f_row4_col5" class="data row4 col5" >38,9</td>
-      <td id="T_0670f_row4_col6" class="data row4 col6" >23,5</td>
-      <td id="T_0670f_row4_col7" class="data row4 col7" >12,8</td>
-      <td id="T_0670f_row4_col8" class="data row4 col8" >14,2</td>
-      <td id="T_0670f_row4_col9" class="data row4 col9" >18,7</td>
-      <td id="T_0670f_row4_col10" class="data row4 col10" >12,8</td>
-      <td id="T_0670f_row4_col11" class="data row4 col11" >71,2</td>
+      <th id="T_b83e9_level0_row4" class="row_heading level0 row4" >Flaschenverschlüsse aus Metall</th>
+      <td id="T_b83e9_row4_col0" class="data row4 col0" >3,6</td>
+      <td id="T_b83e9_row4_col1" class="data row4 col1" >6,1</td>
+      <td id="T_b83e9_row4_col2" class="data row4 col2" >7,6</td>
+      <td id="T_b83e9_row4_col3" class="data row4 col3" >7,8</td>
+      <td id="T_b83e9_row4_col4" class="data row4 col4" >6,0</td>
+      <td id="T_b83e9_row4_col5" class="data row4 col5" >3,9</td>
+      <td id="T_b83e9_row4_col6" class="data row4 col6" >2,8</td>
+      <td id="T_b83e9_row4_col7" class="data row4 col7" >1,7</td>
+      <td id="T_b83e9_row4_col8" class="data row4 col8" >2,3</td>
+      <td id="T_b83e9_row4_col9" class="data row4 col9" >3,3</td>
+      <td id="T_b83e9_row4_col10" class="data row4 col10" >2,0</td>
+      <td id="T_b83e9_row4_col11" class="data row4 col11" >2,6</td>
     </tr>
     <tr>
-      <th id="T_0670f_level0_row5" class="row_heading level0 row5" >Objekte aus Kunststoff 2,5 - 50 cm</th>
-      <td id="T_0670f_row5_col0" class="data row5 col0" >38,2</td>
-      <td id="T_0670f_row5_col1" class="data row5 col1" >48,8</td>
-      <td id="T_0670f_row5_col2" class="data row5 col2" >46,1</td>
-      <td id="T_0670f_row5_col3" class="data row5 col3" >48,3</td>
-      <td id="T_0670f_row5_col4" class="data row5 col4" >30,7</td>
-      <td id="T_0670f_row5_col5" class="data row5 col5" >29,0</td>
-      <td id="T_0670f_row5_col6" class="data row5 col6" >16,6</td>
-      <td id="T_0670f_row5_col7" class="data row5 col7" >7,8</td>
-      <td id="T_0670f_row5_col8" class="data row5 col8" >21,6</td>
-      <td id="T_0670f_row5_col9" class="data row5 col9" >12,6</td>
-      <td id="T_0670f_row5_col10" class="data row5 col10" >13,6</td>
-      <td id="T_0670f_row5_col11" class="data row5 col11" >29,4</td>
+      <th id="T_b83e9_level0_row5" class="row_heading level0 row5" >Wattestäbchen/Tupfer</th>
+      <td id="T_b83e9_row5_col0" class="data row5 col0" >4,6</td>
+      <td id="T_b83e9_row5_col1" class="data row5 col1" >14,9</td>
+      <td id="T_b83e9_row5_col2" class="data row5 col2" >25,9</td>
+      <td id="T_b83e9_row5_col3" class="data row5 col3" >25,3</td>
+      <td id="T_b83e9_row5_col4" class="data row5 col4" >15,9</td>
+      <td id="T_b83e9_row5_col5" class="data row5 col5" >10,1</td>
+      <td id="T_b83e9_row5_col6" class="data row5 col6" >11,6</td>
+      <td id="T_b83e9_row5_col7" class="data row5 col7" >4,0</td>
+      <td id="T_b83e9_row5_col8" class="data row5 col8" >13,0</td>
+      <td id="T_b83e9_row5_col9" class="data row5 col9" >12,5</td>
+      <td id="T_b83e9_row5_col10" class="data row5 col10" >7,3</td>
+      <td id="T_b83e9_row5_col11" class="data row5 col11" >17,1</td>
     </tr>
     <tr>
-      <th id="T_0670f_level0_row6" class="row_heading level0 row6" >Zigarettenfilter</th>
-      <td id="T_0670f_row6_col0" class="data row6 col0" >79,2</td>
-      <td id="T_0670f_row6_col1" class="data row6 col1" >64,2</td>
-      <td id="T_0670f_row6_col2" class="data row6 col2" >106,0</td>
-      <td id="T_0670f_row6_col3" class="data row6 col3" >106,0</td>
-      <td id="T_0670f_row6_col4" class="data row6 col4" >102,4</td>
-      <td id="T_0670f_row6_col5" class="data row6 col5" >103,5</td>
-      <td id="T_0670f_row6_col6" class="data row6 col6" >29,6</td>
-      <td id="T_0670f_row6_col7" class="data row6 col7" >19,2</td>
-      <td id="T_0670f_row6_col8" class="data row6 col8" >17,6</td>
-      <td id="T_0670f_row6_col9" class="data row6 col9" >24,4</td>
-      <td id="T_0670f_row6_col10" class="data row6 col10" >35,7</td>
-      <td id="T_0670f_row6_col11" class="data row6 col11" >55,5</td>
+      <th id="T_b83e9_level0_row6" class="row_heading level0 row6" >Objekte aus Kunststoff 2,5 - 50 cm</th>
+      <td id="T_b83e9_row6_col0" class="data row6 col0" >38,2</td>
+      <td id="T_b83e9_row6_col1" class="data row6 col1" >48,8</td>
+      <td id="T_b83e9_row6_col2" class="data row6 col2" >46,1</td>
+      <td id="T_b83e9_row6_col3" class="data row6 col3" >48,3</td>
+      <td id="T_b83e9_row6_col4" class="data row6 col4" >30,7</td>
+      <td id="T_b83e9_row6_col5" class="data row6 col5" >29,0</td>
+      <td id="T_b83e9_row6_col6" class="data row6 col6" >16,6</td>
+      <td id="T_b83e9_row6_col7" class="data row6 col7" >7,8</td>
+      <td id="T_b83e9_row6_col8" class="data row6 col8" >21,6</td>
+      <td id="T_b83e9_row6_col9" class="data row6 col9" >12,6</td>
+      <td id="T_b83e9_row6_col10" class="data row6 col10" >13,6</td>
+      <td id="T_b83e9_row6_col11" class="data row6 col11" >29,4</td>
     </tr>
   </tbody>
 </table>
@@ -3699,11 +3699,11 @@ title="Open an issue"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="reuse_remake.html" title="zurück Seite">
+    <a class='left-prev' id="prev-link" href="shared_responsibility.html" title="zurück Seite">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">19. </span>Recyceln und neugestalten</p>
+            <p class="prev-next-title"><span class="section-number">19. </span>Geteilte Verantwortung</p>
         </div>
     </a>
 </div>

@@ -139,7 +139,7 @@ top = "Alle Erhebungsgebiete"
 # define the feature level and components
 # the feature of interest is the Aare (aare) at the river basin (river_bassin) level.
 # the label for charting is called 'name'
-this_feature = {'slug':'zurichsee', 'name':"Zurichsee", 'level':'water_name_slug'}
+this_feature = {'slug':'zurichsee', 'name':"Zürichsee", 'level':'water_name_slug'}
 
 # the lake is in this survey area
 this_bassin = "linth"
@@ -293,7 +293,7 @@ glue(f'{this_feature["slug"]}_pdf_link', pdf_link, display=False)
 
 
 # (zurichsee)=
-# # Zurichsee
+# # Zürichsee
 # 
 # 
 # {Download}`Download </resources/pdfs/zurichsee.pdf>`
@@ -1233,7 +1233,6 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <zurichsee_location_map>` 
 
 # In[14]:
 

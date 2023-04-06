@@ -799,7 +799,7 @@ mcd = mcd.applymap_index(featuredata.rotateText, axis=1)
 IPython.display.display(HTML(cardFigure(html_table=mcd.to_html(), table_caption= "".join(mc_heat_map_caption))))
 
 
-# ## Trends 2017–2018
+# ### Trends 2017–2018
 # 
 # Ein Vergleich der IQAASL-Ergebnisse mit ähnlichen Daten für Seen und Fliessgewässer, die 2017/2018 (SLR) erhoben wurden, zeigen keine statistischen Unterschiede. Allerdings gab es Abweichungen bei der Häufigkeit der Gegenstände. So wurden in der Erhebungsperiode 2020–2021 im Allgemeinen weniger Zigaretten und Flaschendeckel gefunden. An vielen Standorten wurden jedoch keine Veränderungen beobachtet und die Menge an fragmentierten Kunst- und Schaumstoffen dürfte zugenommen haben ( Details siehe [ Vergleich der Datenerhebungen seit 2018](slr-iqaasl).
 # 
@@ -811,7 +811,7 @@ IPython.display.display(HTML(cardFigure(html_table=mcd.to_html(), table_caption=
 # __Abbildung 4:__ *Vergleich der Erhebungsergebnisse von SLR (2018) und IQAASL (2021). __Oben links:__ Gesamtergebnisse der Erhebung nach Datum. __Oben rechts:__ Median der Gesamtergebnisse der monatlichen Erhebungen. __Unten links:__ Anzahl Proben im Verhältnis zum Gesamtergebnis der Erhebung. __Unten rechts:__ empirische kumulative Verteilung der Gesamtergebnisse der Erhebung.* 
 # ``` 
 # 
-# ## Die Alpen und der Jura
+# ### Die Alpen und der Jura
 # 
 # Von den 20 Erhebungen im Erhebungsgebiet Alpen wiesen 17 eine Länge und eine Breite von über 10 m auf. Der Medianwert der Erhebungen betrug 110 p/100 m und lag damit unter dem Medianwert der anderen Erhebungsgebiete (189 p/100 m). Gegenstände aus dem Konsumbereich wie Lebensmittel und Getränke oder Tabakwaren machten einen geringeren Anteil an der Gesamtzahl aus und wiesen eine tiefere p/100 m-Rate auf im Vergleich zu den Ergebnissen von Standorten an Uferlinien. Dieser Unterschied könnte teilweise auf den geringen Verstädterungsgrad des Erhebungsgebiets Alpen im Vergleich zu allen anderen Erhebungsgebieten zurückzuführen sein sowie darauf, dass Material sich tendenziell flussabwärts bewegt. Für die Ergebungsmethodik und die Ergebnisse der Erhebung in den Alpen siehe [ Die Alpen und der Jura ](lesalpes).
 
@@ -881,13 +881,13 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# ## Kommunikation der Ergebnisse
+# ### Kommunikation der Ergebnisse
 # 
 # Für die Kommunikation von Verschmutzungsmengen ist es naheliegend, die Ergebnisse in eine einfache Einheit mit der durchschnittlichen Anzahl pro 100 m umzuwandeln, da der Durchschnitt meist höher ist und nur selten null beträgt. Allerdings kann der Durchschnitt bei Extremwerten doppelt so hoch ausfallen wie der Median, was Verwirrung in Bezug auf den Unterschied zwischen den beobachteten und den gemeldeten Ergebnissen stiften kann. Deshalb ist es informativer und reproduzierbarer, die Bandbreite wahrscheinlicher Werte oder die Wahrscheinlichkeit, einen Gegenstand zu finden, anzugeben, wenn ähnliche Protokolle befolgt werden. So etwa bei der Interpretation der Mengen an Industriepellets, die am Genfersee gefunden wurden:
 # 
-# > 1’387 Produktionspellets aus Kunststoff wurden festgestellt, was 5 Prozent aller am Genfersee identifizierten Gegenstände entspricht. Die Anzahl Pellets pro 100 m schwankt je nach Region zwischen 0 und 1’033. Beim See besteht im Allgemeinen eine Wahrscheinlichkeit von 40 Prozent, in einer Erhebung irgendwo mindestens auf ein Pellet zu stossen. An einigen Standorten, wie Genf (Wahrscheinlichkeit von 60 %) oder Préverenges (Wahrscheinlichkeit von 80 %), werden Produktionspellets regelmässig an den Ufern gefunden. Werte zwischen 3 p/100 m und 56 p/100 m sind üblich.
+# > 1 387 Produktionspellets aus Kunststoff wurden festgestellt, was 5 Prozent aller am Genfersee identifizierten Gegenstände entspricht. Die Anzahl Pellets pro 100 m schwankt je nach Region zwischen 0 und 1’033. Beim See besteht im Allgemeinen eine Wahrscheinlichkeit von 40 Prozent, in einer Erhebung irgendwo mindestens auf ein Pellet zu stossen. An einigen Standorten, wie Genf (Wahrscheinlichkeit von 60 %) oder Préverenges (Wahrscheinlichkeit von 80 %), werden Produktionspellets regelmässig an den Ufern gefunden. Werte zwischen 3 p/100 m und 56 p/100 m sind üblich.
 # 
-# ## Schlussfolgerungen
+# ### Schlussfolgerungen
 # 
 # Auf nationaler Ebene waren die Erhebungsergebnisse des IQAASL-Projekts im Vergleich zu den Erhebungen, die 2017 im Rahmen der SLR-Studie durchgeführt wurden, stabil. Allerdings war ein allgemeiner Rückgang der Menge an Gegenständen im Zusammenhang mit Lebensmitteln, Getränken und Tabakwaren feststellbar. Die Anzahl der identifizierten Infrastrukturobjekte sowie fragmentierten Kunststoffe und Schaumstoffe ging hingegen nicht zurück, an einigen Standorten könnten gar starke Zunahmen verzeichnet worden sein. Die pandemiebedingten Einschränkungen, die grosse Menschenansammlungen im Freien begrenzten, könnten sich positiv ausgewirkt und zu einem Rückgang von Objekten aus den Bereichen Lebensmittel, Getränke und Tabakwaren geführt haben. Die grössten Zunahmen bei infrastrukturbezogenen Gegenständen waren im Wallis, in der Waadt und in Brienz zu beobachten, also an Standorten in der Nähe von Flusseinträgen von Rhone und Aare.
 # 
@@ -979,8 +979,8 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# ## Empfehlungen
-# ### Überwachung und Berichterstattung
+# ### Empfehlungen
+# #### Überwachung und Berichterstattung
 # 
 # Effizienzgewinne bei Datenaustausch und Berichterstattung könnten durch die Festlegung eines Standardberichtsformats umgehend erzielt werden. Dies würde es für regionale Verwaltungen einfacher machen, andere Stakeholder über die Prioritäten zu informieren, was wiederum Überwachungsstrategien erleichtern und die Definition von Reduktionszielen unterstützen würde. Hierzu könnten folgende Massnahmen umgesetzt werden:
 # 
@@ -1036,7 +1036,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# ## Beseitigung und Reduktion
+# ### Beseitigung und Reduktion
 # 
 # Bei Strategien zur Beseitigung oder Reduktion von Abfällen im Wasser sollte zunächst deren Quelle berücksichtigt werden.
 # 
@@ -1115,7 +1115,7 @@ new_components = [
 pdfcomponents = addToDoc(new_components, pdfcomponents)
 
 
-# ## Nicht mit der Landnutzung verbundene Gegenstände
+# ### Nicht mit der Landnutzung verbundene Gegenstände
 # 
 # Zur Verringerung der Anzahl Gegenstände, die keine Korrelation mit der Landnutzung aufweisen, ist zumindest auf Ebene des Sees oder des Fliessgewässers sowie bei allen Standorten, die oberhalb der geplanten Erhebungsorte liegen, ein koordiniertes Vorgehen notwendig. Zu den häufigsten Gegenständen zählen die folgenden:
 # 
@@ -1222,7 +1222,7 @@ pdfcomponents = addToDoc(new_components, pdfcomponents)
 # +++
 # __Figura 1:__ *Mappa delle ubicazioni oggetto d’indagine da marzo 2020 ad agosto 2021. Le ubicazioni contrassegnate in rosso indicano le indagini su fiumi o laghi e i punti in viola designano le ubicazioni sulle Alpi e nel Giura.*
 # ```
-# ## Laghi e fiumi
+# ### Laghi e fiumi
 # 
 # Laghi e fiumi sono stati campionati da marzo 2020 a maggio 2021, per un totale di 54 744 oggetti prelevati e classificati nel corso di 386 indagini. Le ubicazioni sono state divise in aree di indagine per l’analisi regionale e definite in funzione dei bacini dei fiumi Aare, Rodano, Ticino e Linth/Limmat. Le indagini sono state condotte presso 143 diverse ubicazioni distribuite su 77 comuni. È stata presa in esame una distanza lineare totale di 20 km comprendente una superficie di 9 ettari e una popolazione totale di 1,7 milioni di abitanti.
 # 
@@ -1657,7 +1657,7 @@ mcd = mcd.applymap_index(featuredata.rotateText, axis=1)
 IPython.display.display(HTML(cardFigure(html_table=mcd.to_html(), table_caption= "".join(mc_heat_map_caption))))
 
 
-# ## Tendenze in atto dal 2017-2018
+# ### Tendenze in atto dal 2017-2018
 # 
 # Dati analoghi relativi a un’indagine su laghi e fiumi raccolti nel periodo 2017-2018 (SLR) non hanno evidenziato differenze statistiche nel raffronto con i risultati IQAASL. Sono state tuttavia registrate variazioni a livello di quantità degli oggetti. In generale, nel periodo di indagine 2020-2021 è stato censito un numero inferiore di mozziconi di sigarette e tappi di bottiglia, ma per molte ubicazioni non si è registrata alcuna variazione e si è avuto probabilmente un aumento delle plastiche e delle schiume espanse frammentate. Per i dettagli in merito, si veda [Aumento e diminuzione dei rifiuti dal 2017 -deutsch](slr-iqaasl).
 # 
@@ -1670,13 +1670,16 @@ IPython.display.display(HTML(cardFigure(html_table=mcd.to_html(), table_caption=
 # __Figura 4:__ *Raffronto dei risultati d’indagine tra SRL (2018) e IQAASL (2021). __In alto a sinistra:__ totali delle indagini per data. __In alto a destra:__ totale mediano dell’indagine mensile. __In basso a sinistra:__ numero di campioni rispetto al totale dell’indagine. __In basso a sinistra:__ distribuzione cumulativa empirica dei totali delle indagini.* 
 # ``` 
 # 
-# ## Alpi e Giura
+# ### Alpi e Giura
 # 
 # Sulle venti indagini condotte nell’area delle Alpi, 17 hanno soddisfatto i criteri di lunghezza e larghezza superiori a 10 m. Il valore mediano delle indagini è stato di 110 p/100m, inferiore al valore mediano di tutte le altre aree d’indagine (189 p/100 m). Gli oggetti correlati ai consumi personali, per esempio di prodotti alimentari e bevande o tabacco, hanno evidenziato una percentuale più bassa rispetto al totale, con un tasso di p/100 m inferiore rispetto ai risultati delle ubicazioni rivierasche. Questa differenza potrebbe essere in parte dovuta sia ai bassi livelli di urbanizzazione che caratterizzano l’area d’indagine delle Alpi rispetto a tutte le altre aree d’indagine, sia alla tendenza del materiale a fluire a valle. Per quanto concerne la metodologia di indagine adottata per le Alpi e i relativi risultati, si veda la sezione [ Alpi e Giura -deutsch ](lesalpes).
 # 
-# ## Comunicazione dei risultati¶
+# ### Comunicazione dei risultati¶
 # 
 # Per comunicare le quantità di agenti inquinanti è utile convertire i risultati in una semplice parametrazione di pezzi medi per 100 m lineari, in quanto la media è generalmente più elevata e raramente risulta pari a 0. Quando si considerano valori estremi, tuttavia, __la media può risultare anche doppia rispetto alla mediana creando confusione circa la differenza tra i risultati osservati e quelli riportati__. Quando si adottano protocolli di questo tipo, comunicare la gamma di valori possibili o la probabilità di reperire un oggetto costituisce un fattore più informativo e ripetibile. Per esempio, in relazione all’interpretazione delle quantità di granulati di plastica di provenienza industriale censiti sul Lago Lemano.
+# 
+# 
+# > Sono stati reperiti 1 387 granulati in plastica (GPI), pari al 5 per cento di tutti gli oggetti censiti sul Lago Lemano. Il numero di unità di granulati per 100 m lineari varia da 0 a 1033 a seconda della regione. Per il lago, in generale, sussiste ovunque una probabilità pari a circa il 40 per cento di trovare almeno un granulato durante un rilevamento. In alcune località come Ginevra (probabilità del 60%) o Préverenges (probabilità dell’80%), i granulati di plastica industriale costituiscono elementi costanti sulle sponde del lago e quantità tra 3 p/100 m e 56 p/100 m sono del tutto comuni.
 
 # In[17]:
 
@@ -1777,7 +1780,7 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# ## Conclusioni
+# ### Conclusioni
 # 
 # Su scala nazionale, i risultati dell’indagine IQAASL riflettono una certa stabilità rispetto ai dati rilevati nel 2017 dallo studio SLR. Tuttavia, è stata registrata una diminuzione generalizzata della quantità di oggetti correlati al consumo di prodotti alimentari, bevande e tabacco. Gli oggetti legati alle infrastrutture e alle plastiche e schiume espanse frammentate non sono diminuiti e alcune ubicazioni hanno eventualmente registrato forti incrementi. Le misure di contenimento della pandemia, che limitano i grandi assembramenti all’aperto, hanno probabilmente prodotto un effetto favorevole sulla riduzione degli oggetti legati al consumo di prodotti alimentari, bevande e tabacco. I maggiori aumenti per quanto concerne gli oggetti legati alle infrastrutture sono stati registrati nei Cantoni Vallese e Vaud, nonché a Brienz: tutte ubicazioni in prossimità dei punti di immissione dei fiumi Rodano e Aare.
 # 
@@ -1846,8 +1849,8 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# ## Raccomandazioni
-# ### Monitoraggio e rendicontazione
+# ### Raccomandazioni
+# #### Monitoraggio e rendicontazione
 # 
 # L’aumento dell’efficienza a livello di scambio di dati e di reportistica potrebbe essere ottenuto con effetto immediato definendo un formato di rendicontazione standard. In questo modo, per le amministrazioni regionali sarebbe più agevole comunicare le priorità alle altre parti coinvolte, agevolando le strategie di monitoraggio e contribuendo a definire gli obiettivi di riduzione. In quest’ottica, si potrebbero adottare le seguenti misure:
 # 
@@ -1908,7 +1911,7 @@ new_components = [
 pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 
 
-# ## Eliminazione e riduzione
+# ### Eliminazione e riduzione
 # 
 # Le strategie per l’eliminazione o la riduzione dei rifiuti lungo le rive di specchi e corsi d’acqua dovrebbero innanzitutto considerare le fonti di provenienza degli agenti inquinanti.
 # 
@@ -2086,8 +2089,382 @@ pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
 # +++
 # __Figure 1:__ *Cartes des zones de relevé étudiées entre mars 2020 et août 2021. Les sites signalés en rouge correspondent aux inventaires réalisés sur les plages de lacs et de cours d’eau, ceux en violet aux relevés effectués dans les Alpes et le Jura.*
 # ``` 
+# 
+# ### Lacs et cours d’eau
+# 
+# Les lacs et les cours d’eau ont fait l’objet de prélèvements de mars 2020 à mai 2021. Au total, ce sont 54 744 objets qui ont été collectés et classés dans le cadre de 386 inventaires. Afin de permettre une analyse régionale, les sites ont été attribués à des périmètres d’étude définis en fonction des cours d’eau auxquels ils se rattachent (Aar, Linth/Limmat, Rhône et Tessin). Les inventaires ont été réalisés sur 143 sites répartis sur 77 communes. Au total, la surface étudiée représente une distance linéaire de 20 km et une superficie de 9 hectares pour une population de 1,7 million d’habitants.
+# 
+# La plupart des relevés (331 inventaires) ont été effectués sur les rives des lacs, qui offrent tout au long de l’année un accès plus sûr et plus constant que les cours d’eau. Ils constituent par ailleurs de vastes étendues à faible débit qui reçoivent l’apport de multiples cours d’eau et systèmes de drainage, ce qui en fait des endroits idéaux pour évaluer la variété des objets prévalant dans les plans d’eau et autour de ceux-ci.
+# 
+# Au total, 316 inventaires ont été analysés autour de 7 lacs principaux alimentés par 3 grands bassins fluviaux. Dans ce cadre, 20 sites ont fait l’objet de prélèvements mensuels sur une période de 12 mois – à l’exception du lac Majeur, où seuls des prélèvements trimestriels ont été réalisés. Des relevés ont également été effectués sur les berges des lacs de Lugano, des Quatre-Cantons, de Brienz et de Zoug. En outre, 55 inventaires ont été menés le long de 16 cours d’eau.
+# 
+# Sites au bord des lacs ayant fait l’objet de prélèvements mensuels :
+# 
+# * Périmètre d’étude de l’Aar
+#   * Lac de Thoune : Spiez, Unterseen
+#   * Lac de Bienne : Bienne, Vinelz
+#   * Lac de Neuchâtel : Neuchâtel, Cheyres-Châbles, Yverdon-les-Bains
+# * Périmètre d’étude de la Linth/Limmat
+#   * Lac de Zurich : Zurich, Küsnacht (ZH), Rapperswil-Jona, Richterswil
+#   * Lac de Walenstadt : Walenstadt, Weesen
+# * Périmètre d’étude du Rhône
+#   * Lac Léman : Vevey, Saint-Gingolph, Genève, Préverenges, La Tour-de-Peilz
+# * Périmètre d’étude du Tessin
+#   * Lac Majeur : Ascona, Gambarogno (prélèvements trimestriels)
+#   
+# ### Résultats médians
+# 
+# Les résultats sont exprimés en nombre d’éléments (pieces) par transect de 100 m (p/100m). Le résultat médian de l’ensemble des données atteint approximativement 189p/100m. La valeur maximale enregistrée est de 6617p/100m (périmètre d’étude du Rhône) et la valeur minimale de 2p/100m (périmètre d’étude de l’Aar). C’est dans la région du Rhône qu’a été enregistrée la valeur médiane la plus élevée (442p/100m). Ce chiffre s’explique en partie par le nombre important de sites de prélèvement en milieu urbain qu’elle abrite par rapport aux autres zones étudiées et par les dépôts de plastiques fragmentés et de mousses expansées qui s’accumulent à l’embouchure du Rhône, dans la partie supérieure du lac Léman.
+# 
+# Une valeur de référence a été calculée en excluant les échantillonnages effectués sur des rivages d’une longueur de moins de 10 m ainsi que les objets d’une taille inférieure à 2,5 cm. Cette méthode, décrite dans le document EU Marine Beach Litter Baselines {cite}`eubaselines`, a été utilisée en 2015 et 2016 pour calculer les valeurs de référence et les valeurs seuils pour toutes les plages européennes et a abouti à une valeur médiane de 131p/100m. Cette valeur de référence européenne se situe en dehors de l’intervalle de confiance (IC) de 147 – 213p/100m qui a été établi en utilisant les données de l’IQAASL.
+# 
+# En Suisse, les relevés étaient globalement de plus faible envergure que ceux réalisés en milieu marin et concernaient des endroits qui seraient considérés comme urbains dans la plupart des circonstances. Jusqu’à présent, la surveillance des lacs et des cours d’eau en amont des régions côtières ne s’est pas généralisée sur le continent européen. Un groupe d’associations suisses et françaises s’efforce toutefois d’établir un protocole commun de surveillance et d’échange de données pour le bassin du Rhône. En outre, l’Institut de recherche de l’Université de Wageningen (NL) a commencé à analyser les données recueillies dans le delta de la Meuse et du Rhin en utilisant des protocoles similaires à ceux de l’IQAASL. {cite}`meuserhine`
+# 
+# 
+# ### Objets les plus courants
+# 
+# Ce terme est appliqué aux objets qui ont été identifiés dans au moins 50 % des relevés et/ou qui font partie des dix objets les plus représentés en termes de quantité. En tant que sous-groupe, les objets les plus courants représentent 68 % de tous les objets identifiés durant la période d’inventaire. Parmi eux, 27 % sont des déchets issus de la consommation d’aliments, de boissons et de tabac et 24 % des déchets liés aux infrastructures et à l’agriculture.
+# 
+# L’occurrence des déchets issus de la consommation d’aliments, de boissons et de tabac est plus importante dans les zones où les sols sont surtout affectés aux constructions et aux infrastructures. L’observation inverse se vérifie dans celles où un pourcentage plus élevé des terres est dédié aux surfaces forestières ou à l’exploitation agricole. En ce qui concerne les matériaux infrastructurels et les plastiques fragmentés, il est à noter que des volumes similaires ont été identifiés dans tous les périmètres d’étude, indifféremment de l’utilisation des sols autour des zones de relevé.
 
 # In[22]:
+
+
+# the most common objects results
+most_common_display = fdx.most_common
+
+# language appropriate columns
+cols_to_use = featuredata.most_common_objects_table_de
+cols_to_use.update({unit_label:unit_label})
+
+# data for display
+most_common_display.rename(columns=cols_to_use, inplace=True)
+most_common_display = most_common_display[cols_to_use.values()].copy()
+most_common_display = most_common_display.set_index("Objekte", drop=True)
+
+# .pdf output
+data = most_common_display.copy()
+data["Anteil"] = data["Anteil"].map(lambda x: f"{int(x)}%")
+data['Objekte (St.)'] = data['Objekte (St.)'].map(lambda x:featuredata.thousandsSeparator(x, language))
+data['Häufigkeitsrate'] = data['Häufigkeitsrate'].map(lambda x: f"{x}%")
+data[unit_label] = data[unit_label].map(lambda x: featuredata.replaceDecimal(round(x,1)))
+new_cols = {'Objekte (St.)':"Quantité", "Anteil":"% du total", 'Häufigkeitsrate':"taux d'occurrence"}
+data.rename(columns=new_cols, inplace=True)
+
+data["Index"] = data.index.map(lambda x: ital[x])
+data.set_index("Index", drop=True, inplace=True)
+
+# save a copy for the frnech and italian versions
+esum_most_common = data.copy()
+
+# make caption
+# get percent of total to make the caption string
+mc_caption_string = [
+    "<b>Figure 2:</b> Total des relevés de tous les lacs et cours d’eau : objets les plus courants identifiés de mars 2020 à mai 2021. Le ",
+    "taux d’occurrence (celui-ci est dénommé comme « taux d’échec » dans le présent rapport) est le rapport entre le nombre de fois où un ",
+    "objet a été identifié au moins une fois et le nombre total de relevés réalisés. La quantité indique le nombre total d’objets identifiés. ",
+    "La valeur médiane correspond au nombre d’éléments collectés par transect de 100 m (p/100m). À titre d’exemple, 8485 filtres de cigarettes ",
+    "ont au total été identifiés dans 87 % des relevés, ce qui représente 15 % de l’ensemble des objets collectés et correspond à une valeur ",
+    "médiane de 20 filtres de cigarettes par 100 m de rivage"
+]
+   
+
+colWidths = [5.1*cm, 2.2*cm, 2*cm, 2.8*cm, 2*cm]
+
+d_chart = aSingleStyledTable(data, colWidths=colWidths)
+d_capt = makeAParagraph(mc_caption_string, caption_style)
+mc_table = tableAndCaption(d_chart, d_capt, colWidths)
+
+new_components = [
+    smallest_space,
+    mc_table,
+]
+
+pdfcomponents = addToDoc(new_components, pdfcomponents)
+
+most_common_display["Index"] = most_common_display.index.map(lambda x: ital[x])
+most_common_display.set_index("Index", inplace=True, drop=True)
+most_common_display.index.name = None
+most_common_display.columns.name = None
+
+most_common_display.rename(columns=new_cols, inplace=True)
+
+# set pandas display
+aformatter = {
+    "% du total":lambda x: f"{int(x)}%",
+    f"{unit_label}": lambda x: featuredata.replaceDecimal(x, "de"),
+    "taux d'occurrence": lambda x: f"{int(x)}%",   
+    "Quantité": lambda x: featuredata.thousandsSeparator(int(x), "de")
+}
+
+mcdic = most_common_display.style.format(aformatter).set_table_styles(table_css_styles)
+
+
+
+
+IPython.display.display(HTML(cardFigure(html_table=mcdic.to_html(), table_caption= "".join(mc_caption_string))))
+
+
+# Des quantités importantes de granulés plastiques industriels (GPI) et de mousses expansées < 5 mm ont été retrouvées, mais ceci seulement sur certains sites spécifiques. Ces déchets sont présents dans moins de 50 % des relevés, ce qui se traduit par une valeur médiane égale à zéro. Si les GPI et les mousses expansées entrent tous les deux dans la catégorie des microplastiques, leur utilisation, leur origine et leur taux d’occurrence varient en fonction de la région étudiée. Les GPI sont des matières premières utilisées dans les processus de moulage par injection tandis que les billes de mousse expansée sont le résultat de la fragmentation du polystyrène. Pour de plus amples informations sur les zones de relevé, les quantités et les taux d’occurrence des objets individuels, voir [Lacs et rivières -deutsch](allsurveys).
+
+# In[23]:
+
+
+mc_heat_map_caption = [
+    "<b>Figure 3:</b> Ensemble des lacs et cours d’eau par périmètre d’étude : valeur médiane globale des objets les plus courants identifiés. Les taux varient en fonction ",
+    "du périmètre d’étude dans lequel se situe la zone de relevé. Les plastiques fragmentés présentaient par exemple la valeur médiane la plus élevée dans les périmètres de ",
+    "l’Aar (18,5p/100m) et du Rhône (48p/100m)."
+]
+
+mc_heat_map_caption = ''.join(mc_heat_map_caption)
+
+# calling componentsMostCommon gets the results for the most common codes
+# at the component level
+components = fdx.componentMostCommonPcsM()
+
+# map to proper names for features
+feature_names = featuredata.river_basin_de
+
+# pivot that and quash the hierarchal column index that is created when the table is pivoted
+mc_comp = components[["item", unit_label, this_level]].pivot(columns=this_level, index="item")
+mc_comp.columns = mc_comp.columns.get_level_values(1)
+
+# insert the proper columns names for display
+proper_column_names = {x : feature_names[x] for x in mc_comp.columns}
+mc_comp.rename(columns = proper_column_names, inplace=True)
+
+# the aggregated total of the feature is taken from the most common objects table
+mc_feature = fdx.most_common[unit_label]
+mc_feature = featuredata.changeSeriesIndexLabels(mc_feature, {x:fdx.dMap.loc[x] for x in mc_feature.index})
+
+# the aggregated totals of all the period data
+mc_period = period_data.parentMostCommon(parent=False)
+mc_period = featuredata.changeSeriesIndexLabels(mc_period, {x:fdx.dMap.loc[x] for x in mc_period.index})
+
+# add the feature, bassin_label and period results to the components table
+mc_comp["Tous périmètres confondus"] = mc_feature
+
+mc_comp["Index"] = mc_comp.index.map(lambda x: fren[x])
+mc_comp.set_index("Index", inplace=True, drop=True)
+
+col_widths=[5.1*cm, *[1.2*cm]*(len(mc_comp.columns)-1)]
+
+atable = aSingleStyledTable(mc_comp, gradient=True, vertical_header=True, colWidths=col_widths)
+atable_cap = makeAParagraph(mc_heat_map_caption, style=caption_style)
+table_and_cap =tableAndCaption(atable, atable_cap, col_widths)
+
+new_components = [
+     table_and_cap
+]
+
+pdfcomponents = featuredata.addToDoc(new_components, pdfcomponents)
+
+# notebook display style
+aformatter = {x: featuredata.replaceDecimal for x in mc_comp.columns}
+mcd = mc_comp.style.format(aformatter).set_table_styles(table_css_styles)
+mcd = mcd.background_gradient(axis=None, vmin=mc_comp.min().min(), vmax=mc_comp.max().max(), cmap="YlOrBr")
+
+# remove the index name and column name labels
+mcd.index.name = None
+mcd.columns.name = None
+
+# rotate the text on the header row
+# the .applymap_index method in the
+# df.styler module is used for this
+mcd = mcd.applymap_index(featuredata.rotateText, axis=1)
+
+# display markdown html
+IPython.display.display(HTML(cardFigure(html_table=mcd.to_html(), table_caption= "".join(mc_heat_map_caption))))
+
+
+# ### Tendances depuis 2017-2018
+# 
+# Une comparaison entre les résultats de l’IQAASL et des données relatives aux lacs et aux cours d’eau de nature similaire recueillies entre 2017 et 2018 (SLR) ne fait pas ressortir de différences statistiques, même si des variations sont à noter en ce qui concerne les quantités d’objets collectés. Si moins de filtres de cigarettes et de bouchons de bouteille ont de manière générale été identifiés sur la période 2020-2021, aucun changement n’était à signaler sur de nombreux sites, si ce n’est une légère augmentation des plastiques fragmentés et des mousses expansées, voir [Plus ou moins de déchets depuis 2017 -deutsch](slr-iqaasl).
+# 
+# ```{card}
+# :class-card: sd-text-black
+# :img-top: resources/output/slr_iqaasl_surveys_fr.jpeg
+# :margin: auto
+# +++
+# __Figure 4 :__ *Comparaison des résultats des inventaires SLR (2018) et IQAASL (2021). __En haut à gauche :__ totaux des inventaires par date. __En haut à droite :__ totaux des valeurs médianes mensuelles. __En bas à gauche :__ nombre total d’échantillons par rapport au nombre de relevés. __En bas à droite :__ répartition empirique cumulative des résultats totaux des inventaires.*
+# ``` 
+# 
+# 
+# ### Les Alpes et le Jura
+# 
+# Parmi les 20 inventaires réalisés dans le périmètre des Alpes, 17 remplissaient des critères de longueur et de largeur supérieures à 10 m. De l’ordre de 110p/100m, la valeur médiane était inférieure à celle de tous les autres périmètres d’étude (189p/100m). Les objets liés à la consommation d’aliments, de boissons ou de tabac constituaient un pourcentage plus faible du total et présentaient un taux d’occurrence (p/100m) inférieur par rapport aux résultats relevés sur les rivages. Ces différences pourraient en partie être dues au taux d’urbanisation réduit qui caractérise le périmètre d’étude des Alpes par rapport à tous les autres périmètres d’étude et à la tendance qu’ont les matériaux de s’écouler vers l’aval. Pour de plus amples détails sur la méthodologie et les résultats, voir [Les Alpes et le Jura -deutsch](lesalpes).
+# 
+
+# ### Communication des résultats
+# 
+# Pour communiquer sur les degrés de pollution, il apparaît pertinent de convertir les résultats en une simple mesure du nombre moyen d’éléments collectés par transect de 100 m, étant donné que ce chiffre est généralement plus élevé et rarement égal à zéro. Cependant, la moyenne peut s’avérer deux fois supérieure à la valeur médiane lorsque des valeurs extrêmes interviennent, si bien qu’il en résulte une confusion quant à la différence existant entre les résultats observés et les valeurs rapportées. Communiquer la plage de valeurs probables, ou la probabilité de trouver un objet, est plus informatif et plus facilement reproductible lorsque des protocoles similaires sont appliqués. Les quantités de granulés plastiques industriels retrouvées sur les bords du lac Léman permettent par exemple l’interprétation suivante.
+# 
+# > Au total, 1 387 granulés plastiques industriels (GPI) ont été collectés, soit 5 % de tous les objets identifiés sur le lac Léman. Le nombre d’éléments par 100 m varie de 0 à 1033 selon les régions. En ce qui concerne le lac de manière générale, la probabilité de trouver au moins un granulé lors d’un inventaire est d’environ 40 %, quel que soit le lieu concerné. Dans certains endroits, comme sur les plages de Genève (probabilité de 60 %) ou de Préverenges (probabilité de 80 %), les GPI constituent des déchets caractéristiques et il est courant de relever des quantités comprises entre 3p/100m et 56p/100m.
+# 
+# 
+
+# ### Conclusions
+# 
+# À l’échelle nationale, les résultats de l’IQAASL sont stables par rapport aux relevés qui avaient été effectués en 2017 dans le cadre de l’étude SLR. Une diminution globale de la quantité de déchets issus de la consommation d’aliments, de boissons et de tabac est néanmoins à noter. Les objets liés aux infrastructures ainsi que les plastiques fragmentés et mousses expansées n’ont pas diminué et sont même en forte augmentation à certains endroits. En limitant les grands rassemblements en plein air, les restrictions liées à la pandémie sont susceptibles d’avoir influé positivement sur la baisse des déchets issus de la consommation d’aliments, de boissons et de tabac. Les objets liés aux infrastructures ont enregistré les plus fortes augmentations dans les cantons du Valais et de Vaud ainsi qu’à Brienz, c’est-à-dire sur des sites proches des apports fluviaux du Rhône et de l’Aar.
+# 
+# L’utilisation des sols observée autour d’une zone de relevé exerce un effet mesurable quant au dépôt de certains objets. Plus il existe de bâtiments et d’infrastructures à proximité, plus on retrouve de déchets issus de la consommation de tabac et de produits alimentaires. Cette corrélation n’est pas observée pour les objets comme les plastiques fragmentés et les films plastiques industriels. Ces derniers sont en effet retrouvés à des taux à peu près égaux quelle que soit l’utilisation des sols, si ce n’est que leur concentration augmente près des exutoires des cours d’eau et des canaux.
+# 
+# Actuellement, trois des quatre périmètres d’étude de l’IQAASL font l’objet d’une surveillance active assurée en aval de la Suisse par des organismes de recherche et des institutions étatiques qui s’appuient sur des méthodes similaires à celles décrites dans le présent rapport. En Suisse, des associations régionales collaborent par ailleurs activement avec des organisations partenaires au sein de l’UE afin de standardiser rapports et protocoles.
+# 
+# L’IQAASL est un projet scientifique citoyen qui recourt exclusivement à des outils open source et partage les données recueillies via une licence publique GNU, permettant ainsi une collaboration avec les parties prenantes. Depuis que le mandat a pris fin le 31 décembre 2021, Hammerdirt assure la maintenance du code et de la base de données, qui est hébergée sur Github et librement accessible au public.
+# 
+# Les associations qui ont participé au projet IQAASL recherchent activement des moyens d’intégrer le processus de collecte de données et/ou les résultats des inventaires dans leur propre mode de fonctionnement. Cependant, de nombreuses associations régionales font face à une pénurie de spécialistes des données, ce qui est susceptible de retarder ce processus d’intégration et de freiner l’innovation au niveau où elle s’avère le plus nécessaire.
+
+# ### Recommandations
+# #### Suivi et rapports
+# 
+# Le partage de données et la production de rapports gagneraient immédiatement en efficacité si un format de rapport standard était défini. Les institutions régionales pourraient ainsi communiquer plus facilement leurs priorités aux autres parties prenantes, ce qui faciliterait les stratégies de suivi et aiderait à définir des objectifs de réduction. Pour ce faire, les mesures suivantes pourraient être mises en place :
+# 
+# > Développement d’un réseau d’associations chargées de l’échantillonnage et de la communication des résultats.
+# > Création d’un format de rapport standardisé permettant de faciliter les échanges entre les communes, cantons, régions et districts et d’améliorer la coordination des stratégies de réduction à l’échelon régional et local.
+# > Planification de la prochaine période d’échantillonnage et définition de l’intervalle optimal entre deux inventaires.
+# 
+# En sus, il serait pertinent d’associer le milieu universitaire aux processus de planification, échantillonnage et analyse des résultats. Ce projet a bénéficié jusqu’ici de la collaboration de professeurs des EPFL, de l’UNIGE, du PSI et de la FHNW. Des partenaires universitaires apporteraient une contribution idéale pour continuer à développer des méthodes analytiques. Le Citizen Science Center (EPF) et le Citizen Cyberlab (UNIGE) disposent en particulier de l’expérience et des infrastructures nécessaires pour concilier projets citoyens de suivi scientifique et efforts de recherche. Il en résulterait un plan de surveillance très adaptatif et très efficace.
+# 
+# ### Élimination et réduction
+# 
+# Les stratégies visant à éliminer ou à réduire les déchets sauvages doivent d’abord tenir compte de la source.
+# 
+# __Objets associés à l’utilisation des sols__
+# 
+# Les résultats indiquent qu’il existe une corrélation entre le nombre de bâtiments et la quantité de déchets liés à la consommation d’aliments, de boissons et de tabac. Il semblerait donc logique que les stratégies de réduction soient tout d’abord déployées dans les zones où l’on observe une concentration élevée d’infrastructures à proximité des rivages. Les résultats recueillis dans le périmètre d’étude du Rhône suggèrent que des campagnes locales de sensibilisation pourraient exercer un effet positif, cf. figure 1.9 Lacs et rivières_- english . Si éliminer tous les objets liés à la consommation d’aliments, de boissons et de tabac couramment ciblés lors des campagnes de sensibilisation permet de réduire considérablement les quantités totales de déchets, 64 % des matériaux subsisteront encore.
+# 
+# Autres stratégies de réduction courantes :
+# 
+# * Mise à disposition d’un nombre adéquat de poubelles résistantes aux animaux et aux intempéries
+# * Hausse du rythme d’enlèvement des ordures et de balayage
+# * Réduction des plastiques à usage unique
+# 
+# De nombreux pays ont commencé à restreindre la production des articles susvisés. La vente des assiettes, couverts, pailles, bâtonnets de ballon et cotons-tiges en plastique à usage unique est ainsi interdite au sein des États membres de l’UE depuis le 3 juillet 2021. En France, des filets de rétention ont été utilisés avec succès afin de filtrer les déchets transportés par les réseaux d’eaux pluviales avant qu’ils ne parviennent dans les lacs et les cours d’eau, mais cette approche nécessite des investissements supplémentaires en matière d’infrastructures, d’équipements et de main-d’œuvre.
+# 
+# __Objets non associés à l’utilisation des sols__
+# 
+# Les objets dont la présence n’est pas en corrélation avec l’utilisation des sols nécessitent que des actions concertées soient mises en place au moins au niveau du lac ou du cours d’eau et dans tous les lieux situés en amont des zones de relevé prévues. Les objets les plus courants sont :
+# 
+# * les plastiques fragmentés,
+# * les mousses expansées,
+# * les déchets plastiques issus du secteur de la construction,
+# * les granulés plastiques industriels,
+# * les cotons-tiges et
+# * les films plastiques industriels.
+# 
+# Ils représentent 40 % de tous les matériaux identifiés. Beaucoup ont des applications industrielles ou hygiéniques qui ne sont généralement pas associées aux activités de plage. Le développement de campagnes de sensibilisation visant à prévenir en interne les pertes de matériaux dans des secteurs spécifiques pourrait induire une réduction des objets tels que les granulés plastiques industriels utilisés pour le moulage par injection. Certains objets tels que les cotons-tiges en plastique et autres matières plastiques éliminées dans les toilettes pénètrent dans les lacs et les cours d’eau par l’intermédiaire des stations d’épuration.
+# 
+# Les stratégies de réduction pourraient inclure :
+# 
+# * la modernisation des stations d’épuration afin de réduire les pertes de déchets,
+# * des campagnes de sensibilisation ciblées sur des objets ou des produits spécifiques et
+# * des campagnes de sensibilisation à l’intention de secteurs industriels spécifiques.
+# 
+# Les stratégies d’élimination ou de réduction nécessitent une action coordonnée au niveau régional qui englobe les communautés situées en amont des zones de relevé. Réduire la dépendance aux plastiques à usage unique, aux plastiques expansés, aux plastiques de construction et aux films plastiques et industriels serait susceptible de réduire considérablement les volumes qui s’accumulent dans l’environnement. Le faible coût et la nature jetable de ces matériaux ont entraîné leur prolifération et induit une dépendance sans cesse croissante dans tous les secteurs. Leur légèreté et leur dégradabilité caractéristiques facilitent leur fragmentation et leur dispersion dans les milieux naturels, en particulier lors d’une exposition extérieure prolongée. La pollution induite par les matières plastiques constitue un problème mondial si bien que de plus en plus de pays réduisent leur dépendance à l’égard des plastiques à usage unique et des plastiques expansés tels que le polystyrène.
+
+# ## Acronyms
+# 
+# (ABS) Acrylonitrile Butadiene Styrene
+# 
+# (agg) Agriculture
+# 
+# (BCa) Bias-corrected and accelerated confidence intervals
+# 
+# (BVs) Baseline Values
+# 
+# (CG) Contributed Group
+# 
+# (CI) Confidence intervals
+# 
+# (DG) Distributed Group
+# 
+# (ECDF) Empirical Cumulative Distribution Function
+# 
+# (EPFL) Swiss Federal Institute of Technology Lausanne
+# 
+# (EPS) Expanded Polystyrene Foam
+# 
+# (EPR) Extended Producer Responsibility
+# 
+# (ETH) Swiss Federal Institute of Technology Zürich
+# 
+# (EU) European Union
+# 
+# (EVs) Extreme Values
+# 
+# (EVT) Extreme Value Threshold
+# 
+# (FHNW) University of Applied Sciences and Arts Northwestern Switzerland
+# 
+# (FTIR) Fourier Transform Infrared
+# 
+# (GNU) General Public License
+# 
+# (GPI) Plastic production pellet
+# 
+# (GPS) Global Positioning System
+# 
+# (HDPE2) High-Density Polyethylene
+# 
+# (IOC)Intergovernmental Oceanographic Commission
+# 
+# (IQAASL) Identification, Quantification and Analysis of Swiss Litter
+# 
+# (JRC) Joint Research Centre
+# 
+# (LDPE4)Low-density Polyethylene
+# 
+# (LPE)Loi sur la Protection de l’Environnement
+# 
+# (LWS) Landwirtshaft
+# 
+# (MLE) Maximum Likelihood Estimation
+# 
+# (MCBP) Montreux Clean Beach Project
+# 
+# (MOM) Method of Moments
+# 
+# (MSFD) Marine Strategy Framework Directive
+# 
+# (OLED) Ordinance on the Limitation and Disposal of Waste
+# 
+# (OSPAR) Oslo/Paris convention (for the Protection of the Marine Environment of the North-East Atlantic)
+# 
+# (PSI) Paul Scherrer Institute
+# 
+# (pcs) pieces
+# 
+# (p/100m) Pieces per 100 meters
+# 
+# (PVC3) Polyvinyl Chloride
+# 
+# (PET) Polyethylene Terephthalate
+# 
+# (PP5) Polypropylene
+# 
+# (PPL) Precious Plastic Léman
+# 
+# (PS6) Polystyrene
+# 
+# (QGIS) Quantum Geographic Information System
+# 
+# (SLR) Swiss Litter Report
+# 
+# (STOPPP) Stop Plastic Pollution Switzerland
+# 
+# (UNEP) United Nations Environment Program
+# 
+# (UNIGE) University of Geneva
+# 
+# (VD) Vaud
+# 
+# (WWF) World Wildlife Fund
+# 
+# (XPS) Extruded Polystyrene Foam
+# 
+
+# In[24]:
 
 
 new_components = [
@@ -2118,13 +2495,7 @@ def myLaterPages(canvas, doc):
 doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
 
 
-# ```{card}
-# :class-card: sd-text-black
-# :img-top: resources/output/slr_iqaasl_surveys_fr.jpeg
-# :margin: auto
-# +++
-# __Figura 4:__ *Raffronto dei risultati d’indagine tra SRL (2018) e IQAASL (2021). __In alto a sinistra:__ totali delle indagini per data. __In alto a destra:__ totale mediano dell’indagine mensile. __In basso a sinistra:__ numero di campioni rispetto al totale dell’indagine. __In basso a sinistra:__ distribuzione cumulativa empirica dei totali delle indagini.* 
-# ``` 
+# 
 
 # In[ ]:
 
@@ -2132,12 +2503,6 @@ doc.build(pdfcomponents,  onFirstPage=myLaterPages, onLaterPages=myLaterPages)
 
 
 
-# ```{card}
-# :class-card: sd-text-black
-# :img-top: resources/maps/esummary_mapfr.jpeg
-# :margin: auto
-# +++
-# __Figura 1:__ *Mappa delle ubicazioni oggetto d’indagine da marzo 2020 ad agosto 2021. Le ubicazioni contrassegnate in rosso indicano le indagini su fiumi o laghi e i punti in viola designano le ubicazioni sulle Alpi e nel Giura.*
-# ```
+# 
 
 # ##### 

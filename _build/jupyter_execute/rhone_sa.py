@@ -1038,7 +1038,7 @@ glue(f'{this_feature["slug"]}_most_common_heat_map', mcd, display=False)
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <rhone_survey_area_most_common_heat_map>`{glue:text}`rhone_mc_heat_map_caption`
+# {numref}`Abbildung %s: <rhone_survey_area_most_common_heat_map>` {glue:text}`rhone_mc_heat_map_caption`
 
 # ### Die am häufigsten gefundenen Objekte im monatlichen Durchschnitt
 
@@ -1579,7 +1579,7 @@ plt.close()
 # ---
 # ` `
 # ```
-# {numref}`Abbildung %s: <rhone_survey_area_rivers_summary>`{glue:text}`rhone_survey_area_rivers_summary_caption`
+# {numref}`Abbildung %s: <rhone_survey_area_rivers_summary>` {glue:text}`rhone_survey_area_rivers_summary_caption`
 
 # ### Die an Fliessgewässern am häufigsten gefundenen Objekte
 

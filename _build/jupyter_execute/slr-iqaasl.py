@@ -985,7 +985,7 @@ cy = combined_summary[col_rder]
 c = cy.T.reset_index()
 
 c[[ "SLR", "IQAASL"]] = c[[ "SLR", "IQAASL"]].astype("int")
-c[[ "SLR", "IQAASL"]] = c[[ "SLR", "IQAASL"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
+c[[ "SLR", "IQAASL"]] = c[[ "SLR", "IQAASL"]].applymap(lambda x: f"{featuredata.thousandsSeparator(int(x))}")
 
 # material totals
 mat_total = df.groupby(["survey year", "code"], as_index=False).quantity.sum()
@@ -1005,8 +1005,8 @@ mat_total.loc[mat_total["survey year"] == "IQAASL", "yt"] = mat_total[mat_total[
 mat_total["pt"] =((mat_total.quantity/mat_total.yt)*100).round(2)
 
 # format for printing:
-mat_total["pt"] = mat_total.pt.map(lambda x: F"{x}%")
-mat_total["quantity"] = mat_total.quantity.map(lambda x: F"{x:,}")
+mat_total["pt"] = mat_total.pt.map(lambda x: F"{featuredata.replaceDecimal(x)}%")
+mat_total["quantity"] = mat_total.quantity.map(lambda x: f"{featuredata.thousandsSeparator(int(x))}")
 
 # pivot and rename columns
 m_t = mat_total[["survey year","mat", "quantity", "pt"]].pivot(columns="survey year", index="mat", values="pt").reset_index()
@@ -1540,7 +1540,7 @@ col_rder = ['Anzahl der Standorte',
 cy = combined_summary[col_rder]
 c = cy.T.reset_index()
 c[[ "SLR", "IQAASL"]] = c[[ "SLR", "IQAASL"]].astype("int")
-c[[ "SLR", "IQAASL"]] = c[[ "SLR", "IQAASL"]].applymap(lambda x: f"{locale.format_string('%d', int(x), grouping=True)}")
+c[[ "SLR", "IQAASL"]] = c[[ "SLR", "IQAASL"]].applymap(lambda x: f"{featuredata.thousandsSeparator(int(x))}")
 
 # material totals
 mat_total = lks_df.groupby(["survey year", "code"], as_index=False).quantity.sum()
@@ -1560,8 +1560,8 @@ mat_total.loc[mat_total["survey year"] == "IQAASL", "yt"] = mat_total[mat_total[
 mat_total["pt"] =((mat_total.quantity/mat_total.yt)*100).round(2)
 
 # format for printing:
-mat_total["pt"] = mat_total.pt.map(lambda x: F"{x}%")
-mat_total["quantity"] = mat_total.quantity.map(lambda x: F"{x:,}")
+mat_total["pt"] = mat_total.pt.map(lambda x: F"{featuredata.replaceDecimal(x)}%")
+mat_total["quantity"] = mat_total.quantity.map(lambda x: f"{featuredata.thousandsSeparator(int(x))}")
 
 m_t = mat_total[["survey year","mat", "quantity", "pt"]].pivot(columns="survey year", index="mat", values="pt").reset_index()
 m_t.rename(columns={"mat":"material", "pt":"% of total"}, inplace=True)

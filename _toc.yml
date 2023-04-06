@@ -36,14 +36,14 @@ parts:
     numbered: True
     chapters:
     - file: baselines
-    - file: key_indicators    
-    - file: land_use_correlation
+    - file: key_indicators
     - file: code_groups
+    - file: land_use_correlation    
   - caption: Anwendungen
     numbered: True
-    chapters:    
-    - file: shared_responsibility
+    chapters:
     - file: reuse_remake
+    - file: shared_responsibility    
     - file: slr-iqaasl
     
     

@@ -57,7 +57,6 @@ from matplotlib import colors
 import seaborn as sns
 import matplotlib.gridspec as gridspec
 
-
 # build report
 import reportlab
 from reportlab.platypus.flowables import Flowable
@@ -1021,7 +1020,7 @@ desc_2020 = data.groupby('rural')[unit_label].describe()
 desc_2020.loc["Alle", ['count', 'mean', 'std', 'min', '25%', '50%', '75%', 'max']] = grt_dtr.groupby(['loc_date', 'date'])[unit_label].sum().describe().to_numpy()
 desc = desc_2020.astype('int')
 desc.rename(columns=(change_names), inplace=True)
-desc = desc.applymap(lambda x: F"{x:,}")
+desc = desc.applymap(lambda x: featuredata.thousandsSeparator(x))
 
 desc.reset_index(inplace=True)
 
@@ -2048,26 +2047,29 @@ an_int = 50
 # ländlich cis
 r_median = grt_dtr[grt_dtr.rural == 'ländlich'][unit_label].median()
 a_result = compute_bca_ci(grt_dtr[grt_dtr.rural == 'ländlich'][unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
-r_cis = {'ländlich':{"untere 2.5 %":a_result[0], "median":r_median, "obere 97.5 %": a_result[1] }}
+r_cis = {'ländlich':{"untere 2.5 %": a_result[0], "Median":r_median, "obere 97.5 %": a_result[1]}}
 the_bcas.update(r_cis)
 
 # urban cis
 u_median = grt_dtr[grt_dtr.rural == 'urban'][unit_label].median()
 a_result = compute_bca_ci(grt_dtr[grt_dtr.rural == 'urban'][unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
-u_cis = {'urban':{"untere 2.5 %":a_result[0], "Median":u_median, "obere 97.5 %": a_result[1] }}
+u_cis = {'urban':{"untere 2.5 %":a_result[0], "Median":u_median, "obere 97.5 %": a_result[1]}}
 the_bcas.update(u_cis)
 
 # all surveys
 u_median = grt_dtr[unit_label].median()
 a_result = compute_bca_ci(grt_dtr[unit_label].to_numpy(), .05, n_reps=5000, statfunction=np.percentile, stat_param=an_int)
-all_cis = {"alle":{"untere 2.5 %":a_result[0], "Median":u_median, "obere 97.5 %": a_result[1] }}
+all_cis = {"alle":{"untere 2.5 %":a_result[0], "Median": u_median, "obere 97.5 %": a_result[1]}}
 
 # combine the results:
 the_bcas.update(all_cis)
 
 # make a df
-the_cis = pd.DataFrame(the_bcas)
-the_cis.reset_index(inplace=True)
+the_cis = pd.DataFrame.from_dict(the_bcas)
+the_cis = the_cis.astype(int)
+
+
+
 
 fig, axs = plt.subplots(figsize=(7,4))
 
@@ -2075,8 +2077,8 @@ data = the_cis.values
 collabels = the_cis.columns
 sut.hide_spines_ticks_grids(axs)
 
-the_table = sut.make_a_table(axs, data, colLabels=collabels, colWidths=[*[.2]*5], bbox=[0, 0, 1, 1])
-the_table.get_celld()[(0,0)].get_text().set_text(" ")
+the_table = sut.make_a_table(axs, data, colLabels=collabels, colWidths=[*[.2]*3], bbox=[0, 0, 1, 1])
+
 
 
 plt.show()
@@ -2119,7 +2121,8 @@ data_two = urb_10[['item', 'quantity', "% of total"]].copy()
 data_two.rename(columns=new_col_names, inplace=True)
 
 for a_df in [data_one, data_two]:
-    a_df["Total (St.)"] = a_df["Total (St.)"].map(lambda x: F"{x:,}")
+    a_df["Total (St.)"] = a_df["Total (St.)"].map(lambda x: featuredata.thousandsSeparator(int(x)))
+    a_df["Total (%)"] = a_df["Total (%)"].map(lambda x: f"{int(x)}%")
 
 first_table = sut.make_a_table(axone, data_one.values,  colLabels=data_one.columns, colWidths=[.6,*[.2]*2], loc='lower center', bbox=[0,0,1,1])
 first_table.get_celld()[(0,0)].get_text().set_text("ländlich")
@@ -2252,9 +2255,7 @@ plt.show()
 # 
 # Die Erhebungsergebnissefür FT-Objekte behalten die gleichen Merkmale wie die der übergeordneten Verteilung. Die Ergebnisse des KS-Tests (ks=0,29, pWert<.001) und des MWU-Tests (U=7356,5, p<.001) stimmen mit den Ergebnissen der Elterngruppe überein, dass es einen statistisch relevanten Unterschied zwischen den Datenerhebungen Ergebnissen unter verschiedenen Landnutzungsklassen gibt.  
 # 
-# *__Links:__ Land - Stadt: ECDF der Erhebungsergebnissefragmentierte Kunststoffe und Schaumstoffe (FP)* 
-# 
-# *__Rechts:__ Land - Stadt: ECDF der ErhebungsergebnisseZigarettenstummel und Bonbonverpackungen (FT)*
+# *__Links:__ Land - Stadt: ECDF der Erhebungsergebnissefragmentierte Kunststoffe und Schaumstoffe (FP). __Rechts:__ Land - Stadt: ECDF der ErhebungsergebnisseZigarettenstummel und Bonbonverpackungen (FT)*
 
 # In[30]:
 
