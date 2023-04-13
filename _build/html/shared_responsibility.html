@@ -1,37 +1,46 @@
 
+
 <!DOCTYPE html>
 
-<html lang="de">
+
+<html lang="de" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>19. Geteilte Verantwortung &#8212; IQAASL</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,13 +48,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -55,546 +64,317 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'shared_responsibility';</script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="20. Vergleich der Datenerhebungen seit 2018" href="slr-iqaasl.html" />
     <link rel="prev" title="18. Recyceln und neugestalten" href="reuse_remake.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="de">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">IQAASL</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Zusammenfassung
- </span>
-</p>
+<a class="navbar-brand logo" href="titlepage_de.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">IQAASL</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Zusammenfassung</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="foreword.html">
-   Vorwort
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="esummary.html">
-   Kurzfassung
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">Vorwort</a></li>
+<li class="toctree-l1"><a class="reference internal" href="esummary.html">Kurzfassung</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Ergebnisse der Erhebung
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ergebnisse der Erhebung</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="lakes_rivers.html">
-   1. Seen und Fliessgewässer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="alpes_valaisannes.html">
-   2. Alpen und der Jura
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="lakes_rivers.html">1. Seen und Fliessgewässer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alpes_valaisannes.html">2. Alpen und der Jura</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Erhebungsgebiete
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Erhebungsgebiete</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="aare_sa.html">
-   3. Aare
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linth_sa.html">
-   4. Linth
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ticino_sa.html">
-   5. Ticino
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="rhone_sa.html">
-   6. Rhône
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="aare_sa.html">3. Aare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linth_sa.html">4. Linth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ticino_sa.html">5. Ticino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhone_sa.html">6. Rhône</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Seen
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Seen</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="bielersee.html">
-   7. Bielersee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="neuenburgersee.html">
-   8. Neuenburgersee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="thunerseebrienzersee.html">
-   9. Thunersee/Brienzersee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lac-leman.html">
-   10. Lac Léman
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="zurichsee.html">
-   11. Zürichsee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="walensee.html">
-   12. Walensee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="maggiorelugano.html">
-   13. Lago Maggiore/Luganersee
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="bielersee.html">7. Bielersee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neuenburgersee.html">8. Neuenburgersee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thunerseebrienzersee.html">9. Thunersee/Brienzersee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lac-leman.html">10. Lac Léman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zurichsee.html">11. Zürichsee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="walensee.html">12. Walensee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maggiorelugano.html">13. Lago Maggiore/Luganersee</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Verstehen
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verstehen</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="baselines.html">
-   14. Basiswerte für Abfallobjekte an Gewässern
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="key_indicators.html">
-   15. Statistische Schlüsselindikatoren
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="code_groups.html">
-   16. Codegruppen
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="land_use_correlation.html">
-   17. Landnutzungsprofil
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="baselines.html">14. Basiswerte für Abfallobjekte an Gewässern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_indicators.html">15. Statistische Schlüsselindikatoren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_groups.html">16. Codegruppen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="land_use_correlation.html">17. Landnutzungsprofil</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Anwendungen
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anwendungen</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="reuse_remake.html">
-   18. Recyceln und neugestalten
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   19. Geteilte Verantwortung
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="slr-iqaasl.html">
-   20. Vergleich der Datenerhebungen seit 2018
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="reuse_remake.html">18. Recyceln und neugestalten</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Geteilte Verantwortung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slr-iqaasl.html">20. Vergleich der Datenerhebungen seit 2018</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/issues/new?title=Issue%20on%20page%20%2Fshared_responsibility.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/issues/new?title=Issue%20on%20page%20%2Fshared_responsibility.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-herausforderung">
-   19.1. Die Herausforderung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-ursprunge-der-haufigsten-objekte">
-     19.1.1. Die Ursprünge der häufigsten Objekte
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-daten">
-   19.2. Die Daten
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bewertung-der-zusammensetzung-das-grosse-ganze">
-     19.2.1. Bewertung der Zusammensetzung: Das grosse Ganze
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">
-     19.2.2. Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#differenz-der-mittelwerte">
-       19.2.2.1. Differenz der Mittelwerte
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fazit">
-   19.3. Fazit
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diskussion">
-     19.3.1. Diskussion
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#partner-finden">
-       19.3.1.1. Partner finden
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#die-verantwortung-teilen">
-       19.3.1.2. Die Verantwortung teilen
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anhang">
-   19.4. Anhang
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ergebnisse-des-spearman-rangkorrelationstests">
-     19.4.1. Ergebnisse des Spearman-Rangkorrelationstests
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saisonale-schwankungen">
-     19.4.2. Saisonale Schwankungen
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">
-   19.5. Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fp-und-ft-differenz-der-mittelwerte">
-     19.5.1. FP und FT Differenz der Mittelwerte.
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Geteilte Verantwortung</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-herausforderung">
-   19.1. Die Herausforderung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#die-ursprunge-der-haufigsten-objekte">
-     19.1.1. Die Ursprünge der häufigsten Objekte
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-daten">
-   19.2. Die Daten
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bewertung-der-zusammensetzung-das-grosse-ganze">
-     19.2.1. Bewertung der Zusammensetzung: Das grosse Ganze
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">
-     19.2.2. Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#differenz-der-mittelwerte">
-       19.2.2.1. Differenz der Mittelwerte
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fazit">
-   19.3. Fazit
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diskussion">
-     19.3.1. Diskussion
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#partner-finden">
-       19.3.1.1. Partner finden
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#die-verantwortung-teilen">
-       19.3.1.2. Die Verantwortung teilen
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anhang">
-   19.4. Anhang
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ergebnisse-des-spearman-rangkorrelationstests">
-     19.4.1. Ergebnisse des Spearman-Rangkorrelationstests
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saisonale-schwankungen">
-     19.4.2. Saisonale Schwankungen
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">
-   19.5. Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fp-und-ft-differenz-der-mittelwerte">
-     19.5.1. FP und FT Differenz der Mittelwerte.
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Geteilte Verantwortung</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-herausforderung">19.1. Die Herausforderung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-ursprunge-der-haufigsten-objekte">19.1.1. Die Ursprünge der häufigsten Objekte</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-daten">19.2. Die Daten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bewertung-der-zusammensetzung-das-grosse-ganze">19.2.1. Bewertung der Zusammensetzung: Das grosse Ganze</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">19.2.2. Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#differenz-der-mittelwerte">19.2.2.1. Differenz der Mittelwerte</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fazit">19.3. Fazit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion">19.3.1. Diskussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#partner-finden">19.3.1.1. Partner finden</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#die-verantwortung-teilen">19.3.1.2. Die Verantwortung teilen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anhang">19.4. Anhang</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ergebnisse-des-spearman-rangkorrelationstests">19.4.1. Ergebnisse des Spearman-Rangkorrelationstests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saisonale-schwankungen">19.4.2. Saisonale Schwankungen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">19.5. Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fp-und-ft-differenz-der-mittelwerte">19.5.1. FP und FT Differenz der Mittelwerte.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -809,35 +589,36 @@ title="Open an issue"
 <span class="c1"># make a map to the code descriptions</span>
 <span class="n">code_description_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">description</span>
 
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;blank_caption&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
 <span class="c1"># make a map to the code descriptions</span>
 <span class="n">code_material_map</span> <span class="o">=</span> <span class="n">dfCodes</span><span class="o">.</span><span class="n">material</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="geteilte-verantwortung">
+<div class="tex2jax_ignore mathjax_ignore section" id="geteilte-verantwortung">
 <span id="transport"></span><h1><span class="section-number">19. </span>Geteilte Verantwortung<a class="headerlink" href="#geteilte-verantwortung" title="Link zu dieser Überschrift">#</a></h1>
 <p><a class="reference download internal" download="" href="_downloads/a2e5dba129ae4411af94e91ccb3a7b6d/sharedresponsibility.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a></p>
 <p>Untersuchungen über den Eintrag und die Anreicherung von Abfällen in der aquatischen Umwelt zeigen, dass Fliessgewässer eine Hauptquelle für Makroplastik sind  <span id="id1">[]</span>. Allerdings gelangen nicht alle Objekte, die von Fliessgewässer transportiert werden, in die Ozeane, was darauf hindeutet, dass Fliessgewässer und Binnenseen auch Senken für einen Teil des emittierten Makroplastiks sind. <span id="id2">[]</span>.</p>
 <p>In den Bestimmungen des Schweizer Rechts, Artikel 2 des Bundesgesetzes über den Umweltschutz (USG), wird das Prinzip der Kausalität für die illegale Entsorgung von Material berücksichtigt und ist allgemein als Verursacherprinzip bekannt. Letztendlich liegt die Verantwortung für die Beseitigung und das Management der Verschmutzung durch Abfälle in und entlang von Gewässern bei den kommunalen und kantonalen Verwaltungen, da sie rechtlich gesehen Eigentümer des Landes innerhalb ihrer Grenzen sind. Das Gesetz gibt den Gemeinden und Kantonen die Möglichkeit, Personen oder Unternehmen (z. B. Fast-Food-Unternehmen und ähnliche Betriebe oder Organisatoren von Veranstaltungen, die grosse Mengen an Abfall im öffentlichen Raum erzeugen), die weiter oben in der Kausalkette stehen, als Abfallverursacher zu betrachten und von ihnen Entsorgungsgebühren zu erheben, wenn keine konkreten Verursacher ermittelt werden können und sofern objektive Kriterien zur Bestimmung der Kausalkette herangezogen werden. <span id="id3">[]</span> <span id="id4">[]</span> <span id="id5">[]</span> <span id="id6">[]</span></p>
-<section id="die-herausforderung">
+<div class="section" id="die-herausforderung">
 <h2><span class="section-number">19.1. </span>Die Herausforderung<a class="headerlink" href="#die-herausforderung" title="Link zu dieser Überschrift">#</a></h2>
 <p>Objektive Kriterien erfordern <strong>robuste, transparente und leicht wiederholbare</strong> Methoden. Die Herausforderung besteht darin, verfügbare Informationen aus den weggeworfenen Objekten zu extrahieren, die auf Mengen, Materialeigenschaften und Umweltvariablen in der Nähe des Erhebungsortes basieren.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<figure class="align-default" id="gclos-may">
+<div class="figure align-default" id="gclos-may">
 <img alt="_images/gclosmay2020.jpeg" src="_images/gclosmay2020.jpeg" />
-<figcaption>
-<p><span class="caption-number">Abb. 19.1 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#gclos-may" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Abb. 19.1 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#gclos-may" title="Link zu diesem Bild">#</a></p>
+</div>
 <p><a class="reference internal" href="#gclos-may"><span class="std std-numref">Abbildung 19.1:</span></a> Genfersee, St. Gingolph 07.05.2020 (1600 p/100 m).</p>
 <p>Der Nutzen von weggeworfenen Objekten sowie die Landnutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Das Landnutzungsprofil zur Bewertung der Verschmutzungsquellen ist für einige gängige Objekte nützlich. So wurden beispielsweise grössere Mengen an Zigarettenfiltern und Snack-Verpackungen in der Nähe von Erhebungsorten mit einer höheren Konzentration von Flächen, die Gebäuden und Aktivitäten im Freien zugeordnet werden, festgestellt (siehe <a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref"><em>Landnutzungsprofil</em></span></a>). Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabakwaren in Verbindung gebracht werden, machen etwa 26 % des gesamten Materials aus, das an den Schweizer Gewässern gefunden wurde.</p>
 <p>Andere Objekte haben jedoch weder einen eindeutigen geografischen Ursprung noch eine klare Verbindung zu einer Aktivität in der Nähe ihres Erhebungsorts. Die häufigsten dieser Objekte machen ca. 40 % aller im Jahr 2020 identifizierten Abfallobjekte aus <a class="reference internal" href="lakes_rivers.html#allsurveys"><span class="std std-ref"><em>Seen und Fleissgewässer</em> </span></a>. Die Verringerung der Menge an Abfällen an den Schweizer Ufern beinhaltet auch die Verringerung der Menge an ausrangierten Objekten, die von ausserhalb der geografischen Grenzen des Ufers selbst stammen. Daher ist es ein Anreiz, Abfallobjekte, die an oder in der Nähe von Erhebungsorten weggeworfen werden zu unterscheiden von solchen, die in die Erhebungsorte eingetragen werden.</p>
 <p>Die Gewinnung objektiver Daten über Uferabfälle wird durch die hydrologischen Einflüsse der rund 61 000 km Fliessgewässer und 1500 Seen in der Schweiz erschwert. Die hydrologischen Bedingungen der Fliessgewässer wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Grosse Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Objekte mit hoher Dichte werden nur dann transportiert, wenn die Fliessgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Objekte vom Grund fernzuhalten. Sobald Objekte mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken. <span id="id7">[]</span></p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<section id="die-ursprunge-der-haufigsten-objekte">
+<div class="section" id="die-ursprunge-der-haufigsten-objekte">
 <h3><span class="section-number">19.1.1. </span>Die Ursprünge der häufigsten Objekte<a class="headerlink" href="#die-ursprunge-der-haufigsten-objekte" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die häufigsten Objekte sind die zehn mengenmässig am häufigsten vorkommenden Objekte und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden. Um besser zu verstehen, woher diese Objekte stammen, wird zwischen zwei Gruppen von Objekten unterschieden:</p>
 <ul class="simple">
@@ -873,17 +654,11 @@ title="Open an issue"
 </div>
 <p><em><strong>Unten:</strong> Identifizierung von Gegenständen der Gruppe DG. DG ist eine vielfältige Gruppe von Gegenständen aus dem Bauwesen, der verarbeitenden Industrie und der Landwirtschaft. In einigen Fällen, wie z.B. bei zersplitterten Kunststoffen und geschäumten Kunststoffen, sind der ursprüngliche Gegenstand oder der Verwendungszweck unbestimmbar.</em></p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
 </div>
+<div class="figure align-default" id="the-dg-group">
+<img alt="_images/98d19d092f37de76cf09755a06ab4802ddf212467aadbdce125bb094c59e47a6.png" src="_images/98d19d092f37de76cf09755a06ab4802ddf212467aadbdce125bb094c59e47a6.png" />
+<p class="caption"><span class="caption-number">Abb. 19.2 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#the-dg-group" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="the-dg-group">
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_10_0.png" src="_images/shared_responsibility_10_0.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 19.2 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#the-dg-group" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#the-dg-group"><span class="std std-numref">Abbildung 19.2:</span></a> Identifizierung von Objekten der Gruppe der eOs. EOs ist eine vielfältige Gruppe von Objekten aus dem Bauwesen, der verarbeitenden Industrie und der Landwirtschaft. In einigen Fällen, wie z. B. bei zersplitterten Kunststoffen und geschäumten Kunststoffen, sind der ursprüngliche Gegenstand oder der Verwendungszweck unbestimmbar.</p>
 <p>Die Ergebnisse der verschiedenen Gruppen werden verwendet, um die folgende Nullhypothese zu testen, die auf den Ergebnissen des Korrelationskoeffizienten nach Spearman beruht.</p>
 <p>Wenn es keine statistisch signifikanten Hinweise darauf gibt, dass Landnutzungsmerkmale zur Anhäufung eines Objekts beitragen, sollte die Verteilung dieses Objekts unter allen Landnutzungsbedingungen identisch oder fast identisch sein.</p>
@@ -895,27 +670,30 @@ title="Open an issue"
 </div></blockquote>
 <p><strong>Methoden</strong></p>
 <p>Die Hypothese wird mit einer Kombination von nicht-parametrischen Tests getestet, um die Signifikanz zu bestätigen:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Kolmogorov-Smirnov-Test mit zwei Stichproben <span id="id8">[]</span></p></li>
 <li><p>Mann-Whitney-U-Test (MWU) <span id="id9">[]</span></p></li>
 <li><p>Bootstrap-Wiederholungsstichprobe Differenz der Mittelwerte <span id="id10">[]</span> <span id="id11">[]</span></p></li>
 </ol>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-</section>
-<section id="die-daten">
+</div>
+</div>
+<div class="section" id="die-daten">
 <h2><span class="section-number">19.2. </span>Die Daten<a class="headerlink" href="#die-daten" title="Link zu dieser Überschrift">#</a></h2>
-<figure class="align-default" id="shared-map">
+<div class="figure align-default" id="shared-map">
 <img alt="_images/sharedresponsibility.jpeg" src="_images/sharedresponsibility.jpeg" />
-<figcaption>
-<p><span class="caption-number">Abb. 19.3 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#shared-map" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Abb. 19.3 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#shared-map" title="Link zu diesem Bild">#</a></p>
+</div>
 <p><a class="reference internal" href="#shared-map"><span class="std std-numref">Abbildung 19.3:</span></a> Für diese Analyse wurden nur Erhebungsorte an Seen berücksichtigt. Das Walenseegebiet wurde mangels ausreichender Landnutzungsdaten ausgeschlossen. Damit reduziert sich der Datensatz auf 300 Erhebungen an 84 städtischen und ländlichen Erhebungsorten von März 2020 bis Mai 2021.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # make date stamp</span>
 <span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/checked_sdata_eos_2020_21.csv&#39;</span><span class="p">)</span>
@@ -1075,21 +853,21 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
+<div class="figure align-default" id="descrip-data">
+<img alt="_images/e1de644845b68f25114e8af869c588cb5321bb8a332f29306e827388730c8941.png" src="_images/e1de644845b68f25114e8af869c588cb5321bb8a332f29306e827388730c8941.png" />
+<p class="caption"><span class="caption-number">Abb. 19.4 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#descrip-data" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="descrip-data">
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_17_0.png" src="_images/shared_responsibility_17_0.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 19.4 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#descrip-data" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#descrip-data"><span class="std std-numref">Abbildung 19.4:</span></a> Für diese Analyse wurden nur Erhebungsorte an Seen berücksichtigt. Das Walenseegebiet wurde mangels ausreichender Landnutzungsdaten ausgeschlossen. Damit reduziert sich der Datensatz auf 300 Erhebungen an 84 städtischen und ländlichen Erhebungsorten von März 2020 bis Mai 2021.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">change_names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;count&quot;</span><span class="p">:</span><span class="s2">&quot;E&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;mean&quot;</span><span class="p">:</span><span class="s2">&quot;D&quot;</span><span class="p">,</span>
@@ -1153,21 +931,16 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
+<div class="figure align-default" id="quantiles-rural-urban">
+<img alt="_images/51b0bc3f62e88f161f32b35198da63e87ad908e492fe6a8498775cfa2c69071d.png" src="_images/51b0bc3f62e88f161f32b35198da63e87ad908e492fe6a8498775cfa2c69071d.png" />
+<p class="caption"><span class="caption-number">Abb. 19.5 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#quantiles-rural-urban" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="quantiles-rural-urban">
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_20_0.png" src="_images/shared_responsibility_20_0.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 19.5 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#quantiles-rural-urban" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#quantiles-rural-urban"><span class="std std-numref">Abbildung 19.5:</span></a> Unterschiede zwischen städtischen und ländlichen Datenerhebungen. Die Erhebungsergebnisse in ländlichen Gebieten hatten einen niedrigeren Median und Mittelwert als in städtischen Gebieten und in allen Gebieten zusammen. Die Höchst- und Mindestwerte sowie die höchste Standardabweichung wurden an städtischen Erhebungsorten verzeichnet. Die 95-Prozent-Konfidenzintervalle des Medianwertes der Erhebungsergebnisse in den Städten und auf dem Land überschneiden sich nicht, siehe auch Anhang.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<section id="bewertung-der-zusammensetzung-das-grosse-ganze">
+<div class="section" id="bewertung-der-zusammensetzung-das-grosse-ganze">
 <h3><span class="section-number">19.2.1. </span>Bewertung der Zusammensetzung: Das grosse Ganze<a class="headerlink" href="#bewertung-der-zusammensetzung-das-grosse-ganze" title="Link zu dieser Überschrift">#</a></h3>
 <p>Das Verhältnis von eOs insgesamt zu leOs insgesamt betrug in der ländlichen Gruppe 2,5, in der städtischen Gruppe 1,6. Bei allen Datenerhebungen in den ländlichen Gebieten war der Anteil der eOs an der Gesamtzahl in % höher. In den Städten sind die Anteile von eOs und leOs an der Gesamtzahl der Datenerhebungen fast gleich.</p>
 <blockquote>
@@ -1176,6 +949,11 @@ title="Open an issue"
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dists</span> <span class="o">=</span> <span class="n">cg_dg_dt</span><span class="p">[(</span><span class="n">cg_dg_dt</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="n">DG</span><span class="p">)][[</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">,</span><span class="s1">&#39;rural&#39;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;loc_date&#39;</span><span class="p">)</span>
 <span class="n">conts</span> <span class="o">=</span> <span class="n">cg_dg_dt</span><span class="p">[(</span><span class="n">cg_dg_dt</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="n">CG</span><span class="p">)][[</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="s1">&#39;rural&#39;</span><span class="p">,</span> <span class="n">unit_label</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;loc_date&#39;</span><span class="p">)</span>
@@ -1224,28 +1002,28 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
+<div class="figure align-default" id="assess-composition">
+<img alt="_images/0a7dfe95f002e7dec0bd78c6ab020f3f0366b07f85267ffdba4897e1419f1ea9.png" src="_images/0a7dfe95f002e7dec0bd78c6ab020f3f0366b07f85267ffdba4897e1419f1ea9.png" />
+<p class="caption"><span class="caption-number">Abb. 19.6 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#assess-composition" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="assess-composition">
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_25_0.png" src="_images/shared_responsibility_25_0.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 19.6 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#assess-composition" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#assess-composition"><span class="std std-numref">Abbildung 19.6:</span></a> Proben aus ländlichen Gegenden wiesen einen grösseren Anteil an fragmentierten Kunststoffen, geschäumten Kunststoffen und Baukunststoffen auf.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-<section id="verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">
+</div>
+<div class="section" id="verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">
 <h3><span class="section-number">19.2.2. </span>Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen<a class="headerlink" href="#verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die Erhebungsergebnisse der eOs sind unter beiden Landnutzungsklassen sehr ähnlich, es gibt mehr Varianz, wenn der gemeldete Wert steigt, aber nicht so viel, dass die Verteilungen auseinandergehen. Angesichts der Standardabweichung der Stichproben und der hohen Varianz der Datenerhebungen zum Ufer-Abfallaufkommen im Allgemeinen ist dies zu erwarten. <span id="id12">[]</span></p>
 <p>Die Kolmogorov-Smirnov-Tests mit zwei Stichproben (ks = 0,073, p = 0,808) der beiden Gruppen von Datenerhebungen deuten darauf hin, dass sich die Erhebungsergebnisse der eOs zwischen den beiden Landnutzungsklassen möglicherweise nicht signifikant unterscheiden. Die Ergebnisse des Mann-Whitney-U-Tests (U = 11445,0, p = 0,762) deuten darauf hin, dass es möglich ist, dass die beiden Verteilungen gleich sind.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the dg group objects evaluated at rural locations</span>
 <span class="n">d_r_a</span> <span class="o">=</span> <span class="n">cg_dg_dt</span><span class="p">[(</span><span class="n">cg_dg_dt</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;ländlich&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">cg_dg_dt</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="n">DG</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">])[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1298,28 +1076,28 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
+<div class="figure align-default" id="cg-dg-diff">
+<img alt="_images/0895fc0eca377084a2a7120294e963d30fe3e6bf5b05e85c04549c6b6cd3a398.png" src="_images/0895fc0eca377084a2a7120294e963d30fe3e6bf5b05e85c04549c6b6cd3a398.png" />
+<p class="caption"><span class="caption-number">Abb. 19.7 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#cg-dg-diff" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="cg-dg-diff">
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_30_0.png" src="_images/shared_responsibility_30_0.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 19.7 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#cg-dg-diff" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#cg-dg-diff"><span class="std std-numref">Abbildung 19.7:</span></a> Empirische Verteilungsfunktion von eOs und leOs. Links: Es sei daran erinnert, dass zu den eOs fragmentierte Kunststoffe, Schaumstoffe, Kunststoffe für den Bau und Industriepellets gehören. Rechts: Die Erhebungsergebnisse für Zigarettenfilter und Snack-Verpackungen haben visuell unterschiedliche Verteilungen unter den beiden Landnutzungsbedingungen.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Nach dem KS-Test (Rho = 0,09, p = 0,48) gibt es keinen statistischen Grund für die Annahme, dass unter den unterschiedlichen Landnutzungsbedingungen mehr eOs gefunden werden, nach dem MWU-Test (MWU = 1039, p = 0,25) besteht die Chance, dass die Häufigkeit der eOs unabhängig vom Landnutzungsprofil gleich ist. Andererseits weichen die Erhebungsergebnisse von leOs fast sofort ab und die Ergebnisse des KS-Tests (Rho = 0,31, p &lt; 0,001) und des MWU-Tests (MWU = 7305, p &lt; 0,001) deuten darauf hin, dass die Verteilung dieser Objekte mit dem Anteil der Fläche, die von Gebäuden eingenommen wird, zusammenhängt.</p>
-<section id="differenz-der-mittelwerte">
+<div class="section" id="differenz-der-mittelwerte">
 <h4><span class="section-number">19.2.2.1. </span>Differenz der Mittelwerte<a class="headerlink" href="#differenz-der-mittelwerte" title="Link zu dieser Überschrift">#</a></h4>
 <p>Das durchschnittliche Ergebnis der Datenerhebungen von eOs in ländlichen Gebieten lag bei 202 p/100 m gegenüber 237 p/100 m in städtischen Gebieten, ein Unterschied von -35 p/100 m ist nur ein kleiner Bruchteil der Standardabweichung. Es wurde ein Permutationstest auf die Differenz der Mittelwerte unter der Bedingung ländlich–städtisch der Mittelwerte der Datenerhebungen durchgeführt.</p>
 <p>Differenz der Mittelwerte eOs. <span class="math notranslate nohighlight">\(\mu_{rural}\)</span> - <span class="math notranslate nohighlight">\(\mu_{urban}\)</span>, method = shuffle, permutations = 5000.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for display purposes: the results of the ks and MWU tests for DG objects</span>
 <span class="c1"># print(stats.ks_2samp(dist_results_agg, dist_results_urb, alternative=&#39;two-sided&#39;, mode=&#39;auto&#39;))</span>
@@ -1357,9 +1135,9 @@ title="Open an issue"
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">new_means</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;$</span><span class="se">\u0394</span><span class="s2">\mu$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_diff</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">, perm=5000, p=</span><span class="si">{</span><span class="n">emp_p</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;$</span><span class="se">\u0394</span><span class="s2">\mu$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_diff</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">, perm=5000, p=</span><span class="si">{</span><span class="n">emp_p</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Permutationen&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$\mu$ ländlich=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">the_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ländlich&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> - $\mu$ urban=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">the_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;urban&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$\mu$ ländlich=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">the_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ländlich&#39;</span><span class="p">],</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> - $\mu$ urban=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">the_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;urban&#39;</span><span class="p">],</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 
 <span class="n">figure_name</span> <span class="o">=</span> <span class="s2">&quot;diff_mean&quot;</span>
 <span class="n">sample_totals_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">save_fig_prefix</span><span class="si">}{</span><span class="n">figure_name</span><span class="si">}</span><span class="s1">.jpeg&#39;</span>
@@ -1372,53 +1150,315 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/groupby.py:1490,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1489</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1490</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1493</span>         <span class="n">how</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1494</span>         <span class="n">axis</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1495</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>     <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/ops.py:959,</span> in <span class="ni">BaseGrouper._cython_operation</span><span class="nt">(self, kind, values, how, axis, min_count, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">958</span> <span class="n">ngroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ngroups</span>
+<span class="ne">--&gt; </span><span class="mi">959</span> <span class="k">return</span> <span class="n">cy_op</span><span class="o">.</span><span class="n">cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">960</span>     <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">961</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">963</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">964</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span> <span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/ops.py:657,</span> in <span class="ni">WrappedCythonOp.cython_operation</span><span class="nt">(self, values, axis, min_count, comp_ids, ngroups, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ea_wrap_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">657</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_op_ndim_compat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/ops.py:497,</span> in <span class="ni">WrappedCythonOp._cython_op_ndim_compat</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">T</span>
+<span class="ne">--&gt; </span><span class="mi">497</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_cython_op</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>     <span class="n">result_mask</span><span class="o">=</span><span class="n">result_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> <span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/ops.py:541,</span> in <span class="ni">WrappedCythonOp._call_cython_op</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="n">out_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_shape</span><span class="p">(</span><span class="n">ngroups</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">541</span> <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cython_function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">how</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">is_numeric</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span> <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cython_vals</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/ops.py:173,</span> in <span class="ni">WrappedCythonOp._get_cython_function</span><span class="nt">(cls, kind, how, dtype, is_numeric)</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="k">if</span> <span class="s2">&quot;object&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">__signatures__</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="c1"># raise NotImplementedError here rather than TypeError later</span>
+<span class="ne">--&gt; </span><span class="mi">173</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>         <span class="sa">f</span><span class="s2">&quot;function is not implemented for this dtype: &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>         <span class="sa">f</span><span class="s2">&quot;[how-&gt;</span><span class="si">{</span><span class="n">how</span><span class="si">}</span><span class="s2">,dtype-&gt;</span><span class="si">{</span><span class="n">dtype_str</span><span class="si">}</span><span class="s2">]&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="k">return</span> <span class="n">f</span>
+
+<span class="ne">NotImplementedError</span>: function is not implemented for this dtype: [how-&gt;mean,dtype-&gt;object]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/nanops.py:1692,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1691</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1692</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span> <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span>     <span class="c1"># e.g. &quot;1+1j&quot; or &quot;foo&quot;</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;ländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurban&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/nanops.py:1696,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1695</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1696</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1697</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span>     <span class="c1"># e.g. &quot;foo&quot;</span>
+
+<span class="ne">ValueError</span>: complex() arg is a malformed string
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">29</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5000</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">dg_merg</span><span class="p">[</span><span class="s1">&#39;new_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dg_merg</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="ne">---&gt; </span><span class="mi">29</span>     <span class="n">b</span><span class="o">=</span><span class="n">dg_merg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;new_class&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">new_means</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">b</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ländlich&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;urban&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="n">emp_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">new_means</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">the_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ländlich&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">the_mean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;urban&#39;</span><span class="p">]))</span> <span class="o">/</span> <span class="mi">5000</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/groupby.py:1855,</span> in <span class="ni">GroupBy.mean</span><span class="nt">(self, numeric_only, engine, engine_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_agg_general</span><span class="p">(</span><span class="n">sliding_mean</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1855</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1857</span>         <span class="n">alt</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1860</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/groupby.py:1507,</span> in <span class="ni">GroupBy._cython_agg_general</span><span class="nt">(self, how, alt, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1503</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span>     <span class="k">return</span> <span class="n">result</span>
+<span class="ne">-&gt; </span><span class="mi">1507</span> <span class="n">new_mgr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">grouped_reduce</span><span class="p">(</span><span class="n">array_func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1508</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_agged_manager</span><span class="p">(</span><span class="n">new_mgr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1509</span> <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_aggregated_output</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/internals/managers.py:1503,</span> in <span class="ni">BlockManager.grouped_reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="k">if</span> <span class="n">blk</span><span class="o">.</span><span class="n">is_object</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># split on object-dtype blocks bc some columns may raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1">#  while others do not.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="k">for</span> <span class="n">sb</span> <span class="ow">in</span> <span class="n">blk</span><span class="o">.</span><span class="n">_split</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>         <span class="n">applied</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1504</span>         <span class="n">result_blocks</span> <span class="o">=</span> <span class="n">extend_blocks</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">result_blocks</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/internals/blocks.py:329,</span> in <span class="ni">Block.apply</span><span class="nt">(self, func, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd">     apply the function to my values; return a block if we are not</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span><span class="sd">     one</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">329</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_op_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/groupby.py:1503,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1490</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">values</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>     <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/groupby.py:1457,</span> in <span class="ni">GroupBy._agg_py_fallback</span><span class="nt">(self, values, ndim, alt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1452</span>     <span class="n">ser</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1454</span> <span class="c1"># We do not get here with UDFs, so we know that our dtype</span>
+<span class="g g-Whitespace">   </span><span class="mi">1455</span> <span class="c1">#  should always be preserved by the implemented aggregations</span>
+<span class="g g-Whitespace">   </span><span class="mi">1456</span> <span class="c1"># TODO: Is this exactly right; see WrappedCythonOp get_result_dtype?</span>
+<span class="ne">-&gt; </span><span class="mi">1457</span> <span class="n">res_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">agg_series</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">preserve_dtype</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1459</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1460</span>     <span class="c1"># Because we only get here with known dtype-preserving</span>
+<span class="g g-Whitespace">   </span><span class="mi">1461</span>     <span class="c1">#  reductions, we cast back to Categorical.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1462</span>     <span class="c1"># TODO: if we ever get &quot;rank&quot; working, exclude it here.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1463</span>     <span class="n">res_values</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">_from_sequence</span><span class="p">(</span><span class="n">res_values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/ops.py:994,</span> in <span class="ni">BaseGrouper.agg_series</span><span class="nt">(self, obj, func, preserve_dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">987</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">988</span>     <span class="c1"># we can preserve a little bit more aggressively with EA dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">989</span>     <span class="c1">#  because maybe_cast_pointwise_result will do a try/except</span>
+<span class="g g-Whitespace">    </span><span class="mi">990</span>     <span class="c1">#  with _from_sequence.  NB we are assuming here that _from_sequence</span>
+<span class="g g-Whitespace">    </span><span class="mi">991</span>     <span class="c1">#  is sufficiently strict that it casts appropriately.</span>
+<span class="g g-Whitespace">    </span><span class="mi">992</span>     <span class="n">preserve_dtype</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">994</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aggregate_series_pure_python</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">996</span> <span class="n">npvalues</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_objects</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">try_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">997</span> <span class="k">if</span> <span class="n">preserve_dtype</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/ops.py:1015,</span> in <span class="ni">BaseGrouper._aggregate_series_pure_python</span><span class="nt">(self, obj, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1012</span> <span class="n">splitter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_splitter</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">splitter</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1015</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1016</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">libreduction</span><span class="o">.</span><span class="n">extract_result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1018</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">initialized</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1019</span>         <span class="c1"># We only do this validation on the first iteration</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/groupby/groupby.py:1857,</span> in <span class="ni">GroupBy.mean.&lt;locals&gt;.&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_agg_general</span><span class="p">(</span><span class="n">sliding_mean</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1855</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1857</span>         <span class="n">alt</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1860</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/generic.py:11563,</span> in <span class="ni">NDFrame._add_numeric_operations.&lt;locals&gt;.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11546</span> <span class="nd">@doc</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11547</span>     <span class="n">_num_doc</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11548</span>     <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Return the mean of the values over the requested axis.&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11561</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11562</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11563</span>     <span class="k">return</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/generic.py:11208,</span> in <span class="ni">NDFrame.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11201</span> <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11202</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11203</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11206</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11207</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11208</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11209</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">nanops</span><span class="o">.</span><span class="n">nanmean</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">11210</span>     <span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/generic.py:11165,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11161</span>     <span class="n">nv</span><span class="o">.</span><span class="n">validate_stat_func</span><span class="p">((),</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11163</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">11165</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11166</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">11167</span> <span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/series.py:4671,</span> in <span class="ni">Series._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4666</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4667</span>         <span class="sa">f</span><span class="s2">&quot;Series.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not allow </span><span class="si">{</span><span class="n">kwd_name</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">numeric_only</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4668</span>         <span class="s2">&quot;with non-numeric dtypes.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4669</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4670</span> <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">4671</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">delegate</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/nanops.py:96,</span> in <span class="ni">disallow.__call__.&lt;locals&gt;._f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="c1"># we want to transform an object array</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="c1"># ValueError message to the more typical TypeError</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="c1"># e.g. this is normally a disallowed function on</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="c1"># object arrays that contain strings</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">if</span> <span class="n">is_object_dtype</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/nanops.py:158,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">158</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/nanops.py:421,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">421</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/nanops.py:727,</span> in <span class="ni">nanmean</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">dtype_count</span> <span class="o">=</span> <span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span> <span class="n">count</span> <span class="o">=</span> <span class="n">_get_counts</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_count</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">727</span> <span class="n">the_sum</span> <span class="o">=</span> <span class="n">_ensure_numeric</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_sum</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">the_sum</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">count</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/iqaasl/lib/python3.9/site-packages/pandas/core/nanops.py:1699,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1696</span>             <span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1697</span>         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span>             <span class="c1"># e.g. &quot;foo&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1699</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not convert </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> to numeric&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">1700</span> <span class="k">return</span> <span class="n">x</span>
+
+<span class="ne">TypeError</span>: Could not convert ländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichländlichurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurbanurban to numeric
+</pre></div>
+</div>
 </div>
 </div>
 <p><em><strong>Oben:</strong> Verwerfen Sie die Nullhypothese, dass diese beiden Verteilungen gleich sein könnten. Die beobachtete Differenz der Mittelwerte liegt innerhalb des 95%-Intervalls der Bootstrap-Ergebnisse.</em></p>
-<figure class="align-default" id="diff-mean">
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_36_0.png" src="_images/shared_responsibility_36_0.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 19.8 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#diff-mean" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
-<p><a class="reference internal" href="#diff-mean"><span class="std std-numref">Abbildung 19.8:</span></a> Die Nullhypothese, dass diese beiden Verteilungen gleich sein könnten, ist zu verwerfen. Die beobachtete Differenz der Mittelwerte liegt innerhalb des 95-Prozent-Intervalls der Bootstrap-Ergebnisse.</p>
+<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Abbildung</span> <span class="pre">%s:</span></code> Die Nullhypothese, dass diese beiden Verteilungen gleich sein könnten, ist zu verwerfen. Die beobachtete Differenz der Mittelwerte liegt innerhalb des 95-Prozent-Intervalls der Bootstrap-Ergebnisse.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-</section>
-</section>
-<section id="fazit">
+</div>
+</div>
+</div>
+<div class="section" id="fazit">
 <h2><span class="section-number">19.3. </span>Fazit<a class="headerlink" href="#fazit" title="Link zu dieser Überschrift">#</a></h2>
 <p>Es kann ein positiver, statistisch relevanter Zusammenhang zwischen leOs und der Landnutzung angenommen werden, der auf Infrastruktur wie Strassen, Aktivitäten im Freien und Gebäude zurückzuführen ist. Mit 4/12 der häufigsten Objekte wurden etwa 26 % aller Objekte identifiziert und können mit Aktivitäten im Umkreis von 1500 m um den Erhebungsort in Verbindung gebracht werden.</p>
 <p>Im Gegensatz dazu hat die Gruppe der eOs eine identische oder fast identische Verteilung unter den verschiedenen Landnutzungsklassen und keinen Zusammenhang mit dem prozentualen Anteil der Fläche, die Gebäuden zugeordnet ist. Die Gruppe eOs besteht aus Baukunststoffen, fragmentierten Schaumstoffen, Kunststoffstücken und Industriepellets und stellt eine vielfältige Gruppe von Objekten mit unterschiedlicher Dichte dar. Da es keine statistischen Beweise für das Gegenteil gibt, kann die Nullhypothese nicht verworfen werden. Daher kann nicht davon ausgegangen werden, dass die primäre Quelle in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt, und es ist wahrscheinlich, dass ein Teil dieser Objekte einen (wirtschaftlich und geografisch) weiter entfernten Ursprung hat.</p>
-<figure class="align-default" id="note-taker">
+<div class="figure align-default" id="note-taker">
 <img alt="_images/takingnotes.jpg" src="_images/takingnotes.jpg" />
-<figcaption>
-<p><span class="caption-number">Abb. 19.9 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#note-taker" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
-<p><a class="reference internal" href="#note-taker"><span class="std std-numref">Abbildung 19.9:</span></a> Festlegen objektiver Kriterien. Die Identifizierung und Quantifizierung von Objekten, die bei einer Datenerhebung über Abfälle gesammelt wurden, kann vor Ort erfolgen, wenn das Wetter es zulässt. Die Abmessungsdaten und die erste Bestandsaufnahme werden in einem Notizbuch dokumentiert und dann in die App The litter surveyor eingegeben. Objekte von Interesse: Plastikwatte, landwirtschaftliche Zäune und Abstandshalter für Ziegel.</p>
+<p class="caption"><span class="caption-number">Abb. 19.8 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#note-taker" title="Link zu diesem Bild">#</a></p>
+</div>
+<p><a class="reference internal" href="#note-taker"><span class="std std-numref">Abbildung 19.8:</span></a> Festlegen objektiver Kriterien. Die Identifizierung und Quantifizierung von Objekten, die bei einer Datenerhebung über Abfälle gesammelt wurden, kann vor Ort erfolgen, wenn das Wetter es zulässt. Die Abmessungsdaten und die erste Bestandsaufnahme werden in einem Notizbuch dokumentiert und dann in die App The litter surveyor eingegeben. Objekte von Interesse: Plastikwatte, landwirtschaftliche Zäune und Abstandshalter für Ziegel.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<section id="diskussion">
+<div class="section" id="diskussion">
 <h3><span class="section-number">19.3.1. </span>Diskussion<a class="headerlink" href="#diskussion" title="Link zu dieser Überschrift">#</a></h3>
 <p>Durch den Vergleich der Erhebungsergebnisse mit den unabhängigen Variablen rund um die Erhebungsorte kann eine numerische Darstellung erstellt werden, die beschreibt, wie wahrscheinlich es ist, dass der Gegenstand dort weggeworfen wurde, wo er gefunden wurde. Die numerisch ermittelte Assoziation wird durch die tägliche Erfahrung verstärkt. Zum Beispiel wird ein Teil der Zigaretten und Snacks wahrscheinlich an oder in der Nähe der Verkaufsstellen konsumiert, und ein Teil des damit verbundenen Materials kann in die Umwelt gelangen.</p>
 <p>Einige markante Objekte, die von relativ kleinen Teilen der Wirtschaft genutzt werden, können in einer ganzen Region identifiziert werden, sind aber aufgrund des hydrologischen Transports auf Zonen der Akkumulation beschränkt, was die Identifizierung der Quelle erschwert</p>
 <p>Das vorangegangene Beispiel zeigt jedoch, dass sich Erhebungsergebnisse in Abhängigkeit von erklärenden Variablen erhöhen oder verringern. Bei Objekten wie Plastikpellets aus der Vorproduktion (GPI) ist der Verwendungszweck des Objekts eindeutig und die Nutzer und Hersteller sind im Vergleich zu anderen ausrangierten Objekten relativ selten. Auch wenn diese Objekte in allen Datenerhebungen vorkommen, ist es unwahrscheinlich, dass sie überall in gleichem Masse emittiert werden.</p>
 <p>Anhand des vorangegangenen Beispiels lassen sich die steigenden Erhebungsergebnisse von GPI an zwei verschiedenen Seen verfolgen, um zu verstehen, wie diese Beziehung visualisiert werden kann.</p>
-<figure class="align-default" id="causality">
+<div class="figure align-default" id="causality">
 <img alt="_images/causality.jpeg" src="_images/causality.jpeg" />
-<figcaption>
-<p><span class="caption-number">Abb. 19.10 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#causality" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
-<p><a class="reference internal" href="#causality"><span class="std std-numref">Abbildung 19.10:</span></a> Der Anstieg des mittleren p-pro-100-m-Wertes, wenn sich die Datenerhebungen der flussaufwärts gelegenen Quelle nähern. GPIs sind klein und schwer zu reinigen, wenn sie einmal verschüttet wurden, so dass die genaue Quelle schwer zu bestimmen ist. Man kann jedoch davon ausgehen, dass die Verarbeiter und Verbraucher von GPIs am besten wissen, wie man den Verlust von Material in die Umwelt verhindert. Die Wahrscheinlichkeit, mindestens einen GPI zu finden, ist an einigen der unten aufgeführten Orte doppelt so hoch wie die regionale Rate.</p>
+<p class="caption"><span class="caption-number">Abb. 19.9 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#causality" title="Link zu diesem Bild">#</a></p>
+</div>
+<p><a class="reference internal" href="#causality"><span class="std std-numref">Abbildung 19.9:</span></a> Der Anstieg des mittleren p-pro-100-m-Wertes, wenn sich die Datenerhebungen der flussaufwärts gelegenen Quelle nähern. GPIs sind klein und schwer zu reinigen, wenn sie einmal verschüttet wurden, so dass die genaue Quelle schwer zu bestimmen ist. Man kann jedoch davon ausgehen, dass die Verarbeiter und Verbraucher von GPIs am besten wissen, wie man den Verlust von Material in die Umwelt verhindert. Die Wahrscheinlichkeit, mindestens einen GPI zu finden, ist an einigen der unten aufgeführten Orte doppelt so hoch wie die regionale Rate.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<section id="partner-finden">
+<div class="section" id="partner-finden">
 <h4><span class="section-number">19.3.1.1. </span>Partner finden<a class="headerlink" href="#partner-finden" title="Link zu dieser Überschrift">#</a></h4>
 <p>Die Ergebnisse des Tests zeigen, dass leOs in städtischen Gebieten häufiger vorkommen. Als städtisch wurde die Landnutzung im Umkreis von 1500 m um das Untersuchungsgebiet definiert. Daraus lässt sich schliessen, dass die Ursache(n) für die Abfälle der leOs-Gruppe ebenfalls häufiger in städtischen Gebieten zu finden sind und dass die sekundäre Ursache für die ausrangierten Objekte in einem Umkreis von 1500 m um den Ort der Datenerhebungen liegt.</p>
 <p>Akteure, die die Häufigkeit von leOs in einer bestimmten Zone reduzieren möchten, haben bessere Chancen, motivierte Partner in einem Umkreis von 1500 m um den betreffenden Ort zu finden.</p>
@@ -1432,8 +1472,8 @@ title="Open an issue"
 <li><p>Baukunststoffe</p></li>
 </ul>
 <p>Die Suche nach Partnern für diese Objekte kann eine erste Phase gezielter Kommunikation beinhalten. Dabei können IQAASL-Ergebnisse und die aktuellen EU-Grenzwerte und Grundlagen für Uferabfälle genutzt werden. <span id="id13">[]</span></p>
-</section>
-<section id="die-verantwortung-teilen">
+</div>
+<div class="section" id="die-verantwortung-teilen">
 <h4><span class="section-number">19.3.1.2. </span>Die Verantwortung teilen<a class="headerlink" href="#die-verantwortung-teilen" title="Link zu dieser Überschrift">#</a></h4>
 <p>In einer kürzlich in der Zeitschrift Marine Policy veröffentlichten Studie wurden mehrere Einschränkungen bei der Verwendung bereits vorhandener Datenerhebungen über Strand-Abfallaufkommen zur Bewertung der Auswirkungen der EPR-Politik auf die beobachteten Abfallmengen festgestellt. <span id="id14">[]</span></p>
 <p>In einer kürzlich in der Zeitschrift Marine Policy veröffentlichten Studie wurden mehrere Einschränkungen bei der Verwendung bereits vorhandener Datenerhebungen über Strand-Abfallaufkommen zur Bewertung der Auswirkungen der EPR-Politik auf die beobachteten Abfallmengen festgestellt.</p>
@@ -1466,13 +1506,13 @@ title="Open an issue"
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-</section>
-</section>
-<section id="anhang">
+</div>
+</div>
+</div>
+<div class="section" id="anhang">
 <h2><span class="section-number">19.4. </span>Anhang<a class="headerlink" href="#anhang" title="Link zu dieser Überschrift">#</a></h2>
 <p>Organisationen, die Proben gesammelt haben</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Precious plastic leman</p></li>
 <li><p>Association pour la sauvetage du Léman</p></li>
 <li><p>Geneva international School</p></li>
@@ -1481,7 +1521,7 @@ title="Open an issue"
 <li><p>Hackuarium</p></li>
 <li><p>WWF Switzerland</p></li>
 </ol>
-<section id="ergebnisse-des-spearman-rangkorrelationstests">
+<div class="section" id="ergebnisse-des-spearman-rangkorrelationstests">
 <h3><span class="section-number">19.4.1. </span>Ergebnisse des Spearman-Rangkorrelationstests<a class="headerlink" href="#ergebnisse-des-spearman-rangkorrelationstests" title="Link zu dieser Überschrift">#</a></h3>
 <p>Eine Assoziation ist eine Beziehung zwischen den Datenerhebungen Ergebnissen und dem Landnutzungsprofil, die nicht auf Zufall beruht. Das Ausmass der Beziehung ist weder definiert noch linear.</p>
 <p>Die Rangkorrelation ist ein nicht-parametrischer Test, um festzustellen, ob ein statistisch signifikanter Zusammenhang zwischen der Landnutzung und den in einer Datenerhebung identifizierten Objekten besteht.</p>
@@ -1493,12 +1533,14 @@ title="Open an issue"
 </ul>
 <p><em><strong>Unten:</strong> Rangfolge der häufigsten Objekte mit Landnutzungsmerkmalen.</em></p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_53_0.png" src="_images/shared_responsibility_53_0.png" />
-</div>
 </div>
 <p><em><strong>Unten:</strong> 95% Konfidenzintervall des Medianwertes der Datenerhebungen unter den verschiedenen Landnutzungsklassen.</em></p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this code was modified from this source:</span>
 <span class="c1"># http://bebi103.caltech.edu.s3-website-us-east-1.amazonaws.com/2019a/content/recitations/bootstrapping.html</span>
@@ -1506,11 +1548,11 @@ title="Open an issue"
 <span class="c1"># and add the percentile value as a parameter</span>
 
 <span class="k">def</span> <span class="nf">draw_bs_sample</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Draw a bootstrap sample from a 1D data set.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Draw a bootstrap sample from a 1D data set.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">compute_jackknife_reps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">statfunction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stat_param</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns jackknife resampled replicates for the given data and statistical function&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns jackknife resampled replicates for the given data and statistical function&#39;&#39;&#39;</span>
     <span class="c1"># Set up empty array to store jackknife replicates</span>
     <span class="n">jack_reps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
@@ -1527,7 +1569,7 @@ title="Open an issue"
 
 
 <span class="k">def</span> <span class="nf">compute_a</span><span class="p">(</span><span class="n">jack_reps</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns the acceleration constant a&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns the acceleration constant a&#39;&#39;&#39;</span>
 
     <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">jack_reps</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
@@ -1541,7 +1583,7 @@ title="Open an issue"
 
 
 <span class="k">def</span> <span class="nf">bootstrap_replicates</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_reps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">statfunction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stat_param</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes n_reps number of bootstrap replicates for given data and statistical function&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Computes n_reps number of bootstrap replicates for given data and statistical function&#39;&#39;&#39;</span>
     <span class="n">boot_reps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n_reps</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_reps</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">stat_param</span><span class="p">:</span>
@@ -1553,7 +1595,7 @@ title="Open an issue"
 
 
 <span class="k">def</span> <span class="nf">compute_z0</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">boot_reps</span><span class="p">,</span> <span class="n">statfunction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stat_param</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes z0 for given data and statistical function&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Computes z0 for given data and statistical function&#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">stat_param</span><span class="p">:</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">statfunction</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1562,7 +1604,7 @@ title="Open an issue"
 
 
 <span class="k">def</span> <span class="nf">compute_bca_ci</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">alpha_level</span><span class="p">,</span> <span class="n">n_reps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">statfunction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stat_param</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Returns BCa confidence interval for given data at given alpha level&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns BCa confidence interval for given data at given alpha level&#39;&#39;&#39;</span>
     <span class="c1"># Compute bootstrap and jackknife replicates</span>
     <span class="n">boot_reps</span> <span class="o">=</span> <span class="n">bootstrap_replicates</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_reps</span><span class="p">,</span> <span class="n">statfunction</span><span class="o">=</span><span class="n">statfunction</span><span class="p">,</span> <span class="n">stat_param</span><span class="o">=</span><span class="n">stat_param</span><span class="p">)</span>
     <span class="n">jack_reps</span> <span class="o">=</span> <span class="n">compute_jackknife_reps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">statfunction</span><span class="o">=</span><span class="n">statfunction</span><span class="p">,</span> <span class="n">stat_param</span><span class="o">=</span><span class="n">stat_param</span><span class="p">)</span>
@@ -1631,12 +1673,15 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_55_0.png" src="_images/shared_responsibility_55_0.png" />
-</div>
+</details>
 </div>
 <p><em><strong>Unten:</strong> Die Erhebungsergebnisseder am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.</em></p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rur_10</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;ländlich&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">most_common</span><span class="p">))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">urb_10</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;urban&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">most_common</span><span class="p">))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1685,18 +1730,21 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_57_0.png" src="_images/shared_responsibility_57_0.png" />
+</details>
 </div>
 </div>
-</section>
-<section id="saisonale-schwankungen">
+<div class="section" id="saisonale-schwankungen">
 <h3><span class="section-number">19.4.2. </span>Saisonale Schwankungen<a class="headerlink" href="#saisonale-schwankungen" title="Link zu dieser Überschrift">#</a></h3>
 <p>Saisonale Schwankungen der Ergebnisse von Strand-Abfallaufkommen Untersuchungen sind unter verschiedenen Bedingungen und Umgebungen dokumentiert worden. Im Jahr 2018 meldete der SLR <span id="id16">[]</span> den Höchstwert im Juli und den Mindestwert im November. Für das Jahr 2020-2021 liegen die gleichen Ergebnisse vor.</p>
 <p><em><strong>Unten:</strong> monatliche Erhebungsergebnisseund Abflussmengen m³/Sekunde</em></p>
 <p><em>April und Mai 2021 sind gleitende Durchschnitte, Daten nicht verfügbar</em></p>
 <p><em>source : <a class="reference external" href="https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu">https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu</a></em></p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the survey results to test</span>
 <span class="n">corr_data</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">most_common</span><span class="p">))]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1793,13 +1841,11 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_60_0.png" src="_images/shared_responsibility_60_0.png" />
+</details>
 </div>
 </div>
-</section>
-</section>
-<section id="die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">
+</div>
+<div class="section" id="die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">
 <h2><span class="section-number">19.5. </span>Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung<a class="headerlink" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung" title="Link zu dieser Überschrift">#</a></h2>
 <p><strong>FP</strong> = Fragmentierte Kunststoffstücke und Geschäumte Kunststoffe</p>
 <p><strong>FT</strong> = Zigaretten und Snack-Verpackungen</p>
@@ -1808,6 +1854,11 @@ title="Open an issue"
 <p>Die Erhebungsergebnissefür FT-Objekte behalten die gleichen Merkmale wie die der übergeordneten Verteilung. Die Ergebnisse des KS-Tests (ks=0,29, pWert&lt;.001) und des MWU-Tests (U=7356,5, p&lt;.001) stimmen mit den Ergebnissen der Elterngruppe überein, dass es einen statistisch relevanten Unterschied zwischen den Datenerhebungen Ergebnissen unter verschiedenen Landnutzungsklassen gibt.</p>
 <p><em><strong>Links:</strong> Land - Stadt: ECDF der Erhebungsergebnissefragmentierte Kunststoffe und Schaumstoffe (FP). <strong>Rechts:</strong> Land - Stadt: ECDF der ErhebungsergebnisseZigarettenstummel und Bonbonverpackungen (FT)</em></p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agg_dobj</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;ländlich&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Gfrags&#39;</span><span class="p">,</span> <span class="s1">&#39;Gfoam&#39;</span><span class="p">]))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">])[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
 <span class="n">buld_obj</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;urban&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Gfrags&#39;</span><span class="p">,</span> <span class="s1">&#39;Gfoam&#39;</span><span class="p">]))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">])[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
@@ -1846,15 +1897,18 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_62_0.png" src="_images/shared_responsibility_62_0.png" />
+</details>
 </div>
-</div>
-<section id="fp-und-ft-differenz-der-mittelwerte">
+<div class="section" id="fp-und-ft-differenz-der-mittelwerte">
 <h3><span class="section-number">19.5.1. </span>FP und FT Differenz der Mittelwerte.<a class="headerlink" href="#fp-und-ft-differenz-der-mittelwerte" title="Link zu dieser Überschrift">#</a></h3>
 <p>Das durchschnittliche Datenerhebungsergebnis von FP-Objekten in ländlichen Gebieten lag bei 22,93p/50m in städtischen Gebieten bei 12p/50m. Es wurde ein Permutationstest auf die Differenz der Mittelwerte unter der Bedingung ländlich - städtisch durchgeführt.</p>
 <p>Differenz der Mittelwerte von fragmentierten Schaumstoffen und Kunststoffen unter den beiden verschiedenen Landnutzungsklassen. <em><span class="math notranslate nohighlight">\(\mu_{ländlich}\)</span></em>  - <span class="math notranslate nohighlight">\(\mu_{urban}\)</span>, method=shuffle, permutations=5000*</p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pemutation test: of difference of means FP objects</span>
 <span class="n">agg_dobj</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;ländlich&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Gfrags&#39;</span><span class="p">,</span> <span class="s1">&#39;G89&#39;</span><span class="p">]))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1884,21 +1938,24 @@ title="Open an issue"
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">new_means</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;$</span><span class="se">\u0394</span><span class="s2">\mu$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_diff</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">, perm=5000, p=</span><span class="si">{</span><span class="n">emp_p</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;$</span><span class="se">\u0394</span><span class="s2">\mu$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_diff</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">, perm=5000, p=</span><span class="si">{</span><span class="n">emp_p</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Permutationen&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$\mu$ ländlich - $\mu$ urban&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_64_0.png" src="_images/shared_responsibility_64_0.png" />
-</div>
+</details>
 </div>
 <p><em><strong>Oben:</strong> Verwerfen Sie die Nullhypothese: Es gibt keinen statistisch signifikanten Unterschied zwischen den beiden Verteilungen</em></p>
 <p><em><strong>Unten:</strong> Differenz der Mittelwerte für Zigarettenstummel und Snackverpackungen unter den beiden verschiedenen Landnutzungsklassen.</em></p>
 <p><em><span class="math notranslate nohighlight">\(\mu_{länd;ich}\)</span> - <span class="math notranslate nohighlight">\(\mu_{urban}\)</span>, method=shuffle, permutations=5000</em></p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pemutation test: of difference of means food objects</span>
 <span class="n">agg_cont</span> <span class="o">=</span> <span class="n">fd</span><span class="p">[(</span><span class="n">fd</span><span class="o">.</span><span class="n">rural</span> <span class="o">==</span> <span class="s1">&#39;ländlich&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;G27&#39;</span><span class="p">,</span> <span class="s1">&#39;G30&#39;</span><span class="p">]))]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;loc_date&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1927,23 +1984,21 @@ title="Open an issue"
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">new_means</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;$</span><span class="se">\u0394</span><span class="s2">\mu$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_diff</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">, perm=5000, p=</span><span class="si">{</span><span class="n">emp_p</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;$</span><span class="se">\u0394</span><span class="s2">\mu$ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean_diff</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">, perm=5000, p=</span><span class="si">{</span><span class="n">emp_p</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">title_k14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Permutationen&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$\mu$ ländlich - $\mu$ urban&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/shared_responsibility_66_0.png" src="_images/shared_responsibility_66_0.png" />
-</div>
+</details>
 </div>
 <p><em><strong>Oben:</strong> Verwerfen Sie die Nullhypothese: die beiden Verteilungen sind höchstwahrscheinlich nicht identisch.</em></p>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1957,7 +2012,7 @@ title="Open an issue"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1965,55 +2020,132 @@ title="Open an issue"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="reuse_remake.html" title="zurück Seite">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">18. </span>Recyceln und neugestalten</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reuse_remake.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Recyceln und neugestalten</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="slr-iqaasl.html" title="weiter Seite">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="slr-iqaasl.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title"><span class="section-number">20. </span>Vergleich der Datenerhebungen seit 2018</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-herausforderung">19.1. Die Herausforderung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-ursprunge-der-haufigsten-objekte">19.1.1. Die Ursprünge der häufigsten Objekte</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-daten">19.2. Die Daten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bewertung-der-zusammensetzung-das-grosse-ganze">19.2.1. Bewertung der Zusammensetzung: Das grosse Ganze</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">19.2.2. Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#differenz-der-mittelwerte">19.2.2.1. Differenz der Mittelwerte</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fazit">19.3. Fazit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion">19.3.1. Diskussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#partner-finden">19.3.1.1. Partner finden</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#die-verantwortung-teilen">19.3.1.2. Die Verantwortung teilen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anhang">19.4. Anhang</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ergebnisse-des-spearman-rangkorrelationstests">19.4.1. Ergebnisse des Spearman-Rangkorrelationstests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#saisonale-schwankungen">19.4.2. Saisonale Schwankungen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-erhebungsergebnissevon-fp-und-ft-in-bezug-auf-die-landnutzung">19.5. Die Erhebungsergebnissevon FP und FT in Bezug auf die Landnutzung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fp-und-ft-differenz-der-mittelwerte">19.5.1. FP und FT Differenz der Mittelwerte.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By hammerdirt staff<br/>
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch hammerdirt staff
+</p>
+
+  </div>
   
-    <div class="extra_footer">
-      <p>
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
    Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
 </p>
 
-    </div>
-</p>
-        </footer>
-    </div>
-    
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

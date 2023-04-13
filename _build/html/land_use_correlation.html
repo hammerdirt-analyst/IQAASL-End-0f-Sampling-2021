@@ -1,37 +1,46 @@
 
+
 <!DOCTYPE html>
 
-<html lang="de">
+
+<html lang="de" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>17. Landnutzungsprofil &#8212; IQAASL</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/.ipynb_checkpoints/custom-checkpoint.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,13 +48,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -55,516 +64,307 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'land_use_correlation';</script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="18. Recyceln und neugestalten" href="reuse_remake.html" />
     <link rel="prev" title="16. Codegruppen" href="code_groups.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="de">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">IQAASL</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Zusammenfassung
- </span>
-</p>
+<a class="navbar-brand logo" href="titlepage_de.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">IQAASL</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Zusammenfassung</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="foreword.html">
-   Vorwort
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="esummary.html">
-   Kurzfassung
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">Vorwort</a></li>
+<li class="toctree-l1"><a class="reference internal" href="esummary.html">Kurzfassung</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Ergebnisse der Erhebung
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ergebnisse der Erhebung</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="lakes_rivers.html">
-   1. Seen und Fliessgewässer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="alpes_valaisannes.html">
-   2. Alpen und der Jura
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="lakes_rivers.html">1. Seen und Fliessgewässer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alpes_valaisannes.html">2. Alpen und der Jura</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Erhebungsgebiete
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Erhebungsgebiete</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="aare_sa.html">
-   3. Aare
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linth_sa.html">
-   4. Linth
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ticino_sa.html">
-   5. Ticino
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="rhone_sa.html">
-   6. Rhône
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="aare_sa.html">3. Aare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linth_sa.html">4. Linth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ticino_sa.html">5. Ticino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rhone_sa.html">6. Rhône</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Seen
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Seen</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="bielersee.html">
-   7. Bielersee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="neuenburgersee.html">
-   8. Neuenburgersee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="thunerseebrienzersee.html">
-   9. Thunersee/Brienzersee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lac-leman.html">
-   10. Lac Léman
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="zurichsee.html">
-   11. Zürichsee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="walensee.html">
-   12. Walensee
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="maggiorelugano.html">
-   13. Lago Maggiore/Luganersee
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="bielersee.html">7. Bielersee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neuenburgersee.html">8. Neuenburgersee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thunerseebrienzersee.html">9. Thunersee/Brienzersee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lac-leman.html">10. Lac Léman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zurichsee.html">11. Zürichsee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="walensee.html">12. Walensee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maggiorelugano.html">13. Lago Maggiore/Luganersee</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Verstehen
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verstehen</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="baselines.html">
-   14. Basiswerte für Abfallobjekte an Gewässern
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="key_indicators.html">
-   15. Statistische Schlüsselindikatoren
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="code_groups.html">
-   16. Codegruppen
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   17. Landnutzungsprofil
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="baselines.html">14. Basiswerte für Abfallobjekte an Gewässern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_indicators.html">15. Statistische Schlüsselindikatoren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_groups.html">16. Codegruppen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Landnutzungsprofil</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Anwendungen
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anwendungen</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="reuse_remake.html">
-   18. Recyceln und neugestalten
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="shared_responsibility.html">
-   19. Geteilte Verantwortung
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="slr-iqaasl.html">
-   20. Vergleich der Datenerhebungen seit 2018
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="reuse_remake.html">18. Recyceln und neugestalten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared_responsibility.html">19. Geteilte Verantwortung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="slr-iqaasl.html">20. Vergleich der Datenerhebungen seit 2018</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/issues/new?title=Issue%20on%20page%20%2Fland_use_correlation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/issues/new?title=Issue%20on%20page%20%2Fland_use_correlation.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#berechnung-des-landnutzungsprofils">
-   17.1. Berechnung des Landnutzungsprofils
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#landnutzungsprofil-des-projekts">
-     17.1.1. Landnutzungsprofil des Projekts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auswahl-der-datenerhebungsorte">
-     17.1.2. Auswahl der Datenerhebungsorte
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zuordnung-von-landnutzung-zu-erhebungsergebnissen">
-   17.2. Zuordnung von Landnutzung zu Erhebungsergebnissen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spearmans-rho-ein-beispiel">
-     17.2.1. Spearmans
-     <span class="math notranslate nohighlight">
-      \(\rho\)
-     </span>
-     – ein Beispiel
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zuordnung-der-erhebungssummen-zur-landnutzung">
-     17.2.2. Zuordnung der Erhebungssummen zur Landnutzung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zuordnung-der-haufigsten-objekte-zur-landnutzung">
-     17.2.3. Zuordnung der häufigsten Objekte zur Landnutzung
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ergebnisse-spearmans-rho">
-       17.2.3.1. Ergebnisse Spearmans
-       <span class="math notranslate nohighlight">
-        \(\rho\)
-       </span>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spearmans-rho-interpretieren">
-     17.2.4. Spearmans
-     <span class="math notranslate nohighlight">
-      \(\rho\)
-     </span>
-     interpretieren
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diskussion">
-   17.3. Diskussion
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anwendung">
-     17.3.1. Anwendung
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Landnutzungsprofil</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#berechnung-des-landnutzungsprofils">
-   17.1. Berechnung des Landnutzungsprofils
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#landnutzungsprofil-des-projekts">
-     17.1.1. Landnutzungsprofil des Projekts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#auswahl-der-datenerhebungsorte">
-     17.1.2. Auswahl der Datenerhebungsorte
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zuordnung-von-landnutzung-zu-erhebungsergebnissen">
-   17.2. Zuordnung von Landnutzung zu Erhebungsergebnissen
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spearmans-rho-ein-beispiel">
-     17.2.1. Spearmans
-     <span class="math notranslate nohighlight">
-      \(\rho\)
-     </span>
-     – ein Beispiel
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zuordnung-der-erhebungssummen-zur-landnutzung">
-     17.2.2. Zuordnung der Erhebungssummen zur Landnutzung
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zuordnung-der-haufigsten-objekte-zur-landnutzung">
-     17.2.3. Zuordnung der häufigsten Objekte zur Landnutzung
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ergebnisse-spearmans-rho">
-       17.2.3.1. Ergebnisse Spearmans
-       <span class="math notranslate nohighlight">
-        \(\rho\)
-       </span>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spearmans-rho-interpretieren">
-     17.2.4. Spearmans
-     <span class="math notranslate nohighlight">
-      \(\rho\)
-     </span>
-     interpretieren
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diskussion">
-   17.3. Diskussion
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#anwendung">
-     17.3.1. Anwendung
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Landnutzungsprofil</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-des-landnutzungsprofils">17.1. Berechnung des Landnutzungsprofils</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#landnutzungsprofil-des-projekts">17.1.1. Landnutzungsprofil des Projekts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auswahl-der-datenerhebungsorte">17.1.2. Auswahl der Datenerhebungsorte</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zuordnung-von-landnutzung-zu-erhebungsergebnissen">17.2. Zuordnung von Landnutzung zu Erhebungsergebnissen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearmans-rho-ein-beispiel">17.2.1. Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> – ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zuordnung-der-erhebungssummen-zur-landnutzung">17.2.2. Zuordnung der Erhebungssummen zur Landnutzung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zuordnung-der-haufigsten-objekte-zur-landnutzung">17.2.3. Zuordnung der häufigsten Objekte zur Landnutzung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ergebnisse-spearmans-rho">17.2.3.1. Ergebnisse Spearmans <span class="math notranslate nohighlight">\(\rho\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearmans-rho-interpretieren">17.2.4. Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> interpretieren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion">17.3. Diskussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendung">17.3.1. Anwendung</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys, file and nav packages:</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
@@ -664,25 +464,23 @@ title="Open an issue"
 <span class="n">de_codes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/codes_german_Version_1.csv&quot;</span><span class="p">)</span>
 <span class="n">de_codes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># for x in dfCodes.index:</span>
-<span class="c1">#     dfCodes.loc[x, &quot;description&quot;] = de_codes.loc[x, &quot;german&quot;]</span>
-    
-<span class="c1"># dfCodes[&quot;material&quot;] = dfCodes.material.map(lambda x: sut.mat_ge[x])</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;blank_caption&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">codes_class</span><span class="o">.</span><span class="n">dfCodes</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="landnutzungsprofil">
+<div class="tex2jax_ignore mathjax_ignore section" id="landnutzungsprofil">
 <span id="luseprofile"></span><h1><span class="section-number">17. </span>Landnutzungsprofil<a class="headerlink" href="#landnutzungsprofil" title="Link zu dieser Überschrift">#</a></h1>
 <p><a class="reference download internal" download="" href="_downloads/fe0a037387ca7bb8e6604afb3fc4f4f4/land_use_correlation.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a></p>
 <p><em>Das Landnutzungsprofil</em> ist eine numerische Darstellung der Art und des Umfangs der wirtschaftlichen Aktivität um den Erhebungsort. Das Profil wird anhand von Daten berechnet, die in Kartenebenen gespeichert sind, die im <a class="reference external" href="https://www.geo.admin.ch/"><em>Geoportal des Bundes</em></a> und beim <a class="reference external" href="https://www.bfs.admin.ch/bfs/en/home.html"><em>Bundesamt für Statistik</em></a> verfügbar sind.</p>
 <p>Abfallobjekte sind weggeworfene Objekte, die in der natürlichen Umgebung gefunden werden. Das Objekt selbst und der Kontext, in dem es gefunden wird, sind Indikatoren für die wirtschaftliche und geografische Herkunft. Wie das Land in der Nähe des Erhebungsortes genutzt wird, ist ein wichtiger Kontext, der bei der Bewertung der Erhebungsergebnisse berücksichtigt werden muss. <span id="id1">[]</span> <span id="id2">[]</span></p>
 <p>Im September 2020 hat die Europäische Union Basislinien und Zielwerte für Abfallobjekte am Strand veröffentlicht. Nach Abwägung vieler Faktoren, darunter die Transparenz der Berechnungsmethode und die Leistung in Bezug auf Ausreisser, hat die EU entschieden, dass der Medianwert der Datenerhebungen zum Vergleich der Basiswerte zwischen den Regionen verwendet wird. Dies hat das Interesse der Gemeinden geweckt, punktuelle Abfallobjekte besser zu identifizieren und zu quantifizieren, da sie versuchen, den effizientesten Weg zur Einhaltung der Zielwerte zu finden. Die Identifizierung relevanter Landnutzungsmuster und -merkmale ist ein wesentliches Element in diesem Prozess. <span id="id3">[]</span> <span id="id4">[]</span> <span id="id5">[]</span></p>
 <p>Hier schlagen wir eine Methode vor, um die Ergebnisse von Untersuchungen des Ufer-Abfallaufkommens im Hinblick auf das Landnutzungsprofil im Umkreis von 1500 m um den Erhebungsort auszuwerten. Die Erhebungsergebnisse der häufigsten Objekte werden mit Hilfe von Spearmans rho oder Spearmans ranked correlation, einem nicht-parametrischen Test auf Assoziation mit den gemessenen Landnutzungsmerkmalen getestet. <span id="id6">[]</span></p>
-<section id="berechnung-des-landnutzungsprofils">
+<div class="section" id="berechnung-des-landnutzungsprofils">
 <h2><span class="section-number">17.1. </span>Berechnung des Landnutzungsprofils<a class="headerlink" href="#berechnung-des-landnutzungsprofils" title="Link zu dieser Überschrift">#</a></h2>
 <p>Das Landnutzungsprofil setzt sich aus den messbaren Eigenschaften zusammen, die geografisch verortet sind und aus den aktuellen Versionen der <em>Arealstatisik der Schweiz</em> und <em>swissTLMRegio</em> extrahiert werden können. <span id="id7">[]</span> <span id="id8">[]</span>.</p>
 <p>Die folgenden Werte wurden in einem Radius von 1500 m um jeden Erhebungsort berechnet:</p>
@@ -714,12 +512,10 @@ title="Open an issue"
 <p>Für Erhebungsorte an Seen wurde die Anzahl der Flussmündungen im Umkreis von 1500 m von jedem Erhebungsort berechnet. Die Kartenebene swissTLM3D_TLM_FLIESSGEWAESSER (Fliessgewässer) wurde mit swissTLM3D_TLM_STEHENDES_GEWAESSER (Seen) geschnitten (QGI: «Linienschnittpunkte»), und die Anzahl der Schnittpunkte pro 1500 m Puffer wurde gezählt (QGI: «Punkte im Polygon zählen»). Die Kartenebene der Seen wurde um 100 Meter erweitert, um alle Abflussstellen oder Bäche zu erfassen, die in der Nähe des Sees enden. <span id="id9">[]</span> <span id="id10">[]</span></p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<figure class="align-default" id="land-use-example">
+<div class="figure align-default" id="land-use-example">
 <img alt="_images/land_use_dispaly_20.jpeg" src="_images/land_use_dispaly_20.jpeg" />
-<figcaption>
-<p><span class="caption-number">Abb. 17.1 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#land-use-example" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Abb. 17.1 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#land-use-example" title="Link zu diesem Bild">#</a></p>
+</div>
 <p><a class="reference internal" href="#land-use-example"><span class="std std-numref">Abildung 17.1:</span></a> Für die Berechnung des Landnutzungsprofils verwendete Kartenebenen. <strong>Oben links:</strong> alle messbaren Werte innerhalb von 1500 m. <strong>Oben rechts:</strong> Strassen und Flussmündungen innerhalb von 1500 m. <strong>Unten rechts:</strong> Landnutzungspunkte, die zur Berechnung des prozenutalen Anteils der Gesamtfläche und der Gesamtfläche verwendet werden.</p>
 <p>Berechnetes Landnutzungsprofil von Hauterive-petite-plage, NE 31-07-2020.</p>
 <ul class="simple">
@@ -732,19 +528,15 @@ title="Open an issue"
 </ul>
 <div class="cell tag_remove-input docutils container">
 </div>
-<figure class="align-default" id="tight-quarters">
+<div class="figure align-default" id="tight-quarters">
 <img alt="_images/tightquarterswholensee.jpg" src="_images/tightquarterswholensee.jpg" />
-<figcaption>
-<p><span class="caption-number">Abb. 17.2 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#tight-quarters" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Abb. 17.2 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#tight-quarters" title="Link zu diesem Bild">#</a></p>
+</div>
 <p><a class="reference internal" href="#tight-quarters"><span class="std std-numref">Abildung 17.2:</span></a> <em>Datenerhebungen in einer ländlichen Umgebung. Kallnach, BE 26.02.2021</em></p>
-<figure class="align-default" id="urban-samples">
+<div class="figure align-default" id="urban-samples">
 <img alt="_images/urban2_800_600.jpg" src="_images/urban2_800_600.jpg" />
-<figcaption>
-<p><span class="caption-number">Abb. 17.3 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#urban-samples" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Abb. 17.3 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#urban-samples" title="Link zu diesem Bild">#</a></p>
+</div>
 <p><a class="reference internal" href="#urban-samples"><span class="std std-numref">Abildung 17.3:</span></a> <em>Datenerhebungen in einer städtischen Umgebung. Vevey, 28.02.2021</em></p>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -777,11 +569,16 @@ title="Open an issue"
 
 </td>
 </tr>
-</table> --><section id="landnutzungsprofil-des-projekts">
+</table> --><div class="section" id="landnutzungsprofil-des-projekts">
 <h3><span class="section-number">17.1.1. </span>Landnutzungsprofil des Projekts<a class="headerlink" href="#landnutzungsprofil-des-projekts" title="Link zu dieser Überschrift">#</a></h3>
 <p>Das Landnutzungsprofil zeigt die prozentualen Anteile jeder Landnutzungskategorie innerhalb eines Radius von 1500 m um den Erhebungsort zugeordnet wird. Das Verhältnis der gefundenen Abfallobjekte unterscheidet sich je nach Landnutzungsprofil. Das Verhältnis gibt daher einen Hinweis auf die ökologischen und wirtschaftlichen Bedingungen um den Erhebungsort.</p>
 <p><em>Verteilung der Anzahl der Datenerhebungen für die verschiedenen Landnutzungsmerkmale, n = 350 Stichproben</em></p>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># explanatory variables that are being considered</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;% to buildings&#39;</span><span class="p">,</span> <span class="s1">&#39;% to recreation&#39;</span><span class="p">,</span> <span class="s1">&#39;% to agg&#39;</span><span class="p">,</span> <span class="s1">&#39;% to woods&#39;</span><span class="p">,</span> <span class="s1">&#39;streets km&#39;</span><span class="p">,</span> <span class="s1">&#39;intersects&#39;</span><span class="p">]</span>
@@ -847,7 +644,7 @@ title="Open an issue"
     
     
     <span class="c1"># add the median value from all locations to the ax title</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;median: </span><span class="si">{</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">the_median</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">F</span><span class="s2">&quot;median: </span><span class="si">{</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">the_median</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">featuredata</span><span class="o">.</span><span class="n">luse_de</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="o">**</span><span class="n">ck</span><span class="o">.</span><span class="n">xlab_k</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -866,17 +663,12 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
+<div class="figure align-default" id="landnutzung-im-umkreis">
+<img alt="_images/7fae1946c0bbb5c263b8dc3047730c205c4111147d82860b14b29d9272daebee.png" src="_images/7fae1946c0bbb5c263b8dc3047730c205c4111147d82860b14b29d9272daebee.png" />
+<p class="caption"><span class="caption-number">Abb. 17.4 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#landnutzung-im-umkreis" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="landnutzung-im-umkreis">
-<div class="cell_output docutils container">
-<img alt="_images/land_use_correlation_12_0.png" src="_images/land_use_correlation_12_0.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 17.4 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#landnutzung-im-umkreis" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#landnutzung-im-umkreis"><span class="std std-numref">Abildung 17.4:</span></a> Verteilung der Anzahl der Datenerhebungen für die verschiedenen Landnutzungsmerkmale, n = 350 Stichproben</p>
 <p><strong>Die Landnutzung</strong> in der Umgebung der Datenerhebungen war stärker auf Gebäude als auf Landwirtschaft und Wald ausgerichtet. So entfielen bei der Hälfte aller Datenerhebungen mindestens 37 % der Landnutzung auf Gebäude gegenüber 19 % für die Landwirtschaft und 13 % für Wälder. Bei der Hälfte aller Stichproben betrug der Anteil der Landnutzung für Aktivitäten im Freien mindestens 6 %.</p>
 <p><strong>Die Länge des Strassennetzes</strong> innerhalb der Pufferzone unterscheidet sich zwischen Orten, die ansonsten ähnliche Landnutzungsmerkmale aufweisen. Die Länge des Strassennetzes pro Pufferzone reicht von 13 km bis 212 km. 50 % der Datenerhebungen hatten ein Strassennetz von weniger als 67 km.</p>
@@ -884,8 +676,8 @@ title="Open an issue"
 <p><strong>Die Bevölkerung</strong> (nicht gezeigt) stammt aus der Statistik der Bevölkerung und der Haushalte 2018 und stellt die Bevölkerung der Gemeinde dar, die den Erhebungsort umgibt. Die kleinste Einwohnerzahl betrug 442 und die grösste 415 367. Von den gesamten Datenerhebungen stammen 50 % aus Gemeinden mit einer Einwohnerzahl von mindestens 12 812.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-<section id="auswahl-der-datenerhebungsorte">
+</div>
+<div class="section" id="auswahl-der-datenerhebungsorte">
 <h3><span class="section-number">17.1.2. </span>Auswahl der Datenerhebungsorte<a class="headerlink" href="#auswahl-der-datenerhebungsorte" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die Erhebungsorte wurden anhand der folgenden Kriterien ausgewählt:</p>
 <ul class="simple">
@@ -896,14 +688,19 @@ title="Open an issue"
 <p><strong>Die Erhebungsorte repräsentieren die mit öffentlichen Verkehrsmitteln erreichbaren Landnutzungsbedingungen von etwa 1,7 Millionen Menschen.</strong>.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-</section>
-<section id="zuordnung-von-landnutzung-zu-erhebungsergebnissen">
+</div>
+</div>
+<div class="section" id="zuordnung-von-landnutzung-zu-erhebungsergebnissen">
 <h2><span class="section-number">17.2. </span>Zuordnung von Landnutzung zu Erhebungsergebnissen<a class="headerlink" href="#zuordnung-von-landnutzung-zu-erhebungsergebnissen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Es gibt 350 Datenerhebungen an 129 Erhebungsorten entlang von Fliessgewässern und Seen. Der Mittelwert war mehr als doppelt so hoch wie der Median, was die extremen Werte widerspiegelt, die für Ufer-Abfallobjekte-Untersuchungen typisch sind. <span id="id11">[]</span></p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the date intervals for the chart</span>
 <span class="n">months</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -981,21 +778,16 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
+<div class="figure align-default" id="results-distribution-example">
+<img alt="_images/09d311017d2f646664f57d1fa20dc573c870a7d93e23208d84871c7df780957e.png" src="_images/09d311017d2f646664f57d1fa20dc573c870a7d93e23208d84871c7df780957e.png" />
+<p class="caption"><span class="caption-number">Abb. 17.5 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#results-distribution-example" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="results-distribution-example">
-<div class="cell_output docutils container">
-<img alt="_images/land_use_correlation_20_1.png" src="_images/land_use_correlation_20_1.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 17.5 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#results-distribution-example" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#results-distribution-example"><span class="std std-numref">Abildung 17.5:</span></a> <strong>Links:</strong> Erhebungsergebnisse. <strong>Rechts:</strong> kumulative Verteilung aller Seen und Fliessgewässer ohne Walensee (das Walenseegebiet wurde mangels ausreichender Landnutzungsdaten ausgeschlossen). Anzahl der Proben: 350. Anzahl der Erhebungsorte: 129. Median: 2,14 p/m. Mittelwert: 4,15 p/m.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<section id="spearmans-rho-ein-beispiel">
+<div class="section" id="spearmans-rho-ein-beispiel">
 <h3><span class="section-number">17.2.1. </span>Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> – ein Beispiel<a class="headerlink" href="#spearmans-rho-ein-beispiel" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die Rangkorrelation nach Spearman testet auf eine statistisch signifikante monotone Beziehung oder Assoziation zwischen zwei Variablen. Die Hypothese lautet, dass es keinen Zusammenhang zwischen dem Landnutzungsprofil und den Erhebungsergebnissen gibt. <span id="id12">[]</span></p>
 <p>Die Testergebnisse beziehen sich auf die Richtung (rho) einer Assoziation und darauf, ob diese Assoziation wahrscheinlich auf einen Zufall zurückzuführen ist (p-Wert) oder nicht.) Damit ein Test als signifikant gilt, muss der p-Wert kleiner als 0,05 sein. <span id="id13">[]</span></p>
@@ -1007,6 +799,11 @@ title="Open an issue"
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data for the example</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">survey_data</span><span class="p">[</span><span class="n">survey_data</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;G27&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;loc_date&quot;</span><span class="p">,</span><span class="s2">&quot;% to buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;% to agg&quot;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">unit_label</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1048,23 +845,18 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
+<div class="figure align-default" id="spearmans-example">
+<img alt="_images/9b3cd81bf712902cb3e8918a997d5eb6a783001f33dd7f0cd8552dfcdfb54717.png" src="_images/9b3cd81bf712902cb3e8918a997d5eb6a783001f33dd7f0cd8552dfcdfb54717.png" />
+<p class="caption"><span class="caption-number">Abb. 17.6 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#spearmans-example" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="spearmans-example">
-<div class="cell_output docutils container">
-<img alt="_images/land_use_correlation_25_1.png" src="_images/land_use_correlation_25_1.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 17.6 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#spearmans-example" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#spearmans-example"><span class="std std-numref">Abildung 17.6:</span></a> <strong>Links:</strong> Datenerhebungen der Zigarettenstummel in Bezug auf den prozentualen Anteil der Grundstücke an den Gebäuden. rho = 0,39, p-value &lt; 0,001. <strong>Rechts:</strong> Datenerhebungen der Zigarettenstummel in Bezug auf den Prozentsatz der landwirtschaftlichen Nutzfläche. rho = -0,31, p-value &lt; 0,001.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Betrachtet man die Erhebungsergebnisse für Zigarettenstummel in Bezug auf den prozentualen Anteil von bebauten oder landwirtschaftlich genutzten Flächen, ist der Wert von rho entgegengesetzt.</p>
-</section>
-<section id="zuordnung-der-erhebungssummen-zur-landnutzung">
+</div>
+<div class="section" id="zuordnung-der-erhebungssummen-zur-landnutzung">
 <h3><span class="section-number">17.2.2. </span>Zuordnung der Erhebungssummen zur Landnutzung<a class="headerlink" href="#zuordnung-der-erhebungssummen-zur-landnutzung" title="Link zu dieser Überschrift">#</a></h3>
 <p>Ergebnisse des Spearman-Rangkorrelationstests: Summen der Datenerhebungen in Bezug auf das Landnutzungsprofil</p>
 <ul class="simple">
@@ -1075,6 +867,11 @@ title="Open an issue"
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># correlation  of survey total to land use attributes:</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="p">)</span>
@@ -1090,7 +887,7 @@ title="Open an issue"
     <span class="k">if</span> <span class="n">a_p</span> <span class="o">&lt;=</span> <span class="mf">.001</span><span class="p">:</span>
         <span class="n">title_str</span> <span class="o">=</span> <span class="s2">&quot;p &lt; .001&quot;</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">title_str</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;p=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">a_p</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">title_str</span> <span class="o">=</span> <span class="sa">F</span><span class="s2">&quot;p=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">a_p</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
     
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">rF</span><span class="s2">&quot;$\rho=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">$, </span><span class="si">{</span><span class="n">title_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     
@@ -1126,27 +923,27 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-</div>
+</details>
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<figure class="align-default" id="sprmns-ex-survey-total">
-<div class="cell_output docutils container">
-<img alt="_images/land_use_correlation_30_1.png" src="_images/land_use_correlation_30_1.png" />
+<div class="figure align-default" id="sprmns-ex-survey-total">
+<img alt="_images/56c4bdea05fb31518990ea8a81a4515f3d1763e4aaa5f7554b60cd5d7e3e16e6.png" src="_images/56c4bdea05fb31518990ea8a81a4515f3d1763e4aaa5f7554b60cd5d7e3e16e6.png" />
+<p class="caption"><span class="caption-number">Abb. 17.7 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#sprmns-ex-survey-total" title="Link zu diesem Bild">#</a></p>
 </div>
-<figcaption>
-<p><span class="caption-number">Abb. 17.7 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#sprmns-ex-survey-total" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#sprmns-ex-survey-total"><span class="std std-numref">Abildung 17.7:</span></a> <span class="pasted-text">Im Allgemeinen kann ein positiver Zusammenhang zwischen den Erhebungsergebnissen und dem prozentualen Anteil der Flächen für Gebäude oder Aktivitäten im Freien und ein negativer Zusammenhang mit Wäldern und Landwirtschaf angenommen werden.</span></p>
-</section>
-<section id="zuordnung-der-haufigsten-objekte-zur-landnutzung">
+</div>
+<div class="section" id="zuordnung-der-haufigsten-objekte-zur-landnutzung">
 <h3><span class="section-number">17.2.3. </span>Zuordnung der häufigsten Objekte zur Landnutzung<a class="headerlink" href="#zuordnung-der-haufigsten-objekte-zur-landnutzung" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die häufigsten Objekte sind alle Objekte, die entweder die zehn häufigsten nach Anzahl sind oder alle Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden, was ungefähr 68 % aller identifizierten und gezählten Objekte entspricht. Einige Objekte wurden in 50 % der Fälle identifiziert, kamen aber nicht so häufig vor, dass sie in die «Top-Ten-Liste» aufgenommen werden konnten.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># common aggregations of survey data</span>
 <span class="n">agg_pcs_quantity</span> <span class="o">=</span> <span class="p">{</span><span class="n">unit_label</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span><span class="s2">&quot;sum&quot;</span><span class="p">}</span>
@@ -1200,11 +997,12 @@ title="Open an issue"
 
 
 <span class="c1"># this defines the css rules for the note-book table displays</span>
-<span class="n">header_row</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;th:nth-child(1)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: #FFF;&#39;</span><span class="p">}</span>
+<span class="n">header_row</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;th:nth-child(1)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: #FFF;text-align:right;&#39;</span><span class="p">}</span>
 <span class="n">even_rows</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(even)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;background-color: rgba(139, 69, 19, 0.08);&#39;</span><span class="p">}</span>
 <span class="n">odd_rows</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;tr:nth-child(odd)&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="s1">&#39;background: #FFF;&#39;</span><span class="p">}</span>
 <span class="n">table_font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;tr&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="s1">&#39;font-size: 12px;&#39;</span><span class="p">}</span>
-<span class="n">table_css_styles</span> <span class="o">=</span> <span class="p">[</span><span class="n">even_rows</span><span class="p">,</span> <span class="n">odd_rows</span><span class="p">,</span> <span class="n">table_font</span><span class="p">,</span> <span class="n">header_row</span><span class="p">]</span>
+<span class="n">table_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="s1">&#39;props&#39;</span><span class="p">:</span> <span class="s1">&#39;padding:6px;&#39;</span><span class="p">}</span>
+<span class="n">table_css_styles</span> <span class="o">=</span> <span class="p">[</span><span class="n">even_rows</span><span class="p">,</span> <span class="n">odd_rows</span><span class="p">,</span> <span class="n">table_font</span><span class="p">,</span> <span class="n">header_row</span><span class="p">,</span> <span class="n">table_data</span><span class="p">]</span>
 
 <span class="c1"># set pandas display</span>
 <span class="n">aformatter</span> <span class="o">=</span> <span class="p">{</span>
@@ -1224,118 +1022,117 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
-</div>
-<figure class="align-default" id="mcommon-tables">
-<div class="cell_output docutils container">
+<div class="figure align-default" id="mcommon-tables">
 <div class="output text_html"><style type="text/css">
-#T_23b29 tr:nth-child(even) {
+#T_73f6c tr:nth-child(even) {
   background-color: rgba(139, 69, 19, 0.08);
 }
-#T_23b29 tr:nth-child(odd) {
+#T_73f6c tr:nth-child(odd) {
   background: #FFF;
 }
-#T_23b29 tr {
+#T_73f6c tr {
   font-size: 12px;
 }
-#T_23b29 th:nth-child(1) {
+#T_73f6c th:nth-child(1) {
   background-color: #FFF;
+  text-align: right;
+}
+#T_73f6c td {
+  padding: 6px;
 }
 </style>
-<table id="T_23b29">
+<table id="T_73f6c">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_23b29_level0_col0" class="col_heading level0 col0" >Objekte (St.)</th>
-      <th id="T_23b29_level0_col1" class="col_heading level0 col1" >Anteil</th>
-      <th id="T_23b29_level0_col2" class="col_heading level0 col2" >Häufigkeitsrate</th>
+      <th id="T_73f6c_level0_col0" class="col_heading level0 col0" >Objekte (St.)</th>
+      <th id="T_73f6c_level0_col1" class="col_heading level0 col1" >Anteil</th>
+      <th id="T_73f6c_level0_col2" class="col_heading level0 col2" >Häufigkeitsrate</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_23b29_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
-      <td id="T_23b29_row0_col0" class="data row0 col0" >7 824</td>
-      <td id="T_23b29_row0_col1" class="data row0 col1" >15%</td>
-      <td id="T_23b29_row0_col2" class="data row0 col2" >87%</td>
+      <th id="T_73f6c_level0_row0" class="row_heading level0 row0" >Zigarettenfilter</th>
+      <td id="T_73f6c_row0_col0" class="data row0 col0" >7 824</td>
+      <td id="T_73f6c_row0_col1" class="data row0 col1" >15%</td>
+      <td id="T_73f6c_row0_col2" class="data row0 col2" >87%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row1" class="row_heading level0 row1" >Fragmentierte Kunststoffe</th>
-      <td id="T_23b29_row1_col0" class="data row1 col0" >6 943</td>
-      <td id="T_23b29_row1_col1" class="data row1 col1" >13%</td>
-      <td id="T_23b29_row1_col2" class="data row1 col2" >86%</td>
+      <th id="T_73f6c_level0_row1" class="row_heading level0 row1" >Fragmentierte Kunststoffe</th>
+      <td id="T_73f6c_row1_col0" class="data row1 col0" >6 943</td>
+      <td id="T_73f6c_row1_col1" class="data row1 col1" >13%</td>
+      <td id="T_73f6c_row1_col2" class="data row1 col2" >86%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row2" class="row_heading level0 row2" >Expandiertes Polystyrol</th>
-      <td id="T_23b29_row2_col0" class="data row2 col0" >4 833</td>
-      <td id="T_23b29_row2_col1" class="data row2 col1" >9%</td>
-      <td id="T_23b29_row2_col2" class="data row2 col2" >66%</td>
+      <th id="T_73f6c_level0_row2" class="row_heading level0 row2" >Expandiertes Polystyrol</th>
+      <td id="T_73f6c_row2_col0" class="data row2 col0" >4 833</td>
+      <td id="T_73f6c_row2_col1" class="data row2 col1" >9%</td>
+      <td id="T_73f6c_row2_col2" class="data row2 col2" >66%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row3" class="row_heading level0 row3" >Snack-Verpackungen</th>
-      <td id="T_23b29_row3_col0" class="data row3 col0" >3 160</td>
-      <td id="T_23b29_row3_col1" class="data row3 col1" >6%</td>
-      <td id="T_23b29_row3_col2" class="data row3 col2" >85%</td>
+      <th id="T_73f6c_level0_row3" class="row_heading level0 row3" >Snack-Verpackungen</th>
+      <td id="T_73f6c_row3_col0" class="data row3 col0" >3 160</td>
+      <td id="T_73f6c_row3_col1" class="data row3 col1" >6%</td>
+      <td id="T_73f6c_row3_col2" class="data row3 col2" >85%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row4" class="row_heading level0 row4" >Industriefolie (Kunststoff)</th>
-      <td id="T_23b29_row4_col0" class="data row4 col0" >2 221</td>
-      <td id="T_23b29_row4_col1" class="data row4 col1" >4%</td>
-      <td id="T_23b29_row4_col2" class="data row4 col2" >68%</td>
+      <th id="T_73f6c_level0_row4" class="row_heading level0 row4" >Industriefolie (Kunststoff)</th>
+      <td id="T_73f6c_row4_col0" class="data row4 col0" >2 221</td>
+      <td id="T_73f6c_row4_col1" class="data row4 col1" >4%</td>
+      <td id="T_73f6c_row4_col2" class="data row4 col2" >68%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row5" class="row_heading level0 row5" > Getränkeflaschen aus Glas, Glasfragmente</th>
-      <td id="T_23b29_row5_col0" class="data row5 col0" >2 057</td>
-      <td id="T_23b29_row5_col1" class="data row5 col1" >4%</td>
-      <td id="T_23b29_row5_col2" class="data row5 col2" >66%</td>
+      <th id="T_73f6c_level0_row5" class="row_heading level0 row5" > Getränkeflaschen aus Glas, Glasfragmente</th>
+      <td id="T_73f6c_row5_col0" class="data row5 col0" >2 057</td>
+      <td id="T_73f6c_row5_col1" class="data row5 col1" >4%</td>
+      <td id="T_73f6c_row5_col2" class="data row5 col2" >66%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row6" class="row_heading level0 row6" >Industriepellets (Nurdles)</th>
-      <td id="T_23b29_row6_col0" class="data row6 col0" >1 948</td>
-      <td id="T_23b29_row6_col1" class="data row6 col1" >3%</td>
-      <td id="T_23b29_row6_col2" class="data row6 col2" >32%</td>
+      <th id="T_73f6c_level0_row6" class="row_heading level0 row6" >Industriepellets (Nurdles)</th>
+      <td id="T_73f6c_row6_col0" class="data row6 col0" >1 948</td>
+      <td id="T_73f6c_row6_col1" class="data row6 col1" >3%</td>
+      <td id="T_73f6c_row6_col2" class="data row6 col2" >32%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row7" class="row_heading level0 row7" >Schaumstoffverpackungen/Isolierung</th>
-      <td id="T_23b29_row7_col0" class="data row7 col0" >1 546</td>
-      <td id="T_23b29_row7_col1" class="data row7 col1" >3%</td>
-      <td id="T_23b29_row7_col2" class="data row7 col2" >53%</td>
+      <th id="T_73f6c_level0_row7" class="row_heading level0 row7" >Schaumstoffverpackungen/Isolierung</th>
+      <td id="T_73f6c_row7_col0" class="data row7 col0" >1 546</td>
+      <td id="T_73f6c_row7_col1" class="data row7 col1" >3%</td>
+      <td id="T_73f6c_row7_col2" class="data row7 col2" >53%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row8" class="row_heading level0 row8" >Wattestäbchen/Tupfer</th>
-      <td id="T_23b29_row8_col0" class="data row8 col0" >1 369</td>
-      <td id="T_23b29_row8_col1" class="data row8 col1" >2%</td>
-      <td id="T_23b29_row8_col2" class="data row8 col2" >51%</td>
+      <th id="T_73f6c_level0_row8" class="row_heading level0 row8" >Wattestäbchen/Tupfer</th>
+      <td id="T_73f6c_row8_col0" class="data row8 col0" >1 369</td>
+      <td id="T_73f6c_row8_col1" class="data row8 col1" >2%</td>
+      <td id="T_73f6c_row8_col2" class="data row8 col2" >51%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row9" class="row_heading level0 row9" >Styropor < 5mm</th>
-      <td id="T_23b29_row9_col0" class="data row9 col0" >1 098</td>
-      <td id="T_23b29_row9_col1" class="data row9 col1" >2%</td>
-      <td id="T_23b29_row9_col2" class="data row9 col2" >24%</td>
+      <th id="T_73f6c_level0_row9" class="row_heading level0 row9" >Styropor < 5mm</th>
+      <td id="T_73f6c_row9_col0" class="data row9 col0" >1 098</td>
+      <td id="T_73f6c_row9_col1" class="data row9 col1" >2%</td>
+      <td id="T_73f6c_row9_col2" class="data row9 col2" >24%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row10" class="row_heading level0 row10" >Kunststoff-Bauabfälle</th>
-      <td id="T_23b29_row10_col0" class="data row10 col0" >916</td>
-      <td id="T_23b29_row10_col1" class="data row10 col1" >1%</td>
-      <td id="T_23b29_row10_col2" class="data row10 col2" >51%</td>
+      <th id="T_73f6c_level0_row10" class="row_heading level0 row10" >Kunststoff-Bauabfälle</th>
+      <td id="T_73f6c_row10_col0" class="data row10 col0" >916</td>
+      <td id="T_73f6c_row10_col1" class="data row10 col1" >1%</td>
+      <td id="T_73f6c_row10_col2" class="data row10 col2" >51%</td>
     </tr>
     <tr>
-      <th id="T_23b29_level0_row11" class="row_heading level0 row11" >Kronkorken, Lasche von Dose/Ausfreisslachen</th>
-      <td id="T_23b29_row11_col0" class="data row11 col0" >668</td>
-      <td id="T_23b29_row11_col1" class="data row11 col1" >1%</td>
-      <td id="T_23b29_row11_col2" class="data row11 col2" >52%</td>
+      <th id="T_73f6c_level0_row11" class="row_heading level0 row11" >Kronkorken, Lasche von Dose/Ausfreisslachen</th>
+      <td id="T_73f6c_row11_col0" class="data row11 col0" >668</td>
+      <td id="T_73f6c_row11_col1" class="data row11 col1" >1%</td>
+      <td id="T_73f6c_row11_col2" class="data row11 col2" >52%</td>
     </tr>
   </tbody>
 </table>
-</div></div>
-<figcaption>
-<p><span class="caption-number">Abb. 17.8 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#mcommon-tables" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
+</div><p class="caption"><span class="caption-number">Abb. 17.8 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#mcommon-tables" title="Link zu diesem Bild">#</a></p>
+</div>
 <p><a class="reference internal" href="#mcommon-tables"><span class="std std-numref">Abildung 17.8:</span></a> Die am häufigsten gefundenen Objekte sind die zehn mengenmässig am meisten vorkommenden Objekte, und/oder Objekte, die in mindestens 50 % aller Datenerhebungen identifiziert wurden (Häufigkeitsrate).</p>
 <div class="cell tag_remove-input docutils container">
 </div>
-<section id="ergebnisse-spearmans-rho">
+<div class="section" id="ergebnisse-spearmans-rho">
 <h4><span class="section-number">17.2.3.1. </span>Ergebnisse Spearmans <span class="math notranslate nohighlight">\(\rho\)</span><a class="headerlink" href="#ergebnisse-spearmans-rho" title="Link zu dieser Überschrift">#</a></h4>
 <p>Aus der ersten Abbildung lässt sich ein positiver Zusammenhang zwischen der Anzahl der identifizierten Objekte und dem prozentualen Anteil der Flächen, die Gebäuden und Orten für Aktivitäten im Freien zugeordnet sind, ableiten. Das Umgekehrte gilt für den prozentualen Anteil von Landwirtschaft und Wald. Es gibt keine statistische Grundlage für die Annahme eines Zusammenhangs zwischen der Länge von Strassen oder der Anzahl von Flussmündungen und dem Gesamtergebnis der Erhebung.</p>
 <p>Das Ergebnis von Spearmans rho für die am häufigsten vorkommenden Objekte steht im Zusammenhang mit den Ergebnissen in der vorangegangenen Abbildung und veranschaulicht, wie sich verschiedene Objekte unter verschiedenen Bedingungen anhäufen.</p>
@@ -1347,6 +1144,11 @@ title="Open an issue"
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">luse_exp</span><span class="p">)</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">abundant_codes</span><span class="p">)),</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;row&#39;</span><span class="p">)</span>
 
@@ -1407,21 +1209,16 @@ title="Open an issue"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
+</details>
 </div>
+<div class="figure align-default" id="sprmns-mcommon">
+<img alt="_images/a8012ed461c6103fbcd9ef4fa8c0e49eece51487a53acf584291c19724ba3ef1.png" src="_images/a8012ed461c6103fbcd9ef4fa8c0e49eece51487a53acf584291c19724ba3ef1.png" />
+<p class="caption"><span class="caption-number">Abb. 17.9 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#sprmns-mcommon" title="Link zu diesem Bild">#</a></p>
 </div>
-<figure class="align-default" id="sprmns-mcommon">
-<div class="cell_output docutils container">
-<img alt="_images/land_use_correlation_40_1.png" src="_images/land_use_correlation_40_1.png" />
-</div>
-<figcaption>
-<p><span class="caption-number">Abb. 17.9 </span><span class="caption-text"><code class="docutils literal notranslate"> </code></span><a class="headerlink" href="#sprmns-mcommon" title="Link zu diesem Bild">#</a></p>
-</figcaption>
-</figure>
 <p><a class="reference internal" href="#sprmns-mcommon"><span class="std std-numref">Abildung 17.9:</span></a> <span class="pasted-text">Im Allgemeinen kann ein positiver Zusammenhang zwischen den Erhebungsergebnissen und dem prozentualen Anteil der Flächen für Gebäude oder Aktivitäten im Freien und ein negativer Zusammenhang mit Wäldern und Landwirtschaf angenommen werden.</span></p>
-</section>
-</section>
-<section id="spearmans-rho-interpretieren">
+</div>
+</div>
+<div class="section" id="spearmans-rho-interpretieren">
 <h3><span class="section-number">17.2.4. </span>Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> interpretieren<a class="headerlink" href="#spearmans-rho-interpretieren" title="Link zu dieser Überschrift">#</a></h3>
 <p>Eine positive Assoziation bedeutet, dass die Erhebungsergebnisse tendenziell zunehmen, wenn der prozentuale Wert des Landnutzungsmerkmals steigt. Dies kann auf eine Kovarianz der Merkmale zurückzuführen sein. In jedem Fall ist eine positive Assoziation ein Signal dafür, dass sich die Objekte unter diesen Bedingungen eher häufen.</p>
 <p>Eine negative Assoziation bedeutet, dass das Landnutzungsmerkmal die Akkumulation des Objekts nicht erleichtert. Dieses Ergebnis ist für landwirtschaftliche Flächen und Wälder auf nationaler Ebene üblich. Eine negative Assoziation ist ein Signal dafür, dass die Objekte unter diesen Bedingungen nicht zur Akkumulation neigen.</p>
@@ -1432,9 +1229,9 @@ title="Open an issue"
 </ul>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-</section>
-<section id="diskussion">
+</div>
+</div>
+<div class="section" id="diskussion">
 <h2><span class="section-number">17.3. </span>Diskussion<a class="headerlink" href="#diskussion" title="Link zu dieser Überschrift">#</a></h2>
 <p>Insgesamt war es wahrscheinlich, dass Datenerhebungen an Orten mit mehr Gebäuden und Möglichkeiten für Aktivitäten im Freien die Anhäufung von Objekten an Gewässern begünstigten. Betrachtet man die häufigsten Objekte, so wurden nur vier der zwölf Objekte in Anwesenheit von mehr Gebäuden häufiger identifiziert. Dabei handelt es sich in der Regel um Objekte, die mit dem Verzehr von Lebensmitteln und/oder Tabakwaren in der Nähe des Ortes zusammenhängen. Das deutet darauf hin, dass in stark frequentierten Gebieten in Wassernähe noch einiges an Vorbeugung und Verminderung möglich ist.</p>
 <p>Sechs der zwölf Objekte haben jedoch keine positive Assoziation zur Fläche, die von Gebäuden eingenommen wird, wurden aber in mindestens 50 % aller Datenerhebungen gefunden. Diese Objekte werden im Allgemeinen mit der beruflichen Nutzung oder im Fall der Wattestäbchen mit der persönlichen Hygiene</p>
@@ -1453,7 +1250,7 @@ title="Open an issue"
 <li><p>expandierte Schaumstoffe &lt; 5 mm</p></li>
 </ul>
 <p>Diese Objekte werden in grossen Mengen sporadisch an bestimmten Orten gefunden. Sie wurden in allen Untersuchungsgebieten und in allen Seen identifiziert. Industriepellets haben einen sehr spezifischen Verwendungszweck und Kundenstamm, so dass es möglich ist, auf der Grundlage der Dichte und des Erhebungsorts der identifizierten Pellets und des Standorts des nächstgelegenen Verbrauchers oder Herstellers von Pellets, siehe <a class="reference internal" href="shared_responsibility.html#transport"><span class="std std-ref">Geteilte Verantwortung</span></a>¶, die Quelle zu bestimmen und die Auswirkungen zu verringern.</p>
-<section id="anwendung">
+<div class="section" id="anwendung">
 <h3><span class="section-number">17.3.1. </span>Anwendung<a class="headerlink" href="#anwendung" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die Anzahl der Stichproben, die verwendet werden, um eine Assoziation mit Spearman zu bestimmen, muss vorsichtig gewählt sein.</p>
 <p>Ebenso das Gewicht, das den Ergebnissen beigemessen wird. Die Ergebnisse für Zigarettenfilter sind ein gutes Beispiel. Die Diagramme zeigen eindeutig sowohl negative als auch positive Assoziationen in Abhängigkeit von der Landnutzung, aber rho ist kleiner als 0,5. Es handelt sich also keineswegs um eine lineare Beziehung und das Ausmass bleibt unbestimmt.</p>
@@ -1468,9 +1265,9 @@ title="Open an issue"
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1484,7 +1281,7 @@ title="Open an issue"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1492,55 +1289,122 @@ title="Open an issue"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="code_groups.html" title="zurück Seite">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">zurück</p>
-            <p class="prev-next-title"><span class="section-number">16. </span>Codegruppen</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="code_groups.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Codegruppen</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="reuse_remake.html" title="weiter Seite">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="reuse_remake.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title"><span class="section-number">18. </span>Recyceln und neugestalten</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-des-landnutzungsprofils">17.1. Berechnung des Landnutzungsprofils</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#landnutzungsprofil-des-projekts">17.1.1. Landnutzungsprofil des Projekts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auswahl-der-datenerhebungsorte">17.1.2. Auswahl der Datenerhebungsorte</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zuordnung-von-landnutzung-zu-erhebungsergebnissen">17.2. Zuordnung von Landnutzung zu Erhebungsergebnissen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearmans-rho-ein-beispiel">17.2.1. Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> – ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zuordnung-der-erhebungssummen-zur-landnutzung">17.2.2. Zuordnung der Erhebungssummen zur Landnutzung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zuordnung-der-haufigsten-objekte-zur-landnutzung">17.2.3. Zuordnung der häufigsten Objekte zur Landnutzung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ergebnisse-spearmans-rho">17.2.3.1. Ergebnisse Spearmans <span class="math notranslate nohighlight">\(\rho\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearmans-rho-interpretieren">17.2.4. Spearmans <span class="math notranslate nohighlight">\(\rho\)</span> interpretieren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion">17.3. Diskussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendung">17.3.1. Anwendung</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By hammerdirt staff<br/>
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch hammerdirt staff
+</p>
+
+  </div>
   
-    <div class="extra_footer">
-      <p>
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
    Im Auftrag des Bundesamtes für Umwelt (BAFU), © 2021
 </p>
 
-    </div>
-</p>
-        </footer>
-    </div>
-    
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
