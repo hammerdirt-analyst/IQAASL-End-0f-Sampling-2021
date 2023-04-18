@@ -465,6 +465,7 @@ def columnsAndOperations(column_operations: list = None, columns: list = None, u
         column_operation = {unit_label: "median", "quantity": "sum"}
     else:
         column_operation = {x[0]: x[1] for x in column_operations}
+       
     if columns is None:
         columns = ["loc_date", "groupname"]
     
@@ -868,9 +869,15 @@ class Components(FeatureData, Codes):
                 print("Type mask could not be executed using the type_column and component_type variables")
                 raise
             mask = (mask & type_mask)
+            
+      
         
         a = self.feature_data[mask].groupby(columns, as_index=False).agg(column_operation)
+       
+        
+        # print(a)
         a = a.groupby([self.feature_component, "code"], as_index=False)[self.unit_label].median()
+        
         
         # map the description to the code
         a["item"] = a.code.map(lambda x: self.dMap.loc[x])
