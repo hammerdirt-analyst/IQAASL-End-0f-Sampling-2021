@@ -17,29 +17,21 @@ hammerdirt staff maintain the repo for the report, the API and the front end.
 
 ### report
 
-1. A .pynb file each survey area, lake and any chapter that had calculations
-2. The  .md file for all other chapters
-3. The \_toc.yml and \_config.yml file for each language version
+The .ipynb files for each chapter of the report
 
 ### resources
-5. All the images and maps for the report
-6. ALL the data including explanatory variables [ readme_data ](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/blob/main/resources/readme_data.md).
+
+All the images and maps for the report. The contents is doucmented in [ readme_data ](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/blob/main/resources/readme_data.md).
 
 ### docs
 
-The complete html version of the report in German and English you can see that here [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/titlepage.html)
+The complete html version of the report in German: [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/titlepage.html)
+
+The original english version is there [ litter surveyor ](https://www.plagespropres.ch/)
 
 ### \_build
 
 Any other available build formats
-
-### tocs
-
-The table of content files for different configurations
-
-### templates
-
-A series of operations that produces a standardized report.
 
 
 ## Contributing

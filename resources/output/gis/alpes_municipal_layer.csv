@@ -1,19 +1,3 @@
-city,feature,quantity,p/100 m,loc_date,lat,lon,samples
-Airolo,Alpes Lépontines,224,595.0,1,46.514257,8.607884,1
-Andermatt,Alpes Uranaises,24,24.0,1,46.618327,8.598803,1
-Calanca,Alpes Lépontines,78,96.0,1,46.330718,9.120103,1
-Châtel-Saint-Denis,Préalpes Fribourgeoises,118,243.0,1,46.512592,6.949421,1
-Grindelwald,Alpes Bernoises,169,281.0,1,46.658523,8.065323,1
-La Roche,Préalpes Fribourgeoises,34,58.0,1,46.677399,7.178738,1
-Lens,Alpes Valaisannes,47,106.0,1,46.334214,7.479386,1
-Mesocco,Alpes Lépontines,431,8620.0,1,46.445947,9.191344,1
-Nendaz,Alpes Valaisannes,5163,20896.0,2,46.162099,7.283486,2
-Ollon,Alpes Vaudoises,105,99.0,1,46.321937,7.073841,1
-Ormont-Dessus,Alpes Vaudoises,196,701.5,2,46.338604,7.215525,2
-Riddes,Alpes Valaisannes,88,110.0,1,46.144287,7.232897,1
-Rovio,Alpes Lépontines,32,42.0,1,45.929625,9.019921,1
-Troistorrents,Alpes Valaisannes,123,163.0,1,46.236681,6.858132,1
-Val de Bagnes,Alpes Valaisannes,205,410.0,1,46.103981,7.22476,1
-Val-d'Illiez,Alpes Valaisannes,518,549.0,1,46.183591,6.832916,1
-Val-de-Charmey,Préalpes Fribourgeoises,174,580.0,1,46.622641,7.189341,1
-Val-de-Travers,Massif du Jura,47,59.0,1,46.875905,6.548577,1
+version https://git-lfs.github.com/spec/v1
+oid sha256:d739be7835debdc40494188f50bc25c66f6048355944532eb749e9ac2839e43a
+size 1163

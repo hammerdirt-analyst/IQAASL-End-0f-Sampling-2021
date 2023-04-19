@@ -1,5 +1,3 @@
-river_bassin,quantity,p/100 m,lat,lon,samples
-aare,13847,143.5,47.50106,8.237371,140
-linth,9412,131.5,47.220989,8.940365,112
-rhone,28454,442.5,46.447216,6.859612,106
-ticino,3031,160.5,46.153882,8.76848,28
+version https://git-lfs.github.com/spec/v1
+oid sha256:366efc86bf7857e1ba9d61849abc7891f47b778bc72da17c2c9a124697c0acac
+size 205

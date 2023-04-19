@@ -1,7 +1,24 @@
 # Description of the content in the resources directory
 
-This does not include the images and maps. The map names are self explanatory and the images are under the directory of the document where it can be seen.
+## resources/images
 
+These are the images used in the report. Each folder corresponds to a specific article or report.
+
+## resources/output
+
+Images and charts produced by the report for use in .pdfs or other articles in the report
+
+## resources/map
+
+All the maps used in the report the map name is the chapter or section where it is used
+
+## resources/pdfs
+
+All the pdfs produced by the report.
+
+## resources/input
+
+Return data from GIS
 
 ## .CSV files: 
 
@@ -65,12 +82,6 @@ The dimensional data from the IQAASL project.
 
 Columns: 'survey_key', 'date', 'length', 'area', 'mac_plast_w', 'mic_plas_w', 'total_w', 'est_weight', 'num_parts_staff', 'num_parts_other', 'time_minutes', 'participants', 'project', 'is_2020', 'location', 'loc_date', 'water_name_slug', 'river_bassin', 'survey area' 
 
-## .JSON files 
+__resources/combined_alps_iqaasl.csv__
 
-__resources/river_basins.json__
-
-Defines the membership of a location to a survey area. Beach names are stored in an array keyed to the name of a survey area. 
-
-__resources/french_code_translations.json__ 
-
-Keys the Gcode to the the french description. 
+The Alpes and IQAASL surveys combined.
