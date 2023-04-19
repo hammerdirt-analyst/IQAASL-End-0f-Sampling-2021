@@ -25,7 +25,7 @@ All the images and maps for the report. The contents is doucmented in [ readme_d
 
 ### docs
 
-The complete html version of the report in German: [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/titlepage.html)
+The complete html version of the report in German: [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/index.html)
 
 The original english version is there [ litter surveyor ](https://www.plagespropres.ch/)
 
