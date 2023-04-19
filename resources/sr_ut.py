@@ -1,4 +1,7 @@
-import json
+"""
+This module is being phased out. The methods are either being eliminated or consolidated into the feature data module
+hammerdirt analyst April 19, 2023
+"""
 import pandas as pd
 from scipy import stats
 from matplotlib import colors
@@ -8,13 +11,6 @@ from IPython.display import display
 from PIL import Image as PILImage
 import locale
 
-
-
-# luse_exp = ["% to buildings", "% to recreation", "% to agg", "% to woods", "streets km", "intersects"]
-# # luse_ge = ["% zu Gebäude", "% zu Erholung", "% Landwirtschaft", "% zu Wald", "Strassen km", "kreuzt"]
-#
-#
-# # columns needed
 def shorten_the_value(an_array, a_df):
     """Change the value in a data frame column with an array of three values.
 

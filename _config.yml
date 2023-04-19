@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 author: hammerdirt staff
-logo: resources/images/titlepage/newlogox.png
+logo: resources/images/titlepage/newlogo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

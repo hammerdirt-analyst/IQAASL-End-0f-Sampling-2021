@@ -144,8 +144,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/newlogox.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/newlogox.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/newlogo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/newlogo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -190,6 +190,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reuse_remake.html">18. Recyceln und neugestalten</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Geteilte Verantwortung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slr-iqaasl.html">20. Vergleich der Datenerhebungen seit 2018</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">21. Bibliografie</a></li>
 </ul>
 
     </div>
@@ -455,10 +456,10 @@ document.write(`
 <span class="kn">import</span> <span class="nn">resources.sr_ut</span> <span class="k">as</span> <span class="nn">sut</span>
 
 <span class="c1"># images and display</span>
-<span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">IPython</span>
+<span class="kn">import</span> <span class="nn">IPython</span> <span class="c1"># base64, io</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span><span class="p">,</span> <span class="n">Latex</span>
+<span class="c1"># from IPython.display import display, Math, Latex</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
 
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
@@ -520,7 +521,6 @@ document.write(`
 <span class="n">comps</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;linth&#39;</span><span class="p">,</span> <span class="s1">&#39;rhone&#39;</span><span class="p">,</span> <span class="s1">&#39;aare&#39;</span><span class="p">,</span> <span class="s1">&#39;ticino&#39;</span><span class="p">]</span>
 <span class="n">comp_labels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;linth&quot;</span><span class="p">:</span><span class="s2">&quot;Linth / Limmat&quot;</span><span class="p">,</span> <span class="s2">&quot;rhone&quot;</span><span class="p">:</span><span class="s2">&quot;Rhône&quot;</span><span class="p">,</span> <span class="s1">&#39;aare&#39;</span><span class="p">:</span><span class="s2">&quot;Aare&quot;</span><span class="p">,</span> <span class="s2">&quot;ticino&quot;</span><span class="p">:</span><span class="s2">&quot;Ticino / Cerisio&quot;</span><span class="p">,</span> <span class="s2">&quot;reuss&quot;</span><span class="p">:</span><span class="s2">&quot;Reuss&quot;</span><span class="p">}</span>
 
-
 <span class="c1"># explanatory variables:</span>
 <span class="n">luse_exp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;% to buildings&#39;</span><span class="p">,</span> <span class="s1">&#39;% to recreation&#39;</span><span class="p">,</span> <span class="s1">&#39;% to agg&#39;</span><span class="p">,</span> <span class="s1">&#39;% to woods&#39;</span><span class="p">,</span> <span class="s1">&#39;streets km&#39;</span><span class="p">,</span> <span class="s1">&#39;intersects&#39;</span><span class="p">]</span>
 
@@ -544,12 +544,8 @@ document.write(`
 <span class="c1"># these are default</span>
 <span class="n">top_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alle&quot;</span><span class="p">]</span>
 
-<span class="c1"># add the folder to the directory tree:</span>
-
-
 <span class="c1"># get your data:</span>
 <span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/checked_sdata_eos_2020_21.csv&#39;</span><span class="p">)</span>
-<span class="c1"># river_bassins = ut.json_file_get(&quot;resources/river_basins.json&quot;)</span>
 <span class="n">dfBeaches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/beaches_with_land_use_rates.csv&quot;</span><span class="p">)</span>
 <span class="n">dfCodes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/codes_with_group_names_2015.csv&quot;</span><span class="p">)</span>
 <span class="n">dfDims</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;resources/corrected_dims.csv&quot;</span><span class="p">)</span>
@@ -607,8 +603,8 @@ document.write(`
 <div class="tex2jax_ignore mathjax_ignore section" id="geteilte-verantwortung">
 <span id="transport"></span><h1><span class="section-number">19. </span>Geteilte Verantwortung<a class="headerlink" href="#geteilte-verantwortung" title="Link zu dieser Überschrift">#</a></h1>
 <p><a class="reference download internal" download="" href="_downloads/a2e5dba129ae4411af94e91ccb3a7b6d/sharedresponsibility.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a></p>
-<p>Untersuchungen über den Eintrag und die Anreicherung von Abfällen in der aquatischen Umwelt zeigen, dass Fliessgewässer eine Hauptquelle für Makroplastik sind  <span id="id1">[]</span>. Allerdings gelangen nicht alle Objekte, die von Fliessgewässer transportiert werden, in die Ozeane, was darauf hindeutet, dass Fliessgewässer und Binnenseen auch Senken für einen Teil des emittierten Makroplastiks sind. <span id="id2">[]</span>.</p>
-<p>In den Bestimmungen des Schweizer Rechts, Artikel 2 des Bundesgesetzes über den Umweltschutz (USG), wird das Prinzip der Kausalität für die illegale Entsorgung von Material berücksichtigt und ist allgemein als Verursacherprinzip bekannt. Letztendlich liegt die Verantwortung für die Beseitigung und das Management der Verschmutzung durch Abfälle in und entlang von Gewässern bei den kommunalen und kantonalen Verwaltungen, da sie rechtlich gesehen Eigentümer des Landes innerhalb ihrer Grenzen sind. Das Gesetz gibt den Gemeinden und Kantonen die Möglichkeit, Personen oder Unternehmen (z. B. Fast-Food-Unternehmen und ähnliche Betriebe oder Organisatoren von Veranstaltungen, die grosse Mengen an Abfall im öffentlichen Raum erzeugen), die weiter oben in der Kausalkette stehen, als Abfallverursacher zu betrachten und von ihnen Entsorgungsgebühren zu erheben, wenn keine konkreten Verursacher ermittelt werden können und sofern objektive Kriterien zur Bestimmung der Kausalkette herangezogen werden. <span id="id3">[]</span> <span id="id4">[]</span> <span id="id5">[]</span> <span id="id6">[]</span></p>
+<p>Untersuchungen über den Eintrag und die Anreicherung von Abfällen in der aquatischen Umwelt zeigen, dass Fliessgewässer eine Hauptquelle für Makroplastik sind  <span id="id1">[<a class="reference internal" href="references.html#id70" title="Daniel González Fernández, Andrés Cózar, Georg Hanke, Josué Viejo, Carmen Morales-Caselles, Rigers Bakiu, Damia Barcelo, Filipa Bessa, Antoine Bruge, María Cabrera Fernández, Javier Castro-Jiménez, Mel Constant, Roberto Crosti, Yuri Galletti, Ahmet Kideys, Nino Machitadze, Joana Brito, Maria Pogojeva, Nuno Ratola, and Myrto Tourgeli Provata. Floating macrolitter leaked from europe into the ocean. Nature Sustainability, 4:474-483, 06 2021. doi:10.1038/s41893-021-00722-6.">GFCH+21</a>]</span>. Allerdings gelangen nicht alle Objekte, die von Fliessgewässer transportiert werden, in die Ozeane, was darauf hindeutet, dass Fliessgewässer und Binnenseen auch Senken für einen Teil des emittierten Makroplastiks sind. <span id="id2">[<a class="reference internal" href="references.html#id72" title="Merel Kooi, Ellen Besseling, Carolien Kroeze, Annemarie P. van Wezel, and Albert A. Koelmans. Modeling the Fate and Transport of Plastic Debris in Freshwaters: Review and Guidance. Springer International Publishing, 2018. URL: https://doi.org/10.1007/978-3-319-61615-5_7, doi:10.1007/978-3-319-61615-5_7.">KBK+18</a>]</span>.</p>
+<p>In den Bestimmungen des Schweizer Rechts, Artikel 2 des Bundesgesetzes über den Umweltschutz (USG), wird das Prinzip der Kausalität für die illegale Entsorgung von Material berücksichtigt und ist allgemein als Verursacherprinzip bekannt. Letztendlich liegt die Verantwortung für die Beseitigung und das Management der Verschmutzung durch Abfälle in und entlang von Gewässern bei den kommunalen und kantonalen Verwaltungen, da sie rechtlich gesehen Eigentümer des Landes innerhalb ihrer Grenzen sind. Das Gesetz gibt den Gemeinden und Kantonen die Möglichkeit, Personen oder Unternehmen (z. B. Fast-Food-Unternehmen und ähnliche Betriebe oder Organisatoren von Veranstaltungen, die grosse Mengen an Abfall im öffentlichen Raum erzeugen), die weiter oben in der Kausalkette stehen, als Abfallverursacher zu betrachten und von ihnen Entsorgungsgebühren zu erheben, wenn keine konkreten Verursacher ermittelt werden können und sofern objektive Kriterien zur Bestimmung der Kausalkette herangezogen werden. <span id="id3">[<a class="reference internal" href="references.html#id7" title="L’Assemblée fédérale de la Confédération suisse. Loi fédérale sur la protection de l'environnement. La plateforme de publication du droit fédéral: 814.01, 2020.">fdlCs20a</a>]</span> <span id="id4">[<a class="reference internal" href="references.html#id2" title="Le conseil fédéral suisse. Ordonnance sur la protection des eaux. La plateforme de publication du droit fédéral: 814.201, 2020.">cfs20</a>]</span> <span id="id5">[<a class="reference internal" href="references.html#id5" title="Office fédéral de l’environnement. Financement de l’élimination des déchets urbains. aide à l’exécution relative au financement de l’élimination des déchets urbains selon le principe de causalité. L’environnement pratique n° 1827, 2018.">fdlenvironnement18</a>]</span> <span id="id6">[<a class="reference internal" href="references.html#id3" title="Swiss federal court. Federal court decision: tf 138 ii 111. Register of federal court decisions, 2012. URL: https://www.bger.ch/ext/eurospider/live/fr/php/aza/http/index.php?highlight_docid=atf%3A%2F%2F138-II-111%3Afr%3Aregeste&amp;lang=fr&amp;type=show_document&amp;zoom=YES&amp;.">fc12</a>]</span></p>
 <div class="section" id="die-herausforderung">
 <h2><span class="section-number">19.1. </span>Die Herausforderung<a class="headerlink" href="#die-herausforderung" title="Link zu dieser Überschrift">#</a></h2>
 <p>Objektive Kriterien erfordern <strong>robuste, transparente und leicht wiederholbare</strong> Methoden. Die Herausforderung besteht darin, verfügbare Informationen aus den weggeworfenen Objekten zu extrahieren, die auf Mengen, Materialeigenschaften und Umweltvariablen in der Nähe des Erhebungsortes basieren.</p>
@@ -621,7 +617,7 @@ document.write(`
 <p><a class="reference internal" href="#gclos-may"><span class="std std-numref">Abbildung 19.1:</span></a> Genfersee, St. Gingolph 07.05.2020 (1600 p/100 m).</p>
 <p>Der Nutzen von weggeworfenen Objekten sowie die Landnutzung in der Umgebung von Datenerhebungen sind Indikatoren für die Herkunft der Abfälle. Das Landnutzungsprofil zur Bewertung der Verschmutzungsquellen ist für einige gängige Objekte nützlich. So wurden beispielsweise grössere Mengen an Zigarettenfiltern und Snack-Verpackungen in der Nähe von Erhebungsorten mit einer höheren Konzentration von Flächen, die Gebäuden und Aktivitäten im Freien zugeordnet werden, festgestellt (siehe <a class="reference internal" href="land_use_correlation.html#luseprofile"><span class="std std-ref"><em>Landnutzungsprofil</em></span></a>). Objekte, die mit dem Verzehr von Lebensmitteln, Getränken und Tabakwaren in Verbindung gebracht werden, machen etwa 26 % des gesamten Materials aus, das an den Schweizer Gewässern gefunden wurde.</p>
 <p>Andere Objekte haben jedoch weder einen eindeutigen geografischen Ursprung noch eine klare Verbindung zu einer Aktivität in der Nähe ihres Erhebungsorts. Die häufigsten dieser Objekte machen ca. 40 % aller im Jahr 2020 identifizierten Abfallobjekte aus <a class="reference internal" href="lakes_rivers.html#allsurveys"><span class="std std-ref"><em>Seen und Fleissgewässer</em> </span></a>. Die Verringerung der Menge an Abfällen an den Schweizer Ufern beinhaltet auch die Verringerung der Menge an ausrangierten Objekten, die von ausserhalb der geografischen Grenzen des Ufers selbst stammen. Daher ist es ein Anreiz, Abfallobjekte, die an oder in der Nähe von Erhebungsorten weggeworfen werden zu unterscheiden von solchen, die in die Erhebungsorte eingetragen werden.</p>
-<p>Die Gewinnung objektiver Daten über Uferabfälle wird durch die hydrologischen Einflüsse der rund 61 000 km Fliessgewässer und 1500 Seen in der Schweiz erschwert. Die hydrologischen Bedingungen der Fliessgewässer wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Grosse Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Objekte mit hoher Dichte werden nur dann transportiert, wenn die Fliessgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Objekte vom Grund fernzuhalten. Sobald Objekte mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken. <span id="id7">[]</span></p>
+<p>Die Gewinnung objektiver Daten über Uferabfälle wird durch die hydrologischen Einflüsse der rund 61 000 km Fliessgewässer und 1500 Seen in der Schweiz erschwert. Die hydrologischen Bedingungen der Fliessgewässer wirken sich auf die Entfernung und die Richtung aus, in der die in einen Fluss eingebrachten Objekte transportiert werden. Grosse Objekte mit geringer Dichte werden höchstwahrscheinlich zum nächsten Stausee oder in ein Gebiet mit geringerer Strömung transportiert. Objekte mit hoher Dichte werden nur dann transportiert, wenn die Fliessgeschwindigkeit und die Turbulenzen des Wassers ausreichen, um die Objekte vom Grund fernzuhalten. Sobald Objekte mit hoher Dichte in eine Zone mit geringer Strömungsgeschwindigkeit gelangen, neigen sie dazu, sich abzusetzen oder zu sinken. <span id="id7">[<a class="reference internal" href="references.html#id68" title="Anna Schwarz, Tom Ligthart, E Boukris, and T Harmelen. Sources, transport, and accumulation of different types of plastic litter in aquatic environments: a review study ☆. Marine Pollution Bulletin, 143:92-100, 05 2019. doi:10.1016/j.marpolbul.2019.04.029.">SLBH19</a>]</span></p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="section" id="die-ursprunge-der-haufigsten-objekte">
@@ -677,9 +673,9 @@ document.write(`
 <p><strong>Methoden</strong></p>
 <p>Die Hypothese wird mit einer Kombination von nicht-parametrischen Tests getestet, um die Signifikanz zu bestätigen:</p>
 <ol class="arabic simple">
-<li><p>Kolmogorov-Smirnov-Test mit zwei Stichproben <span id="id8">[]</span></p></li>
-<li><p>Mann-Whitney-U-Test (MWU) <span id="id9">[]</span></p></li>
-<li><p>Bootstrap-Wiederholungsstichprobe Differenz der Mittelwerte <span id="id10">[]</span> <span id="id11">[]</span></p></li>
+<li><p>Kolmogorov-Smirnov-Test mit zwei Stichproben <span id="id8">[<a class="reference internal" href="references.html#id14" title="Python scientific computing. Scipy stats kolmogorov-smirnov: implementation. URL: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html.">sca</a>]</span></p></li>
+<li><p>Mann-Whitney-U-Test (MWU) <span id="id9">[<a class="reference internal" href="references.html#id15" title="Python scientific computing. Scipy stats mann-whitney u test: implementation. URL: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html.">scb</a>]</span></p></li>
+<li><p>Bootstrap-Wiederholungsstichprobe Differenz der Mittelwerte <span id="id10">[<a class="reference internal" href="references.html#id27" title="Bradley Efron. Better bootstrap confidence intervals. Journal of the American Statistical Association, 82(397):171-185, 1987. URL: https://www.tandfonline.com/doi/abs/10.1080/01621459.1987.10478410, arXiv:https://www.tandfonline.com/doi/pdf/10.1080/01621459.1987.10478410, doi:10.1080/01621459.1987.10478410.">Efr87</a>]</span> <span id="id11">[<a class="reference internal" href="references.html#id28" title="Erik drysdale. Implementing the bias-corrected and accelerated bootstrap in python. 2020. URL: https://www.erikdrysdale.com/bca_python/.">dry20</a>]</span></p></li>
 </ol>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -701,10 +697,9 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # make date stamp</span>
-<span class="n">survey_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;resources/checked_sdata_eos_2020_21.csv&#39;</span><span class="p">)</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make date time</span>
 <span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">survey_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+
 
 <span class="c1"># the land use data was unvailable for these municipalities</span>
 <span class="n">no_land_use</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Walenstadt&#39;</span><span class="p">,</span> <span class="s1">&#39;Weesen&#39;</span><span class="p">,</span> <span class="s1">&#39;Glarus Nord&#39;</span><span class="p">,</span> <span class="s1">&#39;Quarten&#39;</span><span class="p">]</span>
@@ -862,7 +857,7 @@ document.write(`
 </details>
 </div>
 <div class="figure align-default" id="descrip-data">
-<img alt="_images/0d2b178ec89862883ae5367123daefd6d7c6d2265574a117406bbf1998d9b748.png" src="_images/0d2b178ec89862883ae5367123daefd6d7c6d2265574a117406bbf1998d9b748.png" />
+<img alt="_images/e9c9c57c5f1ce345299894a6ba9cd1dda4664ae62aa8317e8930ebe812964fba.png" src="_images/e9c9c57c5f1ce345299894a6ba9cd1dda4664ae62aa8317e8930ebe812964fba.png" />
 <p class="caption"><span class="caption-number">Abb. 19.4 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#descrip-data" title="Link zu diesem Bild">#</a></p>
 </div>
 <p><a class="reference internal" href="#descrip-data"><span class="std std-numref">Abbildung 19.4:</span></a> Für diese Analyse wurden nur Erhebungsorte an Seen berücksichtigt. Das Walenseegebiet wurde mangels ausreichender Landnutzungsdaten ausgeschlossen. Damit reduziert sich der Datensatz auf 300 Erhebungen an 84 städtischen und ländlichen Erhebungsorten von März 2020 bis Mai 2021.</p>
@@ -1011,7 +1006,7 @@ document.write(`
 </details>
 </div>
 <div class="figure align-default" id="assess-composition">
-<img alt="_images/0a7dfe95f002e7dec0bd78c6ab020f3f0366b07f85267ffdba4897e1419f1ea9.png" src="_images/0a7dfe95f002e7dec0bd78c6ab020f3f0366b07f85267ffdba4897e1419f1ea9.png" />
+<img alt="_images/1d44c32794f044beaddee1fee92c0f3454e5e23af121db21b1d574e0a7b7d823.png" src="_images/1d44c32794f044beaddee1fee92c0f3454e5e23af121db21b1d574e0a7b7d823.png" />
 <p class="caption"><span class="caption-number">Abb. 19.6 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#assess-composition" title="Link zu diesem Bild">#</a></p>
 </div>
 <p><a class="reference internal" href="#assess-composition"><span class="std std-numref">Abbildung 19.6:</span></a> Proben aus ländlichen Gegenden wiesen einen grösseren Anteil an fragmentierten Kunststoffen, geschäumten Kunststoffen und Baukunststoffen auf.</p>
@@ -1020,7 +1015,7 @@ document.write(`
 </div>
 <div class="section" id="verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen">
 <h3><span class="section-number">19.2.2. </span>Verteilung der Datenerhebungen auf die verschiedenen Objektgruppen<a class="headerlink" href="#verteilung-der-datenerhebungen-auf-die-verschiedenen-objektgruppen" title="Link zu dieser Überschrift">#</a></h3>
-<p>Die Erhebungsergebnisse der eOs sind unter beiden Landnutzungsklassen sehr ähnlich, es gibt mehr Varianz, wenn der gemeldete Wert steigt, aber nicht so viel, dass die Verteilungen auseinandergehen. Angesichts der Standardabweichung der Stichproben und der hohen Varianz der Datenerhebungen zum Ufer-Abfallaufkommen im Allgemeinen ist dies zu erwarten. <span id="id12">[]</span></p>
+<p>Die Erhebungsergebnisse der eOs sind unter beiden Landnutzungsklassen sehr ähnlich, es gibt mehr Varianz, wenn der gemeldete Wert steigt, aber nicht so viel, dass die Verteilungen auseinandergehen. Angesichts der Standardabweichung der Stichproben und der hohen Varianz der Datenerhebungen zum Ufer-Abfallaufkommen im Allgemeinen ist dies zu erwarten. <span id="id12">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span></p>
 <p>Die Kolmogorov-Smirnov-Tests mit zwei Stichproben (ks = 0,073, p = 0,808) der beiden Gruppen von Datenerhebungen deuten darauf hin, dass sich die Erhebungsergebnisse der eOs zwischen den beiden Landnutzungsklassen möglicherweise nicht signifikant unterscheiden. Die Ergebnisse des Mann-Whitney-U-Tests (U = 11445,0, p = 0,762) deuten darauf hin, dass es möglich ist, dass die beiden Verteilungen gleich sind.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -1085,7 +1080,7 @@ document.write(`
 </details>
 </div>
 <div class="figure align-default" id="cg-dg-diff">
-<img alt="_images/ec38c138420900cbfcfbb186178baa52f0fbc449691afac629a9224246e4c97e.png" src="_images/ec38c138420900cbfcfbb186178baa52f0fbc449691afac629a9224246e4c97e.png" />
+<img alt="_images/c2ebc633786e2d71a9286d95e0770487d8e97f0e1ad83662410dca457102d71d.png" src="_images/c2ebc633786e2d71a9286d95e0770487d8e97f0e1ad83662410dca457102d71d.png" />
 <p class="caption"><span class="caption-number">Abb. 19.7 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#cg-dg-diff" title="Link zu diesem Bild">#</a></p>
 </div>
 <p><a class="reference internal" href="#cg-dg-diff"><span class="std std-numref">Abbildung 19.7:</span></a> Empirische Verteilungsfunktion von eOs und leOs. Links: Es sei daran erinnert, dass zu den eOs fragmentierte Kunststoffe, Schaumstoffe, Kunststoffe für den Bau und Industriepellets gehören. Rechts: Die Erhebungsergebnisse für Zigarettenfilter und Snack-Verpackungen haben visuell unterschiedliche Verteilungen unter den beiden Landnutzungsbedingungen.</p>
@@ -1160,7 +1155,7 @@ document.write(`
 </div>
 <p><em><strong>Oben:</strong> Verwerfen Sie die Nullhypothese, dass diese beiden Verteilungen gleich sein könnten. Die beobachtete Differenz der Mittelwerte liegt innerhalb des 95%-Intervalls der Bootstrap-Ergebnisse.</em></p>
 <div class="figure align-default" id="diff-mean">
-<img alt="_images/c47011c7f572823a7aa96d9b448b5d1d37a003197db9e66e098c171425151e48.png" src="_images/c47011c7f572823a7aa96d9b448b5d1d37a003197db9e66e098c171425151e48.png" />
+<img alt="_images/6f3473a3b3252b059da4de27de003dba5c1ed50fc054314aab9e93911a65c584.png" src="_images/6f3473a3b3252b059da4de27de003dba5c1ed50fc054314aab9e93911a65c584.png" />
 <p class="caption"><span class="caption-number">Abb. 19.8 </span><span class="caption-text"><span class="pasted-text"> </span></span><a class="headerlink" href="#diff-mean" title="Link zu diesem Bild">#</a></p>
 </div>
 <p><a class="reference internal" href="#diff-mean"><span class="std std-numref">Abbildung 19.8:</span></a> Die Nullhypothese, dass diese beiden Verteilungen gleich sein könnten, ist zu verwerfen. Die beobachtete Differenz der Mittelwerte liegt innerhalb des 95-Prozent-Intervalls der Bootstrap-Ergebnisse.</p>
@@ -1206,11 +1201,11 @@ document.write(`
 <li><p>Industriefolien werden in der Landwirtschaft, im Transportwesen und im Baugewerbe eingesetzt.</p></li>
 <li><p>Baukunststoffe</p></li>
 </ul>
-<p>Die Suche nach Partnern für diese Objekte kann eine erste Phase gezielter Kommunikation beinhalten. Dabei können IQAASL-Ergebnisse und die aktuellen EU-Grenzwerte und Grundlagen für Uferabfälle genutzt werden. <span id="id13">[]</span></p>
+<p>Die Suche nach Partnern für diese Objekte kann eine erste Phase gezielter Kommunikation beinhalten. Dabei können IQAASL-Ergebnisse und die aktuellen EU-Grenzwerte und Grundlagen für Uferabfälle genutzt werden. <span id="id13">[<a class="reference internal" href="references.html#id42" title="van Loon W. Hanke G., Walvoort D. Eu marine beach litter baselines. Publications Office of the European Union, 2019. doi:10.2760/16903.">HG19</a>]</span></p>
 </div>
 <div class="section" id="die-verantwortung-teilen">
 <h4><span class="section-number">19.3.1.2. </span>Die Verantwortung teilen<a class="headerlink" href="#die-verantwortung-teilen" title="Link zu dieser Überschrift">#</a></h4>
-<p>In einer kürzlich in der Zeitschrift Marine Policy veröffentlichten Studie wurden mehrere Einschränkungen bei der Verwendung bereits vorhandener Datenerhebungen über Strand-Abfallaufkommen zur Bewertung der Auswirkungen der EPR-Politik auf die beobachteten Abfallmengen festgestellt. <span id="id14">[]</span></p>
+<p>In einer kürzlich in der Zeitschrift Marine Policy veröffentlichten Studie wurden mehrere Einschränkungen bei der Verwendung bereits vorhandener Datenerhebungen über Strand-Abfallaufkommen zur Bewertung der Auswirkungen der EPR-Politik auf die beobachteten Abfallmengen festgestellt. <span id="id14">[<a class="reference internal" href="references.html#id74" title="Lucas Harris, Max Liboiron, Louis Charron, and Charles Mather. Using citizen science to evaluate extended producer responsibility policy to reduce marine plastic debris shows no reduction in pollution levels. Marine Policy, 123:104319, 2021. URL: https://www.sciencedirect.com/science/article/pii/S0308597X20309660, doi:https://doi.org/10.1016/j.marpol.2020.104319.">HLCM21</a>]</span></p>
 <p>In einer kürzlich in der Zeitschrift Marine Policy veröffentlichten Studie wurden mehrere Einschränkungen bei der Verwendung bereits vorhandener Datenerhebungen über Strand-Abfallaufkommen zur Bewertung der Auswirkungen der EPR-Politik auf die beobachteten Abfallmengen festgestellt.</p>
 <ul class="simple">
 <li><p>Begrenzte Daten</p></li>
@@ -1224,7 +1219,7 @@ document.write(`
 <li><p>Um Basiswerte zu ermitteln, sind die Abfallobjekte zu zählen.</p></li>
 <li><p>Häufige Überwachung</p></li>
 </ul>
-<p>Die Zählung von Abfallobjekten mildert die Auswirkungen von Leichtverpackungen ab, wenn die Sammelergebnisse auf Gewichten basieren. <span id="id15">[]</span></p>
+<p>Die Zählung von Abfallobjekten mildert die Auswirkungen von Leichtverpackungen ab, wenn die Sammelergebnisse auf Gewichten basieren. <span id="id15">[<a class="reference internal" href="references.html#id74" title="Lucas Harris, Max Liboiron, Louis Charron, and Charles Mather. Using citizen science to evaluate extended producer responsibility policy to reduce marine plastic debris shows no reduction in pollution levels. Marine Policy, 123:104319, 2021. URL: https://www.sciencedirect.com/science/article/pii/S0308597X20309660, doi:https://doi.org/10.1016/j.marpol.2020.104319.">HLCM21</a>]</span></p>
 <p>Das IQAASl-Projekt geht auf drei der vier Empfehlungen ein und hat eine Methode eingeführt, die es den Beteiligten ermöglicht, dem Erhebungsprotokoll bestimmte Objekte hinzuzufügen. So kann die Überwachung des Fortschritts in Bezug auf die ERP-Ziele umgesetzt werden, solange die Objekte visuell definiert und gezählt werden können.</p>
 <p>Die aktuelle Datenbank der Ufer-Abfallaufkommen-Untersuchungen in der Schweiz umfasst über 1000 Proben, die in den letzten sechs Jahren nach demselben Protokoll gesammelt wurden. Die Schweiz verfügt über alle Elemente, um die Mindestwahrscheinlichkeit für die häufigsten Objekte genau zu schätzen und stochastische Werte zu bewerten. Dieser Bericht bietet mehrere Möglichkeiten, die Unterschiede zwischen den Erhebungsrgebnissen zu bewerten, andere sollten ebenfalls in Betracht gezogen werden.</p>
 <p>Eine nationale Strategie sollte Folgendes beinhalten:</p>
@@ -1413,7 +1408,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/d1c64e7277754ea1d78b56ae110256498243ca30f334ff7a02e4e053c454f4f2.png" src="_images/d1c64e7277754ea1d78b56ae110256498243ca30f334ff7a02e4e053c454f4f2.png" />
+<img alt="_images/bc2c943e8536b97da706c130a3e810e8f6cb3918574367499b4fb9ab2e73e1a7.png" src="_images/bc2c943e8536b97da706c130a3e810e8f6cb3918574367499b4fb9ab2e73e1a7.png" />
 </div>
 </div>
 <p><em><strong>Unten:</strong> Die Erhebungsergebnisseder am häufigsten vorkommenden Objekte unter den beiden verschiedenen Landnutzungsklassen.</em></p>
@@ -1479,7 +1474,7 @@ document.write(`
 </div>
 <div class="section" id="saisonale-schwankungen">
 <h3><span class="section-number">19.4.2. </span>Saisonale Schwankungen<a class="headerlink" href="#saisonale-schwankungen" title="Link zu dieser Überschrift">#</a></h3>
-<p>Saisonale Schwankungen der Ergebnisse von Strand-Abfallaufkommen Untersuchungen sind unter verschiedenen Bedingungen und Umgebungen dokumentiert worden. Im Jahr 2018 meldete der SLR <span id="id16">[]</span> den Höchstwert im Juli und den Mindestwert im November. Für das Jahr 2020-2021 liegen die gleichen Ergebnisse vor.</p>
+<p>Saisonale Schwankungen der Ergebnisse von Strand-Abfallaufkommen Untersuchungen sind unter verschiedenen Bedingungen und Umgebungen dokumentiert worden. Im Jahr 2018 meldete der SLR <span id="id16">[<a class="reference internal" href="references.html#id60" title="Pascal Blarer. The swiss litter report. 2018. URL: http://stoppp.org/researchvalue.">Bla18</a>]</span> den Höchstwert im Juli und den Mindestwert im November. Für das Jahr 2020-2021 liegen die gleichen Ergebnisse vor.</p>
 <p><em><strong>Unten:</strong> monatliche Erhebungsergebnisseund Abflussmengen m³/Sekunde</em></p>
 <p><em>April und Mai 2021 sind gleitende Durchschnitte, Daten nicht verfügbar</em></p>
 <p><em>source : <a class="reference external" href="https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu">https://www.hydrodaten.admin.ch/en/stations-and-data.html?entrance_medium=menu</a></em></p>
@@ -1697,7 +1692,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/9d1209d9fe35fde0ef596277515b1d4c510bf7d63f5ceae85db096b281f19030.png" src="_images/9d1209d9fe35fde0ef596277515b1d4c510bf7d63f5ceae85db096b281f19030.png" />
+<img alt="_images/4c01cff38baf0d696becc0b8ac86233c50c3b38740b6964ef6ddf1ce1ebf5143.png" src="_images/4c01cff38baf0d696becc0b8ac86233c50c3b38740b6964ef6ddf1ce1ebf5143.png" />
 </div>
 </div>
 <p><em><strong>Oben:</strong> Verwerfen Sie die Nullhypothese: Es gibt keinen statistisch signifikanten Unterschied zwischen den beiden Verteilungen</em></p>
@@ -1746,12 +1741,10 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/96f4c6ca3e44cc5244c5352625e94ca6de1d5e312ab7098760a68858060281d3.png" src="_images/96f4c6ca3e44cc5244c5352625e94ca6de1d5e312ab7098760a68858060281d3.png" />
+<img alt="_images/c5540dcfc4d9894dee052bb9bcdfc601d3ab97119eb8713a1482b7ada4b4562d.png" src="_images/c5540dcfc4d9894dee052bb9bcdfc601d3ab97119eb8713a1482b7ada4b4562d.png" />
 </div>
 </div>
 <p><em><strong>Oben:</strong> Verwerfen Sie die Nullhypothese: die beiden Verteilungen sind höchstwahrscheinlich nicht identisch.</em></p>
-<div class="cell tag_remove-input docutils container">
-</div>
 </div>
 </div>
 </div>

@@ -1,5 +1,10 @@
+"""
+This module is being phased out. The methods are either being eliminated or consolidated into the feature data module
+hammerdirt analyst April 19, 2023
+"""
+
 from matplotlib.colors import LinearSegmentedColormap
-# chart kwargs
+
 title_k = {'loc':'left', 'pad':14, 'linespacing':1.5, 'fontsize':12}
 title_kr = {'loc':'right', 'pad':14, 'linespacing':1.5, 'fontsize':12}
 title_k14 = {'loc':'left', 'pad':14, 'linespacing':1.5, 'fontsize':14}
