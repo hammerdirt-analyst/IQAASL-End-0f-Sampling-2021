@@ -17,7 +17,13 @@ hammerdirt staff maintain the repo for the report, the API and the front end.
 
 ### report
 
+### report/de:
+
 The .ipynb files for each chapter of the report
+
+### report/themed:
+
+The .ipynb files for reports that are basd on a specific theme or topic
 
 ### resources
 
