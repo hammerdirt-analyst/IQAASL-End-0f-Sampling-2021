@@ -4,53 +4,31 @@
 
 IQAASL was a project sponsored by the Swiss Federal Office for the Environment to quantify shoreline trash along swiss lakes and rivers. Multiple small scale litter surveys are completed at different locations within a designated survey area. For the year 2020/2021 the survey areas were defined by the municipalities that border the Aare, Rhône, Ticino and Linth/Limmat rivers and any lakes or rivers that are within the catchment area.
 
-The following components (currently being refactored), were developed specifically to manage the data collected:
+Since this report was produced their have been a few projects of interest:
 
-* REST API with Django REST framework: https://github.com/hammerdirt-dev/hammerdirt_api
-* Front end with ReactJS: https://github.com/hammerdirt-dev/plages_prop
-
-Develpment of these two tools stopped for two years while we were out in the field collecting samples. The new version of the API and frontend will incorporate language support and additional functionality in the survey form.
-
-hammerdirt staff maintain the repo for the report, the API and the front end.
-
+1. AI assisted reporting : app hosted on streamlit [AI assisted reporting](https://reporterdemo-hammerdirt.streamlit.app/)
+2. Predictive modeling: field excersises with EPFL students [Solid Waste Team](https://hammerdirt-analyst.github.io/solid-waste-team/titlepage.html)
+3. Geospatial analysis: [land use](https://www.sciencedirect.com/science/article/pii/S0269749124016257)
+4. Regional assessments: [Plastock](https://associationsauvegardeleman.github.io/plastock/)
 ## Contents
 
-### report
+### Python modules
 
-### report/de:
+Their are two python modules: 1. reportingmethods.py and 2. prompts.py. Reporting methods is a collection of 
+functions and three classes that are used to generate the contents of most chpaters. The prompts module contains
+the labels and prompts that used in the AI assisted reporter
 
-The .ipynb files for each chapter of the report
+### reources/data
 
-### report/themed:
+The survey data and feature data. The contents are documented in DATAREADME.md
 
-The .ipynb files for reports that are basd on a specific theme or topic
+### resources/references
 
-### resources
-
-All the images and maps for the report. The contents is doucmented in [ readme_data ](https://github.com/hammerdirt-analyst/IQAASL-End-0f-Sampling-2021/blob/main/resources/readme_data.md).
-
-### docs
-
-The complete html version of the report in German: [Litter Surveyor Report](https://hammerdirt-analyst.github.io/IQAASL-End-0f-Sampling-2021/index.html)
-
-The original english version is there [ litter surveyor ](https://www.plagespropres.ch/)
-
-### \_build
-
-Any other available build formats
-
+The references we found useful in the development of the report. For each section there is a bibliography.
 
 ## Contributing
 
-This report was the inspiration for three manuscripts in devlopment and could serve as an initiation to data science and computing. Specifically for those interested in discrete, `random` observations or count data methods this repo may provide you with a new challenge.
-
-The REST API for the new application is in development here [IQALS](https://github.com/hammerdirt-analyst/iqals)
-
-Currently there is a team working on the application of a simple machine learning model that describes the probability of finding an object given the data. Development has also begun on a more complex model that predicts the range of probable values that a person may encounter.
-
-The methods and formatting used in this report are being refactored for use in the [ litter surveyor ](https://www.plagespropres.ch/) as the evolution of that application continues.
-
-There are ample oportunities to learn, teach and contribute.
+Their currently no funding for this project or any active development. If you would like to contribute to the project please contact the authors.
 
 #### more information
 
